@@ -118,12 +118,8 @@ $(document).ready(function () {
             }
         });
     }
-    
-    
+      
 // insert data
-
-
-
 function store(event) {
     event.preventDefault();
     if (isUserLoggedIn()) {
@@ -153,7 +149,7 @@ function get_otp(phone) {
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-            $('#get_OTP_btn').modal('show'); // OTP modal is displayed for entering OTP
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -200,7 +196,6 @@ function verifyotp() {
         },
     });
 }
-
 function submitForm() {
     // Gather form data
     var selectedOptions = [];
@@ -425,6 +420,7 @@ function submitForm() {
                 // Show cards instantly by disabling fading effect
                 $("#productContainer").show();
                 $(".modal-backdrop.fade.show").remove();
+                // $("body").css("overflow", "auto");
             }
         },
         error: function (error) {
@@ -490,11 +486,14 @@ function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
-function getbrands(){
+function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
     console.log(url);
+
+    // Define the order of brands
+    var brandOrder = ['Mahindra', 'Swaraj', 'Sonalika', 'Tafe', 'Escorts', 'John Deere', 'Eicher', 'New Holland', 'Kubota', 'VST', 'Force', 'Preet', 'Indo Farm', 'Captain'];
 
     $.ajax({
         url: url,
@@ -504,35 +503,40 @@ function getbrands(){
             var slider_head = $("#slider_head");
             var brandContainer = $("#brandContainer");
 
-            if (data.brands && data.brands.length > 0) {
-                data.brands.forEach(function (p) {
-                    if(p.id == Id){
-                    console.log(p,"pp");
-                    var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
-                  
+            // Iterate through the brand order
+            brandOrder.forEach(function(brandName) {
+                var brand = data.brands.find(brand => brand.brand_name === brandName);
+                if (brand) {
+                    var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
+                        <a href="brands.php?brand_id=${brand.id}">
+                            <div class="d-block ">
+                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <p>${brand.brand_name}</p>
+                            </div>
+                        </a>
+                    </div>`;
+                    brandContainer.append(brandContainerHtml);
+                }
+            });
 
-                    // Append the new card to the container
-                    slider_head.append(silder_heading);
-                    }
-                  
-
-                    var brand_container = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
-                    <a href="brands.php?brand_id=${p.id}"><div class="d-block ">
-                        <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${p.brand_img}">
-                        <p>${p.brand_name}</p>
-                    </div></a>
-                </div>`;
-                  
-
-                    brandContainer.append(brand_container);
+            // Append the remaining brands after "Captain"
+            var captainIndex = brandOrder.indexOf('Captain');
+            if (captainIndex !== -1) {
+                var remainingBrands = data.brands.filter(brand => !brandOrder.includes(brand.brand_name));
+                remainingBrands.forEach(function(brand) {
+                    var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
+                        <a href="brands.php?brand_id=${brand.id}">
+                            <div class="d-block ">
+                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <p>${brand.brand_name}</p>
+                            </div>
+                        </a>
+                    </div>`;
+                    brandContainer.append(brandContainerHtml);
                 });
-
-
-                // Initialize Owl Carousel after adding cards
-              
             }
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });

@@ -279,7 +279,7 @@ function openView(userId) {
         success: function(response) {
             var userData = response.haatBazarData[0];
             var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
-            $('#userId').val(userData.haat_bazar_id);
+            $('#userId').val(userData.id);
             $('#username').val(userData.haat_bazar_id);
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
@@ -344,10 +344,8 @@ function populateTehsil(selectId, value) {
 }
   
       function edit_data_id(edit_id) {
-        console.log(edit_id);
         var edit_id = $("#userId").val();
         console.log(edit_id);
-        var image_names = document.getElementById('image_pic').files;
         var enquiry_type_id = $("#enquiry_type_id").val();
         console.log(enquiry_type_id);
         var category = $('#category1').val();
@@ -370,9 +368,6 @@ function populateTehsil(selectId, value) {
       
         var data = new FormData();
       
-        for (var x = 0; x < image_names.length; x++) {
-            data.append('images[]', image_names[x]);
-        }
         data.append('_method', _method);
         data.append('id',edit_id)
         data.append('enquiry_type_id', enquiry_type_id);
@@ -385,7 +380,6 @@ function populateTehsil(selectId, value) {
         data.append('district', district);
         data.append('tehsil', tehsil);
         data.append('price', price);
-        data.append('id', edit_id);
         $.ajax({
           url: url,
           type: "POST",
@@ -708,7 +702,7 @@ function get_sub_category_1(category_id, callback) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.sub_category_name;
-                  option.value = row.id;
+                  option.value = row.sub_category_id;
                   select.appendChild(option);
               });
           } else {

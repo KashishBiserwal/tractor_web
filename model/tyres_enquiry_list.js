@@ -555,7 +555,7 @@ function destroy(id) {
 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
-  var brand_id = $('#brand_id').val();
+  // var brand_id = $('#brand_id').val();
   var brandselect = $('#brand_name').val();
   var modelselect = $('#model_1').val();
   var stateselect = $('#state_1').val();
@@ -568,7 +568,7 @@ console.log(stateselect);
 console.log(districtselect);
 
   var paraArr = {
-    'id':brand_id,
+    // 'id':brand_id,
     'brand_id':brandselect,
     'model':modelselect,
     'state':stateselect,

@@ -432,8 +432,8 @@ function edit_data_id() {
   var cno = $('#cno').val();
   var address = $('#address').val();
   var state = $('#state_').val();
-  var district = $('#dist').val();
-  var tehsil = $('#tehsil').val();
+  var district = $('#dist_').val();
+  var tehsil = $('#tehsil_1').val();
   var image = document.getElementById('_image').files;
   var _method = 'put';
 
@@ -473,7 +473,8 @@ function edit_data_id() {
         console.log(result, "result");
         console.log("updated successfully");
         alert('successfully updated..!');
-        $('#staticBackdrop').modal('hide'); // Hide the modal after successful update
+        window.location.reload();
+        $('#staticBackdrop').modal('hide'); 
     },
     error: function (error) {
         console.error('Error fetching data:', error);
@@ -512,6 +513,7 @@ function destroy(id) {
           // Remove the deleted row from the data table
           $('#row_' + id).remove(); // Assuming each row has an ID like "row_123" where 123 is the id of the deleted row
           alert("Delete operation successful");
+          window.location.reload();
       },
       error: function(xhr, status, error) {
           console.error('Error during delete operation:', error);

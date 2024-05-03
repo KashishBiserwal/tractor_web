@@ -105,19 +105,19 @@
         <div class="card-body">
         <form action="" id="myform" class="mb-0">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
-            <div class="form-outline">
-                      <label class="form-label">Search By Category</label>
-                      <select class="js-select2 form-select form-control mb-0" id="news_category_id">
-                      </select>
-                </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+              <div class="form-outline">
+                <label class="form-label">Search By Category</label>
+                <select class="js-select2 form-select form-control mb-0" id="news_category_id">
+                </select>
+              </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 ">
-            <div class="form-outline">
-                      <label class="form-label">Search By Category</label>
-                      <select class="js-select2 form-select form-control mb-0" id="category_name">
-                      </select>
-                </div>
+              <div class="form-outline">
+                <label class="form-label">Search By Category</label>
+                <select class="js-select2 form-select form-control mb-0" id="category_name">
+                </select>
+              </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
@@ -127,9 +127,9 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center float-end">
-              <button type="button" class="btn-success btn btn_all" id="Search_data">Search</button>
-                <button type="button" class="btn-success btn btn_all" onclick="resetForm()" id="Reset">Reset</button>
-              </div>
+                <button type="button" class="btn-success btn btn_all" id="Search_data">Search</button>
+                  <button type="button" class="btn-success btn btn_all" onclick="resetForm()" id="Reset">Reset</button>
+                </div>
             </div>
           </div>
         </form>

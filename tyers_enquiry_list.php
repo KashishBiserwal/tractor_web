@@ -56,9 +56,10 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example"  id="model_1">
+                <input type="text" class="form-control" placeholder="" id="model_1" name="number">
+                    <!-- <select class="form-select py-2" aria-label="Default select example"  id="model_1">
                        
-                    </select>
+                    </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">

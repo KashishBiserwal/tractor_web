@@ -234,7 +234,6 @@ function openViewdata(userId) {
     });
   }
 
-
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_nursery_enquiry_data_by_id/' + id;
@@ -295,64 +294,104 @@ function fetch_edit_data(id) {
 // get_hire_tract();
 
 function edit_data_id() {
-var enquiry_type_id = $("#enquiry_type_id").val();
-var product_id = $("#product_id").val();
-var edit_id = $("#userId").val();
-var nursery_name = $("#nursery_name1").val();
-var first_name = $("#fname_2").val();
-var last_name = $("#lname_2").val();
-var mobile = $("#number_2").val();
-var date = $("#date_2").val();
-var state = $("#state_2").val();
-var district = $("#dist_2").val();
-var tehsil = $("#tehsil_2").val();
-// var _method = 'put';
+  var enquiry_type_id = $("#enquiry_type_id").val();
+  var product_id = $("#product_id").val();
+  var edit_id = $("#userId").val();
+  var nursery_name = $("#nursery_name1").val();
+  var first_name = $("#fname_2").val();
+  var last_name = $("#lname_2").val();
+  var mobile = $("#number_2").val();
+  var date = $("#date_2").val();
+  var state = $("#state_2").val();
+  var district = $("#dist_2").val();
+  var tehsil = $("#tehsil_2").val();
 
-// Validate mobile number
-if (!/^[6-9]\d{9}$/.test(mobile)) {
-    alert("Mobile number must start with 6 or above and should be 10 digits");
-    return; // Exit the function if validation fails
+  // Validate mobile number
+  if (!/^[6-9]\d{9}$/.test(mobile)) {
+      alert("Mobile number must start with 6 or above and should be 10 digits");
+      return; // Exit the function if validation fails
+  }
+
+  var paraArr = {
+      'nursery_name': nursery_name,
+      'first_name': first_name,
+      'last_name': last_name,
+      'mobile': mobile,
+      'date': date,
+      'state': state,
+      'district': district,
+      'tehsil': tehsil,
+      'id': edit_id,
+      'enquiry_type_id': enquiry_type_id,
+      'product_id': product_id
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'customer_enquiries/' + edit_id;
+
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+      url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+          console.log(result, "result");
+
+          var table = $('#example').DataTable();
+          var rowIndex = -1; // Default value for rowIndex
+
+          table.rows().every(function (index) {
+              var rowData = this.data(); 
+              var rowEditId = rowData[0]; 
+
+              if (rowEditId == edit_id) {
+                  rowIndex = index; 
+                  return false; 
+              }
+          });
+
+          if (rowIndex != -1) {
+              var rowData = [
+                  '', // S.No.
+                  date,
+                  nursery_name,
+                  first_name + ' ' + last_name,
+                  mobile,
+                  state,
+                  district,
+                  `<div class="d-flex">
+                      <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${edit_id});" data-bs-target="#view_model_nursery_enq">
+                          <i class="fas fa-eye" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${edit_id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${edit_id});">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button>
+                  </div>`
+              ];
+
+              // Update the data in the DataTable at the specified row index
+              table.row(rowIndex).data(rowData).draw(false);
+              console.log("Updated successfully");
+              alert('Successfully updated..!');
+          } else {
+              console.error("Row index not found");
+              alert('Successfully updated..!');
+              window.location.reload();
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
 
-var paraArr = {
-   
-    'nursery_name': nursery_name,
-    'first_name': first_name,
-    'last_name': last_name,
-    'mobile': mobile,
-    'date': date,
-    'state': state,
-    'district': district,
-    'tehsil': tehsil,
-    'id': edit_id,
-    'enquiry_type_id': enquiry_type_id,
-    'product_id': product_id,
-    // '_method': _method,
-};
-
-var apiBaseURL = APIBaseURL;
-var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-
-var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-};
-
-$.ajax({
-    url: url,
-    type: "PUT",
-    data: paraArr,
-    headers: headers,
-    success: function (result) {
-        console.log(result, "result");
-        // window.location.reload();
-        console.log("updated successfully");
-        alert('successfully updated..!')
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
-    }
-});
-}
 
 function search_data() {
   var nursery_name = $('#nursery_name').val();
@@ -362,7 +401,7 @@ function search_data() {
   // Create an object to store search parameters
   var paraArr = {
     // 'brand_id': brand_name,
-    'model': nursery_name,
+    'nursery_name': nursery_name,
     'state': state,
     'district': district,
   };

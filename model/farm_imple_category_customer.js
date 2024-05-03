@@ -102,7 +102,9 @@ var newCard = `
                 margin: 0 auto;">${spacedString}</p>
             </div>
         </div>
-        <div class="bg-success py-1"><p class="text-white pt-2">Power:${p.hp_category}</p></div>
+        <a href="farm_subcate_inner.php?id=${p.product_id}" class="text-decoration-none">
+            <div class="bg-success py-1"><p class="text-white text-decoration-none pt-2">View Details</p></div>
+        </a>
     </div>
 </div>
 </div>

@@ -138,7 +138,7 @@ function displayEngineoil(engineoil) {
                     </div>
                     <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">
                         <p class="fs-5 fw-bold px-3 mb-0">${p.brand_name}</p>
-                        <p class="text-success fw-bold px-3" style="font-size:12px;">Model: ${p.oil_model}</p>
+                        <p class="text-success fw-bold px-3 text-truncate" style="font-size:12px;">Model: ${p.oil_model}</p>
                         <div class="col-12 px-3">
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">

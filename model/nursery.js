@@ -20,7 +20,7 @@ $(document).ready(function(){
       textarea_d:{
         required: true,
       },
-      "files[]":{
+      'files[]':{
         required: true,
       },
       number:{
@@ -53,7 +53,7 @@ $(document).ready(function(){
       textarea_d: {
         required: "This field is required",
       },
-      "files[]": {
+      'files[]': {
         required: "This field is required",
       },
       number: {
@@ -158,7 +158,10 @@ function store(event) {
   var tehsil = $('#tehsil').val();
   var location = $('#loc').val();
   var description = $('#textarea_d').val();
-
+  if (image_names.length === 0) {
+    alert("Please select at least one image.");
+    return; 
+}
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'nursery_data';
   var token = localStorage.getItem('token');
@@ -200,9 +203,8 @@ function store(event) {
           $('#name, #fname, #lname, #number, #state_, #dist, #tehsil, #loc, #textarea_d, #_image').val('');
 
           // Reload the page (try without forcing a full reload)
-          // window.location.reload();
-
-          alert('Successfully inserted!');
+         alert('Successfully inserted!');
+         window.location.reload();
       },
       error: function (error) {
           console.error('Error:', error);
@@ -528,7 +530,7 @@ function edit_data_id(id){
 });
  }
 
- function searchdata(){
+ function searchdata() {
   var name = $('#name1').val();
   var state = $('#state_1').val();
   var district = $('#district_1').val();
@@ -541,84 +543,73 @@ function edit_data_id(id){
       'Authorization': 'Bearer ' + token
   };
 
-  var data = new FormData();
- 
- 
-  data.append('nursery_name', name);
-  data.append('state', state);
-  data.append('district', district);
+  var data = {
+      'nursery_name': name,
+      'state': state,
+      'district': district
+  };
 
   $.ajax({
-    url: url,
-    type: "POST",
-    data: data,
-    headers: headers,
-    processData: false,
-    contentType: false,
-    success: function (data) {
-      console.log('Success:', data.engineOilData);
-      const tableBody = document.getElementById('data-table');
-      let serialNumber = 1;
-      let tableData = [];
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      success: function (response) {
+          console.log('Success:', response);
+          const tableBody = document.getElementById('data-table');
+          let serialNumber = 1;
 
-      if (data.nursery && data.nursery.length > 0) {
-          data.nursery.forEach(row => {
-            let action = `   <div class="d-flex">
-            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
-                <i class="fa fa-eye" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
-                <i class="fas fa-edit" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
-                <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button>
-        </div>`;
+          if (response.nursery && response.nursery.length > 0) {
+              let tableData = response.nursery.map(row => {
+                  let action = `<div class="d-flex">
+                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                          <i class="fa fa-eye" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button>
+                  </div>`;
 
-            // Push row data as an array into the tableData
-            tableData.push([
-              serialNumber,
-              row.nursery_name,
-              row.mobile,
-              row.state_name,
-              row.district_name,
-              action
-          ]);
+                  return [
+                      serialNumber++,
+                      row.nursery_name,
+                      row.mobile,
+                      row.state, // Assuming state_name and district_name are provided in the response
+                      row.district,
+                      action
+                  ];
+              });
 
-          serialNumber++;
-      });
-
-      // Initialize DataTable after preparing the tableData
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-              data: tableData,
-              columns: [
-                { title: 'S.No.' },
-                { title: 'Name' },
-                { title: 'Phone Number' },
-                { title: 'State' },
-                { title: 'District' },
-                { title: 'Action', orderable: false } // Disable ordering for Action column
-            ],
-              paging: true,
-              searching: false,
-              // ... other options ...
-          });
-     
-      } else {
-          tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+              // Initialize DataTable after preparing the tableData
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                  data: tableData,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Name' },
+                      { title: 'Phone Number' },
+                      { title: 'State' },
+                      { title: 'District' },
+                      { title: 'Action', orderable: false } // Disable ordering for Action column
+                  ],
+                  paging: true,
+                  searching: false,
+                  // ... other options ...
+              });
+          } else {
+              tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
+          }
+      },
+      error: function (xhr, status, error) {
+          console.error('Error:', xhr.responseText);
+          // Handle error here
       }
-  },
-  error: function (error) {
-    const tableBody = document.getElementById('data-table');
-    if(error.status == 400){
-      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-    }
-      console.error('Error fetching data:', error);
-  
-  }
-});
+  });
 }
+
 
 function resetform(){
   $('#name1').val('');

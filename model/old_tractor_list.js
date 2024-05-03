@@ -661,7 +661,7 @@ function fetch_edit_data(customer_id) {
       setTimeout(function() { // Wait for the model dropdown to populate
           $("#model option").prop("selected", false);
           $("#model option[value='" + userData.model + "']").prop("selected", true);
-      }, 1000); // Adjust the delay time as needed
+      }, 2000); // Adjust the delay time as needed
 
       $("#selectedImagesContainer").empty();
       if (userData.image_names) {
@@ -757,7 +757,7 @@ function fetch_data(product_id){
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                     <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
                         <a class="weblink text-decoration-none text-dark" title="Image">
-                            <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
+                            <img class="img-fluid w-50 h-100 " src="${imageUrl}" alt="Image">
                         </a>
                     </div>
                 </div>

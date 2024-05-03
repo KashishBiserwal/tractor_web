@@ -162,59 +162,65 @@ include 'includes/headertag.php';
     <div class="container"> 
         <h3 class="fw-bold assured px-3 ">Tractors By HP</h3>
             <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
-                    <i class="fas fa-bolt"></i> Under 20 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_hp.php?hp=0 - 20" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>UNDER 20 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 21-30 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_hp.php?hp=21 - 30" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>21-30 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 31-40 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_hp.php?hp=31 - 40" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>31-40 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  41-45 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_hp.php?hp=41 - 45" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>41-45 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  46-50 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_hp.php?hp=46 - 50" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>46-50 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  51-60 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 61-75 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  ABOVE 75 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_hp.php?hp=51 - 60" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>51-60 HP</a>
                 </div>
             </div>
     </div>
     <div class="container"> 
         <h3 class="fw-bold assured px-3">Tractors By Price</h3>
-            <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
-                    <i class="fas fa-rupee-sign"></i> Under 3 lakh</a>
+        <div class="row my-4">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=3 Lakh Below" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>UNDER 3 LAKH</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> 3-5 Lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=3-5" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>3-5 LAKH</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> 5-7 Lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=5-7" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>5-7 LAKH</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> Above 7 Lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=7-10" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>7-10 LAKH</a>
                 </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=11 Lakh Above" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>ABOVE 10 LAKH</a>
+                </div>
+              
             </div>
     </div>
 </section>

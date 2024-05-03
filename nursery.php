@@ -146,12 +146,7 @@ include 'includes/headertag.php';
               <div class="form-outline">
                 <label class="form-label">Name</label>
                 <input type="text" id="name1" name="name1" class="form-control" />
-               <!--  <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Name</option>
-                    <option value="">Name 1</option>
-                    <option value="">Name 2</option>
-                    <option value="">Name 3</option>
-                </select> -->
+            
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">

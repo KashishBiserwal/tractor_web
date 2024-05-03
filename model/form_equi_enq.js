@@ -142,7 +142,7 @@ function get_enquiry() {
                           <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 10px;"></i>
                           </button>
-                       /div>`;
+                       </div>`;
 
           // Push row data as an array into the tableData
           tableData.push([

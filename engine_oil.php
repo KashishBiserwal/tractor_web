@@ -15,7 +15,14 @@
     <script src="<?php $baseUrl; ?>model/engineoil.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-
+<style>
+  .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+</style>
 
 <section class="mt-4 pt-5 bg-light">
     <div class="container mt-5 pt-4">

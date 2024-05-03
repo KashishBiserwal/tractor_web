@@ -132,6 +132,7 @@ get_data();
       // EditIdmain_= product_id;
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'accessory/' + userId;
+      console.log(url);
       console.log("dhbcjkf");
     
       var headers = {

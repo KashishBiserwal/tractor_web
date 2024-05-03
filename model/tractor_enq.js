@@ -356,7 +356,7 @@ function fetch_edit_data(id) {
         setTimeout(function() { 
           $("#model_name_1 option").prop("selected", false);
           $("#model_name_1 option[value='" + Data.model + "']").prop("selected", true);
-        }, 1000); 
+        }, 2000); 
       setSelectedOption('state_', Data.state_id);
       setSelectedOption('dist_', Data.district_id);
       populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);

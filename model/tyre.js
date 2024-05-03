@@ -83,16 +83,16 @@ function displayTractors(tractors) {
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
             <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
-                <div class="thumb">
+                <div class="thumb" style="width: 100%; height: 200px; overflow: hidden;">
                     <a href="tyre_inner.php?product_id=${p.id}">
-                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover  text-truncate" alt="">
+                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover" style="width: 100%; height: auto;" alt="">
                        
                     </a>
                 </div>
-                <div class="content d-flex flex-column flex-grow-1 contant-justify-center">
+                <div class="content d-flex flex-column flex-grow-1">
                     <div class="caption text-center">
                         <a href="tyre_inner.php?product_id=${p.id}" class="text-decoration-none text-dark">
-                            <p class="pt-3"><strong class="series_tractor_strong contant-justify-center h6 fw-bold  text-truncate "> ${p.brand_name} ${p.tyre_model}</strong></p>
+                            <p class="pt-3 text-truncate"><strong class="series_tractor_strong h6 fw-bold"> ${p.brand_name} ${p.tyre_model}</strong></p>
                         </a>
                     </div>
                     <div class="power">

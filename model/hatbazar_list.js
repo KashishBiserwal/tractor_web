@@ -647,7 +647,7 @@ function destroy(id) {
             $('#quantityInput').val(Data.quantity);
             // $('#unitSelect').val(Data.as_per);
             $('#price').val(formattedPrice);
-            $('#tprice').val(Data.total_price);
+            $('#tprice').val(Data.quantity);
             $('#textarea_').val(Data.about);
             $('#fname').val(Data.first_name);
             $('#number').val(Data.mobile);
@@ -877,8 +877,6 @@ function get_sub_category(category_id) {
 }
 category_main3();
 
-
-
 function searchdata() {
   var category = $('#cc_category').val();
   var sub_category = $('#ss_sub_cate').val();
@@ -981,9 +979,6 @@ function resetForm() {
   $("#select_dist").val("");
   window.location.reload();
 };
-
-
-
 
 function category_main_1() {
   var apiBaseURL = APIBaseURL;

@@ -276,11 +276,10 @@ include 'includes/footertag.php';
     <!--Popular Tractor Insurance Companies End-->
 
     <!-- card  -->
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
             <div class="col">
                 <div class="card bg-light">
-                    <!-- <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Card Image"> -->
                     <div class="card-body">
                         <h3 class="card-title  fw-bold assured px-2">Your Loan Path: Types and Eligibility</h3>
                         <p class="card-text">
@@ -377,7 +376,7 @@ include 'includes/footertag.php';
 
 
         </div>
-    </div>
+    </div> -->
     <!--Banner End-->
 
 
@@ -431,11 +430,11 @@ include 'includes/footertag.php';
         </div>
     </div>
     <!--Table Content End-->
-    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors Start -->
+    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart Start -->
     <div class="container">
-        <h4 class="mt-5 assured px-2 fw-bold">Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors
+        <h4 class="mt-5 assured px-2 fw-bold">Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart
         </h4>
-        <p class="px-2 mt-3">Empower your farming journey with the right financial support. At Bharat Tractors, we offer
+        <p class="px-2 mt-3">Empower your farming journey with the right financial support. At Bharat Agrimart, we offer
             a variety of loan options to suit your specific requirements. Whether you are looking to invest in a new
             tractor, a used one, implements, or even a harvester, we have you covered. Explore our diverse range of loan
             offerings and take the first step towards achieving your agricultural goals.
@@ -475,7 +474,7 @@ include 'includes/footertag.php';
             solution. Whether it's for farm improvements or unexpected costs, our personal loans are tailored to meet
             your unique needs.</p>
 
-        <h6 class="assured fw-bold px-1 mt-5">Why Choose Bharat Tractors for Your Agricultural Loans?</h6>
+        <h6 class="assured fw-bold px-1 mt-5">Why Choose Bharat Agrimart for Your Agricultural Loans?</h6>
         <p class=" px-2">Specialization in Agricultural Equipment: We understand the unique needs of farmers,
             specializing in tractors and related equipment.</p>
         <p class=" px-2">Extensive Network: Our wide network of dealers, lenders, and financial institutions ensures you
@@ -488,7 +487,7 @@ include 'includes/footertag.php';
         <p class="px-2">Online Accessibility: With our online services, the loan application and approval process
             becomes convenient and accessible, especially for those in remote areas.</p>
         <p class="px-2">Take the first step towards securing your agricultural future. Explore our loan options today at
-            Bharat Tractors and experience farming with financial confidence. Get in touch with us to start your loan
+            Bharat Agrimart and experience farming with financial confidence. Get in touch with us to start your loan
             application process.</p>
         <p class="px-2">Protect Your Investment: While you're investing in your farm, don't forget to safeguard your
             equipment with our comprehensive Tractor Insurance. Learn more (link to insurance page).</p>
@@ -500,7 +499,7 @@ include 'includes/footertag.php';
 
 
 
-    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors End -->
+    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart End -->
 
 
     <!--Question Section-->
@@ -713,7 +712,7 @@ include 'includes/footertag.php';
 
                                     <li>
                                         <b>Que. Can I apply for a personal loan online?</b>
-                                        <p>Ans. Yes, you can apply for a personal loan online at Bharat Tractors.</p>
+                                        <p>Ans. Yes, you can apply for a personal loan online at Bharat Agrimart.</p>
                                     </li>
                                     <li>
                                         <b>Que. What is the age requirement for availing a personal loan?</b>

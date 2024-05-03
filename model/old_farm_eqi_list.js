@@ -306,6 +306,7 @@ function fetch_edit_data(id) {
           $('#mobile').val(Data.mobile);
           $('#email').val(Data.email);
           $('#date').val(Data.date);
+          $('#product_id').val(Data.product_id);
           $("#year option").prop("selected", false);
           $("#year option[value='" + Data.purchase_year+ "']").prop("selected", true);
           
@@ -319,7 +320,6 @@ function fetch_edit_data(id) {
           $('#model_name').empty(); 
           get_model_1(Data.brand_id); 
 
-          // Selecting the option in the model dropdown
           setTimeout(function() { // Wait for the model dropdown to populate
               $("#model_name option").prop("selected", false);
               $("#model_name option[value='" + Data.model + "']").prop("selected", true);
@@ -327,10 +327,7 @@ function fetch_edit_data(id) {
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
           
-          // Call function to populate tehsil dropdown based on selected district
           populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-
-          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
         },
         error: function(error) {
           console.error('Error fetching user data:', error);
@@ -363,8 +360,8 @@ function fetch_edit_data(id) {
 function edit_data_id() {
 // var enquiry_type_id = $("#enquiry_type_id").val();
 var enquiry_type_id =25;
-var product_id = 389;
-// var product_id = $("#product_id").val();
+// var product_id = 389;
+var product_id = $("#product_id").val();
 var edit_id = $("#idUser").val();
 var brand_name = $("#brand_name").val();
 var model_name = $("#model_name").val();
@@ -500,12 +497,6 @@ function searchdata() {
   var modelselect = $('#model_enquiry').val();
   var stateselect = $('#state_enquiry').val();
   var districtselect = $('#district_enquiry').val();
- 
-console.log(brand_id);
-console.log(brandselect);
-console.log(modelselect);
-console.log(stateselect);
-console.log(districtselect);
 
   var paraArr = {
     'brand_id':brand_id,

@@ -164,7 +164,7 @@ function getbrand_edit() {
           console.log(data);
           const select = document.getElementById('brand');
           // select.innerHTML = '';
-
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
           if (data.brands.length > 0) {
               data.brands.forEach(row => {
                   const option = document.createElement('option');

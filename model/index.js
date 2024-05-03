@@ -499,7 +499,7 @@ function get_All_News() {
                         <button type="button" class="btn btn-warning mt-3">${p.news_category} </button>
                         </a>  
                         <div class="row mt-2">
-                            <p class="fw-bold">${p.news_headline}</p>
+                            <p class="fw-bold text-truncate" >${p.news_headline}</p>
                         </div>
                         <div class="row">
                             <p class="fw-bold"><span>Date/time: </span>${p.date}</p>

@@ -69,8 +69,10 @@
                                         <label for="name" class="form-label text-dark">Tyre Position</label>
                                         
                                         <select class="form-select form-control" aria-label=".form-select-lg example" id="tyre_position" name="tyre_position">
+                                          <option selected disabled value="">Please select an option</option>
                                           <option value="front">Front</option>
                                           <option value="rear">Rear</option>
+                                          <option value="steer">Steer</option>
                                         </select>
                                       </div>
                                     </div>

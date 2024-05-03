@@ -295,7 +295,7 @@ function get_model(brand_id) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const selects = document.querySelectorAll('#model_1model_1');
+          const selects = document.querySelectorAll('#model_1');
 
           selects.forEach(select => {
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -320,9 +320,6 @@ function get_model(brand_id) {
 }
 
 get();
-
-
-
 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
@@ -353,8 +350,16 @@ function searchdata() {
       success: function (searchData) {
         updateTable(searchData);
       },
-      error: function (error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#data-table');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 };
@@ -535,7 +540,7 @@ function fetch_edit_data(id) {
           setTimeout(function() { // Wait for the model dropdown to populate
               $("#model_2 option").prop("selected", false);
               $("#model_2 option[value='" + Data.model + "']").prop("selected", true);
-          }, 1000);
+          }, 2000);
 
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
@@ -578,14 +583,14 @@ function edit_data_id() {
 var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
 var brand_name = $("#brand_name1").val();
-var model_name = $("#model_name").val();
+var model_name = $("#model_2").val();
 var first_name = $("#fnam_e").val();
 var last_name = $("#lnam_e").val();
 var mobile = $("#numbe_r").val();
 var email = $("#emai_l").val();
 var date = $("#dat_e").val();
-var state = $("#stat_e").val();
-var district = $("#dis_t").val();
+var state = $("#state_").val();
+var district = $("#dist_").val();
 var tehsil = $("#tehsi_l").val();
 var _method = 'put';
 
@@ -660,7 +665,7 @@ function get_1() {
               // Add event listener to brand dropdown
               select.addEventListener('change', function() {
                   const selectedBrandId = this.value;
-                  get_model(selectedBrandId);
+                  get_model_1(selectedBrandId);
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';

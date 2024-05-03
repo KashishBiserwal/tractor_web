@@ -239,7 +239,7 @@ function getupcomimgTractorList() {
                 }
             });
 
-            var productContainer = $("#productContainerupcoming");
+            var productContainer = $("#productContainerupcoming2");
 
             if (data.product.allProductData && data.product.allProductData.length > 0) {
                 // Display the initial set of 4 cards

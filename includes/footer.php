@@ -36,29 +36,16 @@
                         Contact / Mail Us
                         </a>
                     </li>
+                 
                     <li>
-                        <a href="#" class="">
-                        Customer Care
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Service Centers
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
+                        <a href="new_tractor_loan.php" class="">
                         Loan
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="">
-                        Our Showrooms
-                        </a>
-                    </li>
+                    
   	 			</ul>
   	 		</div>
-               <div class="footer-col">
+            <!-- <div class="footer-col">
   	 			<h4>EXPLORE NEWS</h4>
   	 			<ul>
   	 				<li>
@@ -82,23 +69,23 @@
                         </a>
                     </li>
   	 			</ul>
-  	 		</div>
+  	 		</div> -->
 
   	 		<div class="footer-col">
   	 			<h4> BUY OLD PRODUCTS</h4>
   	 			<ul>
   	 				<li>
-                        <a href="#">
+                        <a href="used_tractor.php">
                         Buy Used Tractor
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="used_farm_imple.php">
                         Buy Used Farm Implements
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="used_harvester.php">
                         Buy Used Harvester
                         </a>
                     </li>
@@ -108,28 +95,43 @@
   	 			<h4>SELL OLD PRODUCTS</h4>
                    <ul>
   	 				<li>
-                        <a href="#">
+                        <a href="sell_used_trac.php">
                         Sell Used Tractor
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="sell_used_farm_imple.php">
                         Sell Used Farm Implements
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="sell_used_harvester.php">
                         Sell Used Harveste
                         </a>
                     </li>
                 </ul>
   	 		</div>
-               
-
-
-
-
-  	 	</div>
-  	 </div>
-  </footer>
+              <div class="footer-col">
+  	 			<h4>Others</h4>
+  	 			<ul>
+                   <li>
+                        <a href="#" class="">
+                         Nuesery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Engine Oil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                       Tyres
+                        </a>
+                    </li>
+  	 			</ul>
+  	 		</div>
+        </div>
+  	</div>
+</footer>
 

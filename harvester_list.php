@@ -67,7 +67,10 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Model</label>
-                                        <input type="text" name="model" id="model" class="form-control">
+                                        <select class="form-select form-control" aria-label=".form-select-lg example" name="model" id="model">
+                                      
+                                      </select>
+                                        <!-- <input type="text" name="model" id="model" class="form-control"> -->
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
@@ -324,14 +327,16 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
                                       <div class="upload__box text-center">
                                           <div class="upload__btn-box text-center">
-                                              <label >
+                                            <label >
                                                   <p class="upload__btn">Upload images</p>
                                                   <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                               </label>
                                            </div>
+                                           <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
                                           <div class="col-12">
                                             <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
                                           </div>
+                                          
                                       </div>
                                   </div>
                                 </div>
@@ -372,10 +377,10 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
-                <!-- <select class="form-select form-control "  id="model1" aria-label="Default select example">
+                <select class="form-select form-control "  id="model1" aria-label="Default select example">
                    
-                   </select> -->
-               <input type="text" id="model1" class="form-control">
+                   </select>
+               <!-- <input type="text" id="model1" class="form-control"> -->
               </div>
             </div>
           

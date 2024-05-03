@@ -137,31 +137,36 @@
     <div class="container">
         <h4 class="fw-bold assured px-2">Quick Links</h4>
         <div class="row my-4">
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                <i class="fas fa-bolt"></i>TRACTOR PRICE</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=3 Lakh Below" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>TRACTOR PRICE</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="find_new_tractors.php" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>TRACTOR</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="harvester.php" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>HARVESTERS</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="used_tractor.php" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>SECOND HAND TRACTOR</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="new_tractor_loan.php" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>EASY FINANCE</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="dealership_enq.php" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>DEALERSHIP</a>
+                </div>
             </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser"class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>TRACTOR</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser"class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>HARVESTERS</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser"class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>SECOND HAND TRACTOR</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser"class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>EASY FINANCE</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>DEALERSHIP</a>
-            </div>
-        </div>
     </div>
 </section>
 
