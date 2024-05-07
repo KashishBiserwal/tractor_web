@@ -35,7 +35,7 @@
     text-overflow: ellipsis;
    
     }
-  
+
 </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -59,15 +59,6 @@
     </div>
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
-      <!-- <div class="carousel-item active">
-        <img src="assets/images/slider1.jpg" alt="Los Angeles" class="d-block w-100">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider2.jpg" alt="Chicago" class="d-block w-100">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider3.jpg" alt="New York" class="d-block w-100">
-      </div> -->
       <div class="carousel-item active">
         <img src="assets/images/sidel-img1.jpg" alt="New York" class="d-block w-100">
       </div>
@@ -80,11 +71,11 @@
       <div class="carousel-item">
         <img src="assets/images/slider-img5.jpg" alt="New York" class="d-block w-100">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img6.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;"> 
+          <img src="assets/images/slider-img6.jpg" alt="New York" class="d-block mx-auto"> 
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img7.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+          <img src="assets/images/slider-img7.jpg" alt="New York" class="d-block mx-auto">
       </div>
       <div class="carousel-item">
         <img src="assets/images/slider-img-8.jpg" alt="New York" class="d-block w-100">

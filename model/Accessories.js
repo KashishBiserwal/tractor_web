@@ -13,15 +13,18 @@ $( document ).ready(function() {
         $('#acc_form').valid();
         console.log($('#acc_form').valid());
     });
+    $("#Reset").click(function () {
+  
+      $("#accessories_name").val("");
+      get_data();
+    });
 });
-
 
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
     var accessories = $('#accessories').val();
   
-    // Prepare data to send to the server
     var paraArr = {
       'accessory': accessories
     };
@@ -46,7 +49,6 @@ function store(event) {
       'Authorization': 'Bearer ' + token
     };
   
-    // Make an AJAX request to the server
     $.ajax({
       url: url,
       type: method,
@@ -63,8 +65,6 @@ function store(event) {
       }
     });
   }
-
-
 //   get data
 function get_data() {
   console.log('get data on table');
@@ -93,7 +93,6 @@ function get_data() {
                                 <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
                                 <i class="fa fa-trash" style="font-size: 11px;"></i></button>
                             </div>`;
-    
                 tableData.push([
                     counter++, // Increment counter for serial numbers
                     row.accessory,
@@ -117,14 +116,12 @@ function get_data() {
             tableBody.innerHTML = '<tr><td colspan="3">No valid data available</td></tr>';
         }
     },
-    
-      error: function (error) {
+    error: function (error) {
           console.error('Error fetching data:', error);
           // Display an error message or handle the error as needed
       }
   });
 }
-
 get_data();
 
     function fetch_edit_data(userId) {
@@ -148,16 +145,12 @@ get_data();
           // $('#idUser').val(userData.id);
           $('#accessories_1').val(userData.accessory);
           $('#idUser').val(userData.id);
-    
-    
-          // $('#exampleModal').modal('show');
         },
         error: function(error) {
           console.error('Error fetching user data:', error);
         }
       });
     }
-
     function update_data(){
       var edit_id = $("#idUser").val();
       var accessories_1 = $("#accessories_1").val();
@@ -165,7 +158,6 @@ get_data();
       var paraArr = {
         'accessory': accessories_1,
         'id': edit_id,
-    
       };
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'accessory/' + edit_id;
@@ -188,9 +180,7 @@ get_data();
           }
       })
     }
-
-        // delete data
-
+// delete data
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'accessory/' + id;
@@ -224,38 +214,67 @@ function destroy(id) {
     }
   });
 }
-
-
-        // searching 
-        function myFunction() {
-          var input, filter, table, tr, td, i, j, txtValue;
-          input = document.getElementById("name");
-          filter = input.value.toUpperCase();
-          table = document.getElementById("example");
-          tr = table.getElementsByTagName("tr");
-        
-          for (i = 0; i < tr.length; i++) {
-            // Loop through all td elements in the current row
-            td = tr[i].getElementsByTagName("td");
-            for (j = 0; j < td.length; j++) {
-              txtValue = td[j].textContent || td[j].innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-                break; // Break the inner loop if a match is found in any td
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-          }
-        }
-        function resetForm() {
-                document.getElementById("myform").reset();
-        
-                // Show all rows in the table
-                var table = document.getElementById("example");
-                var rows = table.getElementsByTagName("tr");
-        
-                for (var i = 0; i < rows.length; i++) {
-                    rows[i].style.display = "";
-                }
-            }
+function searchdata() {
+  var accessories_name = $('#accessories_name').val();
+  var paraArr = {
+    'accessory': accessories_name,
+                
+  };
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_accessory';
+  $.ajax({
+      url:url, 
+       type: 'POST',
+      data: paraArr,
+                
+       headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  if(data.accessory && data.accessory.length > 0) {
+    let tableData = [];
+    let counter = 1;
+      data.accessory.forEach(row => {
+          let action =  `<div class="d-flex">
+                <button class="btn btn-primary text-white btn-sm mx-1"  onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
+                <i class="fa fa-trash" style="font-size: 11px;"></i></button>
+            </div>`;
+ 
+          tableData.push([
+            counter++, 
+            row.accessory,
+            action
+        ]);
+     });
+            
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+        { title: 'Accessories Name' },
+        { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: false,
+        // ... other options ...
+    });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+  }
+}
+            

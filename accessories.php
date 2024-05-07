@@ -74,11 +74,6 @@ include 'includes/footertag.php';
                     </div>
                   </div>
               </div>
-              
-
-
-
-              
               </div>
             </div>
           </div>
@@ -91,11 +86,12 @@ include 'includes/footertag.php';
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="form-outline">
                     <label class="form-label"> Search by Field Name </label>
-                    <input type="text" id="name" name="search_email" onkeyup="myFunction()" class=" data_search form-control" />
+                    <input type="text" id="accessories_name" name="search_email" class=" data_search form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <button type="button"onclick="resetForm()" class="btn-success  btn btn_all" value="reset" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
+                    <button type="button" class="btn-success  btn btn_all" value="reset" id="Reset">Reset</button>
                 </div>
               </div>
               </form>
