@@ -59,17 +59,17 @@
     </div>
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/images/sidel-img1.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item active" style="position: relative;">
+        <img src="assets/images/sidel-img1.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/sidel-img2.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/sidel-img2.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img-4.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/slider-img-4.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img5.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/slider-img5.jpg" alt="New York" class="d-block mx-auto">
       </div>
       <div class="carousel-item" style="position: relative;"> 
           <img src="assets/images/slider-img6.jpg" alt="New York" class="d-block mx-auto"> 
@@ -77,25 +77,25 @@
       <div class="carousel-item" style="position: relative;">
           <img src="assets/images/slider-img7.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img-8.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/slider-img-8.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img-9.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/slider-img-9.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img10.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/slider-img10.jpg" alt="New York" class="d-block mx-auto">
       </div>
-      <div class="carousel-item">
-        <img src="assets/images/slider-img11.jpg" alt="New York" class="d-block w-100">
+      <div class="carousel-item" style="position: relative;">
+        <img src="assets/images/slider-img11.jpg" alt="New York" class="d-block mx-auto">
       </div>
     </div>
     <!-- Left and right controls/icons -->
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
+      <span class="carousel-control-prev-icon bg-success"></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
+      <span class="carousel-control-next-icon bg-success"></span>
     </button>
   </div>
   <div class="container bannerbg00">

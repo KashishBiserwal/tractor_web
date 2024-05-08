@@ -421,7 +421,6 @@ function populateTehsil(selectId, value, selectedTehsilId) {
   }
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
  
 function edit_data_id() {
   var enquiry_type_id = $("#enquiry_type_id").val();
@@ -473,7 +472,7 @@ function edit_data_id() {
         console.log(result, "result");
         console.log("updated successfully");
         alert('successfully updated..!');
-        window.location.reload();
+        // window.location.reload();
         $('#staticBackdrop').modal('hide'); 
     },
     error: function (error) {

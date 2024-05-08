@@ -380,6 +380,7 @@ function populateTehsil(selectId, value) {
         data.append('district', district);
         data.append('tehsil', tehsil);
         data.append('price', price);
+        data.append('flag', 'buyerenquirylist');
         $.ajax({
           url: url,
           type: "POST",

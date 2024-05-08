@@ -29,6 +29,7 @@ function login() {
     
 var apiBaseURL =APIBaseURL;
 var url = apiBaseURL + 'user_login';
+// var url = 'http://192.168.1.21:8000/api/admin/user_login';
     $.ajax({
         url: url,
         type: "POST",

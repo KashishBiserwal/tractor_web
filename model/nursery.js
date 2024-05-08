@@ -577,8 +577,8 @@ function edit_data_id(id){
                       serialNumber++,
                       row.nursery_name,
                       row.mobile,
-                      row.state, // Assuming state_name and district_name are provided in the response
-                      row.district,
+                      row.state_name,
+                      row.district_name,
                       action
                   ];
               });

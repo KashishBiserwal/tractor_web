@@ -65,7 +65,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1">
+                <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_2">
                  
                 </select>
               </div>
