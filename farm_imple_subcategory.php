@@ -321,7 +321,7 @@ include 'includes/headertag.php';
     </div>
       
 <!-- edit -->
-                <div class="modal fade" id="staticBackdrop_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="staticBackdrop_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
@@ -331,7 +331,6 @@ include 'includes/headertag.php';
                       <div class="modal-body bg-white">
                               <div class="row justify-content-center">
                                   <div class="col-12">
-                                    <!-- <h5 class="text-center">Fill Details</h5> -->
                                     <form id="lookup_data_form_1" method="POST">
                                       <div class="row justify-content-center">
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
@@ -365,7 +364,7 @@ include 'includes/headertag.php';
                           </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
     
 </div>
 </div>

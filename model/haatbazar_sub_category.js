@@ -269,7 +269,7 @@ function store_subcategory(event) {
         headers: headers,
         success: function (response) {
             var Data = response.data[0];
-            $('#idUser').val(Data.userId);
+            $('#idUser').val(Data.id);
             $('#category_2').val(Data.category_id);
             $('#sub_category_1').val(Data.sub_category_name);
         },
