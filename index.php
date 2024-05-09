@@ -98,7 +98,7 @@
       <span class="carousel-control-next-icon bg-success"></span>
     </button>
   </div>
-  <div class="container bannerbg00">
+  <!-- <div class="container bannerbg00">
     <div class="banner__wrapper">
       <div class="row g-4 justify-content-center">
         <div class="col-lg-10">
@@ -146,10 +146,10 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 </section>
 <!-- banner end here -->
-<section class="why_head bg-white">
+<section class="why_head bg-light">
   <div class=" container">
     <h2 class="text-dark  display-6 pt-4 mb-0 fw-bold text-center">Why <span class="text-success">Bharat Agrimart?</span></h2>
     <div class="container">
@@ -200,7 +200,7 @@
     </div>
   </div>
 </section>
-<section class="bg-light">
+<section class="">
   <div class="container ">
     <h3 class=" py-4 display-6 fw-bold">Tractors in <span class="text-success">2023</span></h3>
     <nav class="">
@@ -261,7 +261,7 @@
     </div>
   </div>
 </section>
-<section>
+<section class="bg-light">
   <div class="container">
     <h3 class=" py-4 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h3>
     <nav class="mb-3">

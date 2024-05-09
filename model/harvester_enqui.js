@@ -366,7 +366,7 @@ function fetch_edit_data(id) {
           setTimeout(function() { 
               $("#model_name option").prop("selected", false);
               $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-          }, 1000); 
+          }, 2000); 
 
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);

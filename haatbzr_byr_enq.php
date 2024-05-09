@@ -191,15 +191,15 @@
           <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
                 <label class="form-label" for="first_name">User Name</label>
-                <input type="text" id="enquiry_type_id" name="user_name" value="7" class=" data_search form-control input-group-sm py-2" />
+                <input type="text" id="enquiry_type_id" name="user_name" value="8" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
+            <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
                 <label class="form-label" for="first_name">User Name</label>
                 <input type="text" id="username" name="name" class=" data_search form-control input-group-sm py-2" />
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="first_name">Category</label>

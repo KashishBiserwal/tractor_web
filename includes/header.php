@@ -19,16 +19,19 @@
       <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="    justify-content: end;">
         <div class="row w-100">
           <div class="col-sm-8">
-            <form class="mb-0 navserach">
-              <div class="row w-100">
-                <div class="col-sm-9 pe-0">
-                  <input class="form-control mb-0" type="text" placeholder="Search">
-                </div> 
-                <div class="col-sm-3 ps-0">
-                  <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
-                </div> 
-              </div>
-            </form> 
+          <form class="mb-0 navsearch">
+            <div class="row w-100">
+              <div class="col-sm-9 pe-0">
+                <input class="form-control mb-0" type="text" id="searchInput" placeholder="Search" list="suggestions">
+                <datalist id="suggestions">
+                  <!-- Suggestions will be dynamically added here -->
+                </datalist>
+              </div> 
+              <div class="col-sm-3 ps-0">
+                <button class="btn btn-success" type="button" onclick="search()"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
+              </div> 
+            </div>
+          </form>
           </div>
           <div class="col-sm-4">
     <ul class="navbar-nav float-end">
@@ -281,9 +284,6 @@
 <?php 
  include 'includes/footertag.php';
 ?>
-
-
-
 <script>
   $(document).ready(function(){
     news_category();
@@ -312,8 +312,7 @@
 
             // Take only the first four categories
             var topFourCategories = data.news_category.slice(0, 4);
-
-            var newCard = topFourCategories.map(function(category) {
+              var newCard = topFourCategories.map(function(category) {
                 var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
                 return `<li id="${categoryWithoutSpaces}">
                             <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
@@ -374,9 +373,6 @@
   });
 }
 
-
-
-
 function get_brands() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
   var headers = {
@@ -414,9 +410,51 @@ function get_brands() {
     }
   });
 }
-
 </script>
 
+<script>
+  // Function to fetch suggestions
+  function getSuggestions(input) {
+    // Here you can fetch suggestions based on the user input
+    // For simplicity, I'm just returning a static list of suggestions
+    return [
+      "brands.php?brand_id=1",
+      "brands.php?brand_id=2",
+      "brands.php?brand_id=3",
+      "hatbazar_buy.php",
+      "nursery_ui.php"
+    ];
+  }
+
+  // Function to update suggestions in datalist
+  function updateSuggestions(inputValue) {
+    const suggestions = getSuggestions(inputValue);
+    const datalist = document.getElementById("suggestions");
+    datalist.innerHTML = "";
+    suggestions.forEach(suggestion => {
+      const option = document.createElement("option");
+      option.value = suggestion;
+      datalist.appendChild(option);
+    });
+  }
+
+  // Event listener for input change
+  document.getElementById("searchInput").addEventListener("input", function() {
+    const inputValue = this.value;
+    if (inputValue) {
+      updateSuggestions(inputValue);
+    }
+  });
+
+  // Function to handle search
+  function search() {
+    const inputValue = document.getElementById("searchInput").value;
+    if (inputValue) {
+      // Redirect to the selected suggestion
+      window.location.href = inputValue;
+    }
+  }
+</script>
 
                     <!-- <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
                    <hr class="dropdown-divider m-0">
