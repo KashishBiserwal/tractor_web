@@ -2,7 +2,35 @@
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/header.js"></script>
 <style>
+.autocomplete {
+  position: relative;
+  z-index: 999; /* Set a higher z-index value */
+}
 
+.autocomplete ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+}
+
+.autocomplete ul li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.autocomplete ul li:hover {
+  background-color: #f0f0f0;
+}
+::placeholder {
+        color: grey;
+    }
 </style>
 <div class="fixed_nav">
 <nav class="navbar navbar-expand-sm navbar-index">
@@ -19,21 +47,21 @@
       <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="    justify-content: end;">
         <div class="row w-100">
           <div class="col-sm-8">
-          <form class="mb-0 navsearch">
-            <div class="row w-100">
-              <div class="col-sm-9 pe-0">
-                <input class="form-control mb-0" type="text" id="searchInput" placeholder="Search" list="suggestions">
-                <datalist id="suggestions">
-                  <!-- Suggestions will be dynamically added here -->
-                </datalist>
-              </div> 
-              <div class="col-sm-3 ps-0">
-                <button class="btn btn-success" type="button" onclick="search()"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
-              </div> 
-            </div>
-          </form>
-          </div>
-          <div class="col-sm-4">
+            <form class="mb-0 navsearch">
+              <div class="row w-100">
+                  <div class="col-sm-9 pe-0">
+                      <div class="autocomplete">
+                          <input id="searchInput" type="text" class="w-100 text-dark" style="height:35px;"placeholder="Search">
+                          <ul id="suggestions"></ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-3 ps-0">
+                      <button class="btn btn-success" style="height:35px;" type="button" onclick="redirectToSearchPage()"><i class="fa-solid fa-magnifying-glass" style="font-size: 26px;"></i></button>
+                  </div> 
+              </div>
+            </form>
+        </div>
+  <div class="col-sm-4 mt-2">
     <ul class="navbar-nav float-end">
         <li class="nav-item">
             <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
@@ -411,49 +439,67 @@ function get_brands() {
   });
 }
 </script>
-
 <script>
-  // Function to fetch suggestions
-  function getSuggestions(input) {
-    // Here you can fetch suggestions based on the user input
-    // For simplicity, I'm just returning a static list of suggestions
-    return [
-      "brands.php?brand_id=1",
-      "brands.php?brand_id=2",
-      "brands.php?brand_id=3",
-      "hatbazar_buy.php",
-      "nursery_ui.php"
-    ];
-  }
-
-  // Function to update suggestions in datalist
-  function updateSuggestions(inputValue) {
-    const suggestions = getSuggestions(inputValue);
-    const datalist = document.getElementById("suggestions");
-    datalist.innerHTML = "";
-    suggestions.forEach(suggestion => {
-      const option = document.createElement("option");
-      option.value = suggestion;
-      datalist.appendChild(option);
+$(document).ready(function() {
+    $("#searchInput").on("input", function() {
+        var query = $(this).val();
+        if (query.length > 0) {
+            var suggestions = getSuggestions(query);
+            displaySuggestions(suggestions);
+        } else {
+            $("#suggestions").empty().hide();
+        }
     });
-  }
 
-  // Event listener for input change
-  document.getElementById("searchInput").addEventListener("input", function() {
-    const inputValue = this.value;
-    if (inputValue) {
-      updateSuggestions(inputValue);
-    }
-  });
+    $(document).on("click", "#suggestions li", function() {
+        var suggestion = $(this).text();
+        redirectToBrandPage(suggestion);
+    });
+});
 
-  // Function to handle search
-  function search() {
-    const inputValue = document.getElementById("searchInput").value;
-    if (inputValue) {
-      // Redirect to the selected suggestion
-      window.location.href = inputValue;
+// Object mapping suggestions to PHP page URLs
+var suggestionUrls = {
+    'Swaraj': 'brands.php?brand_id=1',
+    'Mahindra': 'brands.php?brand_id=2',
+    'John Deere': 'brands.php?brand_id=3',
+    'Massey Ferguson': 'brands.php?brand_id=4',
+    'Powertrac': 'brands.php?brand_id=5',
+    'Kubota': 'brands.php?brand_id=6',
+    'New Holland': 'brands.php?brand_id=7',
+    'Farmtrac': 'brands.php?brand_id=8',
+    'Certified Dealers': 'certified_dealers.php',
+    'Engine Oil': 'engine_oil.php',
+    'Tyres': 'tyre.php',
+    'Haatbazar': 'hatbazar_buy.php',
+    'Nursery': 'nursery_ui.php'
+    // Add more suggestions and their corresponding URLs as needed
+};
+
+function getSuggestions(query) {
+    var filteredSuggestions = [];
+    $.each(suggestionUrls, function(suggestion, url) {
+        if (suggestion.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+            filteredSuggestions.push(suggestion);
+        }
+    });
+    return filteredSuggestions;
+}
+
+function displaySuggestions(suggestions) {
+    var list = $("#suggestions");
+    list.empty();
+    $.each(suggestions, function(index, suggestion) {
+        list.append("<li>" + suggestion + "</li>");
+    });
+    list.show();
+}
+
+function redirectToBrandPage(suggestion) {
+    var url = suggestionUrls[suggestion];
+    if (url) {
+        window.location.href = url;
     }
-  }
+}
 </script>
 
                     <!-- <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
