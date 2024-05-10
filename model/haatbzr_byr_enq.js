@@ -280,6 +280,7 @@ function openView(userId) {
             var userData = response.haatBazarData[0];
             var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
             $('#userId').val(userData.id);
+            $('#product_subject_id').val(userData.product_id);
             $('#username').val(userData.haat_bazar_id);
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
@@ -346,6 +347,7 @@ function populateTehsil(selectId, value) {
       function edit_data_id(edit_id) {
         var edit_id = $("#userId").val();
         var enquiry_type_id = $("#enquiry_type_id").val();
+        var product_subject_id = $("#product_subject_id").val();
         var category = $('#category1').val();
         var sub_category = $('#sub_category1').val();
         var first_name = $('#first_name1').val();
@@ -378,6 +380,7 @@ function populateTehsil(selectId, value) {
         data.append('district', district);
         data.append('tehsil', tehsil);
         data.append('price', price);
+        data.append('product_id', product_subject_id);
         data.append('flag', 'buyerenquirylist');
         $.ajax({
           url: url,

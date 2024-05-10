@@ -184,13 +184,19 @@
           <div class="row">
           <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
-                <label class="form-label" for="first_name">User Name</label>
+                <label class="form-label" for="first_name">userId</label>
                 <input type="text" id="userId" name="" value="" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
+              <div class="form-outline">
+                <label class="form-label" for="first_name">product_subject_id</label>
+                <input type="text" id="product_subject_id" name="" value="" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
-                <label class="form-label" for="first_name">User Name</label>
+                <label class="form-label" for="first_name">enquiry_type_id</label>
                 <input type="text" id="enquiry_type_id" name="user_name" value="8" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
