@@ -392,7 +392,7 @@ function populateTehsil(selectId, value) {
            success: function (result) {
              console.log(result, "result");
             //  get_haatbzr();
-            // window.location.reload();
+            window.location.reload();
              console.log("updated successfully");
              alert('successfully updated..!')
            },
