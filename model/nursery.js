@@ -82,7 +82,10 @@ $(document).ready(function(){
 });
 jQuery(document).ready(function () {
   ImgUpload();
+  removeImage();
 });
+var removedImages = [];
+
 function ImgUpload() {
   var imgWrap = "";
   var imgArray = [];
@@ -128,22 +131,28 @@ function ImgUpload() {
     for (var i = 0; i < imgArray.length; i++) {
       if (imgArray[i].name === file) {
         imgArray.splice(i, 1);
+        removedImages.push(file); // Add the removed image filename to removedImages array
         break;
       }
     }
     $(this).parent().parent().remove();
   });
 }
-function removeImage(ele){
-  console.log(ele);
-  let thisId=ele.id;
-  thisId=thisId.split('closeId');
-    thisId=thisId[1];
-    $("#"+ele.id).remove();
-    $(".upload__img-closeDy"+thisId).remove();
 
+var removedImageFiles = [];
+
+// Jab kisi image ko remove karte hain, uska File object removedImageFiles array mein append hota hai.
+function removeImage(ele) {
+  let filename = $(ele).data('file');
+
+  if (filename) {
+    // Create a new File object with a dummy content
+    var file = new File([null], filename);
+    removedImageFiles.push(file); // Removed image ka File object removedImageFiles array mein append hota hai
   }
 
+  $(ele).closest('.col-12').remove(); 
+}
 //  **********data add**********
 function store(event) {
   event.preventDefault();
@@ -204,7 +213,7 @@ function store(event) {
 
           // Reload the page (try without forcing a full reload)
          alert('Successfully inserted!');
-         window.location.reload();
+        //  window.location.reload();
       },
       error: function (error) {
           console.error('Error:', error);
@@ -389,7 +398,7 @@ function openViewdata(Id) {
 
 function fetch_edit_data_nursery(id) {
   var apiBaseURL = APIBaseURL;
-  var nursery_id= id;
+  var nursery_id = id;
   var url = apiBaseURL + 'nursery_data/' + nursery_id; 
 
   var headers = {
@@ -405,7 +414,6 @@ function fetch_edit_data_nursery(id) {
       $('#userId').val(userData.id);
       $('#nursery_name2').val(userData.nursery_name);
       $('#fname2').val(userData.first_name);
-      console.log(userData.first_name);
       $('#lname2').val(userData.last_name);
       $('#number2').val(userData.mobile);
       setSelectedOption('state', userData.state_id);
@@ -419,36 +427,33 @@ function fetch_edit_data_nursery(id) {
       $("#selectedImagesContainer2").empty();
 
       if (userData.image_names) {
-          var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-           
-          var countclass=0;
-          imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_names.trim();
-              countclass++;
-              var newCard = `
-                  <div class="col-12 col-md-6 col-lg-4 ">
-                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-                          <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                          </a>
-                      </div>
-                  </div>
-              `;
-      
-              // Append the new image element to the container
-              $("#selectedImagesContainer2").append(newCard);
-          });
+        var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+        var countclass = 0;
+        imageNamesArray.forEach(function(image_name) {
+          var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_name.trim();
+          countclass++;
+          var newCard = `
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);" data-file="${image_name.trim()}"></div>
+              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}" data-file="${image_name.trim()}">
+                <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                  <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                </a>
+              </div>
+            </div>
+          `;
+          $("#selectedImagesContainer2").append(newCard);
+        });
       }
-      
-    console.log('Fetched data successfully');
-      // $('#exampleModal').modal('show'); 
+
+      console.log('Fetched data successfully');
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
     }
   });
 }
+
 
 
 function setSelectedOption(selectId, value) {
@@ -470,13 +475,10 @@ function populateTehsil(selectId, value) {
     }
   }
 }
-function edit_data_id(id){
-  console.log(id);
+function edit_data_id(id) {
   var edit_id = $("#userId").val();
-  console.log(edit_id);
   var image_names = document.getElementById('_image2').files;
   var nursery_name = $("#nursery_name2").val();
-  console.log(nursery_name);
   var first_name = $('#fname2').val();
   var last_name = $('#lname2').val();
   var mobile = $('#number2').val();
@@ -491,16 +493,21 @@ function edit_data_id(id){
   var token = localStorage.getItem('token');
   var _method = 'put';
   var headers = {
-      'Authorization': 'Bearer ' + token
+    'Authorization': 'Bearer ' + token
   };
 
   var data = new FormData();
 
   for (var x = 0; x < image_names.length; x++) {
-      data.append('images[]', image_names[x]);
+    data.append('images[]', image_names[x]);
   }
+
+  // Add removed image filenames to form data
+  removedImageFiles.forEach(function(file) {
+    data.append('removeImage[]', file); // Removed image File objects binary format mein append hote hain under the 'images[]' key
+  });
   data.append('_method', _method);
-  data.append('id',edit_id)
+  data.append('id', edit_id);
   data.append('nursery_name', nursery_name);
   data.append('first_name', first_name);
   data.append('last_name', last_name);
@@ -511,24 +518,24 @@ function edit_data_id(id){
   data.append('address', address);
   data.append('description', description);
 
-   $.ajax({
+  $.ajax({
     url: url,
-      type: "POST",
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
+    type: "POST",
+    data: data,
+    headers: headers,
+    processData: false,
+    contentType: false,
     success: function (result) {
-        console.log(result, "result");
-        window.location.reload();
-        console.log("updated successfully");
-        alert('successfully updated..!')
+      console.log(result, "result");
+      // window.location.reload();
+      console.log("updated successfully");
+      alert('successfully updated..!');
     },
     error: function (error) {
-        console.error('Error fetching data:', error);
+      console.error('Error fetching data:', error);
     }
-});
- }
+  });
+}
 
  function searchdata() {
   var name = $('#name1').val();

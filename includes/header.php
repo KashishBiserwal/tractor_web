@@ -31,6 +31,10 @@
 ::placeholder {
         color: grey;
     }
+    .logo {
+    border-radius: 0; 
+}
+
 </style>
 <div class="fixed_nav">
 <nav class="navbar navbar-expand-sm navbar-index">
@@ -38,13 +42,13 @@
     <div class="row w-100 m-0">
       <div class="col-sm-3">
         <a href="index.php" class="text-decoration-none">
-          <img src="assets/images/logotrac.png"alt="reload img" class="logo">
+          <img src="assets/images/IMG-20240516-WA0006.jpg"alt="reload img" class="logo ">
         </a>
       </div>
       <button class="navbar-toggler col-sm-6" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="    justify-content: end;">
+      <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="justify-content: end;">
         <div class="row w-100">
           <div class="col-sm-8">
             <form class="mb-0 navsearch">
@@ -271,6 +275,8 @@
           </a>
           <ul class="dropdown-menu p-0">
             <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
+            <hr class="dropdown-divider m-0">
+            <li><a class="dropdown-item fw-bold" href="agriculturecustomer.php">Agriculture College</a></li>
            <hr class="dropdown-divider m-0">
             <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
            <hr class="dropdown-divider m-0">

@@ -29,7 +29,7 @@
               				</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-									<img src="./assets/images/why.jpg" class="avatar img-fluid user-avatar" alt="admin " /> <span class="text-white is-user-name">Admin Name</span>
+									<img src="./assets/images/IMG-20240516-WA0006.jpg" class="avatar img-fluid user-avatar" alt="admin " /> <span class="text-white is-user-name">Admin Name</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="admin_profile.php"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
