@@ -127,7 +127,9 @@ function ImgUpload() {
     });
   });
   $('body').on('click', ".upload__img-close", function (e) {
-    var file = $(this).parent().data("file");
+    var filename = $(this).parent().data("file");
+    var file = new File([null], filename);
+    console.log(file,'imagefile');
     for (var i = 0; i < imgArray.length; i++) {
       if (imgArray[i].name === file) {
         imgArray.splice(i, 1);
@@ -141,18 +143,17 @@ function ImgUpload() {
 
 var removedImageFiles = [];
 
-// Jab kisi image ko remove karte hain, uska File object removedImageFiles array mein append hota hai.
 function removeImage(ele) {
   let filename = $(ele).data('file');
 
   if (filename) {
-    // Create a new File object with a dummy content
     var file = new File([null], filename);
-    removedImageFiles.push(file); // Removed image ka File object removedImageFiles array mein append hota hai
+    removedImageFiles.push(file); 
   }
 
   $(ele).closest('.col-12').remove(); 
 }
+
 //  **********data add**********
 function store(event) {
   event.preventDefault();
@@ -445,7 +446,8 @@ function fetch_edit_data_nursery(id) {
           $("#selectedImagesContainer2").append(newCard);
         });
       }
-
+      var initialImagesCount = $('.brand-main').length; 
+      console.log(initialImagesCount,'initialimagelengh');
       console.log('Fetched data successfully');
     },
     error: function(error) {
@@ -475,9 +477,12 @@ function populateTehsil(selectId, value) {
     }
   }
 }
+
+
+
 function edit_data_id(id) {
+
   var edit_id = $("#userId").val();
-  var image_names = document.getElementById('_image2').files;
   var nursery_name = $("#nursery_name2").val();
   var first_name = $('#fname2').val();
   var last_name = $('#lname2').val();
@@ -498,14 +503,6 @@ function edit_data_id(id) {
 
   var data = new FormData();
 
-  for (var x = 0; x < image_names.length; x++) {
-    data.append('images[]', image_names[x]);
-  }
-
-  // Add removed image filenames to form data
-  removedImageFiles.forEach(function(file) {
-    data.append('removeImage[]', file); // Removed image File objects binary format mein append hote hain under the 'images[]' key
-  });
   data.append('_method', _method);
   data.append('id', edit_id);
   data.append('nursery_name', nursery_name);
@@ -518,6 +515,21 @@ function edit_data_id(id) {
   data.append('address', address);
   data.append('description', description);
 
+  // Iterate over displayed images and add the ones that haven't been removed
+  $('.brand-main').each(function() {
+    var imageName = $(this).data('file');
+    var file = new File([null], imageName);
+    data.append('images[]', file);
+  });
+var initialImagesCount = $('.brand-main').length; 
+  var remainingImagesCount = $('.brand-main').length; // Get the number of remaining images after removal
+console.log(remainingImagesCount,'ehwn i delete image');
+  // Assuming data is your FormData object
+
+  if(remainingImagesCount < initialImagesCount){
+    data.append('flag', 'deleteimage');
+  }
+
   $.ajax({
     url: url,
     type: "POST",
@@ -525,17 +537,17 @@ function edit_data_id(id) {
     headers: headers,
     processData: false,
     contentType: false,
-    success: function (result) {
+    success: function(result) {
       console.log(result, "result");
-      // window.location.reload();
-      console.log("updated successfully");
       alert('successfully updated..!');
     },
-    error: function (error) {
+    error: function(error) {
       console.error('Error fetching data:', error);
     }
   });
 }
+
+
 
  function searchdata() {
   var name = $('#name1').val();
