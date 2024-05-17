@@ -89,6 +89,10 @@ var removedImageFiles = [];
 var imageuploadstatus = false;
 var imgUploaded=[];
 function ImgUpload() {
+  // removedImages =[];
+  // if (removedImages[0] ===undefined){
+  //   removedImages =[];
+  // }
   var imgWrap = "";
   var imgArray = [];
   $('.upload__inputfile').each(function () {
@@ -131,8 +135,9 @@ function ImgUpload() {
       initialimgDivlength++;
       console.log(initialImagesCount, 'when an image is added');
     });
- 
   });
+    
+
   $('body').on('click', ".upload__img-close", function (e) {
     var filename = $(this).parent().data("file");
     var file = new File([null], filename);
@@ -156,17 +161,26 @@ function ImgUpload() {
 }
 
 
-
+var fetchdataImage = [];
 function removeImage(ele) {
-  console.log('removing...')
-  let filename = $(ele).data('file');
-  console.log('filename-',filename);
+  console.log('ele',ele,fetchdataImage,removedImages);
   initialImagesCount--;
-  if (filename) {
-    var file = new File([null], filename);
-    removedImages.push(file); 
-    
+  
+  // if (removedImages[0] ===undefined){
+  //   removedImages =[];
+  // }
+  if(ele !=''){
+
+    removedImages.push(ele); 
   }
+  //   console.log('removing...')
+  // let filename = $(ele).data('file');
+  // console.log('filename-',filename);
+  // if (filename) {
+  //   var file = new File([null], filename);
+  //   removedImages.push(file); 
+    
+  // }
   console.log('removedImageFiles-',removedImages)
   if(removedImages.length > 0){
     imageuploadstatus = false;
@@ -452,7 +466,7 @@ function fetch_edit_data_nursery(id) {
       if (userData.image_names) {
         var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
         var countclass = 0;
-       
+        fetchdataImage = imageNamesArray
         imageNamesArray.forEach(function(image_name) {
           var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_name.trim();
           console.log('imageUrl',imageUrl);
@@ -554,21 +568,22 @@ function edit_data_id(id) {
     remainingImagesCount = $('.brand-main').length; 
   }
 
+
   if((imgUploaded.length>0)||(imgUploaded.length==0 && removedImages.length >0)){
-    console.log('ffff',initialimgDivlength, (initialimgDivlength==0 &&  removedImages.length==0 ), removedImages.length >0 && remainingImagesCount==0)
+    console.log('ffff',initialimgDivlength, (initialimgDivlength==0 &&  removedImages.length==0 ),removedImages, removedImages.length >0 && remainingImagesCount==0)
     if((initialimgDivlength==0 &&  removedImages.length==0 )||(removedImages.length>0 && remainingImagesCount==0)){
       data.append('flag', 'noimg');
     }
     else{
       console.log('else....', $('.brand-main').length, $('.upload__img-box').length, imgUploaded.length,imgUploaded)
-      if((($('.brand-main').length==0&& $('.upload__img-box').length>0))||( imgUploaded.length>0)){
+      if((($('.brand-main').length==0&& $('.upload__img-box').length>0))||imgUploaded.length>0){
         $('.upload__img-box').each(function(ele) {
           console.log('ffff3',ele)
           // var imageName = $(this).data('file');
           for(i=0;i<imgUploaded.length; i++){
             console.log('imgUploaded',imgUploaded[i].name);
-            var imageName = new File ([null], imgUploaded[i].name); 
-            data.append('images[]', imageName);
+            // var imageName = new File ([null], imgUploaded[i]); 
+            data.append('images[]',  imgUploaded[i]);
           }
           // console.log('imageName-',imageName);
           // var file = new File([null], imageName);
@@ -582,6 +597,7 @@ function edit_data_id(id) {
           var imageName = $(this).data('file');
           console.log('imageName-',imageName);
           var file = new File([null], imageName);
+          console.log('file-', file)
           data.append('images[]', file);
         });
       }
@@ -610,11 +626,13 @@ function edit_data_id(id) {
     success: function(result) {
       console.log(result, "result");
       alert('successfully updated..!');
+      removedImages=[];
     },
     error: function(error) {
       console.error('Error fetching data:', error);
     }
   });
+
 }
 
 
