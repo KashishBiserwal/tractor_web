@@ -85,7 +85,9 @@ jQuery(document).ready(function () {
   removeImage();
 });
 var removedImages = [];
-
+var removedImageFiles = [];
+var imageuploadstatus = false;
+var imgUploaded=[];
 function ImgUpload() {
   var imgWrap = "";
   var imgArray = [];
@@ -114,6 +116,7 @@ function ImgUpload() {
             return false;
           } else {
             imgArray.push(f);
+            imgUploaded.push(f);
             var reader = new FileReader();
             reader.onload = function (e) {
               var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
@@ -124,31 +127,47 @@ function ImgUpload() {
           }
         }
       });
+      initialImagesCount++; 
+      initialimgDivlength++;
+      console.log(initialImagesCount, 'when an image is added');
     });
+ 
   });
   $('body').on('click', ".upload__img-close", function (e) {
     var filename = $(this).parent().data("file");
     var file = new File([null], filename);
-    console.log(file,'imagefile');
-    for (var i = 0; i < imgArray.length; i++) {
-      if (imgArray[i].name === file) {
-        imgArray.splice(i, 1);
+    console.log(file,'imagefile',imgArray.length);
+    // for (var i = 0; i < imgArray.length; i++) {
+      // if (imgArray[i].name === file) {
+        imgArray.splice(1);
         removedImages.push(file); // Add the removed image filename to removedImages array
-        break;
-      }
-    }
+        // break;
+      // }
+    // }
+    console.log('removedImages-', removedImages)
     $(this).parent().parent().remove();
+    initialimgDivlength = $('.brand-main').length; 
+    imageuploadstatus = false;
   });
+  var initialiamge = $('.brand-main').length; 
+  initialImagesCount = initialiamge;
+  imageuploadstatus = true;
 }
 
-var removedImageFiles = [];
+
 
 function removeImage(ele) {
+  console.log('removing...')
   let filename = $(ele).data('file');
-
+  initialImagesCount--;
   if (filename) {
     var file = new File([null], filename);
-    removedImageFiles.push(file); 
+    removedImages.push(file); 
+    
+  }
+  console.log('removedImageFiles-',removedImages)
+  if(removedImages.length > 0){
+    imageuploadstatus = false;
   }
 
   $(ele).closest('.col-12').remove(); 
@@ -396,7 +415,8 @@ function openViewdata(Id) {
 
 
 // edit data 
-
+var initialImagesCount;
+var initialimgDivlength;
 function fetch_edit_data_nursery(id) {
   var apiBaseURL = APIBaseURL;
   var nursery_id = id;
@@ -446,7 +466,9 @@ function fetch_edit_data_nursery(id) {
           $("#selectedImagesContainer2").append(newCard);
         });
       }
-      var initialImagesCount = $('.brand-main').length; 
+      var initialiamge = $('.brand-main').length; 
+      initialImagesCount = initialiamge;
+      initialimgDivlength = initialiamge;
       console.log(initialImagesCount,'initialimagelengh');
       console.log('Fetched data successfully');
     },
@@ -516,19 +538,61 @@ function edit_data_id(id) {
   data.append('description', description);
 
   // Iterate over displayed images and add the ones that haven't been removed
-  $('.brand-main').each(function() {
-    var imageName = $(this).data('file');
-    var file = new File([null], imageName);
-    data.append('images[]', file);
-  });
-var initialImagesCount = $('.brand-main').length; 
-  var remainingImagesCount = $('.brand-main').length; // Get the number of remaining images after removal
-console.log(remainingImagesCount,'ehwn i delete image');
-  // Assuming data is your FormData object
 
-  if(remainingImagesCount < initialImagesCount){
+
+
+  // if((removedImages.length > 0 &&  remainingImagesCount == initialimgDivlength)){
+  //   imageuploadstatus = false;
+  // }
+
+  var remainingImagesCount;
+  if(removedImages.length ==0){
+    remainingImagesCount =0;
+  }
+  else{
+    remainingImagesCount = $('.brand-main').length; 
+  }
+
+  if((imgUploaded.length>0)||(imgUploaded.length==0 && removedImages.length >0)){
+    console.log('ffff',initialimgDivlength, (initialimgDivlength==0 &&  removedImages.length==0 ), removedImages.length >0 && remainingImagesCount==0)
+    if((initialimgDivlength==0 &&  removedImages.length==0 )||(removedImages.length>0 && remainingImagesCount==0)){
+      data.append('flag', 'noimg');
+    }
+    else{
+      console.log('else....', $('.brand-main').length, $('.upload__img-box').length)
+      if($('.brand-main').length==0&& $('.upload__img-box').length>0){
+        $('.upload__img-box').each(function() {
+          console.log('ffff3')
+          var imageName = $(this).data('file');
+          console.log('imageName-',imageName);
+          var file = new File([null], imageName);
+          data.append('images[]', file);
+        });
+      }
+      else{
+        console.log('else brand-main')
+        $('.brand-main').each(function() {
+          console.log('ffff2')
+          var imageName = $(this).data('file');
+          console.log('imageName-',imageName);
+          var file = new File([null], imageName);
+          data.append('images[]', file);
+        });
+      }
+    
+    }
+}
+
+  console.log(remainingImagesCount,initialimgDivlength,imageuploadstatus,removedImages.length,
+    imgUploaded.length,
+    'ehwn i delete image');
+  console.log(remainingImagesCount < initialimgDivlength,'sdfghjdsfgvv');
+ 
+  if(
+  remainingImagesCount <= initialimgDivlength && !imageuploadstatus && (remainingImagesCount >0 && removedImages.length>0)){
     data.append('flag', 'deleteimage');
   }
+
 
   $.ajax({
     url: url,
