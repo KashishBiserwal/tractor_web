@@ -141,10 +141,11 @@ function ImgUpload() {
       // if (imgArray[i].name === file) {
         imgArray.splice(1);
         removedImages.push(file); // Add the removed image filename to removedImages array
+       
         // break;
       // }
     // }
-    console.log('removedImages-', removedImages)
+    console.log('removedImages-', removedImages, removedImages.length)
     $(this).parent().parent().remove();
     initialimgDivlength = $('.brand-main').length; 
     imageuploadstatus = false;
@@ -159,6 +160,7 @@ function ImgUpload() {
 function removeImage(ele) {
   console.log('removing...')
   let filename = $(ele).data('file');
+  console.log('filename-',filename);
   initialImagesCount--;
   if (filename) {
     var file = new File([null], filename);
@@ -450,18 +452,20 @@ function fetch_edit_data_nursery(id) {
       if (userData.image_names) {
         var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
         var countclass = 0;
+       
         imageNamesArray.forEach(function(image_name) {
           var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_name.trim();
+          console.log('imageUrl',imageUrl);
           countclass++;
           var newCard = `
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);" data-file="${image_name.trim()}"></div>
-              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}" data-file="${image_name.trim()}">
-                <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                  <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                </a>
+          <div class="col-12 col-md-6 col-lg-4 position-relative">
+          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                  <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                    <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
+                  </a>
               </div>
-            </div>
+          </div>
           `;
           $("#selectedImagesContainer2").append(newCard);
         });
@@ -477,9 +481,6 @@ function fetch_edit_data_nursery(id) {
     }
   });
 }
-
-
-
 function setSelectedOption(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -559,15 +560,20 @@ function edit_data_id(id) {
       data.append('flag', 'noimg');
     }
     else{
-      console.log('else....', $('.brand-main').length, $('.upload__img-box').length)
-      if($('.brand-main').length==0&& $('.upload__img-box').length>0){
-        $('.upload__img-box').each(function() {
-          console.log('ffff3')
-          var imageName = $(this).data('file');
-          console.log('imageName-',imageName);
-          var file = new File([null], imageName);
-          data.append('images[]', file);
+      console.log('else....', $('.brand-main').length, $('.upload__img-box').length, imgUploaded.length,imgUploaded)
+      if((($('.brand-main').length==0&& $('.upload__img-box').length>0))||( imgUploaded.length>0)){
+        $('.upload__img-box').each(function(ele) {
+          console.log('ffff3',ele)
+          // var imageName = $(this).data('file');
+          for(i=0;i<imgUploaded.length; i++){
+            console.log('imgUploaded',imgUploaded[i].name);
+            var imageName = new File ([null], imgUploaded[i].name); 
+            data.append('images[]', imageName);
+          }
+          // console.log('imageName-',imageName);
+          // var file = new File([null], imageName);
         });
+        // return
       }
       else{
         console.log('else brand-main')
