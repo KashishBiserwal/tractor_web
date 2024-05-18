@@ -590,18 +590,15 @@ function edit_data_id(id) {
     data.append('flag', 'newimguploaded');
   }
   else if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length>0){
-    for(i=0;i<fetchdataImage.length; i++){
-      var parts = fetchdataImage[i].split('_');
-      var imgname = parts[parts.length - 1].split('.').slice(-2).join('.');
-      var file = new File([null], imgname);
-      imgUploaded.push(file);
+    for(i=0;i<removedImages.length; i++){
+      var imageName = removedImages[i];
+      var file = new File([null], imageName);
+      data.append('remimages[]',  file);
     }
-    console.log('imgUploaded-',imgUploaded)
-    for(j=0;j<imgUploaded.length; j++){
-      console.log('imgUploaded[i].name', imgUploaded[j])
-      data.append('images[]',   imgUploaded[j]);
+    for(i=0;i<imgUploaded.length; i++){
+      data.append('images[]',  imgUploaded[i]);
     }
-    data.append('flag', 'deleteimage');
+    data.append('flag', 'newimguploaded');
   }
 
 
