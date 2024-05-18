@@ -582,7 +582,12 @@ function edit_data_id(id) {
     for(i=0;i<imgUploaded.length; i++){
       data.append('images[]',  imgUploaded[i]);
     }
-    data.append('flag', 'deleteimage');
+    for(i=0;i<removedImages.length; i++){
+      var imageName = removedImages[i];
+      var file = new File([null], imageName);
+      data.append('remimages[]',  file);
+    }
+    data.append('flag', 'newimguploaded');
   }
   else if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length>0){
     for(i=0;i<fetchdataImage.length; i++){
