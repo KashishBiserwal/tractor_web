@@ -669,6 +669,7 @@ function edit_data_id(id) {
       removedImages=[];
       fetchdataImage=[];
       imgUploaded=[];
+      window.location.reload();
     },
     error: function(error) {
       console.error('Error fetching data:', error);
