@@ -82,7 +82,7 @@ $(document).ready(function(){
 });
 jQuery(document).ready(function () {
   ImgUpload();
-  removeImage();
+  // removeImage();
 });
 var removedImages = [];
 var removedImageFiles = [];
@@ -162,30 +162,23 @@ function ImgUpload() {
 
 
 var fetchdataImage = [];
-function removeImage(ele) {
-  console.log('ele',ele,fetchdataImage,removedImages);
+function removeImage(ele, imagename) {
+  console.log('ele',ele,fetchdataImage,imagename);
   initialImagesCount--;
-  
-  // if (removedImages[0] ===undefined){
-  //   removedImages =[];
-  // }
-  if(ele !=''){
+  if(imagename !=''){
+    removedImages.push(imagename); 
+      // Find the index of the imagename in the fetchdataImage array
+      var index = fetchdataImage.indexOf(imagename);
+      // Remove the image from fetchdataImage if it exists
+      if (index !== -1) {
+          fetchdataImage.splice(index, 1);
+      }
 
-    removedImages.push(ele); 
   }
-  //   console.log('removing...')
-  // let filename = $(ele).data('file');
-  // console.log('filename-',filename);
-  // if (filename) {
-  //   var file = new File([null], filename);
-  //   removedImages.push(file); 
-    
-  // }
-  console.log('removedImageFiles-',removedImages)
+  console.log('removedImageFiles-',removedImages, fetchdataImage)
   if(removedImages.length > 0){
     imageuploadstatus = false;
   }
-
   $(ele).closest('.col-12').remove(); 
 }
 
@@ -473,7 +466,7 @@ function fetch_edit_data_nursery(id) {
           countclass++;
           var newCard = `
           <div class="col-12 col-md-6 col-lg-4 position-relative">
-          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this, '${image_name.trim().replace(/'/g, "\\'")}');"></div>
               <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                   <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                     <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
@@ -569,51 +562,96 @@ function edit_data_id(id) {
   }
 
 
-  if((imgUploaded.length>0)||(imgUploaded.length==0 && removedImages.length >0)){
-    console.log('ffff',initialimgDivlength, (initialimgDivlength==0 &&  removedImages.length==0 ),removedImages, removedImages.length >0 && remainingImagesCount==0)
-    if((initialimgDivlength==0 &&  removedImages.length==0 )||(removedImages.length>0 && remainingImagesCount==0)){
-      data.append('flag', 'noimg');
+  if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length==0){
+    for(i=0;i<removedImages.length; i++){
+      var imageName = removedImages[i];
+      var file = new File([null], imageName);
+      data.append('images[]',  file);
     }
-    else{
-      console.log('else....', $('.brand-main').length, $('.upload__img-box').length, imgUploaded.length,imgUploaded)
-      if((($('.brand-main').length==0&& $('.upload__img-box').length>0))||imgUploaded.length>0){
-        $('.upload__img-box').each(function(ele) {
-          console.log('ffff3',ele)
-          // var imageName = $(this).data('file');
-          for(i=0;i<imgUploaded.length; i++){
-            console.log('imgUploaded',imgUploaded[i].name);
-            // var imageName = new File ([null], imgUploaded[i]); 
-            data.append('images[]',  imgUploaded[i]);
-          }
-          // console.log('imageName-',imageName);
-          // var file = new File([null], imageName);
-        });
-        // return
-      }
-      else{
-        console.log('else brand-main')
-        $('.brand-main').each(function() {
-          console.log('ffff2')
-          var imageName = $(this).data('file');
-          console.log('imageName-',imageName);
-          var file = new File([null], imageName);
-          console.log('file-', file)
-          data.append('images[]', file);
-        });
-      }
-    
-    }
-}
-
-  console.log(remainingImagesCount,initialimgDivlength,imageuploadstatus,removedImages.length,
-    imgUploaded.length,
-    'ehwn i delete image');
-  console.log(remainingImagesCount < initialimgDivlength,'sdfghjdsfgvv');
- 
-  if(
-  remainingImagesCount <= initialimgDivlength && !imageuploadstatus && (remainingImagesCount >0 && removedImages.length>0)){
     data.append('flag', 'deleteimage');
   }
+  else if(fetchdataImage.length==0 && removedImages.length>0 && imgUploaded.length==0){
+    data.append('flag', 'noimg');
+  }
+  else if(fetchdataImage.length==0 && removedImages.length==0 && imgUploaded.length>0){
+    for(i=0;i<imgUploaded.length; i++){
+      data.append('images[]',  imgUploaded[i]);
+    }
+  }
+  else if(fetchdataImage.length==0 && removedImages.length>0 && imgUploaded.length>0){
+    for(i=0;i<imgUploaded.length; i++){
+      data.append('images[]',  imgUploaded[i]);
+    }
+    data.append('flag', 'deleteimage');
+  }
+  else if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length>0){
+    for(i=0;i<fetchdataImage.length; i++){
+      var parts = fetchdataImage[i].split('_');
+      var imgname = parts[parts.length - 1].split('.').slice(-2).join('.');
+      var file = new File([null], imgname);
+      imgUploaded.push(file);
+    }
+    console.log('imgUploaded-',imgUploaded)
+    for(j=0;j<imgUploaded.length; j++){
+      console.log('imgUploaded[i].name', imgUploaded[j])
+      data.append('images[]',   imgUploaded[j]);
+    }
+    data.append('flag', 'deleteimage');
+  }
+
+
+//   if((imgUploaded.length>0)||(imgUploaded.length==0 && removedImages.length >0)){
+//     console.log('ffff',initialimgDivlength, (initialimgDivlength==0 &&  removedImages.length==0 ),removedImages, removedImages.length >0 && remainingImagesCount==0)
+    
+//     console.log('fetchdataImage-', fetchdataImage)
+//     if(removedImages.length>0){
+//       for(i=0;i<fetchdataImage.length; i++){
+//         console.log('imgUploaded',fetchdataImage[i].name);
+//         var imageName = fetchdataImage[i].name;
+//         var file = new File([null], imageName);
+//         data.append('images[]',  file);
+//       }
+//     }
+
+//     if((initialimgDivlength==0 &&  removedImages.length==0 )||(removedImages.length>0 && remainingImagesCount==0)){
+//       data.append('flag', 'noimg');
+//     }
+//     else{
+//       console.log('else....', $('.brand-main').length, $('.upload__img-box').length, imgUploaded.length,imgUploaded)
+//       if((($('.brand-main').length==0&& $('.upload__img-box').length>0))||(imgUploaded.length>0)||(imgUploaded.length==0)){
+//         $('.upload__img-box').each(function(ele) {
+//           console.log('ffff3',ele)
+//           for(i=0;i<imgUploaded.length; i++){
+//             console.log('imgUploaded',imgUploaded[i].name);
+//             data.append('images[]',  imgUploaded[i]);
+//           }
+//         });
+//         // return
+//       }
+//       else{
+//         console.log('else brand-main')
+//         $('.brand-main').each(function() {
+//           console.log('ffff2')
+//           var imageName = $(this).data('file');
+//           console.log('imageName-',imageName);
+//           var file = new File([null], imageName);
+//           console.log('file-', file)
+//           data.append('images[]', file);
+//         });
+//       }
+    
+//     }
+// }
+
+//   console.log(remainingImagesCount,initialimgDivlength,imageuploadstatus,removedImages.length,
+//     imgUploaded.length,
+//     'ehwn i delete image');
+//   console.log(remainingImagesCount < initialimgDivlength,'sdfghjdsfgvv');
+ 
+//   if(
+//   remainingImagesCount <= initialimgDivlength && !imageuploadstatus && (remainingImagesCount >0 && removedImages.length>0)){
+//     data.append('flag', 'deleteimage');
+//   }
 
 
   $.ajax({
@@ -627,6 +665,8 @@ function edit_data_id(id) {
       console.log(result, "result");
       alert('successfully updated..!');
       removedImages=[];
+      fetchdataImage=[];
+      imgUploaded=[];
     },
     error: function(error) {
       console.error('Error fetching data:', error);
