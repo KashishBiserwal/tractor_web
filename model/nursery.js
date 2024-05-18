@@ -575,6 +575,7 @@ function edit_data_id(id) {
   }
   else if(fetchdataImage.length==0 && removedImages.length==0 && imgUploaded.length>0){
     for(i=0;i<imgUploaded.length; i++){
+      console.log(' imgUploaded[i]-', imgUploaded[i])
       data.append('images[]',  imgUploaded[i]);
     }
   }
