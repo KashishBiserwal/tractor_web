@@ -184,7 +184,7 @@
                                                             <div class="upload__btn-box">
                                                                 <label>
                                                                     <p class="upload__btn w-100 m-5">Upload images</p>
-                                                                    <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="f_file" name="_file">
+                                                                    <input type="file"  class="upload__inputfile" id="f_file" name="_file">
                                                                 </label>
                                                             </div>
                                                             <div class="col-sm-12">
