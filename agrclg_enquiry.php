@@ -6,6 +6,7 @@
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/agrclg_enquiry.js"></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 
@@ -39,7 +40,7 @@
              <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
                     <label class="form-label"> College Name</label>
-                    <input type="text" class="form-control" id="cpllege_name" name="cpllege_name" placeholder="Enter Your College Name">
+                    <input type="text" class="form-control" id="college_name" name="college_name" placeholder="Enter Your College Name">
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -74,8 +75,9 @@
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Date </th>
-                                            <th class="d-none d-md-table-cell text-white">College Name </th>
+                                            <th class="d-none d-md-table-cell text-white">Date</th>
+                                            <th class="d-none d-md-table-cell text-white">College Name</th>
+                                            <th class="d-none d-md-table-cell text-white">Name</th>
                                             <th class="d-none d-md-table-cell text-white">Phone Number</th>
                                             <th class="d-none d-md-table-cell text-white">District</th>
                                             <th class="d-none d-md-table-cell text-white">State</th>
@@ -112,25 +114,30 @@
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="15" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="27" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> product_type_id <span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="3" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                      
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                          <div class="form-outline">
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
+                                          <div class="form-outline mt-4">
+                                            <label for="name" class="form-label text-dark">College Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="college_name_edit" name="cname">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
+                                          <div class="form-outline mt-4">
                                             <label for="name" class="form-label text-dark">First Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="first_name" name="first_name">
+                                            <input type="text" class="form-control" placeholder="" id="first_name_edit" name="fname">
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                           <div class="form-outline  mt-4">
                                             <label for="name" class="form-label text-dark">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="last_name" name="last_name">
+                                            <input type="text" class="form-control" placeholder="" id="last_name_edit" name="lname">
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
@@ -191,40 +198,32 @@
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
-                         <tr> 
-                            <td>Loan Type-</td>
-                            <td id="insurance_type_name1"></td>
-                            <td>Full Name-</td>
-                            <td id="last_name2"></td>
+                          <tr>
+                            <td>Agriculture College:-</td>
+                            <td id="agr_clg"></td>
+                            <td>First Name-</td>
+                            <td id="first_name_view"></td>
                           </tr>
                           <tr>
+                            <td>Last Name-</td>
+                            <td id="last_name_view"></td>
                             <td>Mobile Number-</td>
-                            <td id="number"></td>
-                            <td>Brand Name-</td>
-                            <td id="brand_id"></td>
-                         </tr>
+                            <td id="mob_nub"></td>
+                          </tr>
                           <tr>
-                             <td>Model Name-</td>
-                            <td id="model1"></td>
-                            <td>Vehicle Registered Number-</td>
-                            <td id="vehicle"></td>
-                           </tr>
-                          <tr>
-                          <td>Registered Year-</td>
-                            <td id="regi_no"></td>
+                          <td>Date-</td>
+                            <td id="date_view"></td>
                             <td>State-</td>
-                            <td id="state1"></td>
+                            <td id="state_view"></td>
+                          
                           </tr>
                           <tr>
-                            <td>District-</td>
-                            <td id="district1"></td>
+                          <td>District-</td>
+                            <td id="district_view"></td>
                             <td>Tehsil-</td>
-                            <td id="tehsil1"></td>
+                            <td id="tehsil_view"></td>
+                            
                           </tr>
-                          <!-- <tr>
-                            <td>Claims made in previous policy</td>
-                            <td id="policy_1"></td>
-                          </tr> -->
                         </tbody>
                       </table>
                     </div>

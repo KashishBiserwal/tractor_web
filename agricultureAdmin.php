@@ -7,6 +7,7 @@
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/agricultureAdmin.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+    <script src="<?php $baseUrl; ?>model/sdt.js"></script>
     <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 <style>
      html * {
@@ -122,7 +123,7 @@
                             </li>
                         </ol>
                     </nav>
-                    <button type="button" id="add_trac" class="btn add_btn btn-success float-right add_trac p-1" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields()">
+                    <button type="button" id="add_trac" class="btn add_btn btn-success float-right add_trac p-1" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" >
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Agriculture College
                     </button>
 
@@ -179,16 +180,16 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-0 mb-0 m-0 p-1">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2 mb-0 m-0 p-1">
                                                         <div class="upload__box">
                                                             <div class="upload__btn-box">
                                                                 <label>
                                                                     <p class="upload__btn w-100 m-5">Upload images</p>
-                                                                    <input type="file"  class="upload__inputfile" id="f_file" name="_file">
+                                                                    <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="f_file" name="_file">
                                                                 </label>
                                                             </div>
                                                             <div class="col-sm-12">
-                                                                <div class="upload__img-wrap" style="display:flex; flex-wrap:wrap;"></div>
+                                                                <div id="selectedImagesContainer" class="upload__img-wrap" style="display:flex; flex-wrap:wrap;"></div>
                                                             </div>
                                                         </div>
                                                         <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
@@ -234,8 +235,8 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                                 <div class="text-center">
-                                    <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
-                                    <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
+                                    <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
+                                    <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetform()">Reset</button>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +249,7 @@
                             <thead class="">
                                 <tr>
                                     <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Date/Time</th>
                                     <th class="d-none d-md-table-cell text-white">College Name</th>
                                     <th class="d-none d-md-table-cell text-white">Mobile Number</th>
                                     <th class="d-none d-md-table-cell text-white">State</th>
@@ -277,9 +278,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>Agriculture College:-</td>
-                                                <td id="brand_2"></td>
+                                                <td id="agr_clg"></td>
                                                 <td>Mobile Number-</td>
-                                                <td id="mobile"></td>
+                                                <td id="mob_nub"></td>
                                             </tr>
                                             <tr>
                                             <td>State-</td>
@@ -288,10 +289,11 @@
                                                 <td id="district_2"></td>
                                             </tr>
                                             <tr>
-                                            <td>Tehsil-</td>
+                                                <td>Tehsil-</td>
                                                 <td id="tehsil2"></td>
+                                                <td>Date-</td>
+                                                <td id="date_1"></td>
                                             </tr>
-                                            <tr>
                                             <tr>
                                                 <td>Upload images-</td>
                                                 <td colspan="3">
@@ -315,4 +317,91 @@
     </section>
     </div>
     </div>
+
+    <div class="modal fade" id="Edit_Agr_college" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content modal_box">
+                                <div class="modal-header modal_head">
+                                    <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Agriculture College</h5>
+                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                                </div>
+                                <div class="modal-body bg-white">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-10">
+                                            <form id="Agriculture_college_form" enctype="multipart/form-data" onsubmit="return false">
+                                                <div class="row justify-content-center pt-3">
+                                                    <h5 class="fw-bold">Enter Agriculture College Information</h5>
+                                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden >
+                                                        <div class="form-outline ">
+                                                            <label for="name" class="form-label text-dark">id</label>
+                                                            <input type="text" class="form-control" placeholder="" value="" id="EditIdmain_" name="">
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
+                                                        <div class="form-outline ">
+                                                            <label for="name" class="form-label text-dark">College</label>
+                                                            <input type="text" class="form-control" placeholder="" id="userId" name="name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-4">
+                                                        <div class="form-outline">
+                                                            <label for="name" class="form-label text-dark">College Name</label>
+                                                            <input type="text" class="form-control" id="cname_edit" name="cname" placeholder="Enter Your College Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
+                                                        <div class="form-outline ">
+                                                            <label for="name" class="form-label text-dark">Mobile</label>
+                                                            <input type="text" class="form-control"  id="Mobile_edit" name="Mobile" placeholder="Enter Your Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
+                                                        <div class="form-outline ">
+                                                            <label class="form-label text-dark">State</label>
+                                                            <select class="form-select form-control state-dropdown1" aria-label=".form-select-lg example" id="state_" name="state">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
+                                                        <div class="form-outline ">
+                                                            <label class="form-label text-dark">District</label>
+                                                            <select class="form-select form-control district-dropdown1" aria-label=".form-select-lg example" id="district_" name="district">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
+                                                        <div class="form-outline ">
+                                                            <label class="form-label text-dark">Tehsil</label>
+                                                            <select class="form-select form-control tehsil-dropdown1" aria-label=".form-select-lg example" id="tehsil_" name="tehsil">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2 mb-0 m-0 p-1">
+                                                        <div class="upload__box">
+                                                            <div class="upload__btn-box">
+                                                                <label>
+                                                                    <p class="upload__btn w-100 m-5">Upload images</p>
+                                                                    <input type="file"  class="upload__inputfile" id="f_file_edit" name="_file">
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <div id="selectedImagesContainer2" class="upload__img-wrap" style="display:flex; flex-wrap:wrap;"></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-3">
+                                <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="submitbtn_edit" class="btn btn-success btn_all">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
