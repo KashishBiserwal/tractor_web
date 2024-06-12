@@ -42,6 +42,11 @@
                         Loan
                         </a>
                     </li>
+                    <li>
+                        <a href="privacy_policy.php" class="">
+                        Privacy Policy
+                        </a>
+                    </li>
                     
   	 			</ul>
   	 		</div>
@@ -115,17 +120,17 @@
   	 			<h4>Others</h4>
   	 			<ul>
                    <li>
-                        <a href="#" class="">
+                        <a href="nursery_ui.php" class="">
                          Nuesery
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="">
+                        <a href="engine_oil.php" class="">
                         Engine Oil
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="">
+                        <a href="tyre.php" class="">
                        Tyres
                         </a>
                     </li>
