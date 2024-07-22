@@ -840,38 +840,43 @@ function fetch_data(product_id){
    
 }
 
-  function get_By_State() {
+function get_By_State() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+  const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function(data) {
-            const select = document.getElementById('state_name');
-            select.innerHTML = '<option selected disabled value="">Please select a state</option>';
-  
-            const stateId = 7;
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                const option = document.createElement('option');
-                option.textContent = filteredState.state_name;
-                option.value = filteredState.id;
-                select.appendChild(option);
-                // Once the state is populated, fetch districts for this state
-                getDistricts(filteredState.id);
-            } else {
-                select.innerHTML = '<option>No valid data available</option>';
-            }
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  get_By_State();
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          const select = document.getElementById('state_name');
+          select.innerHTML = '<option selected disabled value="">Please select a state</option>';
+
+          stateIds.forEach(stateId => {
+              const filteredState = data.stateData.find(state => state.id === stateId);
+              if (filteredState) {
+                  const option = document.createElement('option');
+                  option.textContent = filteredState.state_name;
+                  option.value = filteredState.id;
+                  select.appendChild(option);
+              } else {
+                  select.innerHTML += `<option value="${stateId}">State ID: ${stateId}</option>`;
+              }
+          });
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+// Initialize the function
+get_By_State();
+
+
+
 
  
 

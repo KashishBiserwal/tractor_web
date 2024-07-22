@@ -817,16 +817,22 @@ function getState() {
             const checkboxContainer = $('#state_state');
             checkboxContainer.empty(); // Clear existing checkboxes
             
-            const stateId = 7; // Replace 7 with the desired state ID
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-                checkboxContainer.append(checkboxHtml);
-                // Call getDistricts with the stateId
-                ge_tDistricts(stateId);
-            } else {
-                checkboxContainer.html('<p>No valid data available</p>');
+            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch checkboxes for
+
+            stateIds.forEach(stateId => {
+                const filteredState = data.stateData.find(state => state.id === stateId);
+                if (filteredState) {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                        '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                } else {
+                    checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
+                }
+            });
+
+            // Initially load districts for the first state in stateIds
+            if (stateIds.length > 0) {
+                ge_tDistricts(stateIds[0]);
             }
         },
         error: function(error) {
@@ -844,7 +850,7 @@ function ge_tDistricts(stateId) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            console.log("District data:", data);
+            console.log("District data for state ID " + stateId + ":", data);
             
             const checkboxContainer = $('#get_dist');
             checkboxContainer.empty(); // Clear existing checkboxes
@@ -856,14 +862,15 @@ function ge_tDistricts(stateId) {
                     checkboxContainer.append(checkboxHtml);
                 });
             } else {
-                checkboxContainer.html('<p>No districts available for this state</p>');
+                checkboxContainer.append('<p>No districts available for state ID: ' + stateId + '</p>');
             }
         },
         error: function(error) {
-            console.error('Error fetching districts:', error);
+            console.error('Error fetching districts for state ID ' + stateId + ':', error);
         }
     });
 }
+
 // Call the get function to start fetching state data
 getState();
 
