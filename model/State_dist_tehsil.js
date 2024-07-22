@@ -70,6 +70,7 @@ function populateDropdownsFromClass(stateClassName, districtClassName, tehsilCla
 }
 
 function getDistricts(state_id, districtClassName, tehsilClassName) {
+    console.log('state_id',state_id);
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
     console.log(url);
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
