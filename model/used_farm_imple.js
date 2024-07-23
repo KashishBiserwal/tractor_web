@@ -188,7 +188,7 @@ $(document).ready(function() {
                     const filteredState = data.stateData.find(state => state.id === stateId);
                     if (filteredState) {
                         var checkboxHtml = '<input type="radio" name="state_radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '" id="state_' + filteredState.id + '"/>' +
-                                           '<label for="state_' + filteredState.id + '" class="ps-2 fs-6">' + filteredState.state_name + '</label> <br/>';
+                                           '<label for="state_' + filteredState.id + '" class="ps-2 fs-6 text-dark">' + filteredState.state_name + '</label> <br/>';
                         checkboxContainer.append(checkboxHtml);
                     } else {
                         checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
@@ -271,6 +271,7 @@ $(document).ready(function() {
     }
     
     get();
+    
     
 
     function get_barnd() {
