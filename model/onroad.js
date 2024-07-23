@@ -293,6 +293,14 @@ function getState() {
                 }
             });
 
+            // Add event listeners to the state checkboxes
+            $('.state_checkbox').on('change', function() {
+                var selectedStateId = $(this).val();
+                if ($(this).is(':checked')) {
+                    ge_tDistricts(selectedStateId);
+                }
+            });
+
             // Initially load districts for the first state in stateIds
             if (stateIds.length > 0) {
                 ge_tDistricts(stateIds[0]);
@@ -333,7 +341,9 @@ function ge_tDistricts(stateId) {
         }
     });
 }
+
 getState();
+
 
 
 function getbrands() {
