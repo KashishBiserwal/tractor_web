@@ -11,7 +11,7 @@ function populateStateDropdown(stateClassName, districtClassName) {
             const stateSelect = document.getElementsByClassName(stateClassName)[0];
             stateSelect.innerHTML = '<option selected disabled value="">Please select a state</option>';
 
-            const stateIds = [7, 15, 20, 26, 32]; // Array of State IDs you want to filter for
+            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to filter for
             stateIds.forEach(stateId => {
                 const filteredState = data.stateData.find(state => state.id === stateId);
                 if (filteredState) {
@@ -19,15 +19,18 @@ function populateStateDropdown(stateClassName, districtClassName) {
                     option.textContent = filteredState.state_name;
                     option.value = filteredState.id;
                     stateSelect.appendChild(option);
-
-                    // Once the state dropdown is populated, populate the corresponding district dropdown
-                    populateDistrictDropdown(filteredState.id, districtClassName);
                 }
             });
 
             if (stateSelect.children.length === 1) {
                 stateSelect.innerHTML = '<option>No valid data available</option>';
             }
+
+            // Add event listener for state dropdown change
+            stateSelect.addEventListener('change', function() {
+                const selectedStateId = stateSelect.value;
+                populateDistrictDropdown(selectedStateId, districtClassName);
+            });
         },
         error: function(error) {
             console.error('Error fetching data:', error);
@@ -36,10 +39,11 @@ function populateStateDropdown(stateClassName, districtClassName) {
 }
 
 function populateDistrictDropdown(state_id, districtClassName) {
-    console.log('districtClassName',state_id,districtClassName);
+    console.log('districtClassName', state_id, districtClassName);
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
-    console.log('url',url);
+    console.log('url', url);
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
+    districtSelect.innerHTML = '<option selected disabled value="">Please select a district</option>';
 
     $.ajax({
         url: url,
@@ -65,6 +69,7 @@ function populateDistrictDropdown(state_id, districtClassName) {
     });
 }
 
+// Initialize the state dropdown
 populateStateDropdown('state_select', 'district_select');
 
 
