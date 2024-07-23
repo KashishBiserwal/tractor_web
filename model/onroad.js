@@ -164,7 +164,7 @@ function validateForm() {
         return false; // Form is not valid
     }
 
-    // If all validations pass, return true
+
     return true;
 }
 
