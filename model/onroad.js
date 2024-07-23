@@ -163,8 +163,6 @@ function validateForm() {
         $("#errorStatusLoading").find('.modal-body').html(msg);
         return false; // Form is not valid
     }
-
-
     return true;
 }
 
