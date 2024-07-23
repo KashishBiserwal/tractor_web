@@ -3,7 +3,7 @@
 $(document).ready(function() {
     $('#filter_tractor').click(filter_search); 
     getoldTractorList();
-    getDistricts();
+    // getDistricts();
     showOverlay(); 
    
 });
@@ -613,7 +613,6 @@ getBrand();
 // getState();
 
 
-
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
@@ -636,15 +635,19 @@ function getState() {
                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
                         '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
                     checkboxContainer.append(checkboxHtml);
+                    
+                    // Load districts for this state
+                    ge_tDistricts(stateId);
                 } else {
                     checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
                 }
             });
 
-            // Initially load districts for the first state in stateIds
-            if (stateIds.length > 0) {
-                ge_tDistricts(stateIds[0]);
-            }
+            // Add event listeners to state checkboxes
+            $('.state_checkbox').on('change', function() {
+                const stateId = $(this).val();
+                ge_tDistricts(stateId);
+            });
         },
         error: function(error) {
             console.error('Error fetching state data:', error);
@@ -681,7 +684,9 @@ function ge_tDistricts(stateId) {
         }
     });
 }
+
 getState();
+
 
 function get_year_and_hours() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
