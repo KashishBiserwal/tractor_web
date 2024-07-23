@@ -1074,29 +1074,35 @@ function filterAndDisplayCards() {
     window.location.reload();
     
   }
-
   function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    const stateIds = [7, 15, 20, 26, 34];
+   
 
     var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+    var stateOptions = stateIds.map(stateId => `<option value="${stateId}"></option>`).join('');
 
     stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+        dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+        // Add event listener to state dropdown to fetch district data
+        dropdown.addEventListener('change', function() {
+            var selectedStateId = this.value;
+            var districtSelect = this.closest('.row').querySelector('.district-dropdown');
             districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
-            });
+            if (selectedStateId) {
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                    data.districtData.forEach(district => {
+                        districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                    });
+                });
+            }
         });
     });
+
     districtDropdowns.forEach(function (dropdown) {
         dropdown.addEventListener('change', function() {
             var selectedDistrictId = this.value;
@@ -1114,3 +1120,4 @@ function filterAndDisplayCards() {
         });
     });
 }
+
