@@ -786,40 +786,90 @@ function appendFilterCard(filterContainer, filter) {
     
   } 
 
-  function populateDropdowns(identifier) {
+// function populateDropdowns(identifier) {
+//     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+//     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+//     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
+
+//     var defaultStateId = 7; 
+
+//     var selectYourStateOption = '<option value="">Select Your State</option>';
+//     var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+//     stateDropdowns.forEach(function (dropdown) {
+//         dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+//         // Fetch district data based on the selected state
+//         $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+//             var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+//             districtSelect.innerHTML = '<option value="">Please select a district</option>';
+//             data.districtData.forEach(district => {
+//                 districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+//             });
+//         });
+//     });
+//     districtDropdowns.forEach(function (dropdown) {
+//         dropdown.addEventListener('change', function() {
+//             var selectedDistrictId = this.value;
+//             var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+//             if (selectedDistrictId) {
+//                 $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+//                     tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+//                     data.tehsilData.forEach(tehsil => {
+//                         tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+//                     });
+//                 });
+//             } else {
+//                 tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+//             }
+//         });
+//         });
+// }
+function populateDropdowns(identifier) {
+    var stateIds = [7, 15, 20, 26, 34];
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
-
     var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
-            });
+    stateDropdowns.forEach(function(dropdown) {
+        dropdown.innerHTML = selectYourStateOption;
+        stateIds.forEach(function(stateId) {
+            dropdown.innerHTML += `<option value="${stateId}">State ID: ${stateId}</option>`;
         });
-    });
-    districtDropdowns.forEach(function (dropdown) {
+
         dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
+            var selectedStateId = this.value;
+            var districtSelect = this.closest('.row').querySelector('.district-dropdown');
             var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+
+            // Fetch districts for the selected state
+            if (selectedStateId) {
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                    districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                    data.districtData.forEach(district => {
+                        districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
                     });
                 });
+
+                districtSelect.addEventListener('change', function() {
+                    var selectedDistrictId = this.value;
+
+                    // Fetch tehsils for the selected district
+                    if (selectedDistrictId) {
+                        $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                            tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                            data.tehsilData.forEach(tehsil => {
+                                tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                            });
+                        });
+                    } else {
+                        tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                    }
+                });
             } else {
+                districtSelect.innerHTML = '<option value="">Please select a state first</option>';
                 tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
             }
         });
