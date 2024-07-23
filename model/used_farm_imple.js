@@ -187,21 +187,55 @@ $(document).ready(function() {
                 stateIds.forEach(stateId => {
                     const filteredState = data.stateData.find(state => state.id === stateId);
                     if (filteredState) {
-                        var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                                           '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-                                       checkboxContainer.append(checkboxHtml);
+                        var checkboxHtml = '<input type="radio" name="state_radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '" id="state_' + filteredState.id + '"/>' +
+                                           '<label for="state_' + filteredState.id + '" class="ps-2 fs-6">' + filteredState.state_name + '</label> <br/>';
+                        checkboxContainer.append(checkboxHtml);
                     } else {
                         checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
                     }
                 });
     
-                // Initially load districts for the first state in stateIds
-                if (stateIds.length > 0) {
-                    getDistricts(stateIds[0]);
-                }
+                // Initially load all districts
+                getAllDistricts();
+    
+                // Add click event listener for state checkboxes
+                $('.state_checkbox').on('click', function() {
+                    var stateId = $(this).val();
+                    getDistricts(stateId);
+                });
             },
             error: function(error) {
                 console.error('Error fetching state data:', error);
+            }
+        });
+    }
+    
+    function getAllDistricts() {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/all_districts';
+        $.ajax({
+            url: url,
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function(data) {
+                console.log("All District data:", data);
+    
+                const checkboxContainer = $('#district_dist');
+                checkboxContainer.empty(); // Clear existing checkboxes
+    
+                if (data && data.districtData && data.districtData.length > 0) {
+                    data.districtData.forEach(district => {
+                        var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                            '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                        checkboxContainer.append(checkboxHtml);
+                    });
+                } else {
+                    checkboxContainer.append('<p>No districts available.</p>');
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching all districts:', error);
             }
         });
     }
@@ -216,10 +250,10 @@ $(document).ready(function() {
             },
             success: function(data) {
                 console.log("District data for state ID " + stateId + ":", data);
-                
+    
                 const checkboxContainer = $('#district_dist');
                 checkboxContainer.empty(); // Clear existing checkboxes
-                
+    
                 if (data && data.districtData && data.districtData.length > 0) {
                     data.districtData.forEach(district => {
                         var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
@@ -235,7 +269,9 @@ $(document).ready(function() {
             }
         });
     }
+    
     get();
+    
 
     function get_barnd() {
         // var apiBaseURL = CustomerAPIBaseURL;
