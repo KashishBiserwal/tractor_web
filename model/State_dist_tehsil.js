@@ -1,38 +1,5 @@
 
 
-   
-// function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function(data) {
-//             console.log(data);
-//             const stateSelect = document.getElementsByClassName(stateClassName)[0];
-//             stateSelect.innerHTML = '<option selected disabled value="">Please select a state</option>';
-
-//             const stateId = 7; // State ID you want to filter for
-//             const filteredState = data.stateData.find(state => state.id === stateId);
-//             if (filteredState) {
-//                 const option = document.createElement('option');
-//                 option.textContent = filteredState.state_name;
-//                 option.value = filteredState.id;
-//                 stateSelect.appendChild(option);
-//                 // Once the state is populated, fetch and populate districts immediately
-//                 getDistricts(filteredState.id, districtClassName, tehsilClassName);
-//             } else {
-//                 stateSelect.innerHTML = '<option>No valid data available</option>';
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
 function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
