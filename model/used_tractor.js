@@ -3,7 +3,7 @@
 $(document).ready(function() {
     $('#filter_tractor').click(filter_search); 
     getoldTractorList();
-    getDistricts(7);
+    getDistricts();
     showOverlay(); 
    
 });
