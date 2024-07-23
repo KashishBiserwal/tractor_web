@@ -36,8 +36,9 @@ function populateStateDropdown(stateClassName, districtClassName) {
 }
 
 function populateDistrictDropdown(state_id, districtClassName) {
+    console.log('districtClassName',state_id,districtClassName);
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
-    console.log(url);
+    console.log('url',url);
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
 
     $.ajax({
