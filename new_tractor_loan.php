@@ -102,7 +102,7 @@ include 'includes/footertag.php';
             </div>
             <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
-                    <img src="assets/images/HDFC.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <img src="assets/images/HDFC_bank.jpg" class="card-img-top cards p-3" alt="Company 1">
                     <div class="card-body">
                         <h5 class="card-title text-center">HDFC</h5>
                     </div>
@@ -110,7 +110,7 @@ include 'includes/footertag.php';
             </div>
             <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
-                    <img src="assets/images/IDFC.png" class="card-img-top cards p-3" alt="Company 1">
+                    <img src="assets/images/IDFC_bank.png" class="card-img-top cards p-3" alt="Company 1">
                     <div class="card-body">
                         <h5 class="card-title text-center">IDFC</h5>
                     </div>
@@ -154,7 +154,7 @@ include 'includes/footertag.php';
             </div>
             <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
-                    <img src="assets/images/RBL.jpg" class="card-img-top cards" alt="Company 6">
+                    <img src="assets/images/RBL_bank.jpg" class="card-img-top cards" alt="Company 6">
                     <div class="card-body">
                         <h5 class="card-title text-center">RBL</h5>
                     </div>

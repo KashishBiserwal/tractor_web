@@ -19,14 +19,14 @@
       
    </head>
    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-6Z38E658LD');
-</script>
+    gtag('config', 'G-6Z38E658LD');
+    </script>
 
 <body> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
