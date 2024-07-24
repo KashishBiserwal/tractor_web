@@ -9,8 +9,15 @@
      ?> 
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/compare_trac.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <body>
+    gtag('config', 'G-6Z38E658LD');
+  </script>
   <style>
     #more {display: none;}
     .edit_btn {
@@ -20,6 +27,8 @@
       display: none;
     }
   </style>
+  <body>
+  
 
   <?php
     include 'includes/header.php';

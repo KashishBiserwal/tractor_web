@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
    <?php
   include 'includes/headertag.php';
     //include 'includes/headertagadmin.php';
@@ -12,7 +11,7 @@
     <script src="<?php $baseUrl; ?>model/sell_used_trac.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
-<head>
+    
    <?php
    include 'includes/headertag.php';
    ?>
@@ -154,7 +153,15 @@
     
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body>
    <?php
    include 'includes/header.php';

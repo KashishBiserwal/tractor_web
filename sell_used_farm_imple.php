@@ -13,6 +13,15 @@
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
     <?php
         include 'includes/headertag.php';
     ?>
@@ -142,7 +151,15 @@
         }      
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body>
    <?php
    include 'includes/header.php';
@@ -183,7 +200,7 @@
                      
                         <!-- <form id="signUpForm_sllused" class="bg-light"action=""> -->
                             <!-- FORM 1 -->
-                        <form id="form-step-1" class="bg-light mul_stp_frm" style="" method="post">
+                        <form id="form-step-1" class="bg-light mul_stp_frm"  method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-3 col-md-3 col-sm-3">
                                     <div class="float-start">Implement Info</div>

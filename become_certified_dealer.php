@@ -9,6 +9,16 @@
   <script src="<?php $baseUrl; ?>model/become_certified_dealer.js"></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">

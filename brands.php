@@ -10,48 +10,31 @@ include 'includes/headertag.php';
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/mahindra_brand.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<body>
-    <style>
-           .text-truncate {
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
+<style>
+    .text-truncate {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
    
     }
     </style>
+<body>
+    
    <?php
    include 'includes/header.php';
    ?>
-   <!-- Banner Here -->
-   
-   <!-- <section class="bg-cover bg-overlay" style="background-image: url('assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp')">
-        <div class="container-fullwidth position-relative mt-5 pt-5">
-            <div class="py-4"></div>
-            <div class="py-5"></div>
-            <div class="row justify-content-center">
-                <div class="col-12  text-center">
-                    <div class="banner__wrapper">
-                        <div class="row  w-100 float-start">
-                            <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
-                                <div class="banner__content float-start" id="slider_head">
-                                  
-                                    
-                                    <div>
-                                    
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="py-5"></div>
-            <div class="py-3"></div>
-        </div>
-   </section> -->
    <section class="mt-5 pt-5">
     <div class="container">
         <div class="mt-5">
