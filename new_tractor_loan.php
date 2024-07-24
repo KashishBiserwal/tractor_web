@@ -39,11 +39,13 @@ include 'includes/footertag.php';
 }
 
 .cards {
-    max-height: 5rem;
+    max-height: 4rem;
     object-fit: contain;
     width: 100%;
 }
-
+.card-title{
+    font-size: 14px;
+}
 .container-mid {
     max-width: 1280px;
     margin: 0 auto;
