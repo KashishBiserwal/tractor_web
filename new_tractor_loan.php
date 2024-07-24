@@ -74,142 +74,10 @@ include 'includes/footertag.php';
             </div>
         </div>
     </section>
-    <!--Banner-->
-    <div class="container-fluid">
-        <div class="row siv" id="">
-            <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;">
-            <div class="container-mid">
-                <div class="justify-content-center loan_form bg-light border border-dark">
-                    <div id="loanForm">
-                        <form id="applicationForm" method="POST">
-                            <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
-                            <h6 class="text-dark text-center mt-2">Provide Your Details to Access Exclusive Loan Options
-                            </h6>
-                            <div class="row px-4">
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="loanType">Loan Type</label>
-                                        <select class="form-select" id="loanType" name="loanType" required>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" name="firstName" required />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4" hidden>
-                                    <div class="form-outline">
-                                        <label class="form-label" for="firstName"> Name</label>
-                                        <input type="text" class="form-control" id="enquiry_type_id" value="" name="" required />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="lastName">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" name="lastName" required />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="mobileNo">Mobile Number</label>
-                                        <input type="tel" class="form-control" id="mobileNo" name="mobileNo" required />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="brand">Brand</label>
-                                        <select class="form-select" id="brand" name="brand" >
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="model">Model</label>
-                                        <select class="form-select" id="model" name="model" >
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="enterModel">Enter Model</label>
-                                        <input type="text" class="form-control" id="enterModel" name="enterModel"
-                                         />
-                                    </div>
-                                </div> -->
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
-                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo"  />
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="registeredYear">Registered Year</label>
-                                        <select class="form-select" id="registeredYear" name="registeredYear" >
-                                            <option value="" selected disabled>Select Year</option>
-                                            <!-- Assuming the range is from 2008 to 2023 -->
-                                            <script>
-                                            for (let year = 2023; year >= 2008; year--) {
-                                                document.write(`<option value="${year}">${year}</option>`);
-                                            }
-                                            </script>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="state">State</label>
-                                        <select class="form-select state-dropdown" id="state" name="state" required>
-                                        </select>
-                                    </div>
-                                </div>
-                               
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="district">District</label>
-                                        <select class="form-select district-dropdown"  id="district" name="district" required>
-                                        </select>
-                                    </div>
-                                </div>
-                             
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="tehsil">Tehsil</label>
-                                        <select class="form-select tehsil-dropdown" id="tehsil" name="tehsil">>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
-                                    <input type="radio" id="pcy_res" name="fav_rc" value="1">
-                                    <label for="policy" class="text-dark">Yes</label> 
-                                    <input type="radio" id="pcy_no" name="fav_rc" value="0">
-                                    <label for="policy" class="text-dark">No</label>
-                                </div> -->
-                                <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
-                                    Agrimart
-                                    <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
-                                        Conditions*</a>
-                                </p>
-                                <div class="d-grid col-8 mx-auto mb-3">
-                                <button type="button" class="btn btn-success fw-bold" id="apply_loan">Apply for Loan</button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 
     <!--Popular Tractor Insurance Companies-->
-
-
     <div class="container">
         <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Loan Companies</h4>
         <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -282,114 +150,124 @@ include 'includes/footertag.php';
     </div>
 
 
-    <!--Popular Tractor Insurance Companies End-->
+     <!--Banner-->
+    <div class="container-fluid">
+        <div class="row siv" id="">
+            <!-- <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;"> -->
+            <div class="container-mid">
+                <div class="justify-content-center loan_form bg-light border border-dark">
+                    <div id="loanForm">
+                        <form id="applicationForm" method="POST">
+                            <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
+                            <h6 class="text-dark text-center mt-2">Provide Your Details to Access Exclusive Loan Options
+                            </h6>
+                            <div class="row px-4">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="loanType">Loan Type</label>
+                                        <select class="form-select" id="loanType" name="loanType" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4" hidden>
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName"> Name</label>
+                                        <input type="text" class="form-control" id="enquiry_type_id" value="" name="" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="mobileNo">Mobile Number</label>
+                                        <input type="tel" class="form-control" id="mobileNo" name="mobileNo" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="brand">Brand</label>
+                                        <select class="form-select" id="brand" name="brand" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="model">Model</label>
+                                        <select class="form-select" id="model" name="model" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
+                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo"  />
+                                    </div>
+                                </div>
 
-    <!-- card  -->
-    <!-- <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
-            <div class="col">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h3 class="card-title  fw-bold assured px-2">Your Loan Path: Types and Eligibility</h3>
-                        <p class="card-text">
-                        <div class="more-content" style="display:none;">
-                            <table class="table table-bordered table-responsive mt-4 border border-dark bg-light">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th>Type of Loan</th>
-                                        <th>Eligibility</th>
-                                        <th>Documents</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>New Tractor/ New Harvester</td>
-                                        <td>
-                                            <li>Age 18 years to 65 years</li>
-                                            <li>Income proof & minimum land holding of 2 acres</li>
-                                        <td>
-                                            <li>Land ownership proof.</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li> CV 12 months track record</li>
-                                    </tr>
-                                    <tr>
-                                        <td>Used Tractor/ Used Harvester</td>
-                                        <td>
-                                            <li>Age 18 years to 65 years</li>
-                                            <li>Satisfactory prior credit history</li>
-                                        </td>
-                                        <td>
-                                            <li>Land ownership proof.</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li>CV 12 months track record</li>
-                                            <li>Used tractor RC</li>
-                                            <li>Used tractor insurance</li>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Loan Against Tractor</td>
-                                        <td>
-                                            <li>Owner of tractor</li>
-                                            <li>Proof of ownership</li>
-                                            <li>Need to have paid at least 12 EMIs of Current Loan</li>
-                                        </td>
-                                        <td>
-                                            <li>Proof of ownership (RC)</li>
-                                            <li>Bank account statement</li>
-                                            <li>KYC Documents</li>
-                                            <li>Pan Card</li>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Implement</td>
-                                        <td>
-                                            <li> Age 18 years to 65 years</li>
-                                            <li>Satisfactory prior credit history</li>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="registeredYear">Registered Year</label>
+                                        <select class="form-select" id="registeredYear" name="registeredYear" >
+                                            <option value="" selected disabled>Select Year</option>
+                                            <script>
+                                            for (let year = 2023; year >= 2008; year--) {
+                                                document.write(`<option value="${year}">${year}</option>`);
+                                            }
+                                            </script>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="state">State</label>
+                                        <select class="form-select state-dropdown" id="state" name="state" required>
+                                        </select>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="district">District</label>
+                                        <select class="form-select district-dropdown"  id="district" name="district" required>
+                                        </select>
+                                    </div>
+                                </div>
+                             
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="tehsil">Tehsil</label>
+                                        <select class="form-select tehsil-dropdown" id="tehsil" name="tehsil">>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
+                                    Agrimart
+                                    <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
+                                        Conditions*</a>
+                                </p>
+                                <div class="d-grid col-8 mx-auto mb-3">
+                                <button type="button" class="btn btn-success fw-bold" id="apply_loan">Apply for Loan</button>
 
-                                        </td>
-                                        <td>
-                                            <li>Land ownership proof.</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li>CV 12 months track record</li>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Personal Loan</td>
-                                        <td>
-                                            <li>Personal loan eligibility depends on the lender's policy.</li>
-
-                                        </td>
-                                        <td>
-                                            <li>Photo</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li> Latest salary statement as Proof of Income</li>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        </p>
-                        <a href="javascript:void(0)"
-                            class=" text-primary read-more text-decoration-none fw-bold float-end"
-                            data-toggle="collapse" data-target="#collapse1">Read More</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
-    </div> -->
-    <!--Banner End-->
+    </div>
 
-
-
+    
 
     <!-- Your Loan Path: Types and Eligibility Table End -->
     <!--Table Content-->
