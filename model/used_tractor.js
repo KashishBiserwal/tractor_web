@@ -632,16 +632,17 @@ function getState() {
             stateIds.forEach(stateId => {
                 const filteredState = data.stateData.find(state => state.id === stateId);
                 if (filteredState) {
-                    var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    var checkboxHtml = '<input type="radio" name="state" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
                         '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
                     checkboxContainer.append(checkboxHtml);
-                    
-                    // Load districts for this state
-                    ge_tDistricts(stateId);
                 } else {
                     checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
                 }
             });
+
+            // Fetch districts for the initial state ID 7
+            ge_tDistricts(7);
+            $('input[value="7"]').prop('checked', true);
 
             // Add event listeners to state checkboxes
             $('.state_checkbox').on('change', function() {
@@ -686,6 +687,7 @@ function ge_tDistricts(stateId) {
 }
 
 getState();
+
 
 
 function get_year_and_hours() {
