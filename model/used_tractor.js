@@ -1124,6 +1124,6 @@ function filterAndDisplayCards() {
             });
         });
     });
-}
+    }
 
 
