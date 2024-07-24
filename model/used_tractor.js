@@ -640,9 +640,8 @@ function getState() {
                 }
             });
 
-            // Fetch districts for the initial state ID 7
-            ge_tDistricts(7);
-            $('input[value="7"]').prop('checked', true);
+            // Fetch and display all districts initially
+            getAllDistricts();
 
             // Add event listeners to state checkboxes
             $('.state_checkbox').on('change', function() {
@@ -652,6 +651,36 @@ function getState() {
         },
         error: function(error) {
             console.error('Error fetching state data:', error);
+        }
+    });
+}
+
+function getAllDistricts() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_districts';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("All districts data:", data);
+            
+            const checkboxContainer = $('#get_dist');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            if (data && data.districtData && data.districtData.length > 0) {
+                data.districtData.forEach(district => {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                });
+            } else {
+                checkboxContainer.append('<p>No districts available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching all districts:', error);
         }
     });
 }
