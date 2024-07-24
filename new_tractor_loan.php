@@ -50,7 +50,7 @@ include 'includes/footertag.php';
     width: 98%;
     padding-left: 8px;
     padding-right: 8px;
-    margin-top: -145px;
+    /* margin-top: -145px; */
 }
 </style>
 
@@ -83,67 +83,91 @@ include 'includes/footertag.php';
         <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
 
             <!-- Card 1 -->
-            <div class="col-12 col-lg-3 col-sm-3 mb-3">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <img src="assets/images/CHOLA.png" class="card-img-top cards p-2" alt="Company 1">
-                    <!-- <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title text-center">Chola</h5>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 col-lg-3 col-sm-3 mb-3">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <img src="assets/images/HDB.png" class="card-img-top cards p-3" alt="Company 1">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">Chola</h5>
-                    </div> -->
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDB</h5>
+                    </div>
                 </div>
             </div>
-
-             <div class="col-12 col-lg-3 col-sm-3 mb-3">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+                <div class="card">
+                    <img src="assets/images/HDFC.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDFC</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+                <div class="card">
+                    <img src="assets/images/IDFC.png" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IDFC</h5>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <img src="assets/images/INDUSIND BANK.png" class="card-img-top cards" alt="Company 3">
-                    <!-- <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title text-center">INDUSIND</h5>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 col-lg-3 col-sm-3 mb-3">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <img src="assets/images/KOTAK MAHINDRA.png" class="card-img-top cards" alt="Company 4">
-                    <!-- <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title text-center">KOTAK MAHINDRA</h5>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 col-lg-3 col-sm-3 mb-3 mt-4">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <img src="assets/images/L AND T.png" class="card-img-top cards" alt="Company 5">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">L&T</h5>
-                    </div> -->
+                    <div class="card-body">
+                        <h5 class="card-title text-center">L AND T</h5>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 col-lg-3 col-sm-3 mb-3 mt-4">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <img src="assets/images/MMFSL.jpg" class="card-img-top cards" alt="Company 6">
-                    <!-- <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title text-center">MMFSL</h5>
-                    </div> -->
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 col-sm-3 mb-3 mt-4">
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+                <div class="card">
+                    <img src="assets/images/RBL.jpg" class="card-img-top cards" alt="Company 6">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">RBL</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-2">
                 <div class="card">
                     <div class="">
                     <img src="assets/images/SHRIRAM.png" class="card-img-top cards p-1" alt="Company 6">
                     </div>
-                    <!-- <div class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title text-center">SHRIRAM</h5>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
