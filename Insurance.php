@@ -40,7 +40,7 @@ include 'includes/footertag.php';
 
 
 .cards {
-    max-height: 5rem;
+    max-height: 4rem;
     object-fit: contain;
     width: 100%;
 }
@@ -55,6 +55,9 @@ include 'includes/footertag.php';
     margin-left: 20px;
 }
 
+.card-title{
+    font-size: 14px;
+}
 #atag {
     text-decoration: none;
 }
@@ -64,7 +67,6 @@ include 'includes/footertag.php';
     width: 98%;
     padding-left: 8px;
     padding-right: 8px;
-    margin-top: -160px;
 }
 </style>
 
@@ -88,13 +90,62 @@ include 'includes/footertag.php';
         </div>
     </section>
 
+    <!--Popular Tractor Insurance Companies-->
+    <div class="container">
+        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
+        <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
 
+            <!-- Card 1 -->
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/HDFC ERGO.png" class="card-img-top cards p-2" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDFC ERGO</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/IFFCO.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IFFCO TOKEO</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/MAGMA HDI.png" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">MAGMA HDI</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/ORIENTAL.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">ORIENTAL</h5>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="col-12 col-lg-2 col-sm-6  mb-4">
+                <div class="card">
+                    <img src="assets/images/UNIVERSAL.jpg" class="card-img-top cards" alt="Company 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">UNIVERSAL</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/insurancee.png" alt="reload img" class="w-100" style="height: 350px;">
-            <div class="container-mid">
+            <!-- <img src="assets/images/insurancee.png" alt="reload img" class="w-100" style="height: 350px;"> -->
+            <div class="container-mid mt-4">
                 <div class="row justify-content-center loan_form bg-light border border-dark">
                     <h3 class="text-dark text-center fw-bold mt-4">Renew Your Tractor insurance at Best Price</h3>
                     <h6 class="text-dark text-center mb-3">Fill your information to get tractor insurance</h6>
