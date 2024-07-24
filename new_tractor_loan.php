@@ -178,7 +178,7 @@ include 'includes/footertag.php';
     <div class="container-fluid">
         <div class="row siv" id="">
             <!-- <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;"> -->
-            <div class="container-mid">
+            <div class="container-mid mt-5">
                 <div class="justify-content-center loan_form bg-light border border-dark">
                     <div id="loanForm">
                         <form id="applicationForm" method="POST">
