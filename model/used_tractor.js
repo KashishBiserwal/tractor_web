@@ -632,16 +632,16 @@ function getState() {
             stateIds.forEach(stateId => {
                 const filteredState = data.stateData.find(state => state.id === stateId);
                 if (filteredState) {
-                    var checkboxHtml = '<input type="radio" name="state" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
                         '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
                     checkboxContainer.append(checkboxHtml);
+                    
+                    // Load districts for this state
+                    ge_tDistricts(stateId);
                 } else {
                     checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
                 }
             });
-
-            // Fetch and display all districts initially
-            getAllDistricts();
 
             // Add event listeners to state checkboxes
             $('.state_checkbox').on('change', function() {
@@ -651,36 +651,6 @@ function getState() {
         },
         error: function(error) {
             console.error('Error fetching state data:', error);
-        }
-    });
-}
-
-function getAllDistricts() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_districts';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function(data) {
-            console.log("All districts data:", data);
-            
-            const checkboxContainer = $('#get_dist');
-            checkboxContainer.empty(); // Clear existing checkboxes
-            
-            if (data && data.districtData && data.districtData.length > 0) {
-                data.districtData.forEach(district => {
-                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
-                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
-                    checkboxContainer.append(checkboxHtml);
-                });
-            } else {
-                checkboxContainer.append('<p>No districts available</p>');
-            }
-        },
-        error: function(error) {
-            console.error('Error fetching all districts:', error);
         }
     });
 }
@@ -716,6 +686,7 @@ function ge_tDistricts(stateId) {
 }
 
 getState();
+
 
 function get_year_and_hours() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
