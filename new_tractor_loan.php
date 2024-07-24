@@ -85,7 +85,7 @@ include 'includes/footertag.php';
         <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
 
             <!-- Card 1 -->
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/CHOLA.png" class="card-img-top cards p-2" alt="Company 1">
                     <div class="card-body">
@@ -94,7 +94,7 @@ include 'includes/footertag.php';
                 </div>
             </div>
 
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/HDB.png" class="card-img-top cards p-3" alt="Company 1">
                     <div class="card-body">
@@ -102,7 +102,7 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/HDFC_bank.jpg" class="card-img-top cards p-3" alt="Company 1">
                     <div class="card-body">
@@ -110,7 +110,7 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/IDFC_bank.png" class="card-img-top cards p-3" alt="Company 1">
                     <div class="card-body">
@@ -119,7 +119,7 @@ include 'includes/footertag.php';
                 </div>
             </div>
             
-             <div class="col-12 col-lg-2 col-sm-6 mb-2">
+             <div class="col-12 col-lg-2 col-sm-6  mb-4">
                 <div class="card">
                     <img src="assets/images/INDUSIND BANK.png" class="card-img-top cards" alt="Company 3">
                     <div class="card-body">
@@ -128,7 +128,7 @@ include 'includes/footertag.php';
                 </div>
             </div>
 
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/KOTAK MAHINDRA.png" class="card-img-top cards" alt="Company 4">
                     <div class="card-body">
@@ -137,7 +137,7 @@ include 'includes/footertag.php';
                 </div>
             </div>
 
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/L AND T.png" class="card-img-top cards" alt="Company 5">
                     <div class="card-body">
@@ -146,7 +146,7 @@ include 'includes/footertag.php';
                 </div>
             </div>
 
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/MMFSL.jpg" class="card-img-top cards" alt="Company 6">
                     <div class="card-body">
@@ -154,7 +154,7 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/RBL_bank.jpg" class="card-img-top cards" alt="Company 6">
                     <div class="card-body">
@@ -162,7 +162,7 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-2 col-sm-6 mb-2">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <div class="">
                     <img src="assets/images/SHRIRAM.png" class="card-img-top cards p-1" alt="Company 6">
@@ -180,7 +180,7 @@ include 'includes/footertag.php';
     <div class="container-fluid">
         <div class="row siv" id="">
             <!-- <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;"> -->
-            <div class="container-mid mt-5">
+            <div class="container-mid mt-4">
                 <div class="justify-content-center loan_form bg-light border border-dark">
                     <div id="loanForm">
                         <form id="applicationForm" method="POST">
