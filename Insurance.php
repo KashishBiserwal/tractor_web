@@ -86,7 +86,7 @@ include 'includes/footertag.php';
                 <span class="text-dark header-link  px-1">Enquiries <i class="fa-solid fa-chevron-right px-1"></i>
                 </span>
 
-                <span class="text-dark">All Loan</span>
+                <span class="text-dark">Insurance</span>
             </div>
         </div>
     </section>
