@@ -40,9 +40,10 @@ include 'includes/footertag.php';
 
 
 .cards {
-    max-height: 4rem;
-    object-fit: contain;
+    max-height: 6rem;
+    object-fit: cover;
     width: 100%;
+
 }
 
 .form-outline .form-label {
