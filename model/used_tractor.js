@@ -632,7 +632,7 @@ function getState() {
             stateIds.forEach(stateId => {
                 const filteredState = data.stateData.find(state => state.id === stateId);
                 if (filteredState) {
-                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
                         '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
                     checkboxContainer.append(checkboxHtml);
                     
