@@ -717,8 +717,6 @@ function ge_tDistricts(stateId) {
 
 getState();
 
-
-
 function get_year_and_hours() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
