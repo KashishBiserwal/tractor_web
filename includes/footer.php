@@ -121,7 +121,7 @@
   	 			<ul>
                    <li>
                         <a href="nursery_ui.php" class="">
-                         Nuesery
+                         Nursery
                         </a>
                     </li>
                     <li>

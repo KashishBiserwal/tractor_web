@@ -115,6 +115,40 @@ function get() {
   }
   
   get_year_and_hours();
+  function get_year() {
+    console.log('initsfd')
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            var select_year = $("#year_main1");
+            select_year.empty(); // Clear existing options
+            select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
+  
+            // Sort the array in descending order
+            data.getYears.sort(function(a, b) {
+                return b - a;
+            });
+  
+            for (var j = 0; j < data.getYears.length; j++) {
+                select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
+            }
+        },
+        complete: function() {
+            // You can add code here that will run after the request is complete
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get_year();
 
   function implementget() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
@@ -158,6 +192,47 @@ function get() {
 }
 implementget();
    
+function implementgetonly() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+
+            const select = $('#impType_1');
+            select.empty(); // Clear existing options
+
+            // Add a default option
+            select.append('<option selected disabled value="">Please select Implement Type</option>');
+
+            // Use an object to keep track of unique categories
+            var uniqueCategories = {};
+
+            $.each(data.allCategory, function(index, category) {
+                var implement_type = category.id;
+                var category_name = category.category_name;
+
+                // Check if the category ID is not already in the object
+                if (!uniqueCategories[implement_type]) {
+                    // Add category ID to the object
+                    uniqueCategories[implement_type] = true;
+
+                    // Append the option to the dropdown
+                    select.append('<option value="' + implement_type + '">' + category_name + '</option>');
+                }
+            });
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+implementgetonly();
 /// Display the corresponding form step
 function displayStep(step) {
     // Your logic to show/hide form steps
@@ -176,11 +251,9 @@ function store(event) {
         get_otp1(mobile);
     }
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 function get_otp1(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
     var paraArr = {
@@ -198,8 +271,7 @@ function get_otp1(phone) {
             console.error('Error fetching data:', error);
         }
     });
-}
-
+} 
 function verifyotp1() {
     var mobile = $('#mynumber').val();
     var otp = $('#otp1').val();
