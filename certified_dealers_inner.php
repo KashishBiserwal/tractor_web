@@ -49,16 +49,16 @@ include 'includes/headertag.php';
         <div>
           <h4 id="brand_main"></h4>
         </div>
-        <div>
+        <!-- <div>
           <div class="swiper swiper_buy mySwiper2_buy">
             <div class="swiper-wrapper swiper-wrapper_buy">
               <div class=" swiper-slide swiper-slide_buy">
-                <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
               </div>
             </div>
           </div>
           <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
-        </div>
+        </div> -->
+        <img class="img_buy" id="img_buy" style="width:50vh;" src="assets/images/IMG-20240516-WA0006.jpg" />
       </div>
       <div class="col-12 col-sm-6 col-lg-6 col-md-6 py-2">
         <table class="mt-5 table table-border">
