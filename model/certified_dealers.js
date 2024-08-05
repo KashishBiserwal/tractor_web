@@ -58,7 +58,7 @@ function displaydealer(dealers) {
                     <div class="thumb">
                         <a href="certified_dealers_inner.php?id=${dealer.id}">
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-contain" alt="img">
                             </div>
                         </a>
                     </div>
@@ -126,12 +126,12 @@ function searchdata() {
                                 <div class="thumb">
                                     <a href="certified_dealers_inner.php?id=${dealer.id}">
                                         <div class="ratio ratio-16x9">
-                                            <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                            <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-contain" alt="img">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="position-absolute">
-                                    <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
+                                    <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>'
                                 </div>
                                 <div>
                                     <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">

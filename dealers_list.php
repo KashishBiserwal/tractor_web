@@ -103,8 +103,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                          <div class="upload__box mt-5">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="upload__box mt-5 d-none">
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
@@ -244,7 +244,7 @@
                                   <div class="col-12" id="addrss"></div>
                               </td>
                           </tr>
-                          <tr>
+                          <tr class="d-none">
                               <td>Upload images-</td>
                               <td colspan="3">
                                   <div class="col-12">

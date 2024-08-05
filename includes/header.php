@@ -68,7 +68,7 @@
   <div class="col-sm-4 mt-2">
     <ul class="navbar-nav float-end">
         <li class="nav-item">
-            <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
+            <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
         </li>
         <li class="nav-item" id="loginContainer">
             <a class="nav-link" id="loginButton" href="user-login.php">Login</a>

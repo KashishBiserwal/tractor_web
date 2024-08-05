@@ -258,7 +258,7 @@ include 'includes/headertag.php';
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-0 mb-0 m-0 p-1">
-                                    <div class="upload__box">
+                                    <div class="upload__box d-none">
                                         <div class="upload__btn-box">
                                             <label>
                                                 <p class="upload__btn w-100 m-5">Upload images</p>
