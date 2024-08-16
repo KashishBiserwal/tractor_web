@@ -53,6 +53,7 @@
 <section id="home-banner" class="banner__section overflow-hidden">
   <!-- Carousel wrapper -->
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
+   
     <!-- Indicators/dots -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
@@ -62,34 +63,34 @@
       <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
       <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
       <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+      <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
       <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button> -->
     </div>
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active" style="position: relative;">
-        <img src="assets/images/sidel-img1.jpg" alt="New York" class="d-block mx-auto">
+        <img src="assets/images/Slide-1 .jpg" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/sidel-img2.jpg" alt="New York" class="d-block mx-auto">
+        <img src="assets/images/Slide-2.png" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/slider-img-4.jpg" alt="New York" class="d-block mx-auto">
+        <img src="assets/images/Slide-3.jpg" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/slider-img5.jpg" alt="New York" class="d-block mx-auto">
+        <img src="assets/images/Slide-4.jpg" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;"> 
-          <img src="assets/images/slider-img6.jpg" alt="New York" class="d-block mx-auto"> 
+          <img src="assets/images/Slide-5.jpg" alt="New York" class="d-block mx-auto w-100"> 
       </div>
       <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/slider-img7.jpg" alt="New York" class="d-block mx-auto">
+          <img src="assets/images/new_image_for_slide6.png" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/slider-img-8.jpg" alt="New York" class="d-block mx-auto">
+        <img src="assets/images/Slide-7.png" alt="New York" class="d-block mx-auto w-100">
       </div>
-      <div class="carousel-item" style="position: relative;">
+      <!-- <div class="carousel-item" style="position: relative;">
         <img src="assets/images/slider-img-9.jpg" alt="New York" class="d-block mx-auto">
       </div>
       <div class="carousel-item" style="position: relative;">
@@ -97,65 +98,88 @@
       </div>
       <div class="carousel-item" style="position: relative;">
         <img src="assets/images/slider-img11.jpg" alt="New York" class="d-block mx-auto">
-      </div>
+      </div> -->
     </div>
     <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="margin-left:-90px; z-index: 4;">
       <span class="carousel-control-prev-icon bg-success"></span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" style="margin-right:-90px; z-index: 4;">
       <span class="carousel-control-next-icon bg-success"></span>
     </button>
   </div>
-  <!-- <div class="container bannerbg00">
-    <div class="banner__wrapper">
-      <div class="row g-4 justify-content-center">
-        <div class="col-lg-10">
-          <h3 class="text-center fw-bold pt-2">Find Your Own Tractor</h3>
-          <form>
-            <div class="row justify-content-center ">
-              <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                <div class="">
-                  <label class="form-label text-dark fw-bold">Select HP</label>
-                  <select class="form-control" name="hp" id="hp"  required="">
-                    <option value="" selected="">Select HP</option>
-                    <option value="0 - 20">0 HP - 20 HP</option>
-                    <option value="21 - 30">21 HP - 30 HP</option>
-                    <option value="31 - 40">31 HP - 40 HP</option>
-                    <option value="41 - 50">41 HP - 50 HP</option>
-                    <option value="51 - 60">51 HP - 60 HP</option>
-                    <option value="61 - 70">61 HP - 75 HP</option>
-                    <option value="71 - 80">Above 75 Hp </option>
-                  </select>
+  <div class="container bannerbg00">
+    <div class="row main-row">
+       <div class="col-4" style="background-color:#f8f9fac9;">
+        <div class="banner__wrapper">
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-10">
+              <h5 class="text-center fw-bold pt-2">Find Your Own Tractor</h5>
+              <form>
+                <div class="row justify-content-center ">
+                <div class="col-12 mt-2">
+                    <div class="">
+                      <label class="form-label text-dark fw-bold">Select Brand</label>
+                      <select class="form-control" name="brand" id="brand"  required="">
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <div class="">
+                      <label class="form-label text-dark fw-bold">Select Model</label>
+                      <select class="form-control" name="brand" id="brand"  required="">
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="">
+                      <label class="form-label text-dark fw-bold">Select HP</label>
+                      <select class="form-control" name="hp" id="hp"  required="">
+                        <option value="" selected="">Select HP</option>
+                        <option value="0 - 20">0 HP - 20 HP</option>
+                        <option value="21 - 30">21 HP - 30 HP</option>
+                        <option value="31 - 40">31 HP - 40 HP</option>
+                        <option value="41 - 50">41 HP - 50 HP</option>
+                        <option value="51 - 60">51 HP - 60 HP</option>
+                        <option value="61 - 70">61 HP - 75 HP</option>
+                        <option value="71 - 80">Above 75 Hp </option>
+                      </select>
+                    </div>
+                  </div>
+                  
                 </div>
-              </div>
-              <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                <div class="">
-                  <label class="form-label text-dark fw-bold">Select Brand</label>
-                  <select class="form-control" name="brand" id="brand"  required="">
-                  </select>
+                  <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
+                    <div class="">
+                      <label class="form-label text-dark fw-bold">Select Brand</label>
+                      <select class="form-control" name="brand" id="brand"  required="">
+                      </select>
+                    </div>
+                  </div> -->
+                  <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
+                    <div class="">
+                      <label class="form-label text-dark fw-bold">Select Price</label>
+                      <select class="form-control" name="price" id="price"  required="">
+                        <option value="" selected="">Select Price</option>
+                        <option value="0 - 3">0 Lakh - 3 Lakh</option>
+                        <option value="3 - 6">3 Lakh - 6 Lakh</option>
+                        <option value="6 - 9">6 Lakh - 9 Lakh</option>
+                        <option value="9 - 12">9 Lakh - 12 Lakh</option>
+                      </select>
+                    </div>
+                  </div> -->
+                  <div class="col-12  text-center mt-4">
+                    <button type="button" class=" btn btn-success btn_search px-5 py-2" id="Search">Search</button>
+                  </div>
                 </div>
-              </div>
-              <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                <div class="">
-                  <label class="form-label text-dark fw-bold">Select Price</label>
-                  <select class="form-control" name="price" id="price"  required="">
-                    <option value="" selected="">Select Price</option>
-                    <option value="0 - 3">0 Lakh - 3 Lakh</option>
-                    <option value="3 - 6">3 Lakh - 6 Lakh</option>
-                    <option value="6 - 9">6 Lakh - 9 Lakh</option>
-                    <option value="9 - 12">9 Lakh - 12 Lakh</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12  text-center mt-4">
-                <button type="button" class=" btn btn-success btn_search px-5 py-2" id="Search">Search</button>
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </div> -->
+       </div>
+       <div class="col-4"></div>
+       <div class="col-4"></div>
+    </div>
+   
 </section>
 <!-- banner end here -->
 <section class="why_head bg-light">

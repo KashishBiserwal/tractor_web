@@ -11,6 +11,7 @@
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/rent.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+    <script src="<?php $baseUrl; ?>model/sdt.js"></script>
 
 <head>
     <?php
@@ -271,6 +272,12 @@
                                             <div class="row justify-content-center pt-2">
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                                     <div class="form-outline">
+                                                    <label class="form-label text-dark">forTractor</label>
+                                                        <input type="text" id="forTractor" name="" value="forTractor" class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                                    <div class="form-outline">
                                                     <label class="form-label text-dark">Enquiry</label>
                                                         <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
                                                     </div>
@@ -322,11 +329,11 @@
                                                             <tr>
                                                                 <td class="tractor_rent_serial">1</td>
                                                                 <td>
-                                                                    <div class="card upload-img-wrap" onclick="triggerFileInput('customFile1')" style="height: 38px; cursor: pointer;">
-                                                                        <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile1')"></i>
-                                                                        <img id="selectedImage" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" class="img-thumbnail"/>
+                                                                    <div class="card upload-img-wrap" name="rent_trac_image" onclick="triggerFileInput('customFile1')" style="height: 38px; cursor: pointer;">
+                                                                            <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile1')"></i>
+                                                                            <img id="selectedImage" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" name="image_tractor" class="img-thumbnail"/>
                                                                     </div>
-                                                                    <input type="file" id="customFile1" class="d-none" accept="image/*" onchange="displayImagePreview(this, 'selectedImage')" required>
+                                                                    <input type="file" id="customFile1" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, 'selectedImage')" required>
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
@@ -423,11 +430,200 @@
                                 </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
-                                <div class="accordion-body">
-                                    <div class="text-center">
-                                        <h5 class="pb-2 mt-2">Implement Type Information</h5>
+                                    <div class="accordion-body">
+                                        <div class="text-center">
+                                            <h5 class="pb-2 mt-2">Implement Type Information</h5>
+                                        </div>
+                                        <form id="implement_rent_form">
+                                            <div class="row justify-content-center pt-2">
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                                    <div class="form-outline">
+                                                    <label class="form-label text-dark">forImplement</label>
+                                                        <input type="text" id="forImplement" name="" value="forImplement" class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                                    <div class="form-outline">
+                                                    <label class="form-label text-dark">Enquiry</label>
+                                                        <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
+                                                </div>
+                                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                                <label class="text-dark">User<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                                <small></small>
+                                                </div>  
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
+                                                    <input type="text" class="form-control" id="added_by" value="">
+                                                </div>
+                                                <div class="table-responsive my-3">
+                                                    <table id="Implement_rent_only" class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No.</th>
+                                                                <th width="80">Image</th>
+                                                                <th>Brand</th>
+                                                                <th>Implement Type</th>
+                                                                <th>Rate</th>
+                                                                <th>Rate Per</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="serial-number">1</td>
+                                                                <td>
+                                                                    <div class="card upload-img-wrap" onclick="triggerFileInput('customFile2')" style="height: 38px; cursor: pointer;">
+                                                                        <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile2')"></i>
+                                                                        <img id="selectedImage2" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" class="img-thumbnail"/>
+                                                                    </div>
+                                                                    <input type="file" id="customFile2" class="d-none" accept="image/*" onchange="displayImagePreview(this, 'selectedImage2')" required>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="select-wrap">
+                                                                        <select name="brand[]" id="brand_implement" class="form-control">
+                                                                            <option value>Select</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="select-wrap">
+                                                                        <select name="imp_type_id[]" id="impType_1" class="form-control implement-type-input">
+                                                                            <option value>Select</option>
+                                                                        
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="implement_rate[]" id="implement_rent_1" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
+                                                                </td>
+                                                                <td>
+                                                                    <div class="select-wrap">
+                                                                        <select name="rate_per[]" id="impRatePer_1" class="form-control implement-unit-input">
+                                                                            <option value="">Select</option>
+                                                                            <option value="Acer">Acer</option>
+                                                                            <option value="Hour">Hour</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark" for="workingRadius">Working Area</label>
+                                                        <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius1" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark">Description</label>
+                                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d1" name="textarea_d"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h5 class="pb-2 mt-2">Personal Information</h5>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-3">
+                                                        <label for="name" class="form-label text-dark">First Name</label>
+                                                        <input type="text" class="form-control" placeholder="" id="myfname1" name="fname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-3">
+                                                        <label for="name" class="form-label text-dark">Last Name</label>
+                                                        <input type="text" class="form-control" placeholder="" id="mylname1" name="lname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                                    <div class="form-outline mt-2">
+                                                        <label for="name" class="form-label text-dark">Mobile Number</label>
+                                                        <input type="text" class="form-control" placeholder="" id="mynumber1" name="number1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-2">
+                                                        <label class="form-label text-dark">State</label>
+                                                        <select class="form-select py-2 state-dropdown1" aria-label="Default select example" id="state_state1" name="state_">
+                                                        
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-3">
+                                                    <label class="form-label text-dark">District</label>
+                                                    <select class="form-select py-2 district-dropdown1" aria-label="Default select example" id="dist_district1" name="dist">
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
+                                                    <div class="form-outline mt-3">
+                                                        <label class="form-label text-dark">Tehsil</label>
+                                                        <select class="form-select py-2 tehsil-dropdown1 " aria-label="Default select example" id="tehsil_t1">
+                                                        
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-12 mt-3">
+                                                    <button type="button" id="rent_submit_implement" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btnTmplement">Submit</button>
+                                                </div> -->
+                                                <div class="col-12 mt-3">
+                                                    <button type="button" class="btn btn-success fw-bold px-3 w-100" id="rent_implement" data-bs-toggle="modal" data-bs-target="#myModal">
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </form>
+                                                <!-- The Modal -->
+                                                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-success">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100 pb-2"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="otp_rent_implement_form">
+                                                                    <div class=" col-12 input-group">
+                                                                    <div class="col-12" hidden>
+                                                                            <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                                                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                                                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp2"name="opt_1">
+                                                                        </div>
+                                                                        <div class="float-end col-12">
+                                                                            <a href="" class="float-end">Resend OTP</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
                                     </div>
-                                    <form id="implement_rent_form">
+                                </div>
+                            </div>
+                            <!-- Rent Tractor and Implement -->
+                            <div class="tab-pane fade accordion-item" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                <h2 class="accordion-header d-lg-none" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Rent Tractor and Implement
+                                </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
+                                <div class="accordion-body">
+                                    <form id="rent_list_form_">
+                                        <div class="text-center">
+                                            <h5 class="pb-2 mt-2">Tractor Information</h5>
+                                        </div>
                                         <div class="row justify-content-center pt-2">
                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                                 <div class="form-outline">
@@ -436,46 +632,66 @@
                                                 </div>
                                             </div>
                                             <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                            <label class="text-dark">User<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
-                                            <small></small>
+                                                <label class="text-dark">User<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                                <small></small>
                                             </div>  
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
                                                 <input type="text" class="form-control" id="added_by" value="">
                                             </div>
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div class="form-outline">
+                                                    <label class="form-label text-dark">Brand</label>
+                                                    <select class="form-select" aria-label="Default select example"id="brand3" name="brand">
+                                                    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div class="form-outline">
+                                                    <label class="form-label text-dark">Model</label>
+                                                    <select class="form-select" aria-label="Default select example"id="model_main3" name="model">
+                                                    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div class="form-outline">
+                                                    <label class="form-label text-dark">Year</label>
+                                                    <select class="form-select" aria-label="Default select example"id="year_main3" name="year">
+                                                
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <h5 class="pb-2 mt-4">Implement Type Information</h5>
+                                            </div>
                                             <div class="table-responsive my-3">
-                                                <table id="Implement_rent_only" class="table table-sm">
+                                                <table id="rentTractorTable" class="table table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th>No.</th>
                                                             <th width="80">Image</th>
-                                                            <th>Brand</th>
                                                             <th>Implement Type</th>
                                                             <th>Rate</th>
                                                             <th>Rate Per</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td class="serial-number">1</td>
+                                                            <td>1</td>
                                                             <td>
-                                                                <div class="card upload-img-wrap" onclick="triggerFileInput('customFile2')" style="height: 38px; cursor: pointer;">
-                                                                    <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile2')"></i>
-                                                                    <img id="selectedImage2" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" class="img-thumbnail"/>
+                                                                <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
+                                                                    <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
+                                                                    <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                                 </div>
-                                                                <input type="file" id="customFile2" class="d-none" accept="image/*" onchange="displayImagePreview(this, 'selectedImage2')" required>
+                                                                <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
                                                             </td>
                                                             <td>
                                                                 <div class="select-wrap">
-                                                                    <select name="imp_type_id[]" id="brand" class="form-control implement-type-input">
-                                                                        <option value>Select</option>
-                                                                    </select>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="select-wrap">
-                                                                    <select name="imp_type_id[]" id="impType_1" class="form-control implement-type-input">
+                                                                    <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
                                                                         <option value>Select</option>
                                                                     
                                                                     </select>
@@ -493,20 +709,34 @@
                                                                     </select>
                                                                 </div>
                                                             </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-danger remove-button" title="Remove Row" onclick="removeRow(this)">
+                                                                    <i class="fas fa-minus"></i>
+                                                                </button>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="6" align="right">
+                                                                <button type="button" class="btn btn-success" title="Add Row" id="addRentTractorRowBtn">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
                                                 </table>
                                             </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label class="form-label text-dark" for="workingRadius">Working Area</label>
-                                                    <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
+                                                    <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius3" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                                 <div class="form-outline">
                                                     <label class="form-label text-dark">Description</label>
-                                                    <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
+                                                    <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d3" name="textarea_d"></textarea>
                                                 </div>
                                             </div>
                                             <div class="text-center">
@@ -515,228 +745,48 @@
                                             <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                 <div class="form-outline mt-3">
                                                     <label for="name" class="form-label text-dark">First Name</label>
-                                                    <input type="text" class="form-control" placeholder="" id="myfname" name="fname">
+                                                    <input type="text" class="form-control" placeholder="" id="myfname3" name="fname">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                 <div class="form-outline mt-3">
                                                     <label for="name" class="form-label text-dark">Last Name</label>
-                                                    <input type="text" class="form-control" placeholder="" id="mylname" name="lname">
+                                                    <input type="text" class="form-control" placeholder="" id="mylname3" name="lname">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                                 <div class="form-outline mt-2">
                                                     <label for="name" class="form-label text-dark">Mobile Number</label>
-                                                    <input type="text" class="form-control" placeholder="" id="mynumber" name="number">
+                                                    <input type="text" class="form-control" placeholder="" id="mynumber2" name="number">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                 <div class="form-outline mt-2">
                                                     <label class="form-label text-dark">State</label>
-                                                    <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
+                                                    <select class="form-select py-2 state-dropdown_rent" aria-label="Default select example" id="state_state3" name="state_">
                                                     
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                 <div class="form-outline mt-3">
-                                                <label class="form-label text-dark">District</label>
-                                                <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
-                                                </select>
+                                                    <label class="form-label text-dark">District</label>
+                                                    <select class="form-select py-2 district-dropdown_rent" aria-label="Default select example" id="dist_district3" name="dist">
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
                                                 <div class="form-outline mt-3">
                                                     <label class="form-label text-dark">Tehsil</label>
-                                                    <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
+                                                    <select class="form-select py-2 tehsil-dropdown_rent" aria-label="Default select example" id="tehsil_t3">
                                                     
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 mt-3">
-                                                <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
+                                                <button type="button" id="rent_submit_both" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#get_OTP_btnBoth">Submit</button>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Rent Tractor and Implement -->
-                            <div class="tab-pane fade accordion-item" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                                <h2 class="accordion-header d-lg-none" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Rent Tractor and Implement
-                                </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
-                                <div class="accordion-body">
-                                    <form id="rent_list_form_">
-                                    <div class="text-center">
-                                        <h5 class="pb-2 mt-2">Tractor and Implement Information</h5>
-                                    </div>
-                                    <div class="row justify-content-center pt-2">
-                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                            <div class="form-outline">
-                                            <label class="form-label text-dark">Enquiry</label>
-                                                <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
-                                            </div>
-                                        </div>
-                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                            <label class="text-dark">User<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
-                                            <small></small>
-                                        </div>  
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
-                                            <input type="text" class="form-control" id="added_by" value="">
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                            <div class="form-outline">
-                                                <label class="form-label text-dark">Brand</label>
-                                                <select class="form-select" aria-label="Default select example"id="brand" name="brand">
-                                                
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                            <div class="form-outline">
-                                                <label class="form-label text-dark">Model</label>
-                                                <select class="form-select" aria-label="Default select example"id="model_main" name="model">
-                                                
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                            <div class="form-outline">
-                                                <label class="form-label text-dark">Year</label>
-                                                <select class="form-select" aria-label="Default select example"id="year_main" name="year">
-                                            
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <h5 class="pb-2 mt-4">Implement Type Information</h5>
-                                        </div>
-                                        <div class="table-responsive my-3">
-                                            <table id="rentTractorTable" class="table table-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No.</th>
-                                                        <th width="80">Image</th>
-                                                        <th>Implement Type</th>
-                                                        <th>Rate</th>
-                                                        <th>Rate Per</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
-                                                                <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
-                                                                <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
-                                                            </div>
-                                                            <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
-                                                        </td>
-                                                        <td>
-                                                            <div class="select-wrap">
-                                                                <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
-                                                                    <option value>Select</option>
-                                                                
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
-                                                        </td>
-                                                        <td>
-                                                            <div class="select-wrap">
-                                                                <select name="rate_per[]" id="impRatePer_0" class="form-control implement-unit-input">
-                                                                    <option value="">Select</option>
-                                                                    <option value="Acer">Acer</option>
-                                                                    <option value="Hour">Hour</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-danger remove-button" title="Remove Row" onclick="removeRow(this)">
-                                                                <i class="fas fa-minus"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="6" align="right">
-                                                            <button type="button" class="btn btn-success" title="Add Row" id="addRentTractorRowBtn">
-                                                                <i class="fas fa-plus"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <div class="form-outline">
-                                                <label class="form-label text-dark" for="workingRadius">Working Area</label>
-                                                <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <div class="form-outline">
-                                                <label class="form-label text-dark">Description</label>
-                                                <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <h5 class="pb-2 mt-2">Personal Information</h5>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                            <div class="form-outline mt-3">
-                                                <label for="name" class="form-label text-dark">First Name</label>
-                                                <input type="text" class="form-control" placeholder="" id="myfname" name="fname">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                            <div class="form-outline mt-3">
-                                                <label for="name" class="form-label text-dark">Last Name</label>
-                                                <input type="text" class="form-control" placeholder="" id="mylname" name="lname">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                            <div class="form-outline mt-2">
-                                                <label for="name" class="form-label text-dark">Mobile Number</label>
-                                                <input type="text" class="form-control" placeholder="" id="mynumber" name="number">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                            <div class="form-outline mt-2">
-                                                <label class="form-label text-dark">State</label>
-                                                <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
-                                                
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                            <div class="form-outline mt-3">
-                                                <label class="form-label text-dark">District</label>
-                                                <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
-                                            <div class="form-outline mt-3">
-                                                <label class="form-label text-dark">Tehsil</label>
-                                                <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
-                                                
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mt-3">
-                                            <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
-                                        </div>
-                                    </div>
                                     </form>
                                 </div>
                                 </div>
@@ -746,7 +796,7 @@
                 </div>
             </div>
         </div>
-        <!--OTP model-->
+        <!--OTP model for tractor only-->
         <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -772,12 +822,43 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                        <button type="button" class="btn btn-success" id="Verify_for_onlyTractor">Verify</button>
                     </div>
                 </div>
             </div>
         </div>
         
+        <!--OTP MODEL FOR TRACTOR AND IMPLEMENT-->
+        <div class="modal fade" id="get_OTP_btnBoth" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100 pb-2"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="otp_form">
+                            <div class=" col-12 input-group">
+                            <div class="col-12" hidden>
+                                    <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
+                                </div>
+                                <div class="col-12">
+                                    <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otpverify"name="opt_1">
+                                </div>
+                                <div class="float-end col-12">
+                                    <a href="" class="float-end">Resend OTP</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="VerifytreactorAndImplement">Verify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="container mt-5">
         <h3 class="text-center mb-4 fw-bold ">EASY RENTAL FOR TRACTOR AND IMPLEMENT</h3>
         <div class="row">
@@ -884,169 +965,426 @@
             </div>
         </div>
     </section>
-
+   
    <?php
         include 'includes/footer.php';
         include 'includes/footertag.php';
     ?>
   
 
-<script>
-    // image upload for only tractor and only implement
-    function triggerFileInput(inputId) {
-        document.getElementById(inputId).click();
-    }
-
-    function displayImagePreview(input, previewId) {
-        var fileInput = input;
-        var preview = document.getElementById(previewId);
-        var currentRow = fileInput.closest("td");
-
-        if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-                currentRow.querySelector('.fas.fa-image').style.display = 'none';
-            };
-
-            reader.readAsDataURL(fileInput.files[0]);
-        } else {
-            preview.style.display = 'none';
-            currentRow.querySelector('.fas.fa-image').style.display = 'block';
-        }
-    }
-</script>
-
-    <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>
-    $(document).ready(function() {
-        // $.validator.addMethod("indianMobile", function(value, element) {
-        //     return this.optional(element) || /^[789]\d{9}$/.test(value);
-        // }, "Please enter a valid Indian mobile number.");
-        $("form[id='form-step-3']").validate({
+        // image upload for only tractor and only implement
+        function triggerFileInput(inputId) {
+            document.getElementById(inputId).click();
+        }
+
+        function displayImagePreview(input, previewId) {
+            var fileInput = input;
+            var preview = document.getElementById(previewId);
+            var currentRow = fileInput.closest("td");
+
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    currentRow.querySelector('.fas.fa-image').style.display = 'none';
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                preview.style.display = 'none';
+                currentRow.querySelector('.fas.fa-image').style.display = 'block';
+            }
+        }
+    </script>
+<script>
+    $(document).ready(function () {
+        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
+        $("#tractor_rent_form").validate({
+            // Specify validation rules
             rules: {
+                brand: {
+                    required: true,
+                },
+                model: {
+                    required: true,
+                },
+                year: {
+                    required: true,
+                },
+                textarea_: {
+                    required: true,
+                },
+                textarea_d: {
+                    required: true,
+                },
                 fname: {
                     required: true,
-                    minlength: 2,
                 },
                 lname: {
                     required: true,
-                    minlength: 2,
                 },
-                phone: {
+                'tractor_rent_image[]': {
                     required: true,
-                    digits: true,
-                    indianMobile: true,
+                    extension: "jpg|jpeg|png|gif" // Validate image formats
                 },
-                state: {
+                'rate_per[]': {
                     required: true,
                 },
-                district: {
+                'implement_rate[]': {
                     required: true,
                 },
+                number: {
+                    required: true,
+                            minlength: 10,
+                            maxlength: 10,
+                            digits: true,
+                            customPhoneNumber: true
+                },
+                state_: {
+                    required: true,
+                },
+                dist: {
+                    required: true,
+                }
+            },
+            // Specify validation error messages
+            messages: {
+                brand: {
+                    required: "This field is required",
+                },
+                model: {
+                    required: "This field is required",
+                },
+                year: {
+                    required: "This field is required",
+                },
+                textarea_: {
+                    required: "This field is required",
+                },
+                textarea_d: {
+                    required: "This field is required",
+                },
+                fname: {
+                    required: "This field is required",
+                },
+                lname: {
+                    required: "This field is required",
+                },
+                'tractor_rent_image[]': {
+                    required: "Please upload an image",
+                    extension: "Please upload a valid image (jpg, jpeg, png, gif)"
+                },
+                'rate_per[]': {
+                    required: "This field is required",
+                },
+                'implement_rate[]': {
+                    required: "This field is required",
+                },
+                number: {
+                    required:"This field is required",
+                    minlength: "Phone Number must be of 10 Digit",
+                    maxlength: "Ensure exactly 10 digits of Mobile No.",
+                    digits: "Please enter only digits"
+                },
+                state_: {
+                    required: "This field is required",
+                },
+                dist: {
+                    required: "This field is required",
+                }
             },
 
+            submitHandler: function (form) {
+                var phone = $("#mynumber").val();
+
+                // Validate the phone number first
+                if (phone.length === 10 && $.isNumeric(phone)) {
+                    if ($("#tractor_rent_form").valid()) {
+                        get_otp1(phone); 
+
+                    }
+                } else {
+                    alert("Please enter a valid 10-digit mobile number.");
+                }
+            },
+        });
+
+        $("#rent_submit").on("click", function () {
+            if ($("#tractor_rent_form").valid()) {
+                $("#tractor_rent_form").submit();
+            }
         });
     });
-    </script>
-
+</script>
 <script>
-     $(document).ready(function () {
+   $(document).ready(function () {
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
+    $("#implement_rent_form").validate({
+        // Specify validation rules
+        rules: {
+            'brand[]': {
+                required: true,
+            },
+            'imp_type_id[]': {
+                required: true,
+            },
+            year: {
+                required: true,
+            },
+            textarea_: {
+                required: true,
+            },
+            textarea_d: {
+                required: true,
+            },
+            fname: {
+                required: true,
+            },
+            lname: {
+                required: true,
+            },
+            customFile2: {
+                required: true,
+                extension: "jpg|jpeg|png|gif" // Validate image formats
+            },
+            'rate_per[]': {
+                required: true,
+            },
+            'implement_rate[]': {
+                required: true,
+            },
+            number1: {
+                required: true,
+                maxlength: 10,
+                minlength: 10,
+                digits: true,
+                customPhoneNumber: true
+            },
+            state_: {
+                required: true,
+            },
+            dist: {
+                required: true,
+            }
+        },
+        // Specify validation error messages
+        messages: {
+            'brand[]': {
+                required: "This field is required",
+            },
+            'imp_type_id[]': {
+                required: "This field is required",
+            },
+            year: {
+                required: "This field is required",
+            },
+            textarea_: {
+                required: "This field is required",
+            },
+            textarea_d: {
+                required: "This field is required",
+            },
+            fname: {
+                required: "This field is required",
+            },
+            lname: {
+                required: "This field is required",
+            },
+            customFile2: {
+                required: "Please upload an image",
+                extension: "Please upload a valid image (jpg, jpeg, png, gif)"
+            },
+            'rate_per[]': {
+                required: "This field is required",
+            },
+            'implement_rate[]': {
+                required: "This field is required",
+            },
+            number1: {
+                required: "This field is required",
+                maxlength: "Enter only 10 digits",
+                minlength: "Enter at least 10 digits",
+                digits: "Please enter only digits"
+            },
+            state_: {
+                required: "This field is required",
+            },
+            dist: {
+                required: "This field is required",
+            }
+        },
+        submitHandler: function (form) {
+            var phone = $("#mynumber1").val();
 
-
-
-    $("#rent_list_form_").validate({
-      // Specify validation rules
-      rules: {
-        brand: {
-          required: true,
-        },
-        model: {
-          required: true,
-        },
-        year: {
-          required: true,
-        },
-        textarea_: {
-          required: true,
-        },
-        textarea_d: {
-          required: true,
-        },
-        fname:{
-          required: true,
-        },
-        lname:{
-          required: true,
-        },
-        // number:{
-        //   required:true, 
-        //     maxlength:10,
-        //     digits: true,
-        //     customPhoneNumber: true
-        // },
-        state_:{
-          required: true,
-        },
-        dist:{
-          required: true,
+            // Validate the phone number first
+            if (phone.length === 10 && $.isNumeric(phone)) {
+                if ($("#implement_rent_form").valid()) {
+                    get_otp2(phone); // Only get OTP if the phone number is valid
+                }
+            } else {
+                alert("Please enter a valid 10-digit mobile number.");
+                $('#myModal').modal('hide'); 
+                return;
+            }
         }
-      },
-      // Specify validation error messages
-      messages: {
-        brand: {
-          required: "This field is required",
-        },
-        model: {
-          required: "This field is required",
-        },
-        year: {
-          required: "This field is required",
-        },
-        textarea_: {
-          required: "This field is required",
-        },
-        textarea_d: {
-          required:"This field is required",
-        },
-        fname:{
-          required:"This field is required",
-        },
-        lname:{
-          required:"This field is required",
-        },
-        // number:{
-        //   required:"This field is required",
-        //   maxlength:"Enter only 10 digits",
-        //   digits: "Please enter only digits"
-        // },
-        state_:{
-          required:"This field is required",
-        },
-        dist:{
-          required:"This field is required",
-        }
-      },
-      
-      submitHandler: function (form) {
-        alert("Form submitted successfully!");
-      },
     });
 
-   
-    $("#sub_btn_").on("click", function () {
-   
-      $("#rent_list_form_").valid();
-    
+    // Real-time validation for the mobile number field
+    $("#mynumber1").on("input", function () {
+        var phone = $(this).val();
+        if (phone.length === 10 && $.isNumeric(phone)) {
+            $("#mobile-error").hide(); // Hide the error message if the number is valid
+        } else {
+            $("#mobile-error").show(); // Show the error message if the number is invalid
+        }
     });
-   
-  });
-  </script>
-<script>
 
-    // image for rent tractor and implement both multiselect
+    // Handle form submission
+    $("#rent_implement").on("click", function () {
+        var phone = $("#mynumber1").val();
+        if ($("#implement_rent_form").valid()) {
+            // Validate the phone number
+            if (phone.length === 10 && $.isNumeric(phone)) {
+                $("#implement_rent_form").submit(); // Submit the form if valid
+            } else {
+                alert("Please enter a valid 10-digit mobile number.");
+                $('#myModal').modal('hide'); 
+                return; // Exit the function if the number is invalid
+            }
+        }
+    });
+});
+</script>
+<script>
+    $(document).ready(function () {
+        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
+        $("#rent_list_form_").validate({
+            // Specify validation rules
+            rules: {
+                brand: {
+                    required: true,
+                },
+                model: {
+                    required: true,
+                },
+                year: {
+                    required: true,
+                },
+                textarea_: {
+                    required: true,
+                },
+                textarea_d: {
+                    required: true,
+                },
+                fname: {
+                    required: true,
+                },
+                lname: {
+                    required: true,
+                },
+                'tractor_rent_image[]': {
+                    required: true,
+                    extension: "jpg|jpeg|png|gif" // Validate image formats
+                },
+                'rate_per[]': {
+                    required: true,
+                },
+                'implement_rate[]': {
+                    required: true,
+                },
+                'imp_type_id[]':{
+                    required: true,
+                },
+                number: {
+                    required: true,
+                            minlength: 10,
+                            maxlength: 10,
+                            digits: true,
+                            customPhoneNumber: true
+                },
+                state_: {
+                    required: true,
+                },
+                dist: {
+                    required: true,
+                }
+            },
+            // Specify validation error messages
+            messages: {
+                brand: {
+                    required: "This field is required",
+                },
+                model: {
+                    required: "This field is required",
+                },
+                year: {
+                    required: "This field is required",
+                },
+                textarea_: {
+                    required: "This field is required",
+                },
+                textarea_d: {
+                    required: "This field is required",
+                },
+                fname: {
+                    required: "This field is required",
+                },
+                lname: {
+                    required: "This field is required",
+                },
+                'tractor_rent_image[]': {
+                    required: "Please upload an image",
+                    extension: "Please upload a valid image (jpg, jpeg, png, gif)"
+                },
+                'rate_per[]': {
+                    required: "This field is required",
+                },
+                'implement_rate[]': {
+                    required: "This field is required",
+                },
+                'imp_type_id[]':{
+                    required: "This field is required",
+                },
+                number: {
+                    required:"This field is required",
+                    minlength: "Phone Number must be of 10 Digit",
+                    maxlength: "Ensure exactly 10 digits of Mobile No.",
+                    digits: "Please enter only digits"
+                },
+                state_: {
+                    required: "This field is required",
+                },
+                dist: {
+                    required: "This field is required",
+                }
+            },
+
+            submitHandler: function (form) {
+            var phone = $("#mynumber2").val();
+
+            if ($("#rent_list_form_").valid()) {
+                get_otp3(phone);
+            }
+        }
+    });
+
+    $("#rent_submit_both").on("click", function () {
+        if ($("#rent_list_form_").valid()) {
+            $("#rent_list_form_").submit();
+        }
+    });
+});  
+</script>
+<script>
     function triggerFileInput(inputId) {
         $('#' + inputId).trigger('click');
     }
@@ -1073,56 +1411,54 @@
     }
 
     $("#addRentTractorRowBtn").click(function () {
-    // Validate the last row before adding a new one
-    var lastRowIndex = $("#rentTractorTable tbody tr").length - 1;
-    var isValidLastRow = validateRow(lastRowIndex);
+        // Validate the last row before adding a new one
+        var lastRowIndex = $("#rentTractorTable tbody tr").length - 1;
+        var isValidLastRow = validateRow(lastRowIndex);
 
-    if (isValidLastRow) {
-        var newIndex = $("#rentTractorTable tbody tr").length;
+        if (isValidLastRow) {
+            var newIndex = $("#rentTractorTable tbody tr").length;
 
-        var newRow = $("#rentTractorTable tbody tr:last").clone();
+            var newRow = $("#rentTractorTable tbody tr:last").clone();
 
-        newRow.find("input, select").each(function () {
-            var originalId = $(this).attr("id");
-            var originalName = $(this).attr("name");
+            newRow.find("input, select").each(function () {
+                var originalId = $(this).attr("id");
+                var originalName = $(this).attr("name");
 
-            var index = parseInt(originalId.split("_")[1]);
-            var newId = originalId.split("_")[0] + "_" + newIndex;
-            var newName = originalName.split("_")[0] + "_" + newIndex;
-            $(this).attr("id", newId);
-            $(this).attr("name", newName);
+                var newId = originalId.split("_")[0] + "_" + newIndex;
+                var newName = originalName.split("_")[0] + "_" + newIndex;
+                $(this).attr("id", newId);
+                $(this).attr("name", newName);
 
-            if ($(this).is("input")) {
-                $(this).val("");
-            } else if ($(this).is("select")) {
-                $(this).val($(this).find("option:first").val());
+                if ($(this).is("input")) {
+                    $(this).val("");
+                } else if ($(this).is("select")) {
+                    $(this).val($(this).find("option:first").val());
+                }
+                $(this).removeClass("is-invalid");
+                $(this).next(".invalid-feedback").remove();
+            });
+
+            var newImageId = 'impImage_' + newIndex;
+            var newPreviewId = 'impImagePreview_' + newIndex;
+
+            newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
+            newRow.find('.image-file-input').attr('id', newImageId);
+            newRow.find('img').attr('id', newPreviewId).hide();
+            newRow.find('.image-file-input').attr('onclick', "displayImagePreview(this, '" + newPreviewId + "')");
+            newRow.find('.image-file-input').attr('onchange', "displayImagePreview(this, '" + newPreviewId + "')");
+            newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
+
+            newRow.find('td:first').text(newIndex + 1);
+
+            if (newIndex === 0) {
+                newRow.find('.remove-button').hide();
+            } else {
+                newRow.find('.remove-button').show();
             }
-            $(this).removeClass("is-invalid");
-            $(this).next(".invalid-feedback").remove();
-        });
 
-        var newImageId = 'impImage_' + newIndex;
-        var newPreviewId = 'impImagePreview_' + newIndex;
-
-        newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
-        newRow.find('.image-file-input').attr('id', newImageId);
-        newRow.find('img').attr('id', newPreviewId).hide();
-        newRow.find('.image-file-input').attr('onclick', "displayImagePreview(this, '" + newPreviewId + "')");
-        newRow.find('.image-file-input').attr('onchange', "displayImagePreview(this, '" + newPreviewId + "')");
-        newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-
-        newRow.find('td:first').text(newIndex + 1);
-      
-        if (newIndex === 0) {
-            newRow.find('.remove-button').hide();
-        } else {
-            newRow.find('.remove-button').show();
+            $('#rentTractorTable tbody').append(newRow);
         }
-
-        $('#rentTractorTable tbody').append(newRow);
-            }
-        });
-
+    });
 
     $("#rentTractorTable").on("submit", function (e) {
         var isValidForm = true;
@@ -1144,94 +1480,225 @@
     });
 
     function validateRow(rowIndex) {
-    var isValidRow = true;
-    var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
-    row.find('.is-invalid').removeClass('is-invalid');
-    row.find('.invalid-feedback').remove();
+        var isValidRow = true;
+        var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
+        row.find('.is-invalid').removeClass('is-invalid');
+        row.find('.invalid-feedback').remove();
 
-    var imageInput = row.find(".image-file-input");
-    var currentRowIndex = row.index();
+        var imageInput = row.find(".image-file-input");
+        var currentRowIndex = row.index();
 
-    displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
+        displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
 
-    if (imageInput.prop("required") && !imageInput.get(0).files.length) {
-        isValidRow = false;
-        imageInput.addClass("is-invalid");
-        imageInput.after("<div class='invalid-feedback'>This field is required.</div>");
-    } else {
-        imageInput.removeClass("is-invalid");
-        imageInput.next(".invalid-feedback").remove();
-    }
-
-    var implementTypeField = row.find(".implement-type-input");
-    if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
-        isValidRow = false;
-        implementTypeField.addClass("is-invalid");
-        implementTypeField.after("<div class='invalid-feedback'>This field is required.</div>");
-    } else {
-        implementTypeField.removeClass("is-invalid");
-    }
-
-    row.find(".implement-rate-input").each(function (index) {
-        var rate = parseFloat($(this).val());
-        if (isNaN(rate) || rate <= 0) {
+        if (imageInput.prop("required") && !imageInput.get(0).files.length) {
             isValidRow = false;
-            $(this).addClass("is-invalid");
-            $(this).after("<div class='invalid-feedback'>This field is required.</div>");
+            imageInput.addClass("is-invalid");
+            imageInput.after("<div class='invalid-feedback'>This field is required.</div>");
         } else {
-            $(this).removeClass("is-invalid");
+            imageInput.removeClass("is-invalid");
+            imageInput.next(".invalid-feedback").remove();
         }
-    });
 
-    row.find(".implement-unit-input").each(function (index) {
-        if ($(this).val() === "") {
+        var implementTypeField = row.find(".implement-type-input");
+        if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
             isValidRow = false;
-            $(this).addClass("is-invalid");
-            $(this).after("<div class='invalid-feedback'>This field is required.</div>");
+            implementTypeField.addClass("is-invalid");
+            implementTypeField.after("<div class='invalid-feedback'>This field is required.</div>");
         } else {
-            $(this).removeClass("is-invalid");
+            implementTypeField.removeClass("is-invalid");
         }
-    });
-    if (rowIndex === 0) {
-        row.find('.remove-button').hide();
+
+        row.find(".implement-rate-input").each(function (index) {
+            var rate = parseFloat($(this).val());
+            if (isNaN(rate) || rate <= 0) {
+                isValidRow = false;
+                $(this).addClass("is-invalid");
+                $(this).after("<div class='invalid-feedback'>This field is required.</div>");
+            } else {
+                $(this).removeClass("is-invalid");
+            }
+        });
+
+        row.find(".implement-unit-input").each(function (index) {
+            if ($(this).val() === "") {
+                isValidRow = false;
+                $(this).addClass("is-invalid");
+                $(this).after("<div class='invalid-feedback'>This field is required.</div>");
+            } else {
+                $(this).removeClass("is-invalid");
+            }
+        });
+        if (rowIndex === 0) {
+            row.find('.remove-button').hide();
+        }
+
+        return isValidRow;
     }
 
-    return isValidRow;
-   }
-  function removeRow(button) {
-        $(button).closest('tr').remove(); 
+    function removeRow(button) {
+        $(button).closest('tr').remove();
     }
+
     $("#addRentTractorRowBtn").click(function () {
     });
 </script>
 
-<script>
-  function removeRow(button) {
-    var $clickedRow = $(button).closest('tr');
-    
-    // Check if the clicked row is not the first row
-    if ($clickedRow.index() !== 0) {
-        $clickedRow.remove();
-    }
-}
-</script>
-<script>
-    $(document).ready(function() {
-        // Event listener for dynamically added rows
-        $(document).on('input', '.implement-rate-input', function() {
-            var value = $(this).val().replace(/\D/g, ''); 
-            var formattedValue = Number(value).toLocaleString('en-IN');
-            $(this).val(formattedValue);
-        });
 
-        // Event listener for the initial row
-        $('.implement-rate-input').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); 
-            var formattedValue = Number(value).toLocaleString('en-IN');
-            $(this).val(formattedValue);
+    <script>
+        function removeRow(button) {
+            var $clickedRow = $(button).closest('tr');
+            
+            // Check if the clicked row is not the first row
+            if ($clickedRow.index() !== 0) {
+                $clickedRow.remove();
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Event listener for dynamically added rows
+            $(document).on('input', '.implement-rate-input', function() {
+                var value = $(this).val().replace(/\D/g, ''); 
+                var formattedValue = Number(value).toLocaleString('en-IN');
+                $(this).val(formattedValue);
+            });
+
+            // Event listener for the initial row
+            $('.implement-rate-input').on('input', function() {
+                var value = $(this).val().replace(/\D/g, ''); 
+                var formattedValue = Number(value).toLocaleString('en-IN');
+                $(this).val(formattedValue);
+            });
         });
+    </script>
+
+<script>
+    function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+            const stateSelect = document.getElementsByClassName(stateClassName)[0];
+            stateSelect.innerHTML = '<option selected value="">Please select a state</option>';
+
+            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch districts for
+
+            stateIds.forEach(stateId => {
+                const filteredState = data.stateData.find(state => state.id === stateId);
+                if (filteredState) {
+                    const option = document.createElement('option');
+                    option.textContent = filteredState.state_name;
+                    option.value = filteredState.id;
+                    stateSelect.appendChild(option);
+                }
+            });
+
+            // Event listener for state select change
+            stateSelect.addEventListener('change', function() {
+                const selectedStateId = stateSelect.value;
+                if (selectedStateId) {
+                    getDistricts(selectedStateId, districtClassName, tehsilClassName);
+                } else {
+                    clearDropdown(districtClassName);
+                    clearDropdown(tehsilClassName);
+                }
+            });
+
+            // Initial population of districts for the first state
+            if (stateIds.length > 0) {
+                getDistricts(stateIds[0], districtClassName, tehsilClassName);
+            } else {
+                stateSelect.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
     });
+}
+function getDistricts(state_id, districtClassName, tehsilClassName) {
+    console.log(state_id,districtClassName,tehsilClassName);
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
+    var districtSelect = document.getElementsByClassName(districtClassName)[0];
+    districtSelect.innerHTML = '<option selected disabled value="">Please select a district</option>';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            if (data.districtData.length > 0) {
+                data.districtData.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.district_name;
+                    option.value = row.id;
+                    districtSelect.appendChild(option);
+                });
+
+                // Event listener for district select change
+                districtSelect.addEventListener('change', function() {
+                    populateTehsil(districtSelect.value, tehsilClassName);
+                });
+
+                // Initial population of tehsils for the first district
+                populateTehsil(districtSelect.value, tehsilClassName);
+            } else {
+                districtSelect.innerHTML = '<option>No districts available for this state</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching districts:', error);
+        }
+    });
+}
+function clearDropdown(className) {
+    var dropdown = document.getElementsByClassName(className)[0];
+    dropdown.innerHTML = '';
+}
+function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId; 
+    console.log(url);
+    var tehsilSelect = document.getElementsByClassName(tehsilClassName)[0];
+    tehsilSelect.innerHTML = '<option selected disabled value="">Please select a tehsil</option>';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            if (data.tehsilData.length > 0) {
+                data.tehsilData.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.tehsil_name;
+                    option.value = row.id;
+                    if (row.id === selectedTehsilId) {
+                        option.selected = true;
+                    }
+                    tehsilSelect.appendChild(option);
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option>No tehsils available for this district</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching tehsils:', error);
+        }
+    });
+}
+
+// Call the function to populate dropdowns with specific class names
+populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'tehsil-dropdown_rent');
 </script>
+
 </body>
 
 </html>

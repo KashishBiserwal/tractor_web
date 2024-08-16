@@ -102,12 +102,12 @@ function appendCard(container, p) {
                                     </a>
                                     <div class="content d-flex flex-column flex-grow-1 ">
                                         <div class="row text-center mt-1">
-                                            <p class="text-center fw-bold text-truncate " id="model_brand">${p.brand_name} ${p.model}</p>
+                                            <p class="text-center fw-bold text-truncate " id="model_brand">${p.brand_name || ''} ${p.model || ''}</p>
                                             <div class="col-4 col-md-4 col-lg-4 col-sm-4">
                                                 <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-indian-rupee-sign"></i> ${formattedPrice}<span>/</span>${p.rate_per}</p>
                                             </div>
                                             <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                                <p class="text-dark custom-font-size fw-bold"> <i class="fas fa-calendar-alt"></i> Year: ${p.purchase_year}</p>
+                                                <p class="text-dark custom-font-size fw-bold"> <i class="fas fa-calendar-alt"></i> Year: ${p.purchase_year || ' '}</p>
                                             </div>
                                             <div class="col-4 col-md-4 col-lg-4 col-sm-4">
                                                 <p class="text-dark custom-font-size fw-bold"> <i class="far fa-circle"></i> Radius ${p.working_radius}</p>
