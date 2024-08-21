@@ -218,7 +218,7 @@ function fetch_edit_data(customer_id) {
             console.log('User Data 2:', userData2);
             disableFormFields();
             // Rent Only Tractor
-            $('#idUser').val(userData.customer_id);
+            $('#idUserForTracotr').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius').val(userData.working_radius);
@@ -295,7 +295,6 @@ function fetch_edit_data(customer_id) {
                 $("#model_main3 option[value='" + userData.model + "']").prop("selected", true);
               // Make the dropdown read-only
             }, 2000);
-
             // Populating other dropdowns and inputs
             $("#year_main3 option").prop("selected", false);
             $("#year_main3 option[value='" + userData.purchase_year + "']").prop("selected", true);
@@ -581,10 +580,9 @@ function destroy(id) {
         }
     });
   }
-  
   get_brand(); 
-  
-  function get_year_and_hours() {
+
+function get_year_and_hours() {
     console.log('initsfd')
     // var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
@@ -616,10 +614,9 @@ function destroy(id) {
         }
     });
   }
-  
   get_year_and_hours();
 
-  function implementget() {
+function implementget() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
 
     $.ajax({
@@ -697,9 +694,8 @@ function getSearchBrand() {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  
-  function get_model(brand_id) {
+}
+function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -730,10 +726,10 @@ function getSearchBrand() {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  
-  getSearchBrand();
-  function getimplementbrand() { 
+}
+getSearchBrand();
+
+function getimplementbrand() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
@@ -769,8 +765,8 @@ function getSearchBrand() {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  getimplementbrand();
+}
+getimplementbrand();
 function get() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -808,7 +804,7 @@ function get() {
         }
     });
   }
-  function getbrand() { 
+function getbrand() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
@@ -844,9 +840,9 @@ function get() {
             console.error('Error fetching data:', error);
         }
     });
-    }
+}
     
-    function get_modelbrand(brand_id) {
+function get_modelbrand(brand_id) {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
         $.ajax({
             url: url,
@@ -877,11 +873,10 @@ function get() {
                 console.error('Error fetching data:', error);
             }
         });
-    }
-  
+}
 getbrand();
 
-  function get_model(brand_id) {
+function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -912,9 +907,8 @@ getbrand();
             console.error('Error fetching data:', error);
         }
     });
-  }
-  
-  get();
+ }
+ get();
 
 
   function get_year_and_hours() {
@@ -949,7 +943,6 @@ getbrand();
         }
     });
   }
-  
   get_year_and_hours();
 
   function get_year() {
@@ -984,7 +977,6 @@ getbrand();
         }
     });
   }
-  
   get_year();
   function get_year_forboth() {
     console.log('initsfd')
@@ -1018,10 +1010,9 @@ getbrand();
         }
     });
   }
-  
   get_year_forboth();
 
-  function implementget() {
+function implementget() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
 
     $.ajax({
@@ -1454,7 +1445,7 @@ function StoreOnlyImplement() {
 function StoreOnlyTractor() {
     var enquiry_type_id = 18
     var forTractor =$('#forTractor').val();
-    // var enquiry_type_id = $('#enquiry_type_id').val();
+    var customer_id = $('#idUserForTracotr').val();
     var brand_name = $('#brand').val();
     var model = $('#model_main').val();
     var year = $('#year_main1').val();
@@ -1487,10 +1478,27 @@ function StoreOnlyTractor() {
             imageFilesArray.push(image_names[i]);
         }
     });
+    var apiBaseURL =APIBaseURL;
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
     };
+
+    var _method = 'POST';
+   var url, method;
+   
+   console.log('edit state',editId_state);
+   if (customer_id!="" && customer_id!=" ") {
+       console.log(editId_state, "state");
+       _method = 'put';
+       url = apiBaseURL + 'customer_enquiries/' + customer_id ;
+       console.log(url);
+       method = 'POST'; 
+   } else {
+       // Add mode
+       url = apiBaseURL + 'customer_enquiries';
+       method = 'POST';
+   }
     // Create a FormData object
     var formData = new FormData();
 
@@ -1508,7 +1516,7 @@ function StoreOnlyTractor() {
     formData.append('district', district);
     formData.append('tehsil', tehsil);
     formData.append('message', about);
-
+    formData.append('id', customer_id);
     // Append arrays as JSON strings
     formData.append('rate', JSON.stringify(rateArray));
     formData.append('rate_per', JSON.stringify(ratePerArray));
@@ -1519,8 +1527,8 @@ function StoreOnlyTractor() {
     }
     // Make an AJAX request to the server
     $.ajax({
-        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
-        type: 'POST',
+        url: url,
+        type: method,
         data: formData,
         headers: headers,
         processData: false,
