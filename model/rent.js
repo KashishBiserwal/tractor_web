@@ -887,10 +887,10 @@ function submitFormImplement() {
         success: function (result) {
             console.log(result, "result");
             // Show success message
-            // var msg = 'Added successfully!';
+            var msg = 'Added successfully!';
             $("#errorStatusLoading").modal('show');
             // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            // $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successful Request"></img>');
             // Reload page after OK is clicked
             $('#errorStatusLoading').on('hidden.bs.modal', function () {
