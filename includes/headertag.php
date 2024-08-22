@@ -7,7 +7,7 @@
 $baseUrl = '/tractor_house/';
 ?>
 <meta charset="UTF-8">
-	<title>Tractor Junction</title>
+	<title>BharatAgriMarts</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes" />	

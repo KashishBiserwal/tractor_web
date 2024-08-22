@@ -207,18 +207,58 @@ function fetch_edit_data(customer_id) {
     var headers = {
         'Authorization': 'Bearer' + localStorage.getItem('token')
     };
+    
+
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function(response) {
+            var isModelFilled = $('#model_main').val() !== "";
+            var isYearFilled = $('#year_main1').val() !== "" || $('#year_main3').val() !== "";
+            var isImplementTypeFilled = $('#impType_0').val() !== ""; // Assuming the first row ID is 'impType_0'
+            
+            // check form data 
+            // Logic to enable/disable tabs
+            if (isModelFilled && isYearFilled && !isImplementTypeFilled) {
+                // Enable 'Rent Tractor Only' tab
+                $('#home-tab').removeClass('disabled');
+                $('#profile-tab').addClass('disabled');
+                $('#contact-tab').addClass('disabled');
+        
+                // Show only 'Rent Tractor Only' tab content
+                $('#home-tab-pane').addClass('show active');
+                $('#profile-tab-pane').removeClass('show active');
+                $('#contact-tab-pane').removeClass('show active');
+            } else if (!isModelFilled && !isYearFilled && isImplementTypeFilled) {
+                // Enable 'Rent Implement Type Only' tab
+                $('#profile-tab').removeClass('disabled');
+                $('#home-tab').addClass('disabled');
+                $('#contact-tab').addClass('disabled');
+        
+                // Show only 'Rent Implement Type Only' tab content
+                $('#profile-tab-pane').addClass('show active');
+                $('#home-tab-pane').removeClass('show active');
+                $('#contact-tab-pane').removeClass('show active');
+            } else if (isModelFilled && isYearFilled && isImplementTypeFilled) {
+                // Enable 'Rent Tractor and Implement' tab
+                $('#contact-tab').removeClass('disabled');
+                $('#home-tab').addClass('disabled');
+                $('#profile-tab').addClass('disabled');
+        
+                // Show only 'Rent Tractor and Implement' tab content
+                $('#contact-tab-pane').addClass('show active');
+                $('#home-tab-pane').removeClass('show active');
+                $('#profile-tab-pane').removeClass('show active');
+            }
+
             var userData = response.rent_details.data1[0]; // Selecting first item from data1
             var userData2 = response.rent_details.data2; // Keeping data2 separate
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
             disableFormFields();
             // Rent Only Tractor
-            $('#idUserForTracotr').val(userData.id);
+            $('#idUser').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius').val(userData.working_radius);
@@ -230,7 +270,7 @@ function fetch_edit_data(customer_id) {
             
 
             // Rent Tractor And Implement For both
-            $('#idUser').val(userData.customer_id);
+            $('#idUser1').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius3').val(userData.working_radius);
@@ -241,7 +281,7 @@ function fetch_edit_data(customer_id) {
             // ('#customFile1').val(userData2.images);
 
             // Rent Implement For both
-            $('#idUser').val(userData.customer_id);
+            $('#idUser2').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius1').val(userData.working_radius);
@@ -295,6 +335,7 @@ function fetch_edit_data(customer_id) {
                 $("#model_main3 option[value='" + userData.model + "']").prop("selected", true);
               // Make the dropdown read-only
             }, 2000);
+
             // Populating other dropdowns and inputs
             $("#year_main3 option").prop("selected", false);
             $("#year_main3 option[value='" + userData.purchase_year + "']").prop("selected", true);
@@ -580,9 +621,10 @@ function destroy(id) {
         }
     });
   }
+  
   get_brand(); 
-
-function get_year_and_hours() {
+  
+  function get_year_and_hours() {
     console.log('initsfd')
     // var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
@@ -614,9 +656,10 @@ function get_year_and_hours() {
         }
     });
   }
+  
   get_year_and_hours();
 
-function implementget() {
+  function implementget() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
 
     $.ajax({
@@ -694,8 +737,9 @@ function getSearchBrand() {
             console.error('Error fetching data:', error);
         }
     });
-}
-function get_model(brand_id) {
+  }
+  
+  function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -726,10 +770,10 @@ function get_model(brand_id) {
             console.error('Error fetching data:', error);
         }
     });
-}
-getSearchBrand();
-
-function getimplementbrand() { 
+  }
+  
+  getSearchBrand();
+  function getimplementbrand() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
@@ -765,8 +809,8 @@ function getimplementbrand() {
             console.error('Error fetching data:', error);
         }
     });
-}
-getimplementbrand();
+  }
+  getimplementbrand();
 function get() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -804,7 +848,7 @@ function get() {
         }
     });
   }
-function getbrand() { 
+  function getbrand() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
@@ -840,9 +884,9 @@ function getbrand() {
             console.error('Error fetching data:', error);
         }
     });
-}
+    }
     
-function get_modelbrand(brand_id) {
+    function get_modelbrand(brand_id) {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
         $.ajax({
             url: url,
@@ -873,10 +917,11 @@ function get_modelbrand(brand_id) {
                 console.error('Error fetching data:', error);
             }
         });
-}
+    }
+  
 getbrand();
 
-function get_model(brand_id) {
+  function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -907,8 +952,9 @@ function get_model(brand_id) {
             console.error('Error fetching data:', error);
         }
     });
- }
- get();
+  }
+  
+  get();
 
 
   function get_year_and_hours() {
@@ -943,6 +989,7 @@ function get_model(brand_id) {
         }
     });
   }
+  
   get_year_and_hours();
 
   function get_year() {
@@ -977,6 +1024,7 @@ function get_model(brand_id) {
         }
     });
   }
+  
   get_year();
   function get_year_forboth() {
     console.log('initsfd')
@@ -1010,9 +1058,10 @@ function get_model(brand_id) {
         }
     });
   }
+  
   get_year_forboth();
 
-function implementget() {
+  function implementget() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
 
     $.ajax({
@@ -1445,7 +1494,7 @@ function StoreOnlyImplement() {
 function StoreOnlyTractor() {
     var enquiry_type_id = 18
     var forTractor =$('#forTractor').val();
-    var customer_id = $('#idUserForTracotr').val();
+    // var enquiry_type_id = $('#enquiry_type_id').val();
     var brand_name = $('#brand').val();
     var model = $('#model_main').val();
     var year = $('#year_main1').val();
@@ -1478,27 +1527,10 @@ function StoreOnlyTractor() {
             imageFilesArray.push(image_names[i]);
         }
     });
-    var apiBaseURL =APIBaseURL;
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
     };
-
-    var _method = 'POST';
-   var url, method;
-   
-   console.log('edit state',editId_state);
-   if (customer_id!="" && customer_id!=" ") {
-       console.log(editId_state, "state");
-       _method = 'put';
-       url = apiBaseURL + 'customer_enquiries/' + customer_id ;
-       console.log(url);
-       method = 'POST'; 
-   } else {
-       // Add mode
-       url = apiBaseURL + 'customer_enquiries';
-       method = 'POST';
-   }
     // Create a FormData object
     var formData = new FormData();
 
@@ -1516,7 +1548,7 @@ function StoreOnlyTractor() {
     formData.append('district', district);
     formData.append('tehsil', tehsil);
     formData.append('message', about);
-    formData.append('id', customer_id);
+
     // Append arrays as JSON strings
     formData.append('rate', JSON.stringify(rateArray));
     formData.append('rate_per', JSON.stringify(ratePerArray));
@@ -1527,8 +1559,8 @@ function StoreOnlyTractor() {
     }
     // Make an AJAX request to the server
     $.ajax({
-        url: url,
-        type: method,
+        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
+        type: 'POST',
         data: formData,
         headers: headers,
         processData: false,
