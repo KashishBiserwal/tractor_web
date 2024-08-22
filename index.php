@@ -109,8 +109,8 @@
     </button>
   </div>
   <div class="container bannerbg00">
-    <div class="row main-row">
-       <div class="col-4" style="background-color:#f8f9fac9;">
+    <div class="row">
+       <div class="col-lg-4 col-12 col-md-4" style="background-color:#f8f9fac9;">
         <div class="banner__wrapper">
           <div class="row g-4 justify-content-center">
             <div class="col-lg-10">
@@ -176,8 +176,7 @@
           </div>
         </div>
        </div>
-       <div class="col-4"></div>
-       <div class="col-4"></div>
+       
     </div>
    
 </section>
