@@ -207,7 +207,7 @@ function fetch_edit_data(customer_id) {
     var headers = {
         'Authorization': 'Bearer' + localStorage.getItem('token')
     };
-    // check form data 
+    
 
     $.ajax({
         url: url,
@@ -217,7 +217,8 @@ function fetch_edit_data(customer_id) {
             var isModelFilled = $('#model_main').val() !== "";
             var isYearFilled = $('#year_main1').val() !== "" || $('#year_main3').val() !== "";
             var isImplementTypeFilled = $('#impType_0').val() !== ""; // Assuming the first row ID is 'impType_0'
-        
+            
+            // check form data 
             // Logic to enable/disable tabs
             if (isModelFilled && isYearFilled && !isImplementTypeFilled) {
                 // Enable 'Rent Tractor Only' tab

@@ -92,7 +92,7 @@ function verifyotp() {
       console.log(expires_in, 'expiry timeeeeee');
 
       // Redirect to userProfile.php
-      window.location.href = baseUrl + "userProfile.php";
+      window.location.href = "userProfile.php";
     },
     error: function (xhr, textStatus, errorThrown) {
       // Handle errors
