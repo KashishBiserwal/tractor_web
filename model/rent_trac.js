@@ -207,18 +207,57 @@ function fetch_edit_data(customer_id) {
     var headers = {
         'Authorization': 'Bearer' + localStorage.getItem('token')
     };
+    // check form data 
+
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function(response) {
+            var isModelFilled = $('#model_main').val() !== "";
+            var isYearFilled = $('#year_main1').val() !== "" || $('#year_main3').val() !== "";
+            var isImplementTypeFilled = $('#impType_0').val() !== ""; // Assuming the first row ID is 'impType_0'
+        
+            // Logic to enable/disable tabs
+            if (isModelFilled && isYearFilled && !isImplementTypeFilled) {
+                // Enable 'Rent Tractor Only' tab
+                $('#home-tab').removeClass('disabled');
+                $('#profile-tab').addClass('disabled');
+                $('#contact-tab').addClass('disabled');
+        
+                // Show only 'Rent Tractor Only' tab content
+                $('#home-tab-pane').addClass('show active');
+                $('#profile-tab-pane').removeClass('show active');
+                $('#contact-tab-pane').removeClass('show active');
+            } else if (!isModelFilled && !isYearFilled && isImplementTypeFilled) {
+                // Enable 'Rent Implement Type Only' tab
+                $('#profile-tab').removeClass('disabled');
+                $('#home-tab').addClass('disabled');
+                $('#contact-tab').addClass('disabled');
+        
+                // Show only 'Rent Implement Type Only' tab content
+                $('#profile-tab-pane').addClass('show active');
+                $('#home-tab-pane').removeClass('show active');
+                $('#contact-tab-pane').removeClass('show active');
+            } else if (isModelFilled && isYearFilled && isImplementTypeFilled) {
+                // Enable 'Rent Tractor and Implement' tab
+                $('#contact-tab').removeClass('disabled');
+                $('#home-tab').addClass('disabled');
+                $('#profile-tab').addClass('disabled');
+        
+                // Show only 'Rent Tractor and Implement' tab content
+                $('#contact-tab-pane').addClass('show active');
+                $('#home-tab-pane').removeClass('show active');
+                $('#profile-tab-pane').removeClass('show active');
+            }
+
             var userData = response.rent_details.data1[0]; // Selecting first item from data1
             var userData2 = response.rent_details.data2; // Keeping data2 separate
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
             disableFormFields();
             // Rent Only Tractor
-            $('#idUser').val(userData.customer_id);
+            $('#idUser').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius').val(userData.working_radius);
@@ -230,7 +269,7 @@ function fetch_edit_data(customer_id) {
             
 
             // Rent Tractor And Implement For both
-            $('#idUser').val(userData.customer_id);
+            $('#idUser1').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius3').val(userData.working_radius);
@@ -241,7 +280,7 @@ function fetch_edit_data(customer_id) {
             // ('#customFile1').val(userData2.images);
 
             // Rent Implement For both
-            $('#idUser').val(userData.customer_id);
+            $('#idUser2').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius1').val(userData.working_radius);

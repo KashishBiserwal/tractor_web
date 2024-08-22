@@ -359,7 +359,7 @@
                                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                         <div class="form-outline">
                                                             <label class="form-label text-dark" for="workingRadius">Working Area</label>
-                                                            <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
+                                                            <input rows="2" cols="70" class="w-100 p-2" style="height: 68px;" id="workingRadius" style="height: 68px;" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -513,7 +513,7 @@
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                     <div class="form-outline">
                                                         <label class="form-label text-dark" for="workingRadius">Working Area</label>
-                                                        <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius1" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
+                                                        <input rows="2" cols="70" class="w-100 p-2" style="height: 68px;" id="workingRadius1" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -575,39 +575,38 @@
                                                     </button>
                                                 </div>
                                             </form>
-                                                <!-- The Modal -->
-                                                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header bg-success">
-                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100 pb-2"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form id="otp_rent_implement_form">
-                                                                    <div class=" col-12 input-group">
-                                                                    <div class="col-12" hidden>
-                                                                            <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
-                                                                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                                                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp2"name="opt_1">
-                                                                        </div>
-                                                                        <div class="float-end col-12">
-                                                                            <a href="" class="float-end">Resend OTP</a>
-                                                                        </div>
+                                            <!-- The Modal -->
+                                            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-success">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100 pb-2"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="otp_rent_implement_form">
+                                                                <div class=" col-12 input-group">
+                                                                <div class="col-12" hidden>
+                                                                        <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
                                                                     </div>
-                                                                </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-success" id="Verify">Verify</button>
-                                                            </div>
+                                                                    <div class="col-12">
+                                                                        <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp2"name="opt_1">
+                                                                    </div>
+                                                                    <div class="float-end col-12">
+                                                                        <a href="" class="float-end">Resend OTP</a>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-success" id="Verify">Verify</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -619,176 +618,176 @@
                                 </button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse d-lg-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
-                                <div class="accordion-body">
-                                    <form id="rent_list_form_">
-                                        <div class="text-center">
-                                            <h5 class="pb-2 mt-2">Tractor Information</h5>
-                                        </div>
-                                        <div class="row justify-content-center pt-2">
-                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                                <div class="form-outline">
-                                                <label class="form-label text-dark">Enquiry</label>
-                                                    <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
-                                                </div>
-                                            </div>
-                                            <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                                <label class="text-dark">User<span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
-                                                <small></small>
-                                            </div>  
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
-                                                <input type="text" class="form-control" id="added_by" value="">
-                                            </div>
-                                            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                                <div class="form-outline">
-                                                    <label class="form-label text-dark">Brand</label>
-                                                    <select class="form-select" aria-label="Default select example"id="brand3" name="brand">
-                                                    
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                                <div class="form-outline">
-                                                    <label class="form-label text-dark">Model</label>
-                                                    <select class="form-select" aria-label="Default select example"id="model_main3" name="model">
-                                                    
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                                <div class="form-outline">
-                                                    <label class="form-label text-dark">Year</label>
-                                                    <select class="form-select" aria-label="Default select example"id="year_main3" name="year">
-                                                
-                                                    </select>
-                                                </div>
-                                            </div>
+                                    <div class="accordion-body">
+                                        <form id="rent_list_form_">
                                             <div class="text-center">
-                                                <h5 class="pb-2 mt-4">Implement Type Information</h5>
+                                                <h5 class="pb-2 mt-2">Tractor Information</h5>
                                             </div>
-                                            <div class="table-responsive my-3">
-                                                <table id="rentTractorTable" class="table table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>No.</th>
-                                                            <th width="80">Image</th>
-                                                            <th>Implement Type</th>
-                                                            <th>Rate</th>
-                                                            <th>Rate Per</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>
-                                                                <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
-                                                                    <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
-                                                                    <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
-                                                                </div>
-                                                                <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
-                                                            </td>
-                                                            <td>
-                                                                <div class="select-wrap">
-                                                                    <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
-                                                                        <option value>Select</option>
-                                                                    
-                                                                    </select>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
-                                                            </td>
-                                                            <td>
-                                                                <div class="select-wrap">
-                                                                    <select name="rate_per[]" id="impRatePer_0" class="form-control implement-unit-input">
-                                                                        <option value="">Select</option>
-                                                                        <option value="Acer">Acer</option>
-                                                                        <option value="Hour">Hour</option>
-                                                                    </select>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-danger remove-button" title="Remove Row" onclick="removeRow(this)">
-                                                                    <i class="fas fa-minus"></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <td colspan="6" align="right">
-                                                                <button type="button" class="btn btn-success" title="Add Row" id="addRentTractorRowBtn">
-                                                                    <i class="fas fa-plus"></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                <div class="form-outline">
-                                                    <label class="form-label text-dark" for="workingRadius">Working Area</label>
-                                                    <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius3" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
+                                            <div class="row justify-content-center pt-2">
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                                    <div class="form-outline">
+                                                    <label class="form-label text-dark">Enquiry</label>
+                                                        <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                                <div class="form-outline">
-                                                    <label class="form-label text-dark">Description</label>
-                                                    <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d3" name="textarea_d"></textarea>
+                                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                                    <label class="text-dark">User<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                                    <small></small>
+                                                </div>  
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
+                                                    <input type="text" class="form-control" id="added_by" value="">
                                                 </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <h5 class="pb-2 mt-2">Personal Information</h5>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                                <div class="form-outline mt-3">
-                                                    <label for="name" class="form-label text-dark">First Name</label>
-                                                    <input type="text" class="form-control" placeholder="" id="myfname3" name="fname">
+                                                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark">Brand</label>
+                                                        <select class="form-select" aria-label="Default select example"id="brand3" name="brand">
+                                                        
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                                <div class="form-outline mt-3">
-                                                    <label for="name" class="form-label text-dark">Last Name</label>
-                                                    <input type="text" class="form-control" placeholder="" id="mylname3" name="lname">
+                                                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark">Model</label>
+                                                        <select class="form-select" aria-label="Default select example"id="model_main3" name="model">
+                                                        
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                                <div class="form-outline mt-2">
-                                                    <label for="name" class="form-label text-dark">Mobile Number</label>
-                                                    <input type="text" class="form-control" placeholder="" id="mynumber2" name="number">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                                <div class="form-outline mt-2">
-                                                    <label class="form-label text-dark">State</label>
-                                                    <select class="form-select py-2 state-dropdown_rent" aria-label="Default select example" id="state_state3" name="state_">
+                                                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark">Year</label>
+                                                        <select class="form-select" aria-label="Default select example"id="year_main3" name="year">
                                                     
-                                                    </select>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h5 class="pb-2 mt-4">Implement Type Information</h5>
+                                                </div>
+                                                <div class="table-responsive my-3">
+                                                    <table id="rentTractorTable" class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No.</th>
+                                                                <th width="80">Image</th>
+                                                                <th>Implement Type</th>
+                                                                <th>Rate</th>
+                                                                <th>Rate Per</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>
+                                                                    <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
+                                                                        <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
+                                                                        <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
+                                                                    </div>
+                                                                    <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="select-wrap">
+                                                                        <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
+                                                                            <option value>Select</option>
+                                                                        
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
+                                                                </td>
+                                                                <td>
+                                                                    <div class="select-wrap">
+                                                                        <select name="rate_per[]" id="impRatePer_0" class="form-control implement-unit-input">
+                                                                            <option value="">Select</option>
+                                                                            <option value="Acer">Acer</option>
+                                                                            <option value="Hour">Hour</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger remove-button" title="Remove Row" onclick="removeRow(this)">
+                                                                        <i class="fas fa-minus"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="6" align="right">
+                                                                    <button type="button" class="btn btn-success" title="Add Row" id="addRentTractorRowBtn">
+                                                                        <i class="fas fa-plus"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark" for="workingRadius">Working Area</label>
+                                                        <input rows="2" cols="70" class="w-100 p-2" style="height: 68px;" id="workingRadius3" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <div class="form-outline">
+                                                        <label class="form-label text-dark">Description</label>
+                                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d3" name="textarea_d"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h5 class="pb-2 mt-2">Personal Information</h5>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-3">
+                                                        <label for="name" class="form-label text-dark">First Name</label>
+                                                        <input type="text" class="form-control" placeholder="" id="myfname3" name="fname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-3">
+                                                        <label for="name" class="form-label text-dark">Last Name</label>
+                                                        <input type="text" class="form-control" placeholder="" id="mylname3" name="lname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                                    <div class="form-outline mt-2">
+                                                        <label for="name" class="form-label text-dark">Mobile Number</label>
+                                                        <input type="text" class="form-control" placeholder="" id="mynumber2" name="number">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-2">
+                                                        <label class="form-label text-dark">State</label>
+                                                        <select class="form-select py-2 state-dropdown_rent" aria-label="Default select example" id="state_state3" name="state_">
+                                                        
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                    <div class="form-outline mt-3">
+                                                        <label class="form-label text-dark">District</label>
+                                                        <select class="form-select py-2 district-dropdown_rent" aria-label="Default select example" id="dist_district3" name="dist">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
+                                                    <div class="form-outline mt-3">
+                                                        <label class="form-label text-dark">Tehsil</label>
+                                                        <select class="form-select py-2 tehsil-dropdown_rent" aria-label="Default select example" id="tehsil_t3">
+                                                        
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mt-3">
+                                                    <button type="button" id="rent_submit_both" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#get_OTP_btnBoth">Submit</button>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                                <div class="form-outline mt-3">
-                                                    <label class="form-label text-dark">District</label>
-                                                    <select class="form-select py-2 district-dropdown_rent" aria-label="Default select example" id="dist_district3" name="dist">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
-                                                <div class="form-outline mt-3">
-                                                    <label class="form-label text-dark">Tehsil</label>
-                                                    <select class="form-select py-2 tehsil-dropdown_rent" aria-label="Default select example" id="tehsil_t3">
-                                                    
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mt-3">
-                                                <button type="button" id="rent_submit_both" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#get_OTP_btnBoth">Submit</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>  

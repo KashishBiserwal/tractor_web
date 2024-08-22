@@ -83,7 +83,7 @@
                     </div>   
                     <ul class="nav nav-tabs d-none d-lg-flex px-3" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active fw-bold" id="home-tab"  data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Rent Tractor Only</button>
+                            <button class="nav-link  fw-bold" id="home-tab"  data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Rent Tractor Only</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link fw-bold" id="profile-tab" data-bs-toggle="tab"data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Rent Implement Type Only</button>
@@ -95,7 +95,7 @@
                        
                         <div class="tab-content accordion py-3" id="myTabContent">
                              <!--Rent Tractor Only-->
-                            <div class="tab-pane fade show active accordion-item" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                            <div class="tab-pane fade show  accordion-item" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                 <h2 class="accordion-header d-lg-none" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Rent Tractor Only</button>
                                 </h2>
@@ -112,21 +112,15 @@
                                                         <input type="text" id="forTractor" name="" value="forTractor" class=" data_search form-control input-group-sm py-2" />
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                                    <div class="form-outline">
-                                                    <label class="form-label text-dark">Enquiry</label>
-                                                        <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
-                                                    </div>
-                                                </div>
                                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                                     <label class="text-dark">User<span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                                     <small></small>
                                                 </div>  
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
                                                     <input type="text" class="form-control" id="added_by" value="">
-                                                </div>
+                                                </div> -->
                                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                     <div class="form-outline">
                                                         <label class="form-label text-dark">Brand</label>
@@ -288,12 +282,6 @@
                                                         <input type="text" id="forImplement" name="" value="forImplement" class=" data_search form-control input-group-sm py-2" />
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                                    <div class="form-outline">
-                                                    <label class="form-label text-dark">Enquiry</label>
-                                                        <input type="text" id="enquiry_type_id1" name="" value="18" class=" data_search form-control input-group-sm py-2"/>
-                                                    </div>
-                                                </div>
                                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                                 <label class="text-dark">User<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control py-2" for="idUser"  id="idUser1" name="first_name" placeholder="Enter First Name">
@@ -439,16 +427,10 @@
                                         <h5 class="pb-2 mt-2">Tractor Information</h5>
                                     </div>
                                     <div class="row justify-content-center pt-2">
-                                      <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                          <div class="form-outline">
-                                          <label class="form-label text-dark">Enquiry</label>
-                                              <input type="text" id="enquiry_type_id2" name="" value="18" class=" data_search form-control input-group-sm py-2" />
-                                          </div>
-                                      </div>
                                       <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark">User<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="idUser2" name="first_name" placeholder="Enter First Name">
-                                          <small></small>
+                                        <label class="text-dark">User<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control py-2" for="idUser"  id="idUser2" name="first_name" placeholder="Enter First Name">
+                                        <small></small>
                                       </div>  
                                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                           <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>

@@ -304,7 +304,7 @@
         <h5 class="modal-title" id="errorStatusLoadingTitle">Loading Status</h5>
       </div>
       <div class="modal-body">
-        <p>Sorry, there was an issue with the Data Loading , please try again.</p>
+        <!-- <p>Sorry, there was an issue with the Data Loading , please try again.</p> -->
          <!-- <img src="../assets/images/success.gif">  -->
       </div>
       <div class="modal-footer">
