@@ -114,7 +114,7 @@
                                                 </div>
                                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                                     <label class="text-dark">User<span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                                            <input type="text" class="form-control py-2" for="idUser"  id="idUserForTracotr" name="first_name" placeholder="Enter First Name">
                                                     <small></small>
                                                 </div>  
                                                 <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>

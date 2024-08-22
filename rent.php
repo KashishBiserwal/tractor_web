@@ -1239,23 +1239,23 @@
     $("#mynumber1").on("input", function () {
         var phone = $(this).val();
         if (phone.length === 10 && $.isNumeric(phone)) {
-            $("#mobile-error").hide(); // Hide the error message if the number is valid
+            $("#mobile-error").hide(); 
         } else {
-            $("#mobile-error").show(); // Show the error message if the number is invalid
+            $("#mobile-error").show(); 
         }
     });
 
-    // Handle form submission
+    Handle form submission
     $("#rent_implement").on("click", function () {
         var phone = $("#mynumber1").val();
         if ($("#implement_rent_form").valid()) {
-            // Validate the phone number
+           
             if (phone.length === 10 && $.isNumeric(phone)) {
-                $("#implement_rent_form").submit(); // Submit the form if valid
+                $("#implement_rent_form").submit();
             } else {
                 alert("Please enter a valid 10-digit mobile number.");
                 $('#myModal').modal('hide'); 
-                return; // Exit the function if the number is invalid
+                return; 
             }
         }
     });
