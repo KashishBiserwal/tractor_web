@@ -329,10 +329,10 @@ function get_harvester() {
                     </div>
                 </a>
                 <div class="harvester_content_section mt-3 text-center">
-                    <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
-                    <div class="row w-100">
+                    <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark text-truncate">${p.brand_name} ${p.model}</h6></a>
+                    <div class="row w-100 contant-justify-center">
                         <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
-                        <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                        <div class="col-6 p-0 text-truncate" > <p class="mb-0"  style="font-size: 14px;">${p.crops_type_value}</p></div>
                     </div>
                     <a  href="harvester_inner.php?product_id=${p.id}">
                         <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
@@ -499,7 +499,7 @@ function get_All_News() {
                         <button type="button" class="btn btn-warning mt-3">${p.news_category} </button>
                         </a>  
                         <div class="row mt-2">
-                            <p class="fw-bold">${p.news_headline}</p>
+                            <p class="fw-bold text-truncate" >${p.news_headline}</p>
                         </div>
                         <div class="row">
                             <p class="fw-bold"><span>Date/time: </span>${p.date}</p>

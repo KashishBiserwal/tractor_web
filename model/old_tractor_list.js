@@ -481,9 +481,6 @@ function store(event) {
 
 get_tractor_list();
 
-
-
-
 function updateTable(data) {
   const tableBody = $('#data-table');
   tableBody.empty();
@@ -573,8 +570,6 @@ function search_data() {
   });
 }
 
-
-
 function removeImage(ele){
   console.log("print ele");
     console.log(ele);
@@ -587,7 +582,6 @@ function removeImage(ele){
   }
 
 // fetch edit data
-
 function fetch_edit_data(customer_id) {
   console.log(customer_id, 'customer_id');
   var apiBaseURL = APIBaseURL;
@@ -667,7 +661,7 @@ function fetch_edit_data(customer_id) {
       setTimeout(function() { // Wait for the model dropdown to populate
           $("#model option").prop("selected", false);
           $("#model option[value='" + userData.model + "']").prop("selected", true);
-      }, 1000); // Adjust the delay time as needed
+      }, 2000); // Adjust the delay time as needed
 
       $("#selectedImagesContainer").empty();
       if (userData.image_names) {
@@ -763,7 +757,7 @@ function fetch_data(product_id){
                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                     <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
                         <a class="weblink text-decoration-none text-dark" title="Image">
-                            <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
+                            <img class="img-fluid w-50 h-100 " src="${imageUrl}" alt="Image">
                         </a>
                     </div>
                 </div>
@@ -771,9 +765,7 @@ function fetch_data(product_id){
 
             $("#selectedImagesContainer-old").append(newCard);
         });
-    }
-    
-    
+    }  
   },
   error: function (error) {
   console.error('Error fetching data:', error);
@@ -848,39 +840,43 @@ function fetch_data(product_id){
    
 }
 
-  function get_By_State() {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'state_data';
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function(data) {
-            const select = document.getElementById('state_name');
-            select.innerHTML = '<option selected disabled value="">Please select a state</option>';
-  
-            const stateId = 7;
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                const option = document.createElement('option');
-                option.textContent = filteredState.state_name;
-                option.value = filteredState.id;
-                select.appendChild(option);
-                // Once the state is populated, fetch districts for this state
-                getDistricts(filteredState.id);
-            } else {
-                select.innerHTML = '<option>No valid data available</option>';
-            }
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  get_By_State();
+function get_By_State() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+  const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch
+
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          const select = document.getElementById('state_name');
+          select.innerHTML = '<option selected disabled value="">Please select a state</option>';
+
+          stateIds.forEach(stateId => {
+              const filteredState = data.stateData.find(state => state.id === stateId);
+              if (filteredState) {
+                  const option = document.createElement('option');
+                  option.textContent = filteredState.state_name;
+                  option.value = filteredState.id;
+                  select.appendChild(option);
+              } else {
+                  select.innerHTML += `<option value="${stateId}">State ID: ${stateId}</option>`;
+              }
+          });
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+// Initialize the function
+get_By_State();
+
+
+
 
  
 

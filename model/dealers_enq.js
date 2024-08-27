@@ -2,7 +2,7 @@
 $(document).ready(function(){
   get_dealers_normal();
   get_dealers();
-  populateStates();
+  // populateStates();
 
   // Listen for changes in the state dropdown and populate districts accordingly
   $('#state_state').change(function() {
@@ -104,157 +104,7 @@ $(document).ready(function(){
       
   
       });
-      
-      
-    //   var table1 = $('#example').DataTable({
-    //     paging: true,
-    //     searching: true,
-    //     columns: [
-    //         { title: 'S.No.' },
-    //         { title: 'Date' },
-    //         { title: 'Brand' },
-    //         { title: 'Full Name' },
-    //         { title: 'Mobile' },
-    //         { title: 'State' },
-    //         { title: 'District' },
-    //         { title: 'Action', orderable: false }
-    //     ]
-    // });
-    
-    // // Initialize DataTable for the second table (example2)
-    // var table2 = $('#example2').DataTable({
-    //     paging: true,
-    //     searching: true,
-    //     columns: [
-    //         { title: 'S.No.' },
-    //         { title: 'Date' },
-    //         { title: 'Brand' },
-    //         { title: 'Full Name' },
-    //         { title: 'Mobile' },
-    //         { title: 'State' },
-    //         { title: 'District' },
-    //         { title: 'Action', orderable: false }
-    //     ]
-    // });
-    
-    // // Your AJAX functions to populate data into the DataTables
-    // function get_dealers() {
-    //     var apiBaseURL = APIBaseURL;
-    //     var url = apiBaseURL + 'get_dealer_enquiry_data_for_particular_dealer'; 
-    
-    //     $.ajax({
-    //         url: url,
-    //         type: "GET",
-    //         headers: {
-    //             'Authorization': 'Bearer ' + localStorage.getItem('token')
-    //         },
-    //         success: function (data) {
-    //             // Clear table before populating with new data
-    //             table1.clear().draw();
-    
-    //             let serialNumber = 1;
-    //             if (data.dealer_enquiry_details_for_particular_data && data.dealer_enquiry_details_for_particular_data.length > 0) {
-    //                 // Reverse the order of data
-    //                 data.dealer_enquiry_details_for_particular_data.reverse();
-    
-    //                 // Construct data array for DataTable
-    //                 let tableData = data.dealer_enquiry_details_for_particular_data.map(row => [
-    //                     serialNumber++,
-    //                     row.date,
-    //                     row.brand_name,
-    //                     row.first_name + ' ' + row.last_name,
-    //                     row.mobile,
-    //                     row.state_name,
-    //                     row.district_name,
-    //                     `<div class="d-flex">
-    //                         <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdatacertifed(${row.id});" data-bs-target="#view_model_dealer_1">
-    //                             <i class="fas fa-eye" style="font-size: 11px;"></i>
-    //                         </button> 
-    //                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_2(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers_certifed" id="yourUniqueIdHere">
-    //                             <i class="fas fa-edit" style="font-size: 11px;"></i>
-    //                         </button>
-    //                         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-    //                             <i class="fa fa-trash" style="font-size: 11px;"></i>
-    //                         </button>
-    //                     </div>`
-    //                 ]);
-    
-    //                 // Add data to DataTable
-    //                 table1.rows.add(tableData).draw();
-    //             } else {
-    //                 // If no data available, show message
-    //                 $('#example tbody').html('<tr><td colspan="8">No valid data available</td></tr>');
-    //             }
-    //         },
-    //         error: function (error) {
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     });
-    // }
-    
-    // // Call the function to load data into the DataTable
-    // get_dealers();
-    
-    // // Similarly, define function and call for the second table (example2)
-    // function get_dealers_normal() {
-    //     var apiBaseURL = APIBaseURL;
-    //     var url = apiBaseURL + 'get_dealer_enquiry_data'; 
-    
-    //     $.ajax({
-    //         url: url,
-    //         type: "GET",
-    //         headers: {
-    //             'Authorization': 'Bearer ' + localStorage.getItem('token')
-    //         },
-    //         success: function (data) {
-    //             // Clear table before populating with new data
-    //             table2.clear().draw();
-    
-    //             let serialNumber = 1;
-    
-    //             if (data.dealer_enquiry_details && data.dealer_enquiry_details.length > 0) {
-    //                 // Reverse the data array to display latest data first
-    //                 data.dealer_enquiry_details.reverse();
-    
-    //                 // Construct data array for DataTable
-    //                 let tableData = data.dealer_enquiry_details.map(row => [
-    //                     serialNumber++,
-    //                     row.date,
-    //                     row.brand_name,
-    //                     row.first_name + ' ' + row.last_name,
-    //                     row.mobile,
-    //                     row.state_name,
-    //                     row.district_name,
-    //                     `<div class="d-flex">
-    //                         <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_dealer">
-    //                             <i class="fas fa-eye" style="font-size: 11px;"></i>
-    //                         </button> 
-    //                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers" id="yourUniqueIdHere">
-    //                             <i class="fas fa-edit" style="font-size: 11px;"></i>
-    //                         </button>
-    //                         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-    //                             <i class="fa fa-trash" style="font-size: 11px;"></i>
-    //                         </button>
-    //                     </div>`
-    //                 ]);
-    
-    //                 // Add data to DataTable
-    //                 table2.rows.add(tableData).draw();
-    //             } else {
-    //                 // If no data available, show message
-    //                 $('#example2 tbody').html('<tr><td colspan="8">No valid data available</td></tr>');
-    //             }
-    //         },
-    //         error: function (error) {
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     });
-    // }
-    
-    // // Call the function to load data into the DataTable
-    // get_dealers_normal();
-      
-  
+ 
 
 //****get data***
 var table1; // Variable for DataTable of Certified table
@@ -499,16 +349,14 @@ function fetch_edit_data_2(id) {
       headers: headers,
       success: function(response) {
           var Data = response.dealer_enquiry_details_for_particular_data[0];
-          $('#idUser').val(Data.id);
+          $('#IdUser').val(Data.id);
           $('#dname_name').val(Data.dealer_name);
-          // $("#brand_name_2 option").prop("selected", false);
-          // $("#brand_name_2 option[value='" + Data.brand_name + "']").prop("selected", true);
           $('#mobile_1').val(Data.mobile);
           $('#first_nme_1').val(Data.first_name);
           $('#last_name_1').val(Data.last_name);
           $('#date_date').val(Data.date);
           $('#message_1').val(Data.message);
-
+          $('#product_id').val(Data.product_id);
           var brandDropdown = document.getElementById('brand_name_2');
           for (var i = 0; i < brandDropdown.options.length; i++) {
             if (brandDropdown.options[i].text === Data.brand_name) {
@@ -518,8 +366,10 @@ function fetch_edit_data_2(id) {
           }
           // Pre-select state dropdown
           setSelectedOption('state_state', Data.state_id);
-          populateDistricts(Data.state_id, Data.district_id);
-          populateTehsils(Data.district_id, Data.tehsil_id);
+          setSelectedOption('dist2', Data.district_id);
+          
+          // Call function to populate tehsil dropdown based on selected district
+          populateTehsil(Data.district_id, 'tehsil-dropdown1', Data.tehsil_id);
           
       },
       error: function(error) {
@@ -540,8 +390,9 @@ function setSelectedOption(selectId, value) {
 
 function edit_id_data_2() {
   var enquiry_type_id=16;
-  var product_id=13;
-  var edit_id = $("#idUser").val();
+  // var product_id=13;
+  var product_id = $("#product_id").val();
+  var edit_id = $("#IdUser").val();
   console.log(edit_id, 'edit_id');
   var brand_name = $("#brand_name_2").val();
   var first_name = $("#first_nme_1").val();
@@ -601,10 +452,7 @@ function edit_id_data_2() {
   });
 }
 
-
-    
 // edit data Normal dealer
-
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + id;
@@ -671,8 +519,6 @@ function populateTehsil(selectId, value) {
   }
 }
 
-
-
 function edit_id_data() {
   var enquiry_type_id=14;
   var product_id=13;
@@ -686,7 +532,7 @@ function edit_id_data() {
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
-  var message = $("#message_1").val();
+  var message = $("#message").val();
 
 
   if (!/^[6-9]\d{9}$/.test(mobile)) {
@@ -858,8 +704,6 @@ function get_search() {
 }
 get_search();
 
-
- 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
   var state = $('#state_1').val();
@@ -888,8 +732,17 @@ function searchdata() {
       success: function (searchData) {
           updateTable(searchData);
       },
-      error: function (error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#dealers_certifide_target').hasClass('active') ? $('#data-table') : $('#data-table2');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+          $('#example2').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 };
@@ -974,88 +827,88 @@ function reset() {
   window.location.reload();
 };
 
-function populateStates() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function(data) {
-          console.log(data);
-          const select = $('#state_state');
-          select.empty();
-          select.append('<option selected disabled value="">Select a state</option>');
+// function populateStates() {
+//   var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function(data) {
+//           console.log(data);
+//           const select = $('#state_state');
+//           select.empty();
+//           select.append('<option selected disabled value="">Select a state</option>');
 
-          const stateId = 7; // State ID you want to populate
-          const filteredState = data.stateData.find(state => state.id === stateId);
-          if (filteredState) {
-              select.append('<option value="' + filteredState.id + '">' + filteredState.state_name + '</option>');
-          } else {
-              select.append('<option>No valid data available</option>');
-          }
-      },
-      error: function(error) {
-          console.error('Error fetching states:', error);
-      }
-  });
-}
+//           const stateId = 7; // State ID you want to populate
+//           const filteredState = data.stateData.find(state => state.id === stateId);
+//           if (filteredState) {
+//               select.append('<option value="' + filteredState.id + '">' + filteredState.state_name + '</option>');
+//           } else {
+//               select.append('<option>No valid data available</option>');
+//           }
+//       },
+//       error: function(error) {
+//           console.error('Error fetching states:', error);
+//       }
+//   });
+// }
 
-function populateDistricts(state_id) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
-  console.log(url);
-  var select = $('#dist2');
-  select.empty();
-  select.append('<option selected disabled value="">Please select a district</option>');
+// function populateDistricts(state_id) {
+//   var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
+//   console.log(url);
+//   var select = $('#dist2');
+//   select.empty();
+//   select.append('<option selected disabled value="">Please select a district</option>');
 
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function(data) {
-          if (data.districtData.length > 0) {
-              data.districtData.forEach(row => {
-                  select.append('<option value="' + row.id + '">' + row.district_name + '</option>');
-              });
-          } else {
-              select.append('<option>No districts available for this state</option>');
-          }
-      },
-      error: function(error) {
-          console.error('Error fetching districts:', error);
-      }
-  });
-}
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function(data) {
+//           if (data.districtData.length > 0) {
+//               data.districtData.forEach(row => {
+//                   select.append('<option value="' + row.id + '">' + row.district_name + '</option>');
+//               });
+//           } else {
+//               select.append('<option>No districts available for this state</option>');
+//           }
+//       },
+//       error: function(error) {
+//           console.error('Error fetching districts:', error);
+//       }
+//   });
+// }
 
-function populateTehsils(district_id) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + district_id;
-  console.log(url);
-  var select = $('#tehsil_tehsil');
-  select.empty();
-  select.append('<option selected disabled value="">Please select a tehsil</option>');
+// function populateTehsils(district_id) {
+//   var url = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + district_id;
+//   console.log(url);
+//   var select = $('#tehsil_tehsil');
+//   select.empty();
+//   select.append('<option selected disabled value="">Please select a tehsil</option>');
 
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function(data) {
-          if (data.tehsilData.length > 0) {
-              data.tehsilData.forEach(row => {
-                  select.append('<option value="' + row.id + '">' + row.tehsil_name + '</option>');
-              });
-          } else {
-              select.append('<option>No tehsils available for this district</option>');
-          }
-      },
-      error: function(error) {
-          console.error('Error fetching tehsils:', error);
-      }
-  });
-}
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function(data) {
+//           if (data.tehsilData.length > 0) {
+//               data.tehsilData.forEach(row => {
+//                   select.append('<option value="' + row.id + '">' + row.tehsil_name + '</option>');
+//               });
+//           } else {
+//               select.append('<option>No tehsils available for this district</option>');
+//           }
+//       },
+//       error: function(error) {
+//           console.error('Error fetching tehsils:', error);
+//       }
+//   });
+// }
 
 

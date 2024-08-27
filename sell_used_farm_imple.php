@@ -13,6 +13,15 @@
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
     <?php
         include 'includes/headertag.php';
     ?>
@@ -142,7 +151,15 @@
         }      
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body>
    <?php
    include 'includes/header.php';
@@ -183,7 +200,7 @@
                      
                         <!-- <form id="signUpForm_sllused" class="bg-light"action=""> -->
                             <!-- FORM 1 -->
-                        <form id="form-step-1" class="bg-light mul_stp_frm" style="" method="post">
+                        <form id="form-step-1" class="bg-light mul_stp_frm"  method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-3 col-md-3 col-sm-3">
                                     <div class="float-start">Implement Info</div>
@@ -489,7 +506,7 @@
         <div class="sellcontent">
             <h4 class="text-center">Do you want to sell your used implement online?</h4>
             <p class="text-center">Now you can easily sell your old tractor implements without any tension from sitting at your home</p>
-            <p class="text-center"> TractorJunction has come up with a new page ‘Sell Your Used Implements’ where you can comfortably sell your old implement to the right buyer. If you like to sell used tractor implements online then you have to follow a few simple steps.</p>
+            <p class="text-center"> Bharat Agrimart has come up with a new page ‘Sell Your Used Implements’ where you can comfortably sell your old implement to the right buyer. If you like to sell used tractor implements online then you have to follow a few simple steps.</p>
         </div>
     </div>
 </section>
@@ -497,32 +514,39 @@
 
 <section class="bg-light">
     <div class="container mt-4 ">
-        <div class="col-12 assured mt-3">
-            <h4 class="fw-bold p-2">Quick Links</h4>
-        </div>
-        <div class="row mt-4">
-            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
-                <ul class="justify-content-center ul-box  ">
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; New Tractors</p></a></li>
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Finance </p></a></li>
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Popular Tractors</p></a></li>
-                </ul>
+    <div class="row">
+                <h5 class="bg-light assured py-1 ps-3">Quick links</h5>
+                <div class="col-12 col-md-6 col-lg-3 py-1">
+                    <ul>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="find_new_tractors.php" class="text-decoration-none text-dark">New Tractor</a></li>                    
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="compare_trac.php" class="text-decoration-none text-dark">Compare</a></li>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="dealership_enq.php" class="text-decoration-none text-dark">Dealership Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 py-1">
+                    <ul>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="new_tractor_loan.php" class="text-decoration-none text-dark">Finance</a></li>                    
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="upcoming_tractors.php" class="text-decoration-none text-dark">Upcoming Tractors</a></li>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="popular_tractors.php" class="text-decoration-none text-dark">Popular Tractors</a></li> 
+                      
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 py-1">
+                    <ul>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="used_tractor.php" class="text-decoration-none text-dark">Used Tractors</a></li>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="latest_tractor.php" class="text-decoration-none text-dark">Latest Tractors</a></li>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="Insurance.php" class="text-decoration-none text-dark">Insurance</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 py-1">
+                    <ul>
+                       
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="nursery_ui.php" class="text-decoration-none text-dark">Nuesery</a></li>
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="engine_oil.php" class="text-decoration-none text-dark">Engine Oil</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
-                <ul class="justify-content-center ul-box  ">
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Latest Tractors</p></a></li>
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Upcoming Tractors</p></a></li>
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Tractor News </p></a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
-                <ul class="justify-content-center ul-box  ">
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Used Tractors</p></a></li>
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Dealership Enquiry</p></a></li>
-                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Contact / Mail Us</p></a></li>
-                </ul>
-            </div>
-        </div>
     </div>
 </section>
 

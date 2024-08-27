@@ -87,7 +87,6 @@
 .table-responsive {
         width: 100%;
         }
-
 </style>
   </head>
   <body> <?php 

@@ -348,18 +348,22 @@ function store(event) {
         var editData2 = response.product.accessory_and_tractor_type[0];
         var formattedPrice = parseFloat(editData.starting_price).toLocaleString('en-IN');
         var formattedPrice1 = parseFloat(editData.ending_price).toLocaleString('en-IN');
-        // console.log(response,'editData123');
-        // var selectedAccessories = response.product.accessory_and_tractor_type[0];
-        // var accessoryIds = selectedAccessories.accessory_id.split(',');
-        // console.log(accessoryIds,"selectedAccessories")
-        // console.log("all data accessoryid", tractorTypeNames);
+      
+        var brandDropdown = document.getElementById('brand_name');
+        for (var i = 0; i < brandDropdown.options.length; i++) {
+          if (brandDropdown.options[i].text === editData.brand_name) {
+            brandDropdown.selectedIndex = i;
+            break;
+          }
+        }
+        $('#model').empty(); 
+        get_model(editData.brand_id); 
 
-        $("#brand_name option").prop("selected", false);
-        $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
-
-        // $('#model').val(editData.model);
-        $("#model option").prop("selected", false);
-        $("#model option[value='" + editData.model + "']").prop("selected", true);
+        // Selecting the option in the model dropdown
+        setTimeout(function() { // Wait for the model dropdown to populate
+            $("#model option").prop("selected", false);
+            $("#model option[value='" + editData.model + "']").prop("selected", true);
+        }, 2000); 
 
         $('#product_type_id').val(editData.product_type_id);
         $('#hp_category').val(editData.hp_category);
@@ -382,14 +386,6 @@ function store(event) {
         var tractorTypeIdToCheck = editData2.tractor_type_id;
         $("#tractor_type_ input[type='checkbox']").prop("checked", false);
 
-        // $("#type_name_").prop("checked", false);
-        // $(`#tractor_type_${tractorTypeIdToCheck}`).prop("checked","checked");
-       
-        // $("#tractor_type_1").attr("checked","checked");
-        
-        // const checkbox = document.getElementById("tractor_type_1");
-        // setTimeout(() => {
-          // console.log(document.getElementById(`tractor_type_${tractorTypeIdToCheck}`));
           document.getElementById(`tractor_type_${tractorTypeIdToCheck}`).checked = true;
         //  }, 5000);
 
@@ -398,15 +394,6 @@ function store(event) {
         $('#_image').val(editData.image_type_id);
         
         
-        // var $assList = $('#ass_list');
-
-        //     $assList.val(accessoryIds);
-        
-        //     $assList.trigger('change');
-    
-        
-        
-
      
         $('#CAPACITY_CC').val(editData.engine_capacity_cc);
 
@@ -436,8 +423,9 @@ function store(event) {
         $("#STEERING_COLUMN option").prop("selected", false);
         $("#STEERING_COLUMN option[value='" + editData.steering_column_id + "']").prop("selected", true);
 
-        $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type);
 
+        $("#POWER_TAKE_OFF_TYPE option").prop("selected", false);
+        $("#POWER_TAKE_OFF_TYPE option[value='" + editData.power_take_off_type + "']").prop("selected", true);
 
         $('#power_take_off_rpm').val(editData.power_take_off_rpm);
         $('#totat_weight').val(editData.total_weight);

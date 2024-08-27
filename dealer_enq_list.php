@@ -9,7 +9,7 @@
   <script src="<?php $baseUrl; ?>model/dealers_enq.js"></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
-
+  <script src="<?php $baseUrl; ?>model/sdt.js"></script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -125,27 +125,24 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
-                         <td>Brand-</td>
+                            <td>Brand-</td>
                             <td id="brand_particuler"></td>
-                         <tr> 
-                           
                             <td>First Name-</td>
                             <td id="fname1"></td>
+                         <tr> 
                             <td>Last Name-</td>
                             <td id="lname1"></td>
-                          </tr>
-                             <td>Mobile Number-</td>
+                            <td>Mobile Number-</td>
                             <td id="number1"></td>
-                            <td>Date-</td>
+                          </tr>
+                           <td>Date-</td>
                             <td id="date_1"></td>
+                            <td>State-</td>
+                            <td id="state1"></td>
                           </tr>
                           <tr>
-                          <td>State-</td>
-                            <td id="state1"></td>
                             <td>District-</td>
                             <td id="dist1"></td>
-                          </tr>
-                          <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
@@ -188,7 +185,7 @@
                                 </div>
                                       <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="13" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id1" value="" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                         <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
@@ -345,7 +342,7 @@
                                 <div class="row  pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="e" placeholder="Enter First Name">
+                                          <input type="text" class="form-control py-2" for="idUser"  id="IdUser" name="e" placeholder="Enter First Name">
                                   <small></small>
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
@@ -355,7 +352,7 @@
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6 " hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="13" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                         <div class="ol-12 col-lg-6 col-md-6 col-sm-6 mt-3">
@@ -412,7 +409,7 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                              <label class="form-label text-dark">State</label>
-                                              <select class="form-select py-2 " aria-label="Default select example" id="state_state" name="state_">
+                                              <select class="form-select py-2 state-dropdown1" aria-label="Default select example" id="state_state" name="state_">
                                              
                                               </select>
                                           </div>
@@ -420,7 +417,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">District</label>
-                                            <select class="form-select py-2 " aria-label="Default select example" id="dist2" name="dist">
+                                            <select class="form-select py-2 district-dropdown1" aria-label="Default select example" id="dist2" name="dist">
                                           
                                             </select>
                                           </div>
@@ -428,7 +425,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Tehsil</label>
-                                            <select class="form-select py-2 " aria-label="Default select example" id="tehsil_tehsil">
+                                            <select class="form-select py-2 tehsil-dropdown1" aria-label="Default select example" id="tehsil_tehsil">
                                       
                                             </select>
                                           </div>

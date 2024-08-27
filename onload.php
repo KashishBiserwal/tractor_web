@@ -11,7 +11,15 @@ include 'includes/footertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/onroad.js"></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body>
    <?php
    include 'includes/header.php';
@@ -122,7 +130,18 @@ include 'includes/footertag.php';
     </div>
   </div>
 </section>
-<section class="bg-light">
+<section class="about bg-white mt-2 ">
+  <div class="container">
+    <div class="lecture_heading ">
+      <h3 class="my-4 pt-5">Featured Brands</h3>
+    </div>
+    <div class="mt-4 pb-5">
+      <div class="row allbrands" id="brandContainer">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section class="bg-light">
     <div class="container mb-4">
         <div class="old_tracter py-3 ">
             <h3 class="fw-bold mt-3">Featured Brands</h3>
@@ -290,7 +309,7 @@ include 'includes/footertag.php';
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <section>
     <div class="container my-5">
         <div class="col-12 assured mt-3">
@@ -298,15 +317,15 @@ include 'includes/footertag.php';
         </div>
 
         <div>
-            <p class="mt-3">Bharat Tractor  presents to you the ease of buying a tractor and the other required implements with clicks of fingers. Best in Class tractors now do not need deep and engrossed research, the revolution of the tractor industry has come. On Road Price section brings to you the details about the pricing and the related queries at your ease, all you need to do is fill up the enquiry, submitting the enquiry will lead you to procuring the privilege of being personally handled and served by our friendly and knowledgeable customer care executives. </p>
+            <p class="mt-3">Bharat Agrimart presents to you the ease of buying a tractor and the other required implements with clicks of fingers. Best in Class tractors now do not need deep and engrossed research, the revolution of the tractor industry has come. On Road Price section brings to you the details about the pricing and the related queries at your ease, all you need to do is fill up the enquiry, submitting the enquiry will lead you to procuring the privilege of being personally handled and served by our friendly and knowledgeable customer care executives. </p>
         </div>
         <div class="col-12 assured mt-3">
             <h4 class="fw-bold p-2">Get New Tractor On Road Price</h4>
         </div>
 
         <div>
-            <p class="mt-3">Bharat Tractor cares for you, and we know how keen you know the tractor price on road of your selected tractor. We came up with this easy solution, here on this separate page “Tractor On Road Price” you get the on road tractor price in just a few steps. We are following explaining steps to get a new tractor on road price for your comfort.  </p>
-            <p class="mt-2">At Bharat Tractor, you can easily find the “Tractor On Road Price '' page. You have to fill the given form like your tractor brand, tractor model no., your name, mobile no., state district, and tehsil. After that, you have to click on the check on road price.</p>
+            <p class="mt-3">Bharat Agrimart cares for you, and we know how keen you know the tractor price on road of your selected tractor. We came up with this easy solution, here on this separate page “Tractor On Road Price” you get the on road tractor price in just a few steps. We are following explaining steps to get a new tractor on road price for your comfort.  </p>
+            <p class="mt-2">At Bharat Agrimart, you can easily find the “Tractor On Road Price '' page. You have to fill the given form like your tractor brand, tractor model no., your name, mobile no., state district, and tehsil. After that, you have to click on the check on road price.</p>
         </div>
     </div>
     

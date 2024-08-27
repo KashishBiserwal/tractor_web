@@ -289,7 +289,7 @@ function fetch_edit_data(id) {
             $('#mobile').val(Data.mobile);
             $('#email').val(Data.email);
             $('#date').val(Data.date);
-             
+            $('#product_id').val(Data.product_id);
           var brandDropdown = document.getElementById('brand_name');
           for (var i = 0; i < brandDropdown.options.length; i++) {
             if (brandDropdown.options[i].text === Data.brand_name) {
@@ -355,8 +355,8 @@ function fetch_edit_data(id) {
     }
    
     var paraArr = {
-        'brand_name': brand_name,
-        'oil_model': model_name,
+        'brand_id': brand_name,
+        'model': model_name,
         'first_name': first_name,
         'last_name': last_name,
         'mobile': mobile,
@@ -388,7 +388,6 @@ function fetch_edit_data(id) {
             window.location.reload();
             console.log("updated successfully");
             alert('successfully updated..!');
-            get_new_harvester();
 
         },
         error: function (error) {

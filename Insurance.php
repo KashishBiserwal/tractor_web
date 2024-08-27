@@ -12,6 +12,15 @@ include 'includes/footertag.php';
     <script src="<?php $baseUrl; ?>model/insurance_customer.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <style>
 .error .form-label {
     color: red !important;
@@ -31,9 +40,10 @@ include 'includes/footertag.php';
 
 
 .cards {
-    max-height: 5rem;
-    object-fit: contain;
+    max-height: 6rem;
+    object-fit: cover;
     width: 100%;
+
 }
 
 .form-outline .form-label {
@@ -46,6 +56,9 @@ include 'includes/footertag.php';
     margin-left: 20px;
 }
 
+.card-title{
+    font-size: 14px;
+}
 #atag {
     text-decoration: none;
 }
@@ -55,7 +68,6 @@ include 'includes/footertag.php';
     width: 98%;
     padding-left: 8px;
     padding-right: 8px;
-    margin-top: -160px;
 }
 </style>
 
@@ -74,18 +86,67 @@ include 'includes/footertag.php';
                 <span class="text-dark header-link  px-1">Enquiries <i class="fa-solid fa-chevron-right px-1"></i>
                 </span>
 
-                <span class="text-dark">All Loan</span>
+                <span class="text-dark">Insurance</span>
             </div>
         </div>
     </section>
 
+    <!--Popular Tractor Insurance Companies-->
+    <div class="container">
+        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
+        <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
 
+            <!-- Card 1 -->
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/HDFC ERGO.png" class="card-img-top cards p-2" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDFC ERGO</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/IFFCO.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IFFCO TOKEO</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/MAGMA HDI.png" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">MAGMA HDI</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/ORIENTAL.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">ORIENTAL</h5>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="col-12 col-lg-2 col-sm-6  mb-4">
+                <div class="card">
+                    <img src="assets/images/UNIVERSAL.jpg" class="card-img-top cards" alt="Company 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">UNIVERSAL</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/insurancee.png" alt="reload img" class="w-100" style="height: 350px;">
-            <div class="container-mid">
+            <!-- <img src="assets/images/insurancee.png" alt="reload img" class="w-100" style="height: 350px;"> -->
+            <div class="container-mid mt-4">
                 <div class="row justify-content-center loan_form bg-light border border-dark">
                     <h3 class="text-dark text-center fw-bold mt-4">Renew Your Tractor insurance at Best Price</h3>
                     <h6 class="text-dark text-center mb-3">Fill your information to get tractor insurance</h6>
@@ -307,80 +368,8 @@ include 'includes/footertag.php';
         </div>
     </div>
 
-
-    <!--How to Buy Tractor Insurance Online? End-->
-
-
-    <!--Popular Tractor Insurance Companies-->
-
-
-    <!-- <div class="container">
-        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
-        <div class="row mt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\tata1.png" class="card-img-top cards" alt="Company 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">TATA AIG</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\magma1.png" class="card-img-top cards" alt="Company 2">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Magma HDI</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\icici.jpg" class="card-img-top cards" alt="Company 3">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">ICICI Lombard</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\iffco.png" class="card-img-top cards" alt="Company 4">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">IFFCO-TOKIO</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\chola.webp" class="card-img-top cards" alt="Company 5">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Chola MS</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\bajaj.jpeg" class="card-img-top cards" alt="Company 6">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Bajaj Allianz</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
-
-
-    <!--Popular Tractor Insurance Companies End-->
-
-    <!-- Why Choose TractorJunction for Agriculture/Commercial Tractor Insurance Online -->
-
     <div class="container mt-5">
-        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Tractors for Agriculture/Commercial Tractor Insurance
+        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Agrimart for Agriculture/Commercial Tractor Insurance
             Online?</h4>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -434,7 +423,7 @@ include 'includes/footertag.php';
 
 
 
-    <!--Why Choose TractorJunction for Agriculture/Commercial Tractor Insurance Online End  -->
+    <!--Why Choose Bharat Agrimart for Agriculture/Commercial Tractor Insurance Online End  -->
 
     <!-- Get insured your tractor with best offers -->
     <div class="container">
@@ -457,11 +446,11 @@ include 'includes/footertag.php';
 
         <h6 class="fw-bold px-2 mt-5">If You Have A Plan, Let’s Discuss</h6>
 
-        <p class="mt-4 px-2">At Bharat Tractors, you can obtain online tractor insurance policies from different tractor
+        <p class="mt-4 px-2">At Bharat Agrimart, you can obtain online tractor insurance policies from different tractor
             insurance companies like SBI tractor insurance. Additionally, you can check for tractor insurance details,
             apply for tractor insurance policy renewal online and much more. You can also choose from farm tractor
             insurance from different companies and check tractor insurance 1-year price and tractor insurance status
-            check in real-time. Bharat Tractors experts have made the online commercial tractor insurance process very
+            check in real-time. Bharat Agrimart experts have made the online commercial tractor insurance process very
             simple.</p>
 
         <p class="mt-4 px-2">It is fairly simple, fill in the details regarding the tractor, such as the Brand, the
@@ -469,7 +458,7 @@ include 'includes/footertag.php';
             leverage the tractor insurance premium calculator to check the tractor insurance amount and, ultimately,
             tractor insurance price in India!</p>
 
-        <p class="mt-4 px-2">Bharat Tractors is committed to bringing you the best tractor insurance cost in India for
+        <p class="mt-4 px-2">Bharat Agrimart is committed to bringing you the best tractor insurance cost in India for
             your development and security. When you choose us, we make sure you get the best agricultural tractor
             insurance online and don't regret your choices upon your decisions.</p>
     </div>

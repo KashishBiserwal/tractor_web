@@ -285,10 +285,10 @@ function destroy(id) {
       },
       success: function(result) {
         // get_tyre_list();
-        //window.location.reload();
+        window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
-        get_new_harvester();
+        // get_new_harvester();
       },
       error: function(error) {
         console.error('Error fetching data:', error);
@@ -318,7 +318,6 @@ function openViewdata(userId) {
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
-        // document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('dist1').innerText=userData.district_name;
@@ -348,14 +347,10 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.enquiry_data[0];
             $('#userId').val(Data.id);
-            // $('#brand_name_1').val(Data.brand_name);
-            // $("#brand_name_1 option").prop("selected", false);
-            // $("#brand_name_1 option[value='" + Data.brand_name + "']").prop("selected", true);
             $('#model_name').val(Data.model);
             $('#fname_2').val(Data.first_name);
             $('#lname_2').val(Data.last_name);
             $('#number_2').val(Data.mobile);
-            // $('#email_2').val(Data.email);
             $('#date_2').val(Data.date);
             
           var brandDropdown = document.getElementById('brand_name_1');
@@ -368,17 +363,14 @@ function fetch_edit_data(id) {
 
           $('#model_name').empty(); 
           get_model(Data.brand_id); 
-
-          // Selecting the option in the model dropdown
-          setTimeout(function() { // Wait for the model dropdown to populate
+          setTimeout(function() { 
               $("#model_name option").prop("selected", false);
               $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-          }, 1000); // Adjust the delay time as needed
+          }, 2000); 
 
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
           
-          // Call function to populate tehsil dropdown based on selected district
           populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
 
           // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
@@ -408,11 +400,7 @@ function fetch_edit_data(id) {
           }
         }
       }
-           
-       
-  
- 
-
+          
   function edit_data_id() {
     var enquiry_type_id = $("#enquiry_type_id").val();
     var product_id = $("#product_id").val();
@@ -424,8 +412,8 @@ function fetch_edit_data(id) {
     var mobile = $("#number_2").val();
     var email = $("#email_2").val();
     var date = $("#date_2").val();
-    var state = $("#state_2").val();
-    var district = $("#dist_2").val();
+    var state = $("#state_").val();
+    var district = $("#dist_").val();
     var tehsil = $("#tehsil_2").val();
     var _method = 'put';
 
@@ -477,32 +465,17 @@ function fetch_edit_data(id) {
             console.error('Error fetching data:', error);
         }
     });
-  }
-
-  
-  
-
-;
-
-
+  };
 
   function searchdata() {
-    console.log("dfghsfg,sdfgdfg");
-    var brand_id = $('#brand_id1').val();
-    var brandselect = $('#brand_name').val();
+    var brandselect = $('#brand_search').val();
     var modelselect = $('#model3').val();
     var stateselect = $('#state3').val();
     var districtselect = $('#district3').val();
-   
-  console.log(brand_id);
-  console.log(brandselect);
-  console.log(modelselect);
-  console.log(stateselect);
-  console.log(districtselect);
   
     var paraArr = {
-      'brand_id':brand_id,
-      'brand_name':brandselect,
+      // 'brand_id':brand_id,
+      'brand_id':brandselect,
       'model':modelselect,
       'state':stateselect,
       'district':districtselect,
@@ -522,8 +495,16 @@ function fetch_edit_data(id) {
           console.log(searchData,"hello brand");
           updateTable(searchData);
         },
-        error: function (error) {
+        error: function (xhr, status, error) {
+          if (xhr.status === 404) {
+            // Handle 404 error here
+            const tableBody = $('#data-table');
+            tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+            // Clear the DataTable
+            $('#example').DataTable().clear().draw();
+          } else {
             console.error('Error searching for brands:', error);
+          }
         }
     });
   };
@@ -598,7 +579,7 @@ function fetch_edit_data(id) {
   
 
   function get_1() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -621,7 +602,7 @@ function fetch_edit_data(id) {
                 // Add event listener to brand dropdown
                 select.addEventListener('change', function() {
                     const selectedBrandId = this.value;
-                    get_model(selectedBrandId);
+                    get_model_1(selectedBrandId);
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
@@ -669,8 +650,3 @@ function fetch_edit_data(id) {
   }
   
   get_1();
-
-
-
-  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-  populateStateDropdown('state_select', 'district_select');

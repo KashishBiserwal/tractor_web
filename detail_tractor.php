@@ -14,7 +14,15 @@
   <script src="<?php $baseUrl; ?>model/new_tractor_inner.js"></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body>
     <?php
    include 'includes/header.php';
@@ -598,7 +606,7 @@
     include 'includes/footertag.php';
 
     ?>
- <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -632,7 +640,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                         <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                        <p class="text-danger">*Please make sure mobile no. must valid</p>
+                     
                     </div>
                      <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                         <div class="form-outline">

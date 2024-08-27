@@ -314,7 +314,7 @@ function displayTractors(productContainer, tractors) {
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                     <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                     <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                    <p class="text-danger">*Please make sure mobile no. must valid</p>
+                                                   
                                                 </div>
                                                
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">

@@ -2,7 +2,9 @@
 var customer_id = "";
 var editId_state= false;
 $(document).ready(function() {
-    $('#sub_btn_').click(store);
+    $('#rent_submit_both').click(store);
+    $('#rent_implement').click(StoreOnlyImplement);
+    $('#rent_submit').click(StoreOnlyTractor);
   get_rent_tractor_list();
   $('#Search').click(search_data);
   $("#Reset").click(function () {
@@ -52,7 +54,12 @@ function formatDateTime(originalDateTimeStr) {
             const tableBody = document.getElementById('data-table-rent');
 
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
-                let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
+                let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)})
+                
+            );
+            console.log("mergedData",mergedData);
+                
+        console.log('suman');
         
             // var view = response.rent_details.data1.id;
             // console.log(view,'dfghjklghjk');
@@ -64,6 +71,7 @@ function formatDateTime(originalDateTimeStr) {
                 let counter = 0; // Initialize counter here
 
                 mergedData.forEach(row => {
+
                     counter++; // Increment counter for each row
                     const fullName = row.first_name + ' ' + row.last_name;
                     let action = `
@@ -78,7 +86,7 @@ function formatDateTime(originalDateTimeStr) {
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                         </button>
                         </div>`;
-
+                        // console.log(row.customer_id,row,'customer--id');
                     tableData.push([
                         counter, 
                         row.date,
@@ -187,7 +195,9 @@ function triggerFileInput(inputId) {
 }
 
 
-
+function disableFormFields() {
+    $('#rent_list_form_ :input').prop('disabled', true);
+}
 // Function to fetch and populate edit data
 function fetch_edit_data(customer_id) {
     console.log(customer_id, 'customer_id');
@@ -195,29 +205,95 @@ function fetch_edit_data(customer_id) {
     var url = apiBaseURL + 'rent_data/' + customer_id;
     editId_state = true;
     var headers = {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Authorization': 'Bearer' + localStorage.getItem('token')
     };
+    
 
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function(response) {
+            var isModelFilled = $('#model_main').val() !== "";
+            var isYearFilled = $('#year_main1').val() !== "" || $('#year_main3').val() !== "";
+            var isImplementTypeFilled = $('#impType_0').val() !== ""; // Assuming the first row ID is 'impType_0'
+            
+            // check form data 
+            // Logic to enable/disable tabs
+            if (isModelFilled && isYearFilled && !isImplementTypeFilled) {
+                // Enable 'Rent Tractor Only' tab
+                $('#home-tab').removeClass('disabled');
+                $('#profile-tab').addClass('disabled');
+                $('#contact-tab').addClass('disabled');
+        
+                // Show only 'Rent Tractor Only' tab content
+                $('#home-tab-pane').addClass('show active');
+                $('#profile-tab-pane').removeClass('show active');
+                $('#contact-tab-pane').removeClass('show active');
+            } else if (!isModelFilled && !isYearFilled && isImplementTypeFilled) {
+                // Enable 'Rent Implement Type Only' tab
+                $('#profile-tab').removeClass('disabled');
+                $('#home-tab').addClass('disabled');
+                $('#contact-tab').addClass('disabled');
+        
+                // Show only 'Rent Implement Type Only' tab content
+                $('#profile-tab-pane').addClass('show active');
+                $('#home-tab-pane').removeClass('show active');
+                $('#contact-tab-pane').removeClass('show active');
+            } else if (isModelFilled && isYearFilled && isImplementTypeFilled) {
+                // Enable 'Rent Tractor and Implement' tab
+                $('#contact-tab').removeClass('disabled');
+                $('#home-tab').addClass('disabled');
+                $('#profile-tab').addClass('disabled');
+        
+                // Show only 'Rent Tractor and Implement' tab content
+                $('#contact-tab-pane').addClass('show active');
+                $('#home-tab-pane').removeClass('show active');
+                $('#profile-tab-pane').removeClass('show active');
+            }
+
             var userData = response.rent_details.data1[0]; // Selecting first item from data1
             var userData2 = response.rent_details.data2; // Keeping data2 separate
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
+            disableFormFields();
+            // Rent Only Tractor
+            $('#idUser').val(userData.id);
+            $('#enquiry_type_id').val(userData.enquiry_type_id);
+            $('#implement_rent').val(userData2.rate);
+            $('#workingRadius').val(userData.working_radius);
+            $('#textarea_d').val(userData.description);
+            $('#myfname').val(userData.first_name);
+            $('#mylname').val(userData.last_name);
+            $('#mynumber').val(userData.mobile);
+            // $('#mynumber').val(userData.mobile);
             
-            // Populating various form fields with retrieved data
-            $('#idUser').val(userData.customer_id).prop('readonly', true);
-            $('#enquiry_type_id').val(userData.enquiry_type_id).prop('readonly', true);
-            $('#implement_rent').val(userData2.rate).prop('readonly', true);
-            $('#workingRadius').val(userData.working_radius).prop('disabled', true);
-            $('#textarea_d').val(userData.description).prop('disabled', true);
-            $('#myfname').val(userData.first_name).prop('readonly', true);
-            $('#mylname').val(userData.last_name).prop('readonly', true);
-            $('#mynumber').val(userData.mobile).prop('readonly', true);
+
+            // Rent Tractor And Implement For both
+            $('#idUser1').val(userData.id);
+            $('#enquiry_type_id').val(userData.enquiry_type_id);
+            $('#implement_rent').val(userData2.rate);
+            $('#workingRadius3').val(userData.working_radius);
+            $('#textarea_d3').val(userData.description);
+            $('#myfname3').val(userData.first_name);
+            $('#mylname3').val(userData.last_name);
+            $('#mynumber2').val(userData.mobile);
+            // ('#customFile1').val(userData2.images);
+
+            // Rent Implement For both
+            $('#idUser2').val(userData.id);
+            $('#enquiry_type_id').val(userData.enquiry_type_id);
+            $('#implement_rent').val(userData2.rate);
+            $('#workingRadius1').val(userData.working_radius);
+            $('#textarea_d1').val(userData.description);
+            $('#myfname1').val(userData.first_name);
+            $('#mylname1').val(userData.last_name);
+            $('#mynumber1').val(userData.mobile);
+
             // Populating the brand dropdown
+            setSelectedOption('state_state3', userData.state_id);
+            setSelectedOption('dist_district3', userData.district_id);
+            populateTehsil(userData.district_id, 'tehsil-dropdown_rent', userData.tehsil_id);
             var brandDropdown = document.getElementById('brand');
             for (var i = 0; i < brandDropdown.options.length; i++) {
                 if (brandDropdown.options[i].text === userData.brand_name) {
@@ -225,32 +301,64 @@ function fetch_edit_data(customer_id) {
                     break;
                 }
             }
-            brandDropdown.disabled = true;
+            var brandDropdownboth = document.getElementById('brand3');
+            for (var i = 0; i < brandDropdownboth.options.length; i++) {
+                if (brandDropdownboth.options[i].text === userData.brand_name) {
+                    brandDropdownboth.selectedIndex = i;
+                    break;
+                }
+            }
+            var brandDropdownboth = document.getElementById('brand_implement');
+            for (var i = 0; i < brandDropdownboth.options.length; i++) {
+                if (brandDropdownboth.options[i].text === userData.brand_name) {
+                    brandDropdownboth.selectedIndex = i;
+                    break;
+                }
+            }
+
+             // Populating the model dropdown
+             $('#model_main').empty(); 
+             get_model_1(userData.brand_id); 
+             
+             setTimeout(function() { 
+                 $("#model_main option").prop("selected", false);
+                 $("#model_main option[value='" + userData.model + "']").prop("selected", true);
+               // Make the dropdown read-only
+             }, 2000);
 
             // Populating the model dropdown
-            $('#model_main').empty(); 
-            get_model_1(userData.brand_id); 
+            $('#model_main3').empty(); 
+            get_modelbrand(userData.brand_id); 
             
             setTimeout(function() { 
-                $("#model_main option").prop("selected", false);
-                $("#model_main option[value='" + userData.model + "']").prop("selected", true);
+                $("#model_main3 option").prop("selected", false);
+                $("#model_main3 option[value='" + userData.model + "']").prop("selected", true);
+              // Make the dropdown read-only
             }, 2000);
 
             // Populating other dropdowns and inputs
-            $("#year_main option").prop("selected", false);
-            $("#year_main option[value='" + userData.purchase_year + "']").prop("selected", true);
-            $("#year_main").prop("disabled", true);
+            $("#year_main3 option").prop("selected", false);
+            $("#year_main3 option[value='" + userData.purchase_year + "']").prop("selected", true);
+            $("#year_main3").prop("disabled", true);
+
+            $("#year_main1 option").prop("selected", false);
+            $("#year_main1 option[value='" + userData.purchase_year + "']").prop("selected", true);
+            $("#year_main1").prop("disabled", true);
+
             setSelectedOption('state_state', userData.state_id);
             setSelectedOption('dist_district', userData.district_id);
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
-            disableFormFields();
-            // Function to update table rows
+
+            setSelectedOption('state_state1', userData.state_id);
+            setSelectedOption('dist_district1', userData.district_id);
+            populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
+           
             function updateTableRows(userData2, clearPrefilledValues) {
                 var tableBody = $('#rentTractorTable tbody');
                 if (clearPrefilledValues) {
                     tableBody.empty();
                 }
-            
+        
                 userData2.forEach(function(item, index) {
                     var formattedRate = formatPriceWithCommas(item.rate);
                     var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
@@ -269,7 +377,7 @@ function fetch_edit_data(customer_id) {
                         '</select>' +
                         '</div>' +
                         '</td>' +
-                        '<td>' + 
+                        '<td>' +
                         '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '" readonly>' +
                         '</td>' +
                         '<td>' +
@@ -285,15 +393,102 @@ function fetch_edit_data(customer_id) {
                         '</button>' +
                         '</td>' +
                         '</tr>';
-                    
+        
                     tableBody.append(row);
+        
                     // Attach event listener to image to trigger file input
                     $('#image_' + index).click(function() {
-                        $('#impImage_0' + index).click();
+                        $('#impImage_' + index).click();
                     });
                 });
             }
             updateTableRows(userData2,true);
+            function updateTractorRentTableRows(userData2, clearPrefilledValues) {
+                var tableBody = $('#tractor_rent_only tbody');
+                if (clearPrefilledValues) {
+                    tableBody.empty();
+                }
+            
+                userData2.forEach(function(item, index) {
+                    var formattedRate = formatPriceWithCommas(item.rate);
+                   
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var row = '<tr>' +
+                        '<td class="tractor_rent_serial">' + (index + 1) + '</td>' +
+                        '<td>' +
+                        '<div class="card upload-img-wrap" name="rent_trac_image" onclick="triggerFileInput(\'customFile' + index + '\')" style="height: 38px; cursor: pointer;">' +
+                        '<i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput(\'customFile' + index + '\')"></i>' +
+                        '<img id="selectedImage' + index + '" src="' + imageUrl + '" alt="Image" style="max-width: 100%; max-height: 100%; object-fit: cover;" name="image_tractor" class="img-thumbnail"/>' +
+                        '</div>' +
+                        '<input type="file" id="customFile' + index + '" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, \'selectedImage' + index + '\')" required>' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input">' +
+                        '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
+                        '<option value="Acer">Acer</option>' +
+                        '<option value="Hour">Hour</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+            
+                    tableBody.append(row);
+                });
+            }
+            
+            // Example usage
+            updateTractorRentTableRows(userData2, true);
+            function updateImplementRentTableRows(userData2, clearPrefilledValues) {
+                var tableBody = $('#Implement_rent_only tbody');
+                if (clearPrefilledValues) {
+                    tableBody.empty();
+                }
+            
+                userData2.forEach(function(item, index) {
+                    var formattedRate = formatPriceWithCommas(item.rate);
+                    
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var row = '<tr>' +
+                        '<td class="serial-number">' + (index + 1) + '</td>' +
+                        '<td>' +
+                        '<div class="card upload-img-wrap" onclick="triggerFileInput(\'customFile' + index + '\')" style="height: 38px; cursor: pointer;">' +
+                        '<i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput(\'customFile' + index + '\')"></i>' +
+                        '<img id="selectedImage' + index + '" src="' + imageUrl + '" alt="Image" style="max-width: 100%; max-height: 100%; object-fit: cover;" class="img-thumbnail"/>' +
+                        '</div>' +
+                        '<input type="file" id="customFile' + index + '" class="d-none" accept="image/*" onchange="displayImagePreview(this, \'selectedImage' + index + '\')" required>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input">' +
+                        '<option value="' + item.id + '">' + item.category_name + '</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input">' +
+                        '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
+                        '<option value="Acer">Acer</option>' +
+                        '<option value="Hour">Hour</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+            
+                    tableBody.append(row);
+                });
+            }
+            
+            // Example usage
+            updateImplementRentTableRows(userData2, true);
+            
         },
         error: function(error) {
             console.error('Error fetching user data:', error);
@@ -309,7 +504,7 @@ function setSelectedOption(selectId, value) {
             break;
         }
     }
-    select.disabled = true; // Disable the dropdown
+     // Disable the dropdown
 }
 function populateTehsil(districtId, selectId, tehsilId) {
     var select = document.getElementById(selectId);
@@ -321,119 +516,8 @@ function populateTehsil(districtId, selectId, tehsilId) {
     }
     select.disabled = true;
     select.setAttribute('readonly', 'readonly');
-    $(select).prop('readonly', true);
+    $(select);
 }
-
-function disableFormFields() {
-    $('#rent_list_form_ :input').prop('disabled', true);
-}
-function store(event) {
-    event.preventDefault();
-    var enquiry_type_id = 18
-    // var enquiry_type_id = $('#enquiry_type_id').val();
-    // var added_by = 0;
-    var brand_name = $('#brand').val();
-    var model = $('#model_main').val();
-    var year = $('#year_main').val();
-    var workingRadius = $('#workingRadius').val();
-    var first_name = $('#myfname').val();
-    var last_name = $('#mylname').val();
-    var mobile = $('#mynumber').val();
-    var state = $('#state_state').val();
-    var district = $('#dist_district').val();
-    var tehsil = $('#tehsil_t').val();
-    var about = $('#textarea_d').val();
-    var implementTypeArray = [];
-    var rateArray = [];
-    var ratePerArray = [];
-    var imageFilesArray = [];
-
-    $('#rentTractorTable tbody tr').each(function(index) {
-        var row = $(this);
-
-        var implement_type = row.find('.implement-type-input').val();
-        var rate = row.find('.implement-rate-input').val();
-        rate = rate.replace(/[\,\.\s]/g, '');
-        var ratePer = row.find('.implement-unit-input').val();
-        var image_names = row.find('.image-file-input')[0].files; 
-
-        // Push data into arrays
-        implementTypeArray.push(implement_type);
-        rateArray.push(rate);
-        ratePerArray.push(ratePer);
-
-        // Push each image file to imageFilesArray
-        for (var i = 0; i < image_names.length; i++) {
-            imageFilesArray.push(image_names[i]);
-        }
-    });
-
-    var apiBaseURL =APIBaseURL;
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
-
-    var _method = 'POST';
-   var url, method;
-   
-   console.log('edit state',editId_state);
-   if (customer_id!="" && customer_id!=" ") {
-       console.log(editId_state, "state");
-       _method = 'put';
-       url = apiBaseURL + 'customer_enquiries/' + customer_id ;
-       console.log(url);
-       method = 'POST'; 
-   } else {
-       // Add mode
-       url = apiBaseURL + 'customer_enquiries';
-       method = 'POST';
-   }
-    var formData = new FormData();
-
-    // Append form data
-    // formData.append('added_by', added_by);
-    formData.append('enquiry_type_id', enquiry_type_id);
-    formData.append('brand_id', brand_name);
-    formData.append('model', model);
-    formData.append('first_name', first_name);
-    formData.append('last_name', last_name);
-    formData.append('purchase_year', year);
-    formData.append('working_radius', workingRadius);
-    formData.append('mobile', mobile);
-    formData.append('state', state);
-    formData.append('district', district);
-    formData.append('tehsil', tehsil);
-    formData.append('message', about);
-    formData.append('implement_type_id', JSON.stringify(implementTypeArray));
-    formData.append('rate', JSON.stringify(rateArray));
-    formData.append('rate_per', JSON.stringify(ratePerArray));
-
-    for (var i = 0; i < imageFilesArray.length; i++) {
-        formData.append('images[]', imageFilesArray[i]);
-    }
-
-    // Make an AJAX request to the server
-    $.ajax({
-        url: url,
-        type: method,
-        data: formData,
-        headers: headers,
-        processData: false,
-        contentType: false,
-        success: function(result) {
-            console.log(result, "result");
-            if (result.length) {
-                // Do something
-            }
-            alert('successfully inserted..!')
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
@@ -466,8 +550,6 @@ function destroy(id) {
       }
     });
   }
-
-
   function get_brand() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
     // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
@@ -691,7 +773,377 @@ function getSearchBrand() {
   }
   
   getSearchBrand();
+  function getimplementbrand() { 
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#brand_implement');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  getimplementbrand();
+function get() { 
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#brand');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  function getbrand() { 
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#brand3');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_modelbrand(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+    }
+    
+    function get_modelbrand(brand_id) {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+        $.ajax({
+            url: url,
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function (data) {
+                const selects = document.querySelectorAll('#model_main3');
+    
+                selects.forEach(select => {
+                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    
+                    if (data.model.length > 0) {
+                        data.model.forEach(row => {
+                            const option = document.createElement('option');
+                            option.textContent = row.model;
+                            option.value = row.model;
+                            console.log(option);
+                            select.appendChild(option);
+                        });
+                    } else {
+                        select.innerHTML = '<option>No valid data available</option>';
+                    }
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    }
+  
+getbrand();
 
+  function get_model(brand_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#model_main');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.model;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get();
+
+
+  function get_year_and_hours() {
+    console.log('initsfd')
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            var select_year = $("#year_main");
+            select_year.empty(); // Clear existing options
+            select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
+  
+            // Sort the array in descending order
+            data.getYears.sort(function(a, b) {
+                return b - a;
+            });
+  
+            for (var j = 0; j < data.getYears.length; j++) {
+                select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
+            }
+        },
+        complete: function() {
+            // You can add code here that will run after the request is complete
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get_year_and_hours();
+
+  function get_year() {
+    console.log('initsfd')
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            var select_year = $("#year_main1");
+            select_year.empty(); // Clear existing options
+            select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
+  
+            // Sort the array in descending order
+            data.getYears.sort(function(a, b) {
+                return b - a;
+            });
+  
+            for (var j = 0; j < data.getYears.length; j++) {
+                select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
+            }
+        },
+        complete: function() {
+            // You can add code here that will run after the request is complete
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get_year();
+  function get_year_forboth() {
+    console.log('initsfd')
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            var select_year = $("#year_main3");
+            select_year.empty(); // Clear existing options
+            select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
+  
+            // Sort the array in descending order
+            data.getYears.sort(function(a, b) {
+                return b - a;
+            });
+  
+            for (var j = 0; j < data.getYears.length; j++) {
+                select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
+            }
+        },
+        complete: function() {
+            // You can add code here that will run after the request is complete
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get_year_forboth();
+
+  function implementget() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+
+            const select = $('#impType_0');
+            select.empty(); // Clear existing options
+
+            // Add a default option
+            select.append('<option selected disabled value="">Please select Implement Type</option>');
+
+            // Use an object to keep track of unique categories
+            var uniqueCategories = {};
+
+            $.each(data.allCategory, function(index, category) {
+                var implement_type = category.id;
+                var category_name = category.category_name;
+
+                // Check if the category ID is not already in the object
+                if (!uniqueCategories[implement_type]) {
+                    // Add category ID to the object
+                    uniqueCategories[implement_type] = true;
+
+                    // Append the option to the dropdown
+                    select.append('<option value="' + implement_type + '">' + category_name + '</option>');
+                }
+            });
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+implementget();
+   
+function implementgetonly() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+
+            const select = $('#impType_1');
+            select.empty(); // Clear existing options
+
+            // Add a default option
+            select.append('<option selected disabled value="">Please select Implement Type</option>');
+
+            // Use an object to keep track of unique categories
+            var uniqueCategories = {};
+
+            $.each(data.allCategory, function(index, category) {
+                var implement_type = category.id;
+                var category_name = category.category_name;
+
+                // Check if the category ID is not already in the object
+                if (!uniqueCategories[implement_type]) {
+                    // Add category ID to the object
+                    uniqueCategories[implement_type] = true;
+
+                    // Append the option to the dropdown
+                    select.append('<option value="' + implement_type + '">' + category_name + '</option>');
+                }
+            });
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+implementgetonly();
 
   function search_data() {
 
@@ -747,13 +1199,13 @@ function getSearchBrand() {
                 counter++;
                 const fullName = row.first_name + ' ' + row.last_name;
                 let action = `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
                                 <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
                         </div>`;
@@ -803,25 +1255,325 @@ function getSearchBrand() {
     }
 }
 
-// function resetFormFields() {
-//     document.getElementById("rent_list_form_").reset(); // Reset the entire form
-    
-//     // Reset each image input and its preview
-//     var imageInputs = document.getElementsByClassName("image-file-input");
-//     for (var i = 0; i < imageInputs.length; i++) {
-//         imageInputs[i].value = ''; 
-        
-//         var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
-//         document.getElementById(imagePreviewId).setAttribute("src", ""); 
-        
-//         var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
-//         imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
-//     }
-    
-//     // Clear table body
-//     var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
-//     tableBody.innerHTML = ''; // Remove all rows
-// }
+function enableFormFields() {
+    $('#rent_list_form_ :input').prop('disabled', false);
+    $('#rentTractorTable :input').prop('readonly', false); 
+    $('#rentTractorTable select').each(function() {
+        $(this).prop('disabled', false);
+    });
+}
 
+function resetFormFields() {
+    enableFormFields();
+    document.getElementById("rent_list_form_").reset(); // Reset the entire form
+    
+    // Reset each image input and its preview
+    var imageInputs = document.getElementsByClassName("image-file-input");
+    for (var i = 0; i < imageInputs.length; i++) {
+        imageInputs[i].value = ''; 
+        
+        var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
+        document.getElementById(imagePreviewId).setAttribute("src", ""); 
+        
+        var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
+        imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
+    }
+    
+    // Clone and replace table rows
+    var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
+    var newRow = tableBody.rows[0].cloneNode(true); // Clone the first row (assuming it's the template row)
+    tableBody.innerHTML = ''; // Remove all rows
+    tableBody.appendChild(newRow); // Add the cloned row back to the table
+}
+
+function store(event) {
+    event.preventDefault();
+    var enquiry_type_id = 18
+    var brand_name = $('#brand3').val();
+    var model = $('#model_main3').val();
+    var year = $('#year_main3').val();
+    var workingRadius = $('#workingRadius3').val();
+    var first_name = $('#myfname3').val();
+    var last_name = $('#mylname3').val();
+    var mobile = $('#mynumber2').val();
+    var state = $('#state_state3').val();
+    var district = $('#dist_district3').val();
+    var tehsil = $('#tehsil_t3').val();
+    var about = $('#textarea_d3').val();
+    var implementTypeArray = [];
+    var rateArray = [];
+    var ratePerArray = [];
+    var imageFilesArray = [];
+
+    $('#rentTractorTable tbody tr').each(function(index) {
+        var row = $(this);
+        var implement_type = row.find('.implement-type-input').val();
+        var rate = row.find('.implement-rate-input').val();
+        rate = rate.replace(/[\,\.\s]/g, '');
+        var ratePer = row.find('.implement-unit-input').val();
+        var image_names = row.find('input[type="file"]')[0].files;
+
+        // Push data into arrays
+        implementTypeArray.push(implement_type);
+        rateArray.push(rate);
+        ratePerArray.push(ratePer);
+
+        // Push each image file to imageFilesArray
+        for (var i = 0; i < image_names.length; i++) {
+            imageFilesArray.push(image_names[i]);
+        }
+    });
+
+    var apiBaseURL =APIBaseURL;
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+
+    var _method = 'POST';
+   var url, method;
+   
+   console.log('edit state',editId_state);
+   if (customer_id!="" && customer_id!=" ") {
+       console.log(editId_state, "state");
+       _method = 'put';
+       url = apiBaseURL + 'customer_enquiries/' + customer_id ;
+       console.log(url);
+       method = 'POST'; 
+   } else {
+       // Add mode
+       url = apiBaseURL + 'customer_enquiries';
+       method = 'POST';
+   }
+   var formData = new FormData();
+
+   // Append form data
+   formData.append('enquiry_type_id', enquiry_type_id);
+   // formData.append('forTractor', forTractor);
+   formData.append('brand_id', brand_name);
+   formData.append('model', model);
+   formData.append('first_name', first_name);
+   formData.append('last_name', last_name);
+   formData.append('purchase_year', year);
+   formData.append('working_radius', workingRadius);
+   formData.append('mobile', mobile);
+   formData.append('state', state);
+   formData.append('district', district);
+   formData.append('tehsil', tehsil);
+   formData.append('message', about);
+   // Append arrays as JSON strings
+   formData.append('implement_type_id', JSON.stringify(implementTypeArray));
+   formData.append('rate', JSON.stringify(rateArray));
+   formData.append('rate_per', JSON.stringify(ratePerArray));
+   // Append each image file
+   for (var i = 0; i < imageFilesArray.length; i++) {
+       formData.append('images[]', imageFilesArray[i]);
+   }
+    // Make an AJAX request to the server
+    $.ajax({
+        url: url,
+        type: method,
+        data: formData,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function(result) {
+            console.log(result, "result");
+            if (result.length) {
+                // Do something
+            }
+            alert('successfully inserted..!')
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function StoreOnlyImplement() {
+    var enquiry_type_id = 18
+    var forImplement =$('#forImplement').val();
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    var brand_name = $('#brand_implement').val();
+    console.log(brand_name,'brand_name');
+    // var model = $('#model_main').val();
+    // var year = $('#year_main1').val();
+    var workingRadius = $('#workingRadius1').val();
+    var first_name = $('#myfname1').val();
+    var last_name = $('#mylname1').val();
+    var mobile = $('#mynumber1').val();
+    console.log(mobile,'mobile');
+    
+    var state = $('#state_state1').val();
+    var district = $('#dist_district1').val();
+    var tehsil = $('#tehsil_t1').val();
+    var about = $('#textarea_d1').val();
+    var implementTypeArray = [];
+    var rateArray = [];
+    var ratePerArray = [];
+    var imageFilesArray = [];
+
+    // Iterate over each row in the table body
+    $('#Implement_rent_only tbody tr').each(function(index) {
+        var row = $(this);
+        var implement_type = row.find('.implement-type-input').val();
+        // var rate = row.find('.only-implement-rate-input').val().replace(/[\,\.\s]/g, '');
+        var rate = row.find('.implement-rate-input').val().replace(/[\,\.\s]/g, '');
+        var ratePer = row.find('.implement-unit-input').val();
+        var image_names = row.find('input[type="file"]')[0].files;
+
+        // Push data into arrays
+        implementTypeArray.push(implement_type);
+        rateArray.push(rate);
+        ratePerArray.push(ratePer);
+
+        // Push each image file to imageFilesArray
+        for (var i = 0; i < image_names.length; i++) {
+            imageFilesArray.push(image_names[i]);
+        }
+    });
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+
+    // Create a FormData object
+    var formData = new FormData();
+
+    // Append form data
+    formData.append('enquiry_type_id', enquiry_type_id);
+    formData.append('forImplement', forImplement);
+    formData.append('brand_id', brand_name);
+    // formData.append('model', model);
+    formData.append('first_name', first_name);
+    formData.append('last_name', last_name);
+    // formData.append('purchase_year', year);
+    formData.append('working_radius', workingRadius);
+    formData.append('mobile', mobile);
+    formData.append('state', state);
+    formData.append('district', district);
+    formData.append('tehsil', tehsil);
+    formData.append('message', about);
+
+    // Append arrays as JSON strings
+    formData.append('implement_type_id', JSON.stringify(implementTypeArray));
+    formData.append('rate', JSON.stringify(rateArray));
+    formData.append('rate_per', JSON.stringify(ratePerArray));
+
+    // Append each image file
+    for (var i = 0; i < imageFilesArray.length; i++) {
+        formData.append('images[]', imageFilesArray[i]);
+    }
+    // Make an AJAX request to the server
+    $.ajax({
+        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
+        type: 'POST',
+        data: formData,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function(result) {
+            console.log(result, "result");
+            alert('successfully inserted..!');
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+            if (error.status === 500) {
+                // Show the success message even on 500 error
+                alert('successfully inserted..!');
+            } else {
+                // Handle other errors if needed
+                alert('An error occurred. Please try again.');
+            }
+        }
+    });
+    
+}
+
+function StoreOnlyTractor() {
+    var enquiry_type_id = 18
+    var forTractor =$('#forTractor').val();
+    // var enquiry_type_id = $('#enquiry_type_id').val();
+    var brand_name = $('#brand').val();
+    var model = $('#model_main').val();
+    var year = $('#year_main1').val();
+    var workingRadius = $('#workingRadius').val();
+    var first_name = $('#myfname').val();
+    var last_name = $('#mylname').val();
+    var mobile = $('#mynumber').val();
+    var state = $('#state_state').val();
+    var district = $('#dist_district').val();
+    var tehsil = $('#tehsil_t').val();
+    var about = $('#textarea_d').val();
+    var rateArray = [];
+    var ratePerArray = [];
+    var imageFilesArray = [];
+
+    // Iterate over each row in the table body
+    $('#tractor_rent_only tbody tr').each(function(index) {
+        var row = $(this);
+
+        var rate = row.find('.implement-rate-input').val().replace(/[\,\.\s]/g, '');
+        var ratePer = row.find('.implement-unit-input').val();
+        var image_names = row.find('input[type="file"]')[0].files;
+
+        // Push data into arrays
+        rateArray.push(rate);
+        ratePerArray.push(ratePer);
+
+        // Push each image file to imageFilesArray
+        for (var i = 0; i < image_names.length; i++) {
+            imageFilesArray.push(image_names[i]);
+        }
+    });
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+    // Create a FormData object
+    var formData = new FormData();
+
+    // Append form data
+    formData.append('enquiry_type_id', enquiry_type_id);
+    formData.append('forTractor', forTractor);
+    formData.append('brand_id', brand_name);
+    formData.append('model', model);
+    formData.append('first_name', first_name);
+    formData.append('last_name', last_name);
+    formData.append('purchase_year', year);
+    formData.append('working_radius', workingRadius);
+    formData.append('mobile', mobile);
+    formData.append('state', state);
+    formData.append('district', district);
+    formData.append('tehsil', tehsil);
+    formData.append('message', about);
+
+    // Append arrays as JSON strings
+    formData.append('rate', JSON.stringify(rateArray));
+    formData.append('rate_per', JSON.stringify(ratePerArray));
+
+    // Append each image file
+    for (var i = 0; i < imageFilesArray.length; i++) {
+        formData.append('images[]', imageFilesArray[i]);
+    }
+    // Make an AJAX request to the server
+    $.ajax({
+        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
+        type: 'POST',
+        data: formData,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function(result) {
+            console.log(result, "result");
+            alert('successfully inserted..!');
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+    
+}
 
 

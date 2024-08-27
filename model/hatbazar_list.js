@@ -647,7 +647,7 @@ function destroy(id) {
             $('#quantityInput').val(Data.quantity);
             // $('#unitSelect').val(Data.as_per);
             $('#price').val(formattedPrice);
-            $('#tprice').val(Data.total_price);
+            $('#tprice').val(Data.quantity);
             $('#textarea_').val(Data.about);
             $('#fname').val(Data.first_name);
             $('#number').val(Data.mobile);
@@ -877,18 +877,11 @@ function get_sub_category(category_id) {
 }
 category_main3();
 
-
-
 function searchdata() {
   var category = $('#cc_category').val();
   var sub_category = $('#ss_sub_cate').val();
   var state = $('#select_state').val();
   var district = $('#select_dist').val();
-
-  console.log("Category:", category);
-  console.log("Sub-Category:", sub_category);
-  console.log("State:", state);
-  console.log("District:", district);
 
   var paraArr = {
       'category_id': category,
@@ -910,8 +903,16 @@ function searchdata() {
       success: function(searchData) {
           updateTable(searchData);
       },
-      error: function(error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#data-table');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 }
@@ -978,9 +979,6 @@ function resetForm() {
   $("#select_dist").val("");
   window.location.reload();
 };
-
-
-
 
 function category_main_1() {
   var apiBaseURL = APIBaseURL;

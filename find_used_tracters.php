@@ -22,10 +22,22 @@
         background: #fff;
         margin-left: 20px;
     }
+    body {
+    overflow: auto !important;
+}
     
     </style>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 
 <body>
     <?php
@@ -186,11 +198,21 @@
         </div>
 </section>
             
-   
-    <section class="bg-light">
+<section class="about bg-white mt-2 ">
+  <div class="container">
+    <div class="lecture_heading ">
+      <h3 class="my-4 pt-5 text-center bg-light">TRACTORS BY BRAND</h3>
+    </div>
+    <div class="mt-4 pb-5">
+      <div class="row allbrands" id="brandContainer">
+      </div>
+    </div>
+  </div>
+</section> 
+    <!-- <section class="bg-light">
         <div class="container">
             <div class="old_tracter py-3 text-center">
-                <h3 class="fw-bold mt-3">Old Tractors By Brand</h3>
+                <h3 class="fw-bold mt-3">Tractors By Brand</h3>
             </div>
             <div class="row mt-3 ps-5 justify-content-center m-0">
                 <div class="col-12 col-md-3 col-lg-3 col-sm-3">
@@ -373,7 +395,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="">
         <div class="container mt-4 ">
             <div class="col-12 assured mt-3">
@@ -382,39 +404,39 @@
             <div class="row mt-4">
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                     <ul class="justify-content-center ul-box  ">
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="find_new_tractors.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; New Tractors </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="new_tractor_loan.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp;Finance </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="popular_tractors.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Popular Tractors</p>
                             </a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                     <ul class="justify-content-center ul-box  ">
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="Insurance.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp;Insurance </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="latest_tractor.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp;Latest Tractors</p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="compare_trac.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Compare</p>
                             </a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-3">
                     <ul class="justify-content-center ul-box  ">
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="upcoming_tractors.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Upcoming Tractors</p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
-                                <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Tractor News </p>
+                        <li class=""> <a href="harvester.php" class="text-dark text-decoration-none">
+                                <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Harvester </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="used_tractor.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Used Tractors</p>
                             </a></li>
                     </ul>

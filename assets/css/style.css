@@ -212,15 +212,23 @@ border-radius:0;
 }
 .bannerbg00 {
   position: absolute;
-  top: 55%;
+  top: 12%;
+
   /* transform: translateY(8%); */
-  height: 222px;
-  left: 0px; 
+  /* height: 400px; */
+  /* width: 459px; */
+  /* left: -905px; */
   float: right;
- right: 0;
+ /* right: 0; */
   bottom: 0;
   z-index:4;
-  background: #f8f9fac9;
+  margin-right: 45px;
+  /* background: #f8f9fac9; */
+}
+.main-row{
+  /* margin: 10px; */
+  margin-left: -140px;
+
 }
 .why_head{
   /* background: #24273e; */

@@ -25,10 +25,19 @@ include 'includes/headertag.php';
    </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/find_new_tractor.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="<?php $baseUrl; ?>model/find_new_tractor.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 
 <body>
    <?php
@@ -99,7 +108,7 @@ include 'includes/headertag.php';
                             <div class="HP py-2" id="modelCheckboxContainer"></div>
                         </div>
                     </div> -->
-                <div class="scrollbar mb-3" id="">
+                <!-- <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
                         <div class="HP py-2">
@@ -112,7 +121,7 @@ include 'includes/headertag.php';
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle7" value="71 - 80"/><lable class="ps-2 mt-0 fs-6" for="vehicle7">Above 75 Hp </lable><br />
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
@@ -306,12 +315,12 @@ include 'includes/headertag.php';
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading7">
                         <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
-                        Que. How Many New Tractors are Listed at Tractor junction?
+                        Que. How Many New Tractors are Listed at Bharat Agrimart?
                         </button>
                         </h2>
                         <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                               <p class="text-dark">Ans. 500+ New Tractors are Listed at Tractor junction.</p>
+                               <p class="text-dark">Ans. 500+ New Tractors are Listed at Bharat Agrimart.</p>
                             </div>
                         </div>
                     </div>
@@ -327,31 +336,31 @@ include 'includes/headertag.php';
         <h3 class="fw-bold assured px-3 ">Tractors By HP</h3>
             <div class="row my-4">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                    <a href="tractor_by_hp.php?hp=0 - 20" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
                         <i class="fas fa-bolt"></i>UNDER 20 HP</a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
+                    <a href="tractor_by_hp.php?hp=21 - 30" id="adduser"
                         class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                         <i class="fas fa-bolt"></i>21-30 HP</a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
+                    <a href="tractor_by_hp.php?hp=31 - 40" id="adduser"
                         class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                         <i class="fas fa-bolt"></i>31-40 HP</a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
+                    <a href="tractor_by_hp.php?hp=41 - 45" id="adduser"
                         class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
                         <i class="fas fa-bolt"></i>41-45 HP</a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
+                    <a href="tractor_by_hp.php?hp=46 - 50" id="adduser"
                         class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                         <i class="fas fa-bolt"></i>46-50 HP</a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
+                    <a href="tractor_by_hp.php?hp=51 - 60" id="adduser"
                         class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                         <i class="fas fa-bolt"></i>51-60 HP</a>
                 </div>
@@ -360,27 +369,32 @@ include 'includes/headertag.php';
     <div class="container"> 
         <h3 class="fw-bold assured px-3">Tractors By Price</h3>
         <div class="row my-4">
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                <i class="fas fa-bolt"></i>UNDER 3 LAKH</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=3 Lakh Below" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>UNDER 3 LAKH</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=3-5" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>3-5 LAKH</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=5-7" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>5-7 LAKH</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=7-10" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>7-10 LAKH</a>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="tractor_by_budget.php?budget=11 Lakh Above" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>ABOVE 10 LAKH</a>
+                </div>
+              
             </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>3-5 LAKH</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser"class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>5-7 LAKH</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser"class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>7-10 LAKH</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                <i class="fas fa-bolt"></i>ABOVE 10 LAKH</a>
-            </div>   
-        </div>
     </div>
 </section>
 <?php

@@ -221,10 +221,7 @@ function get_1() {
         }
     });
   }
-
-  get_1();
-
-
+get_1();
 
 //   for search
 function get_search1() {
@@ -257,8 +254,7 @@ function get_search1() {
         }
     });
   }
-
-  get_search1();
+get_search1();
   
 //****edit fetch****
 function fetch_edit_data(id) {
@@ -304,11 +300,7 @@ function fetch_edit_data(id) {
             setTimeout(function () { 
                 $("#model_name option").prop("selected", false);
                 $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-            }, 1000); 
-
-
-            // $("#insurance_type option").prop("selected", false);
-            // $("#insurance_type option[value='" + Data.loan_type_value + "']").prop("selected", true);
+            }, 2000); 
 
             setSelectedOption('state_2', Data.state_id);
             setSelectedOption('dist_2', Data.district_id);
@@ -321,7 +313,6 @@ function fetch_edit_data(id) {
     });
 }
 
-  
   function setSelectedOption(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
@@ -341,8 +332,6 @@ function fetch_edit_data(id) {
       }
     }
   }
-
-
 
 //   edit form data
 function edit_insurance() {
@@ -514,8 +503,6 @@ function search_data() {
         }
     });
 }
-
-
 
 function resetform(){
     $('#brand_search').val();

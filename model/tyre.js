@@ -83,16 +83,16 @@ function displayTractors(tractors) {
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
             <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
-                <div class="thumb">
+                <div class="thumb" style="width: 100%; height: 200px; overflow: hidden;">
                     <a href="tyre_inner.php?product_id=${p.id}">
-                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover  text-truncate" alt="">
+                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover" style="width: 100%; height: auto;" alt="">
                        
                     </a>
                 </div>
-                <div class="content d-flex flex-column flex-grow-1 ">
+                <div class="content d-flex flex-column flex-grow-1">
                     <div class="caption text-center">
                         <a href="tyre_inner.php?product_id=${p.id}" class="text-decoration-none text-dark">
-                            <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold  text-truncate "> ${p.brand_name} ${p.tyre_model}</strong></p>
+                            <p class="pt-3 text-truncate"><strong class="series_tractor_strong h6 fw-bold"> ${p.brand_name} ${p.tyre_model}</strong></p>
                         </a>
                     </div>
                     <div class="power">
@@ -151,7 +151,7 @@ function displayTractors(tractors) {
                                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                             <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                                             <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                                            <p class="text-danger">*please provide valid Phone Number.</p>
+                                                        
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                             <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
@@ -555,8 +555,8 @@ function appendFilterCard(filterContainer, p) {
                    
                 </a>
             </div>
-            <div class="content d-flex flex-column flex-grow-1 ">
-                <div class="caption text-center">
+            <div class="content d-flex flex-column flex-grow-1 contant-justify-center">
+                <div class="caption contant-justify-center">
                     <a href="tyre_inner.php?product_id=${p.id}" class="text-decoration-none text-dark">
                         <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold  text-truncate "> ${p.brand_name} ${p.tyre_model}</strong></p>
                     </a>
@@ -617,7 +617,7 @@ function appendFilterCard(filterContainer, p) {
                                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                         <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                                         <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                                        <p class="text-danger">*please provide valid Phone Number.</p>
+                                                        
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
@@ -713,43 +713,54 @@ function resetform(){
     
   }
 
-  
-function populateDropdowns(identifier) {
+  function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    const stateIds = [7, 15, 20, 26, 34];
 
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+        var stateData = stateDataResponse.stateData;
+        var selectYourStateOption = '<option value="">Select Your State</option>';
+        var stateOptions = stateData
+            .filter(state => stateIds.includes(state.id))
+            .map(state => `<option value="${state.id}">${state.state_name}</option>`)
+            .join('');
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+        stateDropdowns.forEach(function (dropdown) {
+            dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            // Add event listener to state dropdown to fetch district data
+            dropdown.addEventListener('change', function() {
+                var selectedStateId = this.value;
+                var districtSelect = this.closest('.row').querySelector('.district-dropdown');
+                districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                if (selectedStateId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                        data.districtData.forEach(district => {
+                            districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                        });
+                    });
+                }
             });
         });
-    });
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+
+        districtDropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener('change', function() {
+                var selectedDistrictId = this.value;
+                var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+                if (selectedDistrictId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                        tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                        data.tehsilData.forEach(tehsil => {
+                            tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                        });
                     });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
+                } else {
+                    tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                }
+            });
         });
     });
 }

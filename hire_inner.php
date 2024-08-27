@@ -14,6 +14,15 @@
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <body>
 <?php
    include 'includes/headertag.php';
@@ -120,6 +129,14 @@
                                                 <td> <p class="text-dark "><span id="set_dist"></span>,<span id="set_state"></span></p></td>
                                             </tr>
                                             <tr>
+                                            <tr>
+                                                <td>
+                                                 <p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Implement Type</p>
+                                                </td>
+                                                <td>
+                                                <p id="type_imlement" type="" class="text-dark "></p>
+                                                </td>
+                                            </tr>
                                                 <td>
                                                  <p class="text-dark "><i class="fas fa-bolt mx-2"></i>Price</p>
                                                 </td>
@@ -133,7 +150,7 @@
                                                 <p id="engine_cc" type="" class="text-dark "></p>
                                                 </td>
                                             </tr>
-                                            
+                                          
                                         
                                         </tbody>
                                     </table>
@@ -184,7 +201,7 @@
                                 <div class="col-12 ">
                                     <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                     <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="number">
-                                    <p class="text-danger">*please provide valid Phone Number.</p>
+                                   
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <label for="yr_state" class="form-label text-dark fw-bold" id="the_state" name="state"> <i class="fas fa-location"></i> State</label>
@@ -421,3 +438,5 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </html>
+
+

@@ -202,20 +202,16 @@ $(document).ready(function(){
       });
     }
     
-      function removeImage(ele){
-        console.log("print ele");
-          console.log(ele);
-          let thisId=ele.id;
-          thisId=thisId.split('closeId');
-          thisId=thisId[1];
-          $("#"+ele.id).remove();
-          $(".upload__img-closeDy"+thisId).remove();
-      
-        }
-  
-
-       
-      
+  function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+  }
+     
  function get() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
@@ -286,8 +282,8 @@ function get_model_1(brand_id, selectedModel) {
       }
   });
 }
-
 get();
+
   function get_category() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_implement_category';
@@ -487,13 +483,10 @@ function store(event) {
         }
     });
 }
-
 old_farm_implement();
-
 
 // view data
 function fetch_data(id){
-
   var productId = id;
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_old_implementsById/' + productId; 
@@ -519,7 +512,6 @@ function fetch_data(id){
       document.getElementById('district_2').innerText=data.getOldImplement[0].district_name;
       document.getElementById('tehsil2').innerText=data.getOldImplement[0].tehsil_name;
    
-      
       $("#selectedImagesContainer1").empty();
   
       if (data.getOldImplement[0].image_names) {
@@ -553,9 +545,6 @@ function fetch_data(id){
   });
   }
 
-
-
-
   function get_year_and_hours() {
     console.log('initsfd')
       var apiBaseURL = APIBaseURL;
@@ -584,11 +573,8 @@ function fetch_data(id){
             for (var j = 0; j < data.getYears.length; j++) {
               select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
           }
-  
-          },
-  
-          complete:function(){
-           
+        },
+          complete:function(){ 
           },
           error: function (error) {
               console.error('Error fetching data:', error);
@@ -597,7 +583,6 @@ function fetch_data(id){
   }
   get_year_and_hours();
 // fetch edit data
-
 
 function fetch_edit_data(id) {
   // var productId = id;
@@ -858,8 +843,6 @@ function updateTable(data) {
       tableBody.innerHTML = '<tr><td colspan="10">No valid data available</td></tr>';
   }
 }
-
-
 
 function resetFormFields(){
   document.getElementById("old_farm_implement").reset();

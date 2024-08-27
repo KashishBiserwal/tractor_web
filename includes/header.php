@@ -2,6 +2,38 @@
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/header.js"></script>
 <style>
+.autocomplete {
+  position: relative;
+  z-index: 999; /* Set a higher z-index value */
+}
+
+.autocomplete ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+}
+
+.autocomplete ul li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.autocomplete ul li:hover {
+  background-color: #f0f0f0;
+}
+::placeholder {
+        color: grey;
+    }
+    .logo {
+    border-radius: 0; 
+}
 
 </style>
 <div class="fixed_nav">
@@ -10,30 +42,33 @@
     <div class="row w-100 m-0">
       <div class="col-sm-3">
         <a href="index.php" class="text-decoration-none">
-          <img src="assets/images/logotrac.png"alt="reload img" class="logo">
+          <img src="assets/images/IMG-20240516-WA0006.jpg"alt="reload img" class="logo ">
         </a>
       </div>
       <button class="navbar-toggler col-sm-6" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="    justify-content: end;">
+      <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="justify-content: end;">
         <div class="row w-100">
           <div class="col-sm-8">
-            <form class="mb-0 navserach">
+            <form class="mb-0 navsearch">
               <div class="row w-100">
-                <div class="col-sm-9 pe-0">
-                  <input class="form-control mb-0" type="text" placeholder="Search">
-                </div> 
-                <div class="col-sm-3 ps-0">
-                  <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
-                </div> 
+                  <div class="col-sm-9 pe-0">
+                      <div class="autocomplete">
+                          <input id="searchInput" type="text" class="w-100 text-dark" style="height:35px;"placeholder="Search">
+                          <ul id="suggestions"></ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-3 ps-0">
+                      <button class="btn btn-success" style="height:35px;" type="button" onclick="redirectToSearchPage()"><i class="fa-solid fa-magnifying-glass" style="font-size: 26px;"></i></button>
+                  </div> 
               </div>
-            </form> 
-          </div>
-          <div class="col-sm-4">
+            </form>
+        </div>
+  <div class="col-sm-4 mt-2">
     <ul class="navbar-nav float-end">
         <li class="nav-item">
-            <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
+            <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
         </li>
         <li class="nav-item" id="loginContainer">
             <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
@@ -240,6 +275,8 @@
           </a>
           <ul class="dropdown-menu p-0">
             <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
+            <hr class="dropdown-divider m-0">
+            <li><a class="dropdown-item fw-bold" href="agriculturecustomer.php">Agriculture College</a></li>
            <hr class="dropdown-divider m-0">
             <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
            <hr class="dropdown-divider m-0">
@@ -267,7 +304,7 @@
         <h5 class="modal-title" id="errorStatusLoadingTitle">Loading Status</h5>
       </div>
       <div class="modal-body">
-        <p>Sorry, there was an issue with the Data Loading , please try again.</p>
+        <p></p>
          <!-- <img src="../assets/images/success.gif">  -->
       </div>
       <div class="modal-footer">
@@ -281,9 +318,6 @@
 <?php 
  include 'includes/footertag.php';
 ?>
-
-
-
 <script>
   $(document).ready(function(){
     news_category();
@@ -312,8 +346,7 @@
 
             // Take only the first four categories
             var topFourCategories = data.news_category.slice(0, 4);
-
-            var newCard = topFourCategories.map(function(category) {
+              var newCard = topFourCategories.map(function(category) {
                 var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
                 return `<li id="${categoryWithoutSpaces}">
                             <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
@@ -374,9 +407,6 @@
   });
 }
 
-
-
-
 function get_brands() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
   var headers = {
@@ -414,9 +444,69 @@ function get_brands() {
     }
   });
 }
-
 </script>
+<script>
+$(document).ready(function() {
+    $("#searchInput").on("input", function() {
+        var query = $(this).val();
+        if (query.length > 0) {
+            var suggestions = getSuggestions(query);
+            displaySuggestions(suggestions);
+        } else {
+            $("#suggestions").empty().hide();
+        }
+    });
 
+    $(document).on("click", "#suggestions li", function() {
+        var suggestion = $(this).text();
+        redirectToBrandPage(suggestion);
+    });
+});
+
+// Object mapping suggestions to PHP page URLs
+var suggestionUrls = {
+    'Swaraj': 'brands.php?brand_id=1',
+    'Mahindra': 'brands.php?brand_id=2',
+    'John Deere': 'brands.php?brand_id=3',
+    'Massey Ferguson': 'brands.php?brand_id=4',
+    'Powertrac': 'brands.php?brand_id=5',
+    'Kubota': 'brands.php?brand_id=6',
+    'New Holland': 'brands.php?brand_id=7',
+    'Farmtrac': 'brands.php?brand_id=8',
+    'Certified Dealers': 'certified_dealers.php',
+    'Engine Oil': 'engine_oil.php',
+    'Tyres': 'tyre.php',
+    'Haatbazar': 'hatbazar_buy.php',
+    'Nursery': 'nursery_ui.php'
+    // Add more suggestions and their corresponding URLs as needed
+};
+
+function getSuggestions(query) {
+    var filteredSuggestions = [];
+    $.each(suggestionUrls, function(suggestion, url) {
+        if (suggestion.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+            filteredSuggestions.push(suggestion);
+        }
+    });
+    return filteredSuggestions;
+}
+
+function displaySuggestions(suggestions) {
+    var list = $("#suggestions");
+    list.empty();
+    $.each(suggestions, function(index, suggestion) {
+        list.append("<li>" + suggestion + "</li>");
+    });
+    list.show();
+}
+
+function redirectToBrandPage(suggestion) {
+    var url = suggestionUrls[suggestion];
+    if (url) {
+        window.location.href = url;
+    }
+}
+</script>
 
                     <!-- <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
                    <hr class="dropdown-divider m-0">

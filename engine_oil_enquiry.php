@@ -180,7 +180,7 @@
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="2" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>

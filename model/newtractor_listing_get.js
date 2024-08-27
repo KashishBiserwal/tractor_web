@@ -42,7 +42,6 @@ return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
 var originalData = [];
 
 function getTractorList() {
-console.log('kjhskdjf');
 var apiBaseURL = APIBaseURL;
 var url = apiBaseURL + 'get_new_tractor_for_admin';
 $.ajax({
@@ -289,7 +288,6 @@ function get() {
                       const option = document.createElement('option');
                       option.textContent = row.brand_name;
                       option.value = row.id;
-                      console.log(option);
                       select.appendChild(option);
                   });
 
@@ -311,7 +309,6 @@ function get() {
 
 function get_model(brand_id) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-  console.log('Requesting models for brand ID:', brand_id); // Debugging statement
   $.ajax({
       url: url,
       type: "GET",
@@ -330,7 +327,6 @@ function get_model(brand_id) {
                       const option = document.createElement('option');
                       option.textContent = row.model;
                       option.value = row.model;
-                      console.log('Adding model:', option); // Debugging statement
                       select.appendChild(option);
                   });
               } else {
@@ -370,7 +366,6 @@ function destroy(id) {
     success: function(result) {
       getTractorList();
       // window.location.reload();
-      console.log("Delete request successful");
       // alert("Delete operation successful");
     },
     error: function(error) {

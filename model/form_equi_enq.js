@@ -134,16 +134,15 @@ function get_enquiry() {
           // Create the action buttons HTML
           let action = `<div class="float-start">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
-                              <i class="fas fa-eye" style="font-size: 10px;"></i>
+                            <i class="fas fa-eye" style="font-size: 10px;"></i>
                           </button> 
                           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"style="padding:5px">
-                          <i class="fas fa-edit" style="font-size: 10px;"></i>
-                      </button>
-                        <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
+                            <i class="fas fa-edit" style="font-size: 10px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 10px;"></i>
-                        </button>
-                          
-                      </div>`;
+                          </button>
+                       </div>`;
 
           // Push row data as an array into the tableData
           tableData.push([

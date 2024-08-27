@@ -10,7 +10,6 @@ $(document).ready(function() {
     get_harvester();
 });
 
-
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -313,25 +312,23 @@ function get_harvester() {
                 }
                 var newCard = `
                 <div class="item box_shadow b-t-1">
-              <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
-                <div class="harvester_img_section">
-                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                  <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
-                </div>
-              </a>
-              <div class="harvester_content_section mt-3 text-center">
-                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
-                <div class="row w-100">
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
-                </div>
                 <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
-                <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                    <div class="harvester_img_section">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
+                    <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+                    </div>
                 </a>
-              </div>
-               
-          
-            </div>
+                <div class="harvester_content_section mt-3 text-center">
+                    <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark text-truncate">${p.brand_name} ${p.model}</h6></a>
+                    <div class="row w-100 contant-justify-center">
+                        <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
+                        <div class="col-6 p-0 text-truncate" > <p class="mb-0"  style="font-size: 14px;">${p.crops_type_value}</p></div>
+                    </div>
+                    <a  href="harvester_inner.php?product_id=${p.id}">
+                        <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                    </a>
+                </div>
+            <div>
                 `;
         
                 // Append the new card to the container

@@ -36,19 +36,18 @@ function getDealerInnerId() {
           document.getElementById('dealer_name').value = data.dealer_details[0].dealer_name;
           document.getElementById('mobile_number').value = data.dealer_details[0].mobile
           ;
-          var imageNames = data.dealer_details[0].image_names.split(',');
+        //   var imageNames = data.dealer_details[0].image_names.split(',');
 
-          var carouselContainer = $('.swiper-wrapper_buy');
+        //   var carouselContainer = $('.swiper-wrapper_buy');
 
-          carouselContainer.empty();
-          imageNames.forEach(function(imageName) {
-              var imageUrl = "http://tractor-api.divyaltech.com/uploads/dealer_img/" + imageName.trim(); // Update the path
-              var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-              carouselContainer.append(slide);
-          });
-
-          var mySwiper = new Swiper('.swiper_buy', {
-          });
+        //   carouselContainer.empty();
+        //   imageNames.forEach(function(imageName) {
+        //       var imageUrl = "assets/images/IMG-20240516-WA0006.jpg"; // Update the path
+        //       var slide = $('<div class=""><img class="img_buy" style="width:40vh" src="' + imageUrl + '" /></div>');
+        //       carouselContainer.append(slide);
+        //   });
+        //   var mySwiper = new Swiper('.swiper_buy', {
+        //   });
 
           console.log(data, 'abc');
       },

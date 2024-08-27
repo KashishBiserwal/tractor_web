@@ -73,9 +73,6 @@ function category_main2() {
 }
 category_main2();
 
-
-
-
 function category_main3() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_category';
@@ -139,7 +136,6 @@ function get_sub_category(category_id) {
   });
 }
 category_main3();
-
 
 function get_data() {
     console.log('hhsdfshdfch');
@@ -257,8 +253,6 @@ function store_subcategory(event) {
     });
   }
 
-  
-
    // edit and update 
    function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
@@ -275,7 +269,7 @@ function store_subcategory(event) {
         headers: headers,
         success: function (response) {
             var Data = response.data[0];
-            $('#idUser').val(Data.userId);
+            $('#idUser').val(Data.id);
             $('#category_2').val(Data.category_id);
             $('#sub_category_1').val(Data.sub_category_name);
         },
@@ -357,9 +351,10 @@ function destroy(id) {
       },
       success: function(result) {
         // get_tyre_list();
-        // window.location.reload();
+        
         console.log("Delete request successful");
         alert("Delete operation successful");
+        window.location.reload();
       },
       error: function(error) {
         console.error('Error fetching data:', error);

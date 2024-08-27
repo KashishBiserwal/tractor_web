@@ -29,6 +29,7 @@ function login() {
     
 var apiBaseURL =APIBaseURL;
 var url = apiBaseURL + 'user_login';
+// var url = 'http://192.168.1.21:8000/api/admin/user_login';
     $.ajax({
         url: url,
         type: "POST",
@@ -43,7 +44,6 @@ var url = apiBaseURL + 'user_login';
 
             localStorage.setItem('token', result.access_token);
             localStorage.setItem('email', email);
-            localStorage.setItem('password', password);
             // localStorage.setItem('expireIn', result.expires_in);
             const d = new Date();
             d.setTime(d.getTime() + 60 * 60 * 1000);

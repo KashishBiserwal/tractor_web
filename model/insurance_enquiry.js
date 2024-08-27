@@ -97,9 +97,9 @@ function get_loan() {
       },
       success: function(result) {
         // get_tyre_list();
-        // window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
+        window.location.reload();
       },
       error: function(error) {
         console.error('Error fetching data:', error);
@@ -238,23 +238,13 @@ function fetch_edit_data(id) {
             $('#vehicle_no').val(Data.vehicle_registered_num);
             $('#registerd_year').val(Data.registered_year);
 
-            // $("#brand_name option").prop("selected", false);
-            // $("#brand_name option[value='" + Data.brand_name+ "']").prop("selected", true);
-  
-            // $("#model_name option").prop("selected", false);
-            // $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
+      
   
 
             $("#insurance_type option").prop("selected", false);
             $("#insurance_type option[value='" + Data.insurance_type_id+ "']").prop("selected", true);
 
-            // var brandDropdown = document.getElementById('brand_name');
-            // for (var i = 0; i < brandDropdown.options.length; i++) {
-            //   if (brandDropdown.options[i].text === Data.brand_name) {
-            //     brandDropdown.selectedIndex = i;
-            //     break;
-            //   }
-            // }
+        
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
                 if (brandDropdown.options[i].text === Data.brand_name) {
@@ -271,7 +261,7 @@ function fetch_edit_data(id) {
             setTimeout(function () { 
                 $("#model_name option").prop("selected", false);
                 $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-            }, 1000); 
+            }, 2000); 
   
             // setSelectedOption('model_name', Data.brand_id);
             setSelectedOption('state_2', Data.state_id);
@@ -518,6 +508,4 @@ function resetform(){
     window.location.reload();
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');
-populateBrandDropdown('brand_select', 'model_select');
+

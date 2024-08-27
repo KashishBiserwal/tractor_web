@@ -166,7 +166,6 @@ function get_subcategory(id) {
         }
     });
 }
-
 // getc all custom data of sub category
 function get_subcategory_custom(id) {
     var apiBaseURL = APIBaseURL;
@@ -187,10 +186,6 @@ function get_subcategory_custom(id) {
             $('#two_field').hide();
 
             var Data = response.allSubCategory;
-            // var Data2 = response.allSubCategory;
-            // $('#idUser').val(Data.implement_sub_category[0].id);
-            $("#lookupSelectbox option").prop("selected", false);
-            $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
             $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
 
             var tableData = $("#fields");
@@ -234,7 +229,6 @@ function get_subcategory_custom(id) {
         }
     });
 }
-
 get();
 
 function get_search() {

@@ -5,6 +5,15 @@
     include 'includes/footertag.php';
    ?> 
   </head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
   <body> 
     <style>
  .thumb img {
@@ -146,7 +155,7 @@ function hide_detail(){
             var productContainer = $("#tractor_description");
             var productContainer2 = $("#read_more_title");
             var productContainer3 = $("#table_detail");
-            var newcard3 = `<p> ${count} tractors available under ${Id} HP tractor category at TractorJunction. Here, you can find all the information about a tractor under ${Id} HP with price, features and many more.
+            var newcard3 = `<p> ${count} tractors available under ${Id} HP tractor category at BharatAgrimart. Here, you can find all the information about a tractor under ${Id} HP with price, features and many more.
             </p>`;
             var newcard4 = `<h5>Tractors ${Id}HP List</h5>`;
             var newcard5 = `Tractors ${Id} `;
@@ -176,7 +185,7 @@ function hide_detail(){
             </tr>`;
             var newcard7 = `<div class="col-12 col-sm-12 col-md-3 col-lg-3 mt-3">
           <div class="success__stry__item  box_shadow  b-t-1 h-100">
-                        <a class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
+                        <a class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
                         <div class="thumb">
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>

@@ -85,11 +85,10 @@ function getInterestedBuyer() {
                 { title: 'Date', data: 'date' },
                 { title: 'Brand', data: 'brand_name' },
                 { title: 'Model', data: function(row) {
-                    return row.oil_model ? row.oil_model : row.model; // Use oil_model if available, otherwise use model
+                    return row.oil_model ? row.oil_model : row.model;
                 }},
             ]
         };
-
         // Optionally include "Name" and "Mobile Number" columns based on the condition
         if (includeNameAndMobile) {
             tableConfig.columns.push(
@@ -97,8 +96,6 @@ function getInterestedBuyer() {
                 { title: 'Mobile Number', data: 'mobile' }
             );
         }
-
-        // Initialize DataTable with the specified configuration
         var table = $(tableId).DataTable(tableConfig);
 
         data.forEach(row => {

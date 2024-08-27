@@ -13,7 +13,15 @@ include 'includes/headertag.php';
 <script src="<?php $baseUrl; ?>model/become_certified.js"></script>
 <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-6Z38E658LD');
+</script>
 
     <?php
    include 'includes/header.php';
@@ -232,9 +240,6 @@ include 'includes/headertag.php';
                                     <div class="form-outline mt-3">
                                         <label class="form-label">State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="bcd_state" name="state_">
-                                            <!-- <option value>Select State</option>
-                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                            <option value="Other">Other</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -242,10 +247,6 @@ include 'includes/headertag.php';
                                     <div class="form-outline mt-3">
                                         <label class="form-label">District</label>
                                         <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="bcd_district" name="dist">
-                                            <!-- <option value>Select District</option>
-                                            <option value="Raipur">Raipur</option>
-                                            <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Surajpur">Surajpur</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -253,15 +254,11 @@ include 'includes/headertag.php';
                                     <div class="form-outline mt-4">
                                         <label class="form-label">Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="bcd_tehsil">
-                                            <!-- <option value>Select Tehsil</option>
-                                            <option value="Raipur">Raipur</option>
-                                            <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Surajpur">Surajpur</option> -->
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-0 mb-0 m-0 p-1">
-                                    <div class="upload__box">
+                                    <div class="upload__box d-none">
                                         <div class="upload__btn-box">
                                             <label>
                                                 <p class="upload__btn w-100 m-5">Upload images</p>

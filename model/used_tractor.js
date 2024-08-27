@@ -3,7 +3,7 @@
 $(document).ready(function() {
     $('#filter_tractor').click(filter_search); 
     getoldTractorList();
-    getDistricts(7);
+    // getDistricts();
     showOverlay(); 
    
 });
@@ -14,17 +14,22 @@ function showOverlay() {
 function hideOverlay() {
     $("#overlay").fadeOut(300);
 }
+function formatPriceWithCommas(price) {
+    if (isNaN(price)) {
+        return price; 
+    }
+    
+    return new Intl.NumberFormat('en-IN').format(price);
+}
+
 
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
 
-
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
     
-// var apiBaseURL =  $CustomerAPIBaseURL;
-//     var url = apiBaseURL + '/get_old_tractor';
     $.ajax({
         url: url,
         type: "GET",
@@ -57,13 +62,22 @@ function getoldTractorList() {
         },
     });
 }
-function formatPriceWithCommas(price) {
-    if (isNaN(price)) {
-        return price; 
-    }
+
+// Load more button click event
+$(document).on('click', '#loadMoreBtn', function() {
+    var productContainer = $("#productContainer");
     
-    return new Intl.NumberFormat('en-IN').format(price);
-}
+    // Display the next set of cards
+    allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function(p) {
+        appendCard(productContainer, p);
+        cardsDisplayed++; // Update the count of displayed cards
+    });
+
+    // Hide the "Load More" button if all cards are displayed
+    if (cardsDisplayed >= allCards.length) {
+        $("#loadMoreBtn").hide();
+    }
+});
 
 function appendCard(container, p) {
     var images = p.image_names;
@@ -96,7 +110,7 @@ function appendCard(container, p) {
         <div class="content d-flex flex-column flex-grow-1 ">
             <div class="caption text-center">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
+                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
                 </a>      
             </div>
            <div class=" row text-center">
@@ -537,6 +551,68 @@ function getBrand() {
 }
 getBrand();
 
+// function getState() {
+//     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function(data) {
+//             console.log("State data:", data);
+
+//             const checkboxContainer = $('#state_state');
+//             checkboxContainer.empty(); // Clear existing checkboxes
+            
+//             const stateId = 7; // Replace 7 with the desired state ID
+//             const filteredState = data.stateData.find(state => state.id === stateId);
+//             if (filteredState) {
+//                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+//                     '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+//                 checkboxContainer.append(checkboxHtml);
+//                 ge_tDistricts(stateId);
+//             } else {
+//                 checkboxContainer.html('<p>No valid data available</p>');
+//             }
+//         },
+//         error: function(error) {
+//             console.error('Error fetching state data:', error);
+//         }
+//     });
+// }
+// function ge_tDistricts(stateId) {
+//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function(data) {
+//             console.log("District data:", data);
+            
+//             const checkboxContainer = $('#get_dist');
+//             checkboxContainer.empty(); // Clear existing checkboxes
+            
+//             if (data && data.districtData && data.districtData.length > 0) {
+//                 data.districtData.forEach(district => {
+//                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+//                         '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+//                     checkboxContainer.append(checkboxHtml);
+//                 });
+//             } else {
+//                 checkboxContainer.html('<p>No districts available for this state</p>');
+//             }
+//         },
+//         error: function(error) {
+//             console.error('Error fetching districts:', error);
+//         }
+//     });
+// }
+// getState();
+
+
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
@@ -551,22 +627,34 @@ function getState() {
             const checkboxContainer = $('#state_state');
             checkboxContainer.empty(); // Clear existing checkboxes
             
-            const stateId = 7; // Replace 7 with the desired state ID
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-                checkboxContainer.append(checkboxHtml);
+            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch checkboxes for
+
+            stateIds.forEach(stateId => {
+                const filteredState = data.stateData.find(state => state.id === stateId);
+                if (filteredState) {
+                    var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                        '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                    
+                    // Load districts for this state
+                    ge_tDistricts(stateId);
+                } else {
+                    checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
+                }
+            });
+
+            // Add event listeners to state checkboxes
+            $('.state_checkbox').on('change', function() {
+                const stateId = $(this).val();
                 ge_tDistricts(stateId);
-            } else {
-                checkboxContainer.html('<p>No valid data available</p>');
-            }
+            });
         },
         error: function(error) {
             console.error('Error fetching state data:', error);
         }
     });
 }
+
 function ge_tDistricts(stateId) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
     $.ajax({
@@ -576,7 +664,7 @@ function ge_tDistricts(stateId) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            console.log("District data:", data);
+            console.log("District data for state ID " + stateId + ":", data);
             
             const checkboxContainer = $('#get_dist');
             checkboxContainer.empty(); // Clear existing checkboxes
@@ -588,15 +676,17 @@ function ge_tDistricts(stateId) {
                     checkboxContainer.append(checkboxHtml);
                 });
             } else {
-                checkboxContainer.html('<p>No districts available for this state</p>');
+                checkboxContainer.append('<p>No districts available for state ID: ' + stateId + '</p>');
             }
         },
         error: function(error) {
-            console.error('Error fetching districts:', error);
+            console.error('Error fetching districts for state ID ' + stateId + ':', error);
         }
     });
 }
+
 getState();
+
 
 function get_year_and_hours() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
@@ -775,7 +865,7 @@ function appendFilterCard(filterContainer, p) {
         <div class="content d-flex flex-column flex-grow-1 ">
             <div class="caption text-center">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
+                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
                 </a>      
             </div>
            <div class=" row text-center">
@@ -984,43 +1074,56 @@ function filterAndDisplayCards() {
     window.location.reload();
     
   }
-
   function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    const stateIds = [7, 15, 20, 26, 34];
 
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+        var stateData = stateDataResponse.stateData;
+        var selectYourStateOption = '<option value="">Select Your State</option>';
+        var stateOptions = stateData
+            .filter(state => stateIds.includes(state.id))
+            .map(state => `<option value="${state.id}">${state.state_name}</option>`)
+            .join('');
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+        stateDropdowns.forEach(function (dropdown) {
+            dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            // Add event listener to state dropdown to fetch district data
+            dropdown.addEventListener('change', function() {
+                var selectedStateId = this.value;
+                var districtSelect = this.closest('.row').querySelector('.district-dropdown');
+                districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                if (selectedStateId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                        data.districtData.forEach(district => {
+                            districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                        });
+                    });
+                }
+            });
+        });
+
+        districtDropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener('change', function() {
+                var selectedDistrictId = this.value;
+                var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+                if (selectedDistrictId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                        tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                        data.tehsilData.forEach(tehsil => {
+                            tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                        });
+                    });
+                } else {
+                    tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                }
             });
         });
     });
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
-                    });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
-        });
-    });
-}
+    }
+
+

@@ -455,15 +455,15 @@ function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
 var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
-var brand_name = $("#brand_name").val();
+var brand_name = $("#brand_data").val();
 var model_name = $("#model_name").val();
 var first_name = $("#fnam_e").val();
 var last_name = $("#lnam_e").val();
 var mobile = $("#numbe_r").val();
 var email = $("#emai_l").val();
 var date = $("#dat_e").val();
-var state = $("#stat_e").val();
-var district = $("#dis_t").val();
+var state = $("#state_").val();
+var district = $("#dist_").val();
 var tehsil = $("#tehsi_l").val();
 var _method = 'put';
 
@@ -518,7 +518,7 @@ $.ajax({
 //****delete data***
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'tyre_data/' + id;
+  var url = apiBaseURL + 'delete_tyre_enquiry/' + id;
   console.log(url);
   var token = localStorage.getItem('token');
 
@@ -539,9 +539,10 @@ function destroy(id) {
     },
     success: function(result) {
       // get_tyre_list();
-      window.location.reload();
+     
       console.log("Delete request successful");
       alert("Delete operation successful");
+      window.location.reload();
     },
     error: function(error) {
       console.error('Error fetching data:', error);
@@ -555,20 +556,20 @@ function destroy(id) {
 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
-  var brand_id = $('#brand_id').val();
+  // var brand_id = $('#brand_id').val();
   var brandselect = $('#brand_name').val();
   var modelselect = $('#model_1').val();
-  var stateselect = $('#state_1').val();
+  var stateselect = $('#state_2').val();
   var districtselect = $('#district_2').val();
  
-console.log(brand_id);
+// console.log(brand_id);
 console.log(brandselect);
 console.log(modelselect);
 console.log(stateselect);
 console.log(districtselect);
 
   var paraArr = {
-    'id':brand_id,
+    // 'id':brand_id,
     'brand_id':brandselect,
     'model':modelselect,
     'state':stateselect,
@@ -589,8 +590,16 @@ console.log(districtselect);
         console.log(searchData,"hello brand");
         updateTable(searchData);
       },
-      error: function (error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#data-table');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 };

@@ -28,7 +28,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-2" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-2" onclick="resetFormFields();" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New Dealers
           </button>
 
@@ -63,7 +63,7 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Email Id</label>
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                        <input type="text" class="form-control" placeholder="" id="email" name="">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -103,8 +103,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                          <div class="upload__box mt-5">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="upload__box mt-5 d-none">
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
@@ -244,7 +244,7 @@
                                   <div class="col-12" id="addrss"></div>
                               </td>
                           </tr>
-                          <tr>
+                          <tr class="d-none">
                               <td>Upload images-</td>
                               <td colspan="3">
                                   <div class="col-12">

@@ -433,7 +433,7 @@ function fetch_edit_data(id) {
       setTimeout(function() { 
           $("#model_model option").prop("selected", false);
           $("#model_model option[value='" + userData.model + "']").prop("selected", true);
-      }, 1000); 
+      }, 2000); 
 
       
       setSelectedOption('state', userData.state_id);
