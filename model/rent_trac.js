@@ -62,7 +62,6 @@ function formatDateTime(originalDateTimeStr) {
         console.log('suman');
         
             // var view = response.rent_details.data1.id;
-            // console.log(view,'dfghjklghjk');
                 //    var view =response.row.data1[0].id 
                 // Reverse the order of mergedData
                 mergedData.reverse();
@@ -86,7 +85,6 @@ function formatDateTime(originalDateTimeStr) {
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                         </button>
                         </div>`;
-                        // console.log(row.customer_id,row,'customer--id');
                     tableData.push([
                         counter, 
                         row.date,
