@@ -134,6 +134,13 @@ function get_data() {
           } else {
               // Display a message if there's no valid data
               tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+              if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                window.location.href = baseUrl + "login.php"; 
+    
+              }
           }
       },
       error: function (error) {

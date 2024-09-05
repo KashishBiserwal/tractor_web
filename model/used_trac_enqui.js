@@ -83,18 +83,14 @@
         alert("Form submitted successfully!");
       },
       });
-  
-    
       $("#dataeditbtn").on("click", function () {
     
         $("#old_tractor_form").valid();
       
       });
-      
-  
     });
  
- 
+
  //****get data***
  function get_old_tractor() {
   var apiBaseURL = APIBaseURL;
@@ -170,13 +166,19 @@
           }
       },
       error: function (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching data:', error); 
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
+
       }
   });
 }
-
 get_old_tractor();
-
 
 
 function get() {

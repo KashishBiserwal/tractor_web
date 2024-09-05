@@ -231,10 +231,6 @@ function get_search() {
 }
 get_search();
 
-
-
-
-
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;

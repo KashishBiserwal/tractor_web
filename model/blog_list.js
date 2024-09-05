@@ -61,15 +61,12 @@ $(document).ready(function () {
           required:"This field is required",
      
         }
-       
       },
-      
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
     });
 
-   
     $("#submitBtn").on("click", function () {
    
       $("#form_news_updates").valid();
@@ -332,6 +329,13 @@ function get_news() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                window.location.href = baseUrl + "login.php"; 
+    
+              }
         }
     });
 }

@@ -18,24 +18,20 @@
    include 'includes/header.php';
    ?>
 
-    <style>
-
-        /* form implement image */
-        .imageWrapper {
-            border: 3px solid #888;
+<style>
+/* form implement image */
+    .imageWrapper {
+    border: 3px solid #888;
     width: 5%;
     height: 44px;
     overflow: hidden;
     position: absolute;
 }
-
-
 .file-upload {
   position: relative;
   overflow: hidden;
   /* margin: 10px; */
 }
-
 .file-upload {
   position: relative;
   overflow: hidden;
@@ -73,10 +69,7 @@
   filter: alpha(opacity=0);
   height: 100%;
 }
-
-
-/* for tractor image only */
-    
+/* for tractor image only */ 
 .input-preview__src {
 	/* display: none; */
     display: table;
@@ -245,19 +238,18 @@
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light">
                     <h4 class="text-dark text-center fw-bold mt-4">Rent Your Tractors and Implements</h4>
-                        <ul class="nav nav-tabs d-none d-lg-flex px-3" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active fw-bold" id="home-tab"  data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Rent Tractor Only</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link fw-bold" id="profile-tab" data-bs-toggle="tab"  data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Rent Implement Type Only</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link fw-bold" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Rent Tractor and Implement</button>
-                            </li>
-                        </ul>
-                       
-                        <div class="tab-content accordion py-3" id="myTabContent">
+                    <ul class="nav nav-tabs d-none d-lg-flex px-3" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fw-bold" id="home-tab"  data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Rent Tractor Only</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-bold" id="profile-tab" data-bs-toggle="tab"  data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Rent Implement Type Only</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-bold" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Rent Tractor and Implement</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content accordion py-3" id="myTabContent">
                              <!--Rent Tractor Only-->
                             <div class="tab-pane fade show active accordion-item" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                 <h2 class="accordion-header d-lg-none" id="headingOne">
@@ -315,6 +307,13 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <!-- <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div class="select-wrap">
+                                                     <select name="imp_type_id[]" id="impType_3" class="form-control implement-type-input">
+                                                            <option value>Select</option>
+                                                        </select>
+                                                </div>
+                                                </div> -->
                                                 <div class="table-responsive my-3">
                                                     <table id="tractor_rent_only" class="table table-sm">
                                                         <thead>
@@ -838,7 +837,7 @@
                     <div class="modal-body">
                         <form id="otp_form">
                             <div class=" col-12 input-group">
-                            <div class="col-12" hidden>
+                                <div class="col-12" hidden>
                                     <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
                                     <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
                                 </div>
@@ -1029,7 +1028,6 @@
                 },
                 'tractor_rent_image[]': {
                     required: true,
-                    extension: "jpg|jpeg|png|gif" // Validate image formats
                 },
                 'rate_per[]': {
                     required: true,
@@ -1076,7 +1074,6 @@
                 },
                 'tractor_rent_image[]': {
                     required: "Please upload an image",
-                    extension: "Please upload a valid image (jpg, jpeg, png, gif)"
                 },
                 'rate_per[]': {
                     required: "This field is required",
@@ -1104,7 +1101,7 @@
                 // Validate the phone number first
                 if (phone.length === 10 && $.isNumeric(phone)) {
                     if ($("#tractor_rent_form").valid()) {
-                        get_otp1(phone); 
+                       // get_otp1(phone); 
 
                     }
                 } else {
@@ -1245,7 +1242,7 @@
         }
     });
 
-    Handle form submission
+    // Handle form submission
     $("#rent_implement").on("click", function () {
         var phone = $("#mynumber1").val();
         if ($("#implement_rent_form").valid()) {

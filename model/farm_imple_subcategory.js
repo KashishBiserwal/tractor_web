@@ -225,6 +225,13 @@ $(document).ready(function() {
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('Error');
             $("#errorStatusLoading").find('.modal-body').html(msg);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+              window.location.href = baseUrl + "login.php"; 
+  
+            }
             // Display an error message or handle the error as needed
         }
     });

@@ -307,8 +307,6 @@ var editId_state= false;
     $(".upload__img-closeDy"+thisId).remove();
 
   }
-
-
     // subcategory
       function store_subcategory(event) {
         event.preventDefault();
@@ -348,10 +346,8 @@ var editId_state= false;
           }
         });
       }
-
     function hatbazar_add(event) {
         // event.preventDefault();
-    
         var image_names = document.getElementById('_image').files;
          var enquiry_type_id = $('#enquiry_type_id').val();
          var sub_category_id = $('#sub_category_id').val();
@@ -513,6 +509,13 @@ var editId_state= false;
           },
           error: function (error) {
               console.error('Error fetching data:', error);
+              if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                window.location.href = baseUrl + "login.php"; 
+    
+              }
           }
       });
     }

@@ -47,8 +47,6 @@ $(document).ready(function() {
 
 });
 
-
-
 $('#submit_button').click(store);
 
 function store(event) {
@@ -157,6 +155,13 @@ function get() {
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
       }
   });
 }

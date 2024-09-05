@@ -44,7 +44,18 @@
     text-overflow: ellipsis;
    
     }
-
+    .model-message-brand{
+      color:#439347;
+    }
+    .add_btn i {
+    background: rgb(109 204 123);
+    width: 28px;
+    height: 25px;
+    border-radius: 50%;
+    padding: 8px;
+    padding-right: 10px;
+    font-size: 12px;
+    }
 </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -109,13 +120,13 @@
     </button>
   </div>
   <div class="container bannerbg00">
-    <div class="row">
+    <div class="row mt-5">
        <div class="col-lg-4 col-12 col-md-4" style="background-color:#f8f9fac9;">
         <div class="banner__wrapper">
           <div class="row g-4 justify-content-center">
             <div class="col-lg-10">
               <h5 class="text-center fw-bold pt-2">Find Your Own Tractor</h5>
-              <form>
+              <form id="search_form">
                 <div class="row justify-content-center ">
                 <div class="col-12 mt-2">
                     <div class="">
@@ -124,26 +135,26 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-12 mt-2">
+                  <!-- <div class="col-12 mt-2">
                     <div class="">
                       <label class="form-label text-dark fw-bold">Select Model</label>
-                      <select class="form-control" name="brand" id="brand"  required="">
+                      <select class="form-control" name="brand" id="model_main"  required="">
                       </select>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-12">
                     <div class="">
-                      <label class="form-label text-dark fw-bold">Select HP</label>
-                      <select class="form-control" name="hp" id="hp"  required="">
-                        <option value="" selected="">Select HP</option>
-                        <option value="0 - 20">0 HP - 20 HP</option>
-                        <option value="21 - 30">21 HP - 30 HP</option>
-                        <option value="31 - 40">31 HP - 40 HP</option>
-                        <option value="41 - 50">41 HP - 50 HP</option>
-                        <option value="51 - 60">51 HP - 60 HP</option>
-                        <option value="61 - 70">61 HP - 75 HP</option>
-                        <option value="71 - 80">Above 75 Hp </option>
-                      </select>
+                    <label class="form-label text-dark fw-bold mt-2">Select HP</label>
+                    <select class="form-control" name="hp" id="hp" required="">
+                      <option value="" selected="">Select HP</option>
+                      <option value="0 - 20">0 HP - 20 HP</option>
+                      <option value="21 - 30">21 HP - 30 HP</option>
+                      <option value="31 - 40">31 HP - 40 HP</option>
+                      <option value="41 - 50">41 HP - 50 HP</option>
+                      <option value="51 - 60">51 HP - 60 HP</option>
+                      <option value="61 - 70">61 HP - 70 HP</option>
+                      <option value="71 - 80">71 HP - 80 HP</option>
+                    </select>
                     </div>
                   </div>
                   
@@ -167,9 +178,12 @@
                       </select>
                     </div>
                   </div> -->
-                  <div class="col-12  text-center mt-4">
-                    <button type="button" class=" btn btn-success btn_search px-5 py-2" id="Search">Search</button>
-                  </div>
+                  <div class="col-12 my-3">
+              <div class="text-center">
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search" >Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetForm()">Reset</button>
+              </div>
+            </div>
                 </div>
               </form>
             </div>
@@ -1065,4 +1079,94 @@
     console.log("Natural width: " + naturalWidth + "px, Natural height: " + naturalHeight + "px");
 }
     </script>
+
+<script>
+fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_brands')
+  .then(response => response.json())
+  .then(data => {
+    const brandSelect = document.getElementById('brand');
+    
+    data.brands.forEach(brand => {
+      const option = document.createElement('option');
+      option.value = brand.id;
+      option.textContent = brand.name;
+      brandSelect.appendChild(option);
+    });
+  })
+  .catch(error => console.error('Error fetching brands:', error));
+
+document.getElementById('Search').addEventListener('click', function() {
+  var brandId = document.getElementById('brand').value;
+  var hpValue = document.getElementById('hp').value;
+  
+  if (brandId) {
+    fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_brands/' + brandId)
+      .then(response => response.json())
+      .then(data => {
+        if (data.product && data.product.allProductData.length === 0 && data.product.accessory_and_tractor_type.length === 0) {
+          var msg = 'No Valid Data For This Brand.';
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center model-message-brand">No valid data in this brand</p>');
+          $("#errorStatusLoading").find('.modal-body').html();
+          $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/404.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="No Data Available"></img>');
+          $('#errorStatusLoading').on('hidden.bs.modal', function (){
+              // Optional: You can perform any other action or reset the form
+              window.location.reload();
+          });
+        } else {
+          // If data is available, handle the redirection based on the selections
+          if (hpValue) {
+            window.location.href = 'brands.php?brand_id=' + brandId + '&hp=' + encodeURIComponent(hpValue);
+          } else {
+            window.location.href = 'brands.php?brand_id=' + brandId;
+          }
+        }
+      })
+      .catch(error => console.error('Error fetching brand data:', error));
+  } else if (hpValue) {
+    // If only HP is selected
+    window.location.href = 'tractor_by_hp.php?hp=' + encodeURIComponent(hpValue);
+  } else {
+    // If neither brand nor HP is selected, prompt the user
+    alert('Please select a brand, HP range, or both to search.');
+  }
+});
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const brandSelect = document.getElementById('brand');
+    const hpSelect = document.getElementById('hp');
+
+    // Event listener for brand selection
+    brandSelect.addEventListener('change', function() {
+      if (brandSelect.value !== "") {
+        hpSelect.disabled = true;
+      } else {
+        hpSelect.disabled = false;
+      }
+    });
+
+    // Event listener for HP selection
+    hpSelect.addEventListener('change', function() {
+      if (hpSelect.value !== "") {
+        brandSelect.disabled = true;
+      } else {
+        brandSelect.disabled = false;
+      }
+    });
+
+    // If the form is reset or the page is reloaded, ensure both dropdowns are enabled
+    document.getElementById('search_form').addEventListener('reset', function() {
+      brandSelect.disabled = false;
+      hpSelect.disabled = false;
+    });
+  });
+
+  function resetForm() {
+    // Reset all the fields in the form
+    document.getElementById("search_form").reset();
+  }
+</script>
+
+
 </html>

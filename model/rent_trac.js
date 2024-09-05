@@ -76,13 +76,13 @@ function formatDateTime(originalDateTimeStr) {
                     const fullName = row.first_name + ' ' + row.last_name;
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                         </button>
                         </div>`;
@@ -123,11 +123,16 @@ function formatDateTime(originalDateTimeStr) {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                window.location.href = baseUrl + "login.php"; 
+  
+              }
         }
     });
 }
-
-
 // view data
 function fetch_data(product_id) {
     var productId = product_id;
@@ -195,9 +200,9 @@ function triggerFileInput(inputId) {
 }
 
 
-function disableFormFields() {
-    $('#rent_list_form_ :input').prop('disabled', true);
-}
+// function disableFormFields() {
+//     $('#rent_list_form_ :input').prop('disabled', true);
+// }
 // Function to fetch and populate edit data
 function fetch_edit_data(customer_id) {
     console.log(customer_id, 'customer_id');
@@ -214,13 +219,11 @@ function fetch_edit_data(customer_id) {
         type: 'GET',
         headers: headers,
         success: function(response) {
-            var isModelFilled = $('#model_main').val() !== "";
+            var isModelFilled = $('#model_main').val() !== "" || $('#model_main3').val() !== "";
             var isYearFilled = $('#year_main1').val() !== "" || $('#year_main3').val() !== "";
-            var isImplementTypeFilled = $('#impType_0').val() !== ""; // Assuming the first row ID is 'impType_0'
+            var isImplementTypeFilled = $('#impType_0').val() !== "" || $('#impType_1').val() !== ""; 
             
-            // check form data 
-            // Logic to enable/disable tabs
-            if (isModelFilled && isYearFilled && !isImplementTypeFilled) {
+            if (isModelFilled && isYearFilled && !!isImplementTypeFilled) {
                 // Enable 'Rent Tractor Only' tab
                 $('#home-tab').removeClass('disabled');
                 $('#profile-tab').addClass('disabled');
@@ -252,13 +255,13 @@ function fetch_edit_data(customer_id) {
                 $('#profile-tab-pane').removeClass('show active');
             }
 
-            var userData = response.rent_details.data1[0]; // Selecting first item from data1
-            var userData2 = response.rent_details.data2; // Keeping data2 separate
+            var userData = response.rent_details.data1[0];
+            var userData2 = response.rent_details.data2;
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
-            disableFormFields();
+            // disableFormFields();
             // Rent Only Tractor
-            $('#idUser').val(userData.id);
+            $('#idUserForTracotr').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius').val(userData.working_radius);
@@ -268,7 +271,6 @@ function fetch_edit_data(customer_id) {
             $('#mynumber').val(userData.mobile);
             // $('#mynumber').val(userData.mobile);
             
-
             // Rent Tractor And Implement For both
             $('#idUser1').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
@@ -339,11 +341,11 @@ function fetch_edit_data(customer_id) {
             // Populating other dropdowns and inputs
             $("#year_main3 option").prop("selected", false);
             $("#year_main3 option[value='" + userData.purchase_year + "']").prop("selected", true);
-            $("#year_main3").prop("disabled", true);
+            // $("#year_main3").prop("disabled", true);
 
             $("#year_main1 option").prop("selected", false);
             $("#year_main1 option[value='" + userData.purchase_year + "']").prop("selected", true);
-            $("#year_main1").prop("disabled", true);
+            // $("#year_main1").prop("disabled", true);
 
             setSelectedOption('state_state', userData.state_id);
             setSelectedOption('dist_district', userData.district_id);
@@ -368,98 +370,7 @@ function fetch_edit_data(customer_id) {
                         '<div class="card upload-img-wrap" id="imageDiv_' + index + '">' +
                         '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail image-clickable" id="image_' + index + '">' +
                         '</div>' +
-                        '<input type="file" name="imp_' + index + '" id="impImage_' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')" readonly>' +
-                        '</td>' +
-                        '<td>' +
-                        '<div class="select-wrap">' +
-                        '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input" readonly>' +
-                        '<option value="' + item.id + '">' + item.category_name + '</option>' +
-                        '</select>' +
-                        '</div>' +
-                        '</td>' +
-                        '<td>' +
-                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '" readonly>' +
-                        '</td>' +
-                        '<td>' +
-                        '<div class="select-wrap">' +
-                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input" readonly>' +
-                        '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
-                        '</select>' +
-                        '</div>' +
-                        '</td>' +
-                        '<td>' +
-                        '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)" readonly>' +
-                        '<i class="fas fa-minus"></i>' +
-                        '</button>' +
-                        '</td>' +
-                        '</tr>';
-        
-                    tableBody.append(row);
-        
-                    // Attach event listener to image to trigger file input
-                    $('#image_' + index).click(function() {
-                        $('#impImage_' + index).click();
-                    });
-                });
-            }
-            updateTableRows(userData2,true);
-            function updateTractorRentTableRows(userData2, clearPrefilledValues) {
-                var tableBody = $('#tractor_rent_only tbody');
-                if (clearPrefilledValues) {
-                    tableBody.empty();
-                }
-            
-                userData2.forEach(function(item, index) {
-                    var formattedRate = formatPriceWithCommas(item.rate);
-                   
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
-                    var row = '<tr>' +
-                        '<td class="tractor_rent_serial">' + (index + 1) + '</td>' +
-                        '<td>' +
-                        '<div class="card upload-img-wrap" name="rent_trac_image" onclick="triggerFileInput(\'customFile' + index + '\')" style="height: 38px; cursor: pointer;">' +
-                        '<i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput(\'customFile' + index + '\')"></i>' +
-                        '<img id="selectedImage' + index + '" src="' + imageUrl + '" alt="Image" style="max-width: 100%; max-height: 100%; object-fit: cover;" name="image_tractor" class="img-thumbnail"/>' +
-                        '</div>' +
-                        '<input type="file" id="customFile' + index + '" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, \'selectedImage' + index + '\')" required>' +
-                        '</td>' +
-                        '<td>' +
-                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
-                        '</td>' +
-                        '<td>' +
-                        '<div class="select-wrap">' +
-                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input">' +
-                        '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
-                        '<option value="Acer">Acer</option>' +
-                        '<option value="Hour">Hour</option>' +
-                        '</select>' +
-                        '</div>' +
-                        '</td>' +
-                        '</tr>';
-            
-                    tableBody.append(row);
-                });
-            }
-            
-            // Example usage
-            updateTractorRentTableRows(userData2, true);
-            function updateImplementRentTableRows(userData2, clearPrefilledValues) {
-                var tableBody = $('#Implement_rent_only tbody');
-                if (clearPrefilledValues) {
-                    tableBody.empty();
-                }
-            
-                userData2.forEach(function(item, index) {
-                    var formattedRate = formatPriceWithCommas(item.rate);
-                    
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
-                    var row = '<tr>' +
-                        '<td class="serial-number">' + (index + 1) + '</td>' +
-                        '<td>' +
-                        '<div class="card upload-img-wrap" onclick="triggerFileInput(\'customFile' + index + '\')" style="height: 38px; cursor: pointer;">' +
-                        '<i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput(\'customFile' + index + '\')"></i>' +
-                        '<img id="selectedImage' + index + '" src="' + imageUrl + '" alt="Image" style="max-width: 100%; max-height: 100%; object-fit: cover;" class="img-thumbnail"/>' +
-                        '</div>' +
-                        '<input type="file" id="customFile' + index + '" class="d-none" accept="image/*" onchange="displayImagePreview(this, \'selectedImage' + index + '\')" required>' +
+                        '<input type="file" name="imp_' + index + '" id="impImage_' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')">' +
                         '</td>' +
                         '<td>' +
                         '<div class="select-wrap">' +
@@ -475,17 +386,71 @@ function fetch_edit_data(customer_id) {
                         '<div class="select-wrap">' +
                         '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input">' +
                         '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
-                        '<option value="Acer">Acer</option>' +
-                        '<option value="Hour">Hour</option>' +
                         '</select>' +
                         '</div>' +
                         '</td>' +
+                        '<td>' +
+                        '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">' +
+                        '<i class="fas fa-minus"></i>' +
+                        '</button>' +
+                        '</td>' +
                         '</tr>';
-            
+        
                     tableBody.append(row);
+        
+                    // Attach event listener to image to trigger file input
+                    $('#image_' + index).click(function() {
+                        $('#impImage_' + index).click();
+                    });
                 });
             }
+            updateTableRows(userData2,true);
+            function updateTractorRentTableRows(userData2) {
+                if (userData2.length > 0) {
+                    var item = userData2[0];  // Get the first item since you only need one row
             
+                    // Format the rate
+                    var formattedRate = formatPriceWithCommas(item.rate);
+            
+                    // Prepare the image URL
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+            
+                    // Update the image in the table row
+                    $('#selectedImage').attr('src', imageUrl).show();  // Display the image and update its source
+            
+                    // Update the rate input field
+                    $('#implement_rent_0').val(formattedRate);
+            
+                    // Update the rate per dropdown
+                    $('#impRatePer_0').val(item.rate_per);
+                }
+            }
+            
+            // Example usage
+            updateTractorRentTableRows(userData2, true);
+            function updateImplementRentTableRows(userData2) {
+                if (userData2.length > 0) {
+                    var item = userData2[0];  // Get the first item since you only need one row
+            
+                    // Format the rate
+                    var formattedRate = formatPriceWithCommas(item.rate);
+            
+                    // Prepare the image URL
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+            
+                    // Update the image in the table row
+                    $('#selectedImage2').attr('src', imageUrl).show();  // Display the image and update its source
+            
+                    // Update the implement type dropdown
+                    $('#impType_1').html('<option value="' + item.id + '">' + item.category_name + '</option>');
+            
+                    // Update the rate input field
+                    $('#implement_rent_1').val(formattedRate);
+            
+                    // Update the rate per dropdown
+                    $('#impRatePer_1').val(item.rate_per);
+                }
+            }
             // Example usage
             updateImplementRentTableRows(userData2, true);
             
@@ -514,9 +479,9 @@ function populateTehsil(districtId, selectId, tehsilId) {
             break;
         }
     }
-    select.disabled = true;
-    select.setAttribute('readonly', 'readonly');
-    $(select);
+    // select.disabled = true;
+    // select.setAttribute('readonly', 'readonly');
+    // $(select);
 }
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
@@ -549,7 +514,7 @@ function destroy(id) {
         alert("Error during delete operation");
       }
     });
-  }
+}
   function get_brand() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
     // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
@@ -921,7 +886,7 @@ function get() {
   
 getbrand();
 
-  function get_model(brand_id) {
+function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -1255,16 +1220,16 @@ implementgetonly();
     }
 }
 
-function enableFormFields() {
-    $('#rent_list_form_ :input').prop('disabled', false);
-    $('#rentTractorTable :input').prop('readonly', false); 
-    $('#rentTractorTable select').each(function() {
-        $(this).prop('disabled', false);
-    });
-}
+// function enableFormFields() {
+//     $('#rent_list_form_ :input').prop('disabled', false);
+//     $('#rentTractorTable :input').prop('readonly', false); 
+//     $('#rentTractorTable select').each(function() {
+//         $(this).prop('disabled', false);
+//     });
+// }
 
 function resetFormFields() {
-    enableFormFields();
+    // enableFormFields();
     document.getElementById("rent_list_form_").reset(); // Reset the entire form
     
     // Reset each image input and its preview

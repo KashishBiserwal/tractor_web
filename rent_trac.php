@@ -101,7 +101,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
                                     <div class="accordion-body">
-                                    <form id="tractor_rent_form">
+                                        <form id="tractor_rent_form">
                                             <div class="text-center">
                                                 <h5 class="pb-2 mt-2">Tractor Information</h5>
                                             </div>

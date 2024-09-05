@@ -331,6 +331,13 @@ function get_dealers() {
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
       }
   });
 }
@@ -568,7 +575,7 @@ function updateTable(data) {
   if (data.dealerData && data.dealerData.length > 0) {
     let tableData = [];
     data.dealerData.forEach(row => {
-      const fullName = row.first_name + ' ' + row.last_name;
+      // const fullName = row.first_name + ' ' + row.last_name;
       let action = ` <div class="d-flex">
       <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers" style="padding:5px;">
       <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>

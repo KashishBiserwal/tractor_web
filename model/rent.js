@@ -1,6 +1,9 @@
 $(document).ready(function() {
     console.log("ready!");
-   $('#rent_submit').click(store);
+   $('#rent_submit').click(function() {
+    console.log('rent_tractor button clicked');
+    store();
+   });
    $('#rent_implement').click(function() {
     console.log('rent_implement button clicked');
     storeImplement();
@@ -392,7 +395,7 @@ function displayStep(step) {
 }
 
 function store(event) {
-    event.preventDefault();
+    // event.preventDefault();
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
@@ -470,15 +473,20 @@ function verifyotp1() {
 }
 
 function submitForm() {
+
     var forTractor =$('#forTractor').val();
     var enquiry_type_id = $('#enquiry_type_id').val();
     var brand_name = $('#brand').val();
+    console.log(brand_name,'brand_name');
     var model = $('#model_main').val();
+    console.log('asghj',model);
+    
     var year = $('#year_main1').val();
     var workingRadius = $('#workingRadius').val();
     var first_name = $('#myfname').val();
     var last_name = $('#mylname').val();
     var mobile = $('#mynumber').val();
+    console.log(mobile,'mobile');
     var state = $('#state_state').val();
     var district = $('#dist_district').val();
     var tehsil = $('#tehsil_t').val();
@@ -486,16 +494,18 @@ function submitForm() {
     var rateArray = [];
     var ratePerArray = [];
     var imageFilesArray = [];
-
+    console.log('rateArray',rateArray);
+    
+    // var implementTypeArray = ["0"];
+    
     // Iterate over each row in the table body
     $('#tractor_rent_only tbody tr').each(function(index) {
         var row = $(this);
-
+        // var implement_type = row.find('.implement-type-input').val();
         var rate = row.find('.implement-rate-input').val().replace(/[\,\.\s]/g, '');
         var ratePer = row.find('.implement-unit-input').val();
         var image_names = row.find('input[type="file"]')[0].files;
-
-        // Push data into arrays
+       
         rateArray.push(rate);
         ratePerArray.push(ratePer);
 
@@ -524,6 +534,7 @@ function submitForm() {
     formData.append('message', about);
 
     // Append arrays as JSON strings
+    // formData.append('implement_type_id', JSON.stringify(implementTypeArray));
     formData.append('rate', JSON.stringify(rateArray));
     formData.append('rate_per', JSON.stringify(ratePerArray));
 
@@ -894,7 +905,7 @@ function submitFormImplement() {
             $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successful Request"></img>');
             // Reload page after OK is clicked
             $('#errorStatusLoading').on('hidden.bs.modal', function () {
-                window.location.reload();
+                // window.location.reload();
             });
         },
         error: function (error) {

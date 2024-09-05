@@ -5,8 +5,6 @@ $(document).ready(function() {
 
 });
 
-
-
 function category_main() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar_category';
@@ -38,8 +36,6 @@ function category_main() {
     });
 }
 category_main();
-
-
 
 function category_main2() {
     var apiBaseURL = APIBaseURL;
@@ -198,11 +194,14 @@ function get_data() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('Error');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            // Display an error message or handle the error as needed
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                window.location.href = baseUrl + "login.php"; 
+    
+              }
+        
         }
     });
   }
