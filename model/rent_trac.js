@@ -41,6 +41,7 @@ function formatDateTime(originalDateTimeStr) {
     }
 
    // fetch data
+
    function get_rent_tractor_list() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'rent_data';
@@ -54,28 +55,25 @@ function formatDateTime(originalDateTimeStr) {
             const tableBody = document.getElementById('data-table-rent');
 
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
-                let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)})
+                // Merge data based on enquiry_id (from data1) and customer_id (from data2)
+                let mergedData = response.rent_details.data1.map(t1 => ({
+                    ...t1,
+                    ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)
+                }));
                 
-            );
-            console.log("mergedData",mergedData);
-                
-        console.log('suman');
-        
-            // var view = response.rent_details.data1.id;
-                //    var view =response.row.data1[0].id 
-                // Reverse the order of mergedData
+                console.log("mergedData", mergedData);
+
                 mergedData.reverse();
 
                 let tableData = [];
-                let counter = 0; // Initialize counter here
+                let counter = 0;
 
                 mergedData.forEach(row => {
-
-                    counter++; // Increment counter for each row
+                    counter++; 
                     const fullName = row.first_name + ' ' + row.last_name;
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
                             <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
@@ -86,7 +84,7 @@ function formatDateTime(originalDateTimeStr) {
                         </button>
                         </div>`;
                     tableData.push([
-                        counter, 
+                        counter,
                         row.date,
                         row.brand_name,
                         row.model,
@@ -109,11 +107,11 @@ function formatDateTime(originalDateTimeStr) {
                         { title: 'Full Name' },
                         { title: 'Purchase Year' },
                         { title: 'State' },
-                        { title: 'district' },
+                        { title: 'District' },
                         { title: 'Action', orderable: true }
                     ],
                     paging: true,
-                    searching: false,
+                    searching: false
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
@@ -121,16 +119,106 @@ function formatDateTime(originalDateTimeStr) {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            if (error.status == '401' && error.responseJSON.error == 'Token expired or invalid') {
                 $("#errorStatusLoading").modal('show');
                 $("#errorStatusLoading").find('.modal-title').html('Error');
                 $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
                 window.location.href = baseUrl + "login.php"; 
-  
-              }
+            }
         }
     });
 }
+
+//    function get_rent_tractor_list() {
+//     var apiBaseURL = APIBaseURL;
+//     var url = apiBaseURL + 'rent_data';
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (response) {
+//             const tableBody = document.getElementById('data-table-rent');
+
+//             if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
+//                 let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)})
+                
+//             );
+//             console.log("mergedData",mergedData);
+                
+//         console.log('suman');
+        
+//             // var view = response.rent_details.data1.id;
+//                 //    var view =response.row.data1[0].id 
+//                 // Reverse the order of mergedData
+//                 mergedData.reverse();
+
+//                 let tableData = [];
+//                 let counter = 0; // Initialize counter here
+
+//                 mergedData.forEach(row => {
+
+//                     counter++; // Increment counter for each row
+//                     const fullName = row.first_name + ' ' + row.last_name;
+//                     let action = `
+//                         <div class="d-flex">
+//                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+//                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+//                             </button>
+//                             <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+//                             <i class="fas fa-edit" style="font-size: 11px;"></i>
+//                         </button>
+//                         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+//                             <i class="fa fa-trash" style="font-size: 11px;"></i>
+//                         </button>
+//                         </div>`;
+//                     tableData.push([
+//                         counter, 
+//                         row.date,
+//                         row.brand_name,
+//                         row.model,
+//                         fullName,
+//                         row.purchase_year,
+//                         row.state_name,
+//                         row.district_name,
+//                         action
+//                     ]);
+//                 });
+
+//                 $('#example').DataTable().destroy();
+//                 $('#example').DataTable({
+//                     data: tableData,
+//                     columns: [
+//                         { title: 'S.No.' },
+//                         { title: 'Date/Time' },
+//                         { title: 'Brand' },
+//                         { title: 'Model' },
+//                         { title: 'Full Name' },
+//                         { title: 'Purchase Year' },
+//                         { title: 'State' },
+//                         { title: 'district' },
+//                         { title: 'Action', orderable: true }
+//                     ],
+//                     paging: true,
+//                     searching: false,
+//                 });
+//             } else {
+//                 tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
+//             }
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//             if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+//                 $("#errorStatusLoading").modal('show');
+//                 $("#errorStatusLoading").find('.modal-title').html('Error');
+//                 $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+//                 window.location.href = baseUrl + "login.php"; 
+  
+//               }
+//         }
+//     });
+// }
 // view data
 function fetch_data(product_id) {
     var productId = product_id;
@@ -1162,13 +1250,13 @@ implementgetonly();
                 counter++;
                 const fullName = row.first_name + ' ' + row.last_name;
                 let action = `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
                                 <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
                         </div>`;
@@ -1353,11 +1441,10 @@ function store(event) {
     });
 }
 
-
 function StoreOnlyImplement() {
     var enquiry_type_id = 18
     var forImplement =$('#forImplement').val();
-    var enquiry_type_id = $('#enquiry_type_id').val();
+    // var enquiry_type_id = $('#enquiry_type_id').val();
     var brand_name = $('#brand_implement').val();
     console.log(brand_name,'brand_name');
     // var model = $('#model_main').val();
@@ -1457,6 +1544,7 @@ function StoreOnlyImplement() {
 function StoreOnlyTractor() {
     var enquiry_type_id = 18
     var forTractor =$('#forTractor').val();
+
     // var enquiry_type_id = $('#enquiry_type_id').val();
     var brand_name = $('#brand').val();
     var model = $('#model_main').val();
@@ -1472,11 +1560,11 @@ function StoreOnlyTractor() {
     var rateArray = [];
     var ratePerArray = [];
     var imageFilesArray = [];
-
+    var implementTypeArray = [0];
     // Iterate over each row in the table body
     $('#tractor_rent_only tbody tr').each(function(index) {
         var row = $(this);
-
+        var implement_type = row.find('.implement-type-input').val();
         var rate = row.find('.implement-rate-input').val().replace(/[\,\.\s]/g, '');
         var ratePer = row.find('.implement-unit-input').val();
         var image_names = row.find('input[type="file"]')[0].files;
@@ -1484,7 +1572,7 @@ function StoreOnlyTractor() {
         // Push data into arrays
         rateArray.push(rate);
         ratePerArray.push(ratePer);
-
+        implementTypeArray.push(implement_type);
         // Push each image file to imageFilesArray
         for (var i = 0; i < image_names.length; i++) {
             imageFilesArray.push(image_names[i]);
@@ -1515,7 +1603,7 @@ function StoreOnlyTractor() {
     // Append arrays as JSON strings
     formData.append('rate', JSON.stringify(rateArray));
     formData.append('rate_per', JSON.stringify(ratePerArray));
-
+    formData.append('implement_type_id', JSON.stringify(implementTypeArray));
     // Append each image file
     for (var i = 0; i < imageFilesArray.length; i++) {
         formData.append('images[]', imageFilesArray[i]);

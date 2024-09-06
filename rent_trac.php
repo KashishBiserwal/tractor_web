@@ -150,6 +150,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>No.</th>
+                                                                <th>imple</th>
                                                                 <th width="80">Image</th>
                                                                 <th>Rate</th>
                                                                 <th>Rate Per</th>
@@ -164,6 +165,13 @@
                                                                             <img id="selectedImage" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" name="image_tractor" class="img-thumbnail"/>
                                                                     </div>
                                                                     <input type="file" id="customFile1" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, 'selectedImage')" required>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="select-wrap">
+                                                                        <select name="imp_type_id[]" id="implementonlyrent" class="form-control implement-type-input">
+                                                                            <option value>Select</option>
+                                                                        </select>
+                                                                    </div>
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
