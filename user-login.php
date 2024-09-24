@@ -50,4 +50,5 @@
     $('#sign-in').show();
     $('#verify-otp').hide();
     });
+    
 </script>

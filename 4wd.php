@@ -228,6 +228,7 @@
                 },
                 state: "required",
                 district: "required",
+                tahsil: "required",
             }
         });
         $('#button_hire').on('click', function() {

@@ -1,4 +1,3 @@
-
 var customer_id = "";
 var custo_id = "";
 var editId_state= false;
@@ -127,7 +126,6 @@ function formatDateTime(originalDateTimeStr) {
         }
     });
 } 
-
 function fetch_data(product_id) {
     var productId = product_id;
     var url =  'http://tractor-api.divyaltech.com/api/customer/rent_data/' + productId;
@@ -199,8 +197,6 @@ function fetch_edit_data(customer_id) {
     var headers = {
         'Authorization': 'Bearer' + localStorage.getItem('token')
     };
-    
-
     $.ajax({
         url: url,
         type: 'GET',
@@ -389,6 +385,20 @@ function fetch_edit_data(customer_id) {
                 });
             }
             updateTableRows(userData2, true);
+            // updateTableRows(userData2,true);
+            // function updateTractorRentTableRows(userData2) {
+            //     if (userData2.length > 0) {
+            //         var item = userData2[0];  // Get the first item since you only need one row
+            
+            //         // Format the rate
+            //         var formattedRate = formatPriceWithCommas(item.rate);
+            //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+            
+            //         $('#selectedImage').attr('src', imageUrl).show(); 
+            //         $('#implement_rent_0').val(formattedRate);
+            //         $('#impRatePer_0').val(item.rate_per);
+            //     }
+            // }
             function updateTractorRentTableRows(userData2) {
                 if (userData2.length > 0) {
                     var item = userData2[0];  // Get the first item since you only need one row
@@ -424,7 +434,7 @@ function fetch_edit_data(customer_id) {
                         .attr('src', imageUrl)
                         .css('pointer-events', 'none') 
                         .show(); 
-                    $('#impType_1').html('<option value="' + item.id + '">' + item.category_name + '</option>').attr('disabled', true);
+                    $('#impType_1').html('<option value="' + item.id + '">' + item.category_name + '</option>').attr('disabled', true); ;
                     $('#implement_rent_1').val(formattedRate).attr('disabled', true); 
                     $('#impRatePer_1').val(item.rate_per).attr('disabled', true); 
                     $('.upload-img-wrap')
@@ -464,7 +474,8 @@ function populateTehsil(districtId, selectId, tehsilId) {
     // select.setAttribute('readonly', 'readonly');
     // $(select);
 }
-function destroy(id) {
+function destroy(id)
+ {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
     var token = localStorage.getItem('token');
@@ -1073,8 +1084,7 @@ function implementgetonly() {
     });
 }
 implementgetonly();
-
-  function search_data() {
+function search_data() {
 
     var selectedBrand = $('#brandsearch').val();
     var model = $('#modelsearch').val();
@@ -1120,13 +1130,13 @@ implementgetonly();
                 counter++;
                 const fullName = row.first_name + ' ' + row.last_name;
                 let action = `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
                                 <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
                         </div>`;
@@ -1167,9 +1177,8 @@ implementgetonly();
         tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
     }
 }
-
 function resetFormFields() {
-    // Reset all form fields
+    // Reset the forms
     document.getElementById("rent_list_form_").reset(); 
     document.getElementById("tractor_rent_form").reset();
     document.getElementById("implement_rent_form").reset();
@@ -1178,158 +1187,31 @@ function resetFormFields() {
     $('#home-tab').removeClass('disabled');
     $('#profile-tab').removeClass('disabled');
     $('#contact-tab').removeClass('disabled');
-    document.getElementById('tractor_rent_form').reset();
-    resetTable();
-    implementgetonly();
-    enableFormFields();
-    resetTableRent();
-    implementget();
-    attachImageUploadListeners();
-}
+   
+   
+    // Clear image inputs and reset image previews
+    var imageInputs = document.getElementsByClassName("image-file-input");
+    for (var i = 0; i < imageInputs.length; i++) {
+        imageInputs[i].value = ''; // Clear file input
 
-function resetTable() {
-    document.querySelectorAll('#tractor_rent_only tbody tr').forEach(function (row) {
-        // Reset text inputs
-        row.querySelectorAll('input[type="text"]').forEach(function (input) {
-            input.value = ''; // Clear input
-            input.removeAttribute('disabled'); // Re-enable input fields
-        });
+        var imagePreviewId = "impImagePreview_" + i;
+        document.getElementById(imagePreviewId).setAttribute("src", ""); // Reset image preview
 
-        // Reset dropdowns
-        row.querySelectorAll('select').forEach(function (select) {
-            select.selectedIndex = 0; // Reset dropdown to first option
-            select.removeAttribute('disabled'); // Re-enable dropdowns
-        });
+        var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling;
+        imageIcon.style.display = "block"; // Show image icon
+    }
 
-        // Reset image preview
-        row.querySelectorAll('img').forEach(function (img) {
-            img.src = 'assets/images/upload-img-logo.jpg'; // Reset image to placeholder
-            img.style.display = 'none'; // Hide image
-        });
+    // Reset and re-enable the tractor rent table
+    var tractorTableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
+    var tractorNewRow = tractorTableBody.rows[0].cloneNode(true); // Clone the first row
+    tractorTableBody.innerHTML = ''; // Clear all rows
+    tractorTableBody.appendChild(tractorNewRow); // Add the cloned row
 
-        // Clear file input
-        row.querySelectorAll('input[type="file"]').forEach(function (fileInput) {
-            fileInput.value = ''; // Clear file input
-        });
-
-        // Re-enable image upload interaction
-        row.querySelectorAll('.upload-img-wrap').forEach(function (imgWrap) {
-            imgWrap.style.pointerEvents = 'auto'; // Re-enable clicking on the image upload
-        });
-    });
-    document.querySelectorAll('#Implement_rent_only tbody tr').forEach(function (row) {
-        // Reset text inputs
-        row.querySelectorAll('input[type="text"]').forEach(function (input) {
-            input.value = ''; // Clear input
-            input.removeAttribute('disabled',false); // Re-enable input fields
-        });
-
-        // Reset dropdowns
-        row.querySelectorAll('select').forEach(function (select) {
-            select.selectedIndex = 0; // Reset dropdown to first option
-            select.removeAttribute('disabled'); // Re-enable dropdowns
-        });
-
-        // Reset image preview
-        row.querySelectorAll('img').forEach(function (img) {
-            img.src = 'assets/images/upload-img-logo.jpg'; // Reset image to placeholder
-            img.style.display = 'none'; // Hide image
-        });
-
-        // Clear file input
-        row.querySelectorAll('input[type="file"]').forEach(function (fileInput) {
-            fileInput.value = ''; // Clear file input
-        });
-
-        // Re-enable image upload interaction
-        row.querySelectorAll('.upload-img-wrap').forEach(function (imgWrap) {
-            imgWrap.style.pointerEvents = 'auto'; // Re-enable clicking on the image upload
-        });
-      
-    });
-}
-
-function enableFormFields() {
-    // Re-enable form fields
-    document.querySelectorAll('#tractor_rent_form input, #tractor_rent_form select').forEach(function (element) {
-        element.removeAttribute('disabled'); // Re-enable all inputs and selects
-    });
-
-    // Enable image click functionality
-    document.querySelectorAll('.upload-img-wrap').forEach(function (imgWrap) {
-        imgWrap.style.pointerEvents = 'auto'; // Re-enable clicking on the image upload
-    });
-
-    // Re-enable the image upload interaction for each image in the table
-    document.querySelectorAll('img').forEach(function (img) {
-        img.style.pointerEvents = 'auto'; // Re-enable image click interaction
-    });
-
-    // Re-enable image preview click
-    // document.querySelectorAll('.upload-img-wrap').forEach(function (imgWrap) {
-    //     imgWrap.addEventListener('click', function() {
-    //         // Trigger the file input (assuming the ID pattern)
-    //         let inputId = this.querySelector('input[type="file"]').id;
-    //         triggerFileInput(inputId);
-    //     });
-    // });
-}
-function resetTableRent() {
-    document.querySelectorAll('#rentTractorTable tbody tr').forEach(function (row) {
-        // Reset text inputs
-        row.querySelectorAll('input[type="text"]').forEach(function (input) {
-            input.value = ''; // Clear input value
-            input.removeAttribute('disabled'); // Re-enable input fields
-        });
-
-        // Reset dropdowns
-        row.querySelectorAll('select').forEach(function (select) {
-            select.selectedIndex = 0; // Reset dropdown to first option
-            select.removeAttribute('disabled'); // Re-enable dropdowns
-            // Re-add options if needed
-            if (select.id.startsWith('impRatePer')) {
-                select.innerHTML = '<option value="">Select</option><option value="Acer">Acer</option><option value="Hour">Hour</option>';
-            }
-        });
-
-        // Reset image preview
-        var imagePreview = row.querySelector('img');
-        imagePreview.src = 'assets/images/upload-img-logo.jpg'; // Reset image source to placeholder
-        imagePreview.style.display = 'none'; // Hide image preview
-
-        // Clear file input
-        var fileInput = row.querySelector('input[type="file"]');
-        fileInput.value = ''; // Clear file input value
-        fileInput.removeAttribute('disabled'); // Re-enable file input
-
-        // Re-enable image upload interaction
-        var imgWrap = row.querySelector('.upload-img-wrap');
-        imgWrap.style.pointerEvents = 'auto'; // Re-enable clicking on the image upload
-
-        // Ensure click event is attached
-        imgWrap.addEventListener('click', function () {
-            fileInput.click();
-        });
-
-        // Ensure change event is attached
-        fileInput.addEventListener('change', function () {
-            displayImagePreview(fileInput, imagePreview.id);
-        });
-    });
-
-    // Reattach the image upload event listeners
-    attachImageUploadListeners();
-}
-
-function attachImageUploadListeners() {
-    $('#rentTractorTable').off('click', '.upload-img-wrap').on('click', '.upload-img-wrap', function() {
-        var fileInputId = $(this).find('input[type="file"]').attr('id');
-        $('#' + fileInputId).click();
-    });
-    
-    $('#rentTractorTable').off('change', '.image-file-input').on('change', '.image-file-input', function() {
-        var previewId = $(this).attr('id').replace('impImage_', 'impImagePreview_');
-        displayImagePreview(this, previewId);
+   
+   
+    // Enable pointer-events for image upload areas
+    $('.upload-img-wrap').css('pointer-events', 'auto').on('click', function() {
+        $(this).find('input[type="file"]').click();
     });
 }
 
@@ -1373,6 +1255,7 @@ function store(event) {
             imageFilesArray.push(image_names[i]);
         }
     });
+    
 
     var apiBaseURL =APIBaseURL;
     var token = localStorage.getItem('token');
@@ -1528,7 +1411,7 @@ function StoreOnlyImplement() {
             if (error.status === 500) {
                 alert('successfully inserted..!');
             } else {
-                alert('An error occurred. Please try again.');
+                alert('Please Upload the Image');
             }
         }
     });
@@ -1618,13 +1501,19 @@ function StoreOnlyTractor() {
         processData: false,
         contentType: false,
         success: function(result) {
+          
             console.log(result, "result");
             alert('Successfully saved!');
         },
         error: function(error) {
             console.error('Error fetching data:', error);
         }
+       
     });
+    if (imageFilesArray.length === 0) {
+        alert("Please Upload the Image .");
+        return; // Stop the form submission
+    }
+
+    
 }
-
-

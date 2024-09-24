@@ -18,10 +18,10 @@
    include 'includes/header.php';
    ?>
 
-<style>
-/* form implement image */
-    .imageWrapper {
-    border: 3px solid #888;
+    <style>
+        /* form implement image */
+        .imageWrapper {
+            border: 3px solid #888;
     width: 5%;
     height: 44px;
     overflow: hidden;
@@ -119,7 +119,14 @@
 	color: white;
 } */
 
+.hide {
+  display: none;
+}
 
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
     .container-mid {
         max-width: 1280px;
         margin: 0 auto;
@@ -251,7 +258,7 @@
                     </ul>
                     <div class="tab-content accordion py-3" id="myTabContent">
                              <!--Rent Tractor Only-->
-                            <div class="tab-pane fade show active accordion-item" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                             <div class="tab-pane fade show active accordion-item" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                 <h2 class="accordion-header d-lg-none" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Rent Tractor Only</button>
                                 </h2>
@@ -307,13 +314,6 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                                <div class="select-wrap">
-                                                     <select name="imp_type_id[]" id="impType_3" class="form-control implement-type-input">
-                                                            <option value>Select</option>
-                                                        </select>
-                                                </div>
-                                                </div> -->
                                                 <div class="table-responsive my-3">
                                                     <table id="tractor_rent_only" class="table table-sm">
                                                         <thead>
@@ -328,11 +328,12 @@
                                                             <tr>
                                                                 <td class="tractor_rent_serial">1</td>
                                                                 <td>
-                                                                    <div class="card upload-img-wrap" name="rent_trac_image" onclick="triggerFileInput('customFile1')" style="height: 38px; cursor: pointer;">
+                                                                    <div class="card upload-img-wrap" name="rent_trac_image" onclick="triggerFileInput('customFile1')" style="height: 38px; cursor: pointer;" id="dfghj">
                                                                             <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile1')"></i>
                                                                             <img id="selectedImage" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" name="image_tractor" class="img-thumbnail"/>
                                                                     </div>
-                                                                    <input type="file" id="customFile1" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, 'selectedImage')" required>
+                                                                    <input type="file" id="customFile1" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, 'selectedImage')">
+                                                                    <!-- <lable id="customFile1_error" class="error_image text-danger" for="customFile1">*required</lable> -->
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
@@ -414,13 +415,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Submit</button>
+                                                    <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- Rent Implement Only -->
                             <div class="tab-pane fade accordion-item" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                                 <h2 class="accordion-header d-lg-none" id="headingTwo">
@@ -433,7 +435,7 @@
                                         <div class="text-center">
                                             <h5 class="pb-2 mt-2">Implement Type Information</h5>
                                         </div>
-                                        <form id="implement_rent_form">
+                                        <form id="implement_rent_form" novalidate>
                                             <div class="row justify-content-center pt-2">
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                                     <div class="form-outline">
@@ -443,7 +445,7 @@
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                                     <div class="form-outline">
-                                                    <label class="form-label text-dark">Enquiry</label>
+                                                        <label class="form-label text-dark">Enquiry</label>
                                                         <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
                                                     </div>
                                                 </div>
@@ -477,6 +479,7 @@
                                                                         <img id="selectedImage2" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" class="img-thumbnail"/>
                                                                     </div>
                                                                     <input type="file" id="customFile2" class="d-none" accept="image/*" onchange="displayImagePreview(this, 'selectedImage2')" required>
+                                                                    <!-- <label id="" class="error" for="">this filed is required</label> -->
                                                                 </td>
                                                                 <td>
                                                                     <div class="select-wrap">
@@ -569,42 +572,12 @@
                                                     <button type="button" id="rent_submit_implement" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btnTmplement">Submit</button>
                                                 </div> -->
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" class="btn btn-success fw-bold px-3 w-100" id="rent_implement" data-bs-toggle="modal" data-bs-target="#myModal">
+                                                    <button type="button" class="btn btn-success fw-bold px-3 w-100" id="rent_implement" data-bs-toggle="modal" data-bs-target="myModal">
                                                         Submit
                                                     </button>
                                                 </div>
                                             </form>
-                                            <!-- The Modal -->
-                                            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header bg-success">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100 pb-2"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form id="otp_rent_implement_form">
-                                                                <div class=" col-12 input-group">
-                                                                <div class="col-12" hidden>
-                                                                        <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
-                                                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp2"name="opt_1">
-                                                                    </div>
-                                                                    <div class="float-end col-12">
-                                                                        <a href="" class="float-end">Resend OTP</a>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-success" id="Verify">Verify</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -755,7 +728,7 @@
                                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                                     <div class="form-outline mt-2">
                                                         <label for="name" class="form-label text-dark">Mobile Number</label>
-                                                        <input type="text" class="form-control" placeholder="" id="mynumber2" name="number">
+                                                        <input type="text" class="form-control" placeholder="" id="mynumber2" name="mob">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6">
@@ -782,7 +755,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" id="rent_submit_both" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#get_OTP_btnBoth">Submit</button>
+                                                    <button type="button" id="rent_submit_both" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btnBoth">Submit</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -812,6 +785,7 @@
                                 <div class="col-12">
                                     <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
                                     <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
+                                    <div id="error_message" style="color:red;"></div>
                                 </div>
                                 <div class="float-end col-12">
                                     <a href="" class="float-end">Resend OTP</a>
@@ -844,6 +818,7 @@
                                 <div class="col-12">
                                     <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
                                     <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otpverify"name="opt_1">
+                                    <div id="error_message2" style="color:red;"></div>
                                 </div>
                                 <div class="float-end col-12">
                                     <a href="" class="float-end">Resend OTP</a>
@@ -963,14 +938,46 @@
             </div>
         </div>
     </section>
-   
+    <!-- The Modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100 pb-2"></button>
+            </div>
+            <div class="modal-body">
+                <form id="otp_rent_implement_form">
+                    <div class="col-12 input-group">
+                        <div class="col-12" hidden>
+                            <label for="Mobile" class="text-dark float-start pl-2">Number</label>
+                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify" name="Mobile">
+                        </div>
+                        <div class="col-12">
+                            <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
+                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp2" name="opt_1">
+                            <div id="error_message1" style="color:red;"></div>
+                        </div>
+                        <div class="float-end col-12">
+                            <a href="#" class="float-end">Resend OTP</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="Verify">Verify</button>
+            </div>
+        </div>
+    </div>
+</div>
+
    <?php
         include 'includes/footer.php';
         include 'includes/footertag.php';
     ?>
   
-
-    <script>
+  <script>
         // image upload for only tractor and only implement
         function triggerFileInput(inputId) {
             document.getElementById(inputId).click();
@@ -1026,7 +1033,7 @@
                 lname: {
                     required: true,
                 },
-                'tractor_rent_image[]': {
+                'customFile1': {
                     required: true,
                 },
                 'rate_per[]': {
@@ -1072,8 +1079,8 @@
                 lname: {
                     required: "This field is required",
                 },
-                'tractor_rent_image[]': {
-                    required: "Please upload an image",
+                'customFile1': {
+                    required: "This field is required ",
                 },
                 'rate_per[]': {
                     required: "This field is required",
@@ -1106,7 +1113,16 @@
                     }
                 } else {
                     alert("Please enter a valid 10-digit mobile number.");
+
                 }
+
+    //             for (var i = 0; i < imageFilesArray.length; i++) {
+    //              formData.append('images[]', imageFilesArray[i]);
+    // }
+    //             } else {
+    //                 alert("this required.");
+
+    //             }
             },
         });
 
@@ -1115,6 +1131,14 @@
                 $("#tractor_rent_form").submit();
             }
         });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#get_OTP_btn').on('hidden.bs.modal', function () {
+            $('#otp_form input[type="text"]').val(''); 
+        });
+        
     });
 </script>
 <script>
@@ -1229,10 +1253,11 @@
                 $('#myModal').modal('hide'); 
                 return;
             }
+            
         }
     });
 
-    // Real-time validation for the mobile number field
+    // // Real-time validation for the mobile number field
     $("#mynumber1").on("input", function () {
         var phone = $(this).val();
         if (phone.length === 10 && $.isNumeric(phone)) {
@@ -1241,7 +1266,6 @@
             $("#mobile-error").show(); 
         }
     });
-
     // Handle form submission
     $("#rent_implement").on("click", function () {
         var phone = $("#mynumber1").val();
@@ -1259,8 +1283,24 @@
 });
 </script>
 <script>
+    $(document).ready(function(){
+        $('#get_OTP_btnBoth').on('hidden.bs.modal', function () {
+            $('#otpverify').val(''); 
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#myModal').on('hidden.bs.modal', function () {
+            $('#otp2').val(''); 
+        });
+    });
+</script>
+
+
+<script>
     $(document).ready(function () {
-        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+      jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
             return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
         $("#rent_list_form_").validate({
@@ -1363,23 +1403,14 @@
                     required: "This field is required",
                 }
             },
-
-            submitHandler: function (form) {
-            var phone = $("#mynumber2").val();
-
-            if ($("#rent_list_form_").valid()) {
-                get_otp3(phone);
-            }
-        }
+        });
+        $('#rent_submit_both').on('click', function() {
+                $('#rent_list_form_').valid();
+                console.log($('#rent_list_form_').valid());
+          });
     });
+</script> 
 
-    $("#rent_submit_both").on("click", function () {
-        if ($("#rent_list_form_").valid()) {
-            $("#rent_list_form_").submit();
-        }
-    });
-});  
-</script>
 <script>
     function triggerFileInput(inputId) {
         $('#' + inputId).trigger('click');
@@ -1694,16 +1725,5 @@ function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
 // Call the function to populate dropdowns with specific class names
 populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'tehsil-dropdown_rent');
 </script>
-<script>
- function googleTranslateElementInit() {
- new google.translate.TranslateElement({
- pageLanguage: 'en',
- autoDisplay: 'true',
- includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
- layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
- }, 'google_translate_element');
- }
-</script>
 </body>
-
 </html>

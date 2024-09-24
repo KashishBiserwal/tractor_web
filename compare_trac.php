@@ -51,7 +51,7 @@
     <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3> 
       <div class="row py-1" >
        
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5" id="">
+            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5" id="">
               <div class="success__stry__item shadow h-100">
                   <div class="thumb">
                       <a href="#">
@@ -63,20 +63,21 @@
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="brand"></label>
-                      <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand" onchange="showEditIcon()">
+                      <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand" >
                       </select>
                     </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
-                      <label class="form-label" for="model"></label>
+                      <label class="form-label" for="model" text-dark></label>
                       <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model">
-                        <option value="" selected >Please Select Model</option>
+                        <option value="" selected >Please Select Model</option> 
                       </select>
                     </div>
                   </div>
                   <div class="content pb-1 text-center">
-                    <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_" onclick="valueblanck()" hidden></i></div>
+                    <!-- <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_" onclick="valueblanck()"hidden></i></div> -->
+                 <!-- <button><i class="fas fa-edit"></i></button> -->
                   </div>
               </div>
             </div>
@@ -90,20 +91,33 @@
                           </div>
                       </a>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2  text-center w-100">
                     <div class="form-outline">
-                      <label class="form-label" for="brand"></label>
-                      <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_1" onchange="showEditIcon2()">
-                        
+
+                    <label class="form-label" for="brand"></label>
+                      <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand_1" id="brand_1" onchange="showEditIcon2()">
                       </select>
                     </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="model"></label>
-                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_1">
-                      
+                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model_1" id="model_1"style="display: inline-block;">
+                      <option value="" selected >Please Select Model</option> 
                       </select>
+
+                      <!-- <label class="form-label" for="brand"></label> 
+                      <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_1" onchange="showEditIcon2()">
+                      </select>
+                      
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
+                    <div class="form-outline">
+                      <label class="form-label" for="model_1"></label>
+                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model_1" id="model_1">
+                      <option value="" selected >Please Select Model</option> 
+                       </select> -->
                     </div>
                   </div>
                   <div class="content pb-1 text-center">
@@ -131,14 +145,15 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
+                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100"> 
                     <div class="form-outline">
-                      <label class="form-label" for="model"></label>
-                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_2">
-                      
+                      <label class="form-label" for="model_2"></label>
+                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model_2" id="model_2"style="display: inline-block;">
+                      <option>Please Select Model</option> 
                       </select>
+                      
                     </div>
-                  </div>
+                   </div>
                   <div class="content pb-1 text-center">
                       <div class="col-12  text-center mt-1">
                         <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_2" hidden onclick="valueblanck2()"></i></div>
@@ -165,9 +180,11 @@
                   </div>
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
-                      <label class="form-label" for="model"></label>
-                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_3">
+                      <label class="form-label" for="model_3"></label>
+                      <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_3"style="display: inline-block;">
+                      <option value="" selected >Please Select Model</option>
                       </select>
+                         
                     </div>
                   </div>
                   <div class="content pb-1 text-center">
@@ -241,10 +258,8 @@
    include 'includes/footer.php';
    
    ?>
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
+ <!-- <script>
+  document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("an");
   let selectedValues = {};
   const compareButton = document.getElementById('compareButton');
@@ -264,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
       selectedValueElement.textContent = `${selectedText}`;
 
       parentContainer.appendChild(selectedValueElement);
-      selectedElement.style.display = 'none'; 
+      selectedElement.style.display = 'block'; 
       selectedValues[selectedElement.getAttribute("id")] = {
         value: selectedValue,
         text: selectedText
@@ -326,38 +341,131 @@ document.addEventListener("DOMContentLoaded", function () {
     // Implementation remains the same
   }
 });
+ </script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("an");
+  let selectedValues = {};
+  const compareButton = document.getElementById('compareButton');
+  compareButton.setAttribute('disabled', 'disabled');
+
+  form.addEventListener("change", function (event) {
+    const selectedElement = event.target;
+    if (selectedElement.tagName === "SELECT") {
+      const selectedValue = selectedElement.value;
+      const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
+      const parentContainer = selectedElement.closest('.success__stry__item');
+
+      // Remove any existing selected-value div before adding a new one
+      let existingValueElement = parentContainer.querySelector('.selected-value');
+      if (existingValueElement) {
+        existingValueElement.remove();
+      }
+      const selectedValueElement = document.createElement("div");
+      selectedValueElement.classList.add('selected-value');
+      selectedValueElement.style.textAlign = "center";
+      selectedValueElement.style.fontSize = "18px";
+      selectedValueElement.style.fontWeight = "bold";
+      selectedValueElement.textContent = `${selectedText}`;
+     
+      parentContainer.appendChild(selectedValueElement);
+      selectedElement.style.display = 'block';  
+      selectedValues[selectedElement.getAttribute("id")] = {
+        value: selectedValue,
+        text: selectedText
+      };
+
+      checkFilledCards();
+    }
+  });
+
+  function resetDropdowns(editButton) {
+    const parentContainer = editButton.closest('.success__stry__item');
+    const brandSelect = parentContainer.querySelector('.brandselect');
+    const modelSelect = parentContainer.querySelector('.modelselect');
+
+    
+    const selectedValuesElements = parentContainer.querySelectorAll('.selected-value');
+    selectedValuesElements.forEach(valueElement => {
+      valueElement.remove();
+    });
+
+    brandSelect.style.display = 'inline'; 
+    modelSelect.style.display = 'inline'; 
+
+    brandSelect.value = selectedValues[brandSelect.id] ? selectedValues[brandSelect.id].value : '';
+    modelSelect.value = selectedValues[modelSelect.id] ? selectedValues[modelSelect.id].value : '';
+
+    checkFilledCards(); // Check again after resetting dropdowns
+  }
+
+  function checkFilledCards() {
+    let selectedBrands = 0;
+    let selectedModels = 0;
+
+    // Count the selected brands and models
+    for (const key in selectedValues) {
+      if (key.startsWith('brand') && selectedValues[key].value !== '') {
+        selectedBrands++;
+      }
+      if (key.startsWith('model') && selectedValues[key].value !== '') {
+        selectedModels++;
+      }
+    }
+
+    // Enable compare button if at least 2 brands and 2 models are selected
+    if (selectedBrands >= 2 && selectedModels >= 2) {
+      compareButton.removeAttribute('disabled');
+    } else {
+      compareButton.setAttribute('disabled', 'disabled');
+    }
+  }
+
+  // Event listener for the edit button to reset dropdowns
+  form.addEventListener("click", function (event) {
+    const clickedElement = event.target;
+    if (clickedElement.classList.contains('edit_btn')) {
+      resetDropdowns(clickedElement);
+    }
+  });
+});
 
 </script>
 
 
+ </script>
+
   <script>
-    function showEditIcon() {
-      var selectBox = document.getElementById("brand");
-      var editIcon = document.getElementById("edit_");
-      // Show the edit icon if a option is selected
-      editIcon.style.display = selectBox.value ? "inline-block" : "none";
-    }
-    function showEditIcon2() {
-      var selectBox = document.getElementById("brand_1");
-      var editIcon = document.getElementById("edit_1");
-      editIcon.style.display = selectBox.value ? "inline-block" : "none";
-      var option = document.getElementById("model_1");
-      option.style.display = selectBox.value ? "inline-block" : "none";
-    }
-    function showEditIcon3() {
-      var selectBox = document.getElementById("brand_2");
-      var editIcon = document.getElementById("edit_2");
-      editIcon.style.display = selectBox.value ? "inline-block" : "none";
-      var option = document.getElementById("model_2");
-      option.style.display = selectBox.value ? "inline-block" : "none";
-    }
-    function showEditIcon4() {
-      var selectBox = document.getElementById("brand_3");
-      var editIcon = document.getElementById("edit_3");
-      editIcon.style.display = selectBox.value ? "inline-block" : "none";
-      var option = document.getElementById("model_3");
-      option.style.display = selectBox.value ? "inline-block" : "none";
-    }
+    // function showEditIcon() {
+    //   var selectBox = document.getElementById("brand");
+    //   var editIcon = document.getElementById("edit_");
+    //   // Show the edit icon if a option is selected
+    //   editIcon.style.display = selectBox.value ? "inline-block" : "none";
+    // }
+    // function showEditIcon2() {
+    //   var selectBox = document.getElementById("brand_1");
+    //   var editIcon = document.getElementById("edit_1");
+    //   editIcon.style.display = selectBox.value ? "inline-block" : "none";
+    //    var option = document.getElementById("model_1");
+    //    option.style.display = selectBox.value ? "inline-block" : "none";
+    // }
+    // function showEditIcon3() {
+    //   var selectBox = document.getElementById("brand_2");
+    //   var editIcon = document.getElementById("edit_2");
+    //   editIcon.style.display = selectBox.value ? "inline-block" : "none";
+    //   var option = document.getElementById("model_2");
+    //   option.style.display = selectBox.value ? "inline-block" : "none";
+    // }
+    // function showEditIcon4() {
+    //   var selectBox = document.getElementById("brand_3");
+    //   var editIcon = document.getElementById("edit_3");
+    //   editIcon.style.display = selectBox.value ? "inline-block" : "none";
+    //   var option = document.getElementById("model_3");
+    //   option.style.display = selectBox.value ? "inline-block" : "none";
+    // }
+    
+
 
     function valueblanck(){
       $('#brand').val('');
@@ -376,6 +484,10 @@ document.addEventListener("DOMContentLoaded", function () {
       $('#model_3').val('');
     }
   </script>
+
+
+
+
 
 
 <script>

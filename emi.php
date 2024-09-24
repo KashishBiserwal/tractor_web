@@ -491,8 +491,7 @@
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Fill
-                                            the form to Get Tyre Price MRF SHAKTI LIFE 13.6 - 28</h4>
+                                        <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel"><span id ="emi_1_brand"></span> , <span id="emi_1_model"></span></h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
                                     </div>
                                     <div class="modal-body">
@@ -756,8 +755,9 @@ $("#brandModelForm").submit(function(event) {
                 // Update brand_main
                 $("#brand_main").text(priceData.brand_name);
                 $("#main_brand").text(priceData.brand_name);
-                $("#brand_model").text(priceData.model);
-
+                $("#emi_1_model").text(priceData.model);
+                $("#emi_1_brand").text(priceData.brand_name);
+                
                 // Extract starting price (remove commas and spaces)
                 var startingPrice = parseFloat(priceData.starting_price.replace(/[, ]/g, ''));
                 // Check the format of starting price

@@ -832,7 +832,7 @@
   const EVENT_CLOSED = `closed${EVENT_KEY$b}`;
   const EVENT_CLICK_DATA_API$7 = `click${EVENT_KEY$b}${DATA_API_KEY$8}`;
   const CLASS_NAME_ALERT = 'alert';
-  const CLASS_NAME_FADE$6 = 'fade';
+  const $6 = 'fade';
   const CLASS_NAME_SHOW$9 = 'show';
   /**
    * ------------------------------------------------------------------------
