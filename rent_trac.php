@@ -245,7 +245,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
+                                                    <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100" >Submit</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -1205,6 +1205,7 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
       jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
             return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
+    
         $("#tractor_rent_form").validate({
             // Specify validation rules
             rules: {
@@ -1303,6 +1304,7 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
         });
         $('#rent_submit').on('click', function() {
           $('#tractor_rent_form').valid();
+
           console.log($('#tractor_rent_form').valid());
       });
     });
