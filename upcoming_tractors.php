@@ -19,6 +19,13 @@ include 'includes/headertag.php';
 
   gtag('config', 'G-6Z38E658LD');
 </script>
+<style>
+    .add_btn i {
+    background: rgb(109 204 123);
+    width: 18px !important;
+    height: 19px !important;
+    }
+</style>
  <?php
    include 'includes/header.php';
    ?>
@@ -52,11 +59,11 @@ include 'includes/headertag.php';
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button onclick="resetform()" type="button" class=" btn add_btn btn-success px-4">
+                            <div class="col-12 col-sm-5 col-lg-5 col-md-5">
+                                <button onclick="resetform()" type="button" class=" btn add_btn btn-success px-1">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                           <div class="col-12 col-sm-7 col-lg-7 col-md-7 pe-2">
                                 <button id="filter_tractor" type="button" class=" btn add_btn btn-success p-1">
                                 <i class="fas fa-filter"></i>Apply Filter</button>
                            </div>
@@ -240,4 +247,14 @@ include 'includes/headertag.php';
     include 'includes/footertag.php';
 
 ?>
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </html>

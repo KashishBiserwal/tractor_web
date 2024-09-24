@@ -178,12 +178,12 @@ function displayTractors(tractors) {
                         <div class="content d-flex flex-column flex-grow-1">
                             <div class="caption text-center text-truncate">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
+                                    <p class="pt-3 text-truncate"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.horse_power}HP</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                          <p id="adduser" type="" class="text-dark">
                                           <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
@@ -632,12 +632,12 @@ function appendFilterCard(filterContainer, filter) {
                         <div class="content d-flex flex-column flex-grow-1">
                             <div class="caption text-center text-truncate">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
+                                    <p class="pt-3 text-truncate"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.horse_power}HP</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                          <p id="adduser" type="" class="text-dark">
                                           <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>

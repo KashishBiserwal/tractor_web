@@ -81,6 +81,7 @@
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1270,7 +1271,7 @@ function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
 }
 
 // Call the function to populate dropdowns with specific class names
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+// populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
 </script>
 <script>
        var userId = localStorage.getItem('id');
@@ -1443,7 +1444,16 @@ function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 </script>
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </body>
 
 </html>

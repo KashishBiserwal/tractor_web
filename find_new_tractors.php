@@ -1,6 +1,7 @@
 
 
-
+<!DOCTYPE html>
+<html lang="en">
 <?php
 include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
@@ -23,6 +24,9 @@ include 'includes/headertag.php';
    
     }
    </style>
+<?php
+   include 'includes/header.php';
+   ?>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/find_new_tractor.js"></script>
@@ -40,9 +44,7 @@ include 'includes/headertag.php';
 </script>
 
 <body>
-   <?php
-   include 'includes/header.php';
-   ?>
+
 
 <section class=" mt-5 pt-5 bg-light">
     <div class="container mt-4">
@@ -74,7 +76,7 @@ include 'includes/headertag.php';
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
                             <div class="col-12 col-sm-5 col-lg-5 col-md-5">
-                                <button id="" onclick="resetform()" type="button" class="add_btn btn btn-success w-100 px-2">
+                                <button id="" onclick="resetform()" type="button" class="add_btn btn btn-success w-100">
                                 <i class="fas fa-undo"></i>Reset</button>
                             </div>
                            <div class="col-12 col-sm-7 col-lg-7 col-md-7 ">
@@ -108,7 +110,7 @@ include 'includes/headertag.php';
                             <div class="HP py-2" id="modelCheckboxContainer"></div>
                         </div>
                     </div> -->
-                <!-- <div class="scrollbar mb-3" id="">
+                <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
                         <div class="HP py-2">
@@ -121,7 +123,7 @@ include 'includes/headertag.php';
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle7" value="71 - 80"/><lable class="ps-2 mt-0 fs-6" for="vehicle7">Above 75 Hp </lable><br />
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
@@ -402,7 +404,15 @@ include 'includes/headertag.php';
     include 'includes/footertag.php';
 
     ?>
-    <script>
-        
-    </script>
+ 
+ <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: 'true',
+        includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        }, 'google_translate_element');
+    }
+</script>
     </html>

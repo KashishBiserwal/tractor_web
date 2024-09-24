@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="en">
     <?php
 include 'includes/headertag.php';
@@ -30,11 +31,12 @@ include 'includes/headertag.php';
    
     }
     </style>
-<body>
-    
+      
    <?php
    include 'includes/header.php';
    ?>
+<body>
+  
    <section class="mt-5 pt-5">
     <div class="container">
         <div class="mt-5">
@@ -141,3 +143,14 @@ $('#productContainer2').owlCarousel({
     ?>
 
     
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
+</html>

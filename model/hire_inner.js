@@ -26,7 +26,8 @@ function getHireTracById() {
             var userId = localStorage.getItem('id');
             getUserDetail(userId);
             // Processing data on successful response
-            var brand_model = data.rent_details.data1[0].brand_name + " " + data.rent_details.data1[0].model;
+            var brand_model = data.rent_details.data1[0].brand_name + " " + (data.rent_details.data1[0].model ? data.rent_details.data1[0].model : "");
+
             var full_name = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
             var fullname = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
             var formattedPrice = parseFloat(data.rent_details.data2[0].rate).toLocaleString('en-IN');

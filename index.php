@@ -1,6 +1,5 @@
-<!-- 
 
-<!DOCTYPE html> -->
+<!DOCTYPE html> 
 <html lang="en">
   <head> <?php
    include 'includes/headertag.php';
@@ -246,7 +245,7 @@
     </div>
   </div>
 </section>
-<section class="">
+<section class="" id="">
   <div class="container ">
     <h3 class=" py-4 display-6 fw-bold">Tractors in <span class="text-success">2023</span></h3>
     <nav class="">
@@ -1168,5 +1167,14 @@ document.getElementById('Search').addEventListener('click', function() {
   }
 </script>
 
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </html>

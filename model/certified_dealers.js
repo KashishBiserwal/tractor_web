@@ -67,7 +67,7 @@ function displaydealer(dealers) {
                     </div>
                     <div>
                         <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
-                            <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                            <h6 class="fw-bold text-center text-truncate mt-3">${dealer.dealer_name}</h6>
                         </a>
                         <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                             <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
@@ -135,7 +135,7 @@ function searchdata() {
                                 </div>
                                 <div>
                                     <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
-                                        <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                                        <h6 class="fw-bold text-center text-truncate mt-3">${dealer.dealer_name}</h6>
                                     </a>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                                         <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>

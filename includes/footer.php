@@ -13,11 +13,11 @@
                 </picture>
                 <h5 class="py-2 mt-1 text-white">follow us</h5>
   	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
-  	 			</div>
+  	 				<a href="#"><i class="fab fa-facebook-f mt-2"></i></a>
+  	 				<a href="#"><i class="fab fa-twitter mt-2"></i></a>
+  	 				<a href="#"><i class="fab fa-instagram mt-2"></i></a>
+  	 				<a href="#"><i class="fab fa-linkedin-in mt-2"></i></a>
+  	 			</div>   
                 <!-- <h6 class="py-1 mt-1 text-white">CONTENT PROTECTED BY</h6>
                 <a href="//www.dmca.com/Protection/Status.aspx?ID=3b8f9b9c-4306-46b9-8dc6-ad7250b29155" title="DMCA.com Protection Status" target="_blank">
                     <img width="105" height="22" class="gplay-icon" src="assets/images/_dmca_premi_badge_5.png"  alt="DMCA.com Protection Status">

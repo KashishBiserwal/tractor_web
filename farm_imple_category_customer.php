@@ -3,6 +3,7 @@
     <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
+    include 'includes/header.php';
    ?> 
    <script src="<?php $baseUrl; ?>model/farm_imple_category_customer.js"></script>
   </head>
@@ -15,7 +16,9 @@
 
   gtag('config', 'G-6Z38E658LD');
 </script>
+
   <body> 
+
     <style>
  .thumb img {
     height: auto;
@@ -39,9 +42,7 @@
   padding: 15px;
 }
       </style>
-    <?php
-      include 'includes/header.php';
-    ?>
+ 
     <section class="mt-130 bg-light">
         <div class="container">
         <div class="py-2">
@@ -97,15 +98,9 @@
 
     ?>
   </body>
-</html>
-
-
-
 
 
 <script>
-
- 
 function show_detail(){
   $(".more_detail").show();
   $("#show_detail").hide();
@@ -116,3 +111,14 @@ function hide_detail(){
 }
    
 </script>
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
+</html>

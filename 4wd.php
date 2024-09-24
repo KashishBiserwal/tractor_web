@@ -75,7 +75,7 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
                             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button onclick="resetform()" type="button" class=" btn add_btn btn-success px-4">
+                                <button onclick="resetform()" type="button" class=" btn add_btn btn-success px-1">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
@@ -236,6 +236,15 @@
         });
     });
     </script>
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 
 </html>

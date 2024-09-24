@@ -318,15 +318,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fetch options function remains the same
   function fetchOptions(fieldName, selectElement) {
-    // Implementation remains the same
   }
-
-  // Extract selected brand ID function remains the same
   function extractSelectedBrandId() {
-    // Implementation remains the same
   }
 
-  // Get function remains the same
   function get() {
     // Implementation remains the same
   }
@@ -397,6 +392,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+</script>
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
 </script>
 </body>
 </html>

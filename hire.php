@@ -74,11 +74,11 @@
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-5">
+                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-1">
                                 <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-5">
+                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-1">
                                 <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                             </div>
@@ -212,7 +212,16 @@ include 'includes/footer.php';
         });
     });
 </script>
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </html>
 
 <script>

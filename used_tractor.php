@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
    <?php
@@ -58,6 +58,7 @@
                             <i class="fa-sharp fa-solid fa-handshake"></i> Sell tractor </button>
                     </div> -->
                 </div>
+               
                 <div class="row my-3">
                     <div id="productContainer" class="row "></div>
                     <div class="col-12 text-center">
@@ -173,7 +174,7 @@
                     <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Swaraj tractors for sale </p></a></li>
                     <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Mahindra tractors for sale</p></a></li>
                 </ul>
-            </div>
+            </div> 
             <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                 <ul class="justify-content-center ul-box  ">
                     <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Farmtrac tractors for sale </p></a></li>
@@ -255,19 +256,12 @@
 <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
-
-    ?>
-
+?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
-
-
-
-
-
-    <script>
+<script>
  $(document).ready(function(){
     console.log('testing');
     $('#contact-seller-call').validate({
@@ -324,4 +318,14 @@
 });
 
     </script>
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
     </html>

@@ -101,7 +101,7 @@ $(document).ready(function() {
                         <div class="thumb">
                             <a href="certified_dealers_inner.php?id=${dealer.id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                    <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-cover" alt="img">
                                 </div>
                             </a>
                         </div>
@@ -110,7 +110,7 @@ $(document).ready(function() {
                         </div>
                         <div>
                             <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
-                                <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                                <h6 class="fw-bold text-center text-truncate mt-3">${dealer.dealer_name}</h6>
                             </a>
                             <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                                 <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>

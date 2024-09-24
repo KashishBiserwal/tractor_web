@@ -1,12 +1,12 @@
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/header.js"></script>
+
 <style>
 .autocomplete {
   position: relative;
   z-index: 999; /* Set a higher z-index value */
 }
-
 .autocomplete ul {
   list-style: none;
   padding: 0;
@@ -34,9 +34,38 @@
     .logo {
     border-radius: 0; 
 }
+.language-image {
+  filter: brightness(0) invert(1);
+}
+
+.goog-te-gadget {
+    color: transparent!important;
+    font-size:0px;
+  }
+  .goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  #google_translate_element select{
+    background:#2b1a12;
+    color:#fff4e4;
+    border: none;
+    font-weight:bold;
+    border-radius:3px;
+    padding:8px 12px
+  }
+.language-dropdown{
+  width: 10px;
+}
+iframe.skiptranslate {
+    display: none !important;
+}
+#goog-gt-tt {
+  visibility: hidden !important;  /* Hide the tooltip by default */
+}
 
 </style>
-<div class="fixed_nav">
+<div class="fixed_nav" >
 <nav class="navbar navbar-expand-sm navbar-index">
   <div class="container p-0">
     <div class="row w-100 m-0">
@@ -50,7 +79,7 @@
       </button>
       <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="justify-content: end;">
         <div class="row w-100">
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <form class="mb-0 navsearch">
               <div class="row w-100">
                   <div class="col-sm-9 pe-0">
@@ -65,25 +94,37 @@
               </div>
             </form>
         </div>
-  <div class="col-sm-4 mt-2">
-    <ul class="navbar-nav float-end">
-        <li class="nav-item">
-            <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
-        </li>
-        <li class="nav-item" id="loginContainer">
-            <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
-            <div id="myAccountDropdown" class="dropdown" style="display: none;">
-                <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    My Account
-                </button>
-                <div class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
-                    <a class="dropdown-item text-dark p-2" href="userProfile.php">Profile</a>
-                    <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
+        <div class="col-sm-6 mt-2">
+          <ul class="navbar-nav float-end">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28" alt="Language Icon" title="Language" class="language-image">
+                    <span id="selected-language"></span>
+                </a>
+                <div class="dropdown-menu language-dropdown" id="lang-mobile-block" style="display: none;">
+                    <a href="#" hreflang="en" title="English" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
+                    <a href="#" hreflang="hi" title="हिन्दी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">हिन्दी</a>
                 </div>
-            </div>
-        </li>
-    </ul>
-</div>
+            </li>
+            <li class="" id="google_translate_element" hidden></li>
+
+            <li class="nav-item up-down">
+                <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
+            </li>
+            <li class="nav-item up-down" id="loginContainer">
+                <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
+                <div id="myAccountDropdown" class="dropdown" style="display: none;">
+                    <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Account
+                    </button>
+                    <div class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
+                        <a class="dropdown-item text-dark p-2" href="userProfile.php">Profile</a>
+                        <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
+                    </div>
+                </div>
+            </li>
+          </ul>
+      </div>
 
         </div>
       </div>
@@ -124,6 +165,22 @@
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle ">
+          <hr class="dropdown-divider m-0">
+            <!-- <li class="nav-item dropend "> -->
+              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sell Tractor
+              </a>
+              <ul class="dropdown-menu p-0">
+                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
+               <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
+               <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
+              </ul>
+            <!-- </li> -->
+          </hr>
+        </li>
+          <li class="nav-item dropdown dropdown-toggle ">
           <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Used
           </a>
@@ -146,7 +203,7 @@
                 <li><a class="dropdown-item  fw-bold py-2" href="find_used_tracters.php">Find Used Tractor</a></li>
               </ul>
             </li>
-           <hr class="dropdown-divider m-0">
+           <!-- <hr class="dropdown-divider m-0">
             <li class="nav-item dropend ">
               <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sell Used
@@ -158,7 +215,7 @@
                <hr class="dropdown-divider m-0">
                 <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
               </ul>
-            </li>
+            </li> -->
            <hr class="dropdown-divider m-0">
             <li class="nav-item dropend ">
               <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -507,73 +564,60 @@ function redirectToBrandPage(suggestion) {
     }
 }
 </script>
+<script>
 
-                    <!-- <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
-                   <hr class="dropdown-divider m-0">
-                    <li id="tractorNews"><a class="dropdown-item fw-bold" href="tractor_news.php" >Tractor News</a></li>
-                   <hr class="dropdown-divider m-0">
-                    <li id="agricultureNews"><a class="dropdown-item fw-bold" href="agri_news.php">Agriculture News</a></li>
-                   <hr class="dropdown-divider m-0">
-                    <li id="sarkariNews"><a class="dropdown-item fw-bold" href="sarkari_news.php">Sarkari Yojana news</a></li> -->
+// Toggle dropdown visibility
+document.getElementById('navbarDropdown2').addEventListener('click', function() {
+  var dropdownMenu = document.getElementById('lang-mobile-block');
+  if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+    dropdownMenu.style.display = 'block';
+  } else {
+    dropdownMenu.style.display = 'none';
+  }
+});
 
+window.onload = function() {
+    var googleTranslateWidget = document.querySelectorAll('.VIpgJd-ZVi9od-l4eHX-hSRGPd, #options, .VIpgJd-ZVi9od-ORHb-KE6vqe, #google_translate_element table');
+    googleTranslateWidget.forEach(function(element) {
+        element.style.display = 'none';
+    });
+};
+ 
 
+document.getElementById('translate-text').addEventListener('mouseover', function() {
+    document.getElementById('goog-gt-tt').style.visibility = 'visible';
+  });
 
-
-                    <!-- <div class="col-sm-4">
-                <ul class="navbar-nav float-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
-                        <div id="myAccountDropdown" class="dropdown" style="display: none;">
-                            <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Account
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
-                                <a class="dropdown-item text-dark" href="#" onclick="logout()">Logout</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div> -->
-
-<!-- 
-            <script>
-    var loggedIn = true; // Change this to false if the user is logged out
-
-    window.onload = function() {
-        updateUI();
-    };
-
-    function updateUI() {
-        var loginButton = document.getElementById("loginButton");
-        var myAccountDropdown = document.getElementById("myAccountDropdown");
-
-        if (loggedIn) {
-            // User is logged in, hide login button and show my account dropdown
-            loginButton.style.display = "none";
-            myAccountDropdown.style.display = "block";
-        } else {
-            // User is not logged in, show login button and hide my account dropdown
-            loginButton.style.display = "block";
-            myAccountDropdown.style.display = "none";
-        }
+  document.getElementById('translate-text').addEventListener('mouseout', function() {
+    document.getElementById('goog-gt-tt').style.visibility = 'hidden';
+  });
+ 
+</script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+  function translateLanguage(language) {
+  var selectField = document.querySelector('#google_translate_element select');
+  if (selectField) {
+    for (var i = 0; i < selectField.options.length; i++) {
+      if (selectField.options[i].value.indexOf(language) > -1) {
+        selectField.selectedIndex = i;
+        selectField.dispatchEvent(new Event('change'));
+        document.getElementById('selected-language').textContent = language === 'en' ? 'English' : 'हिन्दी';
+        break;
+      }
     }
-
-    function logout() {
-        // Perform logout actions here
-
-        // Clear token (example: remove from local storage)
-        localStorage.removeItem('token');
-
-        // Update loggedIn status
-        loggedIn = false;
-
-        // Update UI
-        updateUI();
-
-        // Redirect to index page after logout
-        window.location.href = 'index.php'; // Redirect to index page
-    }
-</script> -->
+  } else {
+    console.error('Select field not found');
+  }
+  document.getElementById('lang-mobile-block').style.display = 'none';
+}
+</script>
