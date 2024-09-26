@@ -25,7 +25,7 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span>Haatbazar Buyer Enquiry List</span>
+                <span>Bazar Buyer Enquiry List</span>
               </li>
             </ol>
           </nav>
@@ -106,7 +106,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header bg-success">
-        <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Haatbazar Buyer Enquiry Information</h1>
+        <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Bazar Buyer Enquiry Information</h1>
         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">
@@ -176,7 +176,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header bg-success">
-        <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Update Haatbazar Buyer Enquiry</h1>
+        <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Update Bazar Buyer Enquiry</h1>
         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">

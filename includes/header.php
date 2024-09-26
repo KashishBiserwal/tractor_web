@@ -107,7 +107,7 @@ iframe.skiptranslate {
                 </div>
             </li>
             <li class="" id="google_translate_element" hidden></li>
-
+            
             <li class="nav-item up-down">
                 <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
             </li>
@@ -267,7 +267,7 @@ iframe.skiptranslate {
           <ul class="dropdown-menu p-0">
             <li class="nav-item dropend">
               <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              HaatBazaar
+             Bazaar Apke Aas Pass
               </a>
               <ul class="dropdown-menu p-0">
                 <li><a class="dropdown-item fw-bold" href="dummy.php">Sell Product</a></li>
@@ -617,7 +617,9 @@ document.getElementById('translate-text').addEventListener('mouseover', function
     }
   } else {
     console.error('Select field not found');
+  
   }
   document.getElementById('lang-mobile-block').style.display = 'none';
-}
+} 
 </script>
+

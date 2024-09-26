@@ -119,14 +119,14 @@
                   </div>
                 </div> -->
                 <button type="button" id="add_trac" class="btn add_btn bg-success" onclick="resetFormFields()" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-                  <i class="fa fa-plus" aria-hidden="true"></i> Haatbazaar Items
+                  <i class="fa fa-plus" aria-hidden="true"></i> Bazaar Items
                 </button>
                 <!-- modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
-                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add HaatBazaar Items</h5>
+                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Bazaar Items</h5>
                         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                       </div>
                     <div class="modal-body bg-light">
