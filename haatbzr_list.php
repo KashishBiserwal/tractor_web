@@ -30,7 +30,7 @@
         <div class="align-items-center justify-content-between page_title my-2">
           <div class="row">
             <div class="col-12 col-sm-5 col-lg-5 col-md-5">
-             <h5 class="fw-bold"> Haatbazaar Item List</h5>
+             <h5 class="fw-bold"> Bazaar Item List</h5>
             </div>
             
             <div class="col-12 col-sm-7 col-lg-7 col-md-7">
@@ -363,7 +363,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> HaatBazar Details</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Bazar Details</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                   <div class="modal-body bg-light">
