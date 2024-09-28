@@ -60,7 +60,7 @@ include 'includes/footertag.php';
    include 'includes/header.php';
    ?>
     <section class=" mt-5 pt-5 bg-light">
-        <div class="container pt-3 mt-4">
+        <div class="container pt-2 mt-4">
             <div class="py-2">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i

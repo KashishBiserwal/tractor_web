@@ -46,8 +46,8 @@
    ?>
 
     <section class="mt-5 pt-4 bg-light">
-        <div class="container py-2">
-            <div class="mt-5 pt-4">
+        <div class="container ">
+            <div class="mt-5 pt-3">
                 <span class="mt-5 text-white">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>

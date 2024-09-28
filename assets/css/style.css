@@ -1637,7 +1637,7 @@ input[type="checkbox"]:checked + label:before {
   position: absolute;
   content: "";
   left: 0;
-  top: 36%;
+  top: 9%;
   width: 100%;
 }
 .form-view-overlay {

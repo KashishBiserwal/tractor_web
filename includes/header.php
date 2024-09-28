@@ -144,7 +144,7 @@ iframe.skiptranslate {
           </a>
           <ul class="dropdown-menu">
             <li class="nav-item dropend">
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class=" nav-link nav-link_brand dropdown-toggle  fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Brand
               </a>
               <ul class="dropdown-menu p-0" id="selectedImagesContainer2">
@@ -266,9 +266,10 @@ iframe.skiptranslate {
           </a>
           <ul class="dropdown-menu p-0">
             <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Bazaar Apke Aas Pass
+              <a class="nav-link text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Bazaar Apke Aas Pass
               </a>
+              
               <ul class="dropdown-menu p-0">
                 <li><a class="dropdown-item fw-bold" href="dummy.php">Sell Product</a></li>
                <hr class="dropdown-divider m-0">
@@ -594,32 +595,53 @@ document.getElementById('translate-text').addEventListener('mouseover', function
  
 </script>
 <script type="text/javascript">
+  // Initialize Google Translate element
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
       includedLanguages: 'en,hi',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
     }, 'google_translate_element');
   }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-  function translateLanguage(language) {
-  var selectField = document.querySelector('#google_translate_element select');
-  if (selectField) {
-    for (var i = 0; i < selectField.options.length; i++) {
-      if (selectField.options[i].value.indexOf(language) > -1) {
-        selectField.selectedIndex = i;
-        selectField.dispatchEvent(new Event('change'));
-        document.getElementById('selected-language').textContent = language === 'en' ? 'English' : 'हिन्दी';
-        break;
-      }
-    }
-  } else {
-    console.error('Select field not found');
-  
-  }
-  document.getElementById('lang-mobile-block').style.display = 'none';
-} 
-</script>
 
+  // Load Google Translate script
+  function loadGoogleTranslate() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+  }
+  loadGoogleTranslate();
+
+  // Function to set the language on click and store it in localStorage
+  function translateLanguage(language) {
+    var selectField = document.querySelector('#google_translate_element select');
+    if (selectField) {
+      for (var i = 0; i < selectField.options.length; i++) {
+        if (selectField.options[i].value.indexOf(language) > -1) {
+          selectField.selectedIndex = i;
+          selectField.dispatchEvent(new Event('change'));
+          localStorage.setItem('selectedLanguage', language);  // Save the selected language in localStorage
+          updateSelectedLanguageText(language);
+          break;
+        }
+      }
+    } else {
+      console.error('Select field not found');
+    }
+    document.getElementById('lang-mobile-block').style.display = 'none';
+  }
+
+  // Function to update the selected language text in the UI
+  function updateSelectedLanguageText(language) {
+    document.getElementById('selected-language').textContent = language === 'en' ? 'English' : 'हिन्दी';
+  }
+
+  // On page load, check localStorage for the selected language and apply it
+  window.onload = function() {
+    var savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+      translateLanguage(savedLanguage);
+    }
+  };
+</script>
