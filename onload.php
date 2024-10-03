@@ -20,6 +20,16 @@ include 'includes/footertag.php';
 
   gtag('config', 'G-6Z38E658LD');
 </script>
+<style>
+      .page-banner-content-size
+    {
+    position: fixed;
+    content: "";
+    left: 0;
+    top: 3% !important;
+    width: 100%;
+    }
+</style>
 <body>
    <?php
    include 'includes/header.php';
@@ -43,7 +53,7 @@ include 'includes/footertag.php';
         <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/on-road-price.jpg); background-position: center; background-size: cover;">
         </div>
     </div>
-    <div class="page-banner-content text-center position-absolute px-2 pb-2">
+    <div class="page-banner-content-size text-center position-absolute px-2 pb-2">
         <h1>Get on road price</h1>
         <p>Please fill the form to Get on road price</p>
         </div>
@@ -407,7 +417,7 @@ include 'includes/footertag.php';
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

@@ -48,7 +48,7 @@
     <script src="<?php $baseUrl; ?>model/find_used_tractor.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
-    <section class=" bg-light mt-4 pt-5">
+    <section class=" bg-light mt-5 pt-5">
         <div class="container pt-5">
             <div class="py-2">
                 <span class="my-4 text-white">
@@ -68,7 +68,7 @@
                 style="min-height: 360px; background-image: url(assets/images/tractor-valuation.jpg); background-position: center; background-size: cover;">
             </div>
         </div>
-        <div class="page-banner-content text-center position-absolute  px-2">
+        <div class="page-banner-content text-center position-absolute  px-2"style="top:3%">
             <h2 class=" text-dark  ">Interested To <span class="text-success">Buy Old Tractor</span></h2>
             <h5 class="">Fill the form will contact you shortly</h4>
         </div>
@@ -640,7 +640,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

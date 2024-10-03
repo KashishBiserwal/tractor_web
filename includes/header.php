@@ -63,6 +63,17 @@ iframe.skiptranslate {
 #goog-gt-tt {
   visibility: hidden !important;  /* Hide the tooltip by default */
 }
+<style>
+  /* Default font size for languages */
+  #selected-language {
+    font-size: 16px;
+  }
+
+  /* Smaller font size for certain languages */
+  .small-text-language {
+    font-size: 14px; /* Adjust as needed */
+  }
+</style>
 
 </style>
 <div class="fixed_nav" >
@@ -96,18 +107,26 @@ iframe.skiptranslate {
         </div>
         <div class="col-sm-6 mt-2">
           <ul class="navbar-nav float-end">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28" alt="Language Icon" title="Language" class="language-image">
-                    <span id="selected-language"></span>
-                </a>
-                <div class="dropdown-menu language-dropdown" id="lang-mobile-block" style="display: none;">
-                    <a href="#" hreflang="en" title="English" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
-                    <a href="#" hreflang="hi" title="हिन्दी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">हिन्दी</a>
-                </div>
+          <div class="col-sm-6 mt-2">
+          <ul class="navbar-nav float-end">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28" alt="Language Icon" title="Language" class="language-image">
+                <span id="selected-language"></span>
+              </a>
+              <div class="dropdown-menu language-dropdown" id="lang-mobile-block" style="display: none;">
+                <a href="#" hreflang="en" title="English" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
+                <a href="#" hreflang="hi" title="हिन्दी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">Hindi</a>
+                <a href="#" hreflang="bn" title="বাংলা" class="dropdown-item text-dark notranslate" onclick="translateLanguage('bn')">Bengali</a>
+                <a href="#" hreflang="mr" title="मराठी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('mr')">Marathi</a>
+                <a href="#" hreflang="pa" title="ਪੰਜਾਬੀ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('pa')">Punjabi</a>
+                <a href="#" hreflang="or" title="ଓଡ଼ିଆ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('or')">Odia</a>
+                <a href="#" hreflang="te" title="తెలుగు" class="dropdown-item text-dark notranslate" onclick="translateLanguage('te')">Telugu</a>
+                <a href="#" hreflang="ta" title="தமிழ்" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ta')">Tamil</a>
+                <a href="#" hreflang="ml" title="മലയാളം" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ml')">Malayalam</a>
+              </div>
             </li>
             <li class="" id="google_translate_element" hidden></li>
-            
             <li class="nav-item up-down">
                 <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
             </li>
@@ -594,13 +613,14 @@ document.getElementById('translate-text').addEventListener('mouseover', function
   });
  
 </script>
-<script type="text/javascript">
+<!-- <script>
   // Initialize Google Translate element
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
-      includedLanguages: 'en,hi',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: 'true',
+      includedLanguages: 'hi,en,bn,pa,or,te,ta,ml',  // Add the languages you want
+      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
     }, 'google_translate_element');
   }
 
@@ -611,7 +631,11 @@ document.getElementById('translate-text').addEventListener('mouseover', function
     script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.head.appendChild(script);
   }
-  loadGoogleTranslate();
+
+  // Wait until the DOM is fully loaded to load Google Translate script
+  document.addEventListener("DOMContentLoaded", function() {
+    loadGoogleTranslate();
+  });
 
   // Function to set the language on click and store it in localStorage
   function translateLanguage(language) {
@@ -622,7 +646,7 @@ document.getElementById('translate-text').addEventListener('mouseover', function
           selectField.selectedIndex = i;
           selectField.dispatchEvent(new Event('change'));
           localStorage.setItem('selectedLanguage', language);  // Save the selected language in localStorage
-          updateSelectedLanguageText(language);
+          updateTextSizeAndPadding(language);  // Adjust the text size and padding based on the language
           break;
         }
       }
@@ -632,9 +656,31 @@ document.getElementById('translate-text').addEventListener('mouseover', function
     document.getElementById('lang-mobile-block').style.display = 'none';
   }
 
-  // Function to update the selected language text in the UI
-  function updateSelectedLanguageText(language) {
-    document.getElementById('selected-language').textContent = language === 'en' ? 'English' : 'हिन्दी';
+  // Function to adjust the font size and padding for specific languages
+  function updateTextSizeAndPadding(language) {
+    // Set default font size for all elements
+    var elements = document.querySelectorAll('body, nav, .nav-item, .dropdown, .container, .dropend, *'); 
+    elements.forEach(function (element) {
+      element.style.fontSize = '16px'; // Default size for all elements
+    });
+
+    // Reset padding for navbar items to default
+    var navItems = document.querySelectorAll('.main-navbar .navbar-collapse .navbar-nav li a');
+    navItems.forEach(function(item) {
+      item.style.padding = '10px 20px'; // Default padding for navbar items
+    });
+
+    // Adjust font size and padding for specific languages
+    if (['pa', 'or', 'te', 'ta', 'ml'].includes(language)) {
+      elements.forEach(function (element) {
+        element.style.fontSize = '11px'; // Smaller size for specific languages
+      });
+
+      // Adjust padding for navbar items when specific languages are selected
+      navItems.forEach(function(item) {
+        item.style.padding = '8px 12px'; // Reduced padding for specific languages
+      });
+    }
   }
 
   // On page load, check localStorage for the selected language and apply it
@@ -644,4 +690,106 @@ document.getElementById('translate-text').addEventListener('mouseover', function
       translateLanguage(savedLanguage);
     }
   };
-</script>
+</script> -->
+<script>
+  // Initialize Google Translate element
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      autoDisplay: 'true',
+      includedLanguages: 'hi,en,bn,pa,or,te,ta,ml',  // Add the languages you want
+      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+  }
+
+  // Load Google Translate script
+  function loadGoogleTranslate() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+  }
+
+  // Wait until the DOM is fully loaded to load Google Translate script
+  document.addEventListener("DOMContentLoaded", function() {
+    loadGoogleTranslate();
+  });
+
+  // Function to set the language on click and store it in localStorage
+  function translateLanguage(language) {
+    var selectField = document.querySelector('#google_translate_element select');
+    if (selectField) {
+      for (var i = 0; i < selectField.options.length; i++) {
+        if (selectField.options[i].value.indexOf(language) > -1) {
+          selectField.selectedIndex = i;
+          selectField.dispatchEvent(new Event('change'));
+          localStorage.setItem('selectedLanguage', language);  // Save the selected language in localStorage
+          updateTextSizeAndPadding(language);  // Adjust the text size and padding based on the language
+          break;
+        }
+      }
+    } else {
+      console.error('Select field not found');
+    }
+    document.getElementById('lang-mobile-block').style.display = 'none';
+  }
+
+  // Function to adjust the font size and padding for specific languages
+  function updateTextSizeAndPadding(language) {
+    // Set default font size for all elements
+    var elements = document.querySelectorAll('body, nav, .nav-item, .dropdown, .container, .dropend, *'); 
+
+    // Adjust font size and padding based on language
+    if (['pa', 'or', 'te', 'ta', 'ml'].includes(language)) {
+      elements.forEach(function (element) {
+        element.style.fontSize = '11px'; // Smaller size for specific languages
+      });
+
+      // Adjust padding for navbar items when specific languages are selected
+      var navItems = document.querySelectorAll('.main-navbar .navbar-collapse .navbar-nav li a');
+      navItems.forEach(function(item) {
+        item.style.padding = '8px 12px'; // Reduced padding for specific languages
+      });
+    } else {
+      elements.forEach(function (element) {
+        element.style.fontSize = '16px'; // Default size for other languages
+      });
+
+      var navItems = document.querySelectorAll('.main-navbar .navbar-collapse .navbar-nav li a');
+      navItems.forEach(function(item) {
+        item.style.padding = '10px 25px'; // Default padding for other languages
+      });
+    }
+  }
+
+  // On page load, check localStorage for the selected language and apply it
+  window.onload = function() {
+    var savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+      updateTextSizeAndPadding(savedLanguage);  // Apply the correct font size and padding based on the saved language
+      translateLanguage(savedLanguage);  // Re-apply the translation to ensure consistency
+    }
+  };
+
+
+  function fetchAndTranslateDistrictTehsil() {
+    var selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      autoDisplay: 'true',
+      includedLanguages: 'hi,en,bn,pa,or,te,ta,ml',  // Add the languages you want
+      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+    // Example: Fake API response data for district and tehsil
+
+    // Translate district
+    googleTranslateText(apiResponse.district, selectedLanguage, function(translatedDistrict) {
+        document.getElementById('districtContainer').innerText = translatedDistrict;
+    });
+
+    // Translate tehsil
+    googleTranslateText(apiResponse.tehsil,selectedLanguage, function(translatedTehsil) {
+        document.getElementById('tehsilContainer').innerText = translatedTehsil;
+    });
+}
+</script> 

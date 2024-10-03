@@ -254,10 +254,10 @@ function displayTractors(productContainer, tractors) {
         var newCard = `
             <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3 mt-4" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
-                    <div class="thumb">
+                    <div class="thumb" style="width: 100%; height: 180px; overflow: hidden;">
                         <a href="detail_tractor.php?product_id=${p.product_id}">
                             <div class="p-3">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" style="height:180px; width:100%;">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" style="width: 100%; height:150px;" alt="">
                             </div>
                         </a>
                     </div>

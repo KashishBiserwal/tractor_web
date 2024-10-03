@@ -165,7 +165,7 @@
    include 'includes/header.php';
    ?>
 
-<section class="bg-light mt-4 pt-5">
+<section class="bg-light mt-5 pt-5">
     <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
@@ -183,7 +183,7 @@
         <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
         </div>
     </div>
-    <div class="page-banner-content text-center position-absolute px-2">
+    <div class="page-banner-content text-center position-absolute px-2" style="top:14%">
     <h2 class=" text-dark ">Sell Your <span class="text-success">Used Implements</span></h2>
     <h4 class="mb-4">"Photo Khicho Implements Becho"</h4>
     <!-- <h4 class="mb-4">"Fill the information to sell your used Implement"</h4> -->
@@ -932,7 +932,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

@@ -150,7 +150,14 @@
         body {
             font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
         }
-    
+
+.page-banner-content {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 9%;
+    width: 100%;
+}
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -1076,7 +1083,7 @@
     new google.translate.TranslateElement({
     pageLanguage: 'en',
     autoDisplay: 'true',
-    includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+    includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
     layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
     }, 'google_translate_element');
     }

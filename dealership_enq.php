@@ -28,6 +28,12 @@
     text-overflow: ellipsis;
    
     }
+    .page-banner-content{
+        margin-top: -81px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    }
     </style>
 <?php
    include 'includes/header.php';
@@ -483,7 +489,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'hi,en,bn,ar,ja,iw', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }
