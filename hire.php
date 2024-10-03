@@ -48,8 +48,8 @@
 <?php
    include 'includes/header.php';
 ?>
-<section class="mt-5 pt-4 bg-light">
-    <div class="container-fullwidth py-2">
+<section class="mt-5 pt-5 bg-light">
+    <div class="container py-2">
          <div class="mt-4 pt-4">
             <span class="mt-5 text-white">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -59,10 +59,10 @@
     </div>
 </section>
 <section>
-    <div class="container-fullwidth my-4">
+    <div class="container my-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="pb-3 fw-bold">Search<span class="text-success fw-bold"> Rental Tractors In INDIA</span></h3>
+                <h2 class="pb-3 fw-bold">Search<span class="text-success fw-bold"> Rental Tractors In INDIA</span></h2>
                 <div class="row" id="productContainer"></div>
                     <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                     <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
