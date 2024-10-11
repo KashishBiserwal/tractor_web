@@ -329,6 +329,7 @@ function fetch_edit_data(customer_id) {
             $("#year_main1 option[value='" + userData.purchase_year + "']").prop("selected", true);
       
             setSelectedOption('state_state', userData.state_id);
+            // setSelectedOption('dist_district', userData.district_id);
             setSelectedOption('dist_district', userData.district_id);
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
 
