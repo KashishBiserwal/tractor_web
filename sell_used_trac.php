@@ -176,7 +176,7 @@
 
 
 <section class="bg-light mt-5 pt-5">
-    <div class="container pt-4">
+    <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>

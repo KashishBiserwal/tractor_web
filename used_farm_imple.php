@@ -33,7 +33,7 @@
    </style>
 
 <section class="mt-5 pt-5 bg-light">
-    <div class="container">
+    <div class="container py-2">
         <div class="pt-5">
             <span class="mt-5 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
