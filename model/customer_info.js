@@ -543,28 +543,15 @@ function getuserdetail(id) {
             $('#firstname').val(userData.first_name);
             $('#lastname').val(userData.last_name);
             $('#phone').val(userData.mobile);
-            
-            setSelectedOption(userData.state_id, 'state');
-            setTimeout(function() {
-                $("#state option").prop("selected", false);
-                $("#state option[value='" + userData.state_id + "']").prop("selected", true);
-            }, 2000);
-            console.log(userData.state_id);
 
-            setSelectedOption(userData.district_id, 'dist');
-            setTimeout(function() {
-                $("#dist option").prop("selected", false);
-                $("#dist option[value='" + userData.district_id + "']").prop("selected", true);
-            }, 3000);
-            console.log(userData.district_id);
-            // Populate and set selected tehsil
-            populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            // Populate and select state dropdown
+            populateStateDropdown(data, userData.state_id);
 
-            setTimeout(function() {
-                $("#tehsil option").prop("selected", false);
-                $("#tehsil option[value='" + userData.tehsil_id + "']").prop("selected", true);
-            }, 4000);
-            console.log(userData.tehsil_id);
+            // Populate and select district dropdown
+            populateDistrictDropdown(data, userData.district_id);
+
+            // Populate and select tehsil dropdown
+            populateTehsilDropdown(data, userData.tehsil_id);
         },
         error: function(error) {
             console.error('Error fetching data:', error);
@@ -572,30 +559,48 @@ function getuserdetail(id) {
     });
 }
 
-function populateTehsil(selectId, value) {
-    var select = document.getElementById(selectId);
-    for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value == value) {
-        select.options[i].selected = true;
-        break;
-      }
-    }
-  }
+// Populate state dropdown dynamically
+function populateStateDropdown(data, stateId) {
+    var stateDropdown = $('#state');
+    stateDropdown.empty(); // Clear existing options
 
+    // Populate state dropdown from response data
+    const stateName = data.customerData[0].state_name;
+    const stateIdValue = data.customerData[0].state_id;
 
-function setSelectedOption(value, selectId) {
-    var select = document.getElementById(selectId);
-    if (select) {
-        for (var i = 0; i < select.options.length; i++) {
-            if (select.options[i].value == value) {
-                select.selectedIndex = i;
-                break;
-            }
-        }
-    } else {
-        console.error('Select element with ID ' + selectId + ' not found.');
-    }
+    stateDropdown.append(
+        `<option value="${stateIdValue}" selected>${stateName}</option>`
+    );
 }
+
+// Populate district dropdown dynamically
+function populateDistrictDropdown(data, districtId) {
+    var districtDropdown = $('#dist');
+    districtDropdown.empty(); // Clear existing options
+
+    // Populate district dropdown from response data
+    const districtName = data.customerData[0].district_name;
+    const districtIdValue = data.customerData[0].district_id;
+
+    districtDropdown.append(
+        `<option value="${districtIdValue}" selected>${districtName}</option>`
+    );
+}
+
+// Populate tehsil dropdown dynamically
+function populateTehsilDropdown(data, tehsilId) {
+    var tehsilDropdown = $('#tehsil');
+    tehsilDropdown.empty(); // Clear existing options
+
+    // Populate tehsil dropdown from response data
+    const tehsilName = data.customerData[0].tehsil_name;
+    const tehsilIdValue = data.customerData[0].tehsil_id;
+
+    tehsilDropdown.append(
+        `<option value="${tehsilIdValue}" selected>${tehsilName}</option>`
+    );
+}
+
 
 var userId = localStorage.getItem('id');
 getuserdetail(userId);
@@ -682,318 +687,3 @@ function edit_personal_detail(){
         });
     }
  
-//   function getpurchase_requestlist() {
-//     var url =  "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
-//     var headers = {
-//         'Authorization': localStorage.getItem('token')
-//       };
-//       var mobileNumber = localStorage.getItem('mobile');
-//       var paraArr = {
-//         'mobile': mobileNumber,
-//       };
-    
-//     $.ajax({
-//         url: url,
-//         type: "POST",
-//         headers: headers,
-//         data:paraArr,
-//       success: function (data) {
-//         // const tableBody = $('.data-table'); // Use jQuery selector for the table body
-//         // tableBody.empty(); // Clear previous data
-
-//         var table;
-  
-//             if (data.data.tractorEnquiryData && data.data.tractorEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table1'); // Use jQuery selector for the table body
-//                 tableBody.empty(); 
-//                 table = $('#purchase_tractor_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Request Type' },
-//                         { title: 'Date' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'Seller Name' },
-//                         { title: 'Mobile' },
-//                     ]
-//                 });
-  
-//                 data.data.tractorEnquiryData.forEach(row => {
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         fullName,
-//                         row.mobile,
-//                     ]).draw(false);
-  
-//                 });
-//               }else if (data.data.engineOilEnquiryData && data.data.engineOilEnquiryData.length > 0) {
-//                     const tableBody = $('#data-table7'); // Use jQuery selector for the table body
-//                     tableBody.empty();
-//                     var table = $('#purchase_engineoil_table').DataTable({
-//                         paging: true,
-//                         searching: true,
-//                         columns: [
-//                             { title: 'Request Type' },
-//                             { title: 'Date' },
-//                             { title: 'Brand' },
-//                             { title: 'Model' },
-//                             { title: 'Name' },
-//                             { title: 'Mobile' }
-//                         ]
-//                     });
-      
-//                     data.data.engineOilEnquiryData.forEach(row => {
-                        
-//                         const fullName = row.first_name + ' ' + row.last_name;
-      
-//                         // Add row to DataTable
-//                         table.row.add([
-//                             row.request_type,
-//                             row.date,
-//                             row.brand_name,
-//                             row.oil_model,
-//                             fullName,
-//                             row.mobile,
-//                         ]).draw(false);
-      
-//                     });
-//             } else if (data.data.harvesterEnquiryData && data.data.harvesterEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table2'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 table = $('#purchase_harvester_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Request Type' },
-//                         { title: 'Date' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'Name' },
-//                         { title: 'Mobile' },
-//                     ]
-//                 });
-  
-//                 data.data.harvesterEnquiryData.forEach(row => {
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         fullName,
-//                         row.mobile,
-//                     ]).draw(false);
-  
-//                 });
-//             } else if (data.data.haatBazarEnquiry && data.data.haatBazarEnquiry.length > 0) {
-//                 const tableBody = $('#data-table3'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 var table = $('#purchase_haatbazar_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Request Type' },
-//                         { title: 'Date' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'Name' },
-//                         { title: 'Mobile' },
-//                     ]
-//                 });
-  
-//                 data.data.haatBazarEnquiry.forEach(row => {
-                   
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         fullName,
-//                         row.mobile,
-//                     ]).draw(false);
-  
-//                 });
-//             } else if (data.data.implementEnquiryData && data.data.implementEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table4'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 var table = $('#purchase_implements_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Type' },
-//                         { title: 'Name' },
-//                         { title: 'Mobile Number' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'State' }
-//                     ]
-//                 });
-  
-//                 data.data.implementEnquiryData.forEach(row => {
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.date,
-//                         row.brand_name,
-//                         row.tyre_model,
-//                         fullName,
-//                         row.mobile,
-//                         row.state,
-//                         row.district,
-//                     ]).draw(false);
-  
-//                 });
-//             } else if (data.data.nurseryEnquiryData && data.data.nurseryEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table5'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 var table = $('#purchase_nursery_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Type' },
-//                         { title: 'Name' },
-//                         { title: 'Mobile Number' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'State' }
-//                     ]
-//                 });
-  
-//                 data.data.nurseryEnquiryData.forEach(row => {
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.date,
-//                         row.brand_name,
-//                         row.tyre_model,
-//                         fullName,
-//                         row.mobile,
-//                         row.state,
-//                         row.district,
-//                     ]).draw(false);
-  
-//                 });
-//             } else if (data.data.tyreEnquiryData && data.data.tyreEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table6'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 var table = $('#purchase_tyre_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Type' },
-//                         { title: 'Name' },
-//                         { title: 'Mobile Number' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'State' }
-//                     ]
-//                 });
-  
-//                 data.data.tyreEnquiryData.forEach(row => {
-                   
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.date,
-//                         row.brand_name,
-//                         row.tyre_model,
-//                         fullName,
-//                         row.mobile,
-//                         row.state,
-//                         row.district,
-//                     ]).draw(false);
-  
-//                 });
-            
-//             } else if (data.data.dealerEnquiryData && data.data.dealerEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table8'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 var table = $('#purchase_tyre_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Type' },
-//                         { title: 'Name' },
-//                         { title: 'Mobile Number' },
-//                         { title: 'Brand' },
-//                         { title: 'Model' },
-//                         { title: 'State' }
-//                     ]
-//                 });
-  
-//                 data.data.dealerEnquiryData.forEach(row => {
-//                     const fullName = row.first_name + ' ' + row.last_name;
-  
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.date,
-//                         row.brand_name,
-//                         row.tyre_model,
-//                         fullName,
-//                         row.mobile,
-//                         row.state,
-//                         row.district,
-//                     ]).draw(false);
-  
-//                 });
-//             } else if (data.data.hireEnquiryData && data.data.hireEnquiryData.length > 0) {
-//                 const tableBody = $('#data-table9'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                 var table = $('#purchase_tyre_table').DataTable({
-//                     paging: true,
-//                     searching: true,
-//                     columns: [
-//                         { title: 'Date' },
-//                         { title: 'Request Type' },
-//                     ]
-//                 });
-  
-//                 data.data.hireEnquiryData.forEach(row => {
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.date,
-//                         row.request_type,
-//                     ]).draw(false);
-  
-//                 });
-//             } 
-//             if (table) {
-//                 data.data.tractorEnquiryData.forEach(row => {
-//                     const tableBody = $('#data-table1'); // Use jQuery selector for the table body
-//                 tableBody.empty();
-//                     const fullName = row.first_name + ' ' + row.last_name;
-
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         fullName,
-//                         row.mobile,
-//                     ]).draw(false);
-//                 });
-//             } else {
-//                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }

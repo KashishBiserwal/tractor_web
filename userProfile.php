@@ -176,7 +176,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                             <div class="form-outline">
                                 <label for="eo_state" class="form-label"> <i class="fas fa-location"></i> State</label>
-                                <select class="form-select py-2 state-dropdown " aria-label=".form-select-lg example" id="state" name="state" disabled="disabled">
+                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" disabled="disabled">
                                 </select>
                             </div>
                         </div> 
