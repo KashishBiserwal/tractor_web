@@ -666,10 +666,18 @@ function destroy(id) {
                       break;
                   }
               }
-            setSelectedOption('state_', Data.state_id);
-            setSelectedOption('dist', Data.district_id);
+            // setSelectedOption('state_', Data.state_id);
+            // setSelectedOption('dist', Data.district_id);
             
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
+
+            setSelectedOption('state_', Data.state_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 2000); 
             // var selectedCategoryId = Data.tyre_category_id;
             // $('#category').val(selectedCategoryId).prop('selected', true);
             var categoryDropdown = document.getElementById('c_category');

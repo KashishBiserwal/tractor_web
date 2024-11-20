@@ -141,6 +141,7 @@ iframe.skiptranslate {
                       </div>
                   </div>
               </li>
+
             </ul>
           </div>
           </div>
@@ -611,84 +612,7 @@ document.getElementById('translate-text').addEventListener('mouseover', function
   });
  
 </script>
-<!-- <script>
-  // Initialize Google Translate element
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      autoDisplay: 'true',
-      includedLanguages: 'hi,en,bn,pa,or,te,ta,ml',  // Add the languages you want
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-    }, 'google_translate_element');
-  }
 
-  // Load Google Translate script
-  function loadGoogleTranslate() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    document.head.appendChild(script);
-  }
-
-  // Wait until the DOM is fully loaded to load Google Translate script
-  document.addEventListener("DOMContentLoaded", function() {
-    loadGoogleTranslate();
-  });
-
-  // Function to set the language on click and store it in localStorage
-  function translateLanguage(language) {
-    var selectField = document.querySelector('#google_translate_element select');
-    if (selectField) {
-      for (var i = 0; i < selectField.options.length; i++) {
-        if (selectField.options[i].value.indexOf(language) > -1) {
-          selectField.selectedIndex = i;
-          selectField.dispatchEvent(new Event('change'));
-          localStorage.setItem('selectedLanguage', language);  // Save the selected language in localStorage
-          updateTextSizeAndPadding(language);  // Adjust the text size and padding based on the language
-          break;
-        }
-      }
-    } else {
-      console.error('Select field not found');
-    }
-    document.getElementById('lang-mobile-block').style.display = 'none';
-  }
-
-  // Function to adjust the font size and padding for specific languages
-  function updateTextSizeAndPadding(language) {
-    // Set default font size for all elements
-    var elements = document.querySelectorAll('body, nav, .nav-item, .dropdown, .container, .dropend, *'); 
-    elements.forEach(function (element) {
-      element.style.fontSize = '16px'; // Default size for all elements
-    });
-
-    // Reset padding for navbar items to default
-    var navItems = document.querySelectorAll('.main-navbar .navbar-collapse .navbar-nav li a');
-    navItems.forEach(function(item) {
-      item.style.padding = '10px 20px'; // Default padding for navbar items
-    });
-
-    // Adjust font size and padding for specific languages
-    if (['pa', 'or', 'te', 'ta', 'ml'].includes(language)) {
-      elements.forEach(function (element) {
-        element.style.fontSize = '11px'; // Smaller size for specific languages
-      });
-
-      // Adjust padding for navbar items when specific languages are selected
-      navItems.forEach(function(item) {
-        item.style.padding = '8px 12px'; // Reduced padding for specific languages
-      });
-    }
-  }
-
-  // On page load, check localStorage for the selected language and apply it
-  window.onload = function() {
-    var savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-      translateLanguage(savedLanguage);
-    }
-  };
-</script> -->
 <script>
   function googleTranslateElementInit() {
   new google.translate.TranslateElement({

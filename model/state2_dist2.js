@@ -11,18 +11,14 @@ function populateStateDropdown(stateClassName, districtClassName) {
             const stateSelect = document.getElementsByClassName(stateClassName)[0];
             stateSelect.innerHTML = '<option selected disabled value="">Please select a state</option>';
 
-            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to filter for
-            stateIds.forEach(stateId => {
-                const filteredState = data.stateData.find(state => state.id === stateId);
-                if (filteredState) {
+            if (data.stateData && data.stateData.length > 0) {
+                data.stateData.forEach(state => {
                     const option = document.createElement('option');
-                    option.textContent = filteredState.state_name;
-                    option.value = filteredState.id;
+                    option.textContent = state.state_name;
+                    option.value = state.id;
                     stateSelect.appendChild(option);
-                }
-            });
-
-            if (stateSelect.children.length === 1) {
+                });
+            } else {
                 stateSelect.innerHTML = '<option>No valid data available</option>';
             }
 
@@ -33,15 +29,14 @@ function populateStateDropdown(stateClassName, districtClassName) {
             });
         },
         error: function(error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching states:', error);
         }
     });
 }
 
 function populateDistrictDropdown(state_id, districtClassName) {
-    console.log('districtClassName', state_id, districtClassName);
+    console.log('Fetching districts for state_id:', state_id);
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
-    console.log('url', url);
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
     districtSelect.innerHTML = '<option selected disabled value="">Please select a district</option>';
 
@@ -52,7 +47,7 @@ function populateDistrictDropdown(state_id, districtClassName) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            if (data.districtData.length > 0) {
+            if (data.districtData && data.districtData.length > 0) {
                 data.districtData.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.district_name;

@@ -452,11 +452,14 @@ function fetch_edit_data_nursery(id) {
       $('#fname2').val(userData.first_name);
       $('#lname2').val(userData.last_name);
       $('#number2').val(userData.mobile);
+
       setSelectedOption('state', userData.state_id);
-      setSelectedOption('dist_', userData.district_id);
+      getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+      setTimeout(function() {
+        setSelectedOption('dist_', userData.district_id);
+        populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+      }, 2000); 
       
-      // Call function to populate tehsil dropdown based on selected district
-      populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
       $('#loc2').val(userData.address);
       $('#textarea_d2').val(userData.description);
       $('#userId').val(userData.id);
@@ -551,14 +554,6 @@ function edit_data_id(id) {
   data.append('address', address);
   data.append('description', description);
 
-  // Iterate over displayed images and add the ones that haven't been removed
-
-
-
-  // if((removedImages.length > 0 &&  remainingImagesCount == initialimgDivlength)){
-  //   imageuploadstatus = false;
-  // }
-
   var remainingImagesCount;
   if(removedImages.length ==0){
     remainingImagesCount =0;
@@ -614,61 +609,6 @@ function edit_data_id(id) {
     data.append('flag', 'newimguploaded');
   }
 
-
-//   if((imgUploaded.length>0)||(imgUploaded.length==0 && removedImages.length >0)){
-//     console.log('ffff',initialimgDivlength, (initialimgDivlength==0 &&  removedImages.length==0 ),removedImages, removedImages.length >0 && remainingImagesCount==0)
-    
-//     console.log('fetchdataImage-', fetchdataImage)
-//     if(removedImages.length>0){
-//       for(i=0;i<fetchdataImage.length; i++){
-//         console.log('imgUploaded',fetchdataImage[i].name);
-//         var imageName = fetchdataImage[i].name;
-//         var file = new File([null], imageName);
-//         data.append('images[]',  file);
-//       }
-//     }
-
-//     if((initialimgDivlength==0 &&  removedImages.length==0 )||(removedImages.length>0 && remainingImagesCount==0)){
-//       data.append('flag', 'noimg');
-//     }
-//     else{
-//       console.log('else....', $('.brand-main').length, $('.upload__img-box').length, imgUploaded.length,imgUploaded)
-//       if((($('.brand-main').length==0&& $('.upload__img-box').length>0))||(imgUploaded.length>0)||(imgUploaded.length==0)){
-//         $('.upload__img-box').each(function(ele) {
-//           console.log('ffff3',ele)
-//           for(i=0;i<imgUploaded.length; i++){
-//             console.log('imgUploaded',imgUploaded[i].name);
-//             data.append('images[]',  imgUploaded[i]);
-//           }
-//         });
-//         // return
-//       }
-//       else{
-//         console.log('else brand-main')
-//         $('.brand-main').each(function() {
-//           console.log('ffff2')
-//           var imageName = $(this).data('file');
-//           console.log('imageName-',imageName);
-//           var file = new File([null], imageName);
-//           console.log('file-', file)
-//           data.append('images[]', file);
-//         });
-//       }
-    
-//     }
-// }
-
-//   console.log(remainingImagesCount,initialimgDivlength,imageuploadstatus,removedImages.length,
-//     imgUploaded.length,
-//     'ehwn i delete image');
-//   console.log(remainingImagesCount < initialimgDivlength,'sdfghjdsfgvv');
- 
-//   if(
-//   remainingImagesCount <= initialimgDivlength && !imageuploadstatus && (remainingImagesCount >0 && removedImages.length>0)){
-//     data.append('flag', 'deleteimage');
-//   }
-
-
   $.ajax({
     url: url,
     type: "POST",
@@ -690,7 +630,6 @@ function edit_data_id(id) {
   });
 
 }
-
 
 
  function searchdata() {

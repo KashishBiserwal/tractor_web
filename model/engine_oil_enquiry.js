@@ -302,11 +302,14 @@ function fetch_edit_data(id) {
               break;
             }
           }
+
             setSelectedOption('state_', Data.state_id);
-            setSelectedOption('dist_', Data.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist_', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 1000); 
+          
   
             // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
           },

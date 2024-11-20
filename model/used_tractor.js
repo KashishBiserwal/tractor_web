@@ -627,20 +627,11 @@ function getState() {
             const checkboxContainer = $('#state_state');
             checkboxContainer.empty(); // Clear existing checkboxes
             
-            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch checkboxes for
-
-            stateIds.forEach(stateId => {
-                const filteredState = data.stateData.find(state => state.id === stateId);
-                if (filteredState) {
-                    var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                        '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-                    checkboxContainer.append(checkboxHtml);
-                    
-                    // Load districts for this state
-                    ge_tDistricts(stateId);
-                } else {
-                    checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
-                }
+            // Display all states from the API response
+            data.stateData.forEach(state => {
+                var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + state.id + '"/>' +
+                    '<span class="ps-2 fs-6">' + state.state_name + '</span> <br/>';
+                checkboxContainer.append(checkboxHtml);
             });
 
             // Add event listeners to state checkboxes
@@ -685,7 +676,9 @@ function ge_tDistricts(stateId) {
     });
 }
 
+// Initialize the function
 getState();
+
 
 
 function get_year_and_hours() {
@@ -1079,13 +1072,10 @@ function filterAndDisplayCards() {
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    const stateIds = [7, 15, 20, 26, 34];
-
     $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
         var stateData = stateDataResponse.stateData;
         var selectYourStateOption = '<option value="">Select Your State</option>';
         var stateOptions = stateData
-            .filter(state => stateIds.includes(state.id))
             .map(state => `<option value="${state.id}">${state.state_name}</option>`)
             .join('');
 
@@ -1124,6 +1114,4 @@ function filterAndDisplayCards() {
             });
         });
     });
-    }
-
-
+}

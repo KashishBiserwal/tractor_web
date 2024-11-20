@@ -364,10 +364,15 @@ function fetch_edit_data(id) {
           $("#model_name_1 option").prop("selected", false);
           $("#model_name_1 option[value='" + Data.model + "']").prop("selected", true);
         }, 2000); 
+      // setSelectedOption('state_', Data.state_id);
+      // setSelectedOption('dist_', Data.district_id);
+      // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
       setSelectedOption('state_', Data.state_id);
-      setSelectedOption('dist_', Data.district_id);
-      populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-     
+      getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+      setTimeout(function() {
+        setSelectedOption('dist_', Data.district_id);
+        populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+      }, 2000); 
     },
     error: function(error) {
       console.error('Error fetching user data:', error);

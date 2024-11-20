@@ -366,11 +366,16 @@ function fetch_edit_data_Agrclg(id) {
       $('#cname_edit').val(userData.college_name);
       $('#Mobile_edit').val(userData.mobile);
   
+      // setSelectedOption('state_', userData.state_id);
+      // setSelectedOption('district_', userData.district_id);
+      // // Call function to populate tehsil dropdown based on selected district
+      // populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
       setSelectedOption('state_', userData.state_id);
-      setSelectedOption('district_', userData.district_id);
-      // Call function to populate tehsil dropdown based on selected district
-      populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
-     
+      getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1');
+      setTimeout(function() {
+        setSelectedOption('district_', userData.district_id);
+        populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
+      }, 1000); 
       $("#selectedImagesContainer2").empty();
 
       if (userData.image_names) {

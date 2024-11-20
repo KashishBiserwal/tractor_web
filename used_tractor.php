@@ -107,14 +107,14 @@
                     <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
-                        <div class="HP py-2" id="state_state" style=" height: 78px;">
+                        <div class="HP py-2" id="state_state" style=" height: 140px;">
                         </div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="district_container">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
-                        <div class="HP py-2" id="get_dist">
+                        <div class="HP py-2" id="get_dist" style=" height: 140px;">
                             <!-- District checkboxes will be appended here -->
                         </div>
                     </div>

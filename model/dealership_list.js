@@ -344,9 +344,6 @@ function get_dealers() {
 
 get_dealers();
 
-
-
-  // **delete***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'dealer_data/' + id;
@@ -470,11 +467,15 @@ function destroy(id) {
                 }
             }
             // Set selected state, district, and tehsil options
+            // setSelectedOption('state_', Data.state_id);
+            // setSelectedOption('dist', Data.district_id);
+            // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
             setSelectedOption('state_', Data.state_id);
-            setSelectedOption('dist', Data.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 2000);
 
             // Clear existing images
             $("#selectedImagesContainer").empty();

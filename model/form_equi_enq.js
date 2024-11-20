@@ -319,11 +319,13 @@ function fetch_edit_data(id) {
             $('#namef').val(Data.first_name);
             $('#namel').val(Data.last_name);
             $('#number').val(Data.mobile);
+
             setSelectedOption('stat_e', Data.state_id);
-            setSelectedOption('dis_t', Data.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dis_t', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 2000); 
            
         },
         error: function (error) {

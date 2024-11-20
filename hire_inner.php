@@ -45,15 +45,48 @@
         font-size: 13px;
     }
 
-    .img_buy_hire {
+    /* .img_buy_hire {
         height: 400px;
-    }
+    } */
 
     .post-slide .post-content {
         background: #fff;
         padding: 2px 20px 40px;
         border-radius: 15px;
     }
+.img_buy {
+    width: 100%;
+    height: auto; 
+    max-height: 200px; 
+    object-fit: cover; 
+}
+.table {
+    margin-bottom: 0;
+}
+.swiper-slide_buy {
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    height: auto;
+    margin: 0;
+    padding: 0; 
+}
+
+.swiper-slide_buy .img_buy {
+    display: block;
+    width: 100%; 
+    height: auto;
+    max-height: 697px !important;
+    object-fit: cover; 
+    border-radius: 4px;
+}
+.implement_table {
+    height: 350px;
+    text-align: justify;
+}
+.swiper-button-next{
+    margin-top: -120px;
+}
     </style>
 </head>
 
@@ -72,41 +105,23 @@
             </div>
         </div>
     </section>
-    <section class="mt-2">
+    <!-- <section class="mt-2">
         <div class="container">
+            <h4 id="brand_name1"></h4>
             <div class="row">
-            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <div>
-                <h4 id="brand_name1"></h4>
-                </div>
-                <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
-                </div>
-            </div>
-                <!-- <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <div>
-                        <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                        <div class="gallery">   
-                            <div class="swiper-container gallery-slider">
-                                <div class="swiper-wrapper mySwiper2_data"></div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </div>
-
-                            <div class="swiper-container gallery-thumbs">
-                                <div class="swiper-wrapper mySwiper_data"></div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    
+                                </div>
                             </div>
                         </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                     </div>
-                </div> -->
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6" >
+                </div>
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" id="datatable">
                     <h5 class="text-black fw-bold text-center "></h5>
                     <div class="power">
                         <div class="row ">
@@ -119,130 +134,61 @@
                                                     <p class="text-dark "><i class="fa-solid fa-user mx-2"></i>Name</p>
                                                 </td>
                                                 <td class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                 <p class="text-dark "id="name_first"></p>
+                                                    <p class="text-dark "id="name_first"></p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <p class="text-dark "><i class="fa-solid fa-location-dot mx-2"></i>Location</p>
-                                                </td>
+                                                <td><p class="text-dark "><i class="fa-solid fa-location-dot mx-2"></i>Location</p></td>
                                                 <td> <p class="text-dark "><span id="set_dist"></span>,<span id="set_state"></span></p></td>
                                             </tr>
                                             <tr>
-                                            <tr>
-                                                <td>
-                                                 <p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Implement Type</p>
-                                                </td>
-                                                <td>
-                                                <p id="type_imlement" type="" class="text-dark "></p>
-                                                </td>
+                                                <td><p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Implement Type</p></td>
+                                                <td><p id="type_imlement" type="" class="text-dark "></p></td>
                                             </tr>
-                                                <td>
-                                                 <p class="text-dark "><i class="fas fa-bolt mx-2"></i>Price</p>
-                                                </td>
-                                                <td>  <p class="text-dark " id="power_hp"></p></td>
+                                                <td><p class="text-dark "><i class="fas fa-bolt mx-2"></i>Price</p></td>
+                                                <td><p class="text-dark " id="rate"></p></td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                 <p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Area </p>
-                                                </td>
-                                                <td>
-                                                <p id="engine_cc" type="" class="text-dark "></p>
-                                                </td>
+                                                <td><p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Area </p></td>
+                                                <td><p id="ratePer" type="" class="text-dark "></p></td>
                                             </tr>
-                                          
-                                        
                                         </tbody>
                                     </table>
                                     <div class="col-12">
                                         <button id="send_enquiry" type="button" class="add_btn  btn-success w-100"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                             Send Enquiry</button>
                                     </div>
-
-                                     <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header modal_head">
-                                        <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
-                                        </div>
-                                    <div class="modal-body">
-                                        <div class="model-cont">
-                                                <form id="hire_inner" method="POST" onsubmit="return false">
-                                            <div class="row">
-                                            <div class="row px-3 ">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> customer_id</label>
-                                            <input type="text" class="form-control" id="customer_id" value="">
-                                        </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>brand_name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name"  id="brand_name_brand" name="">
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>model</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name"  id="model_form" name="">
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="first_name" name="fname">
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="last_name" name="lname">
-                                </div>
-                                <div class="col-12 ">
-                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="number">
-                                   
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label for="yr_state" class="form-label text-dark fw-bold" id="the_state" name="state"> <i class="fas fa-location"></i> State</label>
-                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="the_district">
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label class="form-label text-dark mt-2"> Tehsil</label>
-                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example"  id="the_tehsil" name="tehsil">
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                    <label for="yr_price" class="form-label text-dark">Price</label>
-                                    <input type="yr_price" class="form-control price_form" placeholder="Enter Price" id="price_form" name="price">
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="modal-footer">
-                        <button type="submit" id="button_hire" class="btn add_btn btn-success w-100 btn_all"data-bs-dismiss="modal">Submit</button>
-                        </div>      
-                        </form>    
-                       </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-                </div>
-
-                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    <section class="mt-2">
+    <div class="container">
+        <h4 id="brand_name1"></h4>
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-12" id="datatable">
+                <!-- Your table will remain here -->
+            </div>
+          
+        </div>
+    </div>
+</section>
+
     <section>
         <div class="container">
             <div class="row mt-4 pt-3">
@@ -258,6 +204,80 @@
             </div>
         </div>
     </section>
+
+                   <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header modal_head">
+                                        <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                                <form id="hire_inner" method="POST" onsubmit="return false">
+                                                    <div class="row">
+                                                        <div class="row px-3 ">
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> customer_id</label>
+                                                                <input type="text" class="form-control" id="customer_id" value="">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>brand_name</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Your Name"  id="brand_name_brand" name="">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>model</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Your Name"  id="model_form" name="">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="first_name" name="fname">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="last_name" name="lname">
+                                                            </div>
+                                                            <div class="col-12 ">
+                                                                <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                                <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="number">
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                <label for="yr_state" class="form-label text-dark fw-bold" id="the_state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="the_district">
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                <label class="form-label text-dark mt-2"> Tehsil</label>
+                                                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example"  id="the_tehsil" name="tehsil">
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                                                <label for="yr_price" class="form-label text-dark">Price</label>
+                                                                <input type="yr_price" class="form-control price_form" placeholder="Enter Price" id="price_form" name="price">
+                                                            </div>
+                                                        </div>          
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" id="button_hire" class="btn add_btn btn-success w-100 btn_all"data-bs-dismiss="modal">Submit</button>
+                                                    </div>      
+                                                </form>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
     <!-- <section class="section slider-section">
 
         <div class="container ">
@@ -348,11 +368,11 @@
                         <div class="row px-3 py-2">
                             <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
                                 <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                                <input type="text" class="form-control" id="slr_name">
+                                <input type="text" class="form-control" id="get_slr_name" value="">
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
                                 <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                                <input type="text" class="form-control" id="mob_num">
+                                <input type="text" class="form-control" id="get_mob_num">
                             </div>
                         </div>
                     </div>

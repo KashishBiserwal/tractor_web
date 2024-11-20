@@ -11,7 +11,7 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/tyre_inner.js"></script>
-  <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+  <script src="<?php $baseUrl; ?>model/sdt.js"></script>
 
     <style>
     .form-outline .form-label {
@@ -215,19 +215,19 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                            <select class="form-select py-2 state-dropdown" id="s_state" name="_state" aria-label=".form-select-lg example">
+                            <select class="form-select py-2 state-dropdown1" id="s_state" name="_state" aria-label=".form-select-lg example">
                              
                             </select>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <label for="yr_dist" class="form-label  fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                            <select class="form-select py-2 district-dropdown" id="s_district" name="_district" aria-label=".form-select-lg example">
+                            <select class="form-select py-2 district-dropdown1" id="s_district" name="_district" aria-label=".form-select-lg example">
                             
                             </select>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <label for="tehsil" class="form-label fw-bold mt-1 text-dark"> Tehsil</label>
-                            <select class="form-select py-2 tehsil-dropdown" id="t_tehsil" name="_tehsil" aria-label=".form-select-lg example">
+                            <select class="form-select py-2 tehsil-dropdown1" id="t_tehsil" name="_tehsil" aria-label=".form-select-lg example">
                              
                             </select>
                         </div>

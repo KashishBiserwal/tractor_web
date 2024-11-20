@@ -369,12 +369,12 @@ function fetch_edit_data(id) {
           } else {
               console.error('Brand name not found in dropdown options:', brandName);
           }
-
           setSelectedOption('state_', userData.state_id);
-          setSelectedOption('dist_', userData.district_id);
-
-          // Call function to populate tehsil dropdown based on selected district
-          populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+          getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+          setTimeout(function() {
+            setSelectedOption('dist_', userData.district_id);
+            populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+          }, 2000); 
 
           // Clear existing images
           $("#selectedImagesContainer").empty();

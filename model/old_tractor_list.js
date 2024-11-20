@@ -630,10 +630,11 @@ function fetch_edit_data(customer_id) {
       $("#tyrecondition option[value='" + userData.tyre_condition + "']").prop("selected", true);
 
       setSelectedOption('state', userData.state_id);
-      setSelectedOption('district', userData.district_id);
-      
-      // Call function to populate tehsil dropdown based on selected district
-      populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+      getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1');
+      setTimeout(function() {
+        setSelectedOption('district', userData.district_id);
+        populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
+      }, 1000); 
     
       $('#product_type_id').val(userData.product_type);
       $('#rc_num').val(userData.vehicle_registered_num);
@@ -709,6 +710,11 @@ function setSelectedOption(selectId, value) {
     }
   }
 }
+
+// getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1', function() {
+//   setSelectedOption('district', userData.district_id);
+//   populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
+// });
 
 function populateTehsil(selectId, value) {
   var select = document.getElementById(selectId);
@@ -850,7 +856,6 @@ function fetch_data(product_id){
 
 function get_By_State() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-  const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch
 
   $.ajax({
       url: url,
@@ -862,16 +867,12 @@ function get_By_State() {
           const select = document.getElementById('state_name');
           select.innerHTML = '<option selected disabled value="">Please select a state</option>';
 
-          stateIds.forEach(stateId => {
-              const filteredState = data.stateData.find(state => state.id === stateId);
-              if (filteredState) {
-                  const option = document.createElement('option');
-                  option.textContent = filteredState.state_name;
-                  option.value = filteredState.id;
-                  select.appendChild(option);
-              } else {
-                  select.innerHTML += `<option value="${stateId}">State ID: ${stateId}</option>`;
-              }
+          // Iterate through all states and populate the dropdown
+          data.stateData.forEach(state => {
+              const option = document.createElement('option');
+              option.textContent = state.state_name;
+              option.value = state.id;
+              select.appendChild(option);
           });
       },
       error: function(error) {
@@ -882,6 +883,7 @@ function get_By_State() {
 
 // Initialize the function
 get_By_State();
+
 
 
 

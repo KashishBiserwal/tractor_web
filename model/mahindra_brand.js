@@ -314,7 +314,6 @@ function displayTractors(productContainer, tractors) {
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                     <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                     <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                   
                                                 </div>
                                                
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
@@ -337,7 +336,7 @@ function displayTractors(productContainer, tractors) {
                                             <div class="form-outline">
                                                 <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                                 <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                                                    <option value="" selected disabled>Please select a tehsil</option>
+                                                  
                                                     <!-- Options for Tehsil dropdown -->
                                                 </select>
                                             </div>
@@ -726,144 +725,47 @@ function populateDropdowns(identifier) {
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+        var stateData = stateDataResponse.stateData;
+        var selectYourStateOption = '<option value="">Select Your State</option>';
+        var stateOptions = stateData
+            .map(state => `<option value="${state.id}">${state.state_name}</option>`)
+            .join('');
 
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+        stateDropdowns.forEach(function (dropdown) {
+            dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            // Add event listener to state dropdown to fetch district data
+            dropdown.addEventListener('change', function() {
+                var selectedStateId = this.value;
+                var districtSelect = this.closest('.row').querySelector('.district-dropdown');
+                districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                if (selectedStateId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                        data.districtData.forEach(district => {
+                            districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                        });
+                    });
+                }
             });
         });
-    });
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+
+        districtDropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener('change', function() {
+                var selectedDistrictId = this.value;
+                var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+                if (selectedDistrictId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                        tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                        data.tehsilData.forEach(tehsil => {
+                            tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                        });
                     });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
+                } else {
+                    tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                }
+            });
         });
     });
 }
 
-// function getoldimplementList() {
-//     var urlParams = new URLSearchParams(window.location.search);
-//     var Id = urlParams.get('brand_id');
-//     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_implements";
-//     console.log(url);
-
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         success: function(data) {
-//             console.log(data, 'xyz');
-//             var productContainer3 = $("#productContainer3");
-//              var old_implement = $("#old_implement");
-      
-//             if (data.getOldImplement && data.getOldImplement.length > 0) {
-              
-//                  var brandid = [];
-//                 for (var j = 0; j < data.getOldImplement.length; j++) {
-//                     if(data.getOldImplement[j].brand_id == Id){
-//                     var model = data.getOldImplement[j].brand_name;
-                   
-//                     }
-//                 }
-//                 brandid.push(model);
-//                 var old_implement_heading = `<h3 class="py-4 mb-0 text-uppercase">${brandid[0]} Tractor Implements</h3>`;
-//                 old_implement.append(old_implement_heading);
-//                 data.getOldImplement.forEach(function (p) {
-//                     if(p.brand_id == Id){
-                   
-                            
-//                     var images = p.image_names;
-//                     var a = [];
-
-//                     if (images) {
-//                         if (images.indexOf(',') > -1) {
-//                             a = images.split(',');
-//                         } else {
-//                             a = [images];
-//                         }
-//                     }
-                  
-                 
-                   
-                  
-                   
-//                     var newCard2 = `
-//                     <div class="item  h-100 bg-white">
-//                     <div class="h-auto success__stry__item d-flex flex-column box_shadow b-t-1 ">
-//                         <div class="thumb">
-//                             <a href="#">
-//                                 <div class="">
-//                                     <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img" style="height:200px">
-//                                 </div>
-//                             </a>
-//                         </div>
-//                         <div class="content d-flex flex-column flex-grow-1 " style="height:150px">
-//                             <div class="caption text-center">
-//                                 <a href="#" class="text-decoration-none text-dark">
-//                                     <h5 class="pt-3"><strong class="series_tractor_strong text-center  fw-bold ">${p.brand_name} ${p.model}</strong></h5>
-//                                 </a>        
-//                             </div>
-//                             <div class="power text-center mt-1">Price : ${p.price}</div>
-//                             <div class="row text-center">
-//                                 <div class="col-12">
-//                                     <p class="fw-bold pe-2">${p.category_name} </p>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>`;
-
-//                     // Append the new card to the container
-//                     productContainer3.append(newCard2);
-                  
-//                 }
-            
-//                 });
-            
-//             }
-//             $('#productContainer3').owlCarousel({
-//                 items:4,
-//                     loop: true,
-//                     margin: 10,
-//                     responsiveClass: true,
-//                     responsive: {
-//                         0: {
-//                             items: 1,
-//                             nav: false
-//                         },
-//                         600: {
-//                             items: 3,
-//                             nav: false
-//                         },
-//                         1000: {
-//                             items: 4,
-//                             nav: false,
-//                             loop: false
-//                         }
-//                     }
-//             })
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }

@@ -117,38 +117,6 @@
                         <div class="HP py-2" id="district_dist"></div>
                     </div>
                 </div>
-                     
-           
-                <!-- <div class=" mb-3" id="">
-                    <div class="force-overflow">
-                        <div class="price py-2 ">
-                            <h5 class=" ps-3 text-dark fw-bold mb-3">Crop Type</h5>
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 crop_checkbox:checked" value="MultiCrop"/><span class="ps-2 fs-6"> MultiCrop</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 crop_checkbox:checked" value="Paddy"/><span class="ps-2 fs-6">Paddy</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 crop_checkbox:checked" value="Maize"/><span class="ps-2 fs-6">Maize</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 crop_checkbox:checked" value="Sugarcane"/><span class="ps-2 fs-6">Sugarcane</span><br />
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class=" mb-3" id="">
-                    <div class="force-overflow">
-                        <div class="price py-2 ">
-                            <h5 class=" ps-3 text-dark fw-bold mb-3">Cutting Width</h5>
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="1_7_Feets"/><span class="ps-2 fs-6"> 1-7 Feets</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="8_14_feets"/><span class="ps-2 fs-6">8-14 Feets</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Above_14"/><span class="ps-2 fs-6">Above 14 Feets</span><br />
-                        </div>
-                    </div>
-                </div>
-                <div class=" mb-3" id="">
-                    <div class="force-overflow">
-                        <div class="price py-2 ">
-                            <h5 class=" ps-3 text-dark fw-bold mb-3">Power Source</h5>
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="1_7_Feets"/><span class="ps-2 fs-6"> Self</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="8_14_feets"/><span class="ps-2 fs-6">tractor Mounted</span><br />
-                        </div>
-                    </div>
-                </div> -->
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>

@@ -651,10 +651,11 @@ function fetch_edit_data(id) {
       }, 1000); // Adjust the delay time as needed
 
       setSelectedOption('state', userData.state_id);
-      setSelectedOption('district', userData.district_id);
-      
-      // Call function to populate tehsil dropdown based on selected district
-      populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+      getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+      setTimeout(function() {
+        setSelectedOption('district', userData.district_id);
+        populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+      }, 2000); 
 
      
       $("#selectedImagesContainer").empty();

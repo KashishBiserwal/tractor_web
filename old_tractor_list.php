@@ -9,7 +9,7 @@
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/old_tractor_list.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+    <script src="<?php $baseUrl; ?>model/sdt.js"></script>
     <script src="<?php $baseUrl; ?>model/brand_function.js"></script>
 
     <script>
@@ -114,7 +114,7 @@
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="state">State</label>
-                                  <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state" name="state">
+                                  <select class="form-select py-2 state-dropdown1" aria-label="Default select example" id="state" name="state">
                                 
                                   </select>
                                 </div>
@@ -122,7 +122,7 @@
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">District</label>
-                                  <select class="form-select py-2  district-dropdown" aria-label="Default select example" name="district" id="district">
+                                  <select class="form-select py-2  district-dropdown1" aria-label="Default select example" name="district" id="district">
                                 
                                   </select>
                                 </div>
@@ -130,7 +130,7 @@
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">Tehsil</label>
-                                  <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" name="tehsil" id="tehsil">
+                                  <select class="form-select py-2 tehsil-dropdown1" aria-label="Default select example" name="tehsil" id="tehsil">
                                 
                                   </select>
                                 </div>

@@ -15,64 +15,92 @@ function formatPriceWithCommas(price) {
     return new Intl.NumberFormat('en-IN').format(price);
 }
 function getHireTracById() {
-
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('id');
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_rent_data_by_id/' + Id;
+
     $.ajax({
         url: url,
         type: "GET",
         success: function(data) {
             var userId = localStorage.getItem('id');
             getUserDetail(userId);
-            // Processing data on successful response
+
             var brand_model = data.rent_details.data1[0].brand_name + " " + (data.rent_details.data1[0].model ? data.rent_details.data1[0].model : "");
-
             var full_name = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
-            var fullname = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
-            var formattedPrice = parseFloat(data.rent_details.data2[0].rate).toLocaleString('en-IN');
-            // Setting data to specific HTML elements
+
             document.getElementById('brand_name1').innerText = brand_model;
-            document.getElementById('name_first').innerText = full_name;
-            document.getElementById('set_dist').innerText = data.rent_details.data1[0].district_name;
-            document.getElementById('set_state').innerText = data.rent_details.data1[0].state_name;
-            document.getElementById('power_hp').innerText = formattedPrice + "/-";
-            document.getElementById('engine_cc').innerText = " per " + data.rent_details.data2[0].rate_per;
-            document.getElementById('customer_id').value = data.rent_details.data2[0].customer_id;
-            document.getElementById('brand_name_brand').innerText = data.rent_details.data1[0].brand_name;
-            document.getElementById('model_form').innerText = data.rent_details.data1[0].model;
-            document.getElementById('slr_name').value = fullname;
-            document.getElementById('mob_num').value = data.rent_details.data1[0].mobile;
-            document.getElementById('type_imlement').innerText = data.rent_details.data2[0].category_name;
-            // Extracting image names from data
-            var imageNames = data.rent_details.data2[0].images.split(',');
-
-            // Selecting the carousel container
+            document.getElementById('get_slr_name').value = full_name;
+            document.getElementById('get_mob_num').value = data.rent_details.data1[0].mobile;
+            document.getElementById('customer_id').value = data.rent_details.data1[0].id;
+            document.getElementById('brand_name_brand').value = data.rent_details.data1[0].brand_name;
+            document.getElementById('model_form').value = data.rent_details.data1[0].model;
             var carouselContainer = $('.swiper-wrapper_buy');
-
-            // Clearing existing slides
             carouselContainer.empty();
 
-            // Iterating through image names to create carousel slides
-            imageNames.forEach(function(imageName) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim();
-                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-                carouselContainer.append(slide);
+            data.rent_details.data2.forEach(function(item) {
+                var imageNames = item.images.split(',');
+
+                imageNames.forEach(function(imageName) {
+                    var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim();
+                    var slide = $('<div class="swiper-slide swiper-slide_buy"><div class="row"></div></div>');
+
+                    // Image column (fixed height and width with the image fully visible)
+                    var imageCol = $('<div class="col-6 mt-5"><img class="img_buy" src="' + imageUrl + '" /></div>');
+
+                    var tableCol = $(` 
+                        <div class="col-6">
+                            <table class="table border bg-light mt-5">
+                                <tbody class="implement_table">
+                                    <tr>
+                                        <td><p class="text-dark"><i class="fa-solid fa-user mx-2"></i>Name</p></td>
+                                        <td><p class="text-dark">${full_name}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-dark"><i class="fa-solid fa-location-dot mx-2"></i>Location</p></td>
+                                        <td><p class="text-dark">${data.rent_details.data1[0].district_name}, ${data.rent_details.data1[0].state_name}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-dark"><i class="fa-solid fa-gear mx-2"></i>Implement Type</p></td>
+                                        <td><p class="text-dark">${item.category_name}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-dark"><i class="fas fa-bolt mx-2"></i>Price</p></td>
+                                        <td><p class="text-dark">${parseFloat(item.rate).toLocaleString('en-IN')} /-</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-dark"><i class="fa-solid fa-gear mx-2"></i>Rate Per</p></td>
+                                        <td><p class="text-dark">per ${item.rate_per}</p></td>
+                                    </tr>
+                                </tbody>
+                                 
+                            </table>
+                             <div class="col-12">
+                                        <button id="send_enquiry" type="button" class="add_btn  btn-success w-100"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            Send Enquiry</button>
+                                    </div>
+                        </div>
+                    `);
+
+                    slide.find('.row').append(imageCol, tableCol);
+                    carouselContainer.append(slide);
+                });
             });
 
-            // Initializing or updating the Swiper carousel
+            // Initialize or update the Swiper carousel with autoplay
             var mySwiper = new Swiper('.swiper_buy', {
-                // Your Swiper configuration options
+                loop: true, // Keeps the looping behavior
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
             });
-
         },
         error: function(error) {
-            // Error handling
             console.error('Error fetching data:', error);
         }
     });
 }
-
 
 function store(event) {
     event.preventDefault();
@@ -83,7 +111,7 @@ function store(event) {
             $('#staticBackdrop1').modal('show');
         }
     } else {
-        var mobile = $('#number').val();
+        var mobile = $('#mobile_number').val();
         get_otp(mobile);
     }
 }
@@ -112,7 +140,7 @@ function get_otp(phone) {
 }
 
 function verifyotp() {
-    var mobile = $('#number').val();
+    var mobile = $('#mobile_number').val();
     var otp = $('#otp').val();
     var paraArr = {
         'otp': otp,

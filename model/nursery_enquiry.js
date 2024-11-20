@@ -265,12 +265,13 @@ function fetch_edit_data(id) {
           $('#date_2').val(Data.date);
           $('#product_id').val(Data.product_subject_id);
 
-        
           setSelectedOption('state_2', Data.state_id);
-          setSelectedOption('dist_2', Data.district_id);
-          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-
-          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+          getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+          setTimeout(function() {
+            setSelectedOption('dist_2', Data.district_id);
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+          }, 1000); 
+        
         },
         error: function(error) {
           console.error('Error fetching user data:', error);

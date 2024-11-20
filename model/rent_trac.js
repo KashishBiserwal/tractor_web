@@ -70,13 +70,13 @@ function formatDateTime(originalDateTimeStr) {
                     const fullName = row.first_name + ' ' + row.last_name;
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                         </button>
                         </div>`;
@@ -279,9 +279,15 @@ function fetch_edit_data(customer_id) {
             $('#mylname1').val(userData.last_name);
             $('#mynumber1').val(userData.mobile);
 
+            // setSelectedOption('state_state3', userData.state_id);
+            // setSelectedOption('dist_district3', userData.district_id);
+            // populateTehsil(userData.district_id, 'tehsil-dropdown_rent', userData.tehsil_id);
             setSelectedOption('state_state3', userData.state_id);
-            setSelectedOption('dist_district3', userData.district_id);
-            populateTehsil(userData.district_id, 'tehsil-dropdown_rent', userData.tehsil_id);
+            getDistricts(userData.state_id, 'district-dropdown_rent', 'tehsil-dropdown_rent');
+            setTimeout(function() {
+              setSelectedOption('dist_district3', userData.district_id);
+              populateTehsil(userData.district_id, 'tehsil-dropdown_rent', userData.tehsil_id);
+            }, 2000); 
             var brandDropdown = document.getElementById('brand');
             for (var i = 0; i < brandDropdown.options.length; i++) {
                 if (brandDropdown.options[i].text === userData.brand_name) {
@@ -328,14 +334,25 @@ function fetch_edit_data(customer_id) {
             $("#year_main1 option").prop("selected", false);
             $("#year_main1 option[value='" + userData.purchase_year + "']").prop("selected", true);
       
-            setSelectedOption('state_state', userData.state_id);
+            // setSelectedOption('state_state', userData.state_id);
             // setSelectedOption('dist_district', userData.district_id);
-            setSelectedOption('dist_district', userData.district_id);
-            populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            // populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            setSelectedOption('state_state', userData.state_id);
+            getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist_district', userData.district_id);
+              populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            }, 2000); 
 
+            // setSelectedOption('state_state1', userData.state_id);
+            // setSelectedOption('dist_district1', userData.district_id);
+            // populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
             setSelectedOption('state_state1', userData.state_id);
-            setSelectedOption('dist_district1', userData.district_id);
-            populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
+            getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1');
+            setTimeout(function() {
+              setSelectedOption('dist_district1', userData.district_id);
+              populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
+            }, 2000); 
            
             function updateTableRows(userData2, clearPrefilledValues) {
                 var tableBody = $('#rentTractorTable tbody');

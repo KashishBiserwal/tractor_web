@@ -226,9 +226,16 @@ $(document).ready(function(){
               $('#first_name_edit').val(Data.first_name);
               $('#last_name_edit').val(Data.last_name);
               $('#mobile_no').val(Data.mobile);
+              // setSelectedOption('state_2', Data.state_id);
+              // setSelectedOption('dist_2', Data.district_id);
+              // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
               setSelectedOption('state_2', Data.state_id);
-              setSelectedOption('dist_2', Data.district_id);
-              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+              getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+              setTimeout(function() {
+                setSelectedOption('dist_2', Data.district_id);
+                populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+              }, 1000); 
+            
     
               // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
             },

@@ -402,13 +402,10 @@ function college_details_list(allCards) {
         var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
         var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
     
-        const stateIds = [7, 15, 20, 26, 34];
-    
         $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
             var stateData = stateDataResponse.stateData;
             var selectYourStateOption = '<option value="">Select Your State</option>';
             var stateOptions = stateData
-                .filter(state => stateIds.includes(state.id))
                 .map(state => `<option value="${state.id}">${state.state_name}</option>`)
                 .join('');
     
@@ -447,8 +444,7 @@ function college_details_list(allCards) {
                 });
             });
         });
-        }
-
+    }
 
     var filteredCards = [];
 var cardsDisplayed = 0;
@@ -701,41 +697,45 @@ function resetform(){
 
   function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+
+    // Fetch states data
     $.ajax({
         url: url,
         type: "GET",
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function(data) {
+        success: function (data) {
             console.log("State data:", data);
 
             const checkboxContainer = $('#state_state');
             checkboxContainer.empty(); // Clear existing checkboxes
             
-            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch checkboxes for
-
-            stateIds.forEach(stateId => {
-                const filteredState = data.stateData.find(state => state.id === stateId);
-                if (filteredState) {
-                    var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                        '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+            // Loop through all states and display them as radio buttons
+            if (data && data.stateData && data.stateData.length > 0) {
+                data.stateData.forEach(state => {
+                    const checkboxHtml = `
+                        <div class="mt-1">
+                            <input type="radio" 
+                                   class="checkbox-round state_checkbox"  name="state" value="${state.id}" 
+                                   id="state_${state.id}">
+                            <label for="state_${state.id}" class="ms-2 fs-6 text-dark">
+                                ${state.state_name}
+                            </label>
+                        </div>`;
                     checkboxContainer.append(checkboxHtml);
-                    
-                    // Load districts for this state
-                    ge_tDistricts(stateId);
-                } else {
-                    checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
-                }
-            });
+                });
 
-            // Add event listeners to state checkboxes
-            $('.state_checkbox').on('change', function() {
-                const stateId = $(this).val();
-                ge_tDistricts(stateId);
-            });
+                // Add event listeners to state radio buttons
+                $('.state_checkbox').on('change', function () {
+                    const stateId = $(this).val();
+                    ge_tDistricts(stateId); // Fetch districts for the selected state
+                });
+            } else {
+                checkboxContainer.append('<p>No states available.</p>');
+            }
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error fetching state data:', error);
         }
     });
@@ -743,33 +743,47 @@ function resetform(){
 
 function ge_tDistricts(stateId) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+
+    // Fetch districts data
     $.ajax({
         url: url,
         type: "GET",
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function(data) {
-            console.log("District data for state ID " + stateId + ":", data);
-            
+        success: function (data) {
+            console.log(`District data for state ID ${stateId}:`, data);
+
             const checkboxContainer = $('#get_dist');
             checkboxContainer.empty(); // Clear existing checkboxes
-            
+
             if (data && data.districtData && data.districtData.length > 0) {
+                // Loop through and display districts as checkboxes
                 data.districtData.forEach(district => {
-                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
-                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    const checkboxHtml = `
+                        <div class="mt-1">
+                            <input type="checkbox" 
+                                   class="checkbox-round district_checkbox" 
+                                   value="${district.id}" 
+                                   id="district_${district.id}">
+                            <label for="district_${district.id}" class="ms-2 fs-6">
+                                ${district.district_name}
+                            </label>
+                        </div>`;
                     checkboxContainer.append(checkboxHtml);
                 });
             } else {
-                checkboxContainer.append('<p>No districts available for state ID: ' + stateId + '</p>');
+                checkboxContainer.append(`<p>No districts available for state ID: ${stateId}</p>`);
             }
         },
-        error: function(error) {
-            console.error('Error fetching districts for state ID ' + stateId + ':', error);
+        error: function (error) {
+            console.error(`Error fetching districts for state ID ${stateId}:`, error);
         }
     });
 }
 
+// Initialize states and setup
 getState();
+
+
 

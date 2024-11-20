@@ -490,12 +490,9 @@ function getUserDetail(id, formId) {
         }
     });
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
-
 
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
@@ -505,35 +502,38 @@ function getState() {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function(data) {
+        success: function (data) {
             console.log("State data:", data);
 
             const checkboxContainer = $('#state_state');
-            checkboxContainer.empty(); // Clear existing checkboxes
-            
-            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch checkboxes for
-
-            stateIds.forEach(stateId => {
-                const filteredState = data.stateData.find(state => state.id === stateId);
-                if (filteredState) {
-                    var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                        '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+            checkboxContainer.empty(); 
+            if (data.stateData && data.stateData.length > 0) {
+                data.stateData.forEach(state => {
+                    var checkboxHtml = `
+                        <input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" 
+                               name="state" value="${state.id}" id="state_${state.id}" />
+                        <label for="state_${state.id}" class="ps-2 fs-6 text-dark">${state.state_name}</label>
+                        <br/>`;
                     checkboxContainer.append(checkboxHtml);
-                    
-                    // Load districts for this state
-                    ge_tDistricts(stateId);
-                } else {
-                    checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
-                }
-            });
+                });
 
-            // Add event listeners to state checkboxes
-            $('.state_checkbox').on('change', function() {
-                const stateId = $(this).val();
-                ge_tDistricts(stateId);
-            });
+                // Placeholder for districts
+                const districtContainer = $('#get_dist');
+                districtContainer.empty();
+                districtContainer.append('<p></p>');
+
+                // Add event listeners to state checkboxes
+                $('.state_checkbox').on('change', function () {
+                    const stateId = $(this).val();
+                    if (stateId) {
+                        ge_tDistricts(stateId);
+                    }
+                });
+            } else {
+                checkboxContainer.append('<p>No states available.</p>');
+            }
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error fetching state data:', error);
         }
     });
@@ -547,28 +547,32 @@ function ge_tDistricts(stateId) {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function(data) {
+        success: function (data) {
             console.log("District data for state ID " + stateId + ":", data);
-            
+
             const checkboxContainer = $('#get_dist');
             checkboxContainer.empty(); // Clear existing checkboxes
-            
+
             if (data && data.districtData && data.districtData.length > 0) {
                 data.districtData.forEach(district => {
-                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
-                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    var checkboxHtml = `
+                        <input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" 
+                               value="${district.id}" id="district_${district.id}" />
+                        <label for="district_${district.id}" class="ps-2 fs-6">${district.district_name}</label>
+                        <br/>`;
                     checkboxContainer.append(checkboxHtml);
                 });
             } else {
-                checkboxContainer.append('<p>No districts available for state ID: ' + stateId + '</p>');
+                checkboxContainer.append('<p>No districts available for the selected state.</p>');
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error fetching districts for state ID ' + stateId + ':', error);
         }
     });
 }
 
+// Initial call to fetch and display all states
 getState();
 
 
@@ -930,19 +934,15 @@ function get() {
     });
 }
 
-
 function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    const stateIds = [7, 15, 20, 26, 34];
-
     $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
         var stateData = stateDataResponse.stateData;
         var selectYourStateOption = '<option value="">Select Your State</option>';
         var stateOptions = stateData
-            .filter(state => stateIds.includes(state.id))
             .map(state => `<option value="${state.id}">${state.state_name}</option>`)
             .join('');
 
@@ -981,4 +981,4 @@ function populateDropdowns(identifier) {
             });
         });
     });
-    }
+}

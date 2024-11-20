@@ -718,13 +718,10 @@ function resetform(){
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    const stateIds = [7, 15, 20, 26, 34];
-
     $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
         var stateData = stateDataResponse.stateData;
         var selectYourStateOption = '<option value="">Select Your State</option>';
         var stateOptions = stateData
-            .filter(state => stateIds.includes(state.id))
             .map(state => `<option value="${state.id}">${state.state_name}</option>`)
             .join('');
 

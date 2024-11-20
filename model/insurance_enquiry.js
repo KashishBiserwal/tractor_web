@@ -259,10 +259,6 @@ function fetch_edit_data(id) {
                     break;
                 }
             }
-
-            //  $("#model_name option").prop("selected", false);
-            // $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
-
             $('#model_name').empty();
             get_model_1(Data.brand_id);
             setTimeout(function () { 
@@ -270,12 +266,17 @@ function fetch_edit_data(id) {
                 $("#model_name option[value='" + Data.model + "']").prop("selected", true);
             }, 2000); 
   
-            // setSelectedOption('model_name', Data.brand_id);
+            // setSelectedOption('state_2', Data.state_id);
+            // setSelectedOption('dist_2', Data.district_id);
+            // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
             setSelectedOption('state_2', Data.state_id);
-            setSelectedOption('dist_2', Data.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist_2', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 1000); 
+          
   
             // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
           },

@@ -196,8 +196,7 @@ function get_dealers() {
 
 function get_dealers_normal() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_dealer_enquiry_data'; // Adjust the API endpoint for Normal data
-
+    var url = apiBaseURL + 'get_dealer_enquiry_data';
     $.ajax({
         url: url,
         type: "GET",
@@ -205,8 +204,8 @@ function get_dealers_normal() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const tableBody = $('#data-table2'); // jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
+            const tableBody = $('#data-table2'); 
+            tableBody.empty();
 
             let serialNumber = 1;
 
@@ -219,8 +218,8 @@ function get_dealers_normal() {
                 table2 = $('#example2').DataTable({
                     paging: true,
                     searching: true,
-                    lengthChange: false, // Hide "Show [number] entries"
-                    info: false, // Hide "Showing [start] to [end] of [total] entries"
+                    lengthChange: false,
+                    info: false, 
                     columns: [
                         { title: 'S.No.' },
                         { title: 'Date' },
@@ -233,11 +232,9 @@ function get_dealers_normal() {
                     ]
                 });
 
-                // Reverse the data array to display latest data first
                 data.dealer_enquiry_details.reverse().forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
 
-                    // Add row to DataTable
                     table2.row.add([
                         serialNumber,
                         row.date,
@@ -378,12 +375,12 @@ function fetch_edit_data_2(id) {
               break;
             }
           }
-          // Pre-select state dropdown
           setSelectedOption('state_state', Data.state_id);
-          setSelectedOption('dist2', Data.district_id);
-          
-          // Call function to populate tehsil dropdown based on selected district
-          populateTehsil(Data.district_id, 'tehsil-dropdown1', Data.tehsil_id);
+          getDistricts(Data.state_id, 'district-dropdown1', 'tehsil-dropdown1');
+          setTimeout(function() {
+            setSelectedOption('dist2', Data.district_id);
+            populateTehsil(Data.district_id, 'tehsil-dropdown1', Data.tehsil_id);
+          }, 2000); 
           
       },
       error: function(error) {
@@ -501,11 +498,17 @@ function fetch_edit_data(id) {
             }
           }
 
-          setSelectedOption('state_', Data.state_id);
-          setSelectedOption('dist_', Data.district_id);
+          // setSelectedOption('state_', Data.state_id);
+          // setSelectedOption('dist_', Data.district_id);
           
-          // Call function to populate tehsil dropdown based on selected district
-          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+          // // Call function to populate tehsil dropdown based on selected district
+          // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+          setSelectedOption('state_', Data.state_id);
+          getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+          setTimeout(function() {
+            setSelectedOption('dist_', Data.district_id);
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+          }, 2000); 
          
       },
       error: function (error) {
