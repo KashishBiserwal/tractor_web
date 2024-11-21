@@ -453,13 +453,15 @@ function destroy(id) {
             $('#address').val(Data.address);
 
             // Set selected brand option
-            var brandDropdown = document.getElementById('brand');
-            for (var i = 0; i < brandDropdown.options.length; i++) {
-                if (brandDropdown.options[i].text === Data.brand_name) {
-                    brandDropdown.selectedIndex = i;
-                    break;
-                }
-            }
+            setTimeout(function () {
+              var brandDropdown = document.getElementById('brand');
+              for (var i = 0; i < brandDropdown.options.length; i++) {
+                  if (brandDropdown.options[i].text === Data.brand_name) {
+                      brandDropdown.selectedIndex = i;
+                      break;
+                  }
+              }
+          }, 1000);
             // Set selected state, district, and tehsil options
             // setSelectedOption('state_', Data.state_id);
             // setSelectedOption('dist', Data.district_id);
