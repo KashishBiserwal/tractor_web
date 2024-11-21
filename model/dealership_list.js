@@ -4,6 +4,9 @@ $(document).ready(function () {
   // get('brand1');
     $('#subbtn_').click(add_dealership);
     ImgUpload();
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+      return /^[6-9]\d{9}$/.test(value); 
+    }, "Phone number must start with 6 or above");
     $("#dealer_list_form").validate({
     
       rules: {
@@ -13,15 +16,11 @@ $(document).ready(function () {
         brand: {
           required: true,
         },
-        // email:{
-        //   required:true,
-        //  email:true
-        // },
         cno:{
-            required:true,
-            maxlength:10,
-            digits: true,
-            customPhoneNumber: true
+          required:true, 
+          maxlength:10,
+          digits: true,
+          customPhoneNumber: true
         },
         address:{
           required:true,
@@ -43,15 +42,10 @@ $(document).ready(function () {
         brand: {
           required: "This field is required",
         },
-      
-        // email:{
-        //   required:"This field is required",
-        //   email:"Please Enter vaild Email",
-        // },
          cno:{
           required:"This field is required",
-          maxlength:"Enter only 10 digits",
-          digits: "Please enter only  digits"
+        maxlength:"Enter only 10 digits",
+        digits: "Please enter only digits"
         },
         address:{
           required:"This field is required",
