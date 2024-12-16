@@ -116,7 +116,7 @@ $(document).ready(function() {
                                 <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
                             </div>
                             <div class="justify-content-center d-flex">
-                                <button type="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
+                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100 text-truncate"><span>${dealer.district_name}</span>, <span><span>${dealer.state_name}</span></span></a>
                             </div>
                         </div>
                     </div>
