@@ -48,7 +48,7 @@
     <script src="<?php $baseUrl; ?>model/find_used_tractor.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
-    <section class=" bg-light mt-5 pt-5">
+    <section class=" bg-light mt-3 pt-5">
         <div class="container pt-5">
             <div class="py-2">
                 <span class="my-4 text-white">

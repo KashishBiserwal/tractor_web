@@ -34,7 +34,7 @@
     include 'includes/header.php';
   ?>
 
-  <section class="mt-5 pt-5">
+  <section class="mt-4 pt-5 bg-light">
     <div class="container mt-4 pt-3">
       <div class="">
         <span class="mt-5 text-white pt-5 ">
@@ -48,7 +48,7 @@
   <!-- section 1 which is display block first -->
   <section style="display: block;" id="section-1">
     <div class="container" id="an">      
-    <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3> 
+    <h3 class="mt-3 mb-3 bg-light">Compare Tractors</h3> 
       <div class="row py-1" >
        
             <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5" id="">
@@ -228,11 +228,11 @@
       <div class=" fw-bold fs-5 mt-3 ">
         <p class="mb-n4">Compare Tractors</p>
       </div>
-      <p class="">BharatAgriMart is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on BharatAgriMart is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. BharatAgriMart brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
+      <p class="">BharatAgrimart's is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on BharatAgrimart's is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. BharatAgrimart's brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
 
-      BharatAgriMart provides the most comprehensive tractor comparison tool in India on which you can select at least two or more tractors of your choice for comparison. This online platform provides all the useful guidelines for tractor comparison India. BharatAgriMart always works to empower Indian farmers with a new tractor compare section.<br><br>
+      BharatAgrimart's provides the most comprehensive tractor comparison tool in India on which you can select at least two or more tractors of your choice for comparison. This online platform provides all the useful guidelines for tractor comparison India. BharatAgrimart's always works to empower Indian farmers with a new tractor compare section.<br><br>
 
-      Compare tractor prices in India, specifications, warranty and many more at one place and then select your dream tractor. For Further more inquiries stay tuned with BharatAgriMart.</span></p>
+      Compare tractor prices in India, specifications, warranty and many more at one place and then select your dream tractor. For Further more inquiries stay tuned with BharatAgrimart's.</span></p>
       <button class="text-primary" onclick="myFunction()" id="myBtn">Read more</button>
       <script>
         function myFunction() {

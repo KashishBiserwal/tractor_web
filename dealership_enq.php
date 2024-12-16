@@ -38,7 +38,7 @@
 <?php
    include 'includes/header.php';
    ?>
-    <section class=" mt-5 pt-5 bg-light">
+    <section class=" mt-4 pt-5 bg-light">
         <div class="container pt-5 py-1">
             <div class="">
                 <span class="text-white ">
@@ -133,7 +133,7 @@
                             <div class="text-center  my-3">
                                 <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>         
                             </div>        
-                            <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+                            <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart's <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                         </div>
                     </form>
                 </div>

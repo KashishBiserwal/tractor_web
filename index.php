@@ -55,6 +55,55 @@
     padding-right: 10px;
     font-size: 12px;
     }
+
+    #search_form_container {
+  position: absolute;
+  top: 30%; 
+  left: 50px; 
+  width: 350px;
+  background-color: #f8f9fac9;
+  padding: 20px;
+  display: block;
+  z-index: 5;
+}
+
+.bannerbg00:hover {
+  cursor: pointer;
+}
+
+#search_form {
+  width: 100%;
+}
+.thumb {
+    width: 100%;
+    height: 200px; /* Fix the height */
+    position: relative;
+    background-color: #f0f0f0; /* Placeholder color */
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+  }
+
+  .item {
+    width: 100%;
+    min-height: 350px; /* Set a fixed height for cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+  }
+
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+ 
 </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -80,19 +129,19 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active" style="position: relative;">
-        <img src="assets/images/Slide-1 .jpg" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-1 .png" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
         <img src="assets/images/Slide-2.png" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-3.jpg" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-3 (1).png" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-4.jpg" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-4.png" alt="New York" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;"> 
-          <img src="assets/images/Slide-5.jpg" alt="New York" class="d-block mx-auto w-100"> 
+          <img src="assets/images/Slide-5.png" alt="New York" class="d-block mx-auto w-100"> 
       </div>
       <div class="carousel-item" style="position: relative;">
           <img src="assets/images/new_image_for_slide6.png" alt="New York" class="d-block mx-auto w-100">
@@ -111,92 +160,53 @@
       </div> -->
     </div>
     <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="margin-left:-90px; z-index: 4;">
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="margin-left:-70px; z-index: 4;">
       <span class="carousel-control-prev-icon bg-success"></span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" style="margin-right:-90px; z-index: 4;">
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" style="margin-right:-70px; z-index: 4;">
       <span class="carousel-control-next-icon bg-success"></span>
     </button>
   </div>
-  <div class="container bannerbg00">
-    <div class="row mt-5">
-       <div class="col-lg-4 col-12 col-md-4" style="background-color:#f8f9fac9;">
-        <div class="banner__wrapper">
-          <div class="row g-4 justify-content-center">
-            <div class="col-lg-10">
-              <h5 class="text-center fw-bold pt-2">Find Your Own Tractor</h5>
-              <form id="search_form">
-                <div class="row justify-content-center ">
-                <div class="col-12 mt-2">
-                    <div class="">
-                      <label class="form-label text-dark fw-bold">Select Brand</label>
-                      <select class="form-control" name="brand" id="brand"  required="">
-                      </select>
-                    </div>
-                  </div>
-                  <!-- <div class="col-12 mt-2">
-                    <div class="">
-                      <label class="form-label text-dark fw-bold">Select Model</label>
-                      <select class="form-control" name="brand" id="model_main"  required="">
-                      </select>
-                    </div>
-                  </div> -->
-                  <div class="col-12">
-                    <div class="">
-                    <label class="form-label text-dark fw-bold mt-2">Select HP</label>
-                    <select class="form-control" name="hp" id="hp" required="">
-                      <option value="" selected="">Select HP</option>
-                      <option value="0 - 20">0 HP - 20 HP</option>
-                      <option value="21 - 30">21 HP - 30 HP</option>
-                      <option value="31 - 40">31 HP - 40 HP</option>
-                      <option value="41 - 50">41 HP - 50 HP</option>
-                      <option value="51 - 60">51 HP - 60 HP</option>
-                      <option value="61 - 70">61 HP - 70 HP</option>
-                      <option value="71 - 80">71 HP - 80 HP</option>
-                    </select>
-                    </div>
-                  </div>
-                  
-                </div>
-                  <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                    <div class="">
-                      <label class="form-label text-dark fw-bold">Select Brand</label>
-                      <select class="form-control" name="brand" id="brand"  required="">
-                      </select>
-                    </div>
-                  </div> -->
-                  <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                    <div class="">
-                      <label class="form-label text-dark fw-bold">Select Price</label>
-                      <select class="form-control" name="price" id="price"  required="">
-                        <option value="" selected="">Select Price</option>
-                        <option value="0 - 3">0 Lakh - 3 Lakh</option>
-                        <option value="3 - 6">3 Lakh - 6 Lakh</option>
-                        <option value="6 - 9">6 Lakh - 9 Lakh</option>
-                        <option value="9 - 12">9 Lakh - 12 Lakh</option>
-                      </select>
-                    </div>
-                  </div> -->
-                  <div class="col-12 my-3">
-              <div class="text-center">
-                <button type="button" class="btn-success btn px-3 pt-2" id="Search" >Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetForm()">Reset</button>
-              </div>
-            </div>
-                </div>
-              </form>
-            </div>
-          </div>
+  <!-- <div class="container bannerbg00" style="background-color:#f8f9fac9;" onclick="showForm()">
+    <h5 class="text-center fw-bold pt-2">
+      Find Your Own Tractor <i class="bi bi-search"></i>
+    </h5>
+  </div> -->
+  <div id="search_form_container">
+    <form id="search_form">
+      <div class="row">
+        <div class="col-12 mt-2">
+          <label class="form-label text-dark fw-bold">Select Brand</label>
+          <select class="form-control" name="brand" id="brand" required>
+            <option value="">Select Brand</option>
+          </select>
         </div>
-       </div>
-       
-    </div>
-   
+        <div class="col-12 mt-2">
+          <label class="form-label text-dark fw-bold">Select HP</label>
+          <select class="form-control" name="hp" id="hp" required="">
+            <option value="" selected="">Select HP</option>
+            <option value="0 - 20">0 HP - 20 HP</option>
+            <option value="21 - 30">21 HP - 30 HP</option>
+            <option value="31 - 40">31 HP - 40 HP</option>
+            <option value="41 - 50">41 HP - 50 HP</option>
+            <option value="51 - 60">51 HP - 60 HP</option>
+            <option value="61 - 70">61 HP - 70 HP</option>
+            <option value="71 - 80">71 HP - 80 HP</option>
+          </select>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <button type="button" class="btn btn-success px-3" id="Search">Search</button>
+          <button type="button" class="btn-success btn px-3" id="Reset" onclick="resetForm()">Reset</button>
+          <!-- <button type="button" class="btn btn-secondary px-3" onclick="closeForm()">Close</button> -->
+        </div>
+      </div>
+    </form>
+  </div>
 </section>
 <!-- banner end here -->
 <section class="why_head bg-light">
   <div class=" container">
-    <h2 class="text-dark  display-6 pt-4 mb-0 fw-bold text-center">Why <span class="text-success">Bharat Agrimart?</span></h2>
+    <h3 class="text-dark  display-6 pt-4 mb-0 fw-bold text-center">Why <span class="text-success">Bharat Agrimart's?</span></h3>
     <div class="container">
       <div class="row my-4 pt-3">
         <div class="col-12 col-sm-4 col-lg-4 col-md-4">
@@ -247,7 +257,7 @@
 </section>
 <section class="" id="">
   <div class="container ">
-    <h3 class=" py-4 display-6 fw-bold">Tractors in <span class="text-success">2023</span></h3>
+    <h4 class="display-6 fw-bold">Tractors in <span class="text-success">2023</span></h4>
     <nav class="">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Polpular</a>
@@ -267,7 +277,7 @@
             </div>
           </div>
         </div>
-        <div class="col text-center py-4 mt-5">
+        <div class="col text-center py-4 mt-3">
           <a href="popular_tractors.php" class="btn btn-success btn-lg">View all Popular Tractors</a>
         </div>
       </div>
@@ -308,7 +318,7 @@
 </section>
 <section class="bg-light">
   <div class="container">
-    <h3 class=" py-4 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h3>
+    <h4 class=" py-1 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h4>
     <nav class="mb-3">
       <div class="nav nav-tabs " id="nav-tab" role="tablist">
         <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">New Harvester</a>
@@ -349,7 +359,7 @@
   <div class="container  ">
     <div class="row text-align-center justify-content-between">
       <div class="col-12 col-lg-6 col-md-6 col-sm-6 pt-3">
-        <h3 class="text-dark display-6 fw-bold">Tractors by <span class="text-success">Budget</span></h3>
+        <h4 class="text-dark display-6 fw-bold">Tractors by <span class="text-success">Budget</span></h4>
         <div class="pricerate container py-3 my-2 ps-5">
           <div class="yr-con my-3 py-2">
             <div class="ps-3">
@@ -406,7 +416,7 @@
 </section>
     <section class="backhp">
       <div class="container  py-4">
-        <h3 class="text-dark display-6 fw-bold my-3 pb-2">Tractors By HP</h3>
+        <h4 class="text-dark display-6 fw-bold my-3 pb-2">Tractors By HP</h4>
         <div class="container">
           <div class="row my-4 pt-2">
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
@@ -668,19 +678,19 @@
     <section class="about bg-light">
       <div class="container">
         <div class="lecture_heading text-center">
-          <h3 class="fw-bold mt-4 pt-4">About <span class="text-success">Bharat Agrimart</span>
+          <h3 class="fw-bold mt-4 pt-4">About <span class="text-success">Bharat Agrimart's</span>
           </h3>
         </div>
         <div class="mt-4 pb-5">
           <div class="accordion" id="accordionFlushExample">
             <div class="accordion-item  rounded-3">
               <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"> Bharat Agrimart For Your All Agriculture Needs </button>
+                <button class="accordion-button collapsed fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"> Bharat Agrimart's For Your All Agriculture Needs </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Bharat Agrimart is an online digital platform to buy, sell, finance, insurance, service, new/used tractor and farm implements. Here you can find all popular brands like Mahindra, Swaraj, Eicher, Sonalika, New Holland, Massey Ferguson, John Deere, Powertrac, Farmtrac, Kubota and many more on a single platform. We care about your needs. So here at one platform, we have the entire farm-related products in one place for your comfort. Along with this, get each agricultural product at a fair price.</p>
-                  <p>We have connected with well established <strong> 25+ brands</strong>. Each tractor, according to your priority, is provided in the market. The brands won farmers' hearts by providing quality products at economical prices. All we separated according to categories at Bharat Agrimart for your convenience. Want to know more? Following, we are showing in detail. </p>
+                  <p>Bharat Agrimart's is an online digital platform to buy, sell, finance, insurance, service, new/used tractor and farm implements. Here you can find all popular brands like Mahindra, Swaraj, Eicher, Sonalika, New Holland, Massey Ferguson, John Deere, Powertrac, Farmtrac, Kubota and many more on a single platform. We care about your needs. So here at one platform, we have the entire farm-related products in one place for your comfort. Along with this, get each agricultural product at a fair price.</p>
+                  <p>We have connected with well established <strong> 25+ brands</strong>. Each tractor, according to your priority, is provided in the market. The brands won farmers' hearts by providing quality products at economical prices. All we separated according to categories at Bharat Agrimart's for your convenience. Want to know more? Following, we are showing in detail. </p>
                 </div>
               </div>
             </div>
@@ -700,7 +710,7 @@
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Now you can sell used tractors online without any effort. Just go on, sell tractor online on Bharat Agrimart and fill the form. After that, our team will help you sell your used tractor. We have also introduced tractor valuation to get your used tractor fair market value. You can sell used tractors at a fair market price. Upload your used tractor at Bharat Agrimart, free of cost.</p>
+                  <p>Now you can sell used tractors online without any effort. Just go on, sell tractor online on Bharat Agrimart's and fill the form. After that, our team will help you sell your used tractor. We have also introduced tractor valuation to get your used tractor fair market value. You can sell used tractors at a fair market price. Upload your used tractor at Bharat Agrimart's, free of cost.</p>
                 </div>
               </div>
             </div>
@@ -720,7 +730,7 @@
               </h2>
               <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Here on Bharat Agrimart, we have an individual segment for harvesters. You can get all leading brands to combine harvesters with complete specifications. Get full detailed information about combine harvesters and their price without any trouble. Additionally, find implements like <strong> rotavator, cultivator, plough, harrow and trailer</strong> of all leading brands at their reasonable price. </p>
+                  <p>Here on Bharat Agrimart's's, we have an individual segment for harvesters. You can get all leading brands to combine harvesters with complete specifications. Get full detailed information about combine harvesters and their price without any trouble. Additionally, find implements like <strong> rotavator, cultivator, plough, harrow and trailer</strong> of all leading brands at their reasonable price. </p>
                 </div>
               </div>
             </div>
@@ -753,7 +763,7 @@
                   <p>Additionally, we have a Blog segment, Agriculture and Tractor news segment form to update your knowledge about agriculture. These segments cover articles, blogs on the tractor price list, agriculture informational blogs, articles, Hindi news, English news etc.</p>
                   <p>Also, find a certified dealer, dealership enquiry, videos, offers, on road price, reviews, EMI calculator and many more. Other than this, get separate segments for loans, offers, broker dealers, etc.</p>
                   <p>We have a youtube channel where we provide tractor and other agriculture reviews, agriculture headlines, and other to-do lists. Additionally, there we provide crop information and how to enhance productivity. You also upload lasting tractor videos and work.</p>
-                  <p>Buy tractor online India on Bharat Agrimart. Here you can find a new tractor online price, new tractors for sale and find a tractor online with implements.</p>
+                  <p>Buy tractor online India on Bharat Agrimart's's. Here you can find a new tractor online price, new tractors for sale and find a tractor online with implements.</p>
                 </div>
               </div>
             </div>
@@ -1078,7 +1088,17 @@
     console.log("Natural width: " + naturalWidth + "px, Natural height: " + naturalHeight + "px");
 }
     </script>
+<script>
+function showForm() {
+  const formContainer = document.getElementById('search_form_container');
+  formContainer.style.display = 'block'; // Show the form
+}
 
+function closeForm() {
+  const formContainer = document.getElementById('search_form_container');
+  formContainer.style.display = 'none'; // Hide the form
+}
+</script>
 <script>
 fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_brands')
   .then(response => response.json())

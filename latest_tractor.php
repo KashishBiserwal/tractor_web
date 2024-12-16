@@ -115,12 +115,12 @@ include 'includes/headertag.php';
                     <div class="accordion-item  rounded-3">
                         <h2 class="accordion-header p-2" id="flush-headingOne" >
                         <button class="accordion-button collapsed fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Que. How many latest tractors are listed at Bharat Agrimart?
+                        Que. How many latest tractors are listed at Bharat Agrimart's?
                         </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p class="text-dark">Ans. 66 latest tractors are listed at Bharat Agrimart.</p>
+                                <p class="text-dark">Ans. 66 latest tractors are listed at Bharat Agrimart's.</p>
                             </div>
                         </div>
                     </div>
@@ -151,12 +151,12 @@ include 'includes/headertag.php';
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading4">
                         <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
-                          Que. How many popular tractors are listed at Bharat Agrimart?
+                          Que. How many popular tractors are listed at Bharat Agrimart's?
                         </button>
                         </h2>
                         <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <p class="text-dark">Ans. 40+ popular tractor models are available at Bharat Agrimart.</p>
+                            <p class="text-dark">Ans. 40+ popular tractor models are available at Bharat Agrimart's.</p>
                         </div>
                         </div>
                     </div>
@@ -265,36 +265,42 @@ include 'includes/headertag.php';
 
 <section>
     <div class="container"> 
-        <h3 class="fw-bold assured px-3  ">Tractors By HP</h3>
+        <h3 class="fw-bold assured px-3">Tractors By HP</h3>
             <div class="row my-4">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_hp.php?hp=0 - 20" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i>UNDER 20 HP</a>
+                        <i class="fas fa-bolt"></i>UNDER 20 HP
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_hp.php?hp=21 - 30" id="adduser"
                         class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>21-30 HP</a>
+                        <i class="fas fa-bolt"></i>21-30 HP
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_hp.php?hp=31 - 40" id="adduser"
                         class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>31-40 HP</a>
+                        <i class="fas fa-bolt"></i>31-40 HP
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_hp.php?hp=41 - 45" id="adduser"
                         class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>41-45 HP</a>
+                        <i class="fas fa-bolt"></i>41-45 HP
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_hp.php?hp=46 - 50" id="adduser"
                         class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>46-50 HP</a>
+                        <i class="fas fa-bolt"></i>46-50 HP
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_hp.php?hp=51 - 60" id="adduser"
                         class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>51-60 HP</a>
+                        <i class="fas fa-bolt"></i>51-60 HP
+                    </a>
                 </div>
             </div>
     </div>
@@ -303,27 +309,32 @@ include 'includes/headertag.php';
             <div class="row my-4">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_budget.php?budget=3 Lakh Below" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i>UNDER 3 LAKH</a>
+                        <i class="fas fa-bolt"></i>UNDER 3 LAKH
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_budget.php?budget=3-5" id="adduser"
                         class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>3-5 LAKH</a>
+                        <i class="fas fa-bolt"></i>3-5 LAKH
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_budget.php?budget=5-7" id="adduser"
                         class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>5-7 LAKH</a>
+                        <i class="fas fa-bolt"></i>5-7 LAKH
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_budget.php?budget=7-10" id="adduser"
                         class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>7-10 LAKH</a>
+                        <i class="fas fa-bolt"></i>7-10 LAKH
+                    </a>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="tractor_by_budget.php?budget=11 Lakh Above" id="adduser"
                         class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>ABOVE 10 LAKH</a>
+                        <i class="fas fa-bolt"></i>ABOVE 10 LAKH
+                    </a>
                 </div>
               
             </div>

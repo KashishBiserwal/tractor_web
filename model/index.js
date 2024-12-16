@@ -381,8 +381,6 @@ function get_harvester() {
 
 function get_oldharvester() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";
-    
-
     $.ajax({
         url: url,
         type: "GET",
@@ -421,16 +419,13 @@ function get_oldharvester() {
                     <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
                 </a>
               </div>
-               
-          
             </div>
                 `;
-        
-                // Append the new card to the container
+            // Append the new card to the container
                 productContainer.append(newCard);
             });
 
-            productContainer.owlCarousel({
+             productContainer.owlCarousel({
                 items:4,
                 loop: true,
                 margin: 10,
@@ -465,7 +460,6 @@ function get_oldharvester() {
 function get_All_News() {
     var url = "http://tractor-api.divyaltech.com/api/customer/news_details";
     
-
     $.ajax({
         url: url,
         type: "GET",
@@ -602,11 +596,6 @@ function get_blog() {
         
                 // Append the new card to the container
                 productContainer.append(newCard);
-
-                
-                
-
-              
             });
 
             productContainer.owlCarousel({

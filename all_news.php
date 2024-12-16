@@ -72,10 +72,10 @@
     <div class="container py-2 ">
         <div class="bg-light p-3">
             <h5 class="assured ps-3 py-1">News</h5>
-            <p class="py-2">All are curious nowadays that what is happening in India. So with BharatAgrimart, you get detailed latest news of India. Till now you are getting tractor news and agriculture news on BharatAgrimart now for your convenience we are here starting India news online segment from where you can update daily with the latest breaking news. Here we update daily latest news headlines, today's state news, live news and many more in one place. On this page, we are going to show today's news headlines in Hindi with full detail and images. TarctorJunction always cares about you, you all are like a family to us. So, it is our responsibility to aware you of all breaking news of India.</p>
-            <p>At BharatAgrimart, we introduced a new section for the comfort of the farmers. Here you can find Tractor News, Agriculture News, Weather News, Agri Business News, Sarkari Yojana News, Animal Husbandry News and Social News.</p>
+            <p class="py-2">All are curious nowadays that what is happening in India. So with BharatAgrimart's, you get detailed latest news of India. Till now you are getting tractor news and agriculture news on BharatAgrimart's now for your convenience we are here starting India news online segment from where you can update daily with the latest breaking news. Here we update daily latest news headlines, today's state news, live news and many more in one place. On this page, we are going to show today's news headlines in Hindi with full detail and images. TarctorJunction always cares about you, you all are like a family to us. So, it is our responsibility to aware you of all breaking news of India.</p>
+            <p>At BharatAgrimart's, we introduced a new section for the comfort of the farmers. Here you can find Tractor News, Agriculture News, Weather News, Agri Business News, Sarkari Yojana News, Animal Husbandry News and Social News.</p>
             <p>So, why search anywhere when here at one place in separate segment getting even pin size details about India in an easy language. We are hereby trying to aware of all of you about news India because it is each of your right to know what is happening in our nation</p>
-            <p>So, Find out here today news, news Hindi and many more only on BharatAgrimart. You can also visit our BharatAgrimart youtube channel for news videos. </p>
+            <p>So, Find out here today news, news Hindi and many more only on BharatAgrimart's. You can also visit our BharatAgrimart's youtube channel for news videos. </p>
         </div>
       
     </div>

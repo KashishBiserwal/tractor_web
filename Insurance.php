@@ -75,8 +75,8 @@ include 'includes/footertag.php';
     <?php
 				include 'includes/header.php';
 			?>
-    <section class=" mt-5 pt-5 bg-light">
-        <div class="container pt-2">
+    <section class=" mt-4 pt-5 bg-light">
+        <div class="container pt-3">
             <div class="py-2 mt-4">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
@@ -284,7 +284,7 @@ include 'includes/footertag.php';
                                     <label class="form-check-label text-dark" for="inlineCheckbox2">No</label>
                                 </div>
                             </div> -->
-                            <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Agrimart <a
+                            <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Agrimart's <a
                                     href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a>
                             </p>
                             <div class="d-grid col-8 mx-auto mb-3">
@@ -369,7 +369,7 @@ include 'includes/footertag.php';
     </div>
 
     <div class="container mt-5">
-        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Agrimart for Agriculture/Commercial Tractor Insurance
+        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Agrimart's for Agriculture/Commercial Tractor Insurance
             Online?</h4>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -423,7 +423,7 @@ include 'includes/footertag.php';
 
 
 
-    <!--Why Choose Bharat Agrimart for Agriculture/Commercial Tractor Insurance Online End  -->
+    <!--Why Choose Bharat Agrimart's for Agriculture/Commercial Tractor Insurance Online End  -->
 
     <!-- Get insured your tractor with best offers -->
     <div class="container">
@@ -446,11 +446,11 @@ include 'includes/footertag.php';
 
         <h6 class="fw-bold px-2 mt-5">If You Have A Plan, Let’s Discuss</h6>
 
-        <p class="mt-4 px-2">At Bharat Agrimart, you can obtain online tractor insurance policies from different tractor
+        <p class="mt-4 px-2">At Bharat Agrimart's, you can obtain online tractor insurance policies from different tractor
             insurance companies like SBI tractor insurance. Additionally, you can check for tractor insurance details,
             apply for tractor insurance policy renewal online and much more. You can also choose from farm tractor
             insurance from different companies and check tractor insurance 1-year price and tractor insurance status
-            check in real-time. Bharat Agrimart experts have made the online commercial tractor insurance process very
+            check in real-time. Bharat Agrimart's experts have made the online commercial tractor insurance process very
             simple.</p>
 
         <p class="mt-4 px-2">It is fairly simple, fill in the details regarding the tractor, such as the Brand, the
@@ -458,7 +458,7 @@ include 'includes/footertag.php';
             leverage the tractor insurance premium calculator to check the tractor insurance amount and, ultimately,
             tractor insurance price in India!</p>
 
-        <p class="mt-4 px-2">Bharat Agrimart is committed to bringing you the best tractor insurance cost in India for
+        <p class="mt-4 px-2">Bharat Agrimart's is committed to bringing you the best tractor insurance cost in India for
             your development and security. When you choose us, we make sure you get the best agricultural tractor
             insurance online and don't regret your choices upon your decisions.</p>
     </div>

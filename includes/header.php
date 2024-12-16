@@ -1,6 +1,7 @@
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/header.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
 .autocomplete {
@@ -63,18 +64,85 @@ iframe.skiptranslate {
 #goog-gt-tt {
   visibility: hidden !important;  /* Hide the tooltip by default */
 }
-<style>
   /* Default font size for languages */
   #selected-language {
     font-size: 16px;
   }
 
-  /* Smaller font size for certain languages */
   .small-text-language {
-    font-size: 14px; /* Adjust as needed */
+    font-size: 14px; 
   }
-</style>
+  .input-group {
+    display: flex;
+    align-items: center;
+}
 
+.search-input {
+    height: 35px;
+    border-radius: 2px 0 0 2px;
+    padding-left: 15px;
+    font-size: 16px;
+    border: 2px solid #ebedee;
+    outline: none;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+    flex: 1;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.search-button {
+    height: 35px; /* Same height as search input */
+    border-radius: 0 2px 2px 0;
+    background-color: #346498;
+    border: block;
+    border-color:#ebedee;
+    font-size: 20px;
+    padding: 0 15px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ebedee;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    z-index: 1000;
+}
+
+.suggestion-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    /* transition: background-color 0.2s ease; */
+}
+
+.suggestion-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-list li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+.input-group .btn {
+    position: relative;
+    z-index: 2;
+    top: -5px;
+    }
 </style>
 <div class="fixed_nav" >
   <nav class="navbar navbar-expand-sm navbar-index">
@@ -90,286 +158,270 @@ iframe.skiptranslate {
         </button>
         <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="justify-content: end;">
           <div class="row w-100">
-            <div class="col-sm-6">
-              <form class="mb-0 navsearch">
-                <div class="row w-100">
-                    <div class="col-sm-9 pe-0">
-                        <div class="autocomplete">
-                            <input id="searchInput" type="text" class="w-100 text-dark" style="height:35px;"placeholder="Search">
-                            <ul id="suggestions"></ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 ps-0">
-                        <button class="btn btn-success" style="height:35px;" type="button" onclick="redirectToSearchPage()"><i class="fa-solid fa-magnifying-glass" style="font-size: 26px;"></i></button>
-                    </div> 
+            <div class="col-sm-6 mt-1">
+              <form class="mb-0 navsearch position-relative">
+                <div class="input-group">
+                  <input id="searchInput" type="text" class="form-control search-input" placeholder="Search">
+                    <button class="btn btn-primary search-button" type="button" onclick="redirectToSearchPage()">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
+                <ul id="suggestions" class="suggestion-list mt-5" style="display:none"></ul>
               </form>
-          </div>
-          <div class="col-sm-6 mt-2">
-            <ul class="navbar-nav float-end">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28" alt="Language Icon" title="Language" class="language-image">
-                  <span id="selected-language">English</span>
-                </a>
-                <div class="dropdown-menu language-dropdown" id="lang-mobile-block" style="display: none;">
-                  <a href="#" hreflang="en" title="English" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
-                  <a href="#" hreflang="hi" title="हिन्दी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">Hindi</a>
-                  <a href="#" hreflang="bn" title="বাংলা" class="dropdown-item text-dark notranslate" onclick="translateLanguage('bn')">Bengali</a>
-                  <a href="#" hreflang="mr" title="मराठी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('mr')">Marathi</a>
-                  <a href="#" hreflang="pa" title="ਪੰਜਾਬੀ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('pa')">Punjabi</a>
-                  <a href="#" hreflang="or" title="ଓଡ଼ିଆ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('or')">Odia</a>
-                  <a href="#" hreflang="te" title="తెలుగు" class="dropdown-item text-dark notranslate" onclick="translateLanguage('te')">Telugu</a>
-                  <a href="#" hreflang="ta" title="தமிழ்" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ta')">Tamil</a>
-                  <a href="#" hreflang="ml" title="മലയാളം" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ml')">Malayalam</a>
-                </div>
-              </li>
-              <li class="" id="google_translate_element" hidden></li>
-              
-              <li class="nav-item up-down">
-                  <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
-              </li>
-              <li class="nav-item up-down" id="loginContainer">
-                  <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
-                  <div id="myAccountDropdown" class="dropdown" style="display: none;">
-                      <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          My Account
-                      </button>
-                      <div class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
-                          <a class="dropdown-item text-dark p-2" href="userProfile.php">Profile</a>
-                          <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
-                      </div>
+            </div>
+            <div class="col-sm-6 ">
+              <ul class="navbar-nav float-end">
+                <li class="dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28" alt="Language Icon" title="Language" class="language-image">
+                    <span id="selected-language" class="text-white">English</span>
+                  </a>
+                  <div class="dropdown-menu language-dropdown" id="lang-mobile-block" style="display: none;">
+                    <a href="#" hreflang="en" title="English" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
+                    <a href="#" hreflang="hi" title="हिन्दी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">Hindi</a>
+                    <a href="#" hreflang="bn" title="বাংলা" class="dropdown-item text-dark notranslate" onclick="translateLanguage('bn')">Bengali</a>
+                    <a href="#" hreflang="mr" title="मराठी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('mr')">Marathi</a>
+                    <a href="#" hreflang="pa" title="ਪੰਜਾਬੀ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('pa')">Punjabi</a>
+                    <a href="#" hreflang="or" title="ଓଡ଼ିଆ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('or')">Odia</a>
+                    <a href="#" hreflang="te" title="తెలుగు" class="dropdown-item text-dark notranslate" onclick="translateLanguage('te')">Telugu</a>
+                    <a href="#" hreflang="ta" title="தமிழ்" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ta')">Tamil</a>
+                    <a href="#" hreflang="ml" title="മലയാളം" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ml')">Malayalam</a>
                   </div>
-              </li>
-
-            </ul>
-          </div>
+                </li>
+                <li class="" id="google_translate_element" hidden></li>
+                <li class="nav-item up-down mt-2">
+                    <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
+                </li>
+                <li class="nav-item up-down mt-2" id="loginContainer">
+                  <a class="nav-link" id="loginButton" href="user-login.php">
+                     Login 
+                  </a>
+                  <div id="myAccountDropdown" class="dropdown" style="display: none;">
+                    <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      My Account
+                    </button>
+                    <div class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
+                      <a class="dropdown-item text-dark p-2" href="userProfile.php">Profile</a>
+                        <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </nav> 
-<nav class="navbar  navbar-expand-lg navbar-dark main-navbar" >
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon bg-dark"></span>
-    </button>
-    <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
-      <ul class="navbar-nav  mb-2 mb-lg-0 ">
-        <li class="nav-item dropdown dropdown-toggle ">
-          <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            New Tractor
-          </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item dropend">
-              <a class=" nav-link nav-link_brand dropdown-toggle  fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Brand
-              </a>
-              <ul class="dropdown-menu p-0" id="selectedImagesContainer2">
-              </ul>
-            </li>
-           <hr class="dropdown-divider m-0">
-            <li><a href="find_new_tractors.php" class="dropdown-item fw-bold" >Find New Tractors</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a href="popular_tractors.php" class="dropdown-item  fw-bold" >Popular Tractors</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a href="upcoming_tractors.php" class="dropdown-item fw-bold" >Upcoming Tractor</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a href="latest_tractor.php" class="dropdown-item fw-bold">Latest Tractor</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a href="mini_tractor.php" class="dropdown-item fw-bold">Mini Tractor</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a href="4wd.php" class="dropdown-item fw-bold">4WD Tractor</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown dropdown-toggle ">
-          <hr class="dropdown-divider m-0">
-            <!-- <li class="nav-item dropend "> -->
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sell Tractor
-              </a>
-              <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
-              </ul>
-            <!-- </li> -->
-          </hr>
-        </li>
+  <nav class="navbar  navbar-expand-lg navbar-dark main-navbar p-0" >
+    <div class="container p-0">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon bg-dark"></span>
+      </button>
+      <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0 ">
           <li class="nav-item dropdown dropdown-toggle ">
-          <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Used
-          </a>
-          <ul class="dropdown-menu p-0">
-            <li class="nav-item dropend ">
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Buy Used
-              </a>
-              <ul class="dropdown-menu p-0">
-                <!-- <li><a class="dropdown-item fw-bold  py-2" href="certified_used_tractor.php">Certified Used Tractors</a></li>
-               <hr class="dropdown-divider m-0"> -->
-                <li><a class="dropdown-item fw-bold  py-2" href="used_tractor.php">Used Tractors</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="used_farm_imple.php">Used Farm Implements</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold py-2" href="used_harvester.php">Used Harvester</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-2" href="tractor_valuation.php">Tractor valuation</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-2" href="find_used_tracters.php">Find Used Tractor</a></li>
-              </ul>
-            </li>
-           <!-- <hr class="dropdown-divider m-0">
-            <li class="nav-item dropend ">
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sell Used
-              </a>
-              <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
-              </ul>
-            </li> -->
-           <hr class="dropdown-divider m-0">
-            <li class="nav-item dropend ">
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Rent & Hire
-              </a>
-              <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="rent.php">Rent Tractor</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-2" href="hire.php">Hire tractor</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown dropdown-toggle">
-          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Farm Equipment's
-          </a>
-          <ul class="dropdown-menu p-0">
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Implements</a>
-              <ul class="dropdown-menu p-0" id="selectedImagesContainer3">
-              </ul>
-                <!-- <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold py-1" href="#">Rotary Tiller</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold py-1" href="#">Cultivator</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold py-1" href="#">Plough</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="#">Harrow</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="#">Trailor</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1 mb-1" href="#">Tractor Mounted Sprayers</a></li> -->
-              
-            </li>
-            <li>
-             <hr class="dropdown-divider m-0">
-            </li>
-            <li class="" ><a class="dropdown-item text-dark fw-bold" href="harvester.php">Harvester</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown dropdown-toggle">
-          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Market & Farms
-          </a>
-          <ul class="dropdown-menu p-0">
-            <li class="nav-item dropend">
-              <a class="nav-link text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Bazaar Apke Aas Pass
-              </a>
-              
-              <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold" href="dummy.php">Sell Product</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold " href="hatbazar_buy.php">Buy Product</a></li>
-              </ul>
-            </li>
-            <li>
-             <hr class="dropdown-divider m-0">
-            </li>
-            <li class="" ><a class="dropdown-item text-dark fw-bold" href="nursery_ui.php">Nursery</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown dropdown-toggle">
-          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Enquiries
-          </a>
-          <ul class="dropdown-menu p-0">
-            <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown dropdown-toggle">
-          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Finance
-          </a>
-          <ul class="dropdown-menu p-0">
-            <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">Loan</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="Insurance.php">Insurance</a></li>
-          </ul>
-        </li>
-        
-        <!-- <li class="nav-item dropdown dropdown-toggle mt-3 ">
-          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Loan
-          </a> 
-          <ul class="dropdown-menu pt-3 mt-2">
-            <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="#">Loan Against Tractor</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="#">Personal Loan</a></li>
-          </ul>
-        </li>-->
-     
-        <li class="nav-item dropdown dropdown-toggle">
-          <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            News & Update
-          </a>
-          <ul class="dropdown-menu p-0" id="selectedImagesContainer1">
-           
-          </ul>
-        </li>
-  
-        <li class="nav-item dropdown dropdown-toggle ">
-          <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More
-          </a>
-          <ul class="dropdown-menu p-0">
-            <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
+            <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              New Tractor
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item dropend">
+                <a class=" nav-link nav-link_brand dropdown-toggle  fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Brand
+                </a>
+                <ul class="dropdown-menu p-0" id="selectedImagesContainer2"></ul>
+              </li>
+              <hr class="dropdown-divider m-0">
+                <li><a href="find_new_tractors.php" class="dropdown-item fw-bold" >Find New Tractors</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a href="popular_tractors.php" class="dropdown-item  fw-bold" >Popular Tractors</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a href="upcoming_tractors.php" class="dropdown-item fw-bold" >Upcoming Tractor</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a href="latest_tractor.php" class="dropdown-item fw-bold">Latest Tractor</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a href="mini_tractor.php" class="dropdown-item fw-bold">Mini Tractor</a></li>
+              <hr class="dropdown-divider m-0">
+              <li><a href="4wd.php" class="dropdown-item fw-bold">4WD Tractor</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle ">
             <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="agriculturecustomer.php">Agriculture College</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item  fw-bold" href="dealership_enq.php">Dealership Enquiry</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="engine_oil.php">Engine Oil</a></li>
-           <hr class="dropdown-divider m-0">
-            <li><a class="dropdown-item fw-bold" href="blog.php">Blogs</a></li>
-          </ul>
-        </li>
-      </ul>
-     
+              <!-- <li class="nav-item dropend "> -->
+                <a class=" nav-link nav-link_brand dropdown-toggle fw-bold  " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sell Tractor
+                </a>
+                <ul class="dropdown-menu p-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
+                </ul>
+              <!-- </li> -->
+            </hr>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle ">
+            <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Used
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li class="nav-item dropend ">
+                <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Buy Used
+                </a>
+                <ul class="dropdown-menu p-0">
+                  <!-- <li><a class="dropdown-item fw-bold  py-2" href="certified_used_tractor.php">Certified Used Tractors</a></li>
+                <hr class="dropdown-divider m-0"> -->
+                  <li><a class="dropdown-item fw-bold  py-2" href="used_tractor.php">Used Tractors</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="used_farm_imple.php">Used Farm Implements</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold py-2" href="used_harvester.php">Used Harvester</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item  fw-bold py-2" href="tractor_valuation.php">Tractor valuation</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item  fw-bold py-2" href="find_used_tracters.php">Find Used Tractor</a></li>
+                </ul>
+              </li>
+            <!-- <hr class="dropdown-divider m-0">
+              <li class="nav-item dropend ">
+                <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sell Used
+                </a>
+                <ul class="dropdown-menu p-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
+                </ul>
+              </li> -->
+            <hr class="dropdown-divider m-0">
+              <li class="nav-item dropend ">
+                <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Rent & Hire
+                </a>
+                <ul class="dropdown-menu p-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="rent.php">Rent Tractor</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold  py-2" href="hire.php">Hire tractor</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Farm Equipment's
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li class="nav-item dropend">
+                <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Implements</a>
+                <ul class="dropdown-menu p-0" id="selectedImagesContainer3"></ul>
+                  <!-- <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold py-1" href="#">Rotary Tiller</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold py-1" href="#">Cultivator</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold py-1" href="#">Plough</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item  fw-bold py-1" href="#">Harrow</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item  fw-bold py-1" href="#">Trailor</a></li>
+                <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item  fw-bold py-1 mb-1" href="#">Tractor Mounted Sprayers</a></li> -->
+              </li>
+              <li>
+                <hr class="dropdown-divider m-0">
+              </li>
+              <li class="" ><a class="dropdown-item text-dark fw-bold" href="harvester.php">Harvester</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Market & Farms
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li class="nav-item dropend">
+                <a class="nav-link text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Bazaar Apke Aas Pass
+                </a>
+                <ul class="dropdown-menu p-0">
+                  <li><a class="dropdown-item fw-bold" href="dummy.php">Sell Product</a></li>
+                  <hr class="dropdown-divider m-0">
+                  <li><a class="dropdown-item fw-bold " href="hatbazar_buy.php">Buy Product</a></li>
+                </ul>
+              </li>
+              <li><hr class="dropdown-divider m-0"></li>
+              <li class="" ><a class="dropdown-item text-dark fw-bold" href="nursery_ui.php">Nursery</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Enquiries
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
+            <hr class="dropdown-divider m-0">
+              <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Finance
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">Loan</a></li>
+            <hr class="dropdown-divider m-0">
+              <li><a class="dropdown-item fw-bold" href="Insurance.php">Insurance</a></li>
+            </ul>
+          </li>
+          
+          <!-- <li class="nav-item dropdown dropdown-toggle mt-3 ">
+            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Loan
+            </a> 
+            <ul class="dropdown-menu pt-3 mt-2">
+              <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
+            <hr class="dropdown-divider m-0">
+              <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
+            <hr class="dropdown-divider m-0">
+              <li><a class="dropdown-item fw-bold" href="#">Loan Against Tractor</a></li>
+            <hr class="dropdown-divider m-0">
+              <li><a class="dropdown-item fw-bold" href="#">Personal Loan</a></li>
+            </ul>
+          </li>-->
+          <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              News & Update
+            </a>
+            <ul class="dropdown-menu p-0" id="selectedImagesContainer1"></ul>
+          </li>
+          <li class="nav-item dropdown dropdown-toggle ">
+            <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
+              <hr class="dropdown-divider m-0">
+              <li><a class="dropdown-item fw-bold" href="agriculturecustomer.php">Agriculture College</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item  fw-bold" href="dealership_enq.php">Dealership Enquiry</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item fw-bold" href="engine_oil.php">Engine Oil</a></li>
+              <hr class="dropdown-divider m-0">
+                <li><a class="dropdown-item fw-bold" href="blog.php">Blogs</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>
 
 <!-- model popup -->
@@ -420,7 +472,6 @@ iframe.skiptranslate {
                 return a.id - b.id;
             });
 
-            // Take only the first four categories
             var topFourCategories = data.news_category.slice(0, 4);
               var newCard = topFourCategories.map(function(category) {
                 var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
@@ -430,7 +481,7 @@ iframe.skiptranslate {
                             </a>
                         </li>
                         <hr class="dropdown-divider m-0">`;
-            });
+              });
 
             $("#selectedImagesContainer1").append(newCard.join(''));
         },

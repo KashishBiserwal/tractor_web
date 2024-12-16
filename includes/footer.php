@@ -4,7 +4,7 @@
   	 		<div class="footer-col">
                 
   	 			<!-- <h4>Bhartiya Janta Party</h4> -->
-                <h4 class="text-white mt-1 ">DOWNLOAD BHARAT AGRIMART APP</h4>
+                <h4 class="text-white mt-1 ">DOWNLOAD BHARAT AGRIMART'S APP</h4>
                 <!-- <img src="assets/images/BJP-logo.png" alt="" class="fotterimg mt-3"> -->
                 <picture class="">
                     <a href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1">

@@ -94,8 +94,8 @@
    include 'includes/header.php';
    ?>
    <section id="section_1">
-        <section class="mt-5 pt-4">
-            <div class="container py-1">
+        <section class="mt-3 pt-5">
+            <div class="container">
                 <div class="mt-5 pt-3">
                     <span class="mt-5 text-white">
                         <a href="index.php" class="text-decoration-none header-link px-1">Home <i
@@ -107,23 +107,23 @@
         </section>
         <div class="container-fluid">
             <div class="row siv" id="">
-                <img src="assets/images/emi_tractor.png" alt="reload img" class="w-100" style="height: 350px;">
+                <img src="assets/images/emi_tractor.png" alt="reload img" class="w-100 p-0 m-0" style="height: 350px;">
             </div>
         </div>
-        <div class="container mt-5">
+        <div class="container mt-4 p-0">
             <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
                 <div class="col">
                     <div class="card bg-light">
                     <div class="card-body">
                         <h3 class="card-title fw-bold assured px-2">Tractor Loan EMI Calculator</h3>
-                            <p class="py-2">Discover the ease of financial planning with BharatAgrimart's user-friendly Tractor Loan EMI Calculator. It's designed to make your life simpler. With our EMI calculator, you can quickly find out how much your tractor EMI will be, the total interest you'll pay, and the overall amount. Just enter some important details like -</p>
+                            <p class="py-2">Discover the ease of financial planning with BharatAgrimart's's user-friendly Tractor Loan EMI Calculator. It's designed to make your life simpler. With our EMI calculator, you can quickly find out how much your tractor EMI will be, the total interest you'll pay, and the overall amount. Just enter some important details like -</p>
                             <div id="moreContent" style="display:none;">
                                 <ul>
                                     <li>(a) The amount you're borrowing</li>
                                     <li>(b) The interest rate</li>
                                     <li>(c) And how long you'll be repaying the loan</li>
                                 </ul>
-                                <p>BharatAgrimart is here to help you make your tractor ownership dreams come true without any confusion or hassle.</p>
+                                <p>BharatAgrimart's is here to help you make your tractor ownership dreams come true without any confusion or hassle.</p>
                             </div>
                             <a href="javascript:void(0)" class="text-primary read-more text-decoration-none fw-bold float-end" onclick="toggleContent()">Read More</a>
                         </div>
@@ -214,7 +214,7 @@
                         how often you'll pay, you can use the EMI calculator to see exactly how much you'll be paying back.
                         This way, you can plan your finances wisely and make your tractor dream come true.</p>
                     <h6 class="fw-bold assured px-2">Choose Your EMI Plan</h6>
-                    <p>At BharatAgrimart, we understand that different farmers have different needs and income cycles.
+                    <p>At BharatAgrimart's, we understand that different farmers have different needs and income cycles.
                         That's why we offer you a variety of options to choose from when it comes to repaying your tractor
                         loan.</p>
                     <p>Certainly, we give you the flexibility to choose your payment frequency – whether it's every month,
@@ -226,7 +226,7 @@
                         exactly how much you need to pay based on the payment frequency you select. Whether it's on a
                         monthly basis, every few months, or twice a year, you'll know the exact amount you're expected to
                         pay.</p>
-                    <p>So, rest assured that with BharatAgrimart, you're in control. You can plan your finances smartly and
+                    <p>So, rest assured that with BharatAgrimart's, you're in control. You can plan your finances smartly and
                         avoid any surprises.</p>
                     <p>We believe in transparency and ensuring that you're fully aware of your payment commitments. Choose
                         the payment schedule that suits you best and embark on your tractor ownership journey with
@@ -335,14 +335,14 @@
                                 <button class="accordion-button collapsed  fw-bold h4" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false"
                                     aria-controls="flush-collapse4">Que. What are the steps to calculate tractor loan EMI
-                                    from BharatAgrimart?</button>
+                                    from BharatAgrimart's?</button>
                             </h2>
                             <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4"
                                 data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    <p class="text-dark">Ans. You can calculate EMI with BharatAgrimart in 3 steps:
+                                    <p class="text-dark">Ans. You can calculate EMI with BharatAgrimart's in 3 steps:
                                     <ul>
-                                        <li>(a) Visit BharatAgrimart official website.</li>
+                                        <li>(a) Visit BharatAgrimart's official website.</li>
                                         <li>(b) Click on the EMI Calculator tab on the main menu bar.</li>
                                         <li>(c) Select the Tractor brand and model, enter the required details, and finally,
                                             click on the “calculate EMI” button.</li>

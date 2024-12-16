@@ -60,7 +60,7 @@
                                         <i class="fas fa-undo"></i> Reset </button>
                                 </div>
                                 <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success w-75">
+                                    <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success w-100">
                                         <i class="fas fa-filter"></i> Apply Filter</button>
                                 </div>
                             </div>

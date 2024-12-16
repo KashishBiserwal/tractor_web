@@ -29,7 +29,7 @@
    include 'includes/header.php';
    ?>
 
-<section class=" mt-5 pt-5 bg-light">
+<section class=" mt-3 pt-5 bg-light">
     <div class="container pt-5">
         <div class="py-2">
             <span class="bg-light">
@@ -42,7 +42,7 @@
 </section>
 <section>
     <div class="d-sm-flex align-items-center justify-content-between w-100">
-        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/istockphoto-1033665866-612x612.jpg); background-position: center; background-size: cover;"></div>
+        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/istockphoto-1033665866-612x612.png); background-position: center; background-size: cover;"></div>
     </div>
     <div class="page-banner-content text-center position-absolute px-2">
         <h2 class=" text-dark ">Get True Price of a <span class="text-success">Used Tractor</span></h2>
@@ -271,7 +271,7 @@
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                           <p class="text-dark">Ans. At BharatAgrimart, go on used tractor valuation then select your tractor brand name, select model number, select state, then select owner, select year in which you purchased your tractor, select tire condition of your tractor than add your name and mobile number. Then go on, get valuation and finally you get your fair tractor resale value.</p>
+                           <p class="text-dark">Ans. At BharatAgrimart's, go on used tractor valuation then select your tractor brand name, select model number, select state, then select owner, select year in which you purchased your tractor, select tire condition of your tractor than add your name and mobile number. Then go on, get valuation and finally you get your fair tractor resale value.</p>
                         </div>
                         </div>
                     </div>
@@ -295,7 +295,7 @@
                         </h2>
                         <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                            <p class="text-dark">Ans. Just like the used tractor valuation, you can easily sale your old tractor on BharatAgrimart. Go on, sell tractor online and fill the form and after that our team helps you in selling your tractor. Upload photos of your tractor if you want to sell your tractor quicker.</p>
+                            <p class="text-dark">Ans. Just like the used tractor valuation, you can easily sale your old tractor on BharatAgrimart's. Go on, sell tractor online and fill the form and after that our team helps you in selling your tractor. Upload photos of your tractor if you want to sell your tractor quicker.</p>
                             </div>
                         </div>
                     </div>
@@ -307,7 +307,7 @@
                         </h2>
                         <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p class="text-dark">Ans. No, BharatAgrimart has launched this feature for your convenience. Used tractor value guides free and provides you with a fair tractor resale price in India.</p>
+                                <p class="text-dark">Ans. No, BharatAgrimart's has launched this feature for your convenience. Used tractor value guides free and provides you with a fair tractor resale price in India.</p>
                             </div>
                         </div>
                     </div>
@@ -326,12 +326,12 @@
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading7">
                         <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
-                        Que. Is BharatAgrimart the right place to sell our tractor?
+                        Que. Is BharatAgrimart's the right place to sell our tractor?
                         </button>
                         </h2>
                         <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                               <p class="text-dark">Ans. Yes, BharatAgrimart is India's number one online platform where you get all brands tractors and their specifications. On BharatAgrimart you can also sell your used tractor. From used tractor valuation you get fair price of your tractor and from that, you can easily sale your tractor online.</p>
+                               <p class="text-dark">Ans. Yes, BharatAgrimart's is India's number one online platform where you get all brands tractors and their specifications. On BharatAgrimart's you can also sell your used tractor. From used tractor valuation you get fair price of your tractor and from that, you can easily sale your tractor online.</p>
                             </div>
                         </div>
                     </div>

@@ -133,7 +133,7 @@ include 'includes/footertag.php';
                 <div class="col-12 mt-3">
                     <button class="tractor_submit form-submit-btn  text-white bg-success w-100 px-3 mt-2 mb-3" id="get_on_road" type="submit">CHECK ON ROAD PRICE</button>
                 </div>
-                <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat AgriMart <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+                <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart's <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
             </div>
         </form>
       </div>
@@ -159,15 +159,15 @@ include 'includes/footertag.php';
         </div>
 
         <div>
-            <p class="mt-3">Bharat Agrimart presents to you the ease of buying a tractor and the other required implements with clicks of fingers. Best in Class tractors now do not need deep and engrossed research, the revolution of the tractor industry has come. On Road Price section brings to you the details about the pricing and the related queries at your ease, all you need to do is fill up the enquiry, submitting the enquiry will lead you to procuring the privilege of being personally handled and served by our friendly and knowledgeable customer care executives. </p>
+            <p class="mt-3">Bharat Agrimart's presents to you the ease of buying a tractor and the other required implements with clicks of fingers. Best in Class tractors now do not need deep and engrossed research, the revolution of the tractor industry has come. On Road Price section brings to you the details about the pricing and the related queries at your ease, all you need to do is fill up the enquiry, submitting the enquiry will lead you to procuring the privilege of being personally handled and served by our friendly and knowledgeable customer care executives. </p>
         </div>
         <div class="col-12 assured mt-3">
             <h4 class="fw-bold p-2">Get New Tractor On Road Price</h4>
         </div>
 
         <div>
-            <p class="mt-3">Bharat Agrimart cares for you, and we know how keen you know the tractor price on road of your selected tractor. We came up with this easy solution, here on this separate page “Tractor On Road Price” you get the on road tractor price in just a few steps. We are following explaining steps to get a new tractor on road price for your comfort.  </p>
-            <p class="mt-2">At Bharat Agrimart, you can easily find the “Tractor On Road Price '' page. You have to fill the given form like your tractor brand, tractor model no., your name, mobile no., state district, and tehsil. After that, you have to click on the check on road price.</p>
+            <p class="mt-3">Bharat Agrimart's cares for you, and we know how keen you know the tractor price on road of your selected tractor. We came up with this easy solution, here on this separate page “Tractor On Road Price” you get the on road tractor price in just a few steps. We are following explaining steps to get a new tractor on road price for your comfort.  </p>
+            <p class="mt-2">At Bharat Agrimart's, you can easily find the “Tractor On Road Price '' page. You have to fill the given form like your tractor brand, tractor model no., your name, mobile no., state district, and tehsil. After that, you have to click on the check on road price.</p>
         </div>
     </div>
     
