@@ -344,12 +344,12 @@ function getUserDetail(id) {
                 $('#form-step-3 #fname1').val(customer.first_name);
                 $('#form-step-3 #lname1').val(customer.last_name);
                 $('#form-step-3 #number1').val(customer.mobile);
-                $('#form-step-3 #state1').val(customer.state_id);
+                // $('#form-step-3 #state1').val(customer.state_id);
                 // $('#form-step-3 #district_1').val(customer.district);
                 // $('#form-step-3 #tehsil1').val(customer.tehsil1);
                 
                 if (isUserLoggedIn()) {
-                    $('#form-step-3 input, #form-step-3 select').not('#district_1,#tehsil1').prop('disabled', true);
+                    $('#form-step-3 input, #form-step-3 select').not('#district_1,#tehsil1,#state1').prop('disabled', true);
                 }
                 
             }

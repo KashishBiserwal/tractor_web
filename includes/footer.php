@@ -28,12 +28,12 @@
   	 			<h4>IMPORTANT LINKS</h4>
   	 			<ul>
                     <li>
-                        <a href="#" class="">
+                        <a href="about_us.php" class="">
                         About Us
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="">
+                        <a href="contact_us.php" class="">
                         Contact / Mail Us
                         </a>
                     </li>

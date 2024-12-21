@@ -337,14 +337,14 @@ function getUserDetail(id) {
                 $('#form-step-1 #f_name').val(customer.first_name);
                 $('#form-step-1 #l_name').val(customer.last_name);
                 $('#form-step-1 #m_number').val(customer.mobile);
-                $('#form-step-1 #s_state').val(customer.state_id);
+                // $('#form-step-1 #s_state').val(customer.state_id);
                 // $('#haatbazar_form #d_dist').val(customer.district);
                 // $('#haatbazar_form #t_tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#form-step-1 input, #form-step-1 select').not('#d_dist,#t_tehsil').prop('disabled', true);
+                    $('#form-step-1 input, #form-step-1 select').not('#d_dist,#t_tehsil,#s_state').prop('disabled', true);
                 }
                 
             }

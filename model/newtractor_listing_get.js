@@ -401,7 +401,7 @@ var productId = product_id;
 var apiBaseURL = APIBaseURL;
 var url = apiBaseURL + 'get_new_tractor_by_id/' + productId;
 
-// var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
+// var url = "http://tractor-api.divyaltech.com/api/admin/getBrandsById/" + productId;
 // console.log(url);
 var headers = {
 'Authorization': 'Bearer ' + localStorage.getItem('token')
