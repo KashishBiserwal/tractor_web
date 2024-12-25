@@ -129,6 +129,15 @@
               <li class="py-1 ps-3"><a href="feedback_ticket.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Feedback & Support Tickets</a></li>
           </ul>
         </div>
+        <!-- customer query -->
+        <button class="fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsenews" aria-expanded="true">
+        <i class="bi bi-question-diamond pe-3"></i> Customer Query<span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="collapse" id="about-collapsenews">
+          <ul class="list-unstyled fw-800 mb-0">
+              <li class="py-1 ps-3"><a href="customer_query.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Customer Query/Message</a></li>
+          </ul>
+        </div>
        
     </div>
 
