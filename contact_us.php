@@ -45,7 +45,7 @@
                 <p>+91 7828249836</p>
                 <p>+91 6260188089</p>
                 <!-- <p class="pb-3">📧 Email: bharat.agrimart@gmail.com</p> -->
-                <p class="pb-3"><a href="mailto:bharat.agrimart@gmail.com">📧 Email: bharat.agrimart@gmail.com</a></p>
+                <p class="pb-3"><span>📧 Email:</span> <a href="mailto:bharat.agrimart@gmail.com"> bharat.agrimart@gmail.com</a></p>
 
                 <h4 class="assured p-1 bg-light">Connect With Us on Social Media</h4>
                 <p>Stay connected and explore our latest updates, offers, and agricultural tips:</p>
