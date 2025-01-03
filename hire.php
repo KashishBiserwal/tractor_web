@@ -48,7 +48,7 @@
 <?php
    include 'includes/header.php';
 ?>
-<section class="mt-5 pt-5 bg-light">
+<section class="mt-3 pt-5 bg-light">
     <div class="container py-2">
          <div class="mt-4 pt-4">
             <span class="mt-5 text-white">
@@ -71,14 +71,14 @@
                 </div>
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-1">
+                <div class="row mb-3" id="">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 p-2">
                                 <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-1">
+                            <div class="col-6 col-sm-6 p-2">
                                 <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                             </div>
@@ -99,20 +99,20 @@
                 <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                        <div class="HP py-2" id="checkboxContainer"></div>
+                        <div class="HP py-2 w-100" id="checkboxContainer"></div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
-                        <div class="HP py-2" id="state_state" style=" height: 78px;">
+                        <div class="HP py-2 w-100" id="state_state" style=" height: 78px;">
                         </div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="district_container">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
-                        <div class="HP py-2" id="get_dist">
+                        <div class="HP py-2 w-100" id="get_dist">
                         </div>
                     </div>
                 </div>

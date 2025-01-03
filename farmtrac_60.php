@@ -140,290 +140,165 @@
 <section class="bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-9 col-md-9 col-sm-9" >
-                <div class="row my-4">
-                    <div class="col-2 col-md-2 col-lg-2 col-sm-2 p-2">
-                        <div class="Engine shadow p-3 "style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/engine.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Engine Power</h6>
-                                <p class="engine_name text-center"><span id="engine_powerhp"></span> HP</p>
-                            </div>
-                        </div>
+           <div class="col-12 col-lg-9 col-md-9 col-sm-12">
+           <div class="row my-4">
+            <div class="col-6 col-sm-4 col-md-2 p-2">
+                <div class="Engine shadow p-3 bg-white d-flex flex-column align-items-center justify-content-between" style="height: 150px;">
+                    <div class="text-center">
+                        <img src="assets/images/engine.png" width="50" height="50" alt="Engine">
                     </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-sm-2 p-2">
-                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/total-hours.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Total Hours</h6>
-                                <p class="total_time text-center" id="hours_driven"></p>
-                            </div>
-                        </div>
+                    <div class="text-center">
+                        <h6 class="engine_ fw-bold fs-6 m-1 text-dark">Engine Power</h6>
+                        <p class="engine_name"><span id="engine_powerhp">39</span> HP</p>
                     </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-sm-2 p-2">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/tyre-condition.png" width="50" height="58" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="tyre-condition text-center fw-bold m-1 text-dark">Tyre Conditons</h6>
-                                <p class="t-condition text-center mt-1" id="tyre_condition"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-sm-2 p-2">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/engine-condition.png" width="40" height="40" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="engine-condition text-center fw-bold m-1 text-dark">Engine Conditions</h6>
-                                <p class="t-condition text-center mt-1"id="engine_condition"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-sm-2 p-2">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/financier.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="rto_no text-center fw-bold fs-6 m-1 text-dark">Financier/NOC</h6>
-                                <p class="rto_noumber text-center" id="noc"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-sm-2 p-2">
-                        <div class=" Financier shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/rc.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="financier_ text-center fw-bold fs-6 m-1 text-dark">RC</h6>
-                                <p class="financier_no text-center" id="rc_number"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="my-4">
-                    <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Specifications For <span id="model_name2"></span></p></h4>
-                    </div>
-                </div>
-                <table class="table w-100 table-hover table table-striped my-4">
-                    <tbody>
-                        <tr class="col-12">
-                        <td class="table-data col-6">Brand</td>
-                        <td class="table-data col-6" id="brand_name"></td>
-                        </tr>
-                        <tr>
-                        <td class="table-data">Model</td>
-                        <td class="table-data" id="model_name3"></td>
-                        </tr>
-                        <!-- <tr>
-                        <td class="table-data">Power</td>
-                        <td class="table-data"> <span  id="engine_powerhp2"></span> HP</td>
-                        </tr> -->
-                        <tr>
-                        <td class="table-data">Tyre Condition</td>
-                        <td class="table-data" id="tyre2"></td>
-                        </tr>
-                        <tr>
-                        <td class="table-data">Engine Condition</td>
-                        <td class="table-data"id="engine2"></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="my-4">
-                    <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info <span id="model_name4"></span></p> </h4>
-                    </div>
-                </div>
-                <table class="table1 w-100 table-hover table table-striped my-4">
-                     <tbody>
-                        <tr  class="col-12">
-                        <td class="table-data col-6">Name</td>
-                        <td class="table-data col-6" id="name"></td>
-                        </tr>
-                        <tr>
-                        <td class="table-data">Mobile Number</td>
-                        <td class="table-data" id="mobile"></td>
-                        </tr>
-                        <!-- <tr>
-                        <td class="table-data">E-mail</td>
-                        <td class="table-data"id="email"></td>
-                        </tr> -->
-                        <tr>
-                        <td class="table-data">District</td>
-                        <td class="table-data" id="district">Durg</td>
-                        </tr>
-                        <tr>
-                        <td class="table-data">State</td>
-                        <td class="table-data" id="state_td"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="my-4">
-                    <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> Description</p></h4>
-                    </div>
-                    <p id="description"></p>
-                    
                 </div>
             </div>
+            <div class="col-6 col-sm-4 col-md-2 p-2">
+                <div class="Total-Hours shadow p-3 bg-white d-flex flex-column align-items-center justify-content-between" style="height: 150px;">
+                    <div class="text-center">
+                        <img src="assets/images/total-hours.png" width="50" height="50" alt="Total Hours">
+                    </div>
+                    <div class="text-center">
+                        <h6 class="fw-bold fs-6 m-1 text-dark">Total Hours</h6>
+                        <p class="total_time"><span id="hours_driven">250</span> hrs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 p-2">
+                <div class="Tyre shadow p-3 bg-white d-flex flex-column align-items-center justify-content-between" style="height: 150px;">
+                    <div class="text-center">
+                        <img src="assets/images/tyre-condition.png" width="50" height="58" alt="Tyre Condition">
+                    </div>
+                    <div class="text-center">
+                        <h6 class="fw-bold fs-6 m-1 text-dark">Tyre Condition</h6>
+                        <p class="t-condition"><span id="tyre_condition">Good</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 p-2">
+                <div class="Engine-Condition shadow p-3 bg-white d-flex flex-column align-items-center justify-content-between" style="height: 150px;">
+                    <div class="text-center">
+                        <img src="assets/images/engine-condition.png" width="40" height="40" alt="Engine Condition">
+                    </div>
+                    <div class="text-center">
+                        <h6 class="fw-bold fs-6 m-1 text-dark">Engine Condition</h6>
+                        <p class="t-condition"><span id="engine_condition">Excellent</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 p-2">
+                <div class="Financier shadow p-3 bg-white d-flex flex-column align-items-center justify-content-between" style="height: 150px;">
+                    <div class="text-center">
+                        <img src="assets/images/financier.png" width="50" height="50" alt="Financier/NOC">
+                    </div>
+                    <div class="text-center">
+                        <h6 class="fw-bold fs-6 m-1 text-dark">Financier/NOC</h6>
+                        <p class="rto_noumber"><span id="noc">Yes</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 p-2">
+                <div class="RC shadow p-3 bg-white d-flex flex-column align-items-center justify-content-between" style="height: 150px;">
+                    <div class="text-center">
+                        <img src="assets/images/rc.png" width="50" height="50" alt="RC">
+                    </div>
+                    <div class="text-center">
+                        <h6 class="fw-bold fs-6 m-1 text-dark">RC</h6>
+                        <p class="financier_no"><span id="rc_number">12345</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="my-4">
+                <div class="text-editor-black bg-white p-3">
+                    <h4>Specifications For <span id="model_name2"></span></h4>
+                </div>
+            </div>
+
+            <table class="table w-100 table-hover table-striped my-4">
+                <tbody>
+                    <tr>
+                        <td class="table-data">Brand</td>
+                        <td class="table-data" id="brand_name"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">Model</td>
+                        <td class="table-data" id="model_name3"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">Tyre Condition</td>
+                        <td class="table-data" id="tyre2"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">Engine Condition</td>
+                        <td class="table-data" id="engine2"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="my-4">
+                <div class="text-editor-black bg-white p-3">
+                    <h4>Seller Info <span id="model_name4"></span></h4>
+                </div>
+            </div>
+
+            <table class="table1 w-100 table-hover table-striped my-4">
+                <tbody>
+                    <tr>
+                        <td class="table-data">Name</td>
+                        <td class="table-data" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">Mobile Number</td>
+                        <td class="table-data" id="mobile"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">District</td>
+                        <td class="table-data" id="district">Durg</td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">State</td>
+                        <td class="table-data" id="state_td"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="my-4">
+                <div class="text-editor-black bg-white p-3">
+                    <h4><span id="model4"></span> Description</h4>
+                </div>
+                <p id="description"></p>
+            </div>
+        </div>
             
             <div class="col-12 col-lg-3 col-md-3 col-sm-3" >
                 <div class="row">
                     <div>
                         <h1 class="h4  my-4">New Popular Tractor</h1>
+                        <div id="productContainerpopular" class="row"></div>
                     </div>
-                    <div id="productContainerpopular" class="row"></div>
-                    <div class="text-center"><button id="load_more" class="btn btn-success">Load More</button></div>
-                    <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                        <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/275-di-tu-1632206550.webp" id="image_popular" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                        <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">Mahendra 454 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont">
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">40 HP</span>
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                        </div>
-                    </div> -->
-                    <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                        <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/275-di-tu-1632206550.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                        <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">Massey Ferguson 7250 </p></a>
-                            <p class="tractor-list-info mb-0 boldfont">
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">40 HP</span>
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                        </div>
+                   
+                    <div class="text-center">
+                        <button id="load_more" class="btn btn-success">Load More</button>
                     </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                        <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/275-di-tu-1632206550.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                        <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont">
-                                <span class="bg-light m-1" style=" font-size: 0.9rem;">40 HP</span>
-                                <span class="bg-light m-1" style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                        <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/275-di-tu-1632206550.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                         <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont m-2">
-                                <span class="bg-light" style=" font-size: 0.9rem;">40 HP</span>
-                                <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                        </div>
-                    </div> -->
-                    <div class="sticky my-3">
+                   <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
                             <h4>New Upcoming Tractors</h4>
-                        </div>
-                <div class="popular-used-tractor">
-                    <div class="row">
-                    <div id="productContainerupcoming" class="row"></div>
-                    <div class="col-12 text-center ">
-                    <button id="load_btn" type="button" class="btn btn-success">
-                        <i class="fas fa-undo"></i> Load More
-                    </button>
-                    </div>
-                        <!-- <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/mahindra-585-di-xp-plus.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                               <a href="#" class="text-decoration-none"><p class="mb-1">Mahendra 454 DI </p></a>
-                                <p class="trac">
-                                   <span class="bg-light">40 HP</span>
-                                   <span class="bg-light">WD</span>
-                                </p>
-                                <div class="">
-                                    <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
+                            <div class="popular-used-tractor">
+                            <div class="row">
+                                <div id="productContainerupcoming" class="row"></div>
+                                <div class="col-12 text-center ">
+                                    <button id="load_btn" type="button" class="btn btn-success">
+                                        <i class="fas fa-undo"></i> Load More
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/mahindra-585-di-xp-plus.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                                <a href="#" class="text-decoration-none"><p class="mb-1">Mahendra 454 DI </p></a>
-                                <p class="trac">
-                                    <span class="bg-light m-1"style=" font-size: 0.9rem;">40 HP</span>
-                                    <span class="bg-light m-1"style=" font-size: 0.9rem;">WD</span>
-                                </p>
-                                <div class="">
-                                    <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                                </div>
-                            </div>
                         </div>
-                        <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/mahindra-585-di-xp-plus.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                                <a href="#" class="text-decoration-none"><p class="mb-1">Mahendra 454 DI </p></a>
-                                <p class="trac">
-                                    <span class="bg-light"style=" font-size: 0.9rem;">40 HP</span>
-                                    <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
-                                </p>
-                                <div class="">
-                                    <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/mahindra-585-di-xp-plus.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                                <a href="#" class="text-decoration-none"><p class="mb-1">Mahendra 454 DI </p></a>
-                                <p class="trac">
-                                    <span class="bg-light"style=" font-size: 0.9rem;">40 HP</span>
-                                    <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
-                                </p>
-                                <div class="">
-                                    <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                                </div>
-                            </div>
-                        </div> -->
+                        
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
 
 

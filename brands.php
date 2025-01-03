@@ -49,10 +49,9 @@ include 'includes/headertag.php';
     </div>
 </section>
 
-<section class="bg-light pb-4">
+<!-- <section class="bg-light pb-4">
     <div class="container-fullwidth ">
         <div class="row">
-            <!-- <h1 class=" mt-5">Popular Mahindra Tractors</h1> -->
             <div id="popular_tractor"></div>
             <div id="productContainer" class="row"></div>
                 
@@ -63,12 +62,38 @@ include 'includes/headertag.php';
             <i class="fas fa-undo"></i>  Load More tractors</button>
          </div>
     </div>
-</section>
+</section> -->
 
- 
+<section>
+        <div class="container-fluid mt-4">
+
+           <div class="mt-5 bg-light" style="float:start;">
+            <div id="productContainer" class="row "></div>
+            <div class="col-12 text-center mb-4">
+               <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg">
+                <i class="fas fa-undo"></i>  Load More tractors</button>
+                </div>
+            </div>
+  
+        </div>
+    </section>
 
   <!-- used tractor -->
-    <section>
+  <section>
+        <div class="container-fullwidth mt-4">
+          
+           <div class="m-2 mt-5" style="float:start;">
+           <div id="used_tractor"></div>
+            <div id="productContainer2" class="row "></div>
+            <div class="col-12 text-center mb-4">
+               <button id="view_all_used_tractor"  type="button" class="add_btn btn-success btn btn-lg">
+                <i class="fas fa-undo"></i> View All Used Tractors</button>
+                </div>
+            </div>
+  
+        </div>
+    </section>
+    <!-- <section>
         <div class="container-fullwidth">
             <div class="row">
             <div class="row">
@@ -82,7 +107,7 @@ include 'includes/headertag.php';
                 <i class="fas fa-undo"></i>View All Used Tractors</button>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Mahindra Tractor Implements -->
     <!-- <section class="bg-light">

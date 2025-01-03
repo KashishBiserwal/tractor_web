@@ -48,37 +48,32 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="fw-bold">Used <span class="text-success fw-bold">Farm Implements</span> </h3>
-                <div class="row my-3">
-                    <div id="productContainer" class="row "></div>
-                        <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
-                        <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
-                    <div class="col-12 text-center">
-                        <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
-                        <i class="fas fa-undo"></i>  Load More Tractor </button>
-                    </div>
+                <div id="productContainer" class="row "></div>
+                <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
+                <div class="col-12 text-center">
+                    <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
+                    <i class="fas fa-undo"></i>  Load More Tractor </button>
                 </div>
             </div>
-            
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-12">
                         <div class=" row">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                            <div class="col-6 col-sm-6 p-2">
                                 <button id="adduser" type="button" class="add_btn btn-success w-100" onclick="resetform()">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                            <div class="col-6 col-sm-6 p-2">
                                 <button id="filter_implement" type="button" class="add_btn btn-success w-100">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                            </div>
-                            
                         </div>
                     </div>
                 </div>
-               
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
-                        <div class="price py-2 ">
+                        <div class="price py-2 w-100">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
@@ -87,71 +82,33 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="scrollbar mb-3" id="">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
-                        <div class="HP py-2">
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="21-30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="31-40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="41-50"/><span class="ps-2 fs-6">41 HP - 50 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="51-60"/><span class="ps-2 fs-6">51 HP - 60 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="61-70"/><span class="ps-2 fs-6">61 HP - 70 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="71-80"/><span class="ps-2 fs-6">71 HP - 80 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="81-90"/><span class="ps-2 fs-6">81 HP - 90 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="91-100"/><span class="ps-2 fs-6">91 HP - 100 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="101-110"/><span class="ps-2 fs-6">101 HP - 110 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="111-120"/><span class="ps-2 fs-6">111 HP - 120 HP</span><br />
-                        </div>
-                    </div>
-                </div> -->
-
                 <div class="scrollbar mb-3" id="">
-                        <div class="force-overflow">
-                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                            <div class="HP py-2" id="checkboxContainer"></div>
-                        </div>
+                    <div class="force-overflow">
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
+                        <div class="HP py-2 w-100" id="checkboxContainer"></div>
                     </div>
+                </div>
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
-                        <div class="HP py-2" id="state_state" style=" height: 78px;">
+                        <div class="HP py-2 w-100" id="state_state" style=" height: 78px;">
                         </div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By District</h5>
-                        <div class="HP py-2" id="district_dist">
+                        <div class="HP py-2 w-100" id="district_dist">
                         </div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
-                        <div class="HP py-2" id="P_year">
+                        <div class="HP py-2 w-100" id="P_year">
                         </div>
                     </div>
                 </div>
-                <!-- <div class="scrollbar mb-3" id=" my-2">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Year</h5>
-                        <div class="HP py-2">
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2021"/><span class="ps-2 fs-6">2021</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2020"/><span class="ps-2 fs-6">2020</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2019"/><span class="ps-2 fs-6">2019</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2018"/><span class="ps-2 fs-6">2018 </span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2017"/><span class="ps-2 fs-6">2017</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2016"/><span class="ps-2 fs-6">2016</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2015"/><span class="ps-2 fs-6">2015</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2014"/><span class="ps-2 fs-6">2006</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2013"/><span class="ps-2 fs-6">2005</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2012"/><span class="ps-2 fs-6">2009</span><br />
-                            
-
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

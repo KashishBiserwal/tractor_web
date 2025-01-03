@@ -1,22 +1,34 @@
 
-<!DOCTYPE html> 
 <html lang="en">
-  <head> <?php
-   include 'includes/headertag.php';
-   include 'includes/footertag.php';
-   ?> </head>
-   <!-- Google tag (gtag.js) -->
+<head>
+  <?php
+  include 'includes/headertag.php';
+  include 'includes/footertag.php';
+  ?> 
+
+  <!-- Preload Critical Image -->
+  <link rel="preload" as="image" href="assets/images/Slide-1.png">
+
+  <!-- Google Tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
-
     gtag('config', 'G-6Z38E658LD');
   </script>
-  <body> <?php
-   include 'includes/header.php';
-   ?>
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/index.js"defer></script>
+
+</head>
+
+  <body> 
+    <?php
+      include 'includes/header.php';
+      ?>
 <style>
  .thumb img {
   height: 100%;
@@ -105,9 +117,7 @@
   }
  
 </style>
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-<script src="<?php $baseUrl; ?>model/index.js"></script>
+
 <!-- Banner Here -->
 <section id="home-banner" class="banner__section overflow-hidden">
   <!-- Carousel wrapper -->
@@ -129,25 +139,25 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active" style="position: relative;">
-        <img src="assets/images/Slide-1 .png" alt="New York" class="d-block mx-auto w-100">
+      <img src="assets/images/Slide-1.png" alt="New York" class="d-block mx-auto w-100" loading="lazy">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-2.png" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-2.png" alt="New York"  loading="lazy" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-3 (1).png" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-3 (1).png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-4.png" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-4.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;"> 
-          <img src="assets/images/Slide-5.png" alt="New York" class="d-block mx-auto w-100"> 
+          <img src="assets/images/Slide-5.png" alt="New York" loading="lazy" class="d-block mx-auto w-100"> 
       </div>
       <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/new_image_for_slide6.png" alt="New York" class="d-block mx-auto w-100">
+          <img src="assets/images/new_image_for_slide6.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-7.png" alt="New York" class="d-block mx-auto w-100">
+        <img src="assets/images/Slide-7.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
       <!-- <div class="carousel-item" style="position: relative;">
         <img src="assets/images/slider-img-9.jpg" alt="New York" class="d-block mx-auto">
@@ -510,8 +520,8 @@
           </div>
         </div>
       </div>
-    </section>
-    <section class="">
+  </section>
+  <section class="">
       <div class="container">
         <h3 class="mt-5 pt-4 display-6 fw-bold">
           <spna class="text-success">Mini </spna> Tractors
@@ -539,10 +549,10 @@
           </div>
         </div>
       </div>
-    </section>
+</section>
     <!-- POPULAR TRACTOR implement -->
     <!-- <section class="section-imple slider-section bg-light"><div class="container "><h3 class="mb-3 display-6 fw-bold">Popular Tractor Implements</h3><div class="container-imple slider-column mt-4"><div class="swiper swiper-slider"><div class="swiper-wrapper"><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/mini-series-68-1608276318.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Universal Mini Series</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power:15-25</p></div></div><div class="swiper-slide h-autod-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/medium-duty-spring-loaded-cultivator-32943.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Medium Duty Spring Loaded Cultivator</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power : 50-65 HP</p></div></div><div class="swiper-slide h-auto d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/plant-topper-2-row-58-1675748621.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Shaktiman Grimme Plant Topper - 2 Row</h3></a><p class="text-center ">Seeding And Planting</p><p class="text-dark text-center fw-bold">Power : N/A</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/dr-multicrop-thresher-g-series-66-1679740591.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Dasmesh D.R. Multicrop Thresher (G-Series)</h3></a><p class="text-center ">Post Harvest</p><p class="text-dark text-center fw-bold">Power : 35 HP</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/hay-rake.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Hay Rake</h3></a><p class="text-center ">LandScaping</p><p class="text-dark text-center fw-bold">Power : 25 & Above</p></div></div></div><span class="swiper-button-prev"></span><span class="swiper-button-next"></span><div class="col text-center my-4 py-"><a href="#" class="btn btn-success btn-lg">View all Tractors Implementation</a></div></div></div></div></section> -->
-    <section class="bg-light">
+<section class="bg-light">
       <div class="container">
         <div class=" my-3  ">
           <h3 class="display-6 fw-bold  pt-2">
@@ -1051,10 +1061,12 @@
         </div>
       </div>
     </section> 
+
     <?php
     include 'includes/footer.php';
 
     ?>
+</body>
     <script>
       $('#usedtractorforsell').owlCarousel({
         loop: true,
@@ -1100,19 +1112,19 @@ function closeForm() {
 }
 </script>
 <script>
-fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_brands')
-  .then(response => response.json())
-  .then(data => {
-    const brandSelect = document.getElementById('brand');
+// fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_brands')
+//   .then(response => response.json())
+//   .then(data => {
+//     const brandSelect = document.getElementById('brand');
     
-    data.brands.forEach(brand => {
-      const option = document.createElement('option');
-      option.value = brand.id;
-      option.textContent = brand.name;
-      brandSelect.appendChild(option);
-    });
-  })
-  .catch(error => console.error('Error fetching brands:', error));
+//     data.brands.forEach(brand => {
+//       const option = document.createElement('option');
+//       option.value = brand.id;
+//       option.textContent = brand.name;
+//       brandSelect.appendChild(option);
+//     });
+//   })
+//   .catch(error => console.error('Error fetching brands:', error));
 
 document.getElementById('Search').addEventListener('click', function() {
   var brandId = document.getElementById('brand').value;

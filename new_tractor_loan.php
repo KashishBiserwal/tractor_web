@@ -298,21 +298,22 @@ include 'includes/footertag.php';
     <!-- Your Loan Path: Types and Eligibility Table End -->
     <!--Table Content-->
     <div class="container bg-light">
-        <div class="section-heading mb-2  text-center ">
-            <h3 class="text-dark fw-bold mt-5">Tractor Loan Interest Rate Comparison</h3>
-            <p class="mb-2">Compare the tractor loan interest rate below.</p>
-        </div>
-        <div class="row text-center">
-            <table class="mb-3 table table-bordered border border-dark" style=" background-color:#77bd57;">
-                <tbody>
-                    <thead>
-                        <tr>
-                            <th>Bank Name</th>
-                            <th>Interest Rate</th>
-                            <th>Loan Amount</th>
-                            <th>Loan Tenure</th>
-                        </tr>
-                    </thead>
+    <div class="section-heading mb-2 text-center">
+        <h3 class="text-dark fw-bold mt-5">Tractor Loan Interest Rate Comparison</h3>
+        <p class="mb-2">Compare the tractor loan interest rate below.</p>
+    </div>
+    <div class="row text-center">
+        <!-- Make the table responsive -->
+        <div class="table-responsive">
+            <table class="mb-3 table table-bordered border border-dark" style="background-color:#77bd57;">
+                <thead>
+                    <tr>
+                        <th>Bank Name</th>
+                        <th>Interest Rate</th>
+                        <th>Loan Amount</th>
+                        <th>Loan Tenure</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td>ICICI Bank</td>
@@ -321,7 +322,7 @@ include 'includes/footertag.php';
                         <td>Up to 5 years</td>
                     </tr>
                     <tr>
-                        <td>State Bank of India </td>
+                        <td>State Bank of India</td>
                         <td>9.00% p.a. - 10.25% p.a.</td>
                         <td>Up to 100% finance</td>
                         <td>Up to 5 years</td>
@@ -329,19 +330,21 @@ include 'includes/footertag.php';
                     <tr>
                         <td>HDFC Bank</td>
                         <td>12.57% p.a. to 23.26% p.a.*</td>
-                        <td>Up to 90% finance </td>
-                        <td> 12 months to 84 months</td>
+                        <td>Up to 90% finance</td>
+                        <td>12 months to 84 months</td>
                     </tr>
                     <tr>
                         <td>Poonawalla Fincorp</td>
                         <td>16% p.a. to 20% p.a.</td>
-                        <td> Up to 90% - 95% finance </td>
+                        <td>Up to 90% - 95% finance</td>
                         <td>According to bank</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
+
     <!--Table Content End-->
     <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart's Start -->
     <div class="container">

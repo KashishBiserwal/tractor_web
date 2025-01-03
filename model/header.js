@@ -35,9 +35,6 @@ function updateUI() {
     }
 }
 
-
-
-
 function user_logout() {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_logout";
     var phone = localStorage.getItem('mobile');

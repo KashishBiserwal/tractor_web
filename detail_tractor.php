@@ -147,68 +147,65 @@
     </section>
 
    
-    <section class="bg-light">
-        <div class="container">
-            <div class="row pt-4">
-                <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
-                <h4 class="text-dark fw-bold assured mt-2 ps-3" ><span class="text-success brand_model "></span> Other Features</h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding ">
-
-                        <div class=" text-center other_feature_card">
-                        <div class="feature__gridIcon">
-                            <img src="assets/images/clutch.png"  alt="">
-                        </div>
-                            <p class="feature__gridProperty mb-1   text-center fw-bold  text-dark">Clutch</p>
-                            <p class="engine_name mb-0 text-center" id="transmission_clutch_value2"> </p>
-                        </div>
-
-                    </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding">
-                        <div class=" text-center other_feature_card">
-                        <div class="feature__gridIcon">
-                            <img src="assets/images/steering.png"  alt="">
-                        </div>
-                            <p class="feature__gridProperty mb-1   text-center fw-bold  text-dark">STEERING</p>
-                            <p class="engine_name mb-0 text-center" id="steering_column_value2"></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding">
-                        <div class=" text-center other_feature_card">
-                        <div class="feature__gridIcon">
-                            <img src="assets/images/wheel-drive.png"  alt="">
-                        </div>
-                            <p class="feature__gridProperty mb-1   text-center fw-bold  text-dark">Wheel Drive</p>
-                            <p class="engine_name mb-0 text-center" id="wheel_drive"></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding">
-                        <div class=" text-center other_feature_card">
-                        <div class="feature__gridIcon">
-                            <img src="assets/images/lifting.webp"  alt="">
-                        </div>
-                            <p class="feature__gridProperty mb-1  text-center fw-bold  text-dark">LIFTING CAPACITY</p>
-                            <p class="engine_name mb-0 text-center" id="liftingC"></p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding ">
-                        <div class=" text-center other_feature_card">
-                        <div class="feature__gridIcon">
-                            <img src="assets/images/rpm.png" alt="">
-                        </div>
-                            <p class="feature__gridProperty mb-1  text-center fw-bold  text-dark">ENGINE RATED RPM</p>
-                            <p class="engine_name mb-0 text-center" id="engine_rated_rpm2"></p>
-                        </div>
-
-                    </div>
-                </div>
-
-
+<section class="bg-light">
+    <div class="container">
+        <div class="row pt-4">
+            <div class="col-12">
+                <h4 class="text-dark fw-bold assured mt-2">
+                    <span class="text-success brand_model p-2"></span> Other Features
+                </h4>
             </div>
         </div>
+        <div class="row mt-2 justify-content-center">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col_padding">
+                <div class="text-center other_feature_card">
+                    <div class="feature__gridIcon">
+                        <img src="assets/images/clutch.png" alt="">
+                    </div>
+                    <p class="feature__gridProperty mb-1 text-center fw-bold text-dark">Clutch</p>
+                    <p class="engine_name mb-0 text-center" id="transmission_clutch_value2"></p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col_padding">
+                <div class="text-center other_feature_card">
+                    <div class="feature__gridIcon">
+                        <img src="assets/images/steering.png" alt="">
+                    </div>
+                    <p class="feature__gridProperty mb-1 text-center fw-bold text-dark">Steering</p>
+                    <p class="engine_name mb-0 text-center" id="steering_column_value2"></p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col_padding">
+                <div class="text-center other_feature_card">
+                    <div class="feature__gridIcon">
+                        <img src="assets/images/wheel-drive.png" alt="">
+                    </div>
+                    <p class="feature__gridProperty mb-1 text-center fw-bold text-dark">Wheel Drive</p>
+                    <p class="engine_name mb-0 text-center" id="wheel_drive"></p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col_padding">
+                <div class="text-center other_feature_card">
+                    <div class="feature__gridIcon">
+                        <img src="assets/images/lifting.webp" alt="">
+                    </div>
+                    <p class="feature__gridProperty mb-1 text-center fw-bold text-dark">Lifting Capacity</p>
+                    <p class="engine_name mb-0 text-center" id="liftingC"></p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col_padding">
+                <div class="text-center other_feature_card">
+                    <div class="feature__gridIcon">
+                        <img src="assets/images/rpm.png" alt="">
+                    </div>
+                    <p class="feature__gridProperty mb-1 text-center fw-bold text-dark">Engine Rated RPM</p>
+                    <p class="engine_name mb-0 text-center" id="engine_rated_rpm2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    </section>
 
     <section class="bg-light ">
         <div class="container ">

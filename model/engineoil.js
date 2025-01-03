@@ -139,16 +139,17 @@ function displayEngineoil(engineoil) {
                     <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">
                         <p class="fs-5 fw-bold px-3 mb-0">${p.brand_name}</p>
                         <p class="text-success fw-bold px-3 text-truncate" style="font-size:12px;">Model: ${p.oil_model}</p>
-                        <div class="col-12 px-3">
+                     <div class="col-12 px-3">
                             <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">
+                                <div class="col-12 col-md-6 engineoil_details pe-1 p-1">
                                     <p>Grade: ${p.grade}</p>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details ps-1">
+                                <div class="col-12 col-md-6 engineoil_details pe-1 p-1">
                                     <p>Quantity: ${p.quantity}L</p>
                                 </div>                  
                             </div>
                         </div>
+
                         <div class="row">
                             <h3 class="text-center text-dark" style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="font-size: 22px;"></i>${formattedPrice}</h3>
                         </div>  

@@ -94,16 +94,17 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="row my-3 text-center">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                        <button type="button" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">GET BEST PRICE</button>
+                <div class="row my-3 text-center justify-content-center">
+                    <div class="col-12 col-lg-5 col-md-6 col-sm-6 mb-3 mb-lg-0">
+                        <button type="button" class="btn btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                            GET BEST PRICE
+                        </button>
                     </div>
-                    
-                    <div class="col-12 col-lg-5 col-md-5 col-sm-5 ms-4 border border-success">
-                        <a href="new_tractor_loan.php">
-                            <button type="submit" class="text-success w-100 fw-bold" >VIEW LOAN OFFERS</button>
-                        </a>    
-                    </div>                    
+                    <div class="col-12 col-lg-5 col-md-6 col-sm-6">
+                        <a href="new_tractor_loan.php" class="btn btn-outline-success w-100 fw-bold">
+                            VIEW LOAN OFFERS
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>       

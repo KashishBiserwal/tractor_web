@@ -50,13 +50,13 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                     <div class=" row mb-3" id="">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class=" row text-center">
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6 col-sm-6 p-2">
                                     <button id="reset_tractor" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
                                     <i class="fas fa-undo"></i>  Reset </button>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                                <div class="col-6 col-sm-6 p-2">
                                     <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
                                     <i class="fas fa-filter"></i>Apply Filter</button>
                                 </div>
@@ -66,7 +66,7 @@
                     <div class="scrollbar mb-3" id=" my-2">
                         <div class="force-overflow">
                             <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Category</h5>
-                            <div class="HP py-2" id="checkboxContainer">
+                            <div class="HP py-2 w-100" id="checkboxContainer">
                             </div>
                         </div>
                    </div>

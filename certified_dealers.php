@@ -52,56 +52,51 @@
 
     <!-- FORM --> 
     <section class="form-view bg-white pb-4" id="section-1">
-      <div class="container ms-5" style="position: relative;margin-top:-145px;">
+    <div class="container-fluid px-3" style="position: relative; margin-top: -145px;">
         <div class="row">
-          <div class="col-md-8 col-lg-8 col-sm-8">
-            <form id="certified_dealer_from" class="form-view-inner bg-light box-shadow p-3" action="" method="">
-              <div class="row justify-content-center g-3">
-                <div class="col-12 col-md-4 col-sm-4 col-lg-4 mt-4">
-                  <div class="form-outline">
-                    <label for="_brand" class="form-label fw-bold text-dark">Brand</label>
-                    <select class="form-select form-select-sm" id="b_brand" name="_brand">
-                    
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                  <div class="form-outline">
-                    <label for="_state" class="form-label text-dark fw-bold">State</label>
-                    <select class="form-select form-select-sm state_select" id="_state" name="_state">
-                 
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                  <div class="form-outline">
-                    <label for="_district" class="form-label fw-bold text-dark">District</label>
-                    <select class="form-select form-select-sm district_select" id="_district" name="_district">
-                     
-                    </select>
-                  </div>
-                </div>
-                <div class=" mt-3">
-                  <div class="row g-3">
-                    <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                      <button type="button" id="dealership_enq_btn" class="btn btn-success w-100"onclick="searchdata()">Search Dealer</button>
+            <div class="col-12 col-md-8 col-lg-8">
+                <form id="certified_dealer_from" class="form-view-inner bg-light box-shadow p-3" action="" method="">
+                    <div class="row justify-content-center g-3">
+                        <div class="col-12 col-md-4 mt-4">
+                            <div class="form-outline">
+                                <label for="_brand" class="form-label fw-bold text-dark">Brand</label>
+                                <select class="form-select form-select-sm" id="b_brand" name="_brand"></select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-4">
+                            <div class="form-outline">
+                                <label for="_state" class="form-label text-dark fw-bold">State</label>
+                                <select class="form-select form-select-sm state_select" id="_state" name="_state"></select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-4">
+                            <div class="form-outline">
+                                <label for="_district" class="form-label fw-bold text-dark">District</label>
+                                <select class="form-select form-select-sm district_select" id="_district" name="_district"></select>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-5 col-sm-6">
+                                    <button type="button" id="dealership_enq_btn" class="btn btn-success w-100" onclick="searchdata()">Search Dealer</button>
+                                </div>
+                                <div class="col-12 col-md-6 col-sm-6">
+                                    <a href="become_certified.php" class="btn btn-success w-100">Become Certified Dealer</a>
+                                </div>
+                                <div class="col-12 col-md-1 col-sm-12">
+                                    <button type="button" id="Reset" class="btn btn-success w-100 add_btn" onclick="resetform()">
+                                        <i class="fas fa-undo w-20px h-20px"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <a href="become_certified.php" class="btn btn-success w-100">Become Certified Dealer</a>
-                    </div>
-                    <div class="col-12 col-lg-1 col-md-1 col-sm-1">
-                      <button type="button" id="Reset" class="btn btn-success w-100 add_btn"onclick="resetform()"><i class="fas fa-undo w-20px h-20px"></i></button>
-                      <!-- <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset" onclick="resetform()">Reset</button> -->
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
+
 
   <section id="section-2">
     <div class="container mt-5" style="float:start;">

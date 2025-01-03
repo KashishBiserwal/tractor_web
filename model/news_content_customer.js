@@ -7,36 +7,42 @@ function get_details() {
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_news_details_by_id/" + productId;
-    
+
     $.ajax({
         url: url,
         type: "GET",
         success: function (data) {
             console.log(data, 'abc');
 
+            // Set text content
             document.getElementById('news_heading').innerText = data.news_details[0].news_headline;
             document.getElementById('news_date').innerText = data.news_details[0].date;
             document.getElementById('heading_deatail').innerText = data.news_details[0].news_headline;
             document.getElementById('content').innerText = data.news_details[0].news_content;
 
+            // Process image data
             var images = data.news_details[0].image_names;
             var imageArray = images.split(',');
             var firstImage = imageArray.length > 0 ? imageArray[0].trim() : '';
 
-            var imgContainer = document.getElementById('news_img');
-            
-            // Create image element
-            var imgElement = document.createElement('img');
-            imgElement.src = "http://tractor-api.divyaltech.com/uploads/news_img/" + firstImage;
-            imgElement.alt = "Image";
+            if (firstImage) {
+                var imgContainer = document.getElementById('news_img');
+                
+                // Create and append the image
+                var imgElement = document.createElement('img');
+                imgElement.src = "http://tractor-api.divyaltech.com/uploads/news_img/" + firstImage;
+                imgElement.alt = "News Image";
+                imgElement.className = "img-fluid rounded mx-auto d-block"; // Responsive styling
 
-            // Add event listener to adjust image size once it's loaded
-            imgElement.addEventListener('load', function() {
-                adjustImageSize(imgElement);
-            });
+                // Adjust image size dynamically
+                imgElement.onload = function () {
+                    adjustImageSize(imgElement);
+                };
 
-            // Append image element to the container
-            imgContainer.appendChild(imgElement);
+                imgContainer.appendChild(imgElement);
+            } else {
+                console.error("No image found in the response.");
+            }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -45,17 +51,29 @@ function get_details() {
 }
 
 function adjustImageSize(imgElement) {
-    // Define maximum height for the image
-    var maxHeight = 300; // Adjust this value as needed
-    
+    // Maximum dimensions for the image
+    var maxHeight = 300; // Adjust height as needed
+    var maxWidth = 500;  // Adjust width as needed
+
+    // Get natural dimensions
+    var naturalWidth = imgElement.naturalWidth;
+    var naturalHeight = imgElement.naturalHeight;
+
     // Calculate aspect ratio
-    var aspectRatio = imgElement.naturalWidth / imgElement.naturalHeight;
+    var aspectRatio = naturalWidth / naturalHeight;
 
-    // Calculate width based on the maximum height
-    var newWidth = maxHeight * aspectRatio;
+    // Adjust dimensions based on max height and width
+    if (naturalHeight > maxHeight) {
+        imgElement.style.height = maxHeight + "px";
+        imgElement.style.width = maxHeight * aspectRatio + "px";
+    } else if (naturalWidth > maxWidth) {
+        imgElement.style.width = maxWidth + "px";
+        imgElement.style.height = maxWidth / aspectRatio + "px";
+    } else {
+        imgElement.style.height = naturalHeight + "px";
+        imgElement.style.width = naturalWidth + "px";
+    }
 
-    // Set the new width and height to the image
-    imgElement.style.width = newWidth + 'px';
-    imgElement.style.height = maxHeight + 'px';
-    imgElement.style.display = 'inline-block'; // Set display to inline-block to center the image horizontally
+    // Center the image
+    imgElement.style.display = "inline-block";
 }

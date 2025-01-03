@@ -46,50 +46,35 @@
     </div>
 </section>
 <section >
-    <div class="container my-3">
+    <div class="container my-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
-                <div class=" row mb-3" id="">
-                    <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3">
-                        <button id="adduser" type="button" class="add_btn btn  btn-success px-3">
-                             <i class="fa-solid fa-cart-shopping"></i> Buy tractor </button>  &nbsp;
-                        <button id="adduser" type="button" class="add_btn btn btn-success">
-                            <i class="fa-sharp fa-solid fa-handshake"></i> Sell tractor </button>
-                    </div> -->
-                </div>
-               
-                <div class="row my-3">
-                    <div id="productContainer" class="row "></div>
-                    <div class="col-12 text-center">
-                        <!-- <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
-                        <i class="fas fa-undo"></i>  Load More Tractor </button> -->
-                         <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
-                         <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
-
-                        <button type="button" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button> 
-                    </div>
+                <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span></h3>
+                <div id="productContainer" class="row "></div>
+                <div class="col-12 text-center">
+                    <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                    <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
+                    <button type="button" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button> 
                 </div>
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                    <div class=" row mb-3" id="">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class=" row text-center">
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                    <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
-                                    <i class="fas fa-undo"></i>  Reset </button>
-                                </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                    <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
-                                    <i class="fas fa-filter"></i>  Apply Filter </button>
-                                </div>
+                <div class=" row mb-3" id="">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 p-2">
+                                <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                <i class="fas fa-undo"></i>  Reset </button>
+                            </div>
+                            <div class="col-6 col-sm-6 p-2">
+                                <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
+                                <i class="fas fa-filter"></i>  Apply Filter </button>
                             </div>
                         </div>
                     </div>
-               
+                </div>
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
-                        <div class="price py-2 ">
+                        <div class="price py-2 w-100">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
@@ -99,31 +84,29 @@
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="">
-                        <div class="force-overflow">
-                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                            <div class="HP py-2" id="checkboxContainer"></div>
-                        </div>
+                    <div class="force-overflow">
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
+                        <div class="HP py-2 w-100" id="checkboxContainer"></div>
                     </div>
-                    <div class="scrollbar mb-3" id=" my-2">
+                </div>
+                <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
-                        <div class="HP py-2" id="state_state" style=" height: 140px;">
-                        </div>
+                        <div class="HP py-2 w-100" id="state_state" style=" height: 140px;"></div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="district_container">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
-                        <div class="HP py-2" id="get_dist" style=" height: 140px;">
+                        <div class="HP py-2 w-100" id="get_dist" style=" height: 140px;">
                             <!-- District checkboxes will be appended here -->
                         </div>
                     </div>
                 </div>
-              
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
-                        <div class="HP py-2" id="P_year">
+                        <div class="HP py-2 w-100" id="P_year">
                             <!-- Checkboxes will be dynamically added here -->
                         </div>
                     </div>

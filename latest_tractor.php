@@ -49,15 +49,15 @@ include 'includes/headertag.php';
             </div>
             
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button onclick="resetform()" type="button" class=" btn add_btn btn-success px-4">
+                <div class=" row mb-3">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 p-2">
+                                <button onclick="resetform()" type="button" class=" btn add_btn btn-success w-100">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="filter_tractor" type="button" class=" btn add_btn btn-success p-1">
+                            <div class="col-6 col-sm-6 p-2">
+                                <button id="filter_tractor" type="button" class=" btn add_btn btn-success w-100">
                                 <i class="fas fa-filter"></i>Apply Filter</button>
                            </div>
                             
@@ -67,7 +67,7 @@ include 'includes/headertag.php';
                
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
-                        <div class="price py-2 ">
+                        <div class="price py-2 w-100">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
                             <input type="checkbox" class="checkbox-round budget_checkbox mt-1 ms-3" value="0-3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round budget_checkbox mt-1 ms-3" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 5 Lakh</span><br />
@@ -80,7 +80,7 @@ include 'includes/headertag.php';
                 <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
-                        <div class="HP py-2">
+                        <div class="HP py-2 w-100">
                             
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <input type="checkbox" class="checkbox-round hp_checkbox mt-1 ms-3" value="0 - 20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
@@ -96,7 +96,7 @@ include 'includes/headertag.php';
                 <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                             <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                            <div class="HP py-2" id="checkboxContainer">
+                            <div class="HP py-2 w-100" id="checkboxContainer">
                             </div>
                         </div>
                     </div>

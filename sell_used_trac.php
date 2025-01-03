@@ -151,13 +151,37 @@
             font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
         }
 
+/* Section background for tractor banner */
+.tractor-banner-section {
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+}
+
+.tractor-banner-bg {
+    min-height: 360px;
+    background-image: url('assets/images/image_2023_09_02T08_22_01_554Z.png');
+    background-position: center;
+    background-size: cover;
+}
+
 .page-banner-content {
     position: absolute;
-    content: "";
-    left: 0;
-    top: 9%;
+    top: 30%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 10;
+    padding: 0 15px; 
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .page-banner-content {
+        top: 30%;
+        padding: 0 10px;
+    }
+}
+
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -199,18 +223,20 @@
         </div>
     </div>
 </section> -->
-<section>
+<section class="tractor-banner-section">
     <div class="d-sm-flex align-items-center justify-content-between w-100">
-
-        <!-- in mobile remove the clippath -->
-        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
+        <!-- Background image container -->
+        <div class="col-12 h-100 tractor-banner-bg">
         </div>
     </div>
-    <div class="page-banner-content text-center position-absolute px-2">
-    <h2 class=" text-dark ">Sell Your <span class="text-success">Used Tractor</span></h2>
-    <h4 class="mb-4">"Photo Khicho Tractor Becho"</h4>
-        </div>
+    <!-- Text content -->
+    <div class="page-banner-content text-center">
+        <h2 class="text-dark">Sell Your <span class="text-success">Used Tractor</span></h2>
+        <h4 class="mb-4">"Photo Khicho Tractor Becho"</h4>
+    </div>
 </section>
+
+
 
 <section class="form-view bg-white ">
     <div class="container-mid" style="position: relative;">

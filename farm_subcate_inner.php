@@ -104,12 +104,12 @@
                     </table>
                     <div class="row my-3 text-center">
                        
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-6 col-sm-6 p-2">
                             <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                                 Request Call Back
                             </button>
                         </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-6 col-sm-6 p-2">
                             <a type="button" href="loan.php" class="btn btn-success text-decoration-none text-center w-100">
                                Apply Loan
                             </a>
@@ -253,7 +253,7 @@
                     <div>
                         <h1 class="h4  my-4">New Popular Tractor</h1>
                     </div>
-                    <div id="productContainerpopular" class="row"></div>
+                    <div id="productContainerpopular" class=""></div>
                     <div class="text-center"><button id="load_more" class="btn btn-success">Load More</button></div>
                     <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">

@@ -196,10 +196,10 @@ engineoil.forEach(function (p) {
           <p class="text-success fw-bold px-3" style="font-size:12px;">Model: ${p.oil_model}</p>
           <div class="col-12 px-3">
               <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1 p-1">
                       <p>Grade: ${p.grade}</p>
                   </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details ps-1">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1 p-1">
                       <p>Quantity: ${p.quantity}L</p>
                   </div>                  
               </div>

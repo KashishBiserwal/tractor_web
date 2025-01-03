@@ -32,6 +32,9 @@
 
 
     <style>
+          body {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        } 
         .step-container {
             position: relative;
             text-align: center;
@@ -146,9 +149,35 @@
   height: 125px;
   }
      
-        body {
-            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-        }      
+       
+     /* Section background */
+.banner-section {
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+}
+.banner-bg {
+    min-height: 360px;
+    background-image: url('assets/images/image_2023_09_02T08_22_01_554Z.png');
+    background-position: center;
+    background-size: cover;
+}
+.page-banner-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; 
+    padding: 0 15px;
+    width: 100%; 
+}
+@media (max-width: 768px) {
+    .page-banner-content {
+        top: 32%;
+        padding: 0 10px;
+    }
+}
+
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -176,19 +205,19 @@
         </div>
     </div>
 </section>
-<section>
+<section class="banner-section">
     <div class="d-sm-flex align-items-center justify-content-between w-100">
-
-        <!-- in mobile remove the clippath -->
-        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
+        <!-- Background image container -->
+        <div class="col-12 h-100 banner-bg">
         </div>
     </div>
-    <div class="page-banner-content text-center position-absolute px-2" style="top:14%">
-    <h2 class=" text-dark ">Sell Your <span class="text-success">Used Implements</span></h2>
-    <h4 class="mb-4">"Photo Khicho Implements Becho"</h4>
-    <!-- <h4 class="mb-4">"Fill the information to sell your used Implement"</h4> -->
-        </div>
+    <!-- Text content -->
+    <div class="page-banner-content text-center">
+        <h2 class="text-dark">Sell Your <span class="text-success">Used Implements</span></h2>
+        <h4 class="mb-4">"Photo Khicho Implements Becho"</h4>
+    </div>
 </section>
+
 
 
 <section class="form-view bg-white ">

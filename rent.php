@@ -208,6 +208,14 @@
     .nav-link:hover{
         color: #198754;
     }
+    @media (max-width: 768px) {
+  .Rent-container {
+    width: 100%;
+    padding: 5px; 
+    margin:5px;/* Optional: Remove padding if you want the content to stretch edge-to-edge */
+  }
+}
+
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -242,7 +250,7 @@
     <div class="container-fluid">
         <div class="row siv" id="">
             <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
-            <div class="container-mid">
+            <div class="container-mid Rent-container">
                 <div class="row justify-content-center loan_form bg-light">
                     <h4 class="text-dark text-center fw-bold mt-4">Rent Your Tractors and Implements</h4>
                     <ul class="nav nav-tabs d-none d-lg-flex px-3" id="myTab" role="tablist">

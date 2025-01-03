@@ -45,21 +45,13 @@ include 'includes/headertag.php';
 <section>
   <div class="container">
     <div class="row mt-2">
-      <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-        <div>
-          <h4 id="brand_main"></h4>
-        </div>
-        <!-- <div>
-          <div class="swiper swiper_buy mySwiper2_buy">
-            <div class="swiper-wrapper swiper-wrapper_buy">
-              <div class=" swiper-slide swiper-slide_buy">
-              </div>
-            </div>
-          </div>
-          <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
-        </div> -->
-        <img class="img_buy" id="img_buy" style="width:50vh;" src="assets/images/IMG-20240516-WA0006.jpg" />
-      </div>
+    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+    <div>
+        <h4 id="brand_main"></h4>
+    </div>
+    <img class="img_buy" id="img_buy" style="width: 100%; height: auto; object-fit: cover;" src="assets/images/IMG-20240516-WA0006.jpg" />
+</div>
+
       <div class="col-12 col-sm-6 col-lg-6 col-md-6 py-2">
         <table class="mt-5 table table-border">
           <div class="col-12 mt-2">
@@ -128,13 +120,13 @@ include 'includes/headertag.php';
         </table>
         <div class="text-center mt-4">
           <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              <button type="button" id="certified_dlr_rcb_btn" class="btn btn-success btn-block w-100 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <button type="button" id="certified_dlr_rcb_btn" class="btn btn-success btn-block w-100 p-2 m-1 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
             </div>
-            <div class="col-lg-7 col-md-7 col-sm-7">
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <a href="become_certified.php" class="text-decoration-none">
                 <div class="">
-                  <button type="button" class="btn btn-success btn-block d-flex justify-content-end">Become Certified Dealer</button>
+                  <button type="button" class="btn btn-success btn-block d-flex justify-content-center w-100 p-2 m-1">Become Certified Dealer</button>
                 </div>
               </a>
             </div>

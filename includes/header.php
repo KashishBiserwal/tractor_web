@@ -143,22 +143,128 @@ iframe.skiptranslate {
     z-index: 2;
     top: -5px;
     }
+    .navbar-toggler-2 {
+  display: none;
+}
+    @media (max-width: 576px) {
+  .language-image {
+    width: 24px;
+    height: 24px;
+  }
+  .nav-link {
+    font-size: 14px;
+    padding: 0 5px;
+  }
+  #loginContainer a {
+    font-size: 14px;
+  }
+  .lang{
+  align-self: start;
+}
+}
+@media (max-width: 768px) { 
+  .navbar-navbar {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+  }
+.navbar-nav-mobile{
+  margin-left: 16px;
+}
+  .navbar-navbar .nav-item {
+    margin: 0; 
+    padding: 0 10px;
+  }
+
+  .navbar-navbar .dropdown.lang {
+    flex-shrink: 0; 
+  }
+
+  .navbar-navbar .nav-item a {
+    white-space: nowrap; 
+  }
+
+  #loginContainer {
+    display: block !important;
+  }
+
+  #loginButton {
+    display: inline-block; 
+  }
+
+  #myAccountDropdown {
+    display: block !important;
+  }
+  .search-box-mobile{
+    width: 320px;
+    margin-left: 57px;
+  }
+  .navbar-toggler:focus {
+  outline: none; 
+  box-shadow: none; 
+}
+.navbar-toggler-2 {
+    display: block;
+  }
+#search_form_container{
+  margin-left: -17px;
+}
+
+}
+.lang .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(0);
+  z-index: 1050; 
+  width: auto; 
+  min-width: 150px; 
+}
+
+@media (max-width: 576px) {
+  .lang .dropdown-menu {
+    width: 100%; 
+    left: 0; 
+  }
+}
+/* Ensure the dropdown appears below the button */
+#myAccountDropdown .dropdown-menu {
+  position: absolute;
+  top: 100%; /* Place it just below the parent button */
+  left: 0; /* Align it with the left edge of the parent button */
+  transform: translateX(0); /* Prevent any unintended horizontal shifts */
+  z-index: 1050; /* Ensure it appears above other elements */
+  width: auto; /* Adjust width as needed */
+  min-width: 150px; /* Prevent the dropdown from being too narrow */
+}
+
+/* Adjust for mobile screens */
+@media (max-width: 576px) {
+  #myAccountDropdown .dropdown-menu {
+    width: 100%; /* Full width for mobile screens */
+    left: 0; /* Align with the parent button */
+  }
+}
+
 </style>
+<body>
+  
 <div class="fixed_nav" >
   <nav class="navbar navbar-expand-sm navbar-index">
     <div class="container p-0">
       <div class="row w-100 m-0">
-        <div class="col-sm-3">
+        <div class="col-sm-3 d-flex align-items-center justify-content-between">
           <a href="index.php" class="text-decoration-none">
-            <img src="assets/images/IMG-20240516-WA0006.jpg"alt="reload img" class="logo ">
+            <img src="assets/images/IMG-20240516-WA0006.jpg" alt="reload img" class="logo">
           </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <i class="bi bi-three-dots-vertical" style="color: white;"></i>
+          </button>
         </div>
-        <button class="navbar-toggler col-sm-6" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="justify-content: end;">
           <div class="row w-100">
-            <div class="col-sm-6 mt-1">
+            <div class="col-sm-6 mt-1 search-box-mobile">
               <form class="mb-0 navsearch position-relative">
                 <div class="input-group">
                   <input id="searchInput" type="text" class="form-control search-input" placeholder="Search">
@@ -169,32 +275,33 @@ iframe.skiptranslate {
                 <ul id="suggestions" class="suggestion-list mt-5" style="display:none"></ul>
               </form>
             </div>
-            <div class="col-sm-6 ">
-              <ul class="navbar-nav float-end">
-                <li class="dropdown">
+            <div class="col-sm-6 navbar-nav-mobile">
+              <ul class="navbar-nav navbar-navbar float-end ">
+                <li class="dropdown lang">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28" alt="Language Icon" title="Language" class="language-image">
                     <span id="selected-language" class="text-white">English</span>
                   </a>
-                  <div class="dropdown-menu language-dropdown" id="lang-mobile-block" style="display: none;">
-                    <a href="#" hreflang="en" title="English" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
-                    <a href="#" hreflang="hi" title="हिन्दी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">Hindi</a>
-                    <a href="#" hreflang="bn" title="বাংলা" class="dropdown-item text-dark notranslate" onclick="translateLanguage('bn')">Bengali</a>
-                    <a href="#" hreflang="mr" title="मराठी" class="dropdown-item text-dark notranslate" onclick="translateLanguage('mr')">Marathi</a>
-                    <a href="#" hreflang="pa" title="ਪੰਜਾਬੀ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('pa')">Punjabi</a>
-                    <a href="#" hreflang="or" title="ଓଡ଼ିଆ" class="dropdown-item text-dark notranslate" onclick="translateLanguage('or')">Odia</a>
-                    <a href="#" hreflang="te" title="తెలుగు" class="dropdown-item text-dark notranslate" onclick="translateLanguage('te')">Telugu</a>
-                    <a href="#" hreflang="ta" title="தமிழ்" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ta')">Tamil</a>
-                    <a href="#" hreflang="ml" title="മലയാളം" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ml')">Malayalam</a>
+                  <div class="dropdown-menu language-dropdown" id="lang-mobile-block">
+                    <a href="#" hreflang="en" class="dropdown-item text-dark notranslate" onclick="translateLanguage('en')">English</a>
+                    <a href="#" hreflang="hi" class="dropdown-item text-dark notranslate" onclick="translateLanguage('hi')">Hindi</a>
+                    <a href="#" hreflang="bn" class="dropdown-item text-dark notranslate" onclick="translateLanguage('bn')">Bengali</a>
+                    <a href="#" hreflang="mr" class="dropdown-item text-dark notranslate" onclick="translateLanguage('mr')">Marathi</a>
+                    <a href="#" hreflang="pa" class="dropdown-item text-dark notranslate" onclick="translateLanguage('pa')">Punjabi</a>
+                    <a href="#" hreflang="or" class="dropdown-item text-dark notranslate" onclick="translateLanguage('or')">Odia</a>
+                    <a href="#" hreflang="te" class="dropdown-item text-dark notranslate" onclick="translateLanguage('te')">Telugu</a>
+                    <a href="#" hreflang="ta" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ta')">Tamil</a>
+                    <a href="#" hreflang="ml" class="dropdown-item text-dark notranslate" onclick="translateLanguage('ml')">Malayalam</a>
                   </div>
                 </li>
-                <li class="" id="google_translate_element" hidden></li>
-                <li class="nav-item up-down mt-2">
+              <li class="" id="google_translate_element" hidden></li>
+              <li class="nav-item up-down mt-2">
                     <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" style="border-right: 1px solid #fff;">Download App</a>
                 </li>
+
                 <li class="nav-item up-down mt-2" id="loginContainer">
                   <a class="nav-link" id="loginButton" href="user-login.php">
-                     Login 
+                    Login 
                   </a>
                   <div id="myAccountDropdown" class="dropdown" style="display: none;">
                     <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -202,7 +309,7 @@ iframe.skiptranslate {
                     </button>
                     <div class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
                       <a class="dropdown-item text-dark p-2" href="userProfile.php">Profile</a>
-                        <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
+                      <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
                     </div>
                   </div>
                 </li>
@@ -215,7 +322,7 @@ iframe.skiptranslate {
   </nav> 
   <nav class="navbar  navbar-expand-lg navbar-dark main-navbar p-0" >
     <div class="container p-0">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon bg-dark"></span>
       </button>
       <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
@@ -446,13 +553,22 @@ iframe.skiptranslate {
 <?php 
  include 'includes/footertag.php';
 ?>
+</body>
+<script>
+  
+</script>
 <script>
   $(document).ready(function(){
     news_category();
     get_brands();
     get_implement();
   });
-
+  $('.navbar-toggler').click(function() {
+    $('#collapsibleNavbar').toggle(); 
+  });
+  $('.navbar-toggler-2').click(function() {
+    $('#navbarSupportedContent').toggle(); 
+  });
   function news_category(id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_news_category';
     var headers = { 
@@ -654,13 +770,13 @@ window.onload = function() {
 };
  
 
-document.getElementById('translate-text').addEventListener('mouseover', function() {
-    document.getElementById('goog-gt-tt').style.visibility = 'visible';
-  });
+// document.getElementById('translate-text').addEventListener('mouseover', function() {
+//     document.getElementById('goog-gt-tt').style.visibility = 'visible';
+//   });
 
-  document.getElementById('translate-text').addEventListener('mouseout', function() {
-    document.getElementById('goog-gt-tt').style.visibility = 'hidden';
-  });
+//   document.getElementById('translate-text').addEventListener('mouseout', function() {
+//     document.getElementById('goog-gt-tt').style.visibility = 'hidden';
+//   });
  
 </script>
 

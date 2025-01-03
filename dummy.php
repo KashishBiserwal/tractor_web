@@ -195,17 +195,17 @@
                                             </div>
                                         </div> -->
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                        <div class="form-outline">
+                                        <div class="form-outline py-2">
                                               <label class="form-label">Category</label>
-                                              <select class="form-select py-2 category_cls" aria-label="Default select example" id="category" name="category" onchange="get_sub_category(this.value)">
+                                              <select class="form-select category_cls" aria-label="Default select example" id="category" name="category" onchange="get_sub_category(this.value)">
                                                   <!-- onchange event modified to trigger get_sub_category1 function -->
                                               </select>
                                           </div>
                                       </div>
                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                          <div class="form-outline">
+                                          <div class="form-outline py-2">
                                               <label class="form-label">Sub-Category</label>
-                                              <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="subcategory" name="subcategory">
+                                              <select class="form-select sub_category_cls" aria-label="Default select example" id="subcategory" name="subcategory">
                                               </select>
                                           </div>
                                       </div>
