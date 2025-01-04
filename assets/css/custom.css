@@ -8,11 +8,11 @@
     transition: opacity 300ms ease-in-out;
 }
 
-.bg-overlay {
+/* .bg-overlay {
     position: relative;
-}
+} */
 
-.bg-overlay:before {
+/* .bg-overlay:before {
     content: '';
     display: block;
     position: absolute;
@@ -22,10 +22,10 @@
     right: 0;
     background-color: black;
     opacity: 0.4;
-}
-.mw-profile{
+} */
+/* .mw-profile{
     max-width: 250px;
-}
+} */
 @media screen and (max-width:768px) {
     .realworld__items .ratio{
     }    

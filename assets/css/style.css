@@ -10,14 +10,14 @@ html, body {
   width: 100%;
   overflow-x: hidden; 
 }
-.con1 {
+/* .con1 {
     width: 1170px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-  }
+  } */
 .fixed_nav{
   width: 100%;
     position: fixed;
@@ -81,15 +81,10 @@ margin-top: 130px
     background-color: #fff;
     color: black;
   }
-  /* .main-navbar .navbar-nav .nav-link {
-    color: #292727;
-  } */
   .nav-item{
-    --b: 0.1em;   /*the thickness of the line*/
-  --c: #07791a; /* the color */
-  
+  --b: 0.1em;  
+  --c: #07791a; 
   color: #0000;
-  /* padding-block: var(--b); */
   background: 
     linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
     linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
@@ -133,8 +128,6 @@ margin-top: 130px
     }
    
   }
-  
-
 /* tractor logo */
 .logo{
   width:50px;
@@ -151,19 +144,17 @@ margin-top: 130px
 .navbar-index .navbar-collapse .navbar-nav .nav-item:hover {
   padding: 8px 0;
 }
-.navserach input{
-border-radius:0;
-}
-.navserach button{
+/* .navserach button{
   border-radius:0;
   background-color: #157347;
   border-color: #157347;
-  }
-  .navserach button:hover{
+  } */
+  /* .navserach button:hover{
     border-radius:0;
     background-color: #157347;
     border-color: #157347;
-    }
+    } */
+
 /* login */
 .login-page {
   width: 100%;
@@ -172,10 +163,6 @@ border-radius:0;
   display: flex;
   align-items: center;
 }
-.form-right img {
- /* border-radius: 50%; */
-}
-
 .swiper-slide {
   background-size: cover;
   background-position: 100%;
@@ -198,31 +185,13 @@ border-radius:0;
 .banner__section {
   position: relative;
 }
-
-.btn:hover{
-  /* box-shadow: 0px 6px 12px rgb(100, 238, 100); */
-  /* background-color: rgb(71, 209, 37); */
-  /* color: #000; */
-} 
-.bannerimg{
-  /* width: 100%; */
-  height: 600px;
-}
-.banner__content {
-  /* position: relative; */
-  /* padding: 40px 0px; */
-  /* background: #08162ebf; */
-}
 .bannerbg00 {
   position: absolute;
   top: 80%;
-
-  /* transform: translateY(8%); */
   height: 42px;
   width: 459px;   
   left: 50px;
   float: right;
- /* right: 50px; */
   bottom: 0;
   z-index:4;
   margin-right: 45px;
@@ -256,10 +225,6 @@ border-radius:0;
   background: #ffffff9c;
   border-radius: 7px;
 }
-.toolsservice{
-  /* background:#03699AFF; */
-
-}
 .bybudget::after{
   content: "";
   background-image: url(../images/capamask.png);
@@ -282,13 +247,12 @@ border-radius:0;
   flex-direction: column;
 }
 
-.labelform {
-  /* color: #fff; */
+/* .labelform {
   margin-bottom: 5px;
-}
+} */
 
 /* index-state */
-.img-state {
+/* .img-state {
   display: block;
   max-width: 100%;
   height: auto;
@@ -297,21 +261,21 @@ border-radius:0;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-}
+} */
 
-.slider-section-state{
+/* .slider-section-state{
   margin: 0 auto;
   padding-block: 5rem;
-}
+} */
 
-.container-state {
+/* .container-state {
   max-width: 75rem;
   height: auto;
   margin-inline: auto;
   padding-inline: 1.25rem;
-}
+} */
 
-.swiper-button-next-state::after, .swiper-button-prev-state::after {
+/* .swiper-button-next-state::after, .swiper-button-prev-state::after {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -324,7 +288,7 @@ border-radius:0;
   border-radius: 50%;
   color: var(--white-100);
   background: var(--black-300);
-}
+} */
 
 /* compare css */
 .btn-compare:hover{
@@ -608,21 +572,6 @@ div.swiper-5 {
 }
 /* swiper for brands */
 /* Swiper container */
-.swiper-container1 {
-  /* max-width: 100%; */
-}
-
-/* swiper responive image */
-.swiper-container1 img {
-  width: 100%;
-  /* height: auto; */
-  height:199px;
-}
-
-.slide1{
-/* Remove this if you want 1 slide perview - than change slidesPerView js-option to 1 -or- 2+ instead of 'auto' */
-  /* width: 30%; */
-}
 
 /* Swiper custom pagination */
 .swiper-pagination-bullet {
@@ -640,21 +589,11 @@ div.swiper-5 {
   color: #fff;
   background: black;
 }
-
-
 @media (max-width: 991px) {
   .tab-content>.tab-pane {
     display: block;
     opacity: 1;
   }
-}
-.stateimg{
-  border-radius: 50%;
-}
-.yr-con:hover{
-  /* box-shadow: 0 0 11px rgba(25,25,25,.2); */
-  /* background: rgba(159, 179, 209, 0.3); */
-/* color: red; */
 }
 .bgd_list:hover{
   color: rgb(21 115 71);
@@ -680,15 +619,12 @@ div.swiper-5 {
   opacity: 0.2;
   
 }
-.featureservice{
+/* .featureservice{
   background: #ca2e2e;
-}
+} */
 .success__stry__item{
   height: 0;
 }
-
-
-/* engine oil css */
 .engineoil_img{
   height: 200px;
   padding: 20px 20px 0;
@@ -701,9 +637,6 @@ div.swiper-5 {
   padding: 6px 5px;
   background: #dcdcdc;
 }
-/*  */
-/* tractor implement */
-
 .img-imple {
   display: block;
   max-width: 25%;
@@ -714,33 +647,14 @@ div.swiper-5 {
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
-
 .section-imple {
   margin: 0 auto;
   padding-block: 5rem;
 }
-
 .container-imple {
-  /* max-width: 75rem; */
   height: auto;
   margin-inline: auto;
-  /* padding-inline: 1.25rem; */
 }
-
-/* .swiper-button-next::after, .swiper-button-prev::after {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  margin-top: -88px;
-  padding: 1rem;
-  width: 2rem;
-  height: 2rem;
-  opacity: 0.75;
-  border-radius: 50%;
-  color: rgb(35, 34, 34);
-} */
-
 .swiper-button-next::after, .swiper-button-prev::after {
   /* display: flex; */
   align-items: center;
@@ -763,35 +677,19 @@ button {
   border: none;
   outline: none;
   background: none;
-
   align-self: center ;
-
 }
 .service-box{
   color: #06740a;
-  
 }
 .img-tools{
   border-radius: 50%;
   background-color:#4baa5563;
-  
 }
-/* .accordion-button:not(.collapsed) {
-  color: #08162e;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dcdcdc;
-} */
-/* .accordion-item :hover {
-  background-color: #a2ffa5;
-} */
-
 .ul-box li a:hover{
   color: rgb(3, 199, 3);
 }
-/* .newsimg{
-  height: 300px;
-  
-} */
+
 .news-head:hover{
   color: #45b649;
 }
@@ -799,11 +697,6 @@ button {
   width: 329px;
   height: 475px;
 }
-
-/* select 2 tractor listing */
-
-
-
 /* header dropdown*/
 .dropdown-menu li {
   position: relative;
@@ -811,7 +704,7 @@ button {
   .dropdown-menu {
     width: 222px;
   }
-  .dropdown-menu .dropdown-submenu {
+  /* .dropdown-menu .dropdown-submenu {
   display: none;
   position: absolute;
   left: 100%;
@@ -824,28 +717,19 @@ button {
   .dropdown-menu > li:hover > .dropdown-submenu {
   display: block;
   z-index: 99;
-  }
+  } */
 
   .banner__content {
     position: relative;
     padding: 40px 0px;
-    /* background: #08162ebf; */
   }
   .header-link:hover{
     color: #026c05;
-    /* background-color: #000; */
   
   }
-
-  /* brand */
   .thumbnail {
     display: block;
-    /* padding: 4px; */
-    /* margin-bottom: 20px; */
-    /* margin-top: 20px; */
-    /* line-height: 1.42857143; */
     background-color: #fff;
-    /* border: 1px solid #ddd; */
     border-radius: 4px;
     -webkit-transition: border .2s ease-in-out;
     -o-transition: border .2s ease-in-out;
@@ -857,7 +741,6 @@ border-radius: 50%;
 .features-mahindra{
     align-self: center;
     justify-content: center;
-
 }
 .table-data{
   font-size: 17px;
@@ -874,22 +757,12 @@ border-radius: 50%;
   font-size: 100px;
 }
 .user-login{
-  /* align-items: center; */
   align-self: center;
   width: 133px;
-  
 }
 .navbar-index{
   background: linear-gradient(553deg, rgb(63, 81, 181) 19%, rgb(76, 175, 80) 100%);
 }
-/* .login-body {
-  margin: 0;
-  padding: 0;
-  background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwall.alphacoders.com%2Fby_sub_category.php%3Fid%3D174167%26name%3DFarm%2BWallpapers&psig=AOvVaw3RLRbWOAHjWao_BrBrpPwx&ust=1695125129495000&source=images&cd=vfe&opi=89978449&ved=0CA4QjRxqFwoTCPDD5biPtIEDFQAAAAAdAAAAABAZ);
-  background-size: cover;
-  font-family: sans-serif;
-} */
-
 .loginBox {
   position: absolute;
   top: 50%;
@@ -901,7 +774,6 @@ border-radius: 50%;
   box-sizing: border-box;
   background: rgb(165 159 159 / 50%);
 }
-
 .user {
   width: 100px;
   height: 100px;
@@ -911,26 +783,22 @@ border-radius: 50%;
   top: calc(-100px/2);
   left: calc(50% - 50px);
 }
-
 .h2login {
   margin: 0;
   padding: 0 0 26px;
   color: #ff8c00;
   text-align: center;
 }
-
 .loginBox p {
   margin: 0;
   padding: 0;
   font-weight: bold;
   color: black;
 }
-
 .loginBox input {
   width: 100%;
   margin-bottom: 20px;
 }
-
 .loginBox input[type="email"],
 .loginBox input[type="text"] {
   border: none;
@@ -938,7 +806,6 @@ border-radius: 50%;
   background: transparent;
   outline: none;
   height: 40px;
-  /* color: black; */
   font-size: 16px;
 }
 
@@ -963,20 +830,17 @@ border-radius: 50%;
   background-color: #ff9719;
   color: #fff;
 }
-
 .loginBox a {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
 }
-
  .table_useroverview{
   background: rgb(153 243 153);
 } 
 
 /* sell used */
-
 .bestplace{
   /* background: rgb(62 6 3 / 65%); */
   background: #0d3b66;
@@ -984,14 +848,10 @@ border-radius: 50%;
 .trac_swip{
   height: 0px;
 }
-
 .price { 
   border:2px solid #ccf1df;
    width:300px;
-    /* height: 150px;  */
-    /* overflow-y: scroll; */
 }
-
 .checkbox-round {
   width: 1em;
   height: 1em;
@@ -1061,17 +921,13 @@ border-radius: 50%;
     max-height: 300px !important;
   }
 }
+
 /* old tracter */
 
 .brand-main {
   background-color: #fff;
   width: 100%;
 }
-
-
-/* .modal_box{
-  background: #e9ffea;
-} */
 .modal_head{
   background: rgb(74 166 90);
   padding: 10px 20px;
@@ -1079,9 +935,6 @@ border-radius: 50%;
 .modal_head h5{
   font-size: 16px;
 }
-
-/* form admin */
-/* img show */
 .img-bg {
   background-repeat: no-repeat;
   background-position: center;
@@ -1155,7 +1008,6 @@ border-radius: 50%;
   transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
 }
 .form-group input:focus {
-  /* border-color: #007bff; */
   border-color: #51cc6a;
   outline: none;
 }
@@ -1179,25 +1031,16 @@ border-radius: 50%;
   border-radius: 4px;
   left: 8px;
 }
-/*Checkboxes styles*/
-/* input[type="checkbox"] { display: none; } */
-
 input[type="checkbox"] + label {
-    /* display: block; */
-    /* position: relative; */
-    /* padding: 8px; */
-    /* margin-bottom: 20px; */
-    /* font: 14px/20px 'Open Sans', Arial, sans-serif; */
     color: black;
     cursor: pointer;
-    /* text-transform: capitalize; */
     font-size: 14px;
 }
 
 input[type="checkbox"] + label:last-child { margin-bottom: 0; }
 
-input[type="checkbox"] + label:before {
-  /* content: '';
+/* input[type="checkbox"] + label:before {
+  content: '';
   display: block;
   width: 20px;
   height: 20px;
@@ -1207,8 +1050,8 @@ input[type="checkbox"] + label:before {
   top: 0;
   opacity: .6;
   -webkit-transition: all .12s, border-color .08s;
-  transition: all .12s, border-color .08s; */
-}
+  transition: all .12s, border-color .08s;
+} */
 
 input[type="checkbox"]:checked + label:before {
   width: 10px;
@@ -1354,10 +1197,10 @@ input[type="checkbox"]:checked + label:before {
   height: 50px !important
 } */
 
-.selectitem {
+/* .selectitem {
   width: 100%;
   margin-bottom: 85px
-}
+} */
 /* 
 .inputitem:focus,
 .selectitem:focus {
@@ -1378,13 +1221,13 @@ input[type="checkbox"]:checked + label:before {
   /* width: 77% */
 }
 
-.form-control-placeholder {
+/* .form-control-placeholder {
   position: absolute;
   top: 0px;
   padding: 12px 2px 0 2px;
   transition: all 300ms;
   opacity: 0.5
-}
+} */
 
 .form-control:focus+.form-control-placeholder,
 .form-control:valid+.form-control-placeholder {
@@ -1608,11 +1451,11 @@ input[type="checkbox"]:checked + label:before {
 
 
 /* used tractor swiper */
-.section_used {
+/* .section_used {
   margin: 0 auto;
   padding-block: 5rem;
   justify-content: center;
-}
+} */
 
 /* .container_used {
   max-width: 75rem;
@@ -1690,13 +1533,13 @@ input[type="checkbox"]:checked + label:before {
     transform: rotate(360deg); 
   }
 }
-.is-hide{
+/* .is-hide{
   display:none;
-}
+} */
 /* carousal */
-#news-slider{
-  /* margin-top: 80px; */
-}
+/* #news-slider{
+  margin-top: 80px;
+} */
 .post-slide{
   background: #fff;
   margin: 20px 15px 20px;
@@ -1813,11 +1656,11 @@ input[type="checkbox"]:checked + label:before {
   text-decoration:none;
   color:#fff;
 }
-.owl-controls .owl-buttons{
+/* .owl-controls .owl-buttons{
   text-align:center;
   margin-top:20px;
-}
-.owl-controls .owl-buttons .owl-prev{
+} */
+/* .owl-controls .owl-buttons .owl-prev{
   background: #fff;
   position: absolute;
   top:-13%;
@@ -1826,8 +1669,8 @@ input[type="checkbox"]:checked + label:before {
   border-radius: 50px;
   box-shadow: 3px 14px 25px -10px #92b4d0;
   transition: background 0.5s ease 0s;
-}
-.owl-controls .owl-buttons .owl-next{
+} */
+/* .owl-controls .owl-buttons .owl-next{
   background: #c80b0b;
   position: absolute;
   top:-13%;
@@ -1836,14 +1679,14 @@ input[type="checkbox"]:checked + label:before {
   border-radius: 50px;
   box-shadow: -3px 14px 25px -10px #92b4d0;
   transition: background 0.5s ease 0s;
-}
-.owl-controls .owl-buttons .owl-prev:after,
+} */
+/* .owl-controls .owl-buttons .owl-prev:after,
 .owl-controls .owl-buttons .owl-next:after{
   content:"\f104";
   font-family: FontAwesome;
   color: #333;
   font-size:30px;
-}
+} */
 .owl-controls .owl-buttons .owl-next:after{
   content:"\f105";
 }
@@ -1904,12 +1747,11 @@ input[type="checkbox"]:checked + label:before {
   border-radius: 12px;
   margin-top: -170px;
 }
-.mul_stp_frm2 {
+/* .mul_stp_frm2 {
   margin: 0px auto;
   padding: 40px 40px;
-  /* box-shadow: 0px 6px 18px rgb(0 0 0 / 9%); */
   border-radius: 12px;
-}
+} */
 .tyre_card .thumb img{
   height: 200px !important;
     width: auto !important;

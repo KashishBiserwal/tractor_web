@@ -1,24 +1,21 @@
 
 .gallery{
- /* position:absolute; */
- /* top: 0; */
- /* left:0; */
  object-fit: cover;
  width: 100%;
  height: 100%;
  border-radius: 6px;
  cursor: pointer;
 }
-.img-rounded{
+/* .img-rounded{
    max-width: 100%;
    image-rendering: -webkit-optimize-contrast;
    vertical-align: middle;
    border-style: none;
-}
-.custom-column{
+} */
+/* .custom-column{
   padding: 30px; 
         margin-bottom: 5px;
-}
+} */
 .ViewBtn{
     color:#0D3B66;
     font-size:15px;
@@ -88,11 +85,11 @@
       transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.38) !important;
   }
-  .span_carousel {
+  /* .span_carousel {
       font-size: 70px;    
       position: relative;
       top: -5px;
-  }
+  } */
   .owl-nav button:focus {
       outline: none;
   }
@@ -231,19 +228,13 @@ opacity: 0.8;
   background-color: #fff;
   color: #129656;
 }
-
-
 /* sell harvester multi-image uplode */
-
 .mul_stp_frm{
   overflow-x: hidden;
 }
-
-
 p {
 margin: 0;
 }
-
 .upload__inputfile {
 width: .1px;
 height: .1px;
@@ -252,7 +243,6 @@ overflow: hidden;
 position: absolute;
 z-index: -1;
 }
-
 .upload__btn {
 display: inline-block;
 font-weight: 600;
@@ -269,23 +259,19 @@ border-radius: 10px;
 line-height: 26px;
 font-size: 14px;
 }
-
 .upload__btn:hover {
 background-color: unset;
 color:  #198754;
 transition: all .3s ease;
 }
-
 .upload__btn-box {
 margin-bottom: 10px;
 margin-top:-25px;
 }
-
 .upload__img-wrap {
 display: flex;
 flex-wrap: wrap;
 }
-
 .upload__img-box {
 flex: 0 0 calc(33.333% - 20px); 
 margin: 0 10px 20px; 
@@ -293,7 +279,6 @@ position: relative;
 display: flex;
 flex-wrap: wrap;
 }
-
 .upload__img-close,.upload__img-close_button {
 width: 24px;
 height: 24px;
@@ -307,14 +292,11 @@ line-height: 24px;
 z-index: 1;
 cursor: pointer;
 }
-
 .upload__img-close:after,.upload__img-close_button:after {
 content: '\2716';
 font-size: 14px;
 color: white;
 }
-
-
 .img-bg {
 background-repeat: no-repeat;
 background-position: center;
@@ -323,8 +305,6 @@ position: relative;
 width: 160px;
 height: 125px;
 }
-
-
-  #productContainer .owl-prev,  #productContainer .owl-next{
-    display: none;
+#productContainer .owl-prev,  #productContainer .owl-next{
+  display: none;
 }

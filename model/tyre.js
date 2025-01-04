@@ -99,13 +99,13 @@ function displayTractors(tractors) {
                         <a href="tyre_inner.php" class="text-decoration-none text-dark">
                             <div class="col-12 px-3">
                                 <div class="row ">
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6  engineoil_details pe-1">
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6  engineoil_details p-1">
                                         <p class="text-dark" style="text-transform:uppercase; font-weight:bolder"> ${p.tyre_position}</p>
                                     </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6  engineoil_details ps-1">
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6  engineoil_details p-1">
                                         <p id="adduser" type="" class="text-dark">${p.tyre_size}</p>
                                     </div>
-                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12  engineoil_details">
+                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12  engineoil_details p-1">
                                         <p class="text-dark ">Compatible with: <span style="text-transform:uppercase; font-weight:bolder">${p.tyre_category}</span></p>
                                     </div>
                                 </div>

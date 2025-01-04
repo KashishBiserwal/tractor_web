@@ -257,14 +257,14 @@ function getUserDetail(id) {
                 $('#used_farm_inner_from #fname').val(customer.first_name);
                 $('#used_farm_inner_from #lname').val(customer.last_name);
                 $('#used_farm_inner_from #number').val(customer.mobile);
-                $('#used_farm_inner_from #state_form').val(customer.state_id);
+                // $('#used_farm_inner_from #state_form').val(customer.state_id);
                 // $('#used_farm_inner_from #district_form').val(customer.district);
                 // $('#used_farm_inner_from #tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#used_farm_inner_from input, #used_farm_inner_from select').not('#price,#district_form,#tehsil,#contact_seller').prop('disabled', true);
+                    $('#used_farm_inner_from input, #used_farm_inner_from select').not('#price,#state_form,#district_form,#tehsil,#contact_seller').prop('disabled', true);
                 }
                 
             }

@@ -77,37 +77,29 @@
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="row text-center">
-                                <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="resetButton" type="button" onclick="resetform()" class="add_btn btn btn-success w-75">
-                                        <i class="fas fa-undo"></i> Reset </button>
-                                </div>
-                                <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
-                                        <i class="fas fa-filter"></i> Apply Filter</button>
-                                </div>
+                        <div class="row text-center">
+                            <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
+                                <button id="resetButton" type="button" onclick="resetform()" 
+                                    class="add_btn btn btn-success w-75"><i class="fas fa-undo"></i> Reset 
+                                </button>
                             </div>
-                        <!-- <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
-                                <i class="fas fa-undo"></i>  Reset </button>
+                            <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
+                                <button id="filter_tractor" type="button" 
+                                    class="add_btn btn btn-success w-100"><i class="fas fa-filter"></i> Apply Filter
+                                </button>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
-                                <i class="fas fa-filter"></i>  Apply Filter </button>
-                            </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                        <div class="HP py-2" id="checkboxContainer"></div>
+                        <div class="HP py-2 w-100" id="checkboxContainer"></div>
                     </div>
                 </div>
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
-                        <div class="price py-2 ">
+                        <div class="price py-2 w-100">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Type</h5>
                             <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="front" /><span
                                  class="ps-2 fs-6">Front</span><br />
@@ -168,7 +160,7 @@
                     last_name: 'required',
                     mobile_number: {
                         required: true,
-                        digits: true, // Allow only digits
+                        digits: true, 
                     },
                     state: "required",
                     district: "required",
@@ -180,16 +172,16 @@
             });
         });
     </script>
-  <script>
- function googleTranslateElementInit() {
- new google.translate.TranslateElement({
- pageLanguage: 'en',
- autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
- layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
- }, 'google_translate_element');
- }
+<script>
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: 'true',
+    includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+    }
 </script>
-</body>
 
+</body>
 </html>

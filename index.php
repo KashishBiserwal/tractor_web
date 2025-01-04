@@ -71,7 +71,7 @@
     #search_form_container {
   position: absolute;
   top: 30%; 
-  left: 50px; 
+  left: 70px; 
   width: 350px;
   background-color: #f8f9fac9;
   padding: 20px;
@@ -115,15 +115,16 @@
     flex-direction: column;
     justify-content: flex-end;
   }
- 
-</style>
 
-<!-- Banner Here -->
+ /* @media (max-width: 768px) {
+  
+  #search_form_container {
+    left: 5px; 
+  }
+} */
+</style>
 <section id="home-banner" class="banner__section overflow-hidden">
-  <!-- Carousel wrapper -->
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
-   
-    <!-- Indicators/dots -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
       <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
@@ -132,14 +133,11 @@
       <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
       <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
       <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
-      <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button> -->
     </div>
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active" style="position: relative;">
-      <img src="assets/images/Slide-1.png" alt="New York" class="d-block mx-auto w-100" loading="lazy">
+        <img src="assets/images/Slide-1.png" alt="New York" class="d-block mx-auto w-100" loading="lazy">
       </div>
       <div class="carousel-item" style="position: relative;">
         <img src="assets/images/Slide-2.png" alt="New York"  loading="lazy" class="d-block mx-auto w-100">
@@ -151,23 +149,14 @@
         <img src="assets/images/Slide-4.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;"> 
-          <img src="assets/images/Slide-5.png" alt="New York" loading="lazy" class="d-block mx-auto w-100"> 
+        <img src="assets/images/Slide-5.png" alt="New York" loading="lazy" class="d-block mx-auto w-100"> 
       </div>
       <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/new_image_for_slide6.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
+        <img src="assets/images/new_image_for_slide6.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
       <div class="carousel-item" style="position: relative;">
         <img src="assets/images/Slide-7.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
       </div>
-      <!-- <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/slider-img-9.jpg" alt="New York" class="d-block mx-auto">
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/slider-img10.jpg" alt="New York" class="d-block mx-auto">
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/slider-img11.jpg" alt="New York" class="d-block mx-auto">
-      </div> -->
     </div>
     <!-- Left and right controls/icons -->
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="margin-left:-70px; z-index: 4;">
@@ -177,11 +166,6 @@
       <span class="carousel-control-next-icon bg-success"></span>
     </button>
   </div>
-  <!-- <div class="container bannerbg00" style="background-color:#f8f9fac9;" onclick="showForm()">
-    <h5 class="text-center fw-bold pt-2">
-      Find Your Own Tractor <i class="bi bi-search"></i>
-    </h5>
-  </div> -->
   <div id="search_form_container">
     <form id="search_form">
       <div class="row">
@@ -207,7 +191,6 @@
         <div class="col-12 text-center mt-3">
           <button type="button" class="btn btn-success px-3" id="Search">Search</button>
           <button type="button" class="btn-success btn px-3" id="Reset" onclick="resetForm()">Reset</button>
-          <!-- <button type="button" class="btn btn-secondary px-3" onclick="closeForm()">Close</button> -->
         </div>
       </div>
     </form>
@@ -297,7 +280,6 @@
             <div class="position-relative justify-content-center" id="proj_swip">
               <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                 <div class="swiper-wrapper " id="Latest_tractor"></div>
-                  <!-- </div> -->
                 <div class="swiper-pagination"></div>
               </div>
             </div>
@@ -424,7 +406,7 @@
     </div>
   </div>
 </section>
-    <section class="backhp">
+  <section class="backhp">
       <div class="container  py-4">
         <h4 class="text-dark display-6 fw-bold my-3 pb-2">Tractors By HP</h4>
         <div class="container">
@@ -522,168 +504,136 @@
       </div>
   </section>
   <section class="">
-      <div class="container">
-        <h3 class="mt-5 pt-4 display-6 fw-bold">
-          <spna class="text-success">Mini </spna> Tractors
+    <div class="container">
+      <h3 class="mt-5 pt-4 display-6 fw-bold">
+        <spna class="text-success">Mini </spna> Tractors
+      </h3>
+      <div class="row ">
+        <div class="col-12 ">
+          <div class="position-relative " id="proj_swip">
+            <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
+              <div class="swiper-wrapper " id="mini_tractor"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper_nav"></div>
+            </div>
+          </div>
+        </div>
+        <div class="py-3"></div>
+        <div class="col text-center mb-3">
+          <a href="mini_tractor.php" class="btn btn-success btn-lg">View all Mini Tractors</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-light">
+    <div class="container">
+      <div class=" my-3  ">
+        <h3 class="display-6 fw-bold  pt-2">
+          <span class="text-success">Tools</span> and <span class="text-success">Services</span>
         </h3>
-        <!-- <p>Mini tractor price range starts from <strong> Rs. 2.45 Lakh to Rs. 9.21 Lakh*</strong>. </p> -->
-        <div class="row ">
-          <div class="col-12 ">
-            <div class="position-relative " id="proj_swip">
-              <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                <div class="swiper-wrapper " id="mini_tractor">
-                  
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper_nav">
-                  <!-- <div class="swiper-button-prev"></div><div class="swiper-button-next "></div> -->
-                </div>
-                <!-- If we need scrollbar -->
-                <!-- <div class="swiper-scrollbar"></div> -->
+        <div class="row text-center">
+          <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+            <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
+              <div class="col-12 text-center">
+                <img src="assets/images/service.png" class="img-tools p-3  w-50 " alt="">
+              </div>
+              <div class="col-12">
+                <h6 class="service-box text-center fw-bold fs-6 mt-2 text-dark">Service Center</h6>
               </div>
             </div>
           </div>
-          <div class="py-3"></div>
-          <div class="col text-center mb-3">
-            <a href="mini_tractor.php" class="btn btn-success btn-lg">View all Mini Tractors</a>
+          <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+            <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
+              <div class="col-12 text-center">
+                <img src="assets/images/call-service.png" class="w-50 img-tools p-3" alt="">
+              </div>
+              <div class="col-12">
+                <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Contact Us</h6>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-</section>
-    <!-- POPULAR TRACTOR implement -->
-    <!-- <section class="section-imple slider-section bg-light"><div class="container "><h3 class="mb-3 display-6 fw-bold">Popular Tractor Implements</h3><div class="container-imple slider-column mt-4"><div class="swiper swiper-slider"><div class="swiper-wrapper"><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/mini-series-68-1608276318.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Universal Mini Series</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power:15-25</p></div></div><div class="swiper-slide h-autod-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/medium-duty-spring-loaded-cultivator-32943.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Medium Duty Spring Loaded Cultivator</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power : 50-65 HP</p></div></div><div class="swiper-slide h-auto d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/plant-topper-2-row-58-1675748621.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Shaktiman Grimme Plant Topper - 2 Row</h3></a><p class="text-center ">Seeding And Planting</p><p class="text-dark text-center fw-bold">Power : N/A</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/dr-multicrop-thresher-g-series-66-1679740591.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Dasmesh D.R. Multicrop Thresher (G-Series)</h3></a><p class="text-center ">Post Harvest</p><p class="text-dark text-center fw-bold">Power : 35 HP</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/hay-rake.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Hay Rake</h3></a><p class="text-center ">LandScaping</p><p class="text-dark text-center fw-bold">Power : 25 & Above</p></div></div></div><span class="swiper-button-prev"></span><span class="swiper-button-next"></span><div class="col text-center my-4 py-"><a href="#" class="btn btn-success btn-lg">View all Tractors Implementation</a></div></div></div></div></section> -->
-<section class="bg-light">
-      <div class="container">
-        <div class=" my-3  ">
-          <h3 class="display-6 fw-bold  pt-2">
-            <span class="text-success">Tools</span> and <span class="text-success">Services</span>
-          </h3>
-          <div class="row text-center">
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
-                <div class="col-12 text-center">
-                  <img src="assets/images/service.png" class="img-tools p-3  w-50 " alt="">
-                </div>
-                <div class="col-12">
-                  <h6 class="service-box text-center fw-bold fs-6 mt-2 text-dark">Service Center</h6>
-                </div>
+          <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+            <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
+              <div class="col-12 text-center">
+                <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
+              </div>
+              <div class="col-12">
+                <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Dealer Locator</h6>
               </div>
             </div>
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
-                <div class="col-12 text-center">
-                  <img src="assets/images/call-service.png" class="w-50 img-tools p-3" alt="">
-                </div>
-                <div class="col-12">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Contact Us</h6>
-                </div>
+          </div>
+          <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
+            <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
+              <div class="col-12 text-center">
+                <img src="assets/images/offers-1.png" class="w-50 img-tools p-2" alt="">
+              </div>
+              <div class="col-12">
+                <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Offers</h6>
               </div>
             </div>
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
-                <div class="col-12 text-center">
-                  <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
-                </div>
-                <div class="col-12">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Dealer Locator</h6>
-                </div>
+          </div>
+          <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
+            <div class="p-3 toolsservice rounded-3 h-100 shadow bg-white">
+              <div class="col-12 text-center">
+                <img src="assets/images/about-us.png" class="w-50 img-tools p-3" alt="">
+              </div>
+              <div class="col-12">
+                <h6 class="service-box fw-bold fs-6 mt-2 t-condition text-center text-dark">About Us</h6>
               </div>
             </div>
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
-              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
-                <div class="col-12 text-center">
-                  <img src="assets/images/offers-1.png" class="w-50 img-tools p-2" alt="">
-                </div>
-                <div class="col-12">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Offers</h6>
-                </div>
+          </div>
+          <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+            <div class="p-3 toolsservice  rounded-3 shadow h-100 bg-white">
+              <div class="col-12 text-center">
+                <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
+              </div>
+              <div class="col-12 text-center">
+                <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark ">Customer Care</h6>
               </div>
             </div>
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
-              <div class="p-3 toolsservice rounded-3 h-100 shadow bg-white">
-                <div class="col-12 text-center">
-                  <img src="assets/images/about-us.png" class="w-50 img-tools p-3" alt="">
-                </div>
-                <div class="col-12">
-                  <h6 class="service-box fw-bold fs-6 mt-2 t-condition text-center text-dark">About Us</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice  rounded-3 shadow h-100 bg-white">
-                <div class="col-12 text-center">
-                  <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
-                </div>
-                <div class="col-12 text-center">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark ">Customer Care</h6>
-                </div>
-              </div>
-            </div>
-             <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-4 p-4 my-1 ">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12">
-                  <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
-                </div>
-                <div class="col-12 text-center">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-dark ">Customer Care</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-4 p-4">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12">
-                  <img src="assets/images/loan.png" class="w-50 img-tools p-3" alt="">
-                </div>
-                <div class="col-12 text-center">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-dark">Loan</h6>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
-    </section>
-  
+    </div>
+  </section>
     <!-- Nwes & Blog-->
-    <section>
-      <div class="container">
-        <h3 class=" py-4 display-6 fw-bold">Our Latest<span class="text-success">News & Blog</span></h3>
-        <nav class="mb-3">
-          <div class="nav nav-tabs " id="nav-tab" role="tablist">
-            <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="news-tab" data-bs-toggle="tab" data-bs-target="#premium_news" role="tab" aria-controls="premium" aria-selected="true">All News</a>
-            <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-blog-tab" type="button" data-bs-toggle="tab" data-bs-target="#premium_blog" role="tab" aria-controls="latest" aria-selected="false">Blog</a>
-          
-          </div>
-        </nav>
-        <div class="tab-content justify-content-center" >
-          <div role="tabpanel" class="tab-pane fade show active" id="premium_news" aria-labelledby="news-tab">
-            <section class="section slider-section">
-              <div class="container slider-column">
+  <section>
+    <div class="container">
+      <h3 class=" py-4 display-6 fw-bold">Our Latest<span class="text-success">News & Blog</span></h3>
+      <nav class="mb-3">
+        <div class="nav nav-tabs " id="nav-tab" role="tablist">
+          <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="news-tab" data-bs-toggle="tab" data-bs-target="#premium_news" role="tab" aria-controls="premium" aria-selected="true">All News</a>
+          <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-blog-tab" type="button" data-bs-toggle="tab" data-bs-target="#premium_blog" role="tab" aria-controls="latest" aria-selected="false">Blog</a>
+        </div>
+      </nav>
+      <div class="tab-content justify-content-center" >
+        <div role="tabpanel" class="tab-pane fade show active" id="premium_news" aria-labelledby="news-tab">
+          <section class="section slider-section">
+            <div class="container slider-column">
               <div class="carousel-wrap">
                 <div class="owl-carousel" id="all_news"> </div>
                 <div class="col text-center pb-4">
                   <a href="all_news.php" class="btn btn-success px-5">View all News</a>
                 </div>
               </div>
-            </section>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="premium_blog" aria-labelledby="latest-blog-tab">
-            <section class="section slider-section">
-              <div class="container slider-column">
-                <div class="carousel-wrap">
-                  <div class="owl-carousel" id="blog">
-                
-                  </div>
-                </div>
-                <div class="col text-center pb-4">
-                  <a href="blog.php" class="btn btn-success px-5">View all Blog </a>
-                </div>
+            </div>
+          </section>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="premium_blog" aria-labelledby="latest-blog-tab">
+          <section class="section slider-section">
+            <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="blog"></div>
               </div>
-            </section>
-          </div>
+              <div class="col text-center pb-4">
+                <a href="blog.php" class="btn btn-success px-5">View all Blog </a>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
     <!-- about tractor junction -->
     <section class="about bg-light">
       <div class="container">
@@ -1064,7 +1014,6 @@
 
     <?php
     include 'includes/footer.php';
-
     ?>
 </body>
     <script>

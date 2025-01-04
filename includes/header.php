@@ -6,7 +6,7 @@
 <style>
 .autocomplete {
   position: relative;
-  z-index: 999; /* Set a higher z-index value */
+  z-index: 999; 
 }
 .autocomplete ul {
   list-style: none;
@@ -20,12 +20,10 @@
   overflow-y: auto;
   display: none;
 }
-
 .autocomplete ul li {
   padding: 8px 12px;
   cursor: pointer;
 }
-
 .autocomplete ul li:hover {
   background-color: #f0f0f0;
 }
@@ -76,7 +74,6 @@ iframe.skiptranslate {
     display: flex;
     align-items: center;
 }
-
 .search-input {
     height: 35px;
     border-radius: 2px 0 0 2px;
@@ -87,11 +84,9 @@ iframe.skiptranslate {
     transition: box-shadow 0.3s ease, border 0.3s ease;
     flex: 1;
 }
-
 .search-input:focus {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
-
 .search-button {
     height: 35px; /* Same height as search input */
     border-radius: 0 2px 2px 0;
@@ -170,7 +165,7 @@ iframe.skiptranslate {
     align-items: center;
   }
 .navbar-nav-mobile{
-  margin-left: 16px;
+  margin-left: 35px;
 }
   .navbar-navbar .nav-item {
     margin: 0; 
@@ -198,7 +193,7 @@ iframe.skiptranslate {
   }
   .search-box-mobile{
     width: 320px;
-    margin-left: 57px;
+    margin-left: 20px;
   }
   .navbar-toggler:focus {
   outline: none; 
@@ -207,10 +202,6 @@ iframe.skiptranslate {
 .navbar-toggler-2 {
     display: block;
   }
-#search_form_container{
-  margin-left: -17px;
-}
-
 }
 .lang .dropdown-menu {
   position: absolute;
@@ -239,13 +230,7 @@ iframe.skiptranslate {
   min-width: 150px; /* Prevent the dropdown from being too narrow */
 }
 
-/* Adjust for mobile screens */
-@media (max-width: 576px) {
-  #myAccountDropdown .dropdown-menu {
-    width: 100%; /* Full width for mobile screens */
-    left: 0; /* Align with the parent button */
-  }
-}
+
 
 </style>
 <body>
