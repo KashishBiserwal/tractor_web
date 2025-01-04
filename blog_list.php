@@ -1,8 +1,7 @@
-<?php
+ <?php
     include 'includes/headertag.php';
     include 'includes/headertagadmin.php';
-   include 'includes/footertag.php';
-   
+    include 'includes/footertag.php';
    ?> 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -10,102 +9,100 @@
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/blog_list.js"></script>
   <script>
-  $(document).ready(function() {
-    console.log('dfsdwe');
-  $(".js-select2").select2({
-    closeOnSelect: true
+    $(document).ready(function() {
+      console.log('dfsdwe');
+    $(".js-select2").select2({
+      closeOnSelect: true
+    });
   });
-});
-
-
 </script>
 <style>
     .custom-image-size {
-        width: 200px; /* Adjust width as needed */
-        height: 200; /* Maintain aspect ratio */
+        width: 200px;
+        height: 200;
     }
     .upload__inputfile {
-  width: .1px;
-  height: .1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  }
+    width: .1px;
+    height: .1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    }
 
-  .upload__btn {
-  display: inline-block;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-  min-width: 150px;
-  padding: 5px;
-  transition: all .3s ease;
-  cursor: pointer;
-  border: 2px solid;
-  background-color:  #198754;
-  border-color:  #198754;
-  border-radius: 10px;
-  line-height: 26px;
-  font-size: 14px;
-  }
+    .upload__btn {
+    display: inline-block;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    min-width: 150px;
+    padding: 5px;
+    transition: all .3s ease;
+    cursor: pointer;
+    border: 2px solid;
+    background-color:  #198754;
+    border-color:  #198754;
+    border-radius: 10px;
+    line-height: 26px;
+    font-size: 14px;
+    }
 
-  .upload__btn:hover {
-  background-color: unset;
-  color:  #198754;
-  transition: all .3s ease;
-  }
+    .upload__btn:hover {
+    background-color: unset;
+    color:  #198754;
+    transition: all .3s ease;
+    }
 
-  .upload__btn-box {
-  margin-bottom: 10px;
-  margin-top:-25px;
-  }
+    .upload__btn-box {
+    margin-bottom: 10px;
+    margin-top:-25px;
+    }
 
-  .upload__img-wrap {
+    .upload__img-wrap {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .upload__img-box {
+    flex: 0 0 calc(33.333% - 20px); 
+    margin: 0 10px 20px; 
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-  }
+      flex-wrap: wrap;
+    }
 
-  .upload__img-box {
-  flex: 0 0 calc(33.333% - 20px); 
-  margin: 0 10px 20px; 
-  position: relative;
-  display: flex;
-    flex-wrap: wrap;
-  }
+    .upload__img-close,.upload__img-close_button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    text-align: center;
+    line-height: 24px;
+    z-index: 1;
+    cursor: pointer;
+    }
 
-  .upload__img-close,.upload__img-close_button {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 10px;
-  right: 60px;
-  text-align: center;
-  line-height: 24px;
-  z-index: 1;
-  cursor: pointer;
-  }
+    .upload__img-close:after,.upload__img-close_button:after {
+    content: '\2716';
+    font-size: 14px;
+    color: white;
+    }
+    
 
-  .upload__img-close:after,.upload__img-close_button:after {
-  content: '\2716';
-  font-size: 14px;
-  color: white;
-  }
-  
-
-  .img-bg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  position: relative;
-  width: 160px;
-  height: 125px;
-  }
+    .img-bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    width: 160px;
+    height: 125px;
+    }
 </style>
 <body class="loaded"> 
-<div class="main-wrapper">
+  <div class="main-wrapper">
     <div class="app" id="app">
     <?php
     include 'includes/left_nav.php';
@@ -165,18 +162,6 @@
                                         <input type="text" class="form-control" placeholder="" id="publisher" name="publisher">
                                         </div>
                                     </div>
-                                    <!-- <div class="col-12  col-lg-4 col-md-4 col-sm-4">
-                                        <div class="upload__box m-5">
-                                          <div class="upload__btn-box">
-                                            <label >
-                                              <p class="upload__btn ">Upload images</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_[]">
-                                            </label>
-                                            <p></p>
-                                          </div>
-                                          <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
-                                        </div>
-                                    </div> -->
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                             <div class="upload__box m-5">
                                                 <div class="upload__btn-box">

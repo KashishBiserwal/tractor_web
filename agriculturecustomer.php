@@ -6,8 +6,8 @@
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/agriculturecustomer.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+  <script src="<?php $baseUrl; ?>model/agriculturecustomer.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -97,7 +97,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

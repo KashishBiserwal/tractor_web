@@ -11,8 +11,8 @@ include 'includes/footertag.php';
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
      <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
-    <script src="<?php $baseUrl; ?>model/agriculture_inner.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/agriculture_inner.js" defer></script>
    
 </head>
 

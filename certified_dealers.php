@@ -3,7 +3,6 @@
 <head>
     <?php
         include 'includes/headertag.php';
-      
         include 'includes/footertag.php';
     ?>
    
@@ -31,7 +30,7 @@
    ?>
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/certified_dealers.js"></script>
+    <script src="<?php $baseUrl; ?>model/certified_dealers.js" defer></script>
     <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
   <section class="bg-light pt-2">
     <div class="container mt-4 pt-4">
@@ -111,7 +110,6 @@
     </div>
   </section>
 
-  <!-- Find tractor dealers near you -->
   <section>
     <div class="container">
       <div class="row">
@@ -122,57 +120,54 @@
     </div>
   </section>
 
-    <!-- QUICK LINKS -->
-  <section>
+<section>
     <div class="container py-3 mt-2">
-    <div class="row">
-                <h5 class="bg-light assured py-1 ps-3">Quick links</h5>
-                <div class="col-12 col-md-6 col-lg-3 py-1">
-                    <ul>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="find_new_tractors.php" class="text-decoration-none text-dark">New Tractor</a></li>                    
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="compare_trac.php" class="text-decoration-none text-dark">Compare</a></li>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="dealership_enq.php" class="text-decoration-none text-dark">Dealership Enquiry</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 py-1">
-                    <ul>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="new_tractor_loan.php" class="text-decoration-none text-dark">Finance</a></li>                    
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="upcoming_tractors.php" class="text-decoration-none text-dark">Upcoming Tractors</a></li>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="popular_tractors.php" class="text-decoration-none text-dark">Popular Tractors</a></li> 
-                      
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 py-1">
-                    <ul>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="used_tractor.php" class="text-decoration-none text-dark">Used Tractors</a></li>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="latest_tractor.php" class="text-decoration-none text-dark">Latest Tractors</a></li>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="Insurance.php" class="text-decoration-none text-dark">Insurance</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 py-1">
-                    <ul>
-                       
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="nursery_ui.php" class="text-decoration-none text-dark">Nursery</a></li>
-                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="engine_oil.php" class="text-decoration-none text-dark">Engine Oil</a></li>
-                    </ul>
-                </div>
+        <div class="row">
+            <h5 class="bg-light assured py-1 ps-3">Quick links</h5>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+                <ul>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="find_new_tractors.php" class="text-decoration-none text-dark">New Tractor</a></li>                    
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="compare_trac.php" class="text-decoration-none text-dark">Compare</a></li>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="dealership_enq.php" class="text-decoration-none text-dark">Dealership Enquiry</a></li>
+                </ul>
             </div>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+                <ul>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="new_tractor_loan.php" class="text-decoration-none text-dark">Finance</a></li>                    
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="upcoming_tractors.php" class="text-decoration-none text-dark">Upcoming Tractors</a></li>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="popular_tractors.php" class="text-decoration-none text-dark">Popular Tractors</a></li> 
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+                <ul>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="used_tractor.php" class="text-decoration-none text-dark">Used Tractors</a></li>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="latest_tractor.php" class="text-decoration-none text-dark">Latest Tractors</a></li>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="Insurance.php" class="text-decoration-none text-dark">Insurance</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+                <ul>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="nursery_ui.php" class="text-decoration-none text-dark">Nursery</a></li>
+                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="engine_oil.php" class="text-decoration-none text-dark">Engine Oil</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </section>        
+</section>        
 
   <?php 
     include 'includes/footer.php';
   ?>
     <script>
- function googleTranslateElementInit() {
- new google.translate.TranslateElement({
- pageLanguage: 'en',
- autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
- layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
- }, 'google_translate_element');
- }
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: 'true',
+    includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+    }
 </script>
 </body>
 </html>

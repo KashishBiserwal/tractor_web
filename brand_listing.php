@@ -13,19 +13,18 @@
   });
 });
 </script>
-    <style>
-    .error-message {
+<style>
+  .error-message {
     color: red;
-   
-}
-.brand_table thead th:last-child{
-  width: 100px !important;
-}
+  }
+  .brand_table thead th:last-child{
+    width: 100px !important;
+  }
 </style>
 
 <body class="loaded"> 
 <div class="main-wrapper">
-    <div class="app" id="app">
+  <div class="app" id="app">
     <?php
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
@@ -64,31 +63,10 @@
                                   <div class="">
                                     <div class="">
                                       <div class="row">
-                                        
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand" required>
-                                       
                                         </div>
-                                       
-                                        <!-- <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                          <div class="background__box mt-4 pt-1">
-                                                <div class="background__btn-box ">
-                                                    <label class="background__btn">
-                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
-                                                        style="display: none"
-                                                        @change="handleFileInput"
-                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                        <small></small>
-                                                    </label>
-                                                </div>
-                                                <div class="">
-                                                    <div class="background__img-wrap"></div>
-                                                </div>
-                                          </div>
-                                        </div> -->
-                  
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                           <div class="upload__box mt-5">
                                             <div class="upload__btn-box text-center">
@@ -100,16 +78,10 @@
                                             <div id="selectedImagesContainer" class="upload__img-wrap row" required></div>
                                           </div>
                                         </div>
-                                    
                                         <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
-                                                        <label for="name" class="text-dark fw-bold">Select Product Type</label>
-                                                        <div id="type_name" name="type_name" required></div>
-                                                    </div>
-                                        <!-- <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
-                                            <div class="float-left mt-4 pt-2">
-                                                <button class="btn px-4 bg-success text-white" id="save">Submit</button>
-                                            </div>
-                                        </div> -->
+                                          <label for="name" class="text-dark fw-bold">Select Product Type</label>
+                                          <div id="type_name" name="type_name" required></div>
+                                        </div>
                                       </div>
                                   </div>
                               </form>
@@ -232,51 +204,40 @@
         </div>
       </div>
     </section>
-      
-   
           <!-- model view -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-            <!-- <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
-                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-              </div> -->
-              <div class="modal-body">
-                <h4 class="fw-bold mb-2">Brand Information</h4>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h5>Brand Name: </h5>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <p id="brand_name2" class="fw-bold"></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Image</h5>
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                     <div id="related_brand" class="row"></div>
-                    </div>
-                  </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="fw-bold mb-2">Brand Information</h4>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                  <h5>Brand Name: </h5>
+                </div>
+                <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                  <p id="brand_name2" class="fw-bold"></p>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <div class="row">
+                <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                  <h5>Image</h5>
+                </div>
+                <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                  <div id="related_brand" class="row"></div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-    
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<?php
-   
-   ?> 
 <script>
   $(document).ready(function() {
     $("#form").validate({

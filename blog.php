@@ -83,7 +83,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }
