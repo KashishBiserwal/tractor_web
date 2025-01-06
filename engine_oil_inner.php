@@ -12,8 +12,8 @@
      
      <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
      <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-     <script src="<?php $baseUrl; ?>model/engineoil_detail.js"></script>
-     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+     <script src="<?php $baseUrl; ?>model/engineoil_detail.js" defer></script>
+     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
     <script>

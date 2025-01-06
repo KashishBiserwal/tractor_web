@@ -6,23 +6,14 @@
      
      ?> 
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/compare_trac.js"></script>
+    <script src="<?php $baseUrl; ?>model/compare_trac.js" defer></script>
     <style>
       .table-data {
         white-space: nowrap;
       } 
       .jumbo {
         padding-top: 5px;
-        /* min-height: 20vh; */
       }
-
-      /* .shrink .navbarrr {
-        color: #fafafa;
-        background: white;
-        display:none;
-        background: linear-gradient(35deg, white 1%, white 90%);
-        height:140px;
-      } */
     </style>
   </head>
   <!-- Google tag (gtag.js) -->
@@ -34,10 +25,7 @@
 
   gtag('config', 'G-6Z38E658LD');
 </script>
- 
   <body>
- 
-    <!-- Fixed navbar -->
     <section class="">
       <div class="">
         <nav class="navbarrr navbar-expand-lg navbar-dark bg-white d-none mb-1" id="myNavbar">
@@ -64,8 +52,6 @@
                           <p class="mb-1 text-danger fw-bold" id="brand_nav"></p>
                           <p class="mb-1 fw-bold text-hover-green"  id="model_nav"></p> 
                           <p class="mb-1 fw-bold text-hover-green" id=""> <span  id="hp_nav-1"></span> HP</p>   
-                          <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
-                          <!-- <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a> -->
                         </div>
                       </div>
                     </div>
@@ -363,34 +349,7 @@
                     </div>
                   </div>
                 </td>
-              </tr>  
-
-              <!-- <tr>
-                <td class="w-100">
-                  <div class="row w-100">
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                      <p class="mb-1">Fuel Pump</p>
-                    </div>
-                    <div class="col-12 col-lg-9 col-md-9 col-sm-9">
-                      <div class="row">
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1">N/A</p>
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1">N/A</p>
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1">N/A</p>
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1">N/A</p>
-                        </div>           
-                      </div>         
-                    </div>
-                  </div>
-                </td>
-              </tr>   -->
-
+              </tr>
               <tr>
                 <td class="w-100">
                   <div class="row w-100">
@@ -416,7 +375,6 @@
                   </div>
                 </td>
               </tr>  
-              
             </tbody>
           </table>
         </div>
@@ -1086,104 +1044,6 @@
         </div>
       </section>
 
-      
-
-   <!-- MODAL -->
-    <!-- <section>
-      <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
-              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img class="w-25" src="assets/images/close.png"></button>
-            </div>
-            <div class="modal-body bg-light">
-              <form id="engine_oil_form" class=""action="">
-                <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                    <div class="form-outline">
-                      <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                      <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
-                        <option value="" selected disabled=""></option>  
-                        <option value="1">Chhattisgarh</option>
-                        <option value="2">Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
-                        <option value="" selected disabled=""></option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
-                      </select>
-                    </div>                    
-                  </div>       
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
-                        <option value="" selected disabled=""></option>
-                        <option value="2">Durg</option>
-                      </select>
-                    </div>
-                  </div>
-                </div> 
-                <div class="text-center my-3">
-                  <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
-                </div>        
-              </form>         
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- MODAL FOR THE PRICE -->
-    <!-- MODAL -->
-    <!-- <section>
-      <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
-              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-            </div>
-            <div class="modal-body bg-light">
-              <form id="engine_oil_form" class=""action="">
-                <div class="row">
-                  <p>Price of the <span class="" id="">Brand </span><span class="" id="">Model </span><span>is ₹ </span><span class="" id="">6.5-7.6 Lakh</span></p>
-                </div> 
-                <div class="text-center my-3">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>button>         
-                </div>        
-              </form>         
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
   <script>
     (function($) {
       $( window ).scroll( function () {
@@ -1215,21 +1075,6 @@
       });  
     })(jQuery);
   </script>
-
-  <!-- <script>
-    window.addEventListener('scroll', function() {
-      var blockDiv = document.getElementById('blockOnScroll');
-      var scrollPosition = window.scrollY;
-
-      if (scrollPosition > 500) {
-        blockDiv.style.display = 'block'; // Change 'block' to 'none' if you want to hide it initially
-      } else {
-        blockDiv.style.display = 'none';
-      }
-    });
-  </script> -->
-
-
   <!-- VALIDATION -->
   <script>
     $(document).ready(function(){
@@ -1260,15 +1105,9 @@
                 },
                 eo_state: {
                     required: true,
-                    // minlength: 3
                 },
-                // eo_tehsil: {
-                //     required: true,
-                //     // minlength: 3
-                // }
                 eo_dist: {
                     required: true,
-                    // minlength: 3
                 }
             },
             messages: {
@@ -1288,15 +1127,9 @@
             },
             eo_state: {
               required: "Select Your State",
-              // minlength: "First Name must be atleast 3 characters long"
             },
-            // eo_tehsil: {
-            //     required: "Select Your Tehsil",
-            //     // minlength: "First Name must be atleast 3 characters long"
-            // }
             eo_dist: {
               required: "Select Your District",
-              // minlength: "First Name must be atleast 3 characters long"
             }
           },
         });
@@ -1314,7 +1147,5 @@
     }
   });
 </script>
-
-
-  </body>
+</body>
 </html>

@@ -6,16 +6,6 @@
  border-radius: 6px;
  cursor: pointer;
 }
-/* .img-rounded{
-   max-width: 100%;
-   image-rendering: -webkit-optimize-contrast;
-   vertical-align: middle;
-   border-style: none;
-} */
-/* .custom-column{
-  padding: 30px; 
-        margin-bottom: 5px;
-} */
 .ViewBtn{
     color:#0D3B66;
     font-size:15px;
@@ -46,8 +36,6 @@
   .price-bnt{
     border-radius: 0;
   }
-
-  /* carousel css */
   .owl-nav button {
     position: absolute;
     top: 50%;
@@ -85,15 +73,9 @@
       transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.38) !important;
   }
-  /* .span_carousel {
-      font-size: 70px;    
-      position: relative;
-      top: -5px;
-  } */
   .owl-nav button:focus {
       outline: none;
   }
-
   .home-demo .item {
     background: #fff;
 }

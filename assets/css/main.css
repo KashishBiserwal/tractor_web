@@ -278,32 +278,6 @@ body{
     font-size: 12px;
     font-weight: 600;
 }
-/* .table_edit_btn{
-    background: #673ab7;
-    border: 0;
-    width: 30px;
-    height: 30px;
-    padding: 0px 5px;
-    text-align: center;
-    color:#fff;
-} */
-/* .table_delete_btn{
-    background: #ff1b19;
-    border: 0;
-    width: 30px;
-    height: 30px;
-    padding: 0px 5px;
-    text-align: center;
-    color:#fff;
-} */
-/* .table_edit_btn:hover{
-    background: #673ab7;
-    color:#fff;
-} */
-/* .table_delete_btn:hover{
-    background: #ff1b19;
-    color:#fff;
-} */
 #example tbody tr td:last-child{
     text-align: center;
 }
@@ -323,20 +297,3 @@ body{
     color: #fff !important;
     width: 80px;
 }
-/* .submenu{
-    background: #12314d;
-    border-radius: 0;
-    width: -webkit-fill-available;
-    border: 0;
-    border-top: 2px solid #efefef;
-    padding: 0;
-}
-.submenu .dropdown-item{
-    padding: 15px 15px;
-    border-bottom: 2px solid rgb(30 84 131);
-}
-.submenu .dropdown-item:focus, .submenu .dropdown-item:hover {
-    color: #fff;
-    background-color:#12314d;
-} */
-

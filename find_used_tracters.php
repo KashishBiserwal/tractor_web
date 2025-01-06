@@ -169,11 +169,6 @@
                             <div class="col-12 mt-3">
                                 <button id="store" type="button" class="btn-success w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
                             </div>
-                            <!-- <div class="col-12 mt-3">
-                                <button data-res="<?php echo $sum; ?>" type="button" id="store" class="btn-success w-100 fw-bold"
-                                    data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
-                            </div> -->
-
                             <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
                                 Tractors
                                 <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
@@ -209,193 +204,6 @@
     </div>
   </div>
 </section> 
-    <!-- <section class="bg-light">
-        <div class="container">
-            <div class="old_tracter py-3 text-center">
-                <h3 class="fw-bold mt-3">Tractors By Brand</h3>
-            </div>
-            <div class="row mt-3 ps-5 justify-content-center m-0">
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/mahindra-1673872647.webp" data-src="h"
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-0 oneline">Mahindra</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/swaraj-1608095532.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2 oneline">Swaraj</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main  box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/sonalika.png" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2 oneline">Sonalika</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/massey-ferguson-1579512590.webp"
-                                    data-src="" alt="Sonalika Brand Logo">
-                                <p class="mb-2 oneline">massey ferguson</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/eicher-1608095225.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Eicher</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/farmtrac-1579511831.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Farmtrac</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/john-deere-1579511882.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">john-deere</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/powertrac-1579511958-2.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Powertrac</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/new-holland-1579511945.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">New-holland</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/kubota-1579512571.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Kubota</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/escort-1579512292.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Escort</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/vst-shakti-1623048840.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">VST</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/a-c-e-1579511768.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">ACE</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/same-deutz-fahr-1579511987.webp"
-                                    data-src="" alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Same Deutz Fahr</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/preet-1579511971.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Preet</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/ford.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Ford</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section> -->
     <section class="">
         <div class="container mt-4 ">
             <div class="col-12 assured mt-3">
@@ -584,31 +392,6 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- <script>
-    $(document).ready(function() {
-        var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-            removeItemButton: true,
-            searchResultLimit: 5,
-            renderChoiceLimit: 5
-        });
-    });
-    </script> -->
-
-<!-- <script>
-   function showall() {
-    var section1 = document.getElementById('section-1');
-    var section2 = document.getElementById('section-2');
-
-    if (section1.style.display == 'block') {
-      section1.style.display = 'none';
-      section2.style.display = 'block';
-    } else {
-      section1.style.display = 'block';
-      section2.style.display = 'none';
-    }
-  }
-
-</script> -->
 <script>
  document.addEventListener('DOMContentLoaded', function() {
     var selectElement = document.getElementById('choices-multiple-remove-button');
@@ -640,7 +423,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

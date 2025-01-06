@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <?php
       include 'includes/headertag.php';
       include 'includes/header.php';
@@ -13,111 +12,96 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
      <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-     <script src="<?php $baseUrl; ?>model/farm_subcat_inner.js"></script>
-     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+     <script src="<?php $baseUrl; ?>model/farm_subcat_inner.js" defer></script>
+     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 
-<style>
-   .slick-list{
-    height: 99%;
-   }
-.slider-nav{
-    height: 134px;
-    /* display: flex; */
-}
-
-
-</style>
-
+    <style>
+    .slick-list{
+        height: 99%;
+    }
+        .slider-nav{
+            height: 134px;
+        }
+    </style>
 </head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <body>
-<section class="mt-130 bg-light">
+    <section class="mt-130 bg-light">
         <div class="container">
-        <div class="py-2">
-                    <span class="text-white">
-                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                                class="fa-solid fa-chevron-right px-1"></i></a>
-
-                                <a href="farm_imole_category_customer.php" class="text-decoration-none header-link px-1"> <span class="text-dark" id="title"></span></a>
-                    </span>
-                </div>
+            <div class="py-2">
+                <span class="text-white">
+                    <a href="index.php" class="text-decoration-none header-link px-1">Home 
+                        <i class="fa-solid fa-chevron-right px-1"></i>
+                    </a>
+                    <a href="farm_imole_category_customer.php" class="text-decoration-none header-link px-1"> <span class="text-dark" id="title"></span></a>
+                </span>
+            </div>
         </div>
     </section>
-
     <!-- IMAGE SWIPER WITH THREE THUMBNAIL IMAGE -->
     <section>
         <div class="container">
             <div class="row mt-3">
                 <h4 id="heading" class="assured bg-light ps-3 py-2"></h4>
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
-                    <div>
-                    <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                        <div class="slider slider-for">
-                          
-                        </div>
-                        <div class="slider slider-nav">
-                          
-                        </div>
-                        
-                    </div>
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;"><div>
+                <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
+                <div class="slider slider-for"></div>
+                <div class="slider slider-nav"></div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5" style="z-index: 9; background: #fff;">
+            <table class="table border bg-light  mt-5">
+                <tbody>
+                    <tr>
+                        <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                            <h5> <i class="fa-solid fa-award"></i> Brand</h5>
+                        </td>
+                        <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                            <h5><a href="" class="text-decoration-none h5 text-danger " id="model_name"></a></h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h6><i class="fa-solid fa-font-awesome"></i> Model</h6>
+                        </td>
+                        <td><p id="model"></p></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h6> <i class="fa-solid fa-layer-group"></i> Implement Type</h6>
+                        </td>
+                        <td><p> <span id="subcategory"></span></p> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h6><i class="fa-solid fa-fill"></i> Category</h6>
+                        </td>
+                        <td>
+                            <p> <span  id="category"></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row my-3 text-center">
+                <div class="col-6 col-sm-6 p-2">
+                    <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                        Request Call Back
+                    </button>
                 </div>
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5" style="z-index: 9; background: #fff;">
-                    <table class="table border bg-light  mt-5">
-                        <tbody>
-                            <tr>
-                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <h5> <i class="fa-solid fa-award"></i> Brand</h5>
-                                </td>
-                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <h5><a href="" class="text-decoration-none h5 text-danger " id="model_name"></a></h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h6><i class="fa-solid fa-font-awesome"></i> Model</h6>
-                                </td>
-                                <td><p id="model"></p></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h6> <i class="fa-solid fa-layer-group"></i> Implement Type</h6>
-                                </td>
-                                <td><p> <span id="subcategory"></span></p> </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h6><i class="fa-solid fa-fill"></i> Category</h6>
-                                </td>
-                                <td>
-                                    <p> <span  id="category"></span></p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="row my-3 text-center">
-                       
-                    <div class="col-6 col-sm-6 p-2">
-                            <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                                Request Call Back
-                            </button>
-                        </div>
-                        <div class="col-6 col-sm-6 p-2">
-                            <a type="button" href="loan.php" class="btn btn-success text-decoration-none text-center w-100">
-                               Apply Loan
-                            </a>
-                        </div>
-                    </div>
-
+                <div class="col-6 col-sm-6 p-2">
+                    <a type="button" href="loan.php" class="btn btn-success text-decoration-none text-center w-100">
+                        Apply Loan
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
         </div>
     </section>
 
@@ -134,19 +118,13 @@
                     <div class="modal-body bg-light">
                     <form id="engine_oil_form" method="POST" onsubmit="return false">
                 <div class="row">
-            
-             <!--    <input type="hidden" id="brand_name">
-                <input type="hidden" id="model_name" > -->
                 <input type="hidden" id="enquiry_type_id" value="6" >
                 <input type="hidden" id="product_id" value="" >
-                
-            
-         
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                      <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
-                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-outline">
+                        <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
+                        </div>
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div class="form-outline">
@@ -180,20 +158,18 @@
                     <div class="form-outline">
                       <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                       <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                       
                       </select>
                     </div>
                   </div>
-
                 </div> 
                 <div class="text-center my-3">
                 <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>        
                 </div>        
               </form>           
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+</div>
     </section>
 
     <!-- Modal -->
@@ -274,25 +250,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <section>
-        <div class="container">
-            <div class="row py-1 mb-3">
-                <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Latest Blog</h3>
-                <div id="similarproduct" class="row"></div>
-
-
-                <div class="col text-center mt-3">
-                    <a href="blog.php" class="btn btn-success btn-lg">View All</a>
-                </div>
-
-            </div>
-
-        </div>
-    </section> -->
-   
-
-
     <?php   
         include 'includes/footer.php';
        
@@ -309,30 +266,5 @@
  }, 'google_translate_element');
  }
 </script>
-
-  <!-- <script>
-  // slick slider
-  $('.slider-for').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.slider-nav'
-  });
-  $('.slider-nav').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.slider-for',
-    dots: true,
-    focusOnSelect: true
-  });
-
-  $('a[data-slide]').click(function(e) {
-    e.preventDefault();
-    var slideno = $(this).data('slide');
-    $('.slider-nav').slick('slickGoTo', slideno - 1);
-  });
-</script> -->
-
 </body>
 </html>

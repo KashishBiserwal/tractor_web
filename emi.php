@@ -4,102 +4,91 @@
 
 <head>
     <?php
-   include 'includes/headertag.php';
-   ?>
+        include 'includes/headertag.php';
+    ?>
     <style>
-    .form-outline .form-label {
-        color: #454444;
-        font-weight: 500;
-        margin-bottom: 5px;
-        position: absolute;
-        padding: 0px 10px;
-        margin-top: -11px;
-        background: #fff;
-        margin-left: 20px;
-    }
-
-    label.error {
-        color: red !important;
-        margin-bottom: 2px;
-        font-size: 13px;
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    .text_emi {
-        padding: 4px;
-        margin-bottom: 15px;
-        border: 1px solid black;
-        /* border-radius: 5px; */
-        color: black;
-        /* background-color: rgba(255, 255, 255, 0.8); */
-        background-color: rgb(243 238 238 / 80%);
-
-    }
-
-    .slidecontainer {
-        width: 100%;
-    }
-
-    .slider {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 15px;
-        border-radius: 20px;
-        background: #d3d3d3;
-        outline: none;
-        opacity: 0.7;
-        -webkit-transition: .2s;
-        transition: opacity .2s;
-    }
-
-    .slider:hover {
-        opacity: 1;
-    }
-
-    .slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: #04AA6D;
-        cursor: pointer;
-    }
-
-    .slider::-moz-range-thumb {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: #04AA6D;
-        cursor: pointer;
-    }
+        .form-outline .form-label {
+            color: #454444;
+            font-weight: 500;
+            margin-bottom: 5px;
+            position: absolute;
+            padding: 0px 10px;
+            margin-top: -11px;
+            background: #fff;
+            margin-left: 20px;
+        }
+        label.error {
+            color: red !important;
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+        .hidden {
+            display: none;
+        }
+        .text_emi {
+            padding: 4px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+            color: black;
+            background-color: rgb(243 238 238 / 80%);
+        }
+        .slidecontainer {
+            width: 100%;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 20px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #04AA6D;
+            cursor: pointer;
+        }
     </style>
-
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
 <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-6Z38E658LD');
+    gtag('config', 'G-6Z38E658LD');
 </script>
 <body>
     <?php
-   include 'includes/header.php';
-   ?>
+        include 'includes/header.php';
+    ?>
    <section id="section_1">
         <section class="mt-3 pt-5">
             <div class="container">
                 <div class="mt-5 pt-3">
                     <span class="mt-5 text-white">
                         <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                                class="fa-solid fa-chevron-right px-1"></i></a>
+                            class="fa-solid fa-chevron-right px-1"></i>
+                        </a>
                         <span class="text-dark">EMI Calculator</span>
                     </span>
                 </div>
@@ -261,7 +250,6 @@
                 </div>
             </div>
         </section>
-
         <section class="my-4">
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">Why Use Tractor Loan EMI Calculator?</h3>
@@ -276,7 +264,6 @@
                 </div>
             </div>
         </section>
-
         <section class="about">
             <div class="container">
                 <div class="lecture_heading text-center">
@@ -428,7 +415,6 @@
 
         </section>
     </section>
-
     <section id="section_2" style="display: none;">
         <section class="mt-5 pt-4 bg-light">
             <div class="container ">
@@ -460,7 +446,6 @@
                 </div>
             </div>
         </div>
-
         <section>
             <div class="container">
                 <div class="">
@@ -653,7 +638,6 @@
                             <option value="72">72</option>
                             <option value="78">78</option>
                             <option value="84">84</option>
-
                         </select>
                     </div>
                     <!-- Repayment Interval -->
@@ -818,38 +802,16 @@ $("#brandModelForm").submit(function(event) {
     
     <script>
     $(document).ready(function() {
-        // var storedData = JSON.parse(localStorage.getItem('formData')) || {};
-        //     $('#brandSelect').val(storedData.brandSelect || '');
-        //     $('#modelSelect').val(storedData.modelSelect || '');
         $("#brandModelForm").validate({
             rules: {
                 brandSelect: 'required',
                 modelSelect: 'required',
             },
             submitHandler: function (form) {
-             
-                    // window.location.href = "emi_inner.php";
-                    // return false; 
                 }
             });
     
         });
-
-
-        // $('#calculateEMI').on('click', function() {
-        //     $('#brandModelForm').valid();
-        //     console.log($('#brandModelForm').valid());
-          
-        // });
-
-    // function showEMIForm() {
-    //     // Validate the first form
-    //     if ($("#brandModelForm").valid()) {
-    //         // Hide the first form and show the second form
-    //         $("#form1").addClass("hidden");
-    //         $("#form2").removeClass("hidden");
-    //     }
-    // }
 
     </script>
 
@@ -910,8 +872,6 @@ $("#brandModelForm").submit(function(event) {
                     option.textContent = row.model;
                     option.value = row.model;
                     select.appendChild(option);
-  
-                   
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
@@ -1084,7 +1044,6 @@ function updateEMI() {
     $('#payableAmount').val(`₹${(emi * numberOfPayments).toFixed(2)}`);
     $('#extraPayment').val(`₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`);
 }
-
 // Initial EMI calculation
 updateEMI();
 
@@ -1116,37 +1075,6 @@ updateEMI();
     });
 </script>
 <script>
-// function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function(data) {
-//             console.log(data);
-//             const stateSelect = document.getElementsByClassName(stateClassName)[0];
-//             stateSelect.innerHTML = '<option selected  value="">Please select a state</option>';
-
-//             const stateId = 7; // State ID you want to filter for
-//             const filteredState = data.stateData.find(state => state.id === stateId);
-//             if (filteredState) {
-//                 const option = document.createElement('option');
-//                 option.textContent = filteredState.state_name;
-//                 option.value = filteredState.id;
-//                 stateSelect.appendChild(option);
-//                 // Once the state is populated, fetch and populate districts immediately
-//                 getDistricts(filteredState.id, districtClassName, tehsilClassName);
-//             } else {
-//                 stateSelect.innerHTML = '<option>No valid data available</option>';
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
 function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
@@ -1269,9 +1197,6 @@ function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
         }
     });
 }
-
-// Call the function to populate dropdowns with specific class names
-// populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
 </script>
 <script>
        var userId = localStorage.getItem('id');
@@ -1449,7 +1374,7 @@ function isUserLoggedIn() {
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }
