@@ -2,6 +2,12 @@
     font-family: "helvetica";
     src: url(../font/Helvetica.ttf);
 } */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('customfont.woff2') format('woff2');
+    font-display: swap;
+}
+
 body{
     font-family: "helvetica", sans-serif !important;
 }
