@@ -18,7 +18,6 @@ function model_click(){
   }
 
   function get() {
-    // var apiBaseURL = CustomerAPIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
@@ -274,9 +273,7 @@ function displayTractors(tractors) {
                         </div>
                     </div>
                 </div>
-            </div>
-                    `;
-             // Append the new card to the container
+            </div>`;
              productContainer.append(newCard);
             });
         }
@@ -289,7 +286,6 @@ function savedata(formId) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -444,22 +440,16 @@ function getUserDetail(id, formId) {
         success: function(response) {
             console.log(response, "response");
 
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
                 
-                // Set values based on formId
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state_id);
-                // $('#' + formId + ' #district').val(customer.district); 
-                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
-                
+             
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#district,#Tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#state,#district,#Tehsil').prop('disabled', true);
                 }
             }
         },
@@ -472,7 +462,6 @@ function getUserDetail(id, formId) {
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 
 // filter tractor
 var filteredCards = [];
@@ -634,8 +623,6 @@ function appendFilterCard(filterContainer, filter) {
                                                                 </select>
                                                             </div>                          
                                                          </div> 
-                                                    
-                                        
                                                          <div class="modal-footer">
                                                          <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
                                                          <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
@@ -716,13 +703,11 @@ function appendFilterCard(filterContainer, filter) {
     function displayNextSet() {
         var productContainer = $("#productContainer");
     
-        // Display the next set of filtered cards
         filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
     
-        // Hide the "Load More" button if all filtered cards are displayed
         if (cardsDisplayed >= filteredCards.length) {
             $("#loadMoreBtn").hide();
         }
@@ -736,8 +721,6 @@ function appendFilterCard(filterContainer, filter) {
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
-
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -746,7 +729,6 @@ function appendFilterCard(filterContainer, filter) {
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
     window.location.reload();
-    
   } 
 
   function populateDropdowns(identifier) {

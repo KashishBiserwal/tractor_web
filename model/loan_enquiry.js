@@ -1,20 +1,13 @@
 $(document).ready(function(){
-    // $('#Search').click(search_data);
-    // $('#undate_btn_nursery_enq').click(edit_data_id);
     $('#undate_btn_nursery_enq').click(edit_insurance);
-    
-          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-          return /^[6-9]\d{9}$/.test(value); 
-          }, "Phone number must start with 6 or above");
-    
-  
-  
-      });
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    return /^[6-9]\d{9}$/.test(value); 
+    }, "Phone number must start with 6 or above");
+});
     //****get data***
     function get_loan() {
         var apiBaseURL = APIBaseURL;
         var url = apiBaseURL + 'loan_data';
-    
         $.ajax({
             url: url,
             type: "GET",
@@ -22,11 +15,9 @@ $(document).ready(function(){
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             success: function (data) {
-                const tableBody = $('#data-table'); // Use jQuery selector for the table body
-                tableBody.empty(); // Clear previous data
-    
+                const tableBody = $('#data-table'); 
+                tableBody.empty(); 
                 let serialNumber = data.Enquiry_for_loan_data.length;
-    
                 if (data.Enquiry_for_loan_data && data.Enquiry_for_loan_data.length > 0) {
                     var table = $('#example').DataTable({
                         paging: true,
@@ -45,8 +36,6 @@ $(document).ready(function(){
     
                     data.Enquiry_for_loan_data.forEach(row => {
                         const fullName = row.first_name + ' ' + row.last_name;
-    
-                        // Add row to DataTable
                         table.row.add([
                             serialNumber--,
                             row.date,
@@ -80,22 +69,17 @@ $(document).ready(function(){
                     $("#errorStatusLoading").find('.modal-title').html('Error');
                     $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
                     window.location.href = baseUrl + "login.php"; 
-      
-                  }
+                }
             }
         });
     }
     get_loan();
-
-
-
 
   //****delete data***
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
     var token = localStorage.getItem('token');
-  
     if (!token) {
       console.error("Token is missing");
       return;
@@ -104,7 +88,6 @@ $(document).ready(function(){
     if (!isConfirmed) {
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",
@@ -112,9 +95,6 @@ $(document).ready(function(){
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        // get_tyre_list();
-        // window.location.reload();
-        console.log("Delete request successful");
         alert("Delete operation successful");
         window.location.reload();
       },
@@ -125,8 +105,7 @@ $(document).ready(function(){
     });
   }
 
-
-//   get insurance type
+// get insurance type
 function get_loan_type() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_loan_type';
     $.ajax({
@@ -136,17 +115,13 @@ function get_loan_type() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
-
             const select = $('#insurance_type');
             select.empty().append('<option selected disabled value="">Please select an option</option>');
-
             if (data.loanType.length > 0) {
                 data.loanType.forEach(row => {
                     const option = $('<option>');
                     option.text(row.loan_type_value);
                     option.val(row.id);
-                    // console.log(row.id,'sdfzxczxcxcfv');
                     select.append(option);
                 });
             } else {
@@ -169,7 +144,6 @@ function get_1() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            // console.log(data);
             const select = document.getElementById('brand_name');
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
@@ -178,11 +152,8 @@ function get_1() {
                     const option = document.createElement('option');
                     option.textContent = row.brand_name;
                     option.value = row.id;
-                    // console.log(row.id,);
                     select.appendChild(option);
                 });
-  
-                // Add event listener to brand dropdown
                 select.addEventListener('change', function() {
                     const selectedBrandId = this.value;
                     get_model_1(selectedBrandId);
@@ -216,8 +187,6 @@ function get_1() {
                     option.textContent = row.model;
                     option.value = row.model;
                     select.appendChild(option);
-  
-                   
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
@@ -240,7 +209,6 @@ function get_search1() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const select = document.getElementById('brand_search');
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
@@ -267,12 +235,9 @@ get_search1();
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_for_loan_data_by_id/' + id;
-    console.log(url);
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-
     $.ajax({
         url: url,
         type: 'GET',
@@ -293,7 +258,6 @@ function fetch_edit_data(id) {
                     break;
                 }
             }
-
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
               if (brandDropdown.options[i].text === Data.brand_name) {
@@ -301,17 +265,12 @@ function fetch_edit_data(id) {
                 break;
               }
             }
-
             $('#model_name').empty();
             get_model_1(Data.brand_id);
             setTimeout(function () { 
                 $("#model_name option").prop("selected", false);
                 $("#model_name option[value='" + Data.model + "']").prop("selected", true);
             }, 2000); 
-
-            // setSelectedOption('state_2', Data.state_id);
-            // setSelectedOption('dist_2', Data.district_id);
-            // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
             setSelectedOption('state_2', Data.state_id);
             getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
             setTimeout(function() {
@@ -325,7 +284,6 @@ function fetch_edit_data(id) {
         }
     });
 }
-
   function setSelectedOption(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
@@ -335,7 +293,6 @@ function fetch_edit_data(id) {
       }
     }
   }
-  
   function populateTehsil(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
@@ -361,13 +318,10 @@ function edit_insurance() {
     var state_2 = $("#state_2").val();
     var dist_2 = $("#dist_2").val();
     var tehsil_2 = $("#tehsil_2").val();
-    
-    // Validate mobile number
     if (!/^[6-9]\d{9}$/.test(mobile_no)) {
         alert("Mobile number must start with 6 or above and should be 10 digits");
-        return; // Exit the function if validation fails
+        return; 
     }
-    
     var paraArr = {
         'id':id,
         'enquiry_type_id':enquiry_type_id,
@@ -383,14 +337,11 @@ function edit_insurance() {
         'district': dist_2,
         'tehsil': tehsil_2,
     };
-    
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
-    
     var headers = {
         'Authorization': 'Bearer' + localStorage.getItem('token')
     };
-    
     $.ajax({
         url: url,
         type: "PUT",
@@ -406,13 +357,12 @@ function edit_insurance() {
             console.error('Error fetching data:', error);
         }
     });
-    }
+}
  
 // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_for_loan_data_by_id/' + userId;
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -421,12 +371,9 @@ function openViewdata(userId) {
       url: url,
       type: 'GET',
       headers: headers,
-
       success: function(response) {
-      
         var userData = response.Enquiry_for_loan_data[0];
         var name = userData.first_name +" "+userData.last_name;
-        // var policyClaim = userData.previous_policy_claim === 1 ? "Yes" : "No";
         document.getElementById('last_name2').innerText=name;
         document.getElementById('number').innerText=userData.mobile;
         document.getElementById('brand_id').innerText=userData.brand_name;
@@ -437,13 +384,12 @@ function openViewdata(userId) {
         document.getElementById('district1').innerText=userData.district_name;
         document.getElementById('tehsil1').innerText=userData.tehsil_name;
         document.getElementById('insurance_type_name1').innerText=userData.loan_type_value;
-        // document.getElementById('policy_1').innerText = policyClaim;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
       }
     });
-  } 
+} 
 
 //   search dataaa
 function search_data() {
@@ -467,19 +413,14 @@ function search_data() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
+            const tableBody = $('#data-table'); 
             const dataTable = $('#example').DataTable();
-
-            // Clear DataTable before adding new rows
             dataTable.clear().draw();
 
             if (data.Enquiry_for_loan_data && data.Enquiry_for_loan_data.length > 0) {
-                let serialNumber = 1; // Define serialNumber here
-
+                let serialNumber = 1; 
                 data.Enquiry_for_loan_data.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
-
-                    // Add row to DataTable
                     dataTable.row.add([
                         serialNumber--,
                         row.date,
@@ -507,7 +448,6 @@ function search_data() {
         },
         error: function (xhr, status, error) {
             if (xhr.status === 404) {
-                // Handle 404 error here
                 const tableBody = $('#data-table');
                 tableBody.html('<tr><td colspan="8">No matching data available</td></tr>');
             } else {
@@ -516,12 +456,10 @@ function search_data() {
         }
     });
 }
-
 function resetform(){
     $('#brand_search').val();
     $('#state_state').val();
     $('#dist_state').val();
-    // get_loan();
     window.location.reload();
 }
 

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("ready!");
     getTractorList();
     $('#apply_filter_bnt').click(filter_search);
     showOverlay(); 
@@ -7,17 +6,13 @@ $(document).ready(function() {
 function showOverlay() {
     $("#overlay").fadeIn(400);
 }
-
 function hideOverlay() {
     $("#overlay").fadeOut(400);
 }
-
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_haat_bazar";
-
     var haat_bazar_data = 0;
     var displayedTractors = 6;
-
     $.ajax({
         url: url,
         type: "GET",
@@ -26,20 +21,15 @@ function getTractorList() {
             var loadMoreButton = $("#load_more");
             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                 haat_bazar_data = data.allData.haat_bazar_data.length;
-
                 var reversedCards = data.allData.haat_bazar_data.slice().reverse();
-                
                 displaylist(productContainer, reversedCards.slice(0, displayedTractors).reverse());
-
                 if (haat_bazar_data <= displayedTractors) {
                     loadMoreButton.hide();
                 } else {
                     loadMoreButton.show();
                 }
                 loadMoreButton.click(function() {
-                 
                     displaylist(productContainer, reversedCards.slice(displayedTractors).reverse(), true);
-                   
                     loadMoreButton.hide();
                 });
             }
@@ -54,12 +44,9 @@ function getTractorList() {
 }
 
 function formatPriceWithCommas(price) {
-    // Check if the price is not a number
     if (isNaN(price)) {
-        return price; // Return the original value if it's not a number
+        return price; 
     }
-    
-    // Format the price with commas in Indian format
     return new Intl.NumberFormat('en-IN').format(price);
 }
 function displaylist(productContainer, tractors, append) {
@@ -240,24 +227,17 @@ function displaylist(productContainer, tractors, append) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>`;
 
-        `;
-
-        // Append or prepend the new card to the container based on the "append" parameter
         if (append) {
             productContainer.append(newCard);
         } else {
             productContainer.prepend(newCard);
         }
-     
-        // Add event listener for modal opening
     });
 }
 
-
 function resetForm(formId) {
-    // Reset the form by using its ID
     document.getElementById(formId).reset();
 }
 
@@ -274,7 +254,6 @@ function savedata(formId) {
         formData = collectFormData(formId);
         var mobile = formData.mobile;
         sendOTP(mobile);
-        console.log("OTP Sent successfully");
     }
 }
 
@@ -296,7 +275,6 @@ function sendOTP(mobile) {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
             $('#Mobile').val(mobile);
             openOTPModal();
         },
@@ -306,15 +284,12 @@ function sendOTP(mobile) {
     });
 }
 
-
 function openOTPModal() {
     $('#get_OTP_btn').modal('show');
 }
-
 function verifyotp(formId) {
     var mobile = document.getElementById('Mobile').value;
     var otp = document.getElementById('otp').value;
-
     var paraArr = {
         'otp': otp,
         'mobile': mobile,
@@ -337,11 +312,10 @@ function verifyotp(formId) {
         success: function (result) {
             console.log(result);
             $('#get_OTP_btn').modal('hide');
-            submitData(formId); // Submit the form after OTP verification
+            submitData(formId); 
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle errors here
         },
     });
 }
@@ -350,7 +324,6 @@ function submitData(formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     var formDataToSubmit = formData;
     
-    // If user is logged in, use formData from parameter directly
     if (isUserLoggedIn()) {
         formDataToSubmit = collectFormData(formId);
     }
@@ -362,10 +335,9 @@ function submitData(formId) {
     $.ajax({
         url: url,
         type: "POST",
-        data: formDataToSubmit, // Submit all form data
+        data: formDataToSubmit, 
         
         success: function (result) {
-            console.log(result, "result");
             var msg = "Added successfully !";
             openSellerContactModal(formDataToSubmit);
         },
@@ -373,14 +345,11 @@ function submitData(formId) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
-            // Handle errors here
         }
     });
 }
 
-
 function collectFormData(formId) {
-    // Collect form data
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = $(`#${formId} #product_id`).val();
     var first_name = $(`#${formId} #firstName`).val();
@@ -400,46 +369,34 @@ function collectFormData(formId) {
         'district': district,
         'tehsil': tehsil,
     };
-
     return formData;
 }
-
 function openSellerContactModal(formDataToSubmit) {
     var modalId_2 = `staticBackdrop_${formDataToSubmit.product_id}`;
     $(`#${modalId_2}`).modal('show');
 }
-
 function getUserDetail(id, formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
-
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
                 console.log(customer, 'customer details');
                 
-                // Set values based on formId
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state_id);
-                // $('#' + formId + ' #district_1').val(customer.district);
-                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                // $('#' + formId + ' #state').val(customer.state_id);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#state,#district_1,#Tehsil').prop('disabled', true);
                 }
             }
         },
@@ -453,10 +410,8 @@ function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
-
 function getCategories() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_category';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -464,12 +419,9 @@ function getCategories() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
-
             const checkboxContainer = $('#checkboxContainercategory');
-            checkboxContainer.empty(); // Clear existing checkboxes
+            checkboxContainer.empty();
 
-            // Loop through the data and add checkboxes
             $.each(data.allCategory, function (index, category) {
                 var category_id = category.id;
                 var category_name = category.category_name;
@@ -488,7 +440,6 @@ function getCategories() {
 getCategories();
 function getSubCategories() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_sub_category';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -496,18 +447,14 @@ function getSubCategories() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
-
             const checkboxContainer = $('#sub_cateory_checkbox');
-            checkboxContainer.empty(); // Clear existing checkboxes
+            checkboxContainer.empty(); 
 
-            // Loop through the data and add checkboxes
             $.each(data.allSubCategory, function (index, category) {
                 var category_id = category.id;
                 var sub_category_name = category.sub_category_name;
                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 sub_category_checkbox" value="' + category_id + '"/>' +
-                    '<span class="ps-2 fs-6">' + sub_category_name + '</span> <br/>';
-
+                '<span class="ps-2 fs-6">' + sub_category_name + '</span> <br/>';
                 checkboxContainer.append(checkboxHtml);
             });
         },
@@ -516,14 +463,12 @@ function getSubCategories() {
         }
     });
 }
-
 getSubCategories();
 
 var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6; 
 
-// Function to perform search/filter action
 function filter_search() {
     var select_state = $(".state_checkbox:checked");
     var select_district = $(".district_checkbox:checked");
@@ -563,14 +508,8 @@ function filter_search() {
         success: function (searchData) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
-
-            // Update filteredCards with the new filtered data
             filteredCards = searchData.allData.haat_bazar_data;
-
-            // Reset cardsDisplayed to 0
             cardsDisplayed = 0;
-
-            // Call appendFilterCard to display the filtered cards
             appendFilterCard(filterContainer, searchData);
 
         },
@@ -578,7 +517,6 @@ function filter_search() {
             console.error('Error searching for brands:', error);
         },
         complete: function () {
-            // Hide the spinner after the API call is complete
             hideOverlay();
         },
     });
@@ -586,7 +524,7 @@ function filter_search() {
 
 
 function appendFilterCard(filterContainer, filter) {
-    console.log("Filter:", filter); // Debugging: Check filter data
+    console.log("Filter:", filter); 
 
     function appendCard(container, p) {
         var data = p.haat_bazar_id;
@@ -774,7 +712,7 @@ function appendFilterCard(filterContainer, filter) {
 // Extract haat_bazar_data from the filter object
 var haat_bazar_data = filter.allData.haat_bazar_data;
 
-console.log("Filtered Data:", haat_bazar_data); // Debugging: Check filtered data
+console.log("Filtered Data:", haat_bazar_data); 
 
 // Display filtered cards
 if (haat_bazar_data && haat_bazar_data.length > 0) {
@@ -802,7 +740,6 @@ function resetform(){
     window.location.reload();
     
   }
-
   function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
@@ -885,7 +822,6 @@ function getDistricts(stateId) {
 
 // Call the function to load all states
 getState();
-
 
 function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);

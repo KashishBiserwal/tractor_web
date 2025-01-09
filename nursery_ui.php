@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php
-   include 'includes/headertag.php';
-   include 'includes/footertag.php';
-   include 'includes/spinner.php';
-   ?>
+        include 'includes/headertag.php';
+        include 'includes/footertag.php';
+        include 'includes/spinner.php';
+    ?>
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/nursery_ui.js"></script>
+    <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/nursery_ui.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
@@ -19,19 +18,20 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <body>
     <?php
-    include 'includes/header.php';
-   ?>
+        include 'includes/header.php';
+    ?>
     <section class="mt-5 pt-5 bg-light">
         <div class="container-fluid py-2 mt-2">
             <div class="pt-2">
                 <span class="text-white">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i></a><span class="text-dark">Nursery</span>
+                    <a href="index.php" class="text-decoration-none header-link px-1">Home 
+                        <i class="fa-solid fa-chevron-right px-1"></i>
+                    </a>
+                    <span class="text-dark">Nursery</span>
                 </span>
             </div>
         </div>
@@ -80,10 +80,7 @@
 
     <?php
     include 'includes/footer.php';
-   
     ?>
-
-
 
     <script>
     $(document).ready(function() {
@@ -103,7 +100,7 @@
                 mobile_number: {
                     required: true,
                     digits: true, 
-                    indianMobile: true, // Allow only digits
+                    indianMobile: true, 
                 },
                 state: "required",
                 district: "required",
@@ -120,7 +117,7 @@
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

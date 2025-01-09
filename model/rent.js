@@ -630,108 +630,6 @@ $(document).ready(function() {
         return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
     }
 
-// function store(event) {
-//     event.preventDefault();
-
-//     var enquiry_type_id = $('#enquiry_type_id').val();
-//     // var added_by = 0;
-//     var brand_name = $('#brand').val();
-//     var model = $('#model_main').val();
-//     var year = $('#year_main').val();
-//     var workingRadius = $('#workingRadius').val();
-//     var first_name = $('#myfname').val();
-//     var last_name = $('#mylname').val();
-//     var mobile = $('#mynumber').val();
-//     var state = $('#state_state').val();
-//     var district = $('#dist_district').val();
-//     var tehsil = $('#tehsil_t').val();
-//     var about = $('#textarea_d').val();
-//     var implementTypeArray = [];
-//     var rateArray = [];
-//     var ratePerArray = [];
-//     var imageFilesArray = [];
-
-//     // Iterate over each row in the table body
-//     $('#rentTractorTable tbody tr').each(function(index) {
-//         var row = $(this);
-
-//         var implement_type = row.find('.implement-type-input').val();
-//         var rate = row.find('.implement-rate-input').val();
-//         rate = rate.replace(/[\,\.\s]/g, '');
-//         var ratePer = row.find('.implement-unit-input').val();
-//         var image_names = row.find('.image-file-input')[0].files; 
-
-//         // Push data into arrays
-//         implementTypeArray.push(implement_type);
-//         rateArray.push(rate);
-//         ratePerArray.push(ratePer);
-
-//         // Push each image file to imageFilesArray
-//         for (var i = 0; i < image_names.length; i++) {
-//             imageFilesArray.push(image_names[i]);
-//         }
-//     });
-
-//     // Create a FormData object
-//     var formData = new FormData();
-
-//     // Append form data
-//     // formData.append('added_by', added_by);
-//     formData.append('enquiry_type_id', enquiry_type_id);
-//     formData.append('brand_id', brand_name);
-//     formData.append('model', model);
-//     formData.append('first_name', first_name);
-//     formData.append('last_name', last_name);
-//     formData.append('purchase_year', year);
-//     formData.append('working_radius', workingRadius);
-//     formData.append('mobile', mobile);
-//     formData.append('state', state);
-//     formData.append('district', district);
-//     formData.append('tehsil', tehsil);
-//     formData.append('message', about);
-//     // Append arrays as JSON strings
-//     formData.append('implement_type_id', JSON.stringify(implementTypeArray));
-//     formData.append('rate', JSON.stringify(rateArray));
-//     formData.append('rate_per', JSON.stringify(ratePerArray));
-
-//     // Append each image file
-//     for (var i = 0; i < imageFilesArray.length; i++) {
-//         formData.append('images[]', imageFilesArray[i]);
-//     }
-
-//     // Make an AJAX request to the server
-//     $.ajax({
-//         url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
-//         type: 'POST',
-//         data: formData,
-//         processData: false,
-//         contentType: false,
-//         success: function (result) {
-//             console.log(result, 'result');
-//             $("#used_tractor_callbnt_").modal('hide');
-//             var msg = 'Added successfully !';
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//             console.log('Add successfully');
-            
-//             $('#errorStatusLoading').on('hidden.bs.modal', function () {
-//                 window.location.reload();
-//             });
-          
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//             var msg = error.statusText;
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//         }
-//     });
-// }
-
     function resetFormFields(){
         document.getElementById("rent_list_form_").reset(); // Reset the entire form
         
@@ -788,26 +686,6 @@ function storeImplement(event) {
              $('#myModal').modal("hide");
         }
     }
-
-
-
-
-    // if (isUserLoggedIn()) {
-    //     var isConfirmed = confirm("Are you sure you want to submit the form?");
-    //     if (isConfirmed) {
-    //         submitFormImplement();
-    //     }
-    // } else {
-    //     var mobile = $('#mynumber1').val();
-    //     if (mobile.length === 10 && $.isNumeric(mobile)) {
-    //         get_otp2(mobile);
-    //     }  
-    //     else {
-    //          alert("Please enter a valid 10-digit mobile number.");
-    //         $('#myModal').modal('hide'); 
-    //     }
-      
-    // }
 }
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
@@ -876,8 +754,6 @@ function submitFormImplement() {
     var enquiry_type_id = $('#enquiry_type_id').val();
     var brand_name = $('#brand_implement').val();
     console.log(brand_name,'brand_name');
-    // var model = $('#model_main').val();
-    // var year = $('#year_main1').val();
     var workingRadius = $('#workingRadius1').val();
     var first_name = $('#myfname1').val();
     var last_name = $('#mylname1').val();
@@ -897,7 +773,6 @@ function submitFormImplement() {
     $('#Implement_rent_only tbody tr').each(function(index) {
         var row = $(this);
         var implement_type = row.find('.implement-type-input').val();
-        // var rate = row.find('.only-implement-rate-input').val().replace(/[\,\.\s]/g, '');
         var rate = row.find('.implement-rate-input').val().replace(/[\,\.\s]/g, '');
         var ratePer = row.find('.implement-unit-input').val();
         var image_names = row.find('input[type="file"]')[0].files;
@@ -920,10 +795,8 @@ function submitFormImplement() {
     formData.append('enquiry_type_id', enquiry_type_id);
     formData.append('forImplement', forImplement);
     formData.append('brand_id', brand_name);
-    // formData.append('model', model);
     formData.append('first_name', first_name);
     formData.append('last_name', last_name);
-    // formData.append('purchase_year', year);
     formData.append('working_radius', workingRadius);
     formData.append('mobile', mobile);
     formData.append('state', state);
@@ -949,11 +822,8 @@ function submitFormImplement() {
         contentType: false,
         success: function (result) {
             console.log(result, "result");
-            // Show success message
-            // var msg = 'Added successfully!';
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            // $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successful Request"></img>');
             // Reload page after OK is clicked
             $('#errorStatusLoading').on('hidden.bs.modal', function () {
@@ -1138,9 +1008,6 @@ function submitFormImplement() {
         // Iterate over each row in the table body
         $('#rentTractorTable tbody tr').each(function(index) {
             var row = $(this);
-            // var implement_type = row.find('.implement-type-input').val();
-            // var rate = row.find('.implement-rate-input').val().replace(/[\,\.\s]/g, '');
-            // var ratePer = row.find('.implement-unit-input').val();
             var implement_type = row.find('.implement-type-input').val();
             var rate = row.find('.implement-rate-input').val();
             rate = rate.replace(/[\,\.\s]/g, '');
@@ -1163,7 +1030,6 @@ function submitFormImplement() {
 
         // Append form data
         formData.append('enquiry_type_id', enquiry_type_id);
-        // formData.append('forTractor', forTractor);
         formData.append('brand_id', brand_name);
         formData.append('model', model);
         formData.append('first_name', first_name);

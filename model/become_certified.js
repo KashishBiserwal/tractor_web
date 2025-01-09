@@ -1,16 +1,12 @@
 
 $(document).ready(function() {
-    console.log("ready!");
     ImgUpload();
     $('#become_delership_enq_btn').click(store);
 });
 
-
-
 function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
-
     $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
@@ -63,11 +59,7 @@ function ImgUpload() {
       $(this).parent().parent().remove();
     });
   }
-
-
   function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
       let thisId=ele.id;
       thisId=thisId.split('closeId');
       thisId=thisId[1];
@@ -79,7 +71,6 @@ function ImgUpload() {
 function get_search() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'getBrands';
-  
     $.ajax({
       url: url,
       type: "GET",
@@ -87,27 +78,16 @@ function get_search() {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-        console.log(data);
-  
         const select = $('#brand');
-        select.empty(); // Clear existing options
-  
-        // Add a default option
+        select.empty(); 
         select.append('<option selected disabled value="">Please select Brand</option>');
-  
-        // Use an object to keep track of unique brands
         var uniqueBrands = {};
   
         $.each(data.brands, function (index, brand) {
           var brand_id = brand.id;
           var brand_name = brand.brand_name;
-  
-          // Check if the brand ID is not already in the object
           if (!uniqueBrands[brand_id]) {
-            // Add brand ID to the object
             uniqueBrands[brand_id] = true;
-  
-            // Append the option to the dropdown
             select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
           }
         });
@@ -121,7 +101,6 @@ function get_search() {
 
   function store(event) {
     event.preventDefault();
-
     var enquiry_type_id = $('#enquiry_type_id').val();
     var dealer_name = $('#dname').val();
     var brand_name = $('#brand').val();
@@ -138,7 +117,6 @@ function get_search() {
     var url = apiBaseURL + endpoint;
 
     var data = new FormData();
-    // Append other form data
     data.append('enquiry_type_id', enquiry_type_id);
     data.append('brand_id', brand_name);
     data.append('dealer_name', dealer_name);
@@ -148,14 +126,10 @@ function get_search() {
     data.append('state', state);
     data.append('district', district);
     data.append('tehsil', tehsil);
-
-
     for (var x = 0; x < image_names.length; x++) {
         data.append("dealer_img[]", image_names[x]);
         console.log("multiple image", image_names[x]);
     }
-    //
-    // Make an AJAX request to the server
     $.ajax({
         url: url,
         type: 'POST',
@@ -163,7 +137,6 @@ function get_search() {
         processData: false,
         contentType: false,
         success: function (result) {
-          console.log(result, 'result');
           $("#used_tractor_callbnt_").modal('hide');
           var msg = 'Added successfully !';
           $("#errorStatusLoading").modal('show');
@@ -191,5 +164,3 @@ function get_search() {
           }
     });
 }
-
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

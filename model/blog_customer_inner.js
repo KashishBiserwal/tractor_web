@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("ready!");
  get_details();
 });
 

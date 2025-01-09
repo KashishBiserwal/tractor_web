@@ -5,7 +5,6 @@ $(document).ready(function() {
     var allCards = [];
     $('#filter_implement').click(filter_search);
 
-    // Function to fetch and display initial cards
     function getUsedFarmImplements() {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_old_implements";
     
@@ -14,14 +13,13 @@ $(document).ready(function() {
             type: "GET",
             success: function (data) {
                 allCards = data.getOldImplement || [];
-                allCards.reverse(); // Reverse the order of cards
+                allCards.reverse(); 
                 displayCards();
             },
             error: function (error) {
                 console.error('Error fetching data:', error);
             },
             complete: function () {
-                // Hide the spinner after the API call is complete
                 hideOverlay();
             },
         });
@@ -29,15 +27,12 @@ $(document).ready(function() {
     function displayCards() {
         var productContainer = $("#productContainer");
 
-        // Display cards up to the current page limit
         for (var i = cardsDisplayed; i < Math.min(cardsDisplayed + cardsPerPage, allCards.length); i++) {
             appendCard(productContainer, allCards[i]);
         }
         
-        // Update cards displayed count
         cardsDisplayed = Math.min(cardsDisplayed + cardsPerPage, allCards.length);
 
-        // Hide or show the "Load More" button based on remaining cards
         if (cardsDisplayed < allCards.length) {
             $("#loadMoreBtn").show();
         } else {
@@ -45,7 +40,6 @@ $(document).ready(function() {
         }
     }
 
-    // Function to append a card to the container
     function appendCard(container, cardData) {
         var images = cardData.image_names ? cardData.image_names.split(',') : [];
         var brandmodel = cardData.brand_name + ' ' + cardData.model;
@@ -87,23 +81,18 @@ $(document).ready(function() {
             container.append(cardHtml);
         }
     
-        // Load initial cards on page load
         getUsedFarmImplements();
-    
-        // Event listener for the "Load More" button
         $("#loadMoreBtn").on("click", function() {
-            displayCards(); // Append more cards
+            displayCards(); 
         });
     });
 
     function showOverlay() {
         $("#overlay").fadeIn(300);
     }
-    
     function hideOverlay() {
         $("#overlay").fadeOut(300);
     }
-    
     function get() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
         $.ajax({
@@ -116,18 +105,14 @@ $(document).ready(function() {
                 console.log("State data:", data);
     
                 const checkboxContainer = $('#state_state');
-                checkboxContainer.empty(); // Clear existing checkboxes
+                checkboxContainer.empty(); 
                 
                 data.stateData.forEach(state => {
                     var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + state.id + '"/>' +
                         '<span class="ps-2 fs-6">' + state.state_name + '</span> <br/>';
                     checkboxContainer.append(checkboxHtml);
                 });
-    
-                // Initially load all districts
                 getAllDistricts();
-    
-                // Add click event listener for state checkboxes
                 $('.state_checkbox').on('click', function() {
                     var stateId = $(this).val();
                     getDistricts(stateId);
@@ -198,13 +183,9 @@ $(document).ready(function() {
             }
         });
     }
-    
     get();
-    
-    
 
     function get_barnd() {
-        // var apiBaseURL = CustomerAPIBaseURL;
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     
         $.ajax({
@@ -217,9 +198,8 @@ $(document).ready(function() {
                 console.log(data);
     
                 const checkboxContainer = $('#checkboxContainer');
-                checkboxContainer.empty(); // Clear existing checkboxes
+                checkboxContainer.empty(); 
     
-                // Loop through the data and add checkboxes
                 $.each(data.brands, function (index, brand) {
                     var brand_id = brand.id;
                     var brand_name = brand.brand_name;
@@ -248,11 +228,9 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 var selectYearContainer = $("#P_year");
-                selectYearContainer.empty(); // Clear existing content
+                selectYearContainer.empty();
                 
-                // Checkboxes for years
                 if (data.getYears && data.getYears.length > 0) {
-                    // Reverse the array of years to display latest year at the top
                     data.getYears.reverse();
                     data.getYears.forEach(year => {
                         var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
@@ -271,12 +249,9 @@ $(document).ready(function() {
     get_year_and_hours();
 
     function formatPriceWithCommas(price) {
-        // Check if the price is not a number
         if (isNaN(price)) {
-            return price; // Return the original value if it's not a number
+            return price; 
         }
-        
-        // Format the price with commas in Indian format
         return new Intl.NumberFormat('en-IN').format(price);
     }
 
@@ -296,9 +271,8 @@ $(document).ready(function() {
             return $(this).val();
         }).get();
     
-        // Modify to handle comma-separated values
         var selectedCheckboxValuesFormatted = selectedCheckboxValues.map(function(value) {
-            return value.replace(/,/g, ''); // Remove commas from values
+            return value.replace(/,/g, ''); 
         });
 
         var selectedBrand = checkboxes.map(function () {
@@ -331,18 +305,15 @@ $(document).ready(function() {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             success: function (searchData) {
-                filteredCards = searchData.oldImplement; // Populate filteredCards with received data
+                filteredCards = searchData.oldImplement;
                 var productContainer = $("#productContainer");
 
-                // Empty the container before appending filtered cards
                 productContainer.empty();
             
-                // Display all filtered cards
                 filteredCards.forEach(function (p) {
                     appendFilterCard(productContainer, p);
                 });
             
-                // Hide the "Load More" button
                 $("#loadMoreBtn").hide();
             },
             error: function (error) {
@@ -411,11 +382,6 @@ $(document).ready(function() {
             }
         }
         
-        // $(document).on('click', '#loadMoreBtn', function () {
-        //     displayNextSet();
-        // });
-        
-       
         function resetform(){
             $('.brand_checkbox').val('');
             $('.state_checkbox').val('');
@@ -425,7 +391,6 @@ $(document).ready(function() {
             $('.budget_checkbox:checked').prop('checked', false);
             $('.state_checkbox:checked').prop('checked', false);
             $('.district_checkbox:checked').prop('checked', false);
-            // displayCards();
             $("#noDataMessage").hide();
             window.location.reload();
             

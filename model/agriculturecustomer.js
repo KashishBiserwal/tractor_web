@@ -2,12 +2,8 @@ $(document).ready(function() {
     var allCards = [];
     $('#apply_filter_bnt').click(filter_search);
     college_details_list(allCards);
-    // showOverlay(); 
-
-
 function college_details_list(allCards) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/agriculture_data';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -16,13 +12,9 @@ function college_details_list(allCards) {
             var loadMoreButton = $("#load_more");
             if (data.colleges_data && data.colleges_data.length > 0) {
                 var reversedCards = data.colleges_data.slice().reverse();
-                
                 allCards = allCards.concat(reversedCards);
-                
                 displayagriculturecollege(productContainer, reversedCards.slice(0, 6).reverse());
-
                 loadMoreButton.show();
-
                 loadMoreButton.click(function() {
                     displayagriculturecollege(productContainer, allCards.reverse());
                     loadMoreButton.hide();
@@ -38,13 +30,10 @@ function college_details_list(allCards) {
     });
 }
     function displayagriculturecollege(container, nursery) {
-        // Clear existing content
         container.html('');
-    
         nursery.forEach(function (p) {
             var images = p.image_names;
             var a = [];
-    
             if (images) {
                 if (images.indexOf(',') > -1) {
                     a = images.split(',');
@@ -195,23 +184,17 @@ function college_details_list(allCards) {
                             </div>
                         </div>
                     </div>
-                </div>
-    
-            `;
-                container.prepend(newCard);
+                </div> `;
+            container.prepend(newCard);
            
         });
     }
     });
     
     function resetForm(formId) {
-        // Reset the form by using its ID
         document.getElementById(formId).reset();
     }
-    
-    
     var formData = {};
-    
     function savedata(formId) {
         if (isUserLoggedIn()) {
             var isConfirmed = confirm("Are you sure you want to submit the form?");
@@ -283,11 +266,10 @@ function college_details_list(allCards) {
             success: function (result) {
                 console.log(result);
                 $('#get_OTP_btn').modal('hide');
-                submitData(formId); // Submit the form after OTP verification
+                submitData(formId); 
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log(xhr.status, 'error');
-                // Handle errors here
             },
         });
     }
@@ -295,8 +277,6 @@ function college_details_list(allCards) {
     function submitData(formId) {
         var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         var formDataToSubmit = formData;
-        
-        // If user is logged in, use formData from parameter directly
         if (isUserLoggedIn()) {
             formDataToSubmit = collectFormData(formId);
         }
@@ -308,8 +288,7 @@ function college_details_list(allCards) {
         $.ajax({
             url: url,
             type: "POST",
-            data: formDataToSubmit, // Submit all form data
-            
+            data: formDataToSubmit, 
             success: function (result) {
                 console.log(result, "result");
                 var msg = "Added successfully !";
@@ -322,7 +301,6 @@ function college_details_list(allCards) {
             }
         });
     }
-    
     
     function collectFormData(formId) {
         // Collect form data
@@ -351,8 +329,6 @@ function college_details_list(allCards) {
         return formData;
     }
     
-  
-    
     function getUserDetail(id, formId) {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
         console.log(url, 'url print ');
@@ -377,13 +353,13 @@ function college_details_list(allCards) {
                     $('#' + formId + ' #first_name_1').val(customer.first_name);
                     $('#' + formId + ' #last_Name_1').val(customer.last_name);
                     $('#' + formId + ' #mobile_number_1').val(customer.mobile);
-                    $('#' + formId + ' #state_1').val(customer.state_id);
+                    // $('#' + formId + ' #state_1').val(customer.state_id);
                     // $('#' + formId + ' #district_1').val(customer.district);
                     // $('#' + formId + ' #Tehsil_1').val(customer.tehsil);
                     
                     // Disable fields if user is logged in
                     if (isUserLoggedIn()) {
-                        $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil_1').prop('disabled', true);
+                        $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#state_1,#Tehsil_1').prop('disabled', true);
                     }
                 }
             },
@@ -506,10 +482,8 @@ function filter_search() {
     });
 }
 
-
 function appendFilterCard(filterContainer, filter) {
     console.log("Filter:", filter); // Debugging: Check filter data
-
     function appendCard(container, p) {
         var data = p.haat_bazar_id;
         var images = p.image_names;

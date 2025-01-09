@@ -12,18 +12,14 @@ function get_insurance_type() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const selects = document.querySelectorAll('#insurance_type');
-
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
                 if (data.insuranceType.length > 0) {
                     data.insuranceType.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.insurance_type_value;
                         option.value = row.id;
-                        console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -47,9 +43,7 @@ function get() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const selects = document.querySelectorAll('#brand');
-
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
@@ -58,11 +52,8 @@ function get() {
                         const option = document.createElement('option');
                         option.textContent = row.brand_name;
                         option.value = row.id;
-                        console.log(option);
                         select.appendChild(option);
                     });
-
-                    // Add event listener to brand dropdown
                     select.addEventListener('change', function() {
                         const selectedBrandId = this.value;
                         get_model(selectedBrandId);
@@ -77,7 +68,6 @@ function get() {
         }
     });
 }
-
 function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
@@ -87,18 +77,14 @@ function get_model(brand_id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const selects = document.querySelectorAll('#model');
-
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
                 if (data.model.length > 0) {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
                         option.value = row.model;
-                        console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -111,12 +97,10 @@ function get_model(brand_id) {
         }
     });
 }
-
 get();
-
 function add_insurance(event) {
     event.preventDefault();
-     enquiry_type_id = 17;
+    enquiry_type_id = 17;
     var insurance_type = $('#insurance_type').val();
     var firstName = $('#first_name').val();
     var lastName = $('#last_name').val();
@@ -147,27 +131,18 @@ function add_insurance(event) {
       'district': district,
       'previous_policy_claim': previous_policy_claim,
     };
-
-    // var apiBaseURL =APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-    console.log(url);
 
     $.ajax({
       url: url,
       type: "POST",
       data: paraArr,
-      success: function (result) {
-        console.log(result, "result");
-        console.log("Add successfully");
-        
+      success: function (result) { 
        var msg = " "
        $("#errorStatusLoading").modal('show');
        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Thank you for contacting us. We will get back to you.</p>');
-    
        $("#errorStatusLoading").find('.modal-body').html(msg);
-    //    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
        document.getElementById("myform").reset();
-       
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -179,14 +154,10 @@ function add_insurance(event) {
       }
     });
   }
-
   function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
-    console.log(url);
-
-    // Define the order of brands
     var brandOrder = ['Mahindra', 'Swaraj', 'Sonalika', 'Tafe', 'Escorts', 'John Deere', 'Eicher', 'New Holland', 'Kubota', 'VST', 'Force', 'Preet', 'Indo Farm', 'Captain'];
 
     $.ajax({
@@ -196,8 +167,6 @@ function add_insurance(event) {
             console.log(data, 'abc');
             var slider_head = $("#slider_head");
             var brandContainer = $("#brandContainer");
-
-            // Iterate through the brand order
             brandOrder.forEach(function(brandName) {
                 var brand = data.brands.find(brand => brand.brand_name === brandName);
                 if (brand) {

@@ -1,6 +1,5 @@
  
   $(document).ready(function(){
-   
     get_enquiry();
     $('#Search').click(search_data);
     $('#Reset').click(resetform);
@@ -11,7 +10,6 @@
     });
       });
       $("#form_tyre_list").validate({
-    
         rules: {
           brand: {
             required: true,
@@ -35,7 +33,6 @@
             required:true,
           }
         },
-    
         messages:{
           brand: {
             required: "This field is required",
@@ -55,7 +52,6 @@
               required:"This field is required",
               email:"Please Enter vaild Email",
             },
-          
             category: {
             required: "This field is required",
           },
@@ -63,13 +59,10 @@
             required: "This field is required",
           },
         },
-        
         submitHandler: function (form) {
           alert("Form submitted successfully!");
         },
         });
-
-
         function get_brand() {
           var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 6;
           $.ajax({
@@ -80,10 +73,8 @@
               },
               success: function (data) {
                   const selects = document.querySelectorAll('#brand_search');
-      
                   selects.forEach(select => {
                       select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-      
                       if (data.brands.length > 0) {
                           data.brands.forEach(row => {
                               const option = document.createElement('option');
@@ -91,8 +82,6 @@
                               option.value = row.id;
                               select.appendChild(option);
                           });
-      
-                      
                       } else {
                           select.innerHTML = '<option>No valid data available</option>';
                       }
@@ -104,7 +93,6 @@
           });
       }
       
-
 //****get data***
 function get_enquiry() {
   var apiBaseURL = APIBaseURL;
@@ -117,21 +105,14 @@ function get_enquiry() {
     },
     success: function (data) {
       const tableBody = document.getElementById('data-table');
-      tableBody.innerHTML = ''; // Clear previous data
-
+      tableBody.innerHTML = '';
       let users = data.getNewImplementEnquiry;
-
       if (users.length > 0) {
-        // Initialize serialNumber outside the loop
         let serialNumber = users.length;
         let tableData = [];
-
         users.forEach(row => {
-          
-          const catesub = row.category_name + "/" + row.sub_category_name; // Fixed here
-          const name = row.first_name + " " + row.last_name; // Fixed here
-
-          // Create the action buttons HTML
+          const catesub = row.category_name + "/" + row.sub_category_name; 
+          const name = row.first_name + " " + row.last_name; 
           let action = `<div class="float-start">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
                             <i class="fas fa-eye" style="font-size: 10px;"></i>
@@ -144,7 +125,6 @@ function get_enquiry() {
                           </button>
                        </div>`;
 
-          // Push row data as an array into the tableData
           tableData.push([
             serialNumber--,
             row.date,
@@ -158,7 +138,6 @@ function get_enquiry() {
           ]);
         });
 
-        // Initialize DataTable after preparing the tableData
         $('#example').DataTable().destroy();
         $('#example').DataTable({
           data: tableData,
@@ -171,11 +150,10 @@ function get_enquiry() {
             { title: 'Name' },
             { title: 'Mobile Number' },
             { title: 'District' },
-            { title: 'Action', orderable: false } // Disable ordering for Action column
+            { title: 'Action', orderable: false } 
           ],
           paging: true,
           searching: true,
-          // ... other options ...
         });
       } else {
         tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
@@ -191,7 +169,6 @@ function get_enquiry() {
         $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
         window.location.href = baseUrl + "login.php";
       }
-      // Display an error message or handle the error as needed
     }
   });
 }
@@ -205,8 +182,8 @@ function get_search() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const select = document.getElementById('brand_search'); // Corrected selector
-          select.innerHTML = ''; // Clear previous data
+          const select = document.getElementById('brand_search'); 
+          select.innerHTML = ''; 
           $(select).append('<option selected disabled value="">Please select Category</option>');
 
           if (data.allCategory.length > 0) {
@@ -222,7 +199,7 @@ function get_search() {
       },
       error: function (error) {
           console.error('Error fetching data:', error);
-          var msg = error.responseText; // Use responseText to get error message
+          var msg = error.responseText; 
           $("#errorStatusLoading").modal('show');
           $("#errorStatusLoading").find('.modal-title').html('Error');
           $("#errorStatusLoading").find('.modal-body').html(msg);
@@ -235,7 +212,6 @@ get_search();
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_data_for_new_implements_by_id/' + userId;
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -244,7 +220,6 @@ function openViewdata(userId) {
       url: url,
       type: 'GET',
       headers: headers,
-    
       success: function(response) {
         var userData = response.getNewImplementEnquiry[0];
         const name= userData.first_name+" "+userData.last_name;
@@ -268,9 +243,7 @@ function openViewdata(userId) {
  function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
-    console.log(url);
     var token = localStorage.getItem('token');
-  
     if (!token) {
       console.error("Token is missing");
       return;
@@ -289,8 +262,6 @@ function openViewdata(userId) {
       success: function(result) {
         window.location.reload();
         get_dealers();
-
-        console.log("Delete request successful");
         alert("Delete operation successful");
       },
       error: function(error) {
@@ -342,7 +313,6 @@ function fetch_edit_data(id) {
       }
     }
   }
-  
   function populateTehsil(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
@@ -352,7 +322,6 @@ function fetch_edit_data(id) {
       }
     }
   }
-
   function store(edit_id) {
     var enquiry_type_id = 6;
     var edit_id = $("#userId").val();
@@ -363,19 +332,14 @@ function fetch_edit_data(id) {
     var state = $("#stat_e").val();
     var district = $("#dis_t").val();
     var tehsil = $("#tehsi_l").val();
-
-    // Validate mobile number
     if (!/^[6-9]\d{9}$/.test(mobile)) {
         alert("Mobile number must start with 6 or above and should be 10 digits");
-        return; // Exit the function if validation fails
+        return; 
     }
-
-    // Check if any field is empty
     if (!first_name || !last_name || !mobile || !state || !district || !tehsil || !product_id) {
         alert("Please fill in all fields");
-        return; // Exit the function if any field is empty
+        return; 
     }
-
     var paraArr = {
         'first_name': first_name,
         'last_name': last_name,
@@ -387,22 +351,17 @@ function fetch_edit_data(id) {
         'enquiry_type_id': enquiry_type_id,
         'product_id': product_id,
     };
-
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-
     $.ajax({
         url: url,
         type: "PUT",
         data: paraArr,
         headers: headers,
         success: function (result) {
-            console.log(result, "result");
-            console.log("updated successfully");
             alert('successfully updated..!');
             get_enquiry();
           window.location.reload();
@@ -412,8 +371,6 @@ function fetch_edit_data(id) {
         }
     });
 }
-
-
 function search_data() {
   var selectedBrand = $('#brand_search').val();
   var brand_id = $('#model_search').val();
@@ -421,7 +378,6 @@ function search_data() {
     'brand_id': selectedBrand,
     'model':brand_id,
   };
-
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_new_implements_enquiry';
   $.ajax({
@@ -432,33 +388,26 @@ function search_data() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        updateTable(searchData.newImplements); // Assuming 'newImplements' is the correct key for your data
+        updateTable(searchData.newImplements); 
       },
       error: function (xhr, status, error) {
           if(xhr.status == 404) {
-              updateTable([]); // Pass an empty array to updateTable function
+              updateTable([]); 
           } else {
               console.error('Error searching for brands:', error);
           }
       }
   });
 };
-
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-
   if (data.length > 0) {
-    // Initialize serialNumber outside the loop
     let serialNumber = data.length;
     let tableData = [];
-
     data.forEach(row => {
-      
-      const catesub = row.category_name + "/" + row.sub_category_name; // Fixed here
-      const name = row.first_name + " " + row.last_name; // Fixed here
-
-      // Create the action buttons HTML
+      const catesub = row.category_name + "/" + row.sub_category_name; 
+      const name = row.first_name + " " + row.last_name; 
       let action = `<div class="float-start">
                       <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
                           <i class="fas fa-eye" style="font-size: 10px;"></i>
@@ -471,8 +420,6 @@ function updateTable(data) {
                     </button>
                       
                   </div>`;
-
-      // Push row data as an array into the tableData
       tableData.push([
         serialNumber--,
         row.date,
@@ -485,8 +432,6 @@ function updateTable(data) {
         action
       ]);
     });
-
-    // Initialize DataTable after preparing the tableData
     $('#example').DataTable().destroy();
     $('#example').DataTable({
       data: tableData,
@@ -499,29 +444,22 @@ function updateTable(data) {
         { title: 'Name' },
         { title: 'Mobile Number' },
         { title: 'District' },
-        { title: 'Action', orderable: false } // Disable ordering for Action column
+        { title: 'Action', orderable: false }
       ],
       paging: true,
       searching: true,
-      // ... other options ...
     });
   } else {
-      // Display a message if there's no valid data
       tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
   }
 }
-
-
   function resetform(){
     $('#brand1').val('');
     $('#model1').val('');
-    // engineOil_add();
     window.location.reload();
   }
-  
 
   $(document).ready(function () {
-    // Initialize DataTable
     var table = $('#example').DataTable({
         paging: true,
         searching: true,
@@ -537,9 +475,4 @@ function updateTable(data) {
             { title: 'Action', orderable: false }
         ]
     });
-
-    // Search Button Click Event
-  
-
-    
 });

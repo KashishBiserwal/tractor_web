@@ -3,21 +3,20 @@
 
 
 <?php
-include 'includes/headertag.php';
+    include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
    include 'includes/spinner.php';
-   ?> 
+?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-<script src="<?php $baseUrl; ?>model/latest.js"></script>
+<script src="<?php $baseUrl; ?>model/latest.js" defer></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <body>
@@ -30,8 +29,7 @@ include 'includes/headertag.php';
         <div class="mt-5">
             <span class="mt-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                   
-                    <span class="text-dark"> Latest Tractor</span>
+                <span class="text-dark"> Latest Tractor</span>
             </span> 
         </div>
     </div>
@@ -41,13 +39,11 @@ include 'includes/headertag.php';
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">Latest  <span class="text-success fw-bold"> Tractors in India</span> </h3>
-                <div id="productContainer" class="row">
-                </div>
+                <div id="productContainer" class="row"></div>
                 <div class="col-12 text-center mt-3 pt-2 ">
-                <button id="load_moretract" type="button" class=" btn add_btn btn-success p-1"><i class="fas fa-undo"></i>Load More tractors</button>
+                    <button id="load_moretract" type="button" class=" btn add_btn btn-success p-1"><i class="fas fa-undo"></i>Load More tractors</button>
                 </div>
             </div>
-            
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3">
                     <div class="col-12">
@@ -60,11 +56,9 @@ include 'includes/headertag.php';
                                 <button id="filter_tractor" type="button" class=" btn add_btn btn-success w-100">
                                 <i class="fas fa-filter"></i>Apply Filter</button>
                            </div>
-                            
                         </div>
                     </div>
                 </div>
-               
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
                         <div class="price py-2 w-100">
@@ -81,8 +75,6 @@ include 'includes/headertag.php';
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
                         <div class="HP py-2 w-100">
-                            
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <input type="checkbox" class="checkbox-round hp_checkbox mt-1 ms-3" value="0 - 20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
                             <input type="checkbox" class="checkbox-round hp_checkbox mt-1 ms-3" value="21 - 30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
                             <input type="checkbox" class="checkbox-round hp_checkbox mt-1 ms-3" value="31 - 40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
@@ -174,9 +166,9 @@ include 'includes/headertag.php';
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading6">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
-                        Que. Which is the most popular tractor in the 50 Hp power range?
-                        </button>
+                            <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
+                            Que. Which is the most popular tractor in the 50 Hp power range?
+                            </button>
                         </h2>
                         <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
@@ -184,11 +176,8 @@ include 'includes/headertag.php';
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
-
-           
         </div>
 </section>
 
@@ -261,8 +250,6 @@ include 'includes/headertag.php';
         </table>
     </div>
 </section>
-
-
 <section>
     <div class="container"> 
         <h3 class="fw-bold assured px-3">Tractors By HP</h3>
@@ -336,23 +323,21 @@ include 'includes/headertag.php';
                         <i class="fas fa-bolt"></i>ABOVE 10 LAKH
                     </a>
                 </div>
-              
             </div>
     </div>
 </section>
 
-
 <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
-
 ?>
+
 <script>
  function googleTranslateElementInit() {
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',// <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

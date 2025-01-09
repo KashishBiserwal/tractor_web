@@ -9,26 +9,20 @@ $(document).ready(function () {
   
       $("#seach_subcat1").val("");
       $("#seach_subcat").val("");
-    //   $("#brand_main").val("");
       get_product();
       $('#add_trac').click(function () {
         $('#product-form')[0].reset();
     });
-      
-      });
-
+    });
 });
-
 
 function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
-
     $('.upload__inputfile').each(function () {
         $(this).on('change', function (e) {
             imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
             var maxLength = $(this).attr('data-max_length');
-
             var files = e.target.files;
             var filesArr = Array.prototype.slice.call(files);
             var iterator = 0;
@@ -77,8 +71,6 @@ function ImgUpload() {
     });
 }
 function removeImage(ele){
-    // console.log("print ele");
-    //   console.log(ele);
       let thisId=ele.id;
       thisId=thisId.split('closeId');
       thisId=thisId[1];
@@ -98,7 +90,7 @@ function get() {
         },
         success: function (data) {
             const select = document.getElementById('lookupSelectbox');
-            select.innerHTML = ''; // Clear previous data
+            select.innerHTML = ''; 
             $(select).append('<option selected disabled value="">Please select Category</option>');
 
             if (data.allCategory.length > 0) {
@@ -139,9 +131,8 @@ function get_subcategory(id) {
         },
         success: function (data) {
             const select = document.getElementById('lookupSelectbox2');
-            select.innerHTML = ''; // Clear previous data
+            select.innerHTML = ''; 
             $(select).append('<option selected disabled value="">Please select Category</option>');
-
             if (data.implementSubCategoryData.length > 0) {
                 data.implementSubCategoryData.forEach(row => {
                     const option = document.createElement('option');
@@ -170,27 +161,21 @@ function get_subcategory(id) {
 function get_subcategory_custom(id) {
     var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/implement_sub_category_by_id/' + id;
-    console.log(url);
     editId_state = true;
     id = id;
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function (response) {
             $('#two_field').hide();
-
             var Data = response.allSubCategory;
             $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
-
             var tableData = $("#fields");
             tableData.html('');
-
             Data.custom_data.forEach(function (p, index) {
                 var tableRow = `<div class="row form_field_outer_row">
                         <div class="form-group col-md-4">
@@ -208,11 +193,6 @@ function get_subcategory_custom(id) {
 
                 tableData.append("<form>" + tableRow + "</form>");
             });
-
-            // Enable all delete buttons
-
-
-            // Add event listener for delete buttons
             $(".remove_node_btn_frm_field").on("click", function () {
                 var indexToDelete = $(this).data("index");
                 console.log("Deleting field with ID: " + indexToDelete);
@@ -241,8 +221,8 @@ function get_search() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const select = document.getElementById('seach_subcat1'); // Corrected selector
-            select.innerHTML = ''; // Clear previous data
+            const select = document.getElementById('seach_subcat1');
+            select.innerHTML = ''; 
             $(select).append('<option selected disabled value="">Please select Category</option>');
 
             if (data.allCategory.length > 0) {
@@ -253,7 +233,7 @@ function get_search() {
                     select.appendChild(option);
                 });
                 select.addEventListener('change', function () {
-                    const selectedCategoryId = this.value; // Corrected variable name
+                    const selectedCategoryId = this.value;
                     get_subcategory_search(selectedCategoryId);
                 });
                 
@@ -263,7 +243,7 @@ function get_search() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            var msg = error.responseText; // Use responseText to get error message
+            var msg = error.responseText; 
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('Error');
             $("#errorStatusLoading").find('.modal-body').html(msg);
@@ -271,7 +251,6 @@ function get_search() {
     });
 }
 
-// get subcategory in select box
 function get_subcategory_search(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_implement_sub_cat_by_category_id/' + id;
@@ -283,9 +262,9 @@ function get_subcategory_search(id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const select = document.getElementById('seach_subcat'); // Corrected selector
-            select.innerHTML = ''; // Clear previous data
-            $(select).append('<option selected disabled value="">Please select Subcategory</option>'); // Corrected placeholder text
+            const select = document.getElementById('seach_subcat'); 
+            select.innerHTML = ''; 
+            $(select).append('<option selected disabled value="">Please select Subcategory</option>'); 
 
             if (data.implementSubCategoryData.length > 0) {
                 data.implementSubCategoryData.forEach(row => {
@@ -301,14 +280,13 @@ function get_subcategory_search(id) {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            var msg = error.responseText; // Use responseText to get error message
+            var msg = error.responseText; 
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('Error');
             $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
 }
-
 get_search();
 
 // get brand and model
@@ -322,10 +300,8 @@ function get_brand() {
         },
         success: function (data) {
             const selects = document.querySelectorAll('#brand_main');
-
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
@@ -333,8 +309,6 @@ function get_brand() {
                         option.value = row.id;
                         select.appendChild(option);
                     });
-
-                
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
                 }
@@ -345,27 +319,20 @@ function get_brand() {
         }
     });
 }
-
 get_brand();
 
 // store data
 function store(event) {
     event.preventDefault();
-
     var customDataArray = [];
     var implementDataArray = [];
     var DataArray = [];
-
-    // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc.
     $('[id^="mobileb_no_"]').each(function () {
         customDataArray.push($(this).val());
     });
-
-    // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
     $('[id^="no_type_"]').each(function () {
         implementDataArray.push($(this).val());
     });
-
     $('[id^="custom_"]').each(function () {
         DataArray.push($(this).val());
     });
@@ -374,27 +341,21 @@ function store(event) {
     var lookup_type = $('#lookupSelectbox').val();
     var lookup_data_value = $('#lookupSelectbox2').val();
     var id = $('#idUser').val();
-    // var image_names = $('#image_name').files[0]; 
     var image_names = document.getElementById('image_name').files;
-
     var apiBaseURL = APIBaseURL;
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
     };
-
       _method = 'POST';
       var url, method;
       var _method = 'post'; 
-
       if (id !== '' && id !== null) {
         _method = 'put';
         url = apiBaseURL + 'implement_details/' + id;
-        console.log(url);
         method = 'POST'; 
       } else {
         url = apiBaseURL + 'implement_details';
-        console.log('prachi');
         method = 'POST';
       }
 
@@ -421,17 +382,12 @@ function store(event) {
         processData: false,
         contentType: false,
         success: function (result) {
-            console.log(result, "result");
-            console.log("Add successfully");
             var msg = "Added successfully !"
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('Success');
             $("#errorStatusLoading").find('.modal-body').html(msg);
-
-            // Hide the modal immediately
             $("#staticBackdrop1").modal('hide');
             get_product();
-
             var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
             if (alertConfirmation) {
                 window.location.reload();
@@ -485,9 +441,7 @@ function get_product() {
                         row.model,
                         action
                     ]);
-
                 });
-
                 $('#example').DataTable().destroy();
                 $('#example').DataTable({
                     data: tableData,
@@ -524,11 +478,9 @@ get_product();
 function fetch_data(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_implement_details_by_id/' + userId; // Use the userId parameter
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-
     $.ajax({
         url: url,
         type: 'GET',
@@ -545,7 +497,7 @@ function fetch_data(userId) {
                 response.getAllImplementsById[1][0].implement_custom_data.forEach(function (data) {
                     var customColumnName = Object.keys(data)[0];
                     var implementColumnName = data[customColumnName];
-                    var customColumndata = Object.values(data)[0]; // Use Object.values to get the value
+                    var customColumndata = Object.values(data)[0]; 
                     var implementColumn = data[customColumndata];
                  
                     var value= data[`${implementColumnName}`];
@@ -577,7 +529,6 @@ function fetch_data(userId) {
                                     </div>
                                 </div>
                             `;
-                            // Append the new card to the container
                             productContainer.append(newCard);
                         });
                     }
@@ -595,7 +546,6 @@ function fetch_edit_data(id) {
     var url = apiBaseURL + 'get_implement_details_by_id/' + id;
     editId_state = true;
     id = id;
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -620,23 +570,11 @@ function fetch_edit_data(id) {
                         <input type="text" class="form-control py-2" value="${userData.implement_sub_category}" id="lookupSelectbox2" aria-label="Sub-Category" readonly>
                     </div>
                 `);
-            $('#two_field').hide(); // Correct selector
-           
-
-            // Set product_id to #idUser input
+            $('#two_field').hide(); 
             $('#idUser').val(userData.product_id);
-            
-            // Set brand_name to #model input
             $('#model').val(userData.model);
-           
-            // Set brand_name to #brand_main dropdown
             $("#brand_main option").prop("selected", false);
             $("#brand_main option[value='" + userData.brand_name + "']").prop("selected", true);
-            
-            // Set category_name to #lookupSelectbox dropdown
-           
-            
-
             var tableData = $("#fields");
             tableData.html('');
 
@@ -645,12 +583,9 @@ function fetch_edit_data(id) {
 
                     var customColumnName = Object.keys(p)[0];
                     var implementColumnName = p[customColumnName];
-                    var customColumndata = Object.values(p)[0]; // Use Object.values to get the value
+                    var customColumndata = Object.values(p)[0]; 
                     var implementColumn = p[customColumndata];
-                 
                     var value= p[`${implementColumnName}`];
-                    // if string is seperated by space or other special charater then we can use `` as used in above line to create proper string value 
-
                     var tableRow = `
                     <div class="row form_field_outer_row">
                     <div class="form-group col-md-4">
@@ -688,16 +623,11 @@ function fetch_edit_data(id) {
                                 </div>
                             </div>
                             `;
-                            // Append the new card to the container
                             productContainer.append(newCard);
                         });
                     }
                 });
             }
-
-            // Enable all delete buttons
-
-            // Add event listener for delete buttons
             $(".remove_node_btn_frm_field").on("click", function () {
                 var indexToDelete = $(this).data("index");
                 console.log("Deleting field with ID: " + indexToDelete);
@@ -719,9 +649,7 @@ function fetch_edit_data(id) {
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'implement_details/' + id;
-
     var token = localStorage.getItem('token');
-
     if (!token) {
         console.error("Token is missing");
         return;
@@ -730,7 +658,6 @@ function destroy(id) {
     if (!isConfirmed) {
         return;
     }
-
     $.ajax({
         url: url,
         type: "DELETE",
@@ -754,11 +681,6 @@ function destroy(id) {
 function search_data() {
     var seach_subcat1 = $('#seach_subcat1').val();
     var seach_subcat = $('#seach_subcat').val();
-    
-    // Logging the values for debugging
-    console.log("Category ID:", seach_subcat1);
-    console.log("Subcategory ID:", seach_subcat);
-    
     var paraArr = {
         'implement_category_id': seach_subcat1,
         'implement_subcategory_id': seach_subcat,
@@ -774,13 +696,12 @@ function search_data() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
-            console.log("Search Data:", searchData); // Logging the received data
             updateTable(searchData);
         },
         error: function (xhr, status, error) {
             if (xhr.status === 404) {
-                $('#example').DataTable().clear().draw(); // Clear existing table data
-                $('#data-table').html('<tr><td colspan="5">No valid data available</td></tr>'); // Display "No valid data available" message
+                $('#example').DataTable().clear().draw(); 
+                $('#data-table').html('<tr><td colspan="5">No valid data available</td></tr>'); 
             } else {
                 console.error('Error searching for brands:', error);
             }
@@ -834,7 +755,6 @@ function updateTable(data) {
             searching: true,
         });
     } else {
-        // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
     }
 }

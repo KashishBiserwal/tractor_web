@@ -5,80 +5,50 @@ $(document).ready(function () {
   $('#Search_data').click(search_data);
     ImgUpload();
     $("#form_news_updates").validate({
-    
       rules: {
         brand:{
-
           required: true,
         },
         headline:{
-
           required: true,
         },
         contant: {
           required: true,
         },
         image_:{
-
           required:true,
-          // minlength: 2,
-          // maxlength: 5,
-       
         }
       },
-  
       messages: {
-       
         brand:{
-
           required:"This field is required",
         },
         headline:{
-
           required: "This field is required",
         },
         contant: {
           required: "This field is required",
         },
         image_:{
-
           required:"This field is required",
-          // minlength: 2,
-          // maxlength: 5,
-       
         }
-       
       },
-      
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
     });
-
-   
     $("#submitBtn").on("click", function () {
-   
       $("#form_news_updates").valid();
-      // if ($("#form_news_updates").valid()) {
-        
-      //   alert("Form is valid. Ready to submit!");
-      // }
     });
-   
   });
-
-
-  function resetFormFields(){
-    document.getElementById("form_news_updates").reset();
-    document.getElementById("image_").value = '';
-    document.getElementById("selectedImagesContainer2").innerHTML = '';
-   
+function resetFormFields(){
+  document.getElementById("form_news_updates").reset();
+  document.getElementById("image_").value = '';
+  document.getElementById("selectedImagesContainer2").innerHTML = ''; 
 }
-
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
-
     $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
@@ -132,48 +102,42 @@ $(document).ready(function () {
     });
   }
   function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
-      let thisId=ele.id;
-      thisId=thisId.split('closeId');
-      thisId=thisId[1];
-      $("#"+ele.id).remove();
-      $(".upload__img-closeDy"+thisId).remove();
-  
-    }
-    function get() {
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'news_category';
-      $.ajax({
-          url: url,
-          type: "GET",
-          headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-          success: function (data) {
-              console.log(data);
-              const select = document.getElementById('brand');
-              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-              if (data.news_category.length > 0) {
-                  // Limiting categories to index 0 to 3
-                  for (let i = 0; i < Math.min(data.news_category.length, 4); i++) {
-                      const row = data.news_category[i];
-                      const option = document.createElement('option');
-                      option.textContent = row.category_name;
-                      option.value = row.id;
-                      select.appendChild(option);
-                  }
-              } else {
-                  select.innerHTML = '<option>No valid data available</option>';
-              }
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+}
+function get() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'news_category';
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      const select = document.getElementById('brand');
+      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+        if (data.news_category.length > 0) {
+          for (let i = 0; i < Math.min(data.news_category.length, 4); i++) {
+            const row = data.news_category[i];
+            const option = document.createElement('option');
+            option.textContent = row.category_name;
+            option.value = row.id;
+            select.appendChild(option);
           }
-      });
+        } else {
+          select.innerHTML = '<option>No valid data available</option>';
+      }
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
     }
-    get();
+  });
+}
+get();
 
 function get_search() {
   var apiBaseURL = APIBaseURL;
@@ -185,12 +149,9 @@ function get_search() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          console.log(data);
           const select = document.getElementById('category_name');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
           if (data.news_category.length > 0) {
-              // Limiting categories to index 0 to 3
               for (let i = 0; i < Math.min(data.news_category.length, 4); i++) {
                   const row = data.news_category[i];
                   const option = document.createElement('option');
@@ -209,54 +170,39 @@ function get_search() {
 }
 get_search();
 
-
 function add_news(event) {
     event.preventDefault();
-
     var image_names = document.getElementById('image_').files;
     var category = $('#brand').val();
     var headline = $('#headline').val();
     var content = $('#contant').val();
-
     var apiBaseURL = APIBaseURL;
-    console.log(apiBaseURL);
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
     };
 
-    // Check if an ID is present in the URL, indicating edit mode
     var urlParams = new URLSearchParams(window.location.search);
     var editId = urlParams.get('id');
     var _method = 'post'; 
     var url, method;
-    
-    console.log('edit state',editId_state);
-    console.log('edit id', EditIdmain_);
+
     if (editId_state) {
-        // Update mode
-        console.log(editId_state);
         _method = 'put';
         url = apiBaseURL + 'news_details/' + EditIdmain_ ;
-        console.log(url);
         method = 'POST'; 
     } else {
-        // Add mode
         url = apiBaseURL + 'news_details';
         method = 'POST';
     }
-
     var data = new FormData();
-
     for (var x = 0; x < image_names.length; x++) {
         data.append("images[]", image_names[x]);
     }
-
     data.append('_method', _method);
     data.append('category_id', category);
     data.append('news_headline', headline);
     data.append('news_content', content);
-
     $.ajax({
         url: url,
         type: method,
@@ -265,8 +211,6 @@ function add_news(event) {
         processData: false,
         contentType: false,
         success: function (result) {
-            console.log(result, "result");
-            console.log("Operation successfully");
             alert("successfully Inserted..!");
             $('#staticBackdrop').modal('hide');
         },
@@ -274,11 +218,7 @@ function add_news(event) {
             console.error('Error:', error);
         }
     });
-
 }
-
-// get dealers
-// Assuming you have your tableData declared somewhere before your success function
 
 function get_news() {
   var apiBaseURL = APIBaseURL;
@@ -290,16 +230,10 @@ function get_news() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          console.log("Data fetched:", data); // Check if data is successfully fetched
-
           const tableBody = $('#example tbody');
-
           if (data.news_details && data.news_details.length > 0) {
               let counter = 1;
-
-              // Clear existing table data
               tableBody.empty();
-
               data.news_details.reverse().forEach(row => {
                   let action = `
                       <div class="d-flex">
@@ -313,8 +247,6 @@ function get_news() {
                               <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
                       </div>`;
-
-                  // Create a new row and append it to the table body
                   let newRow = `<tr>
                       <td>${counter}</td>
                       <td>${row.date}</td>
@@ -322,8 +254,7 @@ function get_news() {
                       <td>${row.news_headline}</td>
                       <td>${action}</td>
                   </tr>`;
-                  
-                  tableBody.prepend(newRow); // Prepend the new row to the table body
+                  tableBody.prepend(newRow); 
                   counter++;
               });
 
@@ -332,13 +263,11 @@ function get_news() {
               $('#example').DataTable({
                   paging: true,
                   searching: true,
-                  // ... other options ...
               });
           } else {
               tableBody.html('<tr><td colspan="5">No valid data available</td></tr>');
           }
       },
-
       error: function (error) {
           console.error('Error fetching data:', error);
           if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
@@ -351,14 +280,11 @@ function get_news() {
       }
   });
 }
-
 get_news();
 
 function formatDateTime(originalDateTimeStr) {
   const originalDateTime = new Date(originalDateTimeStr);
-
   const pad = (num) => (num < 10 ? '0' : '') + num;
-
   const day = pad(originalDateTime.getDate());
   const month = pad(originalDateTime.getMonth() + 1);
   const year = originalDateTime.getFullYear();
@@ -367,47 +293,41 @@ function formatDateTime(originalDateTimeStr) {
   const seconds = pad(originalDateTime.getSeconds());
 
   return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
-  }
+}
 
-  function search_data() {
-    console.log("dfghsfg,sdfgdfg");
-    // var news_category_id = $('#news_category_id').val();
-    var category_name = $('#category_name').val();
-    var head_search = $('#head_search').val();
-    var paraArr = {
-        // 'news_category_id': news_category_id,
-        'news_category_id': category_name,
-        'news_headline': head_search,
-    };
-    console.log(paraArr);
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_news';
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: paraArr,
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (searchData) {
-            console.log(searchData, "hello brand");
-            updateTable(searchData);
-        },
-        error: function (xhr, status, error) {
-            if (xhr.status === 404) {
-                $('#example').DataTable().clear().draw(); // Clear existing table data
-                $('#data-table').html('<tr><td colspan="5">No valid data available</td></tr>'); // Display "No valid data available" message
-            } else {
-                console.error('Error searching for brands:', error);
-            }
-        }
-    });
+function search_data() {
+  var category_name = $('#category_name').val();
+  var head_search = $('#head_search').val();
+  var paraArr = {
+    'news_category_id': category_name,
+    'news_headline': head_search,
+  };
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_news';
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: paraArr,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (searchData) {
+      updateTable(searchData);
+    },
+    error: function (xhr, status, error) {
+      if (xhr.status === 404) {
+        $('#example').DataTable().clear().draw(); // Clear existing table data
+        $('#data-table').html('<tr><td colspan="5">No valid data available</td></tr>'); // Display "No valid data available" message
+      } else {
+        console.error('Error searching for brands:', error);
+      }
+    }
+  });
 };
 
 function updateTable(data) {
     const tableBody = document.getElementById('data-table');
     let counter = 1;
-
     if (data.newsDetails && data.newsDetails.length > 0) {
         let tableData = [];
         data.newsDetails.forEach(row => {
@@ -433,7 +353,6 @@ function updateTable(data) {
             counter++;
         });
         $('#example').DataTable().destroy();
-
         $('#example').DataTable({
             data: tableData,
             columns: [
@@ -446,27 +365,21 @@ function updateTable(data) {
             paging: true,
             searching: true,
         });
-
-        $('#data-table').find('td[colspan="5"]').parent().remove(); // Remove "No valid data available" row if present
+        $('#data-table').find('td[colspan="5"]').parent().remove();
     } else {
         $('#example').DataTable().clear().draw();
         tableBody.innerHTML = '<tr><td colspan="5">No valid data available</td></tr>';
     }
 }
+function resetForm() {
+  window.location.reload();
+}
 
-  function resetForm() {
-    // $('#category_name').val('');
-    //   $('#head_search').val('');
-      window.location.reload();
-              }
-
-  // **delete***
+// **delete***
 function destroy(id) {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'news_details/' + id;
-    console.log(url);
-    var token = localStorage.getItem('token');
-  
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'news_details/' + id;
+  var token = localStorage.getItem('token');
     if (!token) {
       console.error("Token is missing");
       return;
@@ -485,8 +398,6 @@ function destroy(id) {
       success: function(result) {
         window.location.reload();
         get_dealers();
-
-        console.log("Delete request successful");
         alert("Delete operation successful");
       },
       error: function(error) {
@@ -498,14 +409,10 @@ function destroy(id) {
 
   //   for View
   function fetch_data(id) {
-    console.log(id, "id");
-    console.log(window.location);
     var urlParams = new URLSearchParams(window.location.search);
-  
     var productId = id;
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'news_details/' + productId;
-  
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -519,9 +426,7 @@ function destroy(id) {
           document.getElementById('news_cate').innerText = data.news_details[0].news_category;
           document.getElementById('headline_news').innerText = data.news_details[0].news_headline;
           document.getElementById('content_news').innerText = data.news_details[0].news_content;
-      
           $("#selectedImagesContainer1").empty();
-      
           if (data.news_details[0].image_names) {
               var imageNamesArray = Array.isArray(data.news_details[0].image_names) ? data.news_details[0].image_names : data.news_details[0].image_names.split(',');
       
@@ -535,10 +440,8 @@ function destroy(id) {
                                   <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
                               </a>
                           </div>
-                      </div>
-                  `;
-      
-                  $("#selectedImagesContainer1").append(newCard);
+                      </div>`;
+              $("#selectedImagesContainer1").append(newCard);
               });
           }
       },
@@ -553,29 +456,22 @@ function destroy(id) {
     var url = apiBaseURL + 'news_details/' + id;
     editId_state= true;
     EditIdmain_= id;
-  
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function (response) {
             var Data = response.news_details[0];
-            // $('#brand').val(Data.brand_name);
             $("#brand option").prop("selected", false);
             $("#brand option[value='" + Data.news_category + "']").prop("selected", true);
-
             $('#headline').val(Data.news_headline);
             $('#contant').val(Data.news_content);
-  
-            // Clear existing images
             $("#selectedImagesContainer2").empty();
   
             if (Data.image_names) {
-                // Check if Data.image_names is an array
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
                 var countclass=0;
                 imageNamesArray.forEach(function (imageName) {
@@ -591,7 +487,6 @@ function destroy(id) {
                             </div>
                         </div>
                     `;
-                    // Append the new image element to the container
                     $("#selectedImagesContainer2").append(newCard);
                 });
             }

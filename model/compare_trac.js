@@ -1,8 +1,5 @@
 $(document).ready(function(){
-    // $('#compareButton').click(store);
 });
-
-// for card1
 
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
@@ -621,17 +618,8 @@ function get_model_card4(brand_id) {
                         select.appendChild(option);
                     });
 
-                    // Add event listener to model dropdown
                     select.addEventListener('change', function () {
-                        // const selectedModelId = this.value;
-                        // const selectedModelId1 = this.value;
-                        // const selectedModelId2 = this.value;
                         const selectedModelId3 = this.value;
-
-
-                        // getcompare_data(selectedModelId); 
-                        // getcompare_data1(selectedModelId1); 
-                        // getcompare_data2(selectedModelId2); 
                         getcompare_data3(selectedModelId3); 
                     });
                 } else {

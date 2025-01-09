@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var allCards = []; // Array to store all cards
-    
+    var allCards = []; 
     subcate(allCards);
 });
 
@@ -17,23 +16,12 @@ function subcate(allCards) {
             var loadMoreButton = $("#load_moretract");
 
             if (data.blog_details && data.blog_details.length > 0) {
-                // Reverse the order of the cards to display the latest ones first
                 var reversedCards = data.blog_details.slice().reverse();
-                
-                // Update the list of all cards
                 allCards = allCards.concat(reversedCards);
-                
-                // Display the latest 9 cards at the top in the opposite order
                 displayEngineoil(productContainer, reversedCards.slice(0, 9).reverse());
-
-                // Show the "View All" button
                 loadMoreButton.show();
-
-                // Handle "View All" button click
                 loadMoreButton.click(function() {
-                    // Display all cards in the opposite order
                     displayEngineoil(productContainer, allCards.reverse());
-                    // Hide the "View All" button
                     loadMoreButton.hide();
                 });
             }
@@ -45,13 +33,10 @@ function subcate(allCards) {
 }
 
 function displayEngineoil(container, engineoil) {
-    // Clear existing content
     container.html('');
-
     engineoil.forEach(function (p) {
         var images = p.image_names;
         var a = [];
-
         if (images) {
             if (images.indexOf(',') > -1) {
                 a = images.split(',');
@@ -59,7 +44,6 @@ function displayEngineoil(container, engineoil) {
                 a = [images];
             }
         }
-
         var newCard = `
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
@@ -82,8 +66,7 @@ function displayEngineoil(container, engineoil) {
                     </div>
                 </div>
             </div>`;
-        
-        // Use prepend to add the new card at the beginning
+    
         container.prepend(newCard);
     });
 }

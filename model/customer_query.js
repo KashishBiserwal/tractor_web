@@ -13,7 +13,6 @@ $(document).ready(function(){
 function feedback_query() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'feedbacks';  
-    // var url= 'http://tractor-api.divyaltech.com/api/admin/feedbacks'
     $.ajax({
         url: url,
         type: "GET",

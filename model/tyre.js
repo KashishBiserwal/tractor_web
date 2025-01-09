@@ -8,15 +8,12 @@ $(document).ready(function() {
 function showOverlay() {
     $("#overlay").fadeIn(300);
 }
-
 function hideOverlay() {
     $("#overlay").fadeOut(300);
 }
-
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/tyre_data";
 
-    // Keep track of the total tractors and the currently displayed tractors
     var totalTyre = 0;
     var displayedTractors = 0;
     var tractorsPerPage = 6;
@@ -215,12 +212,8 @@ function displayTractors(tractors) {
                     </div>
                 </div>
             </div>
-        </div>
-
-                    `;
-
-                   
-       // Append the new card to the container
+        </div> `;
+    
        productContainer.append(newCard);
     });
 }
@@ -232,7 +225,6 @@ function savedata(formId) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -241,7 +233,6 @@ function savedata(formId) {
         console.log("OTP Sent successfully");
     }
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
@@ -299,11 +290,10 @@ function verifyotp(formId) {
         success: function (result) {
             console.log(result);
             $('#get_OTP_btn').modal('hide');
-            submitData(formId); // Submit the form after OTP verification
+            submitData(formId); 
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle errors here
         },
     });
 }
@@ -324,8 +314,7 @@ function submitData(formId) {
     $.ajax({
         url: url,
         type: "POST",
-        data: formDataToSubmit, // Submit all form data
-        
+        data: formDataToSubmit, 
         success: function (result) {
             console.log(result, "result");
             var msg = "Added successfully !";
@@ -338,14 +327,11 @@ function submitData(formId) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
-            // Handle errors here
         }
     });
 }
 
-
 function collectFormData(formId) {
-    // Collect form data
     var first_name = $(`#${formId} #fname`).val();
     var product_id = $(`#${formId} #id`).val();
     var last_name = $(`#${formId} #lname`).val();
@@ -393,13 +379,11 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #fname').val(customer.first_name);
                 $('#' + formId + ' #lname').val(customer.last_name);
                 $('#' + formId + ' #number').val(customer.mobile);
-                $('#' + formId + ' #state_form').val(customer.state_id);
-                // $('#' + formId + ' #district_form').val(customer.district);
-                // $('#' + formId + ' #tehsil').val(customer.tehsil);
+                // $('#' + formId + ' #state_form').val(customer.state_id);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_form,#tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#state_form,#price,#district_form,#tehsil').prop('disabled', true);
                 }
             }
         },
@@ -413,11 +397,8 @@ function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
-
 function getBrand() {
-    
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_tyre_brands';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -426,17 +407,14 @@ function getBrand() {
         },
         success: function (data) {
             console.log(data);
-
             const checkboxContainer = $('#checkboxContainer');
-            checkboxContainer.empty(); // Clear existing checkboxes
-
+            checkboxContainer.empty(); 
             // Loop through the data and add checkboxes
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 brand_checkbox" value="' + brand_id + '"/>' +
                     '<span class="ps-2 fs-6">' + brand_name + '</span> <br/>';
-
                 checkboxContainer.append(checkboxHtml);
             });
         },
@@ -451,23 +429,19 @@ var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6; 
 
-
 function filter_search() {
     var checkboxestype = $(".chechbox-position-tyre:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
-
     var selectedtype = checkboxestype.map(function() {
         return $(this).val();
     }).get();
     var selectedBrand = checkboxesBrand.map(function() {
         return $(this).val();
     }).get();
-
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
         'tyre_position': JSON.stringify(selectedtype),
     };
-
     var url = 'http://tractor-api.divyaltech.com/api/customer/tyre_filter';
     $.ajax({
         url: url,
@@ -480,9 +454,8 @@ function filter_search() {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
             filteredCards = searchData.tyreData;
-
             if (filteredCards.length > 0) {
-                filterAndDisplayCards(); // Call the modified function
+                filterAndDisplayCards();
                 $("#noDataMessage").hide();
                 $("#load_moretract").hide();
 
@@ -492,9 +465,7 @@ function filter_search() {
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error searching for blog details:', errorThrown);
-            // Check if the error status is 404 (Not Found)
             if (jqXHR.status === 404) {
-                // Hide all cards and show the "Data not found" message
                 $("#productContainer").empty();
                 $("#noDataMessage").show();
                 $("#load_moretract").hide();
@@ -506,12 +477,10 @@ function filter_search() {
 function displayFilteredCards() {
     var productContainer = $("#productContainer");
     cardsDisplayed = 0; 
-    
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
-    
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
@@ -519,22 +488,18 @@ function displayFilteredCards() {
 
 $(document).on('click', '#loadMoreBtn', function () {
     var productContainer = $("#productContainer");
-    
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
-
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 });
 
 function appendFilterCard(filterContainer, p) {
- 
     var images = p.image_names;
     var a = [];
-
     if (images) {
         if (images.indexOf(',') > -1) {
             a = images.split(',');
@@ -542,8 +507,8 @@ function appendFilterCard(filterContainer, p) {
             a = [images];
         }
     }
-    var cardId = `card_${p.id}`; // Dynamic ID for the card
-    var modalId = `used_tractor_callbnt_${p.id}`; // Dynamic ID for the modal
+    var cardId = `card_${p.id}`; 
+    var modalId = `used_tractor_callbnt_${p.id}`; 
     var formId = `contact-seller-call_${p.id}`; 
     var userId = localStorage.getItem('id');
     var newCard = `
@@ -681,54 +646,41 @@ function appendFilterCard(filterContainer, p) {
                 </div>
             </div>
         </div>
-    </div>
-        `;
-
+    </div>`;
     filterContainer.append(newCard);
-
 }
 function filterAndDisplayCards() {
     var productContainer = $("#productContainer");
-    productContainer.empty(); // Clear existing content
+    productContainer.empty(); 
     cardsDisplayed = 0;
-
     filteredCards.forEach(function(filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
-
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 }
-
 function resetform(){
     $('.chechbox-position-tyre').val('');
     $('.brand_checkbox').val('');
- 
     $('.chechbox-position-tyre:checked').prop('checked', false);
     $('.brand_checkbox:checked').prop('checked', false);
-    
     window.location.reload();
-    
   }
-
   function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
-
     $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
         var stateData = stateDataResponse.stateData;
         var selectYourStateOption = '<option value="">Select Your State</option>';
         var stateOptions = stateData
             .map(state => `<option value="${state.id}">${state.state_name}</option>`)
             .join('');
-
         stateDropdowns.forEach(function (dropdown) {
             dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-            // Add event listener to state dropdown to fetch district data
             dropdown.addEventListener('change', function() {
                 var selectedStateId = this.value;
                 var districtSelect = this.closest('.row').querySelector('.district-dropdown');

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>  <?php
-// include 'includes/header.php';
-include 'includes/headertag.php';
-include 'includes/headertagadmin.php';
-include 'includes/footertag.php';
-
+<head> 
+<?php
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+    include 'includes/footertag.php';
 ?> 
-<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
-     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
     <script src="<?php $baseUrl; ?>model/agriculture_inner.js" defer></script>
    
@@ -22,7 +21,6 @@ include 'includes/footertag.php';
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <style>
@@ -30,9 +28,8 @@ include 'includes/footertag.php';
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-   
     }
-    </style>
+</style>
 
 <body> <?php
    include 'includes/header.php';
@@ -192,35 +189,6 @@ include 'includes/footertag.php';
             </div>
         </div>
     </div>
-
-    <!-- <div class="modal fade" id="seller_contact" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
-                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="model-cont">
-                        <h4 class="text-center text-danger">Information</h3>
-                        <div class="row px-3 py-2">
-                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                                <input type="text" class="form-control" id="slr_name">
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                                <input type="text" class="form-control" id="mob_num">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
                                        
     <section class="mt-2">
         <div class="container">

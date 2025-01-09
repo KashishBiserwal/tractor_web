@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-   <?php
-  include 'includes/headertag.php';
-    //include 'includes/headertagadmin.php';
-     include 'includes/footertag.php';
-     include 'includes/spinner.php';
-     ?> 
+<?php
+    include 'includes/headertag.php';
+    include 'includes/footertag.php';
+    include 'includes/spinner.php';
+?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/used_farm_imple.js"></script>
+    <script src="<?php $baseUrl; ?>model/used_farm_imple.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-6Z38E658LD');
     </script>
 <body>
@@ -28,17 +25,15 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-   
     }
    </style>
-
 <section class="mt-3 pt-5 bg-light">
     <div class="container py-2">
         <div class="pt-5">
             <span class="mt-5 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
-                    <span class="text-dark"> Used Farm Implements</span>
+                <span class=""><a href="" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+                <span class="text-dark"> Used Farm Implements</span>
             </span> 
         </div>
     </div>
@@ -113,7 +108,6 @@
         </div>
     </div>
 </section>
-
 <section class="bg-light">
     <div class="container mt-4 ">
         <div class="col-12 assured mt-3">
@@ -204,20 +198,16 @@
         </div>
     </div>
 </section>
-
-
-
 <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
-
-    ?>
-    <script>
+?>
+<script>
  function googleTranslateElementInit() {
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

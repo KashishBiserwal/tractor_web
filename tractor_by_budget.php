@@ -1,21 +1,20 @@
 <html lang="en">
-  <head> 
-    <?php
+<head> 
+  <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
    ?> 
-  </head>
+</head>
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-6Z38E658LD');
   </script>
-  <body> 
-    <style>
+<body> 
+<style>
  .thumb img {
     height: auto;
     width: 100%;
@@ -37,64 +36,52 @@
 .table_detail_section tbody tr td, .table_detail_section table thead tr th{
   padding: 15px;
 }
-      </style>
-    <?php
-      include 'includes/header.php';
-    ?>
-    <section class="mt-130 bg-light">
-        <div class="container">
-        <div class="py-2">
-                    <span class="text-white">
-                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                                class="fa-solid fa-chevron-right px-1"></i></a>
-
-                                <a href="" class="text-decoration-none header-link px-1" id="link_head"> </a>
-                    </span>
-                </div>
-                <div id="title_heading"></div>
+</style>
+<?php
+  include 'includes/header.php';
+?>
+<section class="mt-130 bg-light">
+  <div class="container">
+    <div class="py-2">
+      <span class="text-white">
+        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+          class="fa-solid fa-chevron-right px-1"></i>
+        </a>
+        <a href="" class="text-decoration-none header-link px-1" id="link_head"> </a>
+      </span>
+    </div>
+    <div id="title_heading"></div>
+  </div>
+</section>
+<section class="bg-white">
+  <div class="container">
+    <div id="tractor_description"></div>
+    <a class="btn_link" id="show_detail" onclick="show_detail()" style="display:block;">Read More</a>
+    <div class="more_detail mt-4" style="display: none;">
+      <div id="read_more_title"></div>
+        <div class="table-responsive mx-auto">
+          <table class="w-100 table_detail_section  table table-bordered" style="background-color: #f6f6f6 !important;">
+            <thead>
+              <tr>
+                <th id="table_detail"></th>
+                <th>Tractor HP</th>
+                <th>Tractor Price</th>
+              </tr>
+            </thead>
+            <tbody id="tractor_table_detail"></tbody>
+          </table>
         </div>
-    </section>
-    <section class="bg-white">
-      <div class="container">
-        <div id="tractor_description">
-          
-        </div>
-        <a class="btn_link" id="show_detail" onclick="show_detail()" style="display:block;">Read More</a>
-        <div class="more_detail mt-4" style="display: none;">
-          <div id="read_more_title"></div>
-            
-            <div class="table-responsive mx-auto">
-            <table class="w-100 table_detail_section  table table-bordered" style="background-color: #f6f6f6 !important;">
-                <thead>
-                  <tr>
-                    <th id="table_detail"></th>
-                    <th>Tractor HP</th>
-                    <th>Tractor Price</th>
-                  </tr>
-                </thead>
-                <tbody id="tractor_table_detail"></tbody>
-              </table>
-            </div>
-            <a class="btn_link mt-3" onclick="hide_detail()">Read less</a>
-
-        </div>
+        <a class="btn_link mt-3" onclick="hide_detail()">Read less</a>
       </div>
-    </section>
-    <section>
-      <div class="container my-5" >
-      <div class="row w-100" id="tractor_card">
-        
-      </div>
-    <!--   <div class="col-12 text-center mt-3 pt-2 ">
-                            <button id="load_moretract" type="button" class="add_btn btn btn-success">
-                                <i class="fas fa-undo"></i> Load More Tractors</button>
-                        </div> -->
-      </div>
-    </section>
-
+    </div>
+  </section>
+  <section>
+    <div class="container my-5" >
+      <div class="row w-100" id="tractor_card"></div>
+    </div>
+  </section>
     <?php
     include 'includes/footer.php';
-
     ?>
   </body>
 </html>

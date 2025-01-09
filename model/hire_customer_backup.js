@@ -1,31 +1,21 @@
 $(document).ready(function() {
-    console.log("ready!");
-    
     $('#filter_hiretractor').click(filter_search);
-   
 });
 
 function getHiretractor() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
-    
-
     $.ajax({
         url: url,
         type: "GET",
         success: function (data) {
             var productContainer = $("#productContainer");
             var loadMoreButton = $("#loadMoreBtn");
-
-            // Extract data1 and data2 from rent_details
             var data1 = data.rent_details.data1 || [];
             var data2 = data.rent_details.data2 || [];
-
-            // Combine data1 and data2 into a single array
             var combinedData = data1.concat(data2);
             console.log('Combined Data:', combinedData);
 
             if (combinedData && combinedData.length > 0) {
-                // Display the initial set of 6 tractors from combinedData
                 displaylist(combinedData.slice(0, 6));
 
                 if (combinedData.length <= 6) {
@@ -33,13 +23,8 @@ function getHiretractor() {
                 } else {
                     loadMoreButton.show();
                 }
-
-                // Handle "Load More Tractors" button click
                 loadMoreButton.click(function () {
-                    // Display all tractors from combinedData
                     displaylist(combinedData);
-
-                    // Hide the "Load More Tractors" button
                     loadMoreButton.hide();
                 });
             }
@@ -50,28 +35,19 @@ function getHiretractor() {
     });
 }
 
-
-// Function to display data in cards
 function displaylist(tractors) {
     var productContainer = $("#productContainer");
-
     tractors.forEach(function (p) {
-        // Assuming images are available in p.images
         var images = p.images ? p.images.split(',') : [];
 
         var cardId = `card_${p.id}`;
         var modalId = `used_tractor_callbnt_${p.id}`;
         var formId = `contact-seller-call${p.id}`;
         var imageUrl = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/rent_img/${images[0]}` : '';
-
         var isValidImageUrl = imageUrl && imageUrl.trim() !== "";
-      
-
         var ratePers = p.rate_pers || '';
         var rates = p.rates || '';
         var rentMappingIds = p.rent_mapping_ids || '';
-
-
         var newCard = `
             <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -198,12 +174,9 @@ function displaylist(tractors) {
         productContainer.append(newCard);
     });
 }
-
 getHiretractor();
 
-
 function resetForm(formId) {
-    // Reset the form by using its ID
     document.getElementById(formId).reset();
 }
 function savedata(formId) {
@@ -213,14 +186,13 @@ function savedata(formId) {
 
 function button_hire(formId) {
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
-    var product_id = 192;  // You may need to adjust this based on your logic
+    var product_id = 192; 
     var first_name = $(`#${formId} #first_name`).val();
     var last_name = $(`#${formId} #last_name`).val();
     var mobile_number = $(`#${formId} #mobile_number`).val();
     var state = $(`#${formId} #the_state`).val();
     var district = $(`#${formId} #the_district`).val();
     var tehsil = $(`#${formId} #the_tehsil`).val();
-
     var paraArr = {
         'enquiry_type_id': enquiry_type_id,
         'product_id': product_id,
@@ -233,8 +205,6 @@ function button_hire(formId) {
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-
-    // You can keep the token-related code if needed
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
@@ -243,7 +213,6 @@ function button_hire(formId) {
         url: url,
         type: 'POST',  
         data: paraArr,
-        // headers: headers, // Remove headers if not needed
         success: function (result) {
             $("#used_tractor_callbnt_").modal('hide'); 
             var msg = "Added successfully !"
@@ -252,8 +221,6 @@ function button_hire(formId) {
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
             $(".the-model").modal('hide');
-            
-            // Reload the page after 2 seconds (adjust the time)
             setTimeout(function () {
                 window.location.reload();
             }, 2000);
@@ -270,12 +237,9 @@ function button_hire(formId) {
     });
 }
 
-
-
 var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6; 
-
 function filter_search() {
     var checkboxes = $(".search_state_filter:checked");
     var checkboxes1 = $(".search_district_filter:checked");
@@ -297,11 +261,8 @@ function filter_search() {
         'brand_id': JSON.stringify(selectedBrand),
         'state': JSON.stringify(selectedCheckboxValues),
         'district': JSON.stringify(selectedCheckboxValues1),
-     
     };
-
     var url = 'http://tractor-api.divyaltech.com/api/customer/hire_tractor_filter';
-    
     $.ajax({
         url: url,
         type: 'POST',
@@ -312,12 +273,9 @@ function filter_search() {
         success: function (searchData) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
-
             searchData.product.forEach(function (filter) {
                 appendFilterCard(filterContainer, filter);
             });
-
-         
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
@@ -326,7 +284,6 @@ function filter_search() {
 }
 
 function appendFilterCard(filterContainer, filter) {
-   
     tractors.forEach(function (p) {
         var images;
         if (p.image_name) {
@@ -475,32 +432,23 @@ function appendFilterCard(filterContainer, filter) {
   
         container.append(newCard);
     });
-
     function displayNextSet() {
         var productContainer = $("#productContainer");
-    
-        // Display the next set of filtered cards
         filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
-    
-        // Hide the "Load More" button if all filtered cards are displayed
         if (cardsDisplayed >= filteredCards.length) {
             $("#loadMoreBtn").hide();
         }
     }
-    
     $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
         displayNextSet();
     });
 
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
-
   function resetform(){
     $('.search_state_filter').val('');
     $('.search_district_filter').val('');
@@ -508,8 +456,6 @@ function appendFilterCard(filterContainer, filter) {
     $('.search_state_filter:checked').prop('checked', false);
     $('.search_district_filter:checked').prop('checked', false);
     $('.search_brand_filter:checked').prop('checked', false);
-  
-    
     getHiretractor();
     window.location.reload();
     

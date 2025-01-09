@@ -62,25 +62,15 @@ $(document).ready(function() {
                 var productContainer = $("#productContainer");
                 var loadMoreButton = $("#loadMoreBtn");
             
-                // document.getElementById('mob_num').value = data.nursery_data[0].mobile;
                 if (data.nursery_data && data.nursery_data.length > 0) {
-                    // Reverse the order of the cards to display the latest ones first
                     var reversedCards = data.nursery_data.slice().reverse();
                     
-                    // Update the list of all cards
                     allCards = allCards.concat(reversedCards);
                     
-                    // Display the latest 9 cards at the top in the opposite order
                     displaynursery(productContainer, reversedCards.slice(0, 6).reverse());
-    
-                    // Show the "View All" button
                     loadMoreButton.show();
-    
-                    // Handle "View All" button click
                     loadMoreButton.click(function() {
-                        // Display all cards in the opposite order
                         displaynursery(productContainer, allCards.reverse());
-                        // Hide the "View All" button
                         loadMoreButton.hide();
                     });
                 }
@@ -93,9 +83,6 @@ $(document).ready(function() {
             },
         });
     }
-
-    
-
         function displaynursery(container, nursery) {
             // Clear existing content
             container.html('');
@@ -286,11 +273,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-        `;
-        
-        
+            </div> `;
         container.prepend(newCard);
        
     });
@@ -302,9 +285,7 @@ function resetForm(formId) {
     document.getElementById(formId).reset();
 }
 
-
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
@@ -418,7 +399,6 @@ function submitData(formId) {
     });
 }
 
-
 function collectFormData(formId) {
     // Collect form data
     var mobile = $(`#${formId} #mobile_number_1`).val();
@@ -475,13 +455,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #first_name_1').val(customer.first_name);
                 $('#' + formId + ' #last_Name_1').val(customer.last_name);
                 $('#' + formId + ' #mobile_number_1').val(customer.mobile);
-                $('#' + formId + ' #state_1').val(customer.state_id);
+                // $('#' + formId + ' #state_1').val(customer.state_id);
                 // $('#' + formId + ' #district_1').val(customer.district);
                 // $('#' + formId + ' #Tehsil_1').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil_1').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#state_1,#district_1,#Tehsil_1').prop('disabled', true);
                 }
             }
         },
@@ -571,10 +551,7 @@ function ge_tDistricts(stateId) {
         }
     });
 }
-
-// Initial call to fetch and display all states
 getState();
-
 
 var filteredCards = [];
 var cardsDisplayed = 0;
@@ -732,7 +709,6 @@ function appendFilterCard(filterContainer, filter) {
                                                 <div class="form-outline">
                                                     <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
-                                                       
                                                     </select>
                                                 </div>
                                             </div>
@@ -740,7 +716,6 @@ function appendFilterCard(filterContainer, filter) {
                                                 <div class="form-outline">
                                                     <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
-                                                       
                                                     </select>
                                                 </div>                    
                                             </div>       
@@ -748,7 +723,6 @@ function appendFilterCard(filterContainer, filter) {
                                                 <div class="form-outline">
                                                     <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
-                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -827,74 +801,32 @@ function appendFilterCard(filterContainer, filter) {
         `;
         container.append(newCard);
     }
-
     function displayNextSet() {
         var productContainer = $("#productContainer");
-    
-        // Display the next set of filtered cards
         filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
-    
-        // Hide the "Load More" button if all filtered cards are displayed
         if (cardsDisplayed >= filteredCards.length) {
             $("#loadMoreBtn").hide();
         }
     }
     
     $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
         displayNextSet();
     });
 
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
-  function resetform(){
+function resetform(){
     $('.select_state').val('');
     $('.select_district').val('');
     $('.select_state:checked').prop('checked', false);
     $('.select_district:checked').prop('checked', false);
-    
     filter_search();
     window.location.reload();
-    
-  }
-
-
-//   function get() {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function(data) {
-//             console.log("State data:", data);
-
-//             const checkboxContainer = $('#state_state');
-//             checkboxContainer.empty(); // Clear existing checkboxes
-            
-//             const stateId = 7; // Replace 7 with the desired state ID
-//             const filteredState = data.stateData.find(state => state.id === stateId);
-//             if (filteredState) {
-//                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-//                     '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-//                 checkboxContainer.append(checkboxHtml);
-//                 // Call getDistricts with the stateId
-//                 getDistricts(stateId);
-//             } else {
-//                 checkboxContainer.html('<p>No valid data available</p>');
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching state data:', error);
-//         }
-//     });
-// }
+}
 
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';

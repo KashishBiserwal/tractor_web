@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    // get('brand1');
       $('#subbtn_').click(edit_data_id);
       $('#Search').click(search_data);
       $('#Reset').click(reset);
@@ -330,39 +329,29 @@ function openViewdatacertifed(userId) {
           }
       });
 }
-  
-
-
-
 // edit data 
-
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_become_dealer_enquiry_data_by_id/' + id;
-  console.log(url);
-
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-
   $.ajax({
       url: url,
       type: 'GET',
       headers: headers,
       success: function(response) {
           var userData = response.become_dealer_enquiry_details[0];
-          console.log(response);
           $('#userId').val(userData.id);
           $('#dname').val(userData.dealer_name);
           $('#email').val(userData.email);
           $('#cno').val(userData.mobile);
           $('#address').val(userData.message);
 
-          // Set brand dropdown
-          var brandName = userData.brand_name.trim(); // Remove whitespace
+          var brandName = userData.brand_name.trim(); 
           var brandDropdown = $('#brand');
           var brandOption = brandDropdown.find('option').filter(function() {
-              return $(this).text().trim() === brandName; // Case-insensitive match
+              return $(this).text().trim() === brandName;
           });
           if (brandOption.length > 0) {
               brandDropdown.val(brandOption.val());
@@ -376,7 +365,6 @@ function fetch_edit_data(id) {
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
           }, 2000); 
 
-          // Clear existing images
           $("#selectedImagesContainer").empty();
 
           if (userData.image_names) {
@@ -407,7 +395,6 @@ function fetch_edit_data(id) {
   });
 }
 
-
 function setSelectedOption(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -417,7 +404,6 @@ function setSelectedOption(selectId, value) {
     }
   }
 }
-
 function populateTehsil(selectId, value, selectedTehsilId) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -428,7 +414,6 @@ function populateTehsil(selectId, value, selectedTehsilId) {
   }
 }
 
- 
 function edit_data_id() {
   var enquiry_type_id = $("#enquiry_type_id").val();
   var edit_id = $("#userId").val();
@@ -442,13 +427,10 @@ function edit_data_id() {
   var tehsil = $('#tehsil_1').val();
   var image = document.getElementById('_image').files;
   var _method = 'put';
-
   var data = new FormData();
   for (var x = 0; x < image.length; x++) {
       data.append("dealer_img[]", image[x]);
   }
-
-  // Append other data fields to FormData
   data.append('brand_id', brand);
   data.append('dealer_name', dealer_name);
   data.append('message', address);
@@ -471,7 +453,7 @@ function edit_data_id() {
   $.ajax({
     url: url,
     type: "POST",
-    data: data, // Use FormData object with image data and other fields
+    data: data, 
     headers: headers,
     contentType: false,
     processData: false,
@@ -488,23 +470,18 @@ function edit_data_id() {
 });
 }
 
-
-
 // delete data
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'customer_enquiries/' + id;
   var token = localStorage.getItem('token');
-
   if (!token) {
       console.error("Token is missing");
       return;
   }
-
   // Show a confirmation popup
   var isConfirmed = confirm("Are you sure you want to delete this data?");
   if (!isConfirmed) {
-      // User clicked 'Cancel' in the confirmation popup
       return;
   }
 
@@ -516,14 +493,12 @@ function destroy(id) {
       },
       success: function(result) {
           console.log("Delete request successful");
-          // Remove the deleted row from the data table
-          $('#row_' + id).remove(); // Assuming each row has an ID like "row_123" where 123 is the id of the deleted row
+          $('#row_' + id).remove(); 
           alert("Delete operation successful");
           window.location.reload();
       },
       error: function(xhr, status, error) {
           console.error('Error during delete operation:', error);
-          // Display the error message from the server, if available
           var errorMessage = xhr.responseText || 'Error during delete operation';
           alert(errorMessage);
       }
@@ -532,19 +507,14 @@ function destroy(id) {
 
 populateStateDropdown('state_select', 'district_select');
 
-  
 function search_data() {
     console.log("dfghsfg,sdfgdfg");
     var state = $('#state_state_1').val();
     var district = $('#district_1').val();
-  
     var paraArr = {
-     
       'state':state,
       'district':district,
-     
     };
-  
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'search_for_become_dealer_enquiry';
     $.ajax({
@@ -560,10 +530,8 @@ function search_data() {
         },
         error: function (xhr, status, error) {
           if (xhr.status === 404) {
-            // Handle 404 error here
             const tableBody = $('#data-table');
             tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
-            // Clear the DataTable
             $('#example').DataTable().clear().draw();
           } else {
             console.error('Error searching for brands:', error);
@@ -578,7 +546,6 @@ function search_data() {
     if(data.dealerData && data.dealerData.length > 0) {
         let tableData = []; 
         data.dealerData.forEach(row => {
-        //   const fullName = row.first_name + ' ' + row.last_name;
             let action =      `<div class="d-flex">
             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdatacertifed(${row.id});" data-bs-target="#view_model_dealers">
                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -623,18 +590,14 @@ function search_data() {
           // ... other options ...
       });
     } else {
-        // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
   }
-  
 
   function reset() {
-    // $("#dealers_1").val("");
     $("#state_state_1").val("");
     $("#district_1").val("");
     window.location.reload();
-    // get_dealers(); // Call get_dealers() function to reload the original table data
 };
 
 

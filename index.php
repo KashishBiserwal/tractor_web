@@ -48,12 +48,10 @@
     margin-bottom: 0;
     text-transform: uppercase;
 }
-
-.text-truncate {
+  .text-truncate {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-   
     }
     .model-message-brand{
       color:#439347;
@@ -67,7 +65,6 @@
     padding-right: 10px;
     font-size: 12px;
     }
-
     #search_form_container {
   position: absolute;
   top: 30%; 
@@ -78,7 +75,6 @@
   display: block;
   z-index: 5;
 }
-
 .bannerbg00:hover {
   cursor: pointer;
 }
@@ -88,40 +84,32 @@
 }
 .thumb {
     width: 100%;
-    height: 200px; /* Fix the height */
+    height: 200px; 
     position: relative;
-    background-color: #f0f0f0; /* Placeholder color */
+    background-color: #f0f0f0; /
   }
 
   .thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the container */
+    object-fit: cover; 
   }
 
   .item {
     width: 100%;
-    min-height: 350px; /* Set a fixed height for cards */
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 5px;
   }
-
   .content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
   }
-
- /* @media (max-width: 768px) {
-  
-  #search_form_container {
-    left: 5px; 
-  }
-} */
 </style>
 <section id="home-banner" class="banner__section overflow-hidden">
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
@@ -1153,7 +1141,7 @@ document.getElementById('Search').addEventListener('click', function() {
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

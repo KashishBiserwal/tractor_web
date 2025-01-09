@@ -2,8 +2,6 @@ var allDealers = []; // Array to hold all dealers
 
 $(document).ready(function() {
     get_certifieddealers();
-
-    $('#dealership_enq_btn').click(search);
 });
 
 function get_certifieddealers() {

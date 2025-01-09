@@ -9,7 +9,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <body>
@@ -88,7 +87,6 @@
                     computer virus, to investigate/prevent/take action on illegal activities and suspected fraud.
                 </li>
             </ul>
-
             <b class="mt-3">Sharing, Transfer or Disclosure:</b>
             <p class="mt-3 justify-content-center mt-3">Any service or product provided through Our Website may be provided either by BHARAT TRACTORS or its
                 vendor, dealer, OEM, channel partners and other third parties (“other entities”) which are registered
@@ -160,7 +158,6 @@
                 other modes of communication even if Yours number/numbers(s) is/are registered in the National Do Not
                 Call Registry (NDNC) or <a href="#">www.nccptrai.gov.in</a>
             </p>
-
             <b>Change in terms of Privacy Policy:</b>
             <p class="mt-3 justify-content-center">Bharat Tractors reserves the right to amend or modify this Privacy Policy at any time, as and when the
                 need arises. We request you to regularly check this Privacy Policy from time to time to keep you
@@ -186,10 +183,7 @@
             <p>Please note that the details of the Data Protection Officer/Grievance Officer may be changed by Us from
                 time to time by updating this Privacy Policy.
             </p>
-
-
         </div>
     </div>
 </body>
-
 </html>

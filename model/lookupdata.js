@@ -1,34 +1,27 @@
 $(document).ready(function() {
-  
   $("#Reset").click(function () {
-  
     $("#lookup_type").val("");
     $("#lookup_data").val("");
-    
     get_data();
-
-  });
-
-
+});
   $('#dataeditbtn').click(edit_user);
-
   $("#lookup_data_form").validate({
     rules: {
       lookup_Selectbox: {
-            required: true,
-        },
-        lookup_datavalue: {
-          required: true,
+        required: true,
+      },
+      lookup_datavalue: {
+        required: true,
       }
     },
     messages: {
       lookup_Selectbox: {
-            required: "This field is required",
-        },
-        lookup_datavalue: {
-          required: "This field is required",
+        required: "This field is required",
+      },
+      lookup_datavalue: {
+        required: "This field is required",
       }
-     },
+    },
     submitHandler: function (form) {
         var msg = "Form submitted successfully !"
         $("#errorStatusLoading").modal('show');
@@ -36,45 +29,39 @@ $(document).ready(function() {
         $("#errorStatusLoading").find('.modal-body').html(msg);
     },
   });
-
   $("#lookup_data_submit").on("click", function () {
       $("#lookup_data_form").valid();
   });
 $('#lookup_data_submit').click(store);
-  // for edit model
-
    // for edit model
    $("#lookup_data_form_1").validate({
     rules: {
       lookup_Selectbox1: {
-            required: true,
-        },
-        lookup_datavalue1: {
-          required: true,
+        required: true,
+      },
+      lookup_datavalue1: {
+        required: true,
       }
     },
     messages: {
       lookup_Selectbox1: {
-            required: "This field is required",
-        },
-        lookup_datavalue1: {
-          required: "This field is required",
+        required: "This field is required",
+      },
+      lookup_datavalue1: {
+        required: "This field is required",
       }
-     },
+    },
     submitHandler: function (form) {
-        var msg = "Form submitted successfully !";
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
+      var msg = "Form submitted successfully !";
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Success');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
     },
   });
-  
   $("#dataeditbtn").on("click", function () {
-      $("#lookup_data_form_1").valid();
+    $("#lookup_data_form_1").valid();
   });
-
 });
-
 
 function get_data() {
   console.log('hhsdfshdfch');
@@ -89,92 +76,69 @@ function get_data() {
       },
       success: function (data) {
           const tableBody = document.getElementById('data-table');
-          tableBody.innerHTML = ''; // Clear previous data
-
+          tableBody.innerHTML = ''; 
           if (data.lookup_data.length > 0) {
-              
-              let tableData = [];
-              let serialNumber = data.lookup_data.length;
-              // Loop through the data and create table rows
-              data.lookup_data.forEach(row => {
-                 // const tableRow = document.createElement('tr');
-                 let action = `<div class="d-flex">
-                 <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
-                     <i class="fa fa-trash" style="font-size: 11px;"></i>
-                 </button>
-                 <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_2" id="yourUniqueIdHere">
-                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                 </button>
+            let tableData = [];
+            let serialNumber = data.lookup_data.length;
+            data.lookup_data.forEach(row => {
+              let action = `<div class="d-flex">
+              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_2" id="yourUniqueIdHere">
+                <i class="fas fa-edit" style="font-size: 11px;"></i>
+              </button>
              </div>`;
-               
-                  tableData.push([
-                    serialNumber--,
-                    row.name,
-                    row.lookup_data_value,
-                    action
-                ]);
-
-                  // Increment serialNumber fo  r the next row
-                  // serialNumber++;
-                  
-              });
-              $('#example').DataTable().destroy();
-              $('#example').DataTable({
-                      data: tableData,
-                      columns: [
-                        { title: 'ID' },
-                        { title: 'Lookup Type' },
-                        { title: 'Lookup Data' },
-                        { title: 'Action', orderable: false } // Disable ordering for Action column
-                    ],
-                      paging: true,
-                      searching: false,
-                      // ... other options ...
-                  });
-          } else {
-              // Display a message if there's no valid data
-              tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
-              if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
-                $("#errorStatusLoading").modal('show');
-                $("#errorStatusLoading").find('.modal-title').html('Error');
-                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
-                window.location.href = baseUrl + "login.php"; 
-    
-              }
+            tableData.push([
+            serialNumber--,
+            row.name,
+            row.lookup_data_value,
+            action
+          ]);
+        });
+        $('#example').DataTable().destroy();
+        $('#example').DataTable({
+          data: tableData,
+          columns: [
+            { title: 'ID' },
+            { title: 'Lookup Type' },
+            { title: 'Lookup Data' },
+            { title: 'Action', orderable: false } 
+          ],
+          paging: true,
+          searching: false,
+        });
+        } else {
+          tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
           }
+        }
       },
       error: function (error) {
-          console.error('Error fetching data:', error);
-          var msg = error;
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('Error');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-          // Display an error message or handle the error as needed
+        console.error('Error fetching data:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       }
   });
 }
-
 get_data();
-
 
 function store(event) {
   event.preventDefault();
-  console.log('jfhfhw');
   var lookup_type = $('#lookupSelectbox').val();
   var lookup_data_value = $('#lookup_data_value').val();
-  console.log(lookup_type);
-
-  // Prepare data to send to the server
   var paraArr = {
     'lookup_type_id': lookup_type,
     'lookup_data_value': lookup_data_value
   };
-
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'lookup_data';
-
-  console.log(url);
-
   var token = localStorage.getItem('token');
   var headers = {
     'Authorization': 'Bearer ' + token
@@ -186,17 +150,11 @@ function store(event) {
     data: paraArr,
     headers: headers,
     success: function (result) {
-      console.log(result, "result");
-      console.log("Add successfully");
       var msg = "Added successfully !"
       $("#errorStatusLoading").modal('show');
       $("#errorStatusLoading").find('.modal-title').html('Success');
       $("#errorStatusLoading").find('.modal-body').html(msg);
-
-      // Hide the modal immediately
       $("#staticBackdrop1").modal('hide');
-
-      // Show alert box with OK button
       var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
       if (alertConfirmation) {
         window.location.reload();
@@ -212,11 +170,8 @@ function store(event) {
   });
 }
 
-//   get data in select box
 function get() {
-  // var url = "<?php echo $APIBaseURL; ?>lookup_type";
   var apiBaseURL =APIBaseURL;
-  // Now you can use the retrieved value in your JavaScript logic
   var url = apiBaseURL + 'lookup_type';
   $.ajax({
       url: url,
@@ -225,15 +180,12 @@ function get() {
           'Authorization':'Bearer' + localStorage.getItem('token')
       },
       success: function (data) {
-          // console.log(data);
           const select = document.getElementById('lookupSelectbox');
-          select.innerHTML = ''; // Clear previous data
-  
+          select.innerHTML = ''; 
           if (data.lookup_type.length > 0) {
               data.lookup_type.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.name;
-                
                   option.value = row.id;
                   select.appendChild(option);
               });
@@ -253,9 +205,7 @@ function get() {
   get();
 
   function get_lookup() {
-    // var url = "<?php echo $APIBaseURL; ?>lookup_type";
     var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'lookup_type';
     $.ajax({
         url: url,
@@ -264,15 +214,12 @@ function get() {
             'Authorization':'Bearer' + localStorage.getItem('token')
         },
         success: function (data) {
-            // console.log(data);
             const select = document.getElementById('lookupSelectbox1');
-            select.innerHTML = ''; // Clear previous data
-    
+            select.innerHTML = '';
             if (data.lookup_type.length > 0) {
                 data.lookup_type.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.name;
-                  
                     option.value = row.id;
                     select.appendChild(option);
                 });
@@ -288,57 +235,14 @@ function get() {
             $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
-    }
-    get_lookup();
+}
+get_lookup();
 
-
-// get data in table
-
-
-// // delete data
-// function destroy(id) {
-// // var url = "<?php echo $APIBaseURL; ?>lookup_data/" + id;
-// var apiBaseURL =APIBaseURL;
-// // Now you can use the retrieved value in your JavaScript logic
-// var url = apiBaseURL + 'lookup_data/'+ id;
-// var token = localStorage.getItem('token');
-
-// if (!token) {
-// console.error("Token is missing");
-// return;
-// }
-
-// $.ajax({
-// url: url,
-// type: "DELETE",
-// headers: {
-//   'Authorization': 'Bearer ' + token
-// },
-// success: function(result) {
-//   // window.location.reload();
-//   get_data();
-//   console.log("Delete request successful");
-//   var msg = "Deleted successfully !"
-//         $("#errorStatusLoading").modal('show');
-//         $("#errorStatusLoading").find('.modal-title').html('Success');
-//         $("#errorStatusLoading").find('.modal-body').html(msg);
-// },
-// error: function(error) {
-//   console.error('Error fetching data:', error);
-//   var msg = error;
-//   $("#errorStatusLoading").modal('show');
-//   $("#errorStatusLoading").find('.modal-title').html('Error');
-//   $("#errorStatusLoading").find('.modal-body').html(msg);
-// }
-// });
-// }
   // **delete***
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'lookup_data/' + id;
-    console.log(url);
     var token = localStorage.getItem('token');
-  
     if (!token) {
       console.error("Token is missing");
       return;
@@ -347,7 +251,6 @@ function get() {
     if (!isConfirmed) {
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",
@@ -357,8 +260,6 @@ function get() {
       success: function(result) {
         window.location.reload();
         get_dealers();
-  
-        console.log("Delete request successful");
         alert("Delete operation successful");
       },
       error: function(error) {
@@ -368,30 +269,23 @@ function get() {
     });
   }
 
-  
 function searchdata() {
-  console.log("dfghsfg,sdfgdfg");
   var lookup_type = $('#lookup_type').val();
   var lookup_data = $('#lookup_data').val();
-
   var paraArr = {
     'lookup_type': lookup_type,
     'lookup_data':lookup_data,
-    
   };
-
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_lookup_data';
   $.ajax({
       url:url, 
       type: 'POST',
       data: paraArr,
-    
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        console.log(searchData,"hello brand");
         updateTable(searchData);
       },
       error: function (error) {
@@ -403,7 +297,6 @@ function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
   let serialNumber = 1; 
-
   if(data.lookupType && data.lookupType.length > 0) {
       let tableData = []; 
       data.lookupType.forEach(row => {
@@ -415,17 +308,14 @@ function updateTable(data) {
              <i class="fas fa-edit" style="font-size: 11px;"></i>
           </button>
       </div>`;
-console.log(row.customer_id);
           tableData.push([
             serialNumber,
             row.name,
             row.lookup_data_value,
             action
         ]);
-
         serialNumber++;
     });
-
     $('#example').DataTable().destroy();
     $('#example').DataTable({
         data: tableData,
@@ -437,66 +327,50 @@ console.log(row.customer_id);
         ],
         paging: true,
         searching: false,
-        // ... other options ...
     });
   } else {
-      // Display a message if there's no valid data
       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
 }
 
-
-
-  
-
-
-      // edit and update 
-    function fetch_edit_data(id) {
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'lookup_data/' + id; 
-      console.log(url);
-    
-      var headers = {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      };
-    
-      $.ajax({
-          url: url,
-          type: 'GET',
-          headers: headers,
-          success: function (response) {
-            // console.log('sdfgh'); 
-              var Data = response.lookup_data[0];
-              $('#idUser').val(Data.id);
-              $('#lookupSelectbox1').val(Data.lookup_type_id);
-              $('#lookup_data_value1').val(Data.lookup_data_value);
-              // console.log(Data.name);
-              
-          },
-          error: function (error) {
-              console.error('Error fetching user data:', error);
-              var msg = error;
-              $("#errorStatusLoading").modal('show');
-              $("#errorStatusLoading").find('.modal-title').html('Error');
-              $("#errorStatusLoading").find('.modal-body').html(msg);
-          }
-      });
+// edit and update 
+function fetch_edit_data(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'lookup_data/' + id; 
+    var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function (response) {
+      var Data = response.lookup_data[0];
+      $('#idUser').val(Data.id);
+      $('#lookupSelectbox1').val(Data.lookup_type_id);
+      $('#lookup_data_value1').val(Data.lookup_data_value);
+    },
+    error: function (error) {
+      console.error('Error fetching user data:', error);
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Error');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
     }
+  });
+}
   
   function edit_user() {
     var edit_id = $("#idUser").val();
     var lookup_type = $("#lookupSelectbox1").val();
     var lookup_value = $("#lookup_data_value1").val();
-
     var paraArr = {
         'lookup_type_id': lookup_type,
         'lookup_data_value': lookup_value,
         'id': edit_id, 
     };
-  
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'lookup_data/' + edit_id;
-  
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -507,11 +381,8 @@ console.log(row.customer_id);
         data: paraArr,
         headers: headers,
         success: function (result) {
-            console.log(result, "result");
-            // get();
-            window.location.reload();
-            console.log("updated successfully");
-            var msg = "Updated successfully !"
+          window.location.reload();
+          var msg = "Updated successfully !"
         $("#errorStatusLoading").modal('show');
         $("#errorStatusLoading").find('.modal-title').html('Success');
         $("#errorStatusLoading").find('.modal-body').html(msg);

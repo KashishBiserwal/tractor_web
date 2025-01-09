@@ -3,13 +3,9 @@ $(document).ready(function() {
     getList();
 });
 
-// Define global variables
-var allCards = []; // Assuming this is a global variable to store all the cards
-var cardsPerPage = 9; // Assuming the number of cards to display per page
-var cardsDisplayed = 0; // Assuming a counter to keep track of displayed cards
-
-// Function to fetch and display the list
-
+var allCards = [];
+var cardsPerPage = 9; 
+var cardsDisplayed = 0; 
 function getList() {
     var urlParams = new URLSearchParams(window.location.search);
     editId_stateedit = urlParams.get('id');
@@ -20,17 +16,12 @@ function getList() {
         type: "GET",
         success: function (data) {
             var productContainer = $("#productContainer");
-            // Clear the existing content in the container
             productContainer.empty();
-
             if (data.getAllImplements && data.getAllImplements.length > 0) {
                 allCards = data.getAllImplements; 
-            
                 allCards.sort(function(a, b) {
                     return b.id - a.id;
                 });
-            
-                // Display all cards
                 allCards.slice(0, cardsPerPage).forEach(function (p) {
                     displayInitialCards(productContainer, p);
                     cardsDisplayed++;
@@ -42,7 +33,6 @@ function getList() {
                     $("#load_moretract").hide();
                 }
             } else {
-                // Hide the "Load More" button if there are no cards
                 $("#load_moretract").hide();
             }
         },
@@ -52,24 +42,12 @@ function getList() {
     });
 }
 
-
-// Function to display a single tractor card
 function displayInitialCards(productContainer, p) {
     document.getElementById('heading_imple').innerText=p.category_name;
     document.getElementById('title_heading').innerText=p.category_name ;
     const brand_model = p.brand_name + " " + p.model;
-    
-                // Remove underscores and special characters
                 var cleanedString = p.sub_category_name.replace(/[^\w\s]/gi, '');
-
-                // Add spaces between words in the modified string
                 var spacedString = cleanedString.replace(/_/g, ' ');
-    
-                // Set the modified string to the innerText of the element with id 'subcategory'
-                // var subcategoryElement = document.getElementById('subcategory');
-                // if (subcategoryElement) {
-                //     subcategoryElement.innerText = spacedString;
-                // } 
                 var images = p.image_names;
                 var a = [];
     if (images) {
@@ -109,8 +87,6 @@ var newCard = `
 </div>
 </div>
 `;
-
-    // Append the new card to the container
     productContainer.append(newCard);
 }
 
@@ -118,11 +94,9 @@ $(document).on('click', '#load_moretract', function(){
     var productContainer = $("#productContainer");
 
     allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-        displayInitialCards(productContainer, p);  // Corrected line
+        displayInitialCards(productContainer, p);  
         cardsDisplayed++;
     });
-
-    // Hide the "Load More" button if all cards are displayed
     if (cardsDisplayed >= allCards.length) {
         $("#load_moretract").hide();
     }

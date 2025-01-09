@@ -16,14 +16,11 @@
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
-              
               <li class="breadcrumb-item">
                 <span> Interested Buyer List</span>
               </li>
             </ol>
           </nav>
-         <!--  <button id="adduser" type="button" class="btn add_btn float-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add New User </button> -->
         </div>
       </div>
     </div>
@@ -50,9 +47,6 @@
                 <input type="text" id="State" name="search_email" class="form-control" />
               </div>
             </div>
-          
-           
-            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3 pt-4 mt-1">
               <div class="text-center">
                 <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
@@ -64,27 +58,25 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table  id="example" class="table dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Date</th>
-                                            <th class="d-none d-md-table-cell text-white">Name</th>
-                                            <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                            <th class="d-none d-md-table-cell text-white">State </th>
-                                            <th class="d-none d-md-table-cell text-white">Brand </th>
-                                            <th class="d-none d-md-table-cell text-white">Model </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
+        <div class="table-responsive">
+          <table  id="example" class="table dataTable no-footer py-1" width="100%">
+            <thead>
+              <tr>
+                <th class="d-none d-md-table-cell text-white">S.No.</th>
+                <th class="d-none d-md-table-cell text-white">Date</th>
+                <th class="d-none d-md-table-cell text-white">Name</th>
+                <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                <th class="d-none d-md-table-cell text-white">State </th>
+                <th class="d-none d-md-table-cell text-white">Brand </th>
+                <th class="d-none d-md-table-cell text-white">Model </th>
+              </tr>
+            </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
     </div>
    </section>
-      
-    
 </div>
 </div>
 </body>

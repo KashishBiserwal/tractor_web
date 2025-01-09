@@ -1,13 +1,8 @@
 $(document).ready(function(){
-   
     $('#undate_btn_nursery_enq').click(edit_id);
-   
-    // $('#Search').click(search);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
-    
-            
       $("#narsary_list_enq_form").validate({
       
       rules: {
@@ -55,29 +50,19 @@ $(document).ready(function(){
         dist_2: {
           required: "This field is required",
         },
-      
       },
-      
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
       });
-  
-    
       $("#undate_btn_nursery_enq").on("click", function () {
-    
-        $("#narsary_list_enq_form").valid();
-      
-      });
-      
-  
+      $("#narsary_list_enq_form").valid();
     });
+  });
 
     function formatDateTime(originalDateTimeStr) {
       const originalDateTime = new Date(originalDateTimeStr);
-  
       const pad = (num) => (num < 10 ? '0' : '') + num;
-  
       const day = pad(originalDateTime.getDate());
       const month = pad(originalDateTime.getMonth() + 1);
       const year = originalDateTime.getFullYear();
@@ -86,13 +71,11 @@ $(document).ready(function(){
       const seconds = pad(originalDateTime.getSeconds());
   
       return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
-      }
+    }
 
     function get_agr_clgdata() {
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'get_collge_enquiry_data';
-      console.log('dfghjkiuytgf');
-      
       $.ajax({
           url: url,
           type: "GET",
@@ -100,9 +83,8 @@ $(document).ready(function(){
               'Authorization': 'Bearer ' + localStorage.getItem('token')
           },
           success: function (data) {
-              const tableBody = $('#data-table'); // Use jQuery selector for the table body
+              const tableBody = $('#data-table'); 
               let serialNumber = 1;
-    
               if (data.college_enquiry_data && data.college_enquiry_data.length > 0) {
                   var table = $('#example').DataTable({
                       paging: true,
@@ -118,17 +100,11 @@ $(document).ready(function(){
                           { title: 'Action', orderable: false }
                       ]
                   });
-    
-                  // Clear table before appending new data
                   table.clear();
-    
-                  // Loop through the data in reverse order to prepend rows
-                  for (let i = data.college_enquiry_data.length - 1; i >= 0; i--) {
+                      for (let i = data.college_enquiry_data.length - 1; i >= 0; i--) {
                       const row = data.college_enquiry_data[i];
                       const fullName = row.first_name + ' ' + row.last_name;
-    
-                      // Add row to DataTable
-                      table.row.add([
+                          table.row.add([
                           serialNumber,
                           formatDateTime(row.date),
                           row.college_name,
@@ -148,14 +124,11 @@ $(document).ready(function(){
                               </button>
                           </div>`
                       ]);
-    
                       serialNumber++;
                   }
     
-                  // Draw the table to update the view
                   table.draw();
               } else {
-                  // If no data available, show a message
                   tableBody.html('<tr><td colspan="9">No valid data available</td></tr>');
               }
           },
@@ -171,29 +144,24 @@ $(document).ready(function(){
           }
       });
     }
-    
     get_agr_clgdata();
 
     function openViewdata(userId) {
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'get_agriculture_enquiry_data_by_id/' + userId;
-    
       var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       };
-    
       $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
-      
         success: function(response) {
           var userData = response.nursery_enquiry_data[0];
           document.getElementById('agr_clg').innerText=userData.nursery_name;
           document.getElementById('first_name_view').innerText=userData.first_name;
           document.getElementById('last_name_view').innerText=userData.last_name;
           document.getElementById('mob_nub').innerText=userData.mobile;
-          // document.getElementById('email_1').innerText=userData.email;
           document.getElementById('date_view').innerText=userData.date;
           document.getElementById('state_view').innerText=userData.state_name;
           document.getElementById('district_view').innerText=userData.district_name;
@@ -207,9 +175,7 @@ $(document).ready(function(){
 
     function fetch_edit_data(id) {
       var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'get_agriculture_enquiry_data_by_id/' + id;
-      console.log(url);
-    
+      var url = apiBaseURL + 'get_agriculture_enquiry_data_by_id/' + id;    
       var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       };
@@ -226,18 +192,12 @@ $(document).ready(function(){
               $('#first_name_edit').val(Data.first_name);
               $('#last_name_edit').val(Data.last_name);
               $('#mobile_no').val(Data.mobile);
-              // setSelectedOption('state_2', Data.state_id);
-              // setSelectedOption('dist_2', Data.district_id);
-              // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
               setSelectedOption('state_2', Data.state_id);
               getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
               setTimeout(function() {
                 setSelectedOption('dist_2', Data.district_id);
                 populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
               }, 1000); 
-            
-    
-              // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
             },
             error: function(error) {
               console.error('Error fetching user data:', error);
@@ -254,7 +214,6 @@ $(document).ready(function(){
               }
             }
           }
-          
           function populateTehsil(selectId, value) {
             var select = document.getElementById(selectId);
             for (var i = 0; i < select.options.length; i++) {
@@ -264,7 +223,6 @@ $(document).ready(function(){
               }
             }
           }
-
           function edit_id() {
             var enquiry_type_id = $("#enquiry_type_id").val();
             var product_id = $("#product_id").val();
@@ -278,14 +236,11 @@ $(document).ready(function(){
             var tehsil = $("#tehsil_2").val();
             var _method = 'put';
           
-            // Validate mobile number
             if (!/^[6-9]\d{9}$/.test(mobile)) {
                 alert("Mobile number must start with 6 or above and should be 10 digits");
-                return; // Exit the function if validation fails
+                return; 
             }
-          
             var paraArr = {
-               
                 'first_name': first_name,
                 'last_name': last_name,
                 'mobile': mobile,
@@ -301,7 +256,6 @@ $(document).ready(function(){
           
             var apiBaseURL = APIBaseURL;
             var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-          
             var headers = {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             };
@@ -312,9 +266,6 @@ $(document).ready(function(){
                 data: paraArr,
                 headers: headers,
                 success: function (result) {
-                    console.log(result, "result");
-                    // window.location.reload();
-                    console.log("updated successfully");
                     alert('successfully updated..!')
                 },
                 error: function (error) {
@@ -345,9 +296,7 @@ $(document).ready(function(){
           'Authorization': 'Bearer ' + token
         },
         success: function(result) {
-          // get_tyre_list();
           window.location.reload();
-          console.log("Delete request successful");
           alert("Delete operation successful");
         },
         error: function(error) {
@@ -356,8 +305,6 @@ $(document).ready(function(){
         }
       });
     }
-
-
     
 function search_data() {
   var college_name = $('#college_name').val();
@@ -379,15 +326,12 @@ function search_data() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (searchData) {
-      console.log(searchData, "hello brand");
       updateTable(searchData);
     },
     error: function (xhr, status, error) {
       if (xhr.status === 400) {
-        // Handle 404 error here
         const tableBody = $('#data-table');
         tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
-        // Clear the DataTable
         $('#example').DataTable().clear().draw();
       } else {
         console.error('Error searching for brands:', error);
@@ -445,14 +389,11 @@ function updateTable(data) {
       ],
       paging: true,
       searching: true,
-      // ... other options ...
     });
   } else {
-    // Display a message if there's no valid data
     tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
   }
 }
-
 function resetform(){
   $('#college_name').val('');
   $('#state_state').val('');

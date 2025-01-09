@@ -30,30 +30,24 @@ function get_old_harvester() {
             type: "GET",
             success: function (data) {
                 var productContainer = $("#productContainerharvester");
-                // Clear the existing content in the container
                 productContainer.empty();
     
                 if (data.product && data.product.length > 0) {
-                    // Reverse the order of the cards to display the latest ones first
                     var reversedCards = data.product.slice().reverse();
     
-                    // Display the latest cards at the top
                     reversedCards.slice(0, cardsPerPage).forEach(function (p) {
                         prependCard(productContainer, p);
                         cardsDisplayed++;
                     });
     
-                    // Update allCards to store all the cards
                     allCards = reversedCards;
     
-                    // Show or hide the "Load More" button based on the number of cards
                     if (allCards.length > cardsPerPage) {
                         $("#loadMoreBtn").show();
                     } else {
                         $("#loadMoreBtn").hide();
                     }
                 } else {
-                    // Hide the "Load More" button if there are no cards
                     $("#loadMoreBtn").hide();
                 }
             },
@@ -61,7 +55,6 @@ function get_old_harvester() {
                 console.error('Error fetching data:', error);
             },
             complete: function () {
-                // Hide the spinner after the API call is complete
                 hideOverlay();
             },
         });
@@ -69,8 +62,6 @@ function get_old_harvester() {
     function prependCard(container, p) {
         var images = p.image_names;
         var a = [];
-        // const name = p.brand_name +" "+p.model;
-
         if (images) {
             if (images.indexOf(',') > -1) {
                 a = images.split(',');
@@ -213,13 +204,10 @@ function get_old_harvester() {
                         }
                     });
                 }
-                
-                // Call the function to load all states
                 getStates();
                 
                 
                 function get_barnd() {
-                    // var apiBaseURL = CustomerAPIBaseURL;
                     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
                 
                     $.ajax({
@@ -232,9 +220,8 @@ function get_old_harvester() {
                             console.log(data);
                 
                             const checkboxContainer = $('#checkboxContainer');
-                            checkboxContainer.empty(); // Clear existing checkboxes
+                            checkboxContainer.empty(); 
                 
-                            // Loop through the data and add checkboxes
                             $.each(data.brands, function (index, brand) {
                                 var brand_id = brand.id;
                                 var brand_name = brand.brand_name;
@@ -414,14 +401,6 @@ function get_old_harvester() {
                         }
                     }
                     
-                    // $(document).on('click', '#loadMoreBtn', function () {
-                    //     displayNextSet();
-                    // });
-                    
-                   
-                
-
-
                 function resetform(){
                     $('.brand_checkbox').val('');
                     $('.state_checkbox').val('');
@@ -431,7 +410,6 @@ function get_old_harvester() {
                     $('.budget_checkbox:checked').prop('checked', false);
                     $('.state_checkbox:checked').prop('checked', false);
                     $('.district_checkbox:checked').prop('checked', false);
-                    // get_old_harvester();
                     $("#noDataMessage").hide();
                     window.location.reload();
                     

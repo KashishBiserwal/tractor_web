@@ -1,31 +1,18 @@
-
-
-
 $(document).ready(function() {
-
-    getbrands();
-
-
-    
+  getbrands();   
 });
 function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
-    console.log(url);
-
-    // Define the order of brands
     var brandOrder = ['Mahindra', 'Swaraj', 'Sonalika', 'Tafe', 'Escorts', 'John Deere', 'Eicher', 'New Holland', 'Kubota', 'VST', 'Force', 'Preet', 'Indo Farm', 'Captain'];
 
     $.ajax({
         url: url,
         type: "GET",
         success: function(data) {
-            console.log(data, 'abc');
             var slider_head = $("#slider_head");
             var brandContainer = $("#brandContainer");
-
-            // Iterate through the brand order
             brandOrder.forEach(function(brandName) {
                 var brand = data.brands.find(brand => brand.brand_name === brandName);
                 if (brand) {
@@ -41,7 +28,6 @@ function getbrands() {
                 }
             });
 
-            // Append the remaining brands after "Captain"
             var captainIndex = brandOrder.indexOf('Captain');
             if (captainIndex !== -1) {
                 var remainingBrands = data.brands.filter(brand => !brandOrder.includes(brand.brand_name));

@@ -1,13 +1,10 @@
 $(document).ready(function() {
-    console.log("ready!");
     $('#sell_used_trac_btn').click(store);
     $('#Verify').click(verifyotp1);
     var userId = localStorage.getItem('id');
     getUserDetail(userId);
 });
 
-
-// fetch lookup data in select box  
 function get_lookup() {
     console.log('initsfd')
     //   var apiBaseURL = APIBaseURL;
@@ -28,11 +25,8 @@ function get_lookup() {
               for (var i = 0; i < data.data.length; i++) {
                   $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
               }
-            
           },
-          
           complete:function(){
-           
           },
           error: function (error) {
               console.error('Error fetching data:', error);
@@ -41,8 +35,6 @@ function get_lookup() {
   }
   get_lookup();
 
-
-  
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -161,17 +153,9 @@ function get() {
         }
     });
   }
-  
   get_year_and_hours();
-
-
-
-  
-// Display the corresponding form step
 function displayStep(step) {
-    // Your logic to show/hide form steps
 }
-
 function store(event) {
     event.preventDefault();
     if (isUserLoggedIn()) {
@@ -188,7 +172,6 @@ function store(event) {
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 function get_otp1(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
     var paraArr = {
@@ -207,7 +190,6 @@ function get_otp1(phone) {
         }
     });
 }
-
 function verifyotp1() {
     var mobile = $('#m_number').val();
     var otp = $('#otp1').val();
@@ -250,7 +232,6 @@ function verifyotp1() {
 }
 
 function submitForm() {
-    // event.preventDefault();
     var enquiry_type_id = $('#enquiry_type_id').val();
     var product_type_id = 3; 
     var brand_name = $('#brand_name').val();
@@ -294,7 +275,6 @@ function submitForm() {
     data.append('district', district);
     data.append('tehsil', tehsil);
 
-    // Append each image to the FormData object
     for (var x = 0; x < image_names.length; x++) {
         data.append("images[]", image_names[x]);
         console.log("multiple image", image_names[x]);
@@ -308,14 +288,12 @@ function submitForm() {
         contentType: false,
         success: function (result) {
             console.log(result, "result");
-            // Show success message or handle accordingly
             console.log("Form submitted successfully!");
             var msg = 'Added successfully !';
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            // Reload page after OK is clicked
             $('#errorStatusLoading').on('hidden.bs.modal', function () {
                 window.location.reload();
             });
@@ -355,9 +333,6 @@ function getUserDetail(id) {
                 $('#form-step-4 #f_name').val(customer.first_name);
                 $('#form-step-4 #l_name').val(customer.last_name);
                 $('#form-step-4 #m_number').val(customer.mobile);
-                // $('#form-step-4 #s_state').val(customer.state_id);
-                // $('#form-step-4 #d_dist').val(customer.district);
-                // $('#form-step-4 #t_tehsil').val(customer.tehsil);
                 
                 if (isUserLoggedIn()) {
                     $('#form-step-4 input, #form-step-4 select').not('#d_dist,#t_tehsil,#s_state').prop('disabled', true);
@@ -373,85 +348,3 @@ function getUserDetail(id) {
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-// Store data through form
-// function store(event) {
-//     event.preventDefault();
-//     var enquiry_type_id = $('#enquiry_type_id').val();
-//     var product_type_id = 3; 
-//     var brand_name = $('#brand_name').val();
-//     var model = $('#model_1').val();
-//     var cutting_width = $('#c_width').val();
-//     var power_sourse = $('#POWER_SOURCE').val();
-//     var crop_type = $('#CROPS_TYPE').val();
-//     var horse_driven = $('#h_hours').val();
-//     var purchase_year = $('#p_year').val();
-//     var price = $('#p_price').val();
-//     price = price.replace(/[\,\.\s]/g, '');
-//     var about_harvester = $('#a_hrvst').val();
-//     var first_name = $('#f_name').val();
-//     var last_name = $('#l_name').val();
-//     var mobile = $('#m_number').val();
-//     var state = $('#s_state').val();
-//     var district = $('#d_dist').val();
-//     var tehsil = $('#t_tehsil').val();
-//     var image_names = document.getElementById('f_file').files;
-
-//     var apiBaseURL = "http://tractor-api.divyaltech.com/api";
-//     var endpoint = '/customer/customer_enquiries';
-//     var url = apiBaseURL + endpoint;
-
-//     // Create a FormData object and append all form data
-//     var data = new FormData();
-//     data.append('product_type_id', product_type_id);
-//     data.append('enquiry_type_id', enquiry_type_id);
-//     data.append('brand_id', brand_name);
-//     data.append('model', model);
-//     data.append('cutting_bar_width', cutting_width);
-//     data.append('power_source_id', power_sourse);
-//     data.append('crops_type_id', crop_type);
-//     data.append('hours_driven', horse_driven);
-//     data.append('purchase_year', purchase_year);
-//     data.append('price', price);
-//     data.append('description', about_harvester);
-//     data.append('first_name', first_name);
-//     data.append('last_name', last_name);
-//     data.append('mobile', mobile);
-//     data.append('state', state);
-//     data.append('district', district);
-//     data.append('tehsil', tehsil);
-
-//     // Append each image to the FormData object
-//     for (var x = 0; x < image_names.length; x++) {
-//         data.append("images[]", image_names[x]);
-//         console.log("multiple image", image_names[x]);
-//     }
-
-//     // Make an AJAX request to the server
-//     $.ajax({
-//         url: url,
-//         type: 'POST',
-//         data: data,
-//         processData: false,
-//         contentType: false,
-//         success: function (result) {
-//             console.log(result, 'result');
-//             $("#used_tractor_callbnt_").modal('hide');
-//             var msg = 'Added successfully !';
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//             console.log('Add successfully');
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//             var msg = error.statusText;
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//         }
-//     });
-// }
-
-

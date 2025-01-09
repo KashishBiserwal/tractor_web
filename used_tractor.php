@@ -1,46 +1,39 @@
-<!-- <!DOCTYPE html> -->
-<html lang="en">
 
-   <?php
-  include 'includes/headertag.php';
-    //include 'includes/headertagadmin.php';
-     include 'includes/footertag.php';
-     include 'includes/spinner.php';
-     
-     ?> 
+<html lang="en">
+<?php
+    include 'includes/headertag.php';
+    include 'includes/footertag.php';
+    include 'includes/spinner.php';
+?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/used_tractor.js"></script>
+    <script src="<?php $baseUrl; ?>model/used_tractor.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-6Z38E658LD');
     </script>
 <body>
 <style>
-    .text-truncate {
+.text-truncate {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-   
-    }
-    </style>
-
+}
+</style>
    <?php
-   include 'includes/header.php';
+    include 'includes/header.php';
    ?>
-
 <section class="mt-3 pt-5 bg-light">
     <div class="container py-2">
         <div class="mt-5">
             <span class="mt-4 text-white ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class=" text-decoration-none text-dark px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
-                    <span class="text-dark">  Used Tractor</span>
+                <span class=""><span class=" text-decoration-none text-dark px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
+                <span class="text-dark">  Used Tractor</span>
             </span> 
         </div>
     </div>
@@ -98,17 +91,13 @@
                 <div class="scrollbar mb-3" id="district_container">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
-                        <div class="HP py-2 w-100" id="get_dist" style=" height: 140px;">
-                            <!-- District checkboxes will be appended here -->
-                        </div>
+                        <div class="HP py-2 w-100" id="get_dist" style=" height: 140px;"></div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
-                        <div class="HP py-2 w-100" id="P_year">
-                            <!-- Checkboxes will be dynamically added here -->
-                        </div>
+                        <div class="HP py-2 w-100" id="P_year"></div>
                     </div>
                 </div>
             </div>
@@ -176,71 +165,10 @@
     </div>
 </section>
 
-    <!-- <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="otp_form">
-                        <div class=" col-12 input-group">
-                            <div class="col-12" hidden>
-                                <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                            </div>
-                            <div class="col-12">
-                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
-                            </div>
-                            <div class="float-end col-12">
-                                <a href="" class="float-end">Resend OTP</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
-                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="model-cont">
-                        <h4 class="text-center text-danger">Seller Information</h3>
-                        <div class="row px-3 py-2">
-                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                                <input type="text" class="form-control" id="saller_name">
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                                <input type="text" class="form-control" id="mobile_num">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
 <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
 ?>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
@@ -299,14 +227,13 @@
         }
     });
 });
-
-    </script>
+</script>
 <script>
  function googleTranslateElementInit() {
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

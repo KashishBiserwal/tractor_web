@@ -130,12 +130,7 @@ function get() {
   
   get_year_and_hours();
 
-
-
-    
-// Display the corresponding form step
 function displayStep(step) {
-    // Your logic to show/hide form steps
 }
 
 function store(event) {
@@ -173,7 +168,6 @@ function get_otp1(phone) {
         }
     });
 }
-
 function verifyotp1() {
     var mobile = $('#m_number').val();
     var otp = $('#otp1').val();
@@ -234,7 +228,6 @@ function submitForm() {
     var price = $('#p_price').val();
     price = price.replace(/[\,\.\s]/g, '');
     var about = $('#about').val();
-    // var want_to_sell = $('#td_duration').val();
     var rc = $('#rc_num').val();
     var rc_number = $('input[name="fav_rc"]:checked').val();
     var finance = $('input[name="fav_language"]:checked').val();
@@ -254,7 +247,6 @@ function submitForm() {
     data.append('purchase_year', purchase_year);
     data.append('engine_condition', engine_condition);
     data.append('tyre_condition', tyre_condition);
-    // data.append('description', about_harvester);
     data.append('first_name', first_name);
     data.append('last_name', last_name);
     data.append('mobile', mobile);
@@ -266,17 +258,14 @@ function submitForm() {
     data.append('price', price);
     data.append('description', about);
 
-    // Append RC Number field only if the value is not "No"
     if (rc_number !== "0") {
         data.append('vehicle_registered_num', rc);
     }
 
-    // Append NOC Available field only if Financed is set to "Yes"
     if (finance !== "0") {
         data.append('noc', nocAvailable);
     }
 
-    // Append each image to the FormData object
     for (var x = 0; x < image_names.length; x++) {
         data.append("images[]", image_names[x]);
         console.log("multiple image", image_names[x]);
@@ -289,9 +278,6 @@ function submitForm() {
         processData: false,
         contentType: false,
         success: function (result) {
-            console.log(result, "result");
-            // Show success message or handle accordingly
-            console.log("Form submitted successfully!");
             var msg = 'Added successfully !';
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
@@ -337,9 +323,6 @@ function getUserDetail(id) {
                 $('#form-step-1 #f_name').val(customer.first_name);
                 $('#form-step-1 #l_name').val(customer.last_name);
                 $('#form-step-1 #m_number').val(customer.mobile);
-                // $('#form-step-1 #s_state').val(customer.state_id);
-                // $('#haatbazar_form #d_dist').val(customer.district);
-                // $('#haatbazar_form #t_tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
@@ -354,110 +337,6 @@ function getUserDetail(id) {
         }
     });
 }
-
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
-
-// function store(event) {
-//     event.preventDefault();
-//     var enquiry_type_id = $('#enquiry_type_id').val();
-//     var product_type_id = 1; 
-//     var brand_name = $('#b_brand').val();
-//     var model = $('#m_model').val();
-//     var horse_driven = $('#h_driven').val();
-//     var purchase_year = $('#p_year').val();
-//     var engine_condition = $('#engine_condition').val();
-//     var tyre_condition = $('#tyre_condition').val();
-//     var first_name = $('#f_name').val();
-//     var last_name = $('#l_name').val();
-//     var mobile = $('#m_number').val();
-//     var state = $('#s_state').val();
-//     var district = $('#d_dist').val();
-//     var tehsil = $('#t_tehsil').val();
-//     var price = $('#p_price').val();
-//     price = price.replace(/[\,\.\s]/g, '');
-//     var about = $('#about').val();
-//     // var want_to_sell = $('#td_duration').val();
-//     var rc = $('#rc_num').val();
-//     var rc_number = $('input[name="fav_rc"]:checked').val();
-//     var finance = $('input[name="fav_language"]:checked').val();
-//     var nocAvailable = $('input[name="fav_language1"]:checked').val();
-//     var image_names = document.getElementById('f_file').files;
-
-//     var apiBaseURL = "http://tractor-api.divyaltech.com/api";
-//     var endpoint = '/customer/customer_enquiries';
-//     var url = apiBaseURL + endpoint;
-
-//     // Create a FormData object and append all form data
-//     var data = new FormData();
-//     data.append('product_type_id', product_type_id);
-//     data.append('enquiry_type_id', enquiry_type_id);
-//     data.append('brand_id', brand_name);
-//     data.append('model', model);
-//     data.append('hours_driven', horse_driven);
-//     data.append('purchase_year', purchase_year);
-//     data.append('engine_condition', engine_condition);
-//     data.append('tyre_condition', tyre_condition);
-//     // data.append('description', about_harvester);
-//     data.append('first_name', first_name);
-//     data.append('last_name', last_name);
-//     data.append('mobile', mobile);
-//     data.append('state', state);
-//     data.append('district', district);
-//     data.append('tehsil', tehsil);
-//     data.append('rc_number', rc_number);
-//     data.append('finance', finance);
-//     data.append('price', price);
-//     data.append('description', about);
-
-//     // Append RC Number field only if the value is not "No"
-//     if (rc_number !== "0") {
-//         data.append('vehicle_registered_num', rc);
-//     }
-
-//     // Append NOC Available field only if Financed is set to "Yes"
-//     if (finance !== "0") {
-//         data.append('noc', nocAvailable);
-//     }
-
-//     // Append each image to the FormData object
-//     for (var x = 0; x < image_names.length; x++) {
-//         data.append("images[]", image_names[x]);
-//         console.log("multiple image", image_names[x]);
-//     }
-
-//     // Make an AJAX request to the server
-//     $.ajax({
-//         url: url,
-//         type: 'POST',
-//         data: data,
-//         processData: false,
-//         contentType: false,
-//         success: function (result) {
-//             console.log(result, 'result');
-//             $("#used_tractor_callbnt_").modal('hide');
-//             var msg = 'Added successfully !';
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//             console.log('Add successfully');
-            
-//             $('#errorStatusLoading').on('hidden.bs.modal', function () {
-//                 window.location.reload();
-//             });
-          
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//             var msg = error.statusText;
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//         }
-//     });
-// }

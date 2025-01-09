@@ -45,7 +45,7 @@
    ?>
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/find_used_tractor.js"></script>
+    <script src="<?php $baseUrl; ?>model/find_used_tractor.js" defer></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
     <section class=" bg-light mt-3 pt-5">

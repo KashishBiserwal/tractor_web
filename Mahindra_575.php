@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <?php
-   include 'includes/headertag.php';
-   $product_id=$_REQUEST['product_id'];
-   echo $product_id;
-   include 'includes/footertag.php';
+    include 'includes/headertag.php';
+    $product_id=$_REQUEST['product_id'];
+    echo $product_id;
+    include 'includes/footertag.php';
    ?>
   
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>

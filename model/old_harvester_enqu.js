@@ -1,14 +1,9 @@
 $(document).ready(function(){
-  // $('#Search_btn').click(search_data);
   $('#undate_btn_oldharvester_enq').click(edit_data_id);
-  
-        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-        return /^[6-9]\d{9}$/.test(value); 
-        }, "Phone number must start with 6 or above");
-  
-          
-    $("#old_harvester_form").validate({
-    
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    return /^[6-9]\d{9}$/.test(value); 
+  }, "Phone number must start with 6 or above");   
+  $("#old_harvester_form").validate({
     rules: {
       bname: {
         required: true,
@@ -49,7 +44,6 @@ $(document).ready(function(){
         required: true
       }
     },
-
     messages:{
       bname: {
         required: "This field is required",
@@ -89,31 +83,20 @@ $(document).ready(function(){
         required:"This field is required",
         }
     },
-    
     submitHandler: function (form) {
       alert("Form submitted successfully!");
     },
     });
-
-  
     $("#undate_btn_oldharvester_enq").on("click", function () {
-  
-      $("#old_harvester_form").valid();
-    
+    $("#old_harvester_form").valid();
     });
-    
-
-    });
-
-
+  });
 function BackgroundUpload() {
     var imgWrap = "";
     var imgArray = [];
-
     function generateUniqueClassName(index) {
       return "background-image-" + index;
     }
-
     $('.background__inputfile').each(function () {
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
@@ -167,7 +150,6 @@ function BackgroundUpload() {
       $(this).parent().parent().remove();
     });
 }
-
 //****get data***
 function get_old_harvester_enqu() {
   var apiBaseURL = APIBaseURL;
@@ -322,7 +304,6 @@ function get_model(brand_id) {
       }
   });
 }
-
 get();
 
 function searchdata() {
@@ -332,7 +313,6 @@ function searchdata() {
   var modelselect = $('#model_1').val();
   var stateselect = $('#state_1').val();
   var districtselect = $('#district_2').val();
-
   var paraArr = {
     'id':brand_id,
     'brand_id':brandselect,
@@ -367,6 +347,7 @@ function searchdata() {
       }
   });
 };
+
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
@@ -426,8 +407,6 @@ function updateTable(data) {
   }
 }
 
-
-
 function resetform(){
   $('#brand_name').val('');
   $('#model_1').val('');
@@ -435,9 +414,6 @@ function resetform(){
   $('#district_1').val('');
   window.location.reload(); 
 }
-
-
-
   //****delete data***
     function destroy(id) {
     var apiBaseURL = APIBaseURL;
@@ -452,7 +428,6 @@ function resetform(){
     if (!isConfirmed) {
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",
@@ -460,7 +435,6 @@ function resetform(){
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        // get_tyre_list();
         window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
@@ -471,7 +445,6 @@ function resetform(){
       }
     });
   }
-
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
@@ -479,12 +452,10 @@ function openViewdata(userId) {
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
     $.ajax({
       url: url,
       type: 'GET',
       headers: headers,
-    
       success: function(response) {
         var userData = response.enquiry_data[0];
         document.getElementById('bname1').innerText=userData.brand_name;
@@ -502,18 +473,14 @@ function openViewdata(userId) {
       }
     });
   }
-
-
-   // edit data 
-
+  
+// edit data 
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_enquiry_for_old_harvester_by_id/' + id;
-
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-
   $.ajax({
       url: url,
       type: 'GET',
@@ -521,9 +488,6 @@ function fetch_edit_data(id) {
       success: function (response) {
           var Data = response.enquiry_data [0];
           $('#userId').val(Data.id);
-          // $('#brand_name1').val(Data.brand_name);
-          // console.log(Data.brand_name,'brand');
-          // $('#model_name').val(Data.model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
@@ -536,24 +500,13 @@ function fetch_edit_data(id) {
               break;
             }
           }
-
          $('#model_2').empty(); 
           get_model_1(Data.brand_id); 
 
-          // Selecting the option in the model dropdown
-          setTimeout(function() { // Wait for the model dropdown to populate
+          setTimeout(function() { 
               $("#model_2 option").prop("selected", false);
               $("#model_2 option[value='" + Data.model + "']").prop("selected", true);
           }, 2000);
-
-          // setSelectedOption('state_', Data.state_id);
-          // setSelectedOption('dist_', Data.district_id);
-          
-          // // Call function to populate tehsil dropdown based on selected district
-          // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-
-          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
-
           setSelectedOption('state_', Data.state_id);
           getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
           setTimeout(function() {
@@ -566,7 +519,6 @@ function fetch_edit_data(id) {
         }
       });
     }
-    
       function setSelectedOption(selectId, value) {
         var select = document.getElementById(selectId);
         for (var i = 0; i < select.options.length; i++) {
@@ -576,7 +528,6 @@ function fetch_edit_data(id) {
           }
         }
       }
-      
       function populateTehsil(selectId, value) {
         var select = document.getElementById(selectId);
         for (var i = 0; i < select.options.length; i++) {
@@ -586,11 +537,8 @@ function fetch_edit_data(id) {
           }
         }
       }
-
-
 function edit_data_id() {
   var enquiry_type_id =22;
-// var enquiry_type_id = $("#enquiry_type_id").val();
 var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
 var brand_name = $("#brand_name1").val();
@@ -604,13 +552,11 @@ var state = $("#state_").val();
 var district = $("#dist_").val();
 var tehsil = $("#tehsi_l").val();
 var _method = 'put';
-
 // Validate mobile number
 if (!/^[6-9]\d{9}$/.test(mobile)) {
     alert("Mobile number must start with 6 or above and should be 10 digits");
     return; // Exit the function if validation fails
 }
-
 var paraArr = {
     'brand_name': brand_name,
     'model': model_name,
@@ -634,7 +580,6 @@ var url = apiBaseURL + 'customer_enquiries/' + edit_id;
 var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
 };
-
 $.ajax({
     url: url,
     type: "POST",
@@ -651,7 +596,6 @@ $.ajax({
     }
 });
 }
-
 function get_1() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
   $.ajax({
@@ -708,7 +652,6 @@ function get_model_1(brand_id, selectedModel) {
                   option.value = row.model;
                   select.appendChild(option);
 
-                  // Select the option if it matches the selectedModel
                   if (row.model === selectedModel) {
                       option.selected = true;
                   }
@@ -722,6 +665,5 @@ function get_model_1(brand_id, selectedModel) {
       }
   });
 }
-
 get_1();
 

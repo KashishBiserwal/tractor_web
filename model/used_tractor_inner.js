@@ -1,14 +1,11 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#contact_seller').click(store);
-    // getoldTractorList();
     getOldTractorById();
     getpopularTractorList();
     getupcomimgTractorList();
     $('#Verify').click(verifyotp);
 });
-
-
 
 function getOldTractorById() {
     console.log(window.location)
@@ -44,7 +41,6 @@ function getOldTractorById() {
         document.getElementById('brand_name').innerText=data.product[0].brand_name;
          console.log(data.product[0].brand_name,"hasdgfasgdfj");
         document.getElementById('model_name3').innerText=data.product[0].model;
-        // document.getElementById('engine_powerhp2').innerText=data.product[0].hp_category;
         document.getElementById('tyre2').innerText=data.product[0].tyre_condition;
         document.getElementById('engine2').innerText=data.product[0].engine_condition;
         document.getElementById('name').innerText=data.product[0].first_name;
@@ -52,57 +48,41 @@ function getOldTractorById() {
         document.getElementById('district').innerText=data.product[0].district_name;
         document.getElementById('state_td').innerText=data.product[0].state_name;
         document.getElementById('description').innerText=data.product[0].description;
-        // document.getElementById('description_22').innerText=data.product[0].description;
         document.getElementById('model4').innerText=data.product[0].model;
         document.getElementById('product_id').value = data.product[0].product_id;
 
         
         document.getElementById('slr_name').value = fullname;
         document.getElementById('mob_num').value = data.product[0].mobile;
-        // $('#product_id').val();
         var userId = localStorage.getItem('id');
         getUserDetail(userId);
         var imageNames = data.product[0].image_names.split(',');
 
-            // Select the carousel container
             var carouselContainer = $('.swiper-wrapper_buy');
-
-            // Clear existing slides
             carouselContainer.empty();
-
-            // Initialize an empty array to store Swiper slides
             var swiperSlides = [];
 
-            // Iterate through the image names and create carousel slides
             imageNames.forEach(function(imageName, index) {
                 var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy mt-2" src="' + imageUrl + '" style="height: 300px;" /></div>'); // Set height here
                 carouselContainer.append(slide);
                 
-                // Push the created slide into the swiperSlides array
                 swiperSlides.push(slide);
             });
-
-            // Initialize or update the Swiper carousel
             var mySwiper = new Swiper('.swiper_buy', {
-                // Your Swiper configuration options
             });
 
-            // Add click event listener to each slide
             swiperSlides.forEach(function(slide, index) {
                 slide.on('click', function() {
-                    // Slide to the clicked slide
                     mySwiper.slideTo(index);
                 });
             });
-
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
 }
-
 function store(event) {
     event.preventDefault();
     if (isUserLoggedIn()) {
@@ -139,7 +119,6 @@ function get_otp(phone) {
         }
     });
 }
-
 function verifyotp() {
     var mobile = $('#number').val();
     var otp = $('#otp').val();
@@ -182,7 +161,6 @@ function verifyotp() {
 }
 
 function submitForm() {
-    // Gather form data
     var enquiry_type_id = $('#enquiry_type_id').val();
     var first_name = $('#fname').val();
     var last_name = $('#lname').val();
@@ -193,8 +171,6 @@ function submitForm() {
     var price = $('#price').val();
     price = price.replace(/[\,\.\s]/g, '');
     var product_id = $('#product_id').val();
-
-    // Construct parameter array
     var paraArr = {
         'product_id': product_id,
         'enquiry_type_id': enquiry_type_id,
@@ -206,23 +182,16 @@ function submitForm() {
         'tehsil': tehsil,
         'price': price,
     };
-
-    // API endpoint for form submission
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-
-    // Submit form data via AJAX
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            // Show success message or handle accordingly
             console.log("Form submitted successfully!");
         },
         error: function (error) {
             console.error('Error submitting form:', error);
-            // Handle error scenarios
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
@@ -232,41 +201,24 @@ function submitForm() {
     });
 }
 
-
 function getUserDetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
-
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
-                
-                // Set values based on form ID (used_farm_inner_from)
                 $('#used_farm_inner_from #fname').val(customer.first_name);
                 $('#used_farm_inner_from #lname').val(customer.last_name);
                 $('#used_farm_inner_from #number').val(customer.mobile);
-                // $('#used_farm_inner_from #state_form').val(customer.state_id);
-                // $('#used_farm_inner_from #district_form').val(customer.district);
-                // $('#used_farm_inner_from #tehsil').val(customer.tehsil);
-                
-                // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    // Disable all input and select elements within the form
                     $('#used_farm_inner_from input, #used_farm_inner_from select').not('#price,#state_form,#district_form,#tehsil,#contact_seller').prop('disabled', true);
-                }
-                
+                }            
             }
         },
         error: function(error) {
@@ -275,16 +227,12 @@ function getUserDetail(id) {
     });
 }
 
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
-
-
 function getpopularTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
-
     $.ajax({
         url: url,
         type: "GET",
@@ -297,19 +245,13 @@ function getpopularTractorList() {
                     return s.product_id;
                 }
             });
-
             var productContainer = $("#productContainerpopular");
-
             if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // Display the initial set of 4 cards
                 displayPopularTractors(data.product.allProductData.slice(0, 4), new_arr);
 
-                // Show the "Load More" button if there are more tractors
                 if (data.product.allProductData.length > 4) {
                     $("#loadMoretract").show();
                 }
-
-                // Handle "Load More" button click
                 $("#load_more").click(function() {
                     window.location.href = "popular_tractors.php";
                 });
@@ -321,127 +263,106 @@ function getpopularTractorList() {
     });
 }
 
-function displayPopularTractors(tractors, new_arr) {
-    var productContainer = $("#productContainerpopular");
+function displayPopularTractors(tractors, popularProductIds) {
+    const productContainer = $("#productContainerpopular");
+    tractors.forEach(function (tractor) {
+        if (popularProductIds.includes(tractor.product_id)) {
+            let imagesArray = [];
+            const images = tractor.image_names;
 
-    tractors.forEach(function(p) {
-        if (new_arr.includes(p.product_id)) {
-            var images = p.image_names;
-            var a = [];
-
-            if (images) {
-                if (images.indexOf(',') > -1) {
-                    a = images.split(',');
-                } else {
-                    a = [images];
-                }
+            if (images && typeof images === "string") {
+                imagesArray = images.includes(",") ? images.split(",") : [images];
             }
-
-            var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-content-center">
-                                <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none">
-                                    <p class="mb-1">${p.model}</p>
-                                </a>
-                                <p class="trac">
-                                    <span class="bg-light"> ${p.hp_category} HP</span>
-                                    <span class="bg-light">${p.wheel_drive_value}</span>
-                                </p>
-                                
-                            </div>
-                        </div>`;
-
-            // Append the new card to the container
-            productContainer.append(newCard);
+            const tractorCard = `
+                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color: #fff;">
+                    <div class="text-center">
+                        <a href="detail_tractor.php?product_id=${tractor.product_id}" class="weblink">
+                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${imagesArray[0] || 'default.jpg'}" 
+                                width="100" height="100" alt="${tractor.model || 'Tractor Image'}"
+                                style="border-radius: 10px;">
+                        </a>
+                    </div>
+                    <div class="px-2 d-flex flex-column justify-content-center">
+                        <a href="detail_tractor.php?product_id=${tractor.product_id}" class="text-decoration-none">
+                            <p class="mb-1">${tractor.model || "Model not available"}</p>
+                        </a>
+                        <p class="trac">
+                            <span class="bg-light">${tractor.hp_category || "N/A"} HP</span>
+                            <span class="bg-light">${tractor.wheel_drive_value || "N/A"}</span>
+                        </p>
+                    </div>
+                </div>`;
+            productContainer.append(tractorCard);
         }
     });
 }
-
-
-
- // get new popular tractor
-
- function getupcomimgTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+function getUpcomingTractorList() {
+    const apiUrl = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
 
     $.ajax({
-        url: url,
+        url: apiUrl,
         type: "GET",
-        success: function(data) {
-            let new_arr = [];
-            const new_data = data.product.accessory_and_tractor_type.filter((s) => {
-                const arr = s.tractor_type_name.split(',');
-                if (arr.includes('Upcoming')) {
-                    new_arr.push(s.product_id);
-                    return s.product_id;
-                }
-            });
-
-            var productContainer = $("#productContainerupcoming");
-
-            if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // Display the initial set of 4 cards
-                displayupcomingTractors(data.product.allProductData.slice(0, 4), new_arr);
-
-                // Show the "Load More" button if there are more tractors
-                if (data.product.allProductData.length > 4) {
-                    $("#load_btn").show();
-                }
-
-                $("#load_btn").click(function() {
-                    window.location.href = "upcoming_tractors.php";
+        success: function (response) {
+            if (response && response.product) {
+                const { accessory_and_tractor_type, allProductData } = response.product;
+                const upcomingProductIds = [];
+                accessory_and_tractor_type.forEach((item) => {
+                    const tractorTypes = item.tractor_type_name.split(',');
+                    if (tractorTypes.includes('Upcoming')) {
+                        upcomingProductIds.push(item.product_id);
+                    }
                 });
+                const productContainer = $("#productContainerupcoming");
+                if (allProductData && allProductData.length > 0) {
+                    displayUpcomingTractors(allProductData.slice(0, 4), upcomingProductIds);
+                    if (allProductData.length > 4) {
+                        $("#load_btn").show();
+                    }
+                    $("#load_btn").click(function () {
+                        window.location.href = "upcoming_tractors.php";
+                    });
+                }
+            } else {
+                console.warn("No product data found in the response.");
             }
         },
-        error: function(error) {
-            console.error('Error fetching data:', error);
+        error: function (error) {
+            console.error("Error fetching data:", error);
         }
     });
 }
 
-function displayupcomingTractors(tractors, new_arr) {
-    var productContainer = $("#productContainerupcoming");
+function displayUpcomingTractors(tractors, upcomingProductIds) {
+    const productContainer = $("#productContainerupcoming");
 
-    tractors.forEach(function(p) {
-        if (new_arr.includes(p.product_id)) {
-            var images = p.image_names;
-            var a = [];
+    tractors.forEach(function (tractor) {
+        if (upcomingProductIds.includes(tractor.product_id)) {
+            let imagesArray = [];
+            const images = tractor.image_names;
 
-            if (images && typeof images === 'string') {
-                // Check if images is not null and is a string before splitting
-                if (images.indexOf(',') > -1) {
-                    a = images.split(',');
-                } else {
-                    a = [images];
-                }
+            if (images && typeof images === "string") {
+                imagesArray = images.includes(",") ? images.split(",") : [images];
             }
-
-            var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-content-center">
-                                <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none">
-                                    <p class="mb-1">${p.model}</p>
-                                </a>
-                                <p class="trac">
-                                    <span class="bg-light"> ${p.hp_category} HP</span>
-                                    <span class="bg-light">${p.wheel_drive_value}</span>
-                                </p>
-                               
-                            </div>
-                        </div>`;
-
-            // Append the new card to the container
-            productContainer.append(newCard);
+            const tractorCard = `
+                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color: #fff;">
+                    <div class="text-center">
+                        <a href="detail_tractor.php?product_id=${tractor.product_id}" class="weblink">
+                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${imagesArray[0]}" 
+                                width="100" height="100" alt="${tractor.model || 'Tractor Image'}"
+                                style="border-radius: 10px;">
+                        </a>
+                    </div>
+                    <div class="px-2 d-flex flex-column justify-content-center">
+                        <a href="detail_tractor.php?product_id=${tractor.product_id}" class="text-decoration-none">
+                            <p class="mb-1">${tractor.model || "Model not available"}</p>
+                        </a>
+                        <p class="trac">
+                            <span class="bg-light">${tractor.hp_category || "N/A"} HP</span>
+                            <span class="bg-light">${tractor.wheel_drive_value || "N/A"}</span>
+                        </p>
+                    </div>
+                </div>`;
+            productContainer.append(tractorCard);
         }
     });
 }

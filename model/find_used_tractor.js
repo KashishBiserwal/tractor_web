@@ -1,18 +1,15 @@
 $(document).ready(function () {
       $('#store').click(store);
     $('#Verify').click(verifyotp);
-  
       get_year_and_hours();
       var userId = localStorage.getItem('id');
       getUserDetail(userId);
       getbrands();
     });
-
     function formatPriceWithCommas(price) {
         if (isNaN(price)) {
             return price; 
         }
-        
         return new Intl.NumberFormat('en-IN').format(price);
     }
 
@@ -82,13 +79,9 @@ $(document).ready(function () {
             },
             success: function (data) {
                 var select_year = $("#choices-multiple-remove-button");
-                select_year.empty(); // Clear existing options
+                select_year.empty(); 
                 
-                // Add an empty option as a placeholder
-                // select_year.append('<option value="" selected disabled>Please select an option</option>'); 
-    
                 if (data.getYears && data.getYears.length > 0) {
-                    // Sort the array in descending order
                     data.getYears.sort(function(a, b) {
                         return b - a;
                     });
@@ -97,7 +90,6 @@ $(document).ready(function () {
                         select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
                     }
                     
-                    // Reinitialize Choices after updating options
                     var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
                         removeItemButton: true,
                         maxItemCount: false, // Disable the limit on the number of items displayed
@@ -126,7 +118,6 @@ function store(event) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitForm();
-            // $('#staticBackdrop').modal('show');
         }
     } else {
         var mobile = $('#phone').val();
@@ -464,12 +455,11 @@ function getUserDetail(id) {
                 $('#find-used-tractor-form #fName').val(customer.first_name);
                 $('#find-used-tractor-form #lName').val(customer.last_name);
                 $('#find-used-tractor-form #phone').val(customer.mobile);
-                $('#find-used-tractor-form #state').val(customer.state_id);
-                // $('#find-used-tractor-form #district').val(customer.district);
+                // $('#find-used-tractor-form #state').val(customer.state_id);
                 
                 if (isUserLoggedIn()) {
                     // Disable specific input and select elements within the form
-                    $('#find-used-tractor-form #fName, #find-used-tractor-form #lName, #find-used-tractor-form #phone, #find-used-tractor-form #state').not('#district').prop('disabled', true);
+                    $('#find-used-tractor-form #fName, #find-used-tractor-form #lName, #find-used-tractor-form #phone,').not('#state, #district').prop('disabled', true);
                 }
                 
                 

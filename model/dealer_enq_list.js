@@ -1,23 +1,4 @@
 $(document).ready(function(){
-
-    // populateStates();
-  
-    // Listen for changes in the state dropdown and populate districts accordingly
-    // $('#state_state').change(function() {
-    //     var state_id = $(this).val();
-    //     populateDistricts(state_id);
-    // });
-  
-    // Listen for changes in the district dropdown and populate tehsils accordingly
-    // $('#dist2').change(function() {
-    //     var district_id = $(this).val();
-    //     populateTehsils(district_id);
-    // });
-  
-    //   $('#subbtn').click(edit_id_data);
-    //   $('#subbtn_2').click(edit_id_data_2);
-    //   $('#Reset').click(reset);
-  
        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
             return /^[6-9]\d{9}$/.test(value); 
             }, "Phone number must start with 6 or above");

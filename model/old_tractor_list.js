@@ -10,8 +10,6 @@ $(document).ready(function() {
     $("#model_name").val("");
     $("#state_name").val("");
     $("#district_name").val("");
-    
-    
     get_tractor_list();
     
     });
@@ -39,8 +37,6 @@ $(document).ready(function() {
               price_old:{
                 required:'true',        
                },
-              // brand_img:"required",
-              // image_pic:"required",
               image_pic:{
 
                 required: true,
@@ -388,15 +384,9 @@ function store(event) {
        }
      });
    }
-
-
-
-
   function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
-
     const pad = (num) => (num < 10 ? '0' : '') + num;
-
     const day = pad(originalDateTime.getDate());
     const month = pad(originalDateTime.getMonth() + 1);
     const year = originalDateTime.getFullYear();
@@ -423,11 +413,7 @@ function store(event) {
                 let tableData = [];
                 // let counter = 1;
                 let counter = data.product.length;
-
-                // Sort data based on the date column in descending order
-                // data.product.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                data.product.forEach(row => {
+                  data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#exampleModal">
@@ -466,8 +452,6 @@ function store(event) {
                     ],
                     paging: true,
                     searching: false,
-                   // Sort by the second column (Date) in ascending order
-                    // ... other options ...
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -486,7 +470,6 @@ function store(event) {
         }
     });
 }
-
 get_tractor_list();
 
 function updateTable(data) {
@@ -577,7 +560,6 @@ function search_data() {
     }
   });
 }
-
 function removeImage(ele){
   console.log("print ele");
     console.log(ele);
@@ -588,7 +570,6 @@ function removeImage(ele){
     $(".upload__img-closeDy"+thisId).remove();
 
   }
-
 // fetch edit data
 function fetch_edit_data(customer_id) {
   console.log(customer_id, 'customer_id');
@@ -599,7 +580,6 @@ function fetch_edit_data(customer_id) {
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-
   $.ajax({
     url: url,
     type: 'GET',
@@ -711,10 +691,6 @@ function setSelectedOption(selectId, value) {
   }
 }
 
-// getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1', function() {
-//   setSelectedOption('district', userData.district_id);
-//   populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
-// });
 
 function populateTehsil(selectId, value) {
   var select = document.getElementById(selectId);
@@ -822,36 +798,10 @@ function fetch_data(product_id){
       }
     });
   }
-
-
-  // function resetFormFields() {
-  //   $('#first_name').val('');
-  //   $('#last_name').val('');
-  //   $('#mobile_number').val('');
-  //   $('#state').val('');
-  //   $('#district').val('');
-  //   $('#tehsil').val('');
-  //   $('#brand').val('');
-  //   $('#model').val('');
-  //   $('#purchase_year').val('');
-  //   $('#condition').val('');
-  //   $('#tyrecondition').val('');
-  //   $('#hours_driven').val('');
-  //   $('input[name="fav_rc"]:checked').val('');
-  //   $('#rc_num').val('');
-  //   $('#price_old').val('');
-  //   $('input[name="fav_language"]:checked').val('');
-  //   $('input[name="fav_language1"]:checked').val('');
-  //   $('#_image').val('');
-  //   $('#_descriptionimage').val('');
-  // } 
-
-   
-  function resetFormFields(){
+function resetFormFields(){
     document.getElementById("old_tract").reset();
     document.getElementById("_image").value = '';
     document.getElementById("selectedImagesContainer").innerHTML = '';
-   
 }
 
 function get_By_State() {
@@ -880,16 +830,7 @@ function get_By_State() {
       }
   });
 }
-
-// Initialize the function
 get_By_State();
-
-
-
-
-
- 
-
   function getbrandSearch() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
     $.ajax({

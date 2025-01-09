@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("ready!");
  get_details();
 });
 
@@ -7,34 +6,25 @@ function get_details() {
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_news_details_by_id/" + productId;
-
     $.ajax({
         url: url,
         type: "GET",
         success: function (data) {
-            console.log(data, 'abc');
-
-            // Set text content
             document.getElementById('news_heading').innerText = data.news_details[0].news_headline;
             document.getElementById('news_date').innerText = data.news_details[0].date;
             document.getElementById('heading_deatail').innerText = data.news_details[0].news_headline;
             document.getElementById('content').innerText = data.news_details[0].news_content;
 
-            // Process image data
             var images = data.news_details[0].image_names;
             var imageArray = images.split(',');
             var firstImage = imageArray.length > 0 ? imageArray[0].trim() : '';
 
             if (firstImage) {
                 var imgContainer = document.getElementById('news_img');
-                
-                // Create and append the image
                 var imgElement = document.createElement('img');
                 imgElement.src = "http://tractor-api.divyaltech.com/uploads/news_img/" + firstImage;
                 imgElement.alt = "News Image";
-                imgElement.className = "img-fluid rounded mx-auto d-block"; // Responsive styling
-
-                // Adjust image size dynamically
+                imgElement.className = "img-fluid rounded mx-auto d-block"; 
                 imgElement.onload = function () {
                     adjustImageSize(imgElement);
                 };
@@ -51,18 +41,11 @@ function get_details() {
 }
 
 function adjustImageSize(imgElement) {
-    // Maximum dimensions for the image
-    var maxHeight = 300; // Adjust height as needed
-    var maxWidth = 500;  // Adjust width as needed
-
-    // Get natural dimensions
+    var maxHeight = 300; 
+    var maxWidth = 500;  
     var naturalWidth = imgElement.naturalWidth;
     var naturalHeight = imgElement.naturalHeight;
-
-    // Calculate aspect ratio
     var aspectRatio = naturalWidth / naturalHeight;
-
-    // Adjust dimensions based on max height and width
     if (naturalHeight > maxHeight) {
         imgElement.style.height = maxHeight + "px";
         imgElement.style.width = maxHeight * aspectRatio + "px";
@@ -73,7 +56,5 @@ function adjustImageSize(imgElement) {
         imgElement.style.height = naturalHeight + "px";
         imgElement.style.width = naturalWidth + "px";
     }
-
-    // Center the image
     imgElement.style.display = "inline-block";
 }

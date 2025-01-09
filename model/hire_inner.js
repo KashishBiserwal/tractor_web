@@ -1,17 +1,14 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#button_hire').click(store);
-    // get_rent_data();
     getHireTracById();
     get_oldharvester();
     $('#Verify').click(verifyotp);
-    
 });
 function formatPriceWithCommas(price) {
     if (isNaN(price)) {
         return price; 
     }
-
     return new Intl.NumberFormat('en-IN').format(price);
 }
 function getHireTracById() {
@@ -25,10 +22,8 @@ function getHireTracById() {
         success: function(data) {
             var userId = localStorage.getItem('id');
             getUserDetail(userId);
-
             var brand_model = data.rent_details.data1[0].brand_name + " " + (data.rent_details.data1[0].model ? data.rent_details.data1[0].model : "");
             var full_name = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
-
             document.getElementById('brand_name1').innerText = brand_model;
             document.getElementById('get_slr_name').value = full_name;
             document.getElementById('get_mob_num').value = data.rent_details.data1[0].mobile;
@@ -44,10 +39,7 @@ function getHireTracById() {
                 imageNames.forEach(function(imageName) {
                     var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim();
                     var slide = $('<div class="swiper-slide swiper-slide_buy"><div class="row"></div></div>');
-
-                    // Image column (fixed height and width with the image fully visible)
                     var imageCol = $('<div class="col-6 mt-5"><img class="img_buy" src="' + imageUrl + '" /></div>');
-
                     var tableCol = $(` 
                         <div class="col-6">
                             <table class="table border bg-light mt-5">
@@ -75,10 +67,10 @@ function getHireTracById() {
                                 </tbody>
                                  
                             </table>
-                             <div class="col-12">
-                                        <button id="send_enquiry" type="button" class="add_btn  btn-success w-100"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                            Send Enquiry</button>
-                                    </div>
+                            <div class="col-12">
+                                <button id="send_enquiry" type="button" class="add_btn  btn-success w-100"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Send Enquiry</button>
+                            </div>
                         </div>
                     `);
 
@@ -87,9 +79,8 @@ function getHireTracById() {
                 });
             });
 
-            // Initialize or update the Swiper carousel with autoplay
             var mySwiper = new Swiper('.swiper_buy', {
-                loop: true, // Keeps the looping behavior
+                loop: true, 
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -131,7 +122,7 @@ function get_otp(phone) {
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-            $('#get_OTP_btn').modal('show'); // OTP modal is displayed for entering OTP
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -152,7 +143,6 @@ function verifyotp() {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result);
             $('#get_OTP_btn').modal('hide');
             var isConfirmed = confirm("Are you sure you want to submit the form?");
             if (isConfirmed) {
@@ -162,7 +152,6 @@ function verifyotp() {
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle different error scenarios
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 var htmlcontent = `<p>Invalid credentials!</p>`;
@@ -181,7 +170,6 @@ function verifyotp() {
 }
 
 function submitForm() {
-    // Gather form data
     var enquiry_type_id = $('#enquiry_type_id').val();
     var customer_id = $('#customer_id').val();  
     var first_name = $('#first_name').val();
@@ -193,9 +181,7 @@ function submitForm() {
     var price = $('#price_form').val();
     price = price.replace(/[\,\.\s]/g, '');
 
-    // Construct parameter array
     var paraArr = {
-        // 'customer_id':customer_id, 
         'enquiry_type_id': enquiry_type_id,
         'product_id': customer_id,
         'first_name': first_name,
@@ -206,23 +192,15 @@ function submitForm() {
         'tehsil': tehsil,
         'price': price,
     };
-
-    // API endpoint for form submission
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-
-    // Submit form data via AJAX
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            // Show success message or handle accordingly
-            console.log("Form submitted successfully!");
         },
         error: function (error) {
             console.error('Error submitting form:', error);
-            // Handle error scenarios
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
@@ -234,8 +212,6 @@ function submitForm() {
 
 function getUserDetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
-
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
@@ -246,26 +222,20 @@ function getUserDetail(id) {
         headers: headers,
         success: function(response) {
             console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
                 
-                // Set values based on form ID (used_farm_inner_from)
                 $('#hire_inner #first_name').val(customer.first_name);
                 $('#hire_inner #last_name').val(customer.last_name);
                 $('#hire_inner #mobile_number').val(customer.mobile);
-                $('#hire_inner #state_form').val(customer.state_id);
-                // $('#hire_inner #the_district').val(customer.district);
-                // $('#hire_inner #the_tehsil').val(customer.tehsil);
+                // $('#hire_inner #state_form').val(customer.state_id);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#hire_inner input, #hire_inner select').not('#price_form,#the_district,#the_tehsil').prop('disabled', true);
+                    $('#hire_inner input, #hire_inner select').not('#price_form,#state_form,#the_district,#the_tehsil').prop('disabled', true);
                 }
-                
+             
             }
         },
         error: function(error) {
@@ -274,25 +244,17 @@ function getUserDetail(id) {
     });
 }
 
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
-
-
     function get_oldharvester() {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";
-        
-    
         $.ajax({
             url: url,
             type: "GET",
             success: function (data) {
-            console.log(data, "harvster data")
-    
             if (data.product && data.product.length > 0) {
-               
                 var productContainer = $("#old_harvester_car");
                 data.product.forEach(function (p) {
                     var images = p.image_names;
@@ -339,52 +301,41 @@ function isUserLoggedIn() {
                         <a href="used_harvester_inner.php?id=${p.customer_id}" id="adduser"class="btn-state btn w-100 btn-success text-decoration-none text-white text-truncate p-2 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span>
                         </a>
                     </div>
-
                 </div>
-              
-                </div>
-                    `;
-            
-                    // Append the new card to the container
-                    productContainer.append(newCard);
-    
-                    
-                    
-    
-                  
-                });
-    
-                productContainer.owlCarousel({
-                    items:4,
-                    loop: true,
-                    margin: 10,
-                    nav: true, // Enable navigation
-                    autoplay: true, // Enable auto-play
-                    autoplayTimeout: 3000,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: false
-                        },
-                        600: {
-                            items: 3,
-                            nav: false
-                        },
-                        1000: {
-                            items: 4,
-                            nav: true,
-                            loop: false
-                        }
-                    }
-                });
-            }
+            </div>`;
+        productContainer.append(newCard);
+    });
+    productContainer.owlCarousel({
+    items:4,
+    loop: true,
+    margin: 10,
+    nav: true, 
+    autoplay: true, 
+    autoplayTimeout: 3000,
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 1,
+            nav: false
         },
-        error: function(error) {
-            console.error('Error fetching data:', error);
+        600: {
+            items: 3,
+            nav: false
+        },
+        1000: {
+            items: 4,
+            nav: true,
+            loop: false
         }
-        });
     }
+});
+    }
+    },
+    error: function(error) {
+        console.error('Error fetching data:', error);
+    }
+    });
+}
 
 
  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

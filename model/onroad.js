@@ -3,7 +3,6 @@ $(document).ready(function() {
     getbrands();
 });
 
-
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
     $.ajax({
@@ -83,15 +82,9 @@ get();
 function get_on_roadadd(event) {
     event.preventDefault();
 
-    // Validate the form
     if (!validateForm()) {
-        return; // Stop further execution if form is not valid
+        return; 
     }
-
-    console.log('Form is valid. Proceeding with AJAX request...');
-
-    // Prepare data to send to the server
-    // var enquiry_type_id = 2;
     var enquiry_type_id = $('#enquiry_type_id').val();
     var brand = $('#brand').val();
     var model = $('#model_1').val();
@@ -104,7 +97,6 @@ function get_on_roadadd(event) {
 
     var paraArr = {
         'enquiry_type_id': enquiry_type_id,
-        //'insurance_type_id': insurance_type,
         'first_name': first_name,
         'last_name': last_name,
         'mobile': mobile_no,
@@ -145,7 +137,6 @@ function get_on_roadadd(event) {
 }
 
 function validateForm() {
-    // Perform validation on each form field
     var brand = $('#brand').val();
     var model = $('#model_1').val();
     var first_name = $('#first_name').val();
@@ -155,7 +146,6 @@ function validateForm() {
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
 
-    // Example validation: Check if any of the required fields are empty
     if (!brand || !model || !first_name || !last_name || !mobile_no || !state || !tehsil || !district) {
         var msg = "Please fill out all required fields.";
         $("#errorStatusLoading").modal('show');
@@ -165,7 +155,6 @@ function validateForm() {
     }
     return true;
 }
-
 
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
@@ -277,10 +266,7 @@ function getTehsils(districtId) {
         }
     });
 }
-
-// Call to initialize states
 getState();
-
 
 function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);

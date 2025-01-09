@@ -1,9 +1,7 @@
 var EditIdmain_ = "";
 var editId_state= false;
   $(document).ready(function () {
-    // $('#Search').click(searchdata);
     ImgUpload();
-    // $('#btn_submit').click(store);
     $('#btn_subcat').click(store_subcategory);
     $('#save_btn').click(hatbazar_add);
    
@@ -11,15 +9,12 @@ var editId_state= false;
     $('#quantityInput').on('input', calculateTotalPrice);
     $('#unitSelect').on('change', calculateTotalPrice);
     $('#price').on('input', calculateTotalPrice);
-
-    // Call the calculateTotalPrice function initially to calculate the total price
     calculateTotalPrice();
 
     function calculateTotalPrice() {
         var quantity = parseFloat($('#quantityInput').val()) || 0;
         var unit = $('#unitSelect').val();
-        var price = parseFloat($('#price').val().replace(/,/g, '')) || 0; // Remove commas before parsing
-
+        var price = parseFloat($('#price').val().replace(/,/g, '')) || 0; 
         var unitConversion = {
             'Each': 1,
             'gram': 1,
@@ -42,7 +37,6 @@ var editId_state= false;
          return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
     }
   
-  //category form
     $("#category_details").validate({
     
       rules: {
@@ -61,8 +55,6 @@ var editId_state= false;
         alert("Form submitted successfully!");
       },
     });
-
-   
     $("#btn_submit").on("click", function () {
    
       $("#category_details").valid();
@@ -71,8 +63,6 @@ var editId_state= false;
         alert("Form is valid. Ready to submit!");
       }
     });
-
-    // sub-category form
     $("#sub_category_form").validate({
     
     rules: {
@@ -222,23 +212,15 @@ var editId_state= false;
         required: "Please select a quantity and unit."
         }
     },
-    
     submitHandler: function (form) {
       alert("Form submitted successfully!");
     },
   });
-
  
   $("#save_btn").on("click", function () {
- 
     $("#hatbazar_form").valid();
-   
   });
-   
-
   });
-
-    // Function to calculate total price
     
     function ImgUpload() {
         var imgWrap = "";
@@ -297,9 +279,7 @@ var editId_state= false;
         });
       }
 
-       function removeImage(ele){
-  console.log("print ele");
-    console.log(ele);
+  function removeImage(ele){
     let thisId=ele.id;
     thisId=thisId.split('closeId');
     thisId=thisId[1];
@@ -310,12 +290,10 @@ var editId_state= false;
     // subcategory
       function store_subcategory(event) {
         event.preventDefault();
-        console.log('jfhfhw');
         var category_id = $('#category_id').val();
         var category_name = $('#category').val();
         var sub_category_name = $('#category_').val();
       
-        // Prepare data to send to the server
         var paraArr = {
             'category_id':category_id,
           'category_name': category_name,
@@ -324,8 +302,6 @@ var editId_state= false;
       
       var apiBaseURL =APIBaseURL;
       var url = apiBaseURL + 'haat_bazar_sub_category';
-        console.log(url);
-      
         var token = localStorage.getItem('token');
         var headers = {
           'Authorization': 'Bearer ' + token
@@ -336,9 +312,6 @@ var editId_state= false;
           data: paraArr,
           headers: headers,
           success: function (result) {
-            console.log(result, "result");
-         
-            console.log("Add successfully");
             alert('successfully inserted..!')
           },
           error: function (error) {
@@ -347,7 +320,6 @@ var editId_state= false;
         });
       }
     function hatbazar_add(event) {
-        // event.preventDefault();
         var image_names = document.getElementById('_image').files;
          var enquiry_type_id = $('#enquiry_type_id').val();
          var sub_category_id = $('#sub_category_id').val();
@@ -371,37 +343,26 @@ var editId_state= false;
          console.log(dist,"district");
     
          var apiBaseURL = APIBaseURL; 
-        //      var url = apiBaseURL + 'haat_bazar';
              var token = localStorage.getItem('token');
              var headers = {
                'Authorization': 'Bearer ' + token
              };
     
-        // Check if an ID is present in the URL, indicating edit mode
         var urlParams = new URLSearchParams(window.location.search);                            
         var editId = urlParams.get('id');
-        // console.log("editId from URL:", editId);
-        console.log('edit state', editId_state);
-        console.log('edit id', EditIdmain_);
         var _method = 'post'; 
         var url, method;
     
         if (editId_state) {
           alert("Update operation successful");
-          console.log(editId_state);
           _method = 'put';
           url = apiBaseURL + 'haat_bazar/' + EditIdmain_ ;
-          console.log(url);
           method = 'POST';  
       } else {
-          // Add modeeditId from URL
           url = apiBaseURL + 'haat_bazar';
-          console.log('prachi');
       method = 'POST';
       }
-    
         var data = new FormData();
-    
         for (var x = 0; x < image_names.length; x++) {
                      data.append("images[]", image_names[x]);
                      console.log("multiple image", image_names[x]);
@@ -432,8 +393,6 @@ var editId_state= false;
             processData: false,
             contentType: false,
             success: function (result) {
-                console.log(result, "result");
-                console.log("Operation successfully");
                 window.location.reload();
             },
             error: function (error) {
@@ -446,7 +405,6 @@ var editId_state= false;
     function get_haatbazar_list() {
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'haat_bazar';
-      
       $.ajax({
         url: url,
         type: "GET",
@@ -454,12 +412,9 @@ var editId_state= false;
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
-
-            // const category=data.allData.haat_bazar_data
+            const tableBody = $('#data-table'); 
+            tableBody.empty(); 
             let serialNumber = data.allData.haat_bazar_data.length;
-    
               if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                   var table = $('#example').DataTable({
                       paging: true,
@@ -478,8 +433,6 @@ var editId_state= false;
     
                   data.allData.haat_bazar_data.forEach(row => {
                       const fullName = row.first_name + ' ' + row.last_name;
-    
-                      // Add row to DataTable
                       table.row.add([
                           serialNumber--,
                           row.category_name,
@@ -501,7 +454,6 @@ var editId_state= false;
                   </td>`
                       ]).draw(false);
     
-                      // serialNumber++;
                   });
               } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -519,20 +471,13 @@ var editId_state= false;
           }
       });
     }
-    
-    get_haatbazar_list();
+get_haatbazar_list();
 
-
-
-
-        //****delete data***
+//****delete data***
 function destroy(id) {
-    console.log(id);
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar/' + id;
-    console.log(url);
     var token = localStorage.getItem('token');
-  
     if (!token) {
       console.error("Token is missing");
       return;
@@ -541,7 +486,6 @@ function destroy(id) {
     if (!isConfirmed) {
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",
@@ -549,7 +493,6 @@ function destroy(id) {
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        // get_tyre_list();
         window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
@@ -563,14 +506,10 @@ function destroy(id) {
 
 //   for View
   function fetch_data(id) {
-    console.log(id, "id");
-    console.log(window.location);
     var urlParams = new URLSearchParams(window.location.search);
-  
     var productId = id;
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar/' + productId;
-  
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -580,14 +519,11 @@ function destroy(id) {
         type: "GET",
         headers: headers,
         success: function (data) {
-          console.log(data, 'abc');
           var formattedPrice = parseFloat(data.allData.haat_bazar_data[0].price).toLocaleString('en-IN');
           document.getElementById('category').innerText = data.allData.category_name[0].haat_bazar_category_name;
           document.getElementById('subcategory').innerText = data.allData.haat_bazar_data[0].sub_category_name;
           document.getElementById('quantity').innerText = data.allData.haat_bazar_data[0].quantity;
-          // document.getElementById('as_per').innerText = data.allData.haat_bazar_data[0].as_per;
           document.getElementById('Total_price').innerText = formattedPrice;
-          // document.getElementById('dist1').innerText =data.allData.haat_bazar_data[0].district;
           document.getElementById('textarea').innerText = data.allData.haat_bazar_data[0].about;
           document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;
           document.getElementById('last_name').innerText = data.allData.haat_bazar_data[0].last_name;
@@ -597,16 +533,13 @@ function destroy(id) {
           document.getElementById('tehsil1').innerText = data.allData.haat_bazar_data[0].tehsil_name;
       
           $("#selectedImagesContainer1").empty();
-      
           if (data.allData.haat_bazar_data[0].image_names) {
               var imageNamesArray = Array.isArray(data.allData.haat_bazar_data[0].image_names) ? data.allData.haat_bazar_data[0].image_names : data.allData.haat_bazar_data[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
                   var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + imageName.trim();
-      
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6 row">
-                     
                           <div class="brand-main d-flex box-shadow   mt-2 text-center shadow ">
                               <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                                   <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
@@ -625,30 +558,24 @@ function destroy(id) {
     });
   } 
 
-
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar/' + id;
     editId_state= true;
     EditIdmain_= id;
-    console.log(url);
-  
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function (response) {
             var Data = response.allData.haat_bazar_data[0];
-            // var dta= response.allData.category_name[0];
             var formattedPrice = parseFloat(Data.price).toLocaleString('en-IN');
             $('#c_category').val(Data.category_name);
             $('#sub_cate').val(Data.sub_category_name);
             $('#quantityInput').val(Data.quantity);
-            // $('#unitSelect').val(Data.as_per);
             $('#price').val(formattedPrice);
             $('#tprice').val(Data.quantity);
             $('#textarea_').val(Data.about);
@@ -666,20 +593,12 @@ function destroy(id) {
                       break;
                   }
               }
-            // setSelectedOption('state_', Data.state_id);
-            // setSelectedOption('dist', Data.district_id);
-            
-            // populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-
-
             setSelectedOption('state_', Data.state_id);
             getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
             setTimeout(function() {
               setSelectedOption('dist', Data.district_id);
               populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
             }, 2000); 
-            // var selectedCategoryId = Data.tyre_category_id;
-            // $('#category').val(selectedCategoryId).prop('selected', true);
             var categoryDropdown = document.getElementById('c_category');
             for (var i = 0; i < categoryDropdown.options.length; i++) {
                 if (categoryDropdown.options[i].text === Data.category_name) {
@@ -688,12 +607,8 @@ function destroy(id) {
                 }
             }
 
-            // Call function to populate sub-category based on the selected category
-            console.log("User Category ID:", Data.category_id);
             get_sub_category_1(Data.category_id, function() {
-                // Set sub-category value
                 var subCategoryDropdown = document.getElementById('sub_cate');
-                console.log("Sub Categories:", subCategoryDropdown.options);
                 for (var i = 0; i < subCategoryDropdown.options.length; i++) {
                     if (subCategoryDropdown.options[i].text === Data.sub_category_name) {
                         subCategoryDropdown.selectedIndex = i;
@@ -701,14 +616,11 @@ function destroy(id) {
                     }
                 }
             });
-            // Clear existing images
             $("#selectedImagesContainer").empty();
   
             if (Data.image_names) {
-              // Check if Data.image_names is an array
               var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
           
-              // Iterate through all image names
               imageNamesArray.forEach(function (imageName, index) {
                   var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + imageName.trim();
                   var countclass = index + 1;
@@ -724,7 +636,6 @@ function destroy(id) {
                       </div>
                   `;
           
-                  // Append the new image element to the container
                   $("#selectedImagesContainer").append(newCard);
                 });
             }
@@ -754,76 +665,6 @@ function destroy(id) {
     }
   }
   
-
-//   function get_category() {
-//     var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
-//     var url = apiBaseURL + 'haat_bazar_sub_category';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             const selects = document.getElementsByClassName('category_cls');
-//             for (let i = 0; i < selects.length; i++) {
-//                 const select = selects[i];
-//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//                 if (data.allSubCategory.length > 0) {
-//                     data.allSubCategory.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.category_name;
-//                         option.value = row.id;
-//                         select.appendChild(option);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No valid data available</option>';
-//                 }
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-// function get_sub_category(category_id) {
-//     var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
-//     var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             const selects = document.getElementsByClassName('sub_category_cls');
-//             for (let i = 0; i < selects.length; i++) {
-//                 const select = selects[i];
-//                 select.innerHTML = ''; // Clear previous options
-
-//                 if (data.data.length > 0) {
-//                     data.data.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.sub_category_name;
-//                         option.value = row.id;
-//                         select.appendChild(option);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No sub-categories available</option>';
-//                 }
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching sub-categories:', error);
-//         }
-//     });
-// }
-
-// get_category();
-
-
 function category_main3() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_category';
@@ -834,7 +675,6 @@ function category_main3() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function(data) {
-          console.log(data);
           const select = document.getElementById('cc_category');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
@@ -916,10 +756,8 @@ function searchdata() {
       },
       error: function (xhr, status, error) {
         if (xhr.status === 404) {
-          // Handle 404 error here
           const tableBody = $('#data-table');
           tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
-          // Clear the DataTable
           $('#example').DataTable().clear().draw();
         } else {
           console.error('Error searching for brands:', error);
@@ -954,13 +792,9 @@ function updateTable(data) {
               action
           ]);
       });
-
-      // Initialize or destroy existing DataTable
       if ($.fn.DataTable.isDataTable('#example')) {
           $('#example').DataTable().destroy();
       }
-
-      // Reinitialize DataTable with updated data
       $('#example').DataTable({
           data: tableData,
           columns: [
@@ -974,15 +808,12 @@ function updateTable(data) {
               { title: 'Action', orderable: false }
           ],
           paging: true,
-          searching: false // Disable searching for now
-          // ... other options ...
+          searching: false 
       });
   } else {
-      // Display a message if there's no valid data
       tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
   }
 }
-
 function resetForm() {
   $("#cc_category").val("");
   $("#ss_sub_cate").val("");
@@ -990,7 +821,6 @@ function resetForm() {
   $("#select_dist").val("");
   window.location.reload();
 };
-
 function category_main_1() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_category';
@@ -1001,10 +831,8 @@ function category_main_1() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function(data) {
-          console.log(data);
           const select = document.getElementById('c_category');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
           if (data.allCategory.length > 0) {
               data.allCategory.forEach(row => {
                   const option = document.createElement('option');
@@ -1023,7 +851,6 @@ function category_main_1() {
 }
 
 function get_sub_category_1(category_id, callback) {
-  console.log("Fetching sub-categories for category ID:", category_id);
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
   var select = document.getElementById('sub_cate');
@@ -1035,7 +862,6 @@ function get_sub_category_1(category_id, callback) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function(data) {
-          console.log("Sub-category data received:", data);
           if (data.data.length > 0) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
@@ -1049,7 +875,6 @@ function get_sub_category_1(category_id, callback) {
               option.disabled = true;
               select.appendChild(option);
           }
-          // Call the callback function to indicate that sub-category options have been added
           if (typeof callback === 'function') {
               callback();
           }

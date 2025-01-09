@@ -1,11 +1,8 @@
 var customer_id = "";
 var editId_state= false;
-
-
 jQuery(document).ready(function () {
-  // get('brand2');
   $('#add_trac').on('click', function() {
-    // resetFormFields();
+  
   });
     get_old_harvester();
     ImgUpload();
@@ -139,8 +136,6 @@ jQuery(document).ready(function () {
     }
      return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
 }
-
-
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
@@ -384,11 +379,7 @@ function store(event) {
   });
 }
 
-
-
-
 // edit data 
-
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var id = id;
@@ -406,7 +397,6 @@ function fetch_edit_data(id) {
     success: function(response) {
       var userData = response.product[0];
       var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
-      // $('#EditIdmain_').val(userData.product_id);
       $('#customer_id').val(userData.customer_id);
       $('#CROPS_TYPE').val(userData.crops_type_id);
       $('#POWER_SOURCE').val(userData.power_source_id);
@@ -426,15 +416,12 @@ function fetch_edit_data(id) {
           break;
         }
       }
-   
-
       $('#model_model').empty(); 
       get_model_1(userData.brand_id); 
       setTimeout(function() { 
           $("#model_model option").prop("selected", false);
           $("#model_model option[value='" + userData.model + "']").prop("selected", true);
       }, 2000); 
-
       
       setSelectedOption('state', userData.state_id);
       getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
@@ -495,7 +482,6 @@ function populateTehsil(selectId, value) {
     }
   }
 }
-
   function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
 
@@ -591,13 +577,6 @@ function populateTehsil(selectId, value) {
     });
 }
 get_old_harvester();
-
-
-
-
-
-// get_old_harvester();
-  
   
 // delete data
 function destroy(id) {
@@ -611,7 +590,6 @@ function destroy(id) {
       return;
     }
   
-    // Show a confirmation popup
     var isConfirmed = confirm("Are you sure you want to delete this data?");
     if (!isConfirmed) {
       // User clicked 'Cancel' in the confirmation popup
@@ -803,9 +781,6 @@ function destroy(id) {
         }
     });
 }
-
-
-  
   function resetform(){
     $('#brand2').val('');
     $('#model_name').val('');
@@ -815,28 +790,7 @@ function destroy(id) {
     window.location.reload();
   }
   
- 
-
-      // function resetFormFields() {
-      //   $('#name').val('');
-      //   $('#lname').val('');
-      //   $('#Mobile').val('');
-      //   $('#state').val('');
-      //   $('#district').val('');
-      //   $('#tehsil').val('');
-      //   $('#brand').val('');
-      //   $('#model').val('');
-      //   $('#CROPS_TYPE').val('');
-      //   $('#POWER_SOURCE').val('');
-      //   $('#price').val('');
-      //   $('#image').val('');
-      //   $('#about').val('');
-      //   $('#hours').val('');
-      //   $('#year').val('');
-      //   $('#selectedImagesContainer').val('');
-      // } $('#img_url').val();
-
-      function get_1() {
+ function get_1() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
         $.ajax({
             url: url,
@@ -906,12 +860,9 @@ function destroy(id) {
             }
         });
       }
-      
       get_1();
 
-
-       
-      function resetFormFields(){
+function resetFormFields(){
         document.getElementById("old_form").reset();
         document.getElementById("image").value = ''; // Clear the value of the image input
         document.getElementById("selectedImagesContainer").innerHTML = ''; // Optionally, clear any displayed images

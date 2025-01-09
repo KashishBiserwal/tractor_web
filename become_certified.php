@@ -10,8 +10,8 @@ include 'includes/headertag.php';
    ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-<script src="<?php $baseUrl; ?>model/become_certified.js"></script>
-<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<script src="<?php $baseUrl; ?>model/become_certified.js" defer></script>
+<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
@@ -27,10 +27,6 @@ include 'includes/headertag.php';
    include 'includes/header.php';
    ?>
    <style>
-        /* #container {
-        max-width: 550px;  
-        } */
-
         .step-container {
             position: relative;
             text-align: center;
@@ -43,7 +39,6 @@ include 'includes/headertag.php';
             border-radius: 50%;
             background-color: #4a80d2;
             color: #4a80d2;
-            /* border: 6px solid #007bff; */
             line-height: 30px;
             font-weight: bold;
             display: flex;
@@ -52,25 +47,12 @@ include 'includes/headertag.php';
             margin-bottom: 10px;
             cursor: pointer;
         }
-
-        /* .step-line {
-            position: absolute;
-            top: 16px;
-            left: 50px;
-            width: calc(100% - 100px);
-            height: 2px;
-            background-color: #007bff;
-            z-index: -1;
-        } */
-        
         html * {
         box-sizing: border-box;
         }
         .mul_stp_frm{
             overflow-x: hidden;
         }
-
-        
         p {
         margin: 0;
         }
@@ -161,7 +143,7 @@ include 'includes/headertag.php';
     </style>
 <body>
     <section>
-        <div class="container mt-5 pt-4">
+        <div class="container mt-4 pt-4">
             <div class="mt-4 pt-5">
                 <span class="mt-4 pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -173,14 +155,12 @@ include 'includes/headertag.php';
 
     <section>
         <div class="d-sm-flex align-items-center justify-content-between w-100">
-            <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/becomeadealertimg.webp); background-position: center; background-size: cover;"></div>
+            <div class="col-12 h-100 " loading="lazy" style="min-height: 360px; background-image: url(assets/images/becomeadealertimg.webp); background-position: center; background-size: cover;"></div>
         </div>
         <div class="page-banner-content position-absolute mt-4 px-2">
             <div class="row w-100 ms-5 text-dark">
                 <div class="col-12">
-                    <h1>Join Bharat Tractor as Certified Dealers</h1></br>
-                    <!-- <p class="fw-bold">Get huge amount of enquiries for a perfect buisness. For enquiry call or</p>
-                    <p class="fw-bold">WhatsApp on 8769-934-402</p></br> -->
+                    <h1 class="mt-5">Join Bharat Tractor as Certified Dealers</h1></br>
                 <div>                
             </div>
         </div>

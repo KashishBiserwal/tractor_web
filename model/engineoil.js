@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     getEngineoilList();
     showOverlay(); 
     $("#engine_oil_form").validate({
@@ -55,12 +54,10 @@ $(document).ready(function() {
     }
 
     function formatPriceWithCommas(price) {
-        // Check if the price is not a number
         if (isNaN(price)) {
-            return price; // Return the original value if it's not a number
+            return price; 
         }
         
-        // Format the price with commas in Indian format
         return new Intl.NumberFormat('en-IN').format(price);
     }
 
@@ -78,11 +75,7 @@ $(document).ready(function() {
     
                 if (data.engine_oil_details && data.engine_oil_details.length > 0) {
                     totalEngineoil = data.engine_oil_details.length;
-    
-                    // Reverse the order of the engine oil items to display the latest ones first
                     data.engine_oil_details.reverse();
-    
-                    // Display the initial set of 6 engine oil items
                     displayEngineoil(data.engine_oil_details.slice(0, displayedEngineoil));
     
                     if (totalEngineoil <= displayedEngineoil) {
@@ -90,13 +83,9 @@ $(document).ready(function() {
                     } else {
                         loadMoreButton.show();
                     }
-    
                     loadMoreButton.click(function() {
-                        // Display all engine oil items
                         displayedEngineoil = totalEngineoil;
                         displayEngineoil(data.engine_oil_details);
-    
-                        // Hide the "Load More Engine Oil" button
                         loadMoreButton.hide();
                     });
                 }
@@ -115,7 +104,6 @@ $(document).ready(function() {
 function displayEngineoil(engineoil) {
     var productContainer = $("#productContainer");
     var tableData = $("#tableData");
-    // Clear existing content
     productContainer.html('');
     tableData.html('');
 
@@ -257,8 +245,6 @@ function displayEngineoil(engineoil) {
             </div>
         </div>
         `;
-
-        // Append the new card to the container
         productContainer.append(newCard);
     });
 }
@@ -268,13 +254,11 @@ function displayEngineoil(engineoil) {
 });
 
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -303,7 +287,6 @@ function sendOTP(mobile) {
         data: paraArr,
         success: function (result) {
             $("#engineoil_callbnt_").modal('hide');
-            console.log(result, "result");
             $('#Mobile').val(mobile);
             openOTPModal();
         },
@@ -340,7 +323,6 @@ function verifyotp(formId) {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result);
             $('#get_OTP_btn').modal('hide');
             submitData(formId); 
         },
@@ -354,9 +336,7 @@ function verifyotp(formId) {
 function submitData(formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     var formDataToSubmit = formData;
-    
-    // If user is logged in, use formData from parameter directly
-    if (isUserLoggedIn()) {
+        if (isUserLoggedIn()) {
         formDataToSubmit = collectFormData(formId);
     }
     
@@ -367,11 +347,8 @@ function submitData(formId) {
     $.ajax({
         url: url,
         type: "POST",
-        data: formDataToSubmit, // Submit all form data
-        
+        data: formDataToSubmit, 
         success: function (result) {
-            
-
             var msg = "Added successfully !";
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
@@ -383,14 +360,10 @@ function submitData(formId) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
-            // Handle errors here
         }
     });
 }
-
-
 function collectFormData(formId) {
-    // Collect form data
     var brandName = $(`#${formId} #brandName`).val();
     var modelName = $(`#${formId} #modelName`).val();
     var first_name = $(`#${formId} #firstName`).val();
@@ -431,24 +404,16 @@ function getUserDetail(id, formId) {
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
                 
-                // Set values based on formId
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state_id);
-                // $('#' + formId + ' #district').val(customer.district);
-                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
             }
         },

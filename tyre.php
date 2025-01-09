@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
- 
-    <?php
+<?php
     include 'includes/headertag.php';
     include 'includes/headertagadmin.php';
     include 'includes/footertag.php';
     include 'includes/spinner.php';
-    ?> 
+?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php echo $baseUrl; ?>model/tyre.js" defer></script>
@@ -147,9 +145,7 @@
 
 <?php
     include 'includes/footer.php';
-    // include 'includes/footertag.php';
 ?>
-
     <script>
         $(document).ready(function() {
             $("#hire_inner").validate({
@@ -181,6 +177,5 @@
     }, 'google_translate_element');
     }
 </script>
-
 </body>
 </html>

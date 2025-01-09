@@ -2,16 +2,11 @@ $(document).ready(function() {
     $('#btn_edit').click(edit_detail_customer);
     console.log("ready!");
     getInterestedBuyer();
-    // getuserdetail();
     getpurchase_Nursery();
     getpurchase_Tyre();
     getpurchase_Dealer();
     getpurchase_haatbazar();
-
-
 });
-
-
 function getInterestedBuyer() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/interested_buyer_list";
     var headers = {
@@ -292,7 +287,6 @@ function getpurchase_Tyre() {
         data: paraArr,
         success: function (data) {
             var table;
-
             if (data.data.tyreEnquiryData && data.data.tyreEnquiryData.length > 0) {
                 const tableBody = $('#data-table6'); // Use jQuery selector for the table body
                 tableBody.empty();
@@ -307,7 +301,6 @@ function getpurchase_Tyre() {
                   
                     ]
                 });
-
                 data.data.tyreEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
 
@@ -409,9 +402,6 @@ $(document).ready(function() {
             headers: headers,
             data: paraArr,
             success: function(data) {
-                console.log(data, 'data');
-
-                // Destroy DataTable instances if they already exist
                 tableIds.forEach(function(tableId) {
                     if ($.fn.DataTable.isDataTable(tableId)) {
                         $(tableId).DataTable().destroy();
@@ -433,7 +423,6 @@ $(document).ready(function() {
                         var table = $(tableId).DataTable(tableConfig);
 
                         data.data[dataKeys[index]].forEach(row => {
-                            // Add row to DataTable
                             table.row.add(row).draw(false);
                         });
 
@@ -507,13 +496,10 @@ $(document).ready(function() {
             isSearchingEnabled: true
         }
     ];
-
-    // Extract tableIds, dataKeys, and columns from the tables array
     var tableIds = tables.map(function(table) { return table.tableId; });
     var dataKeys = tables.map(function(table) { return table.dataKey; });
     var columns = tables.map(function(table) { return table.columns; });
 
-    // Populate all tables with data initially
     populateDataTable(tableIds, dataKeys, columns, true, true);
 });
 
@@ -528,8 +514,6 @@ function getuserdetail(id) {
     var paraArr = {
         'mobile': mobileNumber,
     };
-
-    // Make an AJAX GET request to the API
     $.ajax({
         url: url,
         type: "GET",
@@ -537,20 +521,12 @@ function getuserdetail(id) {
         data: paraArr,
         success: function(data) {
             const userData = data.customerData[0];
-
-            // Set user details
             $('#idUser').val(userData.id);
             $('#firstname').val(userData.first_name);
             $('#lastname').val(userData.last_name);
             $('#phone').val(userData.mobile);
-
-            // Populate and select state dropdown
             populateStateDropdown(data, userData.state_id);
-
-            // Populate and select district dropdown
             populateDistrictDropdown(data, userData.district_id);
-
-            // Populate and select tehsil dropdown
             populateTehsilDropdown(data, userData.tehsil_id);
         },
         error: function(error) {
@@ -559,21 +535,16 @@ function getuserdetail(id) {
     });
 }
 
-// Populate state dropdown dynamically
 function populateStateDropdown(data, stateId) {
     var stateDropdown = $('#state');
-    stateDropdown.empty(); // Clear existing options
-
-    // Populate state dropdown from response data
+    stateDropdown.empty(); 
     const stateName = data.customerData[0].state_name;
     const stateIdValue = data.customerData[0].state_id;
-
     stateDropdown.append(
         `<option value="${stateIdValue}" selected>${stateName}</option>`
     );
 }
 
-// Populate district dropdown dynamically
 function populateDistrictDropdown(data, districtId) {
     var districtDropdown = $('#dist');
     districtDropdown.empty(); // Clear existing options
@@ -626,8 +597,6 @@ function edit_personal_detail(){
         var state = $('#state').val();
         var district = $('#dist').val();
         var tehsil = $('#tehsil').val();
-      
-        // Prepare data to send to the server
         var paraArr = {
           'id':edituser,
           'first_name': first_name,
@@ -637,17 +606,12 @@ function edit_personal_detail(){
           'district':district,
           'tehsil':tehsil,
         };
-       
         var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + edituser;
         console.log(url);
       
         var headers = {
             'Authorization': localStorage.getItem('token_customer')
           };
-        //   var mobileNumber = localStorage.getItem('mobile');
-        //   var paraArr = {
-        //     'mobile': mobileNumber,
-        //   };
         $.ajax({
           url: url,
           type: "PUT",
@@ -659,12 +623,8 @@ function edit_personal_detail(){
             var msg = "Added successfully !"
             $("#errorStatusLoading").modal('show');    
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-         
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-          
-            // getOldTractorById();
-            console.log("Add successfully");
             $('#firstname').attr('disabled');
             $('#lastname').attr("disabled")
             $('#phone').attr("disabled")

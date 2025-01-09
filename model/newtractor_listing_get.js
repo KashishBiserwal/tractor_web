@@ -1,21 +1,14 @@
 
 $(document).ready(function () {
   getTractorList();
-
   $("#Reset").click(function () {
-
     $("#brand").val("");
     $("#model_3").val("");
     $("#hp").val("");
     getTractorList();
-    
-    });
-  // $('#Search').click(search_data);
-
+  });
   $('.edit_btn').click(function() {
-    // var productId = $(this).data('row-productid');
-  //  fetch_edit_data(productId);
-});
+  });
 });
 
 function formatPriceWithCommas(price) {
@@ -26,18 +19,16 @@ function formatPriceWithCommas(price) {
 }
 
 function formatDateTime(originalDateTimeStr) {
-const originalDateTime = new Date(originalDateTimeStr);
+  const originalDateTime = new Date(originalDateTimeStr);
+  const pad = (num) => (num < 10 ? '0' : '') + num;
+  const day = pad(originalDateTime.getDate());
+  const month = pad(originalDateTime.getMonth() + 1);
+  const year = originalDateTime.getFullYear();
+  const hours = pad(originalDateTime.getHours());
+  const minutes = pad(originalDateTime.getMinutes());
+  const seconds = pad(originalDateTime.getSeconds());
 
-const pad = (num) => (num < 10 ? '0' : '') + num;
-
-const day = pad(originalDateTime.getDate());
-const month = pad(originalDateTime.getMonth() + 1);
-const year = originalDateTime.getFullYear();
-const hours = pad(originalDateTime.getHours());
-const minutes = pad(originalDateTime.getMinutes());
-const seconds = pad(originalDateTime.getSeconds());
-
-return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
+  return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
 }
 var originalData = [];
 
@@ -51,37 +42,28 @@ headers: {
   'Authorization': 'Bearer ' + localStorage.getItem('token')
 },
 success: function (data) {
-  console.log(data);
   originalData = data.product.allProductData;
-
   var select_model = $("#model");
-  select_model.empty(); // Clear existing options
+  select_model.empty(); 
   select_model.append('<option selected disabled="" value="">Please select a model</option>');
-
   for (var j = 0; j < data.product.allProductData.length; j++) {
     var model = data.product.allProductData[j].model;
     select_model.append('<option value="' + model + '">' + model + '</option>');
   }
-
   var select_hp = $("#hp");
-  select_hp.empty(); // Clear existing options
+  select_hp.empty(); 
   select_hp.append('<option selected disabled="" value="">Please select HP</option>');
-
   for (var j = 0; j < data.product.allProductData.length; j++) {
     var model = data.product.allProductData[j].hp_category;
     select_hp.append('<option value="' + model + '">' + model + '</option>');
   }
-
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML= '';
-  
-  // let serialNumber = 1;
 
   if (data.product.allProductData && data.product.allProductData.length > 0) {
 
       let tableData = [];
                 let counter = data.product.allProductData.length;
-                
                 data.product.allProductData.forEach(row => {
                   var formattedPrice = parseFloat(row.ending_price).toLocaleString('en-IN');
                     let action = `
@@ -105,7 +87,6 @@ success: function (data) {
                           formattedPrice,
                           action
                         ]);
-                    // counter++;
                 });
 
                 $('#example').DataTable().destroy();
@@ -204,9 +185,7 @@ success: function (data) {
                           formattedPrice,
                           action
                       ]);
-                      // counter++;
                   });
-
                   $('#example').DataTable().destroy();
                   $('#example').DataTable({
                       data: tableData,
@@ -229,53 +208,7 @@ success: function (data) {
               }
           }
 
-// get brand
-// function get() {
-//   var apiBaseURL = APIBaseURL;
-//   var url = apiBaseURL + 'getBrands';
-
-//   $.ajax({
-//     url: url,
-//     type: "GET",
-//     headers: {
-//       'Authorization': 'Bearer ' + localStorage.getItem('token')
-//     },
-//     success: function (data) {
-//       console.log(data);
-//      // select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-//       const select = $('#brand');
-//       select.empty(); // Clear existing options
-
-//       // Add a default option
-//       select.append('<option selected disabled value="">Please select Brand</option>');
-
-//       // Use an object to keep track of unique brands
-//       var uniqueBrands = {};
-
-//       $.each(data.brands, function (index, brand) {
-//         var brand_id = brand.id;
-//         var brand_name = brand.brand_name;
-
-//         // Check if the brand ID is not already in the object
-//         if (!uniqueBrands[brand_id]) {
-//           // Add brand ID to the object
-//           uniqueBrands[brand_id] = true;
-
-//           // Append the option to the dropdown
-//           select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
-//         }
-//       });
-//     },
-//     error: function (error) {
-//       console.error('Error fetching data:', error);
-//     }
-//   });
-// }
-
-
-
 // get();
-
 function get() {
   var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
   $.ajax({
@@ -298,8 +231,6 @@ function get() {
                       option.value = row.id;
                       select.appendChild(option);
                   });
-
-                  // Add event listener to brand dropdown
                   select.addEventListener('change', function() {
                       const selectedBrandId = this.value;
                       get_model(selectedBrandId);
@@ -353,18 +284,14 @@ function destroy(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'deleteProduct/' + id;
   var token = localStorage.getItem('token');
-
   if (!token) {
     console.error("Token is missing");
     return;
   }
-
-  // Show a confirmation popup
   var isConfirmed = confirm("Are you sure you want to delete this data?");
   if (!isConfirmed) {
     return;
   }
-
   $.ajax({
     url: url,
     type: "DELETE",
@@ -373,8 +300,6 @@ function destroy(id) {
     },
     success: function(result) {
       getTractorList();
-      // window.location.reload();
-      // alert("Delete operation successful");
     },
     error: function(error) {
       console.error('Error fetching data:', error);
@@ -393,16 +318,12 @@ function formatPriceWithCommas(price) {
 // *********View data******
 
 function openView(product_id){
-// alert(product_id);
 console.log(window.location)
 var urlParams = new URLSearchParams(window.location.search);
-
 var productId = product_id;
 var apiBaseURL = APIBaseURL;
 var url = apiBaseURL + 'get_new_tractor_by_id/' + productId;
 
-// var url = "http://tractor-api.divyaltech.com/api/admin/getBrandsById/" + productId;
-// console.log(url);
 var headers = {
 'Authorization': 'Bearer ' + localStorage.getItem('token')
 };
@@ -471,18 +392,14 @@ $.ajax({
                     </div>
                 </div>
             `;
-    
-            // Append the new image element to the container
             $("#selectedImagesContainer1").append(newCard);
         });
-
-
+      }
+    },
+    error: function (error) {
+    console.error('Error fetching data:', error);
     }
-},
-error: function (error) {
-console.error('Error fetching data:', error);
-}
-});
+  });
 }
 
 

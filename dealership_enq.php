@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php
-        include 'includes/headertag.php';
-        include 'includes/footertag.php';
-    ?> 
+
+   <?php
+  include 'includes/headertag.php';
+     include 'includes/footertag.php';
+     
+     ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php echo $baseUrl; ?>model/dealership_enq.js" defer></script>
-    <script src="<?php echo $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/dealership_enq.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
         gtag('config', 'G-6Z38E658LD');
     </script>
 <body>
-    <style>
-        .text-truncate {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .page-banner-content {
-            margin-top: -81px;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
+<style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    .page-banner-content{
+        margin-top: -81px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    }
     </style>
-    <?php 
-        include 'includes/header.php';
-     ?>
-    <section class="mt-4 pt-5 bg-light">
+<?php
+   include 'includes/header.php';
+   ?>
+    <section class=" mt-5 pt-5 bg-light">
         <div class="container pt-5 py-1">
-            <div>
-                <span class="text-white">
+            <div class="">
+                <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class="text-dark header-link px-1">Dealership Enquiry</span>
+                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry</span></span> 
                 </span> 
             </div>
         </div>
     </section>
+    
     <section>
         <div class="d-sm-flex align-items-center justify-content-between w-100">
             <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/dealership-enquiry.jpg); background-position: center; background-size: cover;">
@@ -50,9 +55,9 @@
         </div>
         <div class="page-banner-content text-center position-absolute px-2">
             <h1>Tractor Dealer Enquiry</h1>
-            <!-- <p>Enquiry Form</p> -->
         </div>
     </section>
+
     <!-- FORM -->
     <section class="form-view bg-white pb-4">
         <div class="container" style="position: relative;">
@@ -68,28 +73,32 @@
                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
                                 <input type="text" class="form-control" id="product_id" value="">
                             </div>
+                          
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
-                                <div class="form-outline">
-                                    <label for="f_name" class="form-label mb-0 text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="f_name_1" name="f_name" required>
-                                </div>
-                            </div>
+                                            <div class="form-outline">
+                                                <label for="f_name" class="form-label mb-0 text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="f_name_1" name="f_name" required>
+                                            </div>
+                                        </div>
+                          
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3">
-                                <div class="form-outline">
-                                    <label for="eo_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="l_name_1" name="l_name" required>
-                                </div>
-                            </div>
+                                            <div class="form-outline">
+                                                <label for="eo_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="l_name_1" name="l_name" required>
+                                            </div>
+                                        </div>
+                          
                             <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
-                                <div class="form-outline mt-3">
-                                    <label for="eo_number" class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
-                                </div>
-                            </div>
+                                            <div class="form-outline mt-3">
+                                                <label for="eo_number" class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                                            </div>
+                                        </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_state" class="form-label text-dark fw-bold "> <i class="fas fa-location"></i> State</label>
                                     <select class="form-select py-2 state-dropdown" id="state_s" name="_state"aria-label=".form-select-lg example">
+                                       
                                     </select>
                                 </div>
                             </div>
@@ -97,6 +106,7 @@
                                 <div class="form-outline">
                                     <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                     <select class="form-select py-2 district-dropdown" id="district_s" name="_district" aria-label=".form-select-lg example">
+                                 
                                     </select>
                                 </div>
                             </div>
@@ -104,7 +114,8 @@
                                 <div class="form-outline">
                                     <label for="yr_price" class="form-label text-dark"> Tehsil</label>
                                     <select class="form-select py-2 tehsil-dropdown" id="t_tehsil" name="_tehsil"aria-label=".form-select-lg example">
-                                        <option value="" selected disabled=""></option>
+                                    <option value="" selected disabled=""></option>
+                                     
                                     </select>    
                                 </div>  
                             </div>
@@ -112,13 +123,14 @@
                                 <div class="form-outline">
                                     <label for="brand" class="form-label text-dark">Brand</label>
                                     <select class="form-select py-2 " id="b_brand_1" name="_brand"aria-label=".form-select-lg example">
+                                       
                                     </select>
                                 </div>
                             </div>
                             <div class="text-center  my-3">
                                 <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>         
                             </div>        
-                            <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart's <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+                            <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                         </div>
                     </form>
                 </div>
@@ -136,7 +148,7 @@
                 <div class="modal-body">
                     <form id="otp_form">
                         <div class=" col-12 input-group">
-                            <div class="col-12" hidden>
+                        <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
                             </div>
@@ -151,79 +163,73 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
         </div>
     </div>
+
     <section>
-        <div class="container">
-            <h3 class=" py-4 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h3>
-            <nav class="mb-3">
-                <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                    <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">New Harvester</a>
-                    <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-tab" type="button" data-bs-toggle="tab" data-bs-target="#latest" role="tab" aria-controls="latest" aria-selected="false">Old Harvester</a>
+      <div class="container">
+        <h3 class=" py-4 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h3>
+        <nav class="mb-3">
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">New Harvester</a>
+            <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-tab" type="button" data-bs-toggle="tab" data-bs-target="#latest" role="tab" aria-controls="latest" aria-selected="false">Old Harvester</a>
+          
+          </div>
+        </nav>
+        <div class="tab-content justify-content-center" >
+          <div role="tabpanel" class="tab-pane fade show active" id="premium" aria-labelledby="premium-tab">
+            <section class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="new_harvester"> </div>
+                <div class="col text-center pb-4 mt-3">
+                  <a href="harvester.php" class="btn btn-success px-5">View all New Harvester</a>
                 </div>
-            </nav>
-            <div class="tab-content justify-content-center" >
-                <div role="tabpanel" class="tab-pane fade show active" id="premium" aria-labelledby="premium-tab">
-                    <section class="section slider-section">
-                        <div class="container slider-column">
-                            <div class="carousel-wrap">
-                                <div class="owl-carousel" id="new_harvester"> </div>
-                                <div class="col text-center pb-4 mt-3">
-                                    <a href="harvester.php" class="btn btn-success px-5">View all New Harvester</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+              </div>
+            </section>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="latest" aria-labelledby="latest-tab">
+            <section class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="old_harvester">
+              
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="latest" aria-labelledby="latest-tab">
-                    <section class="section slider-section">
-                        <div class="container slider-column">
-                            <div class="carousel-wrap">
-                                <div class="owl-carousel" id="old_harvester"></div>
-                            </div>
-                            <div class="col text-center pb-4">
-                                <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
-                            </div>
-                        </div>
-                    </section>
+              </div>
+                <div class="col text-center pb-4">
+                  <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
                 </div>
-            </div>
+              </div>
+            </section>
+          </div>
+        
         </div>
+      </div>
     </section>
     <!-- WHY BECOME A DEALER -->
     <section>
         <div class="container">
             <div class="row">
                 <p class="fw-bold text-dark bg-light text-start mt-4 assured ps-3">Why Become a Dealer</p>
-                <p class="justify-content-center">Tractors are the most important solutions for farm mechanisation, utility, and other commercial aspects in India.
-                    Tractors demand is growing due to the scalability of farming and the increase of crop growers in India.
-                    So, this marks the need for starting a verified distributorship with key tractor brands like Mahindra, Sonalika, John Deere, Farmtrac, and others.
-                    With less capital and the right knowledge from us, you can get seamless and authorised tractor dealerships in your area.
+                <p class="justify-content-center">Tractors are the most important solutions for farm mechanisation, utility, and other commercial aspects in India. Tractors demand is growing due to the scalability of farming and the increase of crop growers in India. So, this marks the need for starting a verified distributorship with key tractor brands like Mahindra, Sonalika, John Deere, Farmtrac, and others. With less capital and the right knowledge from us, you can get seamless and authorised tractor dealerships in your area.
                 </p>
             </div>
         </div>
     </section>
+    <!-- About Authorised Tractor Dealership in India -->
     <section>
         <div class="container">
             <div class="row">
                 <p class="fw-bold text-dark bg-light text-start mt-4 assured ps-3">About Authorised Tractor Dealership in India</p>
-                <p class="justify-content-center">We will help you select from 700+ tractor models from 25+ tractor brands while getting the right tractor quotes. 
-                    We are presenting you the online tractor dealership page with quick accessibility to correct information on how to get leading tractor OEMs dealerships.
-                    Here you can find certified and authorised tractor brands in India with lucrative opportunities. Since India has more than 25 tractor brands, 
-                    you can become one of many thousand dealers across India and start a rewarding business plan
-                </p>
-                <p>At TractorJunction, you can find information on Mahindra Tractor Dealerships, Swaraj tractor dealerships,
-                    Massey Ferguson dealerships, John Deere dealerships, Sonalika dealerships, and many other dealerships of your choice. In addition, 
-                    you can strike the right tractor dealership opportunity across any state and district in India. To get tractor dealerships online near you, enter the state,
-                    district and tractor brand of your choice. So, become a tractor dealer today
-                </p>
+                <p class="justify-content-center">We will help you select from 700+ tractor models from 25+ tractor brands while getting the right tractor quotes. We are presenting you the online tractor dealership page with quick accessibility to correct information on how to get leading tractor OEMs dealerships. Here you can find certified and authorised tractor brands in India with lucrative opportunities. Since India has more than 25 tractor brands, you can become one of many thousand dealers across India and start a rewarding business plan</p>
+                <p>At TractorJunction, you can find information on Mahindra Tractor Dealerships, Swaraj tractor dealerships, Massey Ferguson dealerships, John Deere dealerships, Sonalika dealerships, and many other dealerships of your choice. In addition, you can strike the right tractor dealership opportunity across any state and district in India. To get tractor dealerships online near you, enter the state, district and tractor brand of your choice. So, become a tractor dealer today</p>
             </div>
         </div>
     </section>
+    
     <!-- Why Become a Tractor Dealer? -->
     <section>
         <div class="container">
@@ -237,6 +243,7 @@
             </div>
         </div>
     </section>
+
     <!-- Franchisor Support -->
     <section>
         <div class="container">
@@ -254,6 +261,7 @@
             </div>
         </div>
     </section>
+
     <!-- Franchise Facts -->
     <section>
         <div class="container">
@@ -266,6 +274,7 @@
             </div>
         </div>
     </section>
+
     <!-- Franchise Benefits -->
     <section>
         <div class="container">
@@ -279,36 +288,29 @@
             </div>
         </div>
     </section>
+
     <!-- Get Best Tractor Dealership in India -->
     <section>
         <div class="container">
             <div class="row">
                 <p class="fw-bold text-dark bg-light text-start mt-4 assured ps-3">Get Best Tractor Dealership in India </p>
-                <p class="justify-content-center">You can set up an authorised dealership franchise in your specified location. In the form above,
-                    just enter your state, district, and tractor brand choice, and our team will reach out with complete information on the same.
-                    We can help you identify important details to apply for tractor dealership agency near you.
+                <p class="justify-content-center">You can set up an authorised dealership franchise in your specified location. In the form above, just enter your state, district, and tractor brand choice, and our team will reach out with complete information on the same. We can help you identify important details to apply for tractor dealership agency near you.
                 </p>
             </div>
         </div>
     </section>
+
     <!-- How to Get Authorised Tractor Dealership with TractorJunction? -->
     <section>
         <div class="container">
             <div class="row">
                 <p class="fw-bold text-dark bg-light text-start mt-4 assured ps-3">How to Get Authorised Tractor Dealership with TractorJunction? </p>
-                <p class="justify-content-center">At TractorJunction, you find access to authorised tractor dealership opportunities. 
-                    We help you connect with 25+ tractor brands with 700+ tractor models.
-                </p>
-                <p class="justify-content-center">We offer you a hassle-free process to buy tractor dealerships in India. 
-                    You just need to fill up the above form asking for basic details like name, tractor brand preferences,
-                    state, district, etc. We will help you identify the right steps to start your new tractor dealerships.
-                    We will help you with pre and post-opening & product support, prepare a marketing and advertising
-                    plan & even provide assistance on gathering resources for ideal site selection, followed by quality control parameters.
-                    For any further Tractor dealership enquiry, reach us.
-                </p>
+                <p class="justify-content-center">At TractorJunction, you find access to authorised tractor dealership opportunities. We help you connect with 25+ tractor brands with 700+ tractor models. </p>
+                <p class="justify-content-center">We offer you a hassle-free process to buy tractor dealerships in India. You just need to fill up the above form asking for basic details like name, tractor brand preferences, state, district, etc. We will help you identify the right steps to start your new tractor dealerships. We will help you with pre and post-opening & product support, prepare a marketing and advertising plan & even provide assistance on gathering resources for ideal site selection, followed by quality control parameters. For any further Tractor dealership enquiry, reach us.</p>
             </div>
         </div>
     </section>
+
     <!-- QUICK LINKS -->
     <section>
         <div class="container py-3 mt-2">
@@ -326,6 +328,7 @@
                         <li><i class="fa-solid fa-angles-right pe-1"></i><a href="new_tractor_loan.php" class="text-decoration-none text-dark">Finance</a></li>                    
                         <li><i class="fa-solid fa-angles-right pe-1"></i><a href="upcoming_tractors.php" class="text-decoration-none text-dark">Upcoming Tractors</a></li>
                         <li><i class="fa-solid fa-angles-right pe-1"></i><a href="popular_tractors.php" class="text-decoration-none text-dark">Popular Tractors</a></li> 
+                      
                     </ul>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 py-1">
@@ -337,7 +340,8 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 py-1">
                     <ul>
-                       <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
+                       
+                        <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
                         <li><i class="fa-solid fa-angles-right pe-1"></i><a href="nursery_ui.php" class="text-decoration-none text-dark">Nursery</a></li>
                         <li><i class="fa-solid fa-angles-right pe-1"></i><a href="engine_oil.php" class="text-decoration-none text-dark">Engine Oil</a></li>
                     </ul>
@@ -345,9 +349,9 @@
             </div>
         </div>
     </section>
-    <?php
-        include 'includes/footer.php';
-        include 'includes/footertag.php';
+ <?php
+    include 'includes/footer.php';
+    include 'includes/footertag.php';
     ?>
 
     <script>
@@ -376,15 +380,12 @@
                         },
                         _state: {
                             required: true,
-                            
                         },
                         _district: {
                             required: true,
-                           
                         },
                         _brand: {
                             required: true,
-                           
                         }
                     },
                     messages: {
@@ -417,15 +418,15 @@
             })
         });
     </script>
-    <script>
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        autoDisplay: 'true',
-        includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-        }, 'google_translate_element');
-        }
-    </script>
+      <script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </body>
 </html>

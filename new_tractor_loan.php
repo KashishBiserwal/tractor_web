@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> <?php
-// include 'includes/header.php';
-include 'includes/headertag.php';
-include 'includes/headertagadmin.php';
-include 'includes/footertag.php';
-
-?> 
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/tractor_loan_customer.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<head> 
+    <?php
+        include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
+        include 'includes/footertag.php';
+    ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/tractor_loan_customer.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
@@ -19,7 +18,6 @@ include 'includes/footertag.php';
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <style>
@@ -32,12 +30,10 @@ include 'includes/footertag.php';
     background: #fff;
     margin-left: 20px;
 }
-
 .card {
     margin-right: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .cards {
     max-height: 4rem;
     object-fit: contain;
@@ -52,23 +48,22 @@ include 'includes/footertag.php';
     width: 98%;
     padding-left: 8px;
     padding-right: 8px;
-    /* margin-top: -145px; */
 }
 </style>
-
-<body> <?php
-   include 'includes/header.php';
-   ?>
+<body>
+    <?php
+        include 'includes/header.php';
+    ?>
     <section class=" mt-4 pt-5 bg-light">
         <div class="container pt-3 mt-4">
             <div class="py-2">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
+                        class="fa-solid fa-chevron-right px-1"></i>
                     </a>
                     <span class="">
                         <span class="text-dark header-link  px-1">Enquiries <i
-                                class="fa-solid fa-chevron-right px-1"></i>
+                            class="fa-solid fa-chevron-right px-1"></i>
                         </span>
                     </span>
                     <span class="text-dark">All Loan</span>
@@ -76,15 +71,10 @@ include 'includes/footertag.php';
             </div>
         </div>
     </section>
-   
-
-
     <!--Popular Tractor Insurance Companies-->
     <div class="container">
         <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Loan Companies</h4>
         <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
-
-            <!-- Card 1 -->
             <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/CHOLA.png" class="card-img-top cards p-2" alt="Company 1">
@@ -93,7 +83,6 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-
             <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/HDB.png" class="card-img-top cards p-3" alt="Company 1">
@@ -118,7 +107,6 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-            
              <div class="col-12 col-lg-2 col-sm-6  mb-4">
                 <div class="card">
                     <img src="assets/images/INDUSIND BANK.png" class="card-img-top cards" alt="Company 3">
@@ -127,7 +115,6 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-
             <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/KOTAK MAHINDRA.png" class="card-img-top cards" alt="Company 4">
@@ -136,7 +123,6 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-
             <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/L AND T.png" class="card-img-top cards" alt="Company 5">
@@ -145,7 +131,6 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-
             <div class="col-12 col-lg-2 col-sm-6 mb-4">
                 <div class="card">
                     <img src="assets/images/MMFSL.jpg" class="card-img-top cards" alt="Company 6">
@@ -175,11 +160,9 @@ include 'includes/footertag.php';
         </div>
     </div>
 
-
      <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <!-- <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;"> -->
             <div class="container-mid mt-4">
                 <div class="justify-content-center loan_form bg-light border border-dark">
                     <div id="loanForm">
@@ -293,58 +276,53 @@ include 'includes/footertag.php';
         </div>
     </div>
 
-    
-
-    <!-- Your Loan Path: Types and Eligibility Table End -->
-    <!--Table Content-->
     <div class="container bg-light">
-    <div class="section-heading mb-2 text-center">
-        <h3 class="text-dark fw-bold mt-5">Tractor Loan Interest Rate Comparison</h3>
-        <p class="mb-2">Compare the tractor loan interest rate below.</p>
-    </div>
-    <div class="row text-center">
-        <!-- Make the table responsive -->
-        <div class="table-responsive">
-            <table class="mb-3 table table-bordered border border-dark" style="background-color:#77bd57;">
-                <thead>
-                    <tr>
-                        <th>Bank Name</th>
-                        <th>Interest Rate</th>
-                        <th>Loan Amount</th>
-                        <th>Loan Tenure</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ICICI Bank</td>
-                        <td>13% p.a. to 22% p.a.</td>
-                        <td>As per terms and conditions</td>
-                        <td>Up to 5 years</td>
-                    </tr>
-                    <tr>
-                        <td>State Bank of India</td>
-                        <td>9.00% p.a. - 10.25% p.a.</td>
-                        <td>Up to 100% finance</td>
-                        <td>Up to 5 years</td>
-                    </tr>
-                    <tr>
-                        <td>HDFC Bank</td>
-                        <td>12.57% p.a. to 23.26% p.a.*</td>
-                        <td>Up to 90% finance</td>
-                        <td>12 months to 84 months</td>
-                    </tr>
-                    <tr>
-                        <td>Poonawalla Fincorp</td>
-                        <td>16% p.a. to 20% p.a.</td>
-                        <td>Up to 90% - 95% finance</td>
-                        <td>According to bank</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="section-heading mb-2 text-center">
+            <h3 class="text-dark fw-bold mt-5">Tractor Loan Interest Rate Comparison</h3>
+            <p class="mb-2">Compare the tractor loan interest rate below.</p>
+        </div>
+        <div class="row text-center">
+            <!-- Make the table responsive -->
+            <div class="table-responsive">
+                <table class="mb-3 table table-bordered border border-dark" style="background-color:#77bd57;">
+                    <thead>
+                        <tr>
+                            <th>Bank Name</th>
+                            <th>Interest Rate</th>
+                            <th>Loan Amount</th>
+                            <th>Loan Tenure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ICICI Bank</td>
+                            <td>13% p.a. to 22% p.a.</td>
+                            <td>As per terms and conditions</td>
+                            <td>Up to 5 years</td>
+                        </tr>
+                        <tr>
+                            <td>State Bank of India</td>
+                            <td>9.00% p.a. - 10.25% p.a.</td>
+                            <td>Up to 100% finance</td>
+                            <td>Up to 5 years</td>
+                        </tr>
+                        <tr>
+                            <td>HDFC Bank</td>
+                            <td>12.57% p.a. to 23.26% p.a.*</td>
+                            <td>Up to 90% finance</td>
+                            <td>12 months to 84 months</td>
+                        </tr>
+                        <tr>
+                            <td>Poonawalla Fincorp</td>
+                            <td>16% p.a. to 20% p.a.</td>
+                            <td>Up to 90% - 95% finance</td>
+                            <td>According to bank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-
     <!--Table Content End-->
     <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart's Start -->
     <div class="container">
@@ -407,17 +385,7 @@ include 'includes/footertag.php';
             application process.</p>
         <p class="px-2">Protect Your Investment: While you're investing in your farm, don't forget to safeguard your
             equipment with our comprehensive Tractor Insurance. Learn more (link to insurance page).</p>
-
-
-
-
     </div>
-
-
-
-    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart's End -->
-
-
     <!--Question Section-->
     <section class="about bg-white">
         <div class="container">
@@ -644,19 +612,15 @@ include 'includes/footertag.php';
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
     <!--Question Section End-->
-
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
-
     ?>
-  
     <script>
     $(document).ready(function() {
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -674,52 +638,39 @@ include 'includes/footertag.php';
                     digits: true,
                     customPhoneNumber: true
                 },
-                // brand: "required",
-                // model: "required",
                 enterModel: {
-                    // required: function(element) {
-                    //     return $('#model').val() === 'other';
-                    // }
                 },
-                // vehicleRegNo: "required",
-                // registeredYear: "required",
                 state: "required",
                 district: "required"
             },
         });
-
-
-
     });
 </script>
-
 <script>
     $(document).ready(function() {
         $('#loanType').change(function() {
             var selectedLoanTypeId = $(this).val();
-            // Disable all fields first
             $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', true);
-            
             switch (selectedLoanTypeId) {
-                case '1': // New Tractor Loan
+                case '1': 
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
                     break;
-                case '2':  //Used tractor Loan    
+                case '2':    
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
                     break;
-                case '3':  // Loan against     
+                case '3':      
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
                     break;  
-                case '4':  //Used harvester Loan    
+                case '4':     
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
                     break;
-                case '5': // New harvester Loan
+                case '5': 
                 $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
                     break;
-                case '6':  //Implement Loan    
+                case '6':    
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
                     break;
-                case '7': // Personal Loan
+                case '7': 
                     $('#firstName, #lastName, #mobileNo, #state, #tehsil, #district').prop('disabled', false);
                     break;
             
@@ -728,11 +679,6 @@ include 'includes/footertag.php';
                     break;
             }
         });
-
-        // $('#registeredYear, #state, #district, #tehsil').change(function() {
-        //     $('#enterModel').prop('disabled', false);
-        //     $('#vehicleRegNo').prop('disabled', false);
-        // });
     });
 
 </script>
@@ -741,7 +687,7 @@ include 'includes/footertag.php';
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }

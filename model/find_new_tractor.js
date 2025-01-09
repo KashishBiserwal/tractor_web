@@ -3,7 +3,6 @@ $(document).ready(function() {
     getTractorList();
     showOverlay(); 
     $('#filter_tractor').click(filter_search);
-
     $("#contact-seller-call").validate({
         rules: {
             brandName: {
@@ -45,7 +44,6 @@ $(document).ready(function() {
         },
         submitHandler: function (form) {
             savedata();
-            // tractor_enquiry();
         }
     });
 
@@ -56,7 +54,6 @@ $(document).ready(function() {
     function hideOverlay() {
         $("#overlay").fadeOut(300);
     }
-    // Custom validation method for notEqual rule
     $.validator.addMethod("notEqual", function (value, element, param) {
         return value !== param;
     }, "Value must not equal {0}");
@@ -73,7 +70,7 @@ $(document).ready(function() {
         },
         success: function (data) {
             const checkboxContainer = $('#checkboxContainer');
-            checkboxContainer.empty(); // Clear existing checkboxes
+            checkboxContainer.empty(); 
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
@@ -320,9 +317,7 @@ function displayTractors(tractors) {
                         </div>
                     </div>
                 </div>
-            </div>
-
-                    `;
+            </div> `;
                     var tableRow  = `
                     <tr class="">
                         <td class="py-3">${p.model}</td>
@@ -342,15 +337,12 @@ function displayTractors(tractors) {
 }
 });
 
-
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -510,13 +502,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #state').val(customer.state_id);
                 // $('#' + formId + ' #district').val(customer.district);
                 // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#district ,#Tehsil').prop('disabled', true).prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#state, #district ,#Tehsil').prop('disabled', true).prop('disabled', true);
                 }
             }
         },
@@ -541,12 +533,9 @@ function formatPrice(price) {
     return parseFloat(price.replace(/,/g, '') || 0);
 }
 function filter_search() {
-    // var checkboxes = $(".budget_checkbox:checked");
     var checkboxes2 = $(".hp_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
     var checkboxes = $(".budget_checkbox:checked");
-    // var checkboxesState = $(".state_checkbox:checked");
-    // var checkboxesdist = $(".district_checkbox:checked");
 
     var selectedCheckboxValues = checkboxes.map(function() {
         return $(this).val();
@@ -561,19 +550,10 @@ function filter_search() {
         return $(this).val();
     }).get();
 
-    // var selectedState = checkboxesState.map(function() {
-    //     return $(this).val();
-    // }).get();
-    // var selectedDistrict = checkboxesdist.map(function() {
-    //     return $(this).val();
-    // }).get();
-
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
         'horse_power_ranges': JSON.stringify(selectedCheckboxValues2),
         'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted),
-        // 'state': JSON.stringify(selectedState),
-        // 'district': JSON.stringify(selectedDistrict),
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp';
@@ -774,11 +754,8 @@ function appendFilterCard(filterContainer, filter) {
                         </div>
                     </div>
                 </div>
-            </div>
-
-                    `;
+            </div>`;
         container.append(newCard);
-        // populateDropdowns(formId);
     }
 
     function displayNextSet() {
@@ -799,8 +776,6 @@ function appendFilterCard(filterContainer, filter) {
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
-
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -808,11 +783,8 @@ function appendFilterCard(filterContainer, filter) {
     $('.brand_checkbox:checked').prop('checked', false);
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
-    
     window.location.reload();
-    
-  } 
-
+} 
   function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
@@ -827,8 +799,6 @@ function appendFilterCard(filterContainer, filter) {
 
         stateDropdowns.forEach(function (dropdown) {
             dropdown.innerHTML = selectYourStateOption + stateOptions;
-
-            // Add event listener to state dropdown to fetch district data
             dropdown.addEventListener('change', function() {
                 var selectedStateId = this.value;
                 var districtSelect = this.closest('.row').querySelector('.district-dropdown');

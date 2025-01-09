@@ -1,12 +1,8 @@
 $(document).ready(function() {
-    // $('#apply_loan').click(add_loan);
     $('#apply_loan').on('click', function (event) {
         applyForLoan(event);
-        
     });
 });
-
- 
 function get_loan_type() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_loan_type';
     $.ajax({
@@ -66,7 +62,6 @@ function getTheBrand() {
                         select.appendChild(option);
                     });
 
-                    // Add event listener to brand dropdown
                     select.addEventListener('change', function() {
                         const selectedBrandId = this.value;
                         get_model(selectedBrandId);
@@ -120,9 +115,6 @@ getTheBrand();
 
 function applyForLoan(event) {
     event.preventDefault();
-    console.log('Applying for loan...');
-
-    // Retrieve form data
     var enquiry_type_id = 15;
     var loanType = $('#loanType').val();
     var firstName = $('#firstName').val();
@@ -130,14 +122,11 @@ function applyForLoan(event) {
     var mobileNo = $('#mobileNo').val();
     var brand = $('#brand').val();
     var model = $('#model').val();
-    // var enterModel = $('#enterModel').val();
     var vehicleRegNo = $('#vehicleRegNo').val();
     var registeredYear = $('#registeredYear').val();
     var state = $('#state').val();
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
-    // var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
-    // console.log(previous_policy_claim,'previous_policy_claim');
 
     // Prepare data to send to the server
     var paraArr = {
@@ -148,13 +137,11 @@ function applyForLoan(event) {
         'mobile': mobileNo,
         'brand_id': brand,
         'model': model,
-        // 'model': enterModel,
         'vehicle_registered_num': vehicleRegNo,
         'registered_year': registeredYear,
         'state': state,
         'tehsil': tehsil,
         'district': district,
-        // 'previous_policy_claim': previous_policy_claim
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
@@ -164,18 +151,12 @@ function applyForLoan(event) {
       url: url,
       type: "POST",
       data: paraArr,
-      success: function (result) {
-        console.log(result, "result");
-        console.log("Add successfully");
-        
+      success: function (result) { 
        var msg = " "
        $("#errorStatusLoading").modal('show');
        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Thank you for contacting us. We will get back to you.</p>');
-    
        $("#errorStatusLoading").find('.modal-body').html(msg);
-    //    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
        document.getElementById("applicationForm").reset();
-       
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -187,5 +168,4 @@ function applyForLoan(event) {
       }
     });
 }
-
   populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

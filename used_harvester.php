@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <?php
     include 'includes/headertag.php';
-    // $product_id=$_REQUEST['product_id'];
-    // echo $product_id;
     include 'includes/footertag.php';
     include 'includes/spinner.php';
     ?>
    
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-   <script src="<?php $baseUrl; ?>model/used_harvester.js"></script>
+   <script src="<?php $baseUrl; ?>model/used_harvester.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
@@ -20,7 +17,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
 <style>
@@ -28,22 +24,19 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-   
     }
-    </style>
-
+</style>
 <body>
    <?php
-   include 'includes/header.php';
+    include 'includes/header.php';
    ?>
-
 <section class="mt-3 pt-5 bg-light">
     <div class="container py-2">
         <div class="mt-5">
             <span class="mt-4 text-white pt-3 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
-                    <span class="text-dark"> Used Harvesters</span>
+                <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+                <span class="text-dark"> Used Harvesters</span>
             </span> 
         </div>
     </div>
@@ -51,21 +44,9 @@
 <section >
     <div class="container my-3">
         <div class="row">
-            <!-- <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="">Used <span class="text-success fw-bold">Harvesters</span> </h3>
-                
-                <div class="row my-3" id="productContainerharvester">
-                </div>
-                <div class="col-12 text-center mt-5">
-                    <button id="adduser" type="button" class="add_btn btn-success">
-                    <i class="fas fa-undo"></i>  Load More  </button>
-                </div>
-            </div> -->
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-            <h3 class="">Used <span class="text-success fw-bold">Harvesters</span> </h3>
-              
-                <div class="row my-4" id="productContainerharvester">
-                </div>
+                <h3 class="">Used <span class="text-success fw-bold">Harvesters</span> </h3>
+                <div class="row my-4" id="productContainerharvester"></div>
                 <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                 <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                 <div class="text-center my-2">
@@ -87,10 +68,9 @@
                         </div>
                     </div>
                 </div> 
-               
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
-                    <div class="price py-2 w-100">
+                        <div class="price py-2 w-100">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
@@ -100,11 +80,11 @@
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="">
-                        <div class="force-overflow">
-                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                            <div class="HP py-2 w-100" id="checkboxContainer"></div>
-                        </div>
+                    <div class="force-overflow">
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
+                        <div class="HP py-2 w-100" id="checkboxContainer"></div>
                     </div>
+                </div>
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
@@ -120,16 +100,13 @@
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
-                        <div class="HP py-2 w-100" id="P_year">
-                            <!-- Checkboxes will be dynamically added here -->
-                        </div>
+                        <div class="HP py-2 w-100" id="P_year"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <section class="bg-light">
     <div class="container mt-4 ">
         <div class="col-12 assured mt-3">
@@ -191,21 +168,18 @@
     </div>
 </section>
 
-
-
 <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
-
-    ?>
-      <script>
+?>
+<script>
  function googleTranslateElementInit() {
  new google.translate.TranslateElement({
  pageLanguage: 'en',
  autoDisplay: 'true',
- includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
  }, 'google_translate_element');
  }
 </script>
-    </html>
+</html>

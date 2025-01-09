@@ -365,11 +365,6 @@ function fetch_edit_data_Agrclg(id) {
       $('#userId').val(userData.id);
       $('#cname_edit').val(userData.college_name);
       $('#Mobile_edit').val(userData.mobile);
-  
-      // setSelectedOption('state_', userData.state_id);
-      // setSelectedOption('district_', userData.district_id);
-      // // Call function to populate tehsil dropdown based on selected district
-      // populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
       setSelectedOption('state_', userData.state_id);
       getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1');
       setTimeout(function() {
@@ -456,8 +451,6 @@ function edit_data_id(id) {
   data.append('state', state);
   data.append('district', district);
   data.append('tehsil', tehsil);
-
-
   var remainingImagesCount;
   if(removedImages.length ==0){
     remainingImagesCount =0;
@@ -465,7 +458,6 @@ function edit_data_id(id) {
   else{
     remainingImagesCount = $('.brand-main').length; 
   }
-
 
   if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length==0){
     for(i=0;i<removedImages.length; i++){

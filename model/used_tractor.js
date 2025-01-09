@@ -3,14 +3,11 @@
 $(document).ready(function() {
     $('#filter_tractor').click(filter_search); 
     getoldTractorList();
-    // getDistricts();
     showOverlay(); 
-   
 });
 function showOverlay() {
     $("#overlay").fadeIn(300);
 }
-
 function hideOverlay() {
     $("#overlay").fadeOut(300);
 }
@@ -18,18 +15,13 @@ function formatPriceWithCommas(price) {
     if (isNaN(price)) {
         return price; 
     }
-    
     return new Intl.NumberFormat('en-IN').format(price);
 }
-
-
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
-
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
-    
     $.ajax({
         url: url,
         type: "GET",
@@ -57,32 +49,25 @@ function getoldTractorList() {
             console.error('Error fetching data:', error);
         },
         complete: function () {
-            // Hide the spinner after the API call is complete
             hideOverlay();
         },
     });
 }
 
-// Load more button click event
 $(document).on('click', '#loadMoreBtn', function() {
     var productContainer = $("#productContainer");
     
-    // Display the next set of cards
     allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function(p) {
         appendCard(productContainer, p);
-        cardsDisplayed++; // Update the count of displayed cards
+        cardsDisplayed++; 
     });
-
-    // Hide the "Load More" button if all cards are displayed
     if (cardsDisplayed >= allCards.length) {
         $("#loadMoreBtn").hide();
     }
 });
-
 function appendCard(container, p) {
     var images = p.image_names;
     var a = [];
-
     if (images) {
         if (images.indexOf(',') > -1) {
             a = images.split(',');
@@ -285,19 +270,14 @@ function appendCard(container, p) {
                 </div>
             </div>
         </div>
-    </div>
-
-            
-         `;
+    </div> `;
     container.append(newCard);
 
      $('.price_form').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
-            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN'); 
             $(this).val(formattedValue);
         });
-
-    // Set cursor position to the beginning of each input field
     $('.price_form').each(function() {
         var input = this;
         input.focus();
@@ -397,11 +377,10 @@ function verifyotp(formId) {
         success: function (result) {
             console.log(result);
             $('#get_OTP_btn').modal('hide');
-            submitData(formId); // Submit the form after OTP verification
+            submitData(formId); 
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle errors here
         },
     });
 }
@@ -410,7 +389,6 @@ function submitData(formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     var formDataToSubmit = formData;
     
-    // If user is logged in, use formData from parameter directly
     if (isUserLoggedIn()) {
         formDataToSubmit = collectFormData(formId);
     }
@@ -422,8 +400,7 @@ function submitData(formId) {
     $.ajax({
         url: url,
         type: "POST",
-        data: formDataToSubmit, // Submit all form data
-        
+        data: formDataToSubmit, 
         success: function (result) {
             console.log(result, "result");
             var msg = "Added successfully !";
@@ -433,14 +410,11 @@ function submitData(formId) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
-            // Handle errors here
         }
     });
 }
 
-
 function collectFormData(formId) {
-    // Collect form data
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var first_name = $(`#${formId} #fname`).val();
     var last_name = $(`#${formId} #lname`).val();
@@ -487,24 +461,16 @@ function getUserDetail(id, formId) {
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
-                
                 // Set values based on formId
                 $('#' + formId + ' #fname').val(customer.first_name);
                 $('#' + formId + ' #lname').val(customer.last_name);
                 $('#' + formId + ' #number').val(customer.mobile);
-                $('#' + formId + ' #state_form').val(customer.state_id);
-                // $('#' + formId + ' #district_form').val(customer.district_id);
-                // $('#' + formId + ' #tehsil').val(customer.tehsil_id);
-                
-                // Disable fields if user is logged in
+                // $('#' + formId + ' #state_form').val(customer.state_id);
+         
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price_form,#district_form,#tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price_form,#state_form,#district_form,#tehsil').prop('disabled', true);
                 }
             }
         },
@@ -519,9 +485,7 @@ function isUserLoggedIn() {
 }
 
 function getBrand() {
-    
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -532,9 +496,8 @@ function getBrand() {
             console.log(data);
 
             const checkboxContainer = $('#checkboxContainer');
-            checkboxContainer.empty(); // Clear existing checkboxes
+            checkboxContainer.empty(); 
 
-            // Loop through the data and add checkboxes
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
@@ -551,68 +514,6 @@ function getBrand() {
 }
 getBrand();
 
-// function getState() {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function(data) {
-//             console.log("State data:", data);
-
-//             const checkboxContainer = $('#state_state');
-//             checkboxContainer.empty(); // Clear existing checkboxes
-            
-//             const stateId = 7; // Replace 7 with the desired state ID
-//             const filteredState = data.stateData.find(state => state.id === stateId);
-//             if (filteredState) {
-//                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-//                     '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-//                 checkboxContainer.append(checkboxHtml);
-//                 ge_tDistricts(stateId);
-//             } else {
-//                 checkboxContainer.html('<p>No valid data available</p>');
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching state data:', error);
-//         }
-//     });
-// }
-// function ge_tDistricts(stateId) {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function(data) {
-//             console.log("District data:", data);
-            
-//             const checkboxContainer = $('#get_dist');
-//             checkboxContainer.empty(); // Clear existing checkboxes
-            
-//             if (data && data.districtData && data.districtData.length > 0) {
-//                 data.districtData.forEach(district => {
-//                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
-//                         '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
-//                     checkboxContainer.append(checkboxHtml);
-//                 });
-//             } else {
-//                 checkboxContainer.html('<p>No districts available for this state</p>');
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching districts:', error);
-//         }
-//     });
-// }
-// getState();
-
-
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
@@ -625,16 +526,14 @@ function getState() {
             console.log("State data:", data);
 
             const checkboxContainer = $('#state_state');
-            checkboxContainer.empty(); // Clear existing checkboxes
+            checkboxContainer.empty(); 
             
-            // Display all states from the API response
             data.stateData.forEach(state => {
                 var checkboxHtml = '<input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + state.id + '"/>' +
                     '<span class="ps-2 fs-6">' + state.state_name + '</span> <br/>';
                 checkboxContainer.append(checkboxHtml);
             });
 
-            // Add event listeners to state checkboxes
             $('.state_checkbox').on('change', function() {
                 const stateId = $(this).val();
                 ge_tDistricts(stateId);
@@ -675,11 +574,7 @@ function ge_tDistricts(stateId) {
         }
     });
 }
-
-// Initialize the function
 getState();
-
-
 
 function get_year_and_hours() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
@@ -692,11 +587,9 @@ function get_year_and_hours() {
         success: function(data) {
             console.log(data);
             var selectYearContainer = $("#P_year");
-            selectYearContainer.empty(); // Clear existing content
+            selectYearContainer.empty(); 
             
-            // Checkboxes for years
             if (data.getYears && data.getYears.length > 0) {
-                // Reverse the array of years to display latest year at the top
                 data.getYears.reverse();
                 data.getYears.forEach(year => {
                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
@@ -718,11 +611,9 @@ var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6; 
 
-
 function formatPrice(price) {
     return parseFloat(price.replace(/,/g, '') || 0);
 }
-
 function filter_search() {
     var checkboxes = $(".budget_checkbox:checked");
     var checkboxesState = $(".state_checkbox:checked");
@@ -734,9 +625,8 @@ function filter_search() {
         return $(this).val();
     }).get();
 
-    // Modify to handle comma-separated values
     var selectedCheckboxValuesFormatted = selectedCheckboxValues.map(function(value) {
-        return value.replace(/,/g, ''); // Remove commas from values
+        return value.replace(/,/g, ''); 
     });
 
     var selectedState = checkboxesState.map(function() {
@@ -756,8 +646,7 @@ function filter_search() {
         'brand_id': JSON.stringify(selectedBrand),
         'state': JSON.stringify(selectedState),
         'district': JSON.stringify(selectedDistrict),
-        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted), // Use the modified array here
-        // 'horse_power_ranges': JSON.stringify(selectedCheckboxState),
+        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted), 
         'purchase_year': JSON.stringify(selectedYear),
     };
  
@@ -785,16 +674,13 @@ function filter_search() {
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error searching for blog details:', errorThrown);
-            // Check if the error status is 404 (Not Found)
             if (jqXHR.status === 404) {
-                // Hide all cards and show the "Data not found" message
                 $("#productContainer").empty();
                 $("#noDataMessage").show();
                 $("#noDataMessage").hide();
             }
         },
         complete: function () {
-            // Hide the spinner after the API call is complete
             hideOverlay();
         },
     });
@@ -802,35 +688,27 @@ function filter_search() {
 function displayFilteredCards() {
     var productContainer = $("#productContainer");
     cardsDisplayed = 0; 
-    
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
-    
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 }
-
 $(document).on('click', '#loadMoreBtn', function () {
-    var productContainer = $("#productContainer");
-    
+    var productContainer = $("#productContainer"); 
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
-
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 });
-
 function appendFilterCard(filterContainer, p) {
- 
     var images = p.image_names;
     var a = [];
-
     if (images) {
         if (images.indexOf(',') > -1) {
             a = images.split(',');
@@ -1042,19 +920,16 @@ function appendFilterCard(filterContainer, p) {
 }
 function filterAndDisplayCards() {
     var productContainer = $("#productContainer");
-    productContainer.empty(); // Clear existing content
+    productContainer.empty(); 
     cardsDisplayed = 0;
-
     filteredCards.forEach(function(filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
-
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 }
-
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -1065,7 +940,6 @@ function filterAndDisplayCards() {
     
     getoldTractorList();
     window.location.reload();
-    
   }
   function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
@@ -1082,7 +956,6 @@ function filterAndDisplayCards() {
         stateDropdowns.forEach(function (dropdown) {
             dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-            // Add event listener to state dropdown to fetch district data
             dropdown.addEventListener('change', function() {
                 var selectedStateId = this.value;
                 var districtSelect = this.closest('.row').querySelector('.district-dropdown');

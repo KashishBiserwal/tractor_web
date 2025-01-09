@@ -246,7 +246,7 @@ function fetch_edit_data(customer_id) {
             var userData2 = response.rent_details.data2;
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
-            // disableFormFields();
+         
             // Rent Only Tractor
             $('#idUserForTracotr').val(userData.id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
@@ -256,7 +256,6 @@ function fetch_edit_data(customer_id) {
             $('#myfname').val(userData.first_name);
             $('#mylname').val(userData.last_name);
             $('#mynumber').val(userData.mobile);
-            // $('#mynumber').val(userData.mobile);
             
             // Rent Tractor And Implement For both
             $('#idUser1').val(userData.id);
@@ -267,7 +266,6 @@ function fetch_edit_data(customer_id) {
             $('#myfname3').val(userData.first_name);
             $('#mylname3').val(userData.last_name);
             $('#mynumber2').val(userData.mobile);
-            // ('#customFile1').val(userData2.images);
 
             // Rent Implement For both
             $('#idUser2').val(userData.id);
@@ -278,10 +276,6 @@ function fetch_edit_data(customer_id) {
             $('#myfname1').val(userData.first_name);
             $('#mylname1').val(userData.last_name);
             $('#mynumber1').val(userData.mobile);
-
-            // setSelectedOption('state_state3', userData.state_id);
-            // setSelectedOption('dist_district3', userData.district_id);
-            // populateTehsil(userData.district_id, 'tehsil-dropdown_rent', userData.tehsil_id);
             setSelectedOption('state_state3', userData.state_id);
             getDistricts(userData.state_id, 'district-dropdown_rent', 'tehsil-dropdown_rent');
             setTimeout(function() {
@@ -334,9 +328,6 @@ function fetch_edit_data(customer_id) {
             $("#year_main1 option").prop("selected", false);
             $("#year_main1 option[value='" + userData.purchase_year + "']").prop("selected", true);
       
-            // setSelectedOption('state_state', userData.state_id);
-            // setSelectedOption('dist_district', userData.district_id);
-            // populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
             setSelectedOption('state_state', userData.state_id);
             getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
             setTimeout(function() {
@@ -344,9 +335,6 @@ function fetch_edit_data(customer_id) {
               populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
             }, 2000); 
 
-            // setSelectedOption('state_state1', userData.state_id);
-            // setSelectedOption('dist_district1', userData.district_id);
-            // populateTehsil(userData.district_id, 'tehsil-dropdown1', userData.tehsil_id);
             setSelectedOption('state_state1', userData.state_id);
             getDistricts(userData.state_id, 'district-dropdown1', 'tehsil-dropdown1');
             setTimeout(function() {
@@ -396,27 +384,12 @@ function fetch_edit_data(customer_id) {
                 
                     tableBody.append(row);
                 
-                    // Attach event listener to image to trigger file input
                     $('#image_' + index).click(function() {
-                        // $('#impImage_' + index).click();
                     });
                 });
             }
             updateTableRows(userData2, true);
-            // updateTableRows(userData2,true);
-            // function updateTractorRentTableRows(userData2) {
-            //     if (userData2.length > 0) {
-            //         var item = userData2[0];  // Get the first item since you only need one row
-            
-            //         // Format the rate
-            //         var formattedRate = formatPriceWithCommas(item.rate);
-            //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
-            
-            //         $('#selectedImage').attr('src', imageUrl).show(); 
-            //         $('#implement_rent_0').val(formattedRate);
-            //         $('#impRatePer_0').val(item.rate_per);
-            //     }
-            // }
+    
             function updateTractorRentTableRows(userData2) {
                 if (userData2.length > 0) {
                     var item = userData2[0];  // Get the first item since you only need one row
@@ -488,9 +461,6 @@ function populateTehsil(districtId, selectId, tehsilId) {
             break;
         }
     }
-    // select.disabled = true;
-    // select.setAttribute('readonly', 'readonly');
-    // $(select);
 }
 function destroy(id)
  {
@@ -514,7 +484,7 @@ function destroy(id)
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        // get_tyre_list();
+   
         window.location.reload();
         alert("Delete operation successful");
       },

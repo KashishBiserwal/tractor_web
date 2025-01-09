@@ -82,17 +82,12 @@ $(document).ready(function(){
 });
 jQuery(document).ready(function () {
   ImgUpload();
-  // removeImage();
 });
 var removedImages = [];
 var removedImageFiles = [];
 var imageuploadstatus = false;
 var imgUploaded=[];
 function ImgUpload() {
-  // removedImages =[];
-  // if (removedImages[0] ===undefined){
-  //   removedImages =[];
-  // }
   var imgWrap = "";
   var imgArray = [];
   $('.upload__inputfile').each(function () {
@@ -141,16 +136,8 @@ function ImgUpload() {
   $('body').on('click', ".upload__img-close", function (e) {
     var filename = $(this).parent().data("file");
     var file = new File([null], filename);
-    console.log(file,'imagefile',imgArray.length);
-    // for (var i = 0; i < imgArray.length; i++) {
-      // if (imgArray[i].name === file) {
         imgArray.splice(1);
-        removedImages.push(file); // Add the removed image filename to removedImages array
-       
-        // break;
-      // }
-    // }
-    console.log('removedImages-', removedImages, removedImages.length)
+        removedImages.push(file); 
     $(this).parent().parent().remove();
     initialimgDivlength = $('.brand-main').length; 
     imageuploadstatus = false;
@@ -160,22 +147,17 @@ function ImgUpload() {
   imageuploadstatus = true;
 }
 
-
 var fetchdataImage = [];
 function removeImage(ele, imagename) {
   console.log('ele',ele,fetchdataImage,imagename);
   initialImagesCount--;
   if(imagename !=''){
     removedImages.push(imagename); 
-      // Find the index of the imagename in the fetchdataImage array
       var index = fetchdataImage.indexOf(imagename);
-      // Remove the image from fetchdataImage if it exists
       if (index !== -1) {
           fetchdataImage.splice(index, 1);
       }
-
   }
-  console.log('removedImageFiles-',removedImages, fetchdataImage)
   if(removedImages.length > 0){
     imageuploadstatus = false;
   }
@@ -234,15 +216,10 @@ function store(event) {
       success: function (result) {
           console.log('Success:', result);
 
-          // Close the modal
           $('#staticBackdrop').modal('hide');
-
-          // Clear form values
           $('#name, #fname, #lname, #number, #state_, #dist, #tehsil, #loc, #textarea_d, #_image').val('');
 
-          // Reload the page (try without forcing a full reload)
          alert('Successfully inserted!');
-        //  window.location.reload();
       },
       error: function (error) {
           console.error('Error:', error);
@@ -251,10 +228,8 @@ function store(event) {
       }
   });
 }
-
-
-        // fetch data
-        function nursery_data() {
+ // fetch data
+function nursery_data() {
           var apiBaseURL = APIBaseURL;
           var url = apiBaseURL + 'nursery_data';
           $.ajax({
@@ -428,7 +403,6 @@ function openViewdata(Id) {
   });
 }
 
-
 // edit data 
 var initialImagesCount;
 var initialimgDivlength;
@@ -506,7 +480,6 @@ function setSelectedOption(selectId, value) {
     }
   }
 }
-
 function populateTehsil(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -516,8 +489,6 @@ function populateTehsil(selectId, value) {
     }
   }
 }
-
-
 
 function edit_data_id(id) {
 
@@ -631,7 +602,6 @@ function edit_data_id(id) {
 
 }
 
-
  function searchdata() {
   var name = $('#name1').val();
   var state = $('#state_1').val();
@@ -711,8 +681,6 @@ function edit_data_id(id) {
       }
   });
 }
-
-
 function resetform(){
   $('#name1').val('');
   $('#state_1').val('');

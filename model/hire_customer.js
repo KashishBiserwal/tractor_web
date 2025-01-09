@@ -5,7 +5,6 @@ $(document).ready(function() {
     getHiretractor();
     showOverlay(); 
 });
-
 function showOverlay() {
     $("#overlay").fadeIn(400);
 }
@@ -31,19 +30,16 @@ function getHiretractor() {
         success: function (response) {
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data2) {
                 var totalRentData = [];
-
                 response.rent_details.data2.forEach(function(item2) {
                     var correspondingData1 = response.rent_details.data1.find(function(item1) {
                         return item1.id === item2.customer_id;
                     });
-
                     if (correspondingData1) {
                         totalRentData.push(Object.assign({}, correspondingData1, item2));
                     }
                 });
-
-                allCards = totalRentData; // Store all card data
-                displayNextPage(); // Display all cards
+                allCards = totalRentData; 
+                displayNextPage(); 
             } else {
                 console.error('Error: Data arrays are undefined');
             }
@@ -60,16 +56,10 @@ function getHiretractor() {
 // Function to display all cards
 function displayNextPage() {
     var productContainer = $("#productContainer");
-
-    // Append all cards to the container
     allCards.forEach(function(card) {
         appendCard(productContainer, card);
     });
-
-    // Update the number of cards displayed
     cardsDisplayed = allCards.length;
-
-    // Hide the "Load More" button
     $("#loadMoreBtn").hide();
 }
 function appendCard(container, p) {
@@ -90,7 +80,6 @@ function appendCard(container, p) {
     var formattedPrice = formatPriceWithCommas(p.rates);
     var userId = localStorage.getItem('id');
     var fullname = p.first_name + ' ' + p.last_name;
-    // rest of the card HTML generation
     var newCard =`
                         <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -247,10 +236,7 @@ function appendCard(container, p) {
                                 </div>
                             </div>
                         </div>`;
-
-                       
-                        container.prepend(newCard);
-    
+                    container.prepend(newCard);
                         $('.price_form').on('input', function() {
                             var value = $(this).val().replace(/\D/g, ''); 
                             var formattedValue = Number(value).toLocaleString('en-IN'); 
@@ -264,10 +250,8 @@ function appendCard(container, p) {
                             input.style.textAlign = 'left';
                         });
                     }
-  
 
     var formData = {};
-
     function savedata(formId) {
         if (isUserLoggedIn()) {
             var isConfirmed = confirm("Are you sure you want to submit the form?");
@@ -301,7 +285,6 @@ function appendCard(container, p) {
             type: "POST",
             data: paraArr,
             success: function (result) {
-                console.log(result, "result");
                 $('#Mobile').val(mobile);
                 openOTPModal();
             },
@@ -318,7 +301,6 @@ function appendCard(container, p) {
     function verifyotp(formId) {
         var mobile = document.getElementById('Mobile').value;
         var otp = document.getElementById('otp').value;
-    
         var paraArr = {
             'otp': otp,
             'mobile': mobile,
@@ -339,13 +321,11 @@ function appendCard(container, p) {
             type: "POST",
             data: paraArr,
             success: function (result) {
-                console.log(result);
                 $('#get_OTP_btn').modal('hide');
-                submitData(formId); // Submit the form after OTP verification
+                submitData(formId);
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log(xhr.status, 'error');
-                // Handle errors here
             },
         });
     }
@@ -354,7 +334,6 @@ function appendCard(container, p) {
         var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         var formDataToSubmit = formData;
         
-        // If user is logged in, use formData from parameter directly
         if (isUserLoggedIn()) {
             formDataToSubmit = collectFormData(formId);
         }
@@ -366,10 +345,8 @@ function appendCard(container, p) {
         $.ajax({
             url: url,
             type: "POST",
-            data: formDataToSubmit, // Submit all form data
-            
+            data: formDataToSubmit, 
             success: function (result) {
-                console.log(result, "result");
                 var msg = "Added successfully !";
                 openSellerContactModal(formDataToSubmit);
             },
@@ -377,14 +354,11 @@ function appendCard(container, p) {
                 console.error('Error fetching data:', error);
                 var msg = error;
                 $("#errorStatusLoading").modal('show');
-                // Handle errors here
             }
         });
     }
     
-    
     function collectFormData(formId) {
-        // Collect form data
         var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
         var first_name = $(`#${formId} #fname`).val();
         var last_name = $(`#${formId} #lname`).val();
@@ -395,7 +369,6 @@ function appendCard(container, p) {
         var price = $(`#${formId} #price_form`).val();
         price = price.replace(/[\,\.\s]/g, '');
         var product_id = $(`#${formId} #id`).val();
-    
         var formData = {
             'product_id':product_id,
             'enquiry_type_id':enquiry_type_id,
@@ -416,21 +389,17 @@ function appendCard(container, p) {
     }
 function getUserDetail(id, formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
 
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
                 
                 $('#' + formId + ' #fname').val(customer.first_name);
                 $('#' + formId + ' #lname').val(customer.last_name);
@@ -491,7 +460,6 @@ function filter_search() {
         success: function(response) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
-            // Combine data1 and data2 into one array
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data2) {
                 var totalRentData = [];
 
@@ -704,23 +672,18 @@ function appendFilterCard(filterContainer, p) {
 function displayNextSet() {
     var productContainer = $("#productContainer");
 
-    // Display the next set of filtered cards
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function(p) {
         appendFilterCard(productContainer, p);
         cardsDisplayed++;
     });
-
-    // Hide the "Load More" button if all filtered cards are displayed
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 }
 
-// Load more button click event
 $(document).on('click', '#loadMoreBtn', function() {
     displayNextSet(allData);
 });
-
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -728,13 +691,10 @@ $(document).on('click', '#loadMoreBtn', function() {
     $('.brand_checkbox:checked').prop('checked', false);
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
-    
     window.location.reload();
-    
   }
 
   function getBrand() {
-    // var apiBaseURL = CustomerAPIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
@@ -744,18 +704,14 @@ $(document).on('click', '#loadMoreBtn', function() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
-
             const checkboxContainer = $('#checkboxContainer');
-            checkboxContainer.empty(); // Clear existing checkboxes
-
+            checkboxContainer.empty();
             // Loop through the data and add checkboxes
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 brand_checkbox" value="' + brand_id + '"/>' +
                     '<span class="ps-2 fs-6">' + brand_name + '</span> <br/>';
-
                 checkboxContainer.append(checkboxHtml);
             });
         },
@@ -775,12 +731,8 @@ function getStates() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            console.log("State data:", data);
-
             const checkboxContainer = $('#state_state');
-            checkboxContainer.empty(); // Clear existing checkboxes
-
-            // Display all states
+            checkboxContainer.empty(); 
             if (data.stateData && data.stateData.length > 0) {
                 data.stateData.forEach(state => {
                     var checkboxHtml = `
@@ -790,13 +742,9 @@ function getStates() {
                         <br/>`;
                     checkboxContainer.append(checkboxHtml);
                 });
-
-                // Show a placeholder for districts initially
                 const districtContainer = $('#get_dist');
                 districtContainer.empty();
                 districtContainer.append('<p></p>');
-
-                // Add event listener for state selection
                 $('.state_checkbox').on('change', function () {
                     const stateId = $(this).val();
                     if (stateId) {
@@ -822,11 +770,8 @@ function getDistricts(stateId) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            console.log("District data for state ID " + stateId + ":", data);
-
             const checkboxContainer = $('#get_dist');
-            checkboxContainer.empty(); // Clear existing checkboxes
-
+            checkboxContainer.empty(); 
             if (data && data.districtData && data.districtData.length > 0) {
                 data.districtData.forEach(district => {
                     var checkboxHtml = `
@@ -845,8 +790,6 @@ function getDistricts(stateId) {
         }
     });
 }
-
-// Call the function to load all states
 getStates();
 
 
@@ -859,13 +802,9 @@ function get_year_and_hours() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            console.log(data);
             var selectYearContainer = $("#P_year");
-            selectYearContainer.empty(); // Clear existing content
-            
-            // Checkboxes for years
+            selectYearContainer.empty();
             if (data.getYears && data.getYears.length > 0) {
-                // Reverse the array of years to display latest year at the top
                 data.getYears.reverse();
                 data.getYears.forEach(year => {
                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
@@ -897,8 +836,6 @@ function populateDropdowns(identifier) {
 
         stateDropdowns.forEach(function (dropdown) {
             dropdown.innerHTML = selectYourStateOption + stateOptions;
-
-            // Add event listener to state dropdown to fetch district data
             dropdown.addEventListener('change', function() {
                 var selectedStateId = this.value;
                 var districtSelect = this.closest('.row').querySelector('.district-dropdown');
