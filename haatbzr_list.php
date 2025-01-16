@@ -13,7 +13,7 @@
     color: red; 
   }
 .height-same {
-    height: 33px; /* Adjust as needed */
+    height: 33px;
   }
    </style>
 <body class="loaded"> 
@@ -67,14 +67,14 @@
                               </div>
                               <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-outline">
-                                  <label class="form-label">Category</label>
+                                  <label for="c_category" class="form-label">Category</label>
                                   <select class="form-select py-2 category_cls" aria-label="Default select example" id="c_category" name="_category" onchange="get_sub_category_1(this.value)">
                                   </select>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-outline">
-                                  <label class="form-label">Sub-Category</label>
+                                  <label for="sub_cate" class="form-label">Sub-Category</label>
                                   <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="sub_cate" name="sub_cate">
                                   </select>
                                 </div>
@@ -161,7 +161,7 @@
                               </div>
                               <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                 <div class="form-outline mt-3">
-                                  <label class="form-label">Tehsil</label>
+                                  <label for="tehsil" class="form-label">Tehsil</label>
                                   <select class="form-select py-2 tehsil-dropdown" id="tehsil" aria-label="Default select example">
                                   </select>
                                 </div>
@@ -190,28 +190,28 @@
         <div class="row">
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
             <div class="form-outline">
-              <label class="form-label">Category</label>
+              <label for="cc_category" class="form-label">Category</label>
               <select class="form-select py-2 category_cls" aria-label="Default select example" id="cc_category" name="_category" onchange="get_sub_category(this.value)">
               </select>
             </div>
           </div>
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
             <div class="form-outline">
-              <label class="form-label">Sub-Category</label>
+              <label for="ss_sub_cate" class="form-label">Sub-Category</label>
               <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="ss_sub_cate" name="sub_cate_1">
               </select>
             </div>
           </div>
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
             <div class="form-outline">
-              <label class="form-label">State</label>
+              <label class="form-label" for="select_state">State</label>
               <select class="form-select py-2 state_select" aria-label="Default select example" id="select_state">
               </select>
             </div>
           </div>
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
             <div class="form-outline">
-              <label class="form-label">District</label>
+              <label class="form-label" for="select_dist">District</label>
               <select class="form-select py-2 district_select" aria-label="Default select example" id="select_dist">
               </select>
             </div>

@@ -532,8 +532,6 @@ function edit_data_id(id) {
   else{
     remainingImagesCount = $('.brand-main').length; 
   }
-
-
   if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length==0){
     for(i=0;i<removedImages.length; i++){
       var imageName = removedImages[i];
@@ -601,7 +599,6 @@ function edit_data_id(id) {
   });
 
 }
-
  function searchdata() {
   var name = $('#name1').val();
   var state = $('#state_1').val();
@@ -610,17 +607,14 @@ function edit_data_id(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_nursery';
   var token = localStorage.getItem('token');
-
   var headers = {
       'Authorization': 'Bearer ' + token
   };
-
   var data = {
       'nursery_name': name,
       'state': state,
       'district': district
   };
-
   $.ajax({
       url: url,
       type: "POST",
@@ -630,7 +624,6 @@ function edit_data_id(id) {
           console.log('Success:', response);
           const tableBody = document.getElementById('data-table');
           let serialNumber = 1;
-
           if (response.nursery && response.nursery.length > 0) {
               let tableData = response.nursery.map(row => {
                   let action = `<div class="d-flex">
@@ -644,7 +637,6 @@ function edit_data_id(id) {
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button>
                   </div>`;
-
                   return [
                       serialNumber++,
                       row.nursery_name,
@@ -654,7 +646,6 @@ function edit_data_id(id) {
                       action
                   ];
               });
-
               // Initialize DataTable after preparing the tableData
               $('#example').DataTable().destroy();
               $('#example').DataTable({
@@ -669,7 +660,6 @@ function edit_data_id(id) {
                   ],
                   paging: true,
                   searching: false,
-                  // ... other options ...
               });
           } else {
               tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
@@ -677,7 +667,6 @@ function edit_data_id(id) {
       },
       error: function (xhr, status, error) {
           console.error('Error:', xhr.responseText);
-          // Handle error here
       }
   });
 }

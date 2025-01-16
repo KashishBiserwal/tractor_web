@@ -287,18 +287,16 @@ body {
                                     <div class="row">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline">
-                                                <label  for="_brand"class="form-label text-dark">Brand</label>
+                                                <label  for="b_brand" class="form-label text-dark">Brand</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="b_brand" required>
                                                     <option value="" selected-disabled=""></option>
-                                                    <option value="1">Mahindra</option>
-                                                    <option value="2">svaraj</option>
-                                                    <option value="2">sonakila</option>
+                                                  
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline">
-                                                <label for="_model"class="form-label text-dark">Model</label>
+                                                <label for="m_model"class="form-label text-dark">Model</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="m_model" required>
                                                     <option value="" selected-disabled=""></option>
                                                 </select>
@@ -306,18 +304,16 @@ body {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline my-2">
-                                                <label for="_year"class="form-label text-dark">Year</label>
+                                                <label for="p_year"class="form-label text-dark">Year</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_year" id="p_year" required>
                                                     <option value="" selected-disabled=""></option>
-                                                    <option value="1">2007</option>
-                                                    <option value="2">2008</option>
-                                                    <option value="2">2010</option>
+                                            
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline my-2">
-                                                <label for="_e_con" class="form-label text-dark">Engine Condition</label>
+                                                <label for="engine_condition" class="form-label text-dark">Engine Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_e_con" id="engine_condition" required>
                                                     <option value="">Select Engine Condition</option>
                                                     <option value="0-25%(poor)">0-25%(poor)</option>
@@ -329,7 +325,7 @@ body {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                             <div class="form-outline my-2">
-                                                <label for="_t_con"class="form-label text-dark">Tyre Condition</label>
+                                                <label for="tyre_condition"class="form-label text-dark">Tyre Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_t_con" id="tyre_condition" required>
                                                     <option value="">Select Tyre Condition</option>
                                                     <option value="0-25%(poor)">0-25%(poor)</option>
@@ -341,9 +337,9 @@ body {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                             <div class="form-outline my-2">
-                                                <label for="_h_driven"class="form-label text-dark">Hours driven</label>
+                                                <label for="h_driven"class="form-label text-dark">Hours driven</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_h_driven" id="h_driven" required>
-                                                    <option value=""></option>
+                                                    <option value="">Please select</option>
                                                     <option value="1">Less then 1000</option>
                                                     <option value="2">1001-2000</option>
                                                     <option value="2">2001-3000</option>
@@ -433,7 +429,7 @@ body {
                                     <textarea class="form-control" rows="3" placeholder="Leave a comment here (max 200 words)" name="about" id="about" onkeydown="return /[a-zA-Z\s]/i.test(event.key)"  oninput="limitWords(this, 200)"></textarea>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12" hidden>
-                                    <label for="_td_duration" class="form-label text-dark mt-2 mb-0">How early do you want to sell?</label>
+                                    <label for="td_duration" class="form-label text-dark mt-2 mb-0">How early do you want to sell?</label>
                                     <select class="form-select" aria-label=".form-select-lg example" name="_td_duration" id="td_duration" required>
                                         <option value="" selected-disabled=""></option>
                                         <option value="1">15-30 days</option>

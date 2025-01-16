@@ -109,7 +109,7 @@ function displayTractors(tractors) {
                   <div class="thumb">
                       <a href="detail_tractor.php?product_id=${p.product_id}">
                           <div class="p-3">
-                              <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" style="height:180px; width:100%;">
+                              <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" loading="lazy" alt="${p.description}" style="height:180px; width:100%;">
                           </div>
                       </a>
                   </div>
@@ -134,74 +134,69 @@ function displayTractors(tractors) {
                               </button>
                           </div>
 
-                          <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-lg modal-dialog-centered">
-                                  <div class="modal-content">
-                                      <div class="modal-header  modal_head">
+                        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header  modal_head">
                                       <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
                                       <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                      </div>
+                                    </div>
                                       <!-- MODAL BODY -->
-                                      <div class="modal-body">
-                                          <form  id="${formId}" method="POST" onsubmit="return false">
-                                              <div class="row">
-                                                          
-                                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                      <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> product_id</label>
-                                                      <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="${p.product_id}" name="">
-                                                  </div>
-                                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                      <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                                                      <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
-                                                  </div>
-                                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                      <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                                                      <input type="text" class="form-control" placeholder="Enter Your Name" id="product_type_id" value="${p.product_type_id}" name="iduser">
-                                                  </div>
-                                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                      <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                      <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
-                                                  </div>
-                                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                      <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
-                                                      <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
-                                                  </div>
-                                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                      <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                                                      <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                      <P class="text-danger">*Please make sure mobile no. must valid</p>
-                                                  </div>
-                                                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                      <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                                                      
-                                                      </select>
-                                                  </div>
-                                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                  <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                  <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                                                   
-                                                  </select>
-                                              </div>
-                                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                  <label for="yr_price" class="form-label text-dark">Tehsil</label>
-                                                  <input type="text" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
-                                              </div>                          
-                                              </div> 
-                                          
-                              
-                                              <div class="modal-footer">
-                                              <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
-                                              <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
-                                              </div>      
-                                          </form>                             
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                                    <div class="modal-body">
+                                        <form  id="${formId}" method="POST" onsubmit="return false">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> product_id</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="${p.product_id}" name="">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="product_type_id" value="${p.product_type_id}" name="iduser">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
+                                                <div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                                    <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                     <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="Tehsil" class="form-label text-dark">Tehsil</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
+                                                </div>                          
+                                            </div> 
+                                            <div class="modal-footer">
+                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
+                                                <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+                                            </div>      
+                                        </form>                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                   `;
   $(".add_btn").on("click", function () {
       var productId = $(this).data("product-id");
@@ -489,7 +484,7 @@ function get_blog() {
                 <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
                 <div class="thumb">
                     <div>
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
+                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" loading="lazy" alt="harvester_img">
                     </div>
                 </div>
                 <div class="position-absolute" >
@@ -583,7 +578,7 @@ function getpopularTractorList() {
                         var newCard = `<div class="item box_shadow b-t-1">
                             <a class="text-decoration-none" href="detail_tractor.php?${p.product_id}">
                                 <div class="thumb">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" loading="lazy" alt="img">
                                 </div>
                                 <div class="new-tractor-content text-center b-t-1">
                                     <h6 class="fw-bold mt-2 text-decoration-none text-dark text-truncate">${p.brand_name} ${p.model}</h6>

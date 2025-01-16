@@ -97,9 +97,9 @@
     <?php
         include 'includes/header.php';
     ?>
-    <section class="bg-light mt-5 pt-5">
+    <section class="bg-light mt-4 pt-5">
         <div class="container pt-5 py-2">
-            <div class="py-2">
+            <div class="py-0">
                 <span class="my-4 text-white pt-4 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home
                         <i class="fa-solid fa-chevron-right px-1"></i>
@@ -116,7 +116,7 @@
         <div class="container-mid" style="position: relative;">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-3 mb-3 ">
+                    <div id="container" class="container mt-1 mb-3 ">
                         <h2 class="text-center  pt-2 mb-4">Sell Your Harvest</h2>
                         <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" method="post">
                             <div class="d-flex justify-content-center mb-3">
@@ -162,7 +162,7 @@
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline py-2">
-                                                <label class="form-label">Category</label>
+                                                <label for="category" class="form-label">Category</label>
                                                 <select class="form-select category_cls" aria-label="Default select example" id="category" name="category" onchange="get_sub_category(this.value)">
                                                      <!-- onchange event modified to trigger get_sub_category1 function -->
                                                 </select>
@@ -170,7 +170,7 @@
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline py-2">
-                                                <label class="form-label">Sub-Category</label>
+                                                <label for="subcategory" class="form-label">Sub-Category</label>
                                                 <select class="form-select sub_category_cls" aria-label="Default select example" id="subcategory" name="subcategory">
                                                 </select>
                                             </div>
@@ -313,7 +313,7 @@
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
+                                            <label class="form-label" for="state1"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select error mb-2 pb-2 state-dropdown" id="state1" name="state"
                                                 aria-label="Default select example">
                                             </select>
@@ -321,7 +321,7 @@
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                         <div class=" form-outline mt-2">
-                                            <label class="form-label text-dark">District</label>
+                                            <label for="district_1" class="form-label text-dark">District</label>
                                             <select class="form-select district-dropdown" name="district" id="district_1"  required="">
                                             </select>
                                             <span class="text-danger"></span>
@@ -329,8 +329,8 @@
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                         <div class="form-outline mt-2">
-                                            <label class="form-label text-dark">Tehsil </label>
-                                            <select class="form-select tehsil-dropdown" name="tehsil" id="tehsil1" >
+                                            <label for="tehsil1" class="form-label text-dark">Tehsil </label>
+                                            <select class="form-select tehsil-dropdown" name="tehsil" id="tehsil1">
                                             </select>
                                         </div>
                                     </div> 

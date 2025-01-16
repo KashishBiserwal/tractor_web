@@ -5,6 +5,7 @@
         include 'includes/headertag.php';
         include 'includes/header.php';
         include 'includes/footertag.php';
+        include 'includes/headertagadmin.php';
         include 'includes/spinner.php';
       ?>
   </head>
@@ -18,7 +19,6 @@
       gtag('config', 'G-6Z38E658LD');
     </script>
 <body>
-  
   <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/engineoil.js" defer></script>

@@ -1,15 +1,9 @@
-<script>
+
 document.getElementById("calculateEMI").addEventListener("click", function() {
-  // Hide the parent section of the button (section_1)
   document.getElementById("section_1").style.display = "none";
-  
-  // Show section_2
   document.getElementById("section_2").style.display = "block";
 });
 
-</script>
-<script>
-  // JavaScript
   $(document).ready(function() {
     $("#brandModelForm").submit(function(event) {
         event.preventDefault();
@@ -27,32 +21,21 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
             method: "POST",
             data: paraArr,
             success: function(response) {
-    // Check if 'price' object exists in the response
     if (response.price) {
         var priceData = response.price;
-        // Update description
         $("#description").html(priceData.description);
-        // Update brand_main
         $("#brand_main").text(priceData.brand_name);
         $("#main_brand").text(priceData.brand_name);
         $("#brand_model").text(priceData.model);
 
-        // Convert starting price to a floating-point number
         var startingPrice = parseFloat(priceData.starting_price.replace('Rs. ', ''));
-
-        // Convert starting price to the desired format (₹)
         var formattedPrice = startingPrice * 100000;
 
-       
         $("#exShowroomPrice").val(formattedPrice);
-
-        // Set the range slider value
         $("#downPaymentRange").val(formattedPrice);
         $("#downPaymentRange").attr("max", formattedPrice);
-        // Set the input field value
         $("#downPayment").val(formattedPrice);
         $("#downPayment").attr("max", formattedPrice);
-        // Get the image URL
         var imageNames = priceData.image_names.split(',');
         var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageNames[0].trim();
 
@@ -63,7 +46,6 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
         console.error('Price data not found in the response.');
     }
 },
-
             error: function(xhr, textStatus, errorThrown) {
                 console.error('Request failed:', textStatus);
                 console.error('Error:', xhr.responseText);
@@ -72,10 +54,6 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
     });
 });
 
-
-
-</script>
-    <script>
     document.querySelectorAll('.read-more').forEach(function(button, index) {
         button.addEventListener('click', function() {
             var moreContent = document.querySelectorAll('.more-content')[index];
@@ -90,58 +68,24 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
             }
         });
     });
-   
-
-  
 
     function addOption(selectElement, optionText) {
         var option = document.createElement("option");
         option.text = optionText;
         selectElement.add(option);
     }
-    //  function calculateEMI() {
-    //     // Add your EMI calculation logic here
-    //     alert("EMI Calculation not implemented in this example.");
-    // }
-    </script>
-    <script>
     $(document).ready(function() {
-        // var storedData = JSON.parse(localStorage.getItem('formData')) || {};
-        //     $('#brandSelect').val(storedData.brandSelect || '');
-        //     $('#modelSelect').val(storedData.modelSelect || '');
         $("#brandModelForm").validate({
             rules: {
                 brandSelect: 'required',
                 modelSelect: 'required',
             },
             submitHandler: function (form) {
-             
-                    // window.location.href = "emi_inner.php";
-                    // return false; 
                 }
             });
     
         });
 
-
-        // $('#calculateEMI').on('click', function() {
-        //     $('#brandModelForm').valid();
-        //     console.log($('#brandModelForm').valid());
-          
-        // });
-
-    // function showEMIForm() {
-    //     // Validate the first form
-    //     if ($("#brandModelForm").valid()) {
-    //         // Hide the first form and show the second form
-    //         $("#form1").addClass("hidden");
-    //         $("#form2").removeClass("hidden");
-    //     }
-    // }
-
-    </script>
-
-<script>
    function get_1() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -211,9 +155,8 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
     });
   }
 get_1();
-</script>
-<!-- For inner cards and details -->
-<script>
+
+
     document.querySelectorAll('.read-more').forEach(function(button, index) {
         button.addEventListener('click', function() {
             var moreContent = document.querySelectorAll('.more-content')[index];
@@ -269,8 +212,7 @@ get_1();
         });
 
     });
-</script>
-<script>
+
         // Update EMI when input values change
         $('#downPayment, #interestRate, #loanPeriod, #repaymentInterval').on('input change', function() {
             updateEMI();
@@ -278,29 +220,24 @@ get_1();
 
         // Update range slider values when textboxes change
         $('#downPayment').on('input', function() {
-            var value = $(this).val() || 0;  // Use 0 if the textbox is empty
+            var value = $(this).val() || 0; 
             $('#downPaymentRange').val(value);
             updateEMI();
         });
 
         $('#interestRate').on('input', function() {
-            var value = $(this).val() || 0;  // Use 0 if the textbox is empty
+            var value = $(this).val() || 0;  
             $('#interestRateRange').val(value);
             updateEMI();
         });
-
-        // Update textboxes when range sliders change
         $('#downPaymentRange').on('input', function() {
             $('#downPayment').val($(this).val());
             updateEMI();
         });
-
         $('#interestRateRange').on('input', function() {
             $('#interestRate').val($(this).val());
             updateEMI();
         });
-
-        // jQuery validation for downpayment and interest rate
         $('#downPayment').on('input', function() {
             var downPayment = parseFloat($(this).val());
             var errorMessage = $('#downPaymentError');
@@ -312,7 +249,6 @@ get_1();
                 errorMessage.text('');
             }
         });
-
         $('#interestRate').on('input', function() {
             var interestRate = parseFloat($(this).val());
             var errorMessage = $('#interestRateError');
@@ -325,21 +261,16 @@ get_1();
             }
         });
 
-        // Update EMI calculation based on user input
         function updateEMI() {
-            var exShowroomPrice = 640000;  // Example value, you can modify this
+            var exShowroomPrice = 640000; 
             var downPayment = parseFloat($('#downPayment').val());
             var loanAmount = exShowroomPrice - downPayment;
             var interestRate = parseFloat($('#interestRate').val());
             var loanPeriod = parseInt($('#loanPeriod').val());
             var repaymentInterval = $('#repaymentInterval').val();
-
-            // Validation
             if (downPayment < 0 || downPayment > 640000 || interestRate < 11 || interestRate > 25) {
                 return;
             }
-
-            // Calculate EMI
             var monthlyInterestRate = (interestRate / 100) / 12;
             var numberOfPayments = loanPeriod;
             var emi;
@@ -350,8 +281,6 @@ get_1();
             } else {
                 emi = loanAmount / numberOfPayments;
             }
-
-            // Adjust EMI for different repayment intervals
             if (repaymentInterval === 'quarterly') {
                 emi *= 3;
                 numberOfPayments /= 3;
@@ -359,18 +288,13 @@ get_1();
                 emi *= 6;
                 numberOfPayments /= 6;
             }
-
-            // Display calculated results
             $('#emiAmount').val(`₹${emi.toFixed(2)} ${repaymentInterval}`);
             $('#totalLoanAmount').val(`₹${loanAmount.toFixed(2)}`);
             $('#payableAmount').val(`₹${(emi * numberOfPayments).toFixed(2)}`);
             $('#extraPayment').val(`₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`);
         }
-
-        // Initial EMI calculation
         updateEMI();
-</script>
-<script>
+
     $(document).ready(function() {
         $("#hire_inner").validate({
             rules: {
@@ -379,7 +303,7 @@ get_1();
                 last_name: 'required',
                 mobile_number: {
                     required: true,
-                    digits: true, // Allow only digits
+                    digits: true, 
                 },
                 state: "required",
                 district: "required",
@@ -390,12 +314,6 @@ get_1();
             console.log($('#hire_inner').valid());
         });
     });
-</script>
-</body>
-
-</html>
-
-
 
 function updateEMI() {
     var exShowroomPrice = parseFloat($("#exShowroomPrice").val());
@@ -405,15 +323,10 @@ function updateEMI() {
     var loanPeriod = parseInt($('#loanPeriod').val());
     var repaymentInterval = $('#repaymentInterval').val();
 
-    // Validation
     if (isNaN(exShowroomPrice) || isNaN(interestRate) || isNaN(loanPeriod)) {
         return;
     }
-
-    // Update down payment input field
     $('#downPayment').val(downPayment.toFixed(2));
-
-    // Calculate EMI
     var monthlyInterestRate = interestRate / 12;
     var numberOfPayments = loanPeriod;
     var emi;
@@ -425,7 +338,6 @@ function updateEMI() {
         emi = loanAmount / numberOfPayments;
     }
 
-    // Adjust EMI for different repayment intervals
     if (repaymentInterval === 'quarterly') {
         emi *= 3;
         numberOfPayments /= 3;
@@ -433,12 +345,9 @@ function updateEMI() {
         emi *= 6;
         numberOfPayments /= 6;
     }
-
-    // Display calculated results
     $('#emiAmount').val(`₹${emi.toFixed(2)} ${repaymentInterval}`);
     $('#totalLoanAmount').val(`₹${loanAmount.toFixed(2)}`);
     $('#payableAmount').val(`₹${(emi * numberOfPayments).toFixed(2)}`);
     $('#extraPayment').val(`₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`);
 }
-    // Initial EMI calculation
     updateEMI();

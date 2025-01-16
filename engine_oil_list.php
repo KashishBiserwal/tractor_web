@@ -6,8 +6,7 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/engineoil_list.js"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <style>
   .select2{
@@ -28,7 +27,6 @@
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
-              
               <li class="breadcrumb-item">
                 <span> Engine Oil Listings</span>
               </li>
@@ -51,13 +49,11 @@
                             <div class="col-lg-10">
                               <h5 class="text-center" style="font-weight: 600;">Fill your Details</h5>
                             <form id="engine_oil_form">
-                                <div class="row justify-content-center pt-4">
-                                   
+                                <div class="row justify-content-center pt-4">                                
                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                       <div class="form-outline ">
-                                      <label for="name" class="form-label text-dark">Brand</label>
-                                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
-                                    
+                                      <label for="brand" class="form-label text-dark">Brand</label>
+                                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">                                
                                         </select>
                                       </div>
                                     </div>
@@ -87,9 +83,8 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                      <div class="form-outline "  id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                                      <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
+                                      <label for="ass_list" class="form-label text-dark">Compatible Tractors</label>
                                       <select class="js-example-basic-multiple w-100 form-control" name="states[]" id="ass_list" multiple="multiple">
-                                       
                                         <option value="mahindra" selected>Mahindra</option>
                                         <option value="swaraj" >Swaraj</option>
                                         <option value="preet">Preet</option>
@@ -149,16 +144,14 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center">
-              <button type="button" class="btn-success btn btn_all" id="Search" onclick="search_data()">Search</button>
-
-                <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
+                  <button type="button" class="btn-success btn btn_all" id="Search" onclick="search_data()">Search</button>
+                  <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
               </div>
-            </div>
-     
+            </div>    
           </div>
-          </form>
-        </div>
+        </form>
       </div>
+    </div>
       <!-- Table Card -->
       <div class=" mb-5 shadow bg-white mt-3 p-3">
             <div class="table-responsive">
@@ -181,94 +174,93 @@
     </div>
   </section>
   <div class="modal fade" id="staticBackdrop_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content modal_box">
-                <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Engine Oil </h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                </div>
-                <div class="modal-body bg-white">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                              <form id="engine_oil_form_1" method="POST">
-                                <div class="row justify-content-center pt-4">
-                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
-                                          <small></small>
-                                        </div>
-                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                      <label for="name" class="form-label text-dark">Brand</label>
-                                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand_1" name="brand">
-                                        
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
-                                      <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Model Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="model_1" name="model">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
-                                      <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Grade</label>
-                                        <input type="text" class="form-control" placeholder="" id="grade_1" name="grade">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Quantity</label>
-                                        <input type="text" class="form-control" placeholder="" id="qualtity_1" name="qualtity">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Price</label>
-                                        <input type="text" class="form-control" placeholder="" id="price_1" name="price">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                     <div class="form-outline "  id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                                      <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
-                                      <select class="js-example-basic-multiple2 w-100 form-control" name="states[]" id="ass_list_1" multiple="multiple">
-                                      <option value="" disabled>Please select </option>
-                                      <option value="Mahindra">Mahindra</option>
-                                        <option value="Swaraj" >Swaraj</option>
-                                        <option value="Preet">Preet</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="col-12 ">
-                                    <div class="form-outline my-3">
-                                      <label class="form-label text-dark">Description</label>
-                                      <textarea rows="4" cols="70" class="w-100 p-2"  id="textarea_1" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
-                                    </div>
-                                  </div>
-                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                      <div class="upload__box">
-                                        <div class="upload__btn-box text-center mt-2">
-                                          <label >
-                                            <p class="upload__btn ">Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
-                                          </label>
-                                        </div>
-                                        <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal_box">
+        <div class="modal-header modal_head">
+          <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Engine Oil </h5>
+          <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+        </div>
+        <div class="modal-body bg-white">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <form id="engine_oil_form_1" method="POST">
+                <div class="row justify-content-center pt-4">
+                  <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                    <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                    <small></small>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                    <div class="form-outline ">
+                      <label for="name" class="form-label text-dark">Brand</label>
+                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand_1" name="brand">
+                      </select>
                     </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="engine_oil_btn"class="btn btn-success  btn_all">Save Change</button>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
+                    <div class="form-outline">
+                      <label for="name" class="form-label text-dark">Model Name</label>
+                      <input type="text" class="form-control" placeholder="" id="model_1" name="model">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
+                    <div class="form-outline">
+                      <label for="name" class="form-label text-dark">Grade</label>
+                      <input type="text" class="form-control" placeholder="" id="grade_1" name="grade">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                    <div class="form-outline ">
+                      <label for="name" class="form-label text-dark">Quantity</label>
+                      <input type="text" class="form-control" placeholder="" id="qualtity_1" name="qualtity">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                    <div class="form-outline ">
+                      <label for="name" class="form-label text-dark">Price</label>
+                      <input type="text" class="form-control" placeholder="" id="price_1" name="price">
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                    <div class="form-outline "  id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                      <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
+                      <select class="js-example-basic-multiple2 w-100 form-control" name="states[]" id="ass_list_1" multiple="multiple">
+                        <option value="" disabled>Please select </option>
+                        <option value="Mahindra">Mahindra</option>
+                        <option value="Swaraj" >Swaraj</option>
+                        <option value="Preet">Preet</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 ">
+                    <div class="form-outline my-3">
+                      <label class="form-label text-dark">Description</label>
+                      <textarea rows="4" cols="70" class="w-100 p-2"  id="textarea_1" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="upload__box">
+                      <div class="upload__btn-box text-center mt-2">
+                        <label >
+                          <p class="upload__btn ">Upload images</p>
+                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
+                        </label>
+                      </div>
+                      <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="engine_oil_btn"class="btn btn-success  btn_all">Save Change</button>
+        </div>
+      </div>
+    </div>
+  </div>
       
           <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -330,34 +322,26 @@
 <script>
      $(document).ready(function() {
       $('#price').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
-            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN');
             $(this).val(formattedValue);
         });
-
-        // Set cursor position to the beginning of the input field
         var input = document.getElementById('price');
         input.focus();
         input.setSelectionRange(0, 0);
-
-        // Set text alignment to left
         input.style.textAlign = 'left';
     });
   </script>
 <script>
      $(document).ready(function() {
       $('#price_1').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
-            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN'); 
             $(this).val(formattedValue);
         });
-
-        // Set cursor position to the beginning of the input field
         var input = document.getElementById('price_1');
         input.focus();
         input.setSelectionRange(0, 0);
-
-        // Set text alignment to left
         input.style.textAlign = 'left';
     });
   </script>

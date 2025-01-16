@@ -168,7 +168,7 @@ function displayTractors(tractors) {
                         <div class="thumb">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                 </div>
                             </a>
                         </div>
@@ -228,19 +228,19 @@ function displayTractors(tractors) {
                                                        
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
                                                             
                                                         </select>
                                                     </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
                                                      
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                    <label for="Tehsil" class="form-label text-dark">Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
                                                      
                                                     </select>
@@ -605,7 +605,7 @@ function appendFilterCard(filterContainer, filter) {
                         <div class="thumb">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                 </div>
                             </a>
                         </div>
@@ -665,19 +665,19 @@ function appendFilterCard(filterContainer, filter) {
                                                       
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
                                                             
                                                         </select>
                                                     </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
                                                      
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                    <label for="Tehsil" class="form-label text-dark">Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
                                                      
                                                     </select>

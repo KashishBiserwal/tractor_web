@@ -190,9 +190,9 @@ include 'includes/headertag.php';
                                 </div>
                                 <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-outline mt-3">
-                                        <label class="form-label"> Brand</label>
+                                        <label for="brand" class="form-label"> Brand</label>
                                         <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand">
-                                                
+                                            <option value="">Please select</option>
                                         </select>
                                     </div>
                                 </div>
@@ -218,7 +218,7 @@ include 'includes/headertag.php';
                                     
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-outline mt-3">
-                                        <label class="form-label">State</label>
+                                        <label for="bcd_state" class="form-label">State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="bcd_state" name="state_">
                                         </select>
                                     </div>

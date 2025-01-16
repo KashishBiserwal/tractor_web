@@ -109,21 +109,21 @@
                                                                     </div>  
                                                                     <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                                         <div class="form-outline">
-                                                                            <label class="form-label text-dark">Brand</label>
+                                                                            <label for="brand" class="form-label text-dark">Brand</label>
                                                                             <select class="form-select" aria-label="Default select example"id="brand" name="brand">
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                                         <div class="form-outline">
-                                                                            <label class="form-label text-dark">Model</label>
-                                                                            <select class="form-select" aria-label="Default select example"id="model_main" name="model">
+                                                                            <label for="model_main" class="form-label text-dark">Model</label>
+                                                                            <select class="form-select" aria-label="Default select example" id="model_main" name="model">
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                                         <div class="form-outline">
-                                                                            <label class="form-label text-dark">Year</label>
+                                                                            <label for="year_main1" class="form-label text-dark">Year</label>
                                                                             <select class="form-select" aria-label="Default select example"id="year_main1" name="year">
                                                                             </select>
                                                                         </div>
@@ -206,21 +206,21 @@
                                                                     </div>
                                                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                                         <div class="form-outline mt-2">
-                                                                            <label class="form-label text-dark">State</label>
+                                                                            <label for="state_state" class="form-label text-dark">State</label>
                                                                             <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                                         <div class="form-outline mt-3">
-                                                                            <label class="form-label text-dark">District</label>
+                                                                            <label for="dist_district" class="form-label text-dark">District</label>
                                                                             <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
                                                                         <div class="form-outline mt-3">
-                                                                            <label class="form-label text-dark">Tehsil</label>
+                                                                            <label for="tehsil_t" class="form-label text-dark">Tehsil</label>
                                                                             <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
                                                                             </select>
                                                                         </div>
@@ -351,21 +351,21 @@
                                                                     </div>
                                                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                                         <div class="form-outline mt-2">
-                                                                            <label class="form-label text-dark">State</label>
+                                                                            <label for="state_state1" class="form-label text-dark">State</label>
                                                                             <select class="form-select py-2 state-dropdown1" aria-label="Default select example" id="state_state1" name="state_">
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                                         <div class="form-outline mt-3">
-                                                                            <label class="form-label text-dark">District</label>
+                                                                            <label for="dist_district1" class="form-label text-dark">District</label>
                                                                             <select class="form-select py-2 district-dropdown1" aria-label="Default select example" id="dist_district1" name="dist">
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
                                                                         <div class="form-outline mt-3">
-                                                                            <label class="form-label text-dark">Tehsil</label>
+                                                                            <label for="tehsil_t1" class="form-label text-dark">Tehsil</label>
                                                                             <select class="form-select py-2 tehsil-dropdown1 " aria-label="Default select example" id="tehsil_t1">
                                                                             </select>
                                                                         </div>
@@ -399,27 +399,27 @@
                                                             <input type="text" class="form-control py-2" for="idUser"  id="idUser2" name="first_name" placeholder="Enter First Name">
                                                             <small></small>
                                                         </div>  
-                                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
                                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
                                                             <input type="text" class="form-control" id="added_by2" value="">
                                                         </div>
                                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                             <div class="form-outline">
-                                                                <label class="form-label text-dark">Brand</label>
+                                                                <label for="brand3" class="form-label text-dark">Brand</label>
                                                                 <select class="form-select" aria-label="Default select example"id="brand3" name="brand">
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                             <div class="form-outline">
-                                                                <label class="form-label text-dark">Model</label>
-                                                                <select class="form-select" aria-label="Default select example"id="model_main3" name="model">
+                                                                <label for="model_main3" class="form-label text-dark">Model</label>
+                                                                <select class="form-select" aria-label="Default select example" id="model_main3" name="model">
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                                             <div class="form-outline">
-                                                                <label class="form-label text-dark">Year</label>
+                                                                <label for="year_main3" class="form-label text-dark">Year</label>
                                                                 <select class="form-select" aria-label="Default select example"id="year_main3" name="year">
                                                                 </select>
                                                             </div>
@@ -521,21 +521,21 @@
                                                         </div>
                                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                             <div class="form-outline mt-2">
-                                                                <label class="form-label text-dark">State</label>
+                                                                <label for="state_state3" class="form-label text-dark">State</label>
                                                                 <select class="form-select py-2 state-dropdown_rent" aria-label="Default select example" id="state_state3" name="state_">
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                                             <div class="form-outline mt-3">
-                                                                <label class="form-label text-dark">District</label>
+                                                                <label for="dist_district3" class="form-label text-dark">District</label>
                                                                 <select class="form-select py-2 district-dropdown_rent" aria-label="Default select example" id="dist_district3" name="dist">
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
                                                             <div class="form-outline mt-3">
-                                                                <label class="form-label text-dark">Tehsil</label>
+                                                                <label for="tehsil_t3" class="form-label text-dark">Tehsil</label>
                                                                 <select class="form-select py-2 tehsil-dropdown_rent" aria-label="Default select example" id="tehsil_t3">
                                                                 </select>
                                                             </div>
@@ -567,28 +567,28 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline">
-                            <label class="form-label"> Brand Name</label>
+                            <label for="brandsearch" class="form-label"> Brand Name</label>
                             <select class="form-select py-2" aria-label="Default select example" id="brandsearch">
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline ">
-                            <label class="form-label">Model</label>
+                            <label for="modelsearch" class="form-label">Model</label>
                             <select class="form-select py-2" aria-label="Default select example" id="modelsearch">
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline">
-                            <label class="form-label">State</label>
+                            <label for="state_sct" class="form-label">State</label>
                             <select class="form-select py-2 state_select" aria-label="Default select example" id="state_sct">
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline">
-                            <label class="form-label">District</label>
+                            <label for="district_sct" class="form-label">District</label>
                             <select class="form-select py-2 district_select" aria-label="Default select example" id="district_sct">
                             </select>
                         </div>
@@ -771,17 +771,14 @@
             }
         });
 
-
     $("#rentTractorTable").on("submit", function (e) {
         var isValidForm = true;
-
         $("#rentTractorTable tbody tr").each(function (index) {
             if (!validateRow(index)) {
                 isValidForm = false;
                 return false;
             }
         });
-
         if (!isValidForm) {
             e.preventDefault();
         }
@@ -790,7 +787,6 @@
     $("#rentTractorTable").on("input change", ".image-file-input, .implement-type-input, .implement-rate-input, .implement-unit-input", function () {
         validateRow($(this).closest("tr").index());
     });
-
     function validateRow(rowIndex) {
     var isValidRow = true;
     var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
@@ -799,9 +795,7 @@
 
     var imageInput = row.find(".image-file-input");
     var currentRowIndex = row.index();
-
     displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
-
     if (imageInput.prop("required") && !imageInput.get(0).files.length) {
         isValidRow = false;
         imageInput.addClass("is-invalid");
@@ -810,7 +804,6 @@
         imageInput.removeClass("is-invalid");
         imageInput.next(".invalid-feedback").remove();
     }
-
     var implementTypeField = row.find(".implement-type-input");
     if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
         isValidRow = false;
@@ -819,7 +812,6 @@
     } else {
         implementTypeField.removeClass("is-invalid");
     }
-
     row.find(".implement-rate-input").each(function (index) {
         var rate = parseFloat($(this).val());
         if (isNaN(rate) || rate <= 0) {
@@ -830,7 +822,6 @@
             $(this).removeClass("is-invalid");
         }
     });
-
     row.find(".implement-unit-input").each(function (index) {
         if ($(this).val() === "") {
             isValidRow = false;
@@ -843,7 +834,6 @@
     if (rowIndex === 0) {
         row.find('.remove-button').hide();
     }
-
     return isValidRow;
    }
   function removeRow(button) {
@@ -856,8 +846,6 @@
 <script>
   function removeRow(button) {
     var $clickedRow = $(button).closest('tr');
-    
-    // Check if the clicked row is not the first row
     if ($clickedRow.index() !== 0) {
         $clickedRow.remove();
     }
@@ -865,14 +853,11 @@
 </script>
 <script>
     $(document).ready(function() {
-        // Event listener for dynamically added rows
         $(document).on('input', '.implement-rate-input', function() {
             var value = $(this).val().replace(/\D/g, ''); 
             var formattedValue = Number(value).toLocaleString('en-IN');
             $(this).val(formattedValue);
         });
-
-        // Event listener for the initial row
         $('.implement-rate-input').on('input', function() {
             var value = $(this).val().replace(/\D/g, ''); 
             var formattedValue = Number(value).toLocaleString('en-IN');
@@ -894,16 +879,12 @@
             console.log(data);
             const stateSelect = document.getElementsByClassName(stateClassName)[0];
             stateSelect.innerHTML = '<option selected value="">Please select a state</option>';
-
-            // Populate the state dropdown with all states
             data.stateData.forEach(state => {
                 const option = document.createElement('option');
                 option.textContent = state.state_name;
                 option.value = state.id;
                 stateSelect.appendChild(option);
             });
-
-            // Event listener for state select change
             stateSelect.addEventListener('change', function() {
                 const selectedStateId = stateSelect.value;
                 if (selectedStateId) {
@@ -921,14 +902,12 @@
 }
 
 function getDistricts(state_id, districtClassName, tehsilClassName) {
-    // If no state_id is provided, fetch all districts
     var url = state_id
         ? 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id
         : 'http://tractor-api.divyaltech.com/api/customer/get_all_districts';
 
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
     districtSelect.innerHTML = '<option selected value="">Please select a district</option>';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -943,8 +922,6 @@ function getDistricts(state_id, districtClassName, tehsilClassName) {
                     option.value = row.id;
                     districtSelect.appendChild(option);
                 });
-
-                // Allow selecting tehsils only if district is selected
                 districtSelect.addEventListener('change', function() {
                     populateTehsil(districtSelect.value, tehsilClassName);
                 });
@@ -994,7 +971,6 @@ function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
         }
     });
 }
-// Call the function to populate dropdowns with specific class names
 populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'tehsil-dropdown_rent');
 </script>
 
@@ -1012,7 +988,6 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
           }, "Phone number must start with 6 or above");
     
         $("#tractor_rent_form").validate({
-            // Specify validation rules
             rules: {
                 brand: {
                     required: true,
@@ -1037,7 +1012,6 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
                 },
                 'tractor_rent_image[]': {
                     required: true,
-                    // extension: "jpg|jpeg|png|gif" // Validate image formats
                 },
                 'rate_per[]': {
                     required: true,
@@ -1059,7 +1033,6 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
                     required: true,
                 }
             },
-            // Specify validation error messages
             messages: {
                 brand: {
                     required: "This field is required",
@@ -1084,7 +1057,6 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
                 },
                 'tractor_rent_image[]': {
                     required: "Please upload an image",
-                    // extension: "Please upload a valid image (jpg, jpeg, png, gif)"
                 },
                 'rate_per[]': {
                     required: "This field is required",
@@ -1145,7 +1117,7 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
             },
             customFile2: {
                 required: true,
-                extension: "jpg|jpeg|png|gif" // Validate image formats
+                extension: "jpg|jpeg|png|gif"
             },
             'rate_per[]': {
                 required: true,
@@ -1167,7 +1139,6 @@ populateDropdownsFromClass('state-dropdown_rent', 'district-dropdown_rent', 'teh
                 required: true,
             }
         },
-        // Specify validation error messages
         messages: {
             'brand[]': {
                 required: "This field is required",

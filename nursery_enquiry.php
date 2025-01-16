@@ -43,14 +43,14 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
-                    <label class="form-label">State</label>
+                    <label for="state_1" class="form-label">State</label>
                     <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1">
                     </select>
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
-                    <label class="form-label">District</label>
+                    <label for="dist_1" class="form-label">District</label>
                     <select class="form-select py-2 district_select" aria-label="Default select example" id="dist_1">
                     </select>
                   </div>
@@ -193,21 +193,21 @@
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label class="form-label">State</label>
+                          <label for="state_2" class="form-label">State</label>
                           <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_2" name="state_">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label class="form-label">District</label>
+                          <label for="dist_2" class="form-label">District</label>
                           <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_2" name="dist">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label class="form-label">Tehsil</label>
+                          <label for="tehsil_2" class="form-label">Tehsil</label>
                           <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_2">
                           </select>
                         </div>

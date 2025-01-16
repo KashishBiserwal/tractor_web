@@ -2,6 +2,7 @@
   <head> 
     <?php
     include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
     include 'includes/footertag.php';
     include 'includes/header.php';
    ?> 
@@ -13,13 +14,10 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6Z38E658LD');
 </script>
-
-  <body> 
-
-    <style>
+<body> 
+<style>
  .thumb img {
     height: auto;
     width: 100%;
@@ -41,8 +39,7 @@
 .table_detail_section tbody tr td, .table_detail_section table thead tr th{
   padding: 15px;
 }
-      </style>
- 
+</style>
     <section class="mt-130 bg-light">
         <div class="container">
           <div class="py-2">

@@ -142,7 +142,7 @@ function displayTractors(tractors) {
                                                  <div class="thumb">
                                                      <a href="detail_tractor.php?product_id=${p.product_id}">
                                                          <div class="ratio ratio-16x9">
-                                                         <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                                         <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                                          </div>
                                                      </a>
                                                  </div>
@@ -199,30 +199,24 @@ function displayTractors(tractors) {
                                                                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                                                  <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                                                  <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                                                 
                                                                              </div>
                                                                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
-                                                                                 
-                                                                             </select>
+                                                                                <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
+                                                                                </select>
                                                                             </div>
                                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                                                <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                                                 <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
-                                                                                
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                                                <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                                                <label for="Tehsil" class="form-label text-dark">Tehsil</label>
                                                                                 <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
-                                                                                
                                                                                 </select>
                                                                             </div>                         
-                                                                         </div> 
-                                                                    
-                                                        
-                                                                         <div class="modal-footer">
+                                                                        </div> 
+                                                                        <div class="modal-footer">
                                                                          <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
                                                                          <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
                                                                          </div>      
@@ -235,67 +229,65 @@ function displayTractors(tractors) {
                                              </div>
                                          </div>
 
-                                         <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                         <div class="modal-dialog">
-                                             <div class="modal-content">
-                                                 <div class="modal-header bg-success">
-                                                     <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
-                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
-                                                 </div>
-                                                 <div class="modal-body">
-                                                     <form id="otp_form">
-                                                         <div class=" col-12 input-group">
-                                                             <div class="col-12" hidden>
-                                                                 <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
-                                                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                                                             </div>
-                                                             <div class="col-12">
-                                                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
-                                                             </div>
-                                                             <div class="float-end col-12">
-                                                                 <a href="" class="float-end">Resend OTP</a>
-                                                             </div>
-                                                         </div>
-                                                     </form>
-                                                 </div>
-                                                 <div class="modal-footer">
-                                                     <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
+                                        <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-success">
+                                                        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="otp_form">
+                                                            <div class=" col-12 input-group">
+                                                                <div class="col-12" hidden>
+                                                                    <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                                                </div>
+                                                                <div class="float-end col-12">
+                                                                    <a href="" class="float-end">Resend OTP</a>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                  
-                                     <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                         <div class="modal-dialog modal-lg modal-dialog-centered">
-                                             <div class="modal-content">
-                                                 <div class="modal-header">
-                                                     <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
-                                                     <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
-                                                 </div>
-                                                 <div class="modal-body">
-                                                     <div class="model-cont">
-                                                         <h4 class="text-center text-danger">Seller Information</h3>
-                                                         <div class="row px-3 py-2">
-                                                             <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                                 <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                                                                 <input type="text" class="form-control" id="saller_name" value="${p.tractor_type_name}">
-                                                             </div>
-                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                 <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                                                                 <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
-                                                             </div>
-                                                         </div>
-                                                     </div>
-                                                 </div>
-                                                 <div class="modal-footer">
+                                    <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="model-cont">
+                                                        <h4 class="text-center text-danger">Seller Information</h3>
+                                                        <div class="row px-3 py-2">
+                                                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                                                <input type="text" class="form-control" id="saller_name" value="${p.tractor_type_name}">
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                                                <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
                                                      <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
-                         
-                    `;
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> `;
            $(".add_btn").on("click", function () {
             var productId = $(this).data("product-id");
             $("#used_tractor_callbnt_" + productId).modal("show");
@@ -420,7 +412,7 @@ function submitData(formId) {
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
 
             $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" loading="lazy" class="w-50 text-center" alt="Successfull Request"></img>');
             // openSellerContactModal(formDataToSubmit);
         },
         error: function (error) {
@@ -580,7 +572,7 @@ function appendFilterCard(filterContainer, filter) {
                                                  <div class="thumb">
                                                      <a href="detail_tractor.php?product_id=${p.product_id}">
                                                          <div class="ratio ratio-16x9">
-                                                         <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                                         <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" loading="lazy" alt="${p.description}">
                                                          </div>
                                                      </a>
                                                  </div>
@@ -608,25 +600,23 @@ function appendFilterCard(filterContainer, filter) {
                                                      <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                          <div class="modal-dialog modal-lg modal-dialog-centered">
                                                              <div class="modal-content">
-                                                                 <div class="modal-header  modal_head">
-                                                                 <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
-                                                                 <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
-                                                                 </div>
+                                                                <div class="modal-header  modal_head">
+                                                                    <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
+                                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                                                                </div>
                                                                  <!-- MODAL BODY -->
                                                                  <div class="modal-body">
                                                                      <form  id="${formId}" method="POST" onsubmit="return false">
                                                                          <div class="row">
-                                                                            
-                                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                                             <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> product_id</label>
-                                                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="${p.product_id}" name="">
-                                                                         </div>
-                                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                                             <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                                                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
-                                                                         </div>
-                                                                           
-                                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                                                                <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> product_id</label>
+                                                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="${p.product_id}" name="">
+                                                                            </div>
+                                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                                <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
+                                                                            </div>
+                                                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                                                  <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
                                                                                  <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
                                                                              </div>
@@ -640,29 +630,24 @@ function appendFilterCard(filterContainer, filter) {
                                                                                  <P class="text-danger">*Please make sure mobile no. must valid</p>
                                                                              </div>
                                                                              <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
-                                                                                 
-                                                                             </select>
+                                                                                <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
+                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                                                <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                                                 <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
-                                                                                
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                                                <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                                                <label for="Tehsil" class="form-label text-dark">Tehsil</label>
                                                                                 <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
-                                                                                
                                                                                 </select>
                                                                             </div>                         
-                                                                         </div> 
-                                                                    
-                                                        
-                                                                         <div class="modal-footer">
-                                                                         <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
-                                                                         <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+                                                                        </div> 
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
+                                                                            <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
                                                                          </div>      
                                                                      </form>                             
                                                                  </div>
@@ -674,35 +659,35 @@ function appendFilterCard(filterContainer, filter) {
                                          </div>
 
                                          <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                         <div class="modal-dialog">
-                                             <div class="modal-content">
-                                                 <div class="modal-header bg-success">
-                                                     <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
-                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
-                                                 </div>
-                                                 <div class="modal-body">
-                                                     <form id="otp_form">
-                                                         <div class=" col-12 input-group">
-                                                             <div class="col-12" hidden>
-                                                                 <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
-                                                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                                                             </div>
-                                                             <div class="col-12">
-                                                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
-                                                             </div>
-                                                             <div class="float-end col-12">
-                                                                 <a href="" class="float-end">Resend OTP</a>
-                                                             </div>
-                                                         </div>
-                                                     </form>
-                                                 </div>
-                                                 <div class="modal-footer">
-                                                     <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-success">
+                                                        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="otp_form">
+                                                            <div class=" col-12 input-group">
+                                                                <div class="col-12" hidden>
+                                                                    <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                                                </div>
+                                                                <div class="float-end col-12">
+                                                                    <a href="" class="float-end">Resend OTP</a>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                  
                                      <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                          <div class="modal-dialog modal-lg modal-dialog-centered">

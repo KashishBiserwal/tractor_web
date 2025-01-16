@@ -4,6 +4,7 @@
 <head> 
 <?php
     include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
     $product_id=$_REQUEST['product_id'];
     echo $product_id;
     include 'includes/footertag.php';
@@ -200,22 +201,22 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                            <label for="s_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select py-2 state-dropdown1" id="s_state" name="_state" aria-label=".form-select-lg example">
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="yr_dist" class="form-label  fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <label for="s_district" class="form-label  fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                             <select class="form-select py-2 district-dropdown1" id="s_district" name="_district" aria-label=".form-select-lg example">
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="tehsil" class="form-label fw-bold mt-1 text-dark"> Tehsil</label>
+                                            <label for="t_tehsil" class="form-label fw-bold mt-1 text-dark"> Tehsil</label>
                                             <select class="form-select py-2 tehsil-dropdown1" id="t_tehsil" name="_tehsil" aria-label=".form-select-lg example">
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="tehsil" class="form-label fw-bold  mt-1 text-dark">Brand</label>
+                                            <label for="brand_select" class="form-label fw-bold  mt-1 text-dark">Brand</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="brand_select" name="_brand"></select>
                                         </div>
                                         <div class="text-center my-3">

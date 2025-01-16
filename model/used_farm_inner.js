@@ -52,7 +52,7 @@ $(document).ready(function() {
                     <div class="thumb">
                         <a href="used_farm_inner.php?id=${cardData.id}">
                             <div class="ratio ratio-16x9">
-                                <img src='http://tractor-api.divyaltech.com/uploads/product_img/${images[0]}' class="object-fit-cover" alt="${cardData.description}">
+                                <img src='http://tractor-api.divyaltech.com/uploads/product_img/${images[0]}' class="object-fit-cover" alt="${cardData.description}" loading="lazy">
                             </div>
                         </a>
                     </div>

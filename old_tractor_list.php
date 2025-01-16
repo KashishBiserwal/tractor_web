@@ -123,7 +123,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                               <div class="form-outline">
-                                <label class="form-label" for="district">Tehsil</label>
+                                <label class="form-label" for="tehsil">Tehsil</label>
                                 <select class="form-select py-2 tehsil-dropdown1" aria-label="Default select example" name="tehsil" id="tehsil">
                                 </select>
                               </div>
@@ -131,21 +131,21 @@
                             <h5 class="mt-2">Which Tractor do you Own ?</h5>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                               <div class="form-outline">
-                                <label class="form-label" for="district">Brand</label>
-                                <select class="form-select py-2 " aria-label="Default select example" name="brand" id="brand">
+                                <label class="form-label" for="brand">Brand</label>
+                                <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
                                 </select>
                               </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                               <div class="form-outline">
-                                <label class="form-label" for="district">Model</label>
-                                <select class="form-select py-2 " aria-label="Default select example" id="model" name="model">
+                                <label class="form-label" for="model">Model</label>
+                                <select class="form-select py-2" aria-label="Default select example" id="model" name="model">
                                 </select>
                               </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                               <div class="form-outline">
-                                <label class="form-label" for="district">Purchase Year</label>
+                                <label class="form-label" for="purchase_year">Purchase Year</label>
                                 <select class="form-select py-2" aria-label="Default select example" name="purchase_year" id="purchase_year">
                                   <option selected disabled=""></option>
                                 </select>
@@ -154,7 +154,7 @@
                             <h5 class="mt-2">Share Tractor Condition with Buyers</h5>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                               <div class="form-outline">
-                                <label class="form-label" for="tehsil">Engine Condition</label>
+                                <label class="form-label" for="condition">Engine Condition</label>
                                 <select class="form-select py-2" aria-label="Default select example" name="condition" id="condition">
                                   <option selected disabled="">Select Condition</option>
                                   <option value="0-25%(Poor)">0-25%(Poor)</option>
@@ -166,7 +166,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                               <div class="form-outline">
-                                <label class="form-label" for="tehsil">Tyre Condition</label>
+                                <label class="form-label" for="tyrecondition">Tyre Condition</label>
                                 <select class="form-select py-2" aria-label="Default select example" name="tyrecondition" id="tyrecondition">
                                   <option selected disabled="">Select Condition</option>
                                   <option value="0-25%(Poor)">0-25%(Poor)</option>
@@ -178,7 +178,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                               <div class="form-outline">
-                                <label class="form-label" for="tehsil">Hours Driven</label>
+                                <label class="form-label" for="hours_driven">Hours Driven</label>
                                 <select class="form-select py-2"  name="hours_driven" id="hours_driven" aria-label="Default select example">
                                   <option selected disabled="" value="">Please select an option</option>
                                 </select>
@@ -193,7 +193,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3 rc-num-container hidden">
                               <div class="form-outline">
-                                <label class="form-label" for="">Vehicle Registered Number</label>
+                                <label class="form-label" for="rc_num">Vehicle Registered Number</label>
                                 <input type="text" id="rc_num" name="rc_num" class="data_search form-control input-group-sm py-2" />
                               </div>
                             </div>
@@ -258,23 +258,23 @@
             <div class="row" id="myForm">
               <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
                 <div class="form-outline">
-                  <label class="form-label">Search By id</label>
+                  <label class="form-label" for="brand_id">Search By id</label>
                   <select class="js-select2 form-select form-control mb-0" id="brand_id">
                   </select>
                 </div>
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                <label class="text-dark fw-bold mb-2">Search By Brand</label>
-                <select class="form-select"  id="brand_name">
+                <label class="text-dark fw-bold mb-2" for="brand_name">Search By Brand</label>
+                <select class="form-select" id="brand_name">
                 </select>
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                <label class="text-dark fw-bold  mb-2">Search by Model</label>
+                <label class="text-dark fw-bold mb-2" for="model_name">Search by Model</label>
                 <select class="form-select" id="model_name">
                 </select>
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                <label class="text-dark fw-bold  mb-2">Search by State</label>
+                <label class="text-dark fw-bold mb-2" for="state_name">Search by State</label>
                 <select class="form-select" id="state_name">
                 </select>
               </div>
@@ -391,8 +391,8 @@
 </body>
 
  <script>
-        $(document).ready(function() {
-          $('input[type="radio"]').change(function(){
+    $(document).ready(function() {
+      $('input[type="radio"]').change(function(){
         if($(this).attr('id') == 'yes'){
             $('#nocDiv').show();
         } else if ($(this).attr('id') == 'no'){
@@ -400,16 +400,13 @@
         }
       });
       $('input[name="fav_rc"]').change(function() {
-      // Check if "Yes" radio button is selected
-      if ($('#rc_res').is(':checked')) {
-        // Show the div if "Yes" is selected
-        $('.rc-num-container').removeClass('hidden');
-      } else {
-        // Hide the div if "No" is selected
-        $('.rc-num-container').addClass('hidden');
-      }
-    });
-    });
+        if ($('#rc_res').is(':checked')) {
+          $('.rc-num-container').removeClass('hidden');
+        } else {
+          $('.rc-num-container').addClass('hidden');
+        }
+      });
+   });
   </script>                
   <script>
      $(document).ready(function() {
@@ -418,7 +415,6 @@
             var formattedValue = Number(value).toLocaleString('en-IN'); 
             $(this).val(formattedValue);
         });
-        // Set cursor position to the beginning of the input field
         var input = document.getElementById('price_old');
         input.focus();
         input.setSelectionRange(0, 0);

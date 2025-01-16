@@ -67,7 +67,7 @@ $(document).ready(function() {
                    <div class="thumb">
                         <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover" loading="lazy" alt="${p.description}">
                             </div>
                         </a>
                     </div>
@@ -131,23 +131,20 @@ $(document).ready(function() {
                                                     <p class="text-danger">*Please make sure mobile no. must be valid</p>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                    <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
-                                                      
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_1" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
-                                                       
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
-                                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                                                   
-                                                </select>
-                                            </div>
+                                                    <label for="Tehsil" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
+                                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                                    </select>
+                                                </div>
                                             </div>
                                               
                                             <div class="modal-footer">
@@ -474,7 +471,6 @@ function getUserDetail(id) {
             console.log(response, "response");
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                
                 $('#haatbazar_form #fname').val(customer.first_name);
                 $('#haatbazar_form #lname').val(customer.last_name);
                 $('#haatbazar_form #number_number').val(customer.mobile);
@@ -484,7 +480,6 @@ function getUserDetail(id) {
                     // Disable all input and select elements within the form
                     $('#haatbazar_form input, #haatbazar_form select').not('#price,#state_2,#district,#tehsil').prop('disabled', true);
                 }
-                
             }
         },
         error: function(error) {
@@ -527,11 +522,9 @@ function savedata(formId) {
         console.log("OTP Sent successfully");
     }
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 function sendOTP(mobile) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
     var paraArr = {
@@ -555,7 +548,6 @@ function sendOTP(mobile) {
         }
     });
 }
-
 
 function openOTPModal() {
     $('#get_OTP_btn').modal('show');
@@ -620,8 +612,6 @@ function submitData(formId) {
         }
     });
 }
-
-
 function collectFormData(formId) {
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = $(`#${formId} #product_id`).val();
@@ -631,7 +621,6 @@ function collectFormData(formId) {
     var state = $(`#${formId} #state`).val();
     var district = $(`#${formId} #district`).val();
     var tehsil = $(`#${formId} #Tehsil`).val();
-
     var formData = {
         'enquiry_type_id': enquiry_type_id,
         'product_id': product_id,
@@ -642,7 +631,6 @@ function collectFormData(formId) {
         'district': district,
         'tehsil': tehsil,
     };
-
     return formData;
 }
 
@@ -650,7 +638,6 @@ function openSellerContactModal(formDataToSubmit) {
     var modalId_2 = `staticBackdrop2_${formDataToSubmit.product_id}`;
     $(`#${modalId_2}`).modal('show');
 }
-
 function getuser(id, formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
     var headers = {
@@ -664,7 +651,6 @@ function getuser(id, formId) {
         success: function(response) {
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);

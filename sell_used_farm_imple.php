@@ -3,6 +3,7 @@
 <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
+    include 'includes/headertagadmin.php';
 ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -234,14 +235,14 @@
                                         </div>
                                         <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-2 mt-3 ">
                                             <div class="form-outline">
-                                                <label for="_category" class="form-label mb-0 text-dark fw-bold">Category</label>
+                                                <label for="c_category" class="form-label mb-0 text-dark fw-bold">Category</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_category" id="c_category">
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
-                                                <label for="_brand" class="form-label mb-0 text-dark fw-bold">Brand</label>
+                                                <label for="brand_1" class="form-label mb-0 text-dark fw-bold">Brand</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="brand_1">
                                                 </select>
                                             </div>
@@ -406,7 +407,7 @@
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3">
                                         <div class="form-outline">
-                                            <label for="eo_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                            <label for="l_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="l_name" name="eo_name" >
                                         </div>
                                     </div>
@@ -418,21 +419,21 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-3">
-                                            <label for="eo_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                            <label for="s_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="s_state" name="eo_state">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-4">
-                                            <label for="eo_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <label for="d_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                             <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="eo_dist" id="d_dist">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-4">
-                                            <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                            <label for="t_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                             <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="t_tehsil" name="eo_tehsil">
                                             </select>
                                         </div>

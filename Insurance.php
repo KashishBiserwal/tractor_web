@@ -171,7 +171,7 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                             <div class="form-outline">
-                                <label class="form-label  " for="brand">Brand</label>
+                                <label class="form-label" for="brand">Brand</label>
                                 <select class="form-select error mb-2 pb-2" id="brand" name="brand"
                                     aria-label="Default select example">
                                 </select>
@@ -180,7 +180,7 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                             <div class="form-outline">
                                 <label class="form-label" for="model">Model</label>
-                                <select class="form-select   error mb-2 pb-2" id="model" name="model"
+                                <select class="form-select error mb-2 pb-2" id="model" name="model"
                                 aria-label="Default select example">
                                 </select>
                             </div>
@@ -210,21 +210,21 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                             <div class="form-outline">
-                                <label class="form-label  " for="state">State</label>
+                                <label class="form-label" for="state">State</label>
                                 <select class="form-select error mb-2 pb-2 state-dropdown" id="state" name="state" aria-label="Default select example">
                                 </select>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                             <div class="form-outline">
-                                <label class="form-label  " for="district">District</label>
+                                <label class="form-label" for="district">District</label>
                                 <select class="form-select error mb-2 pb-2 district-dropdown" id="district" name="district"aria-label="Default select example">
                                 </select>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                             <div class="form-outline">
-                                <label class="form-label " for="tehsil">Tehsil</label>
+                                <label class="form-label" for="tehsil">Tehsil</label>
                                 <select class="form-select error mb-2 pb-2 tehsil-dropdown" id="tehsil" name="tehsil" aria-label="Default select example">
                                 </select>
                             </div>

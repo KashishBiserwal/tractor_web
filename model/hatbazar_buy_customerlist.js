@@ -75,7 +75,7 @@ function displaylist(productContainer, tractors, append) {
                    <div class="thumb">
                         <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}" loading="lazy">
                             </div>
                         </a>
                     </div>
@@ -138,19 +138,19 @@ function displaylist(productContainer, tractors, append) {
                                                   
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                    <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
                                                       
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_1" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
                                                        
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
+                                                <label for="Tehsil" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
                                                 <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
                                                    
                                                 </select>
@@ -551,7 +551,7 @@ function appendFilterCard(filterContainer, filter) {
            <div class="thumb">
                 <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
                     <div class="ratio ratio-16x9">
-                        <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                        <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}" loading="lazy">
                     </div>
                 </a>
             </div>
@@ -614,19 +614,19 @@ function appendFilterCard(filterContainer, filter) {
                                       
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                            <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
                                               
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <label for="district_1" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                             <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
                                                
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
+                                        <label for="Tehsil" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
                                            
                                         </select>

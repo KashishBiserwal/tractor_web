@@ -3,6 +3,7 @@
 <head>
     <?php
         include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
         $id=$_REQUEST['id'];
         include 'includes/footertag.php';
     ?>
@@ -46,7 +47,7 @@
                         <div class="swiper-slide swiper-slide_buy"></div>
                     </div>
                 </div>
-                <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
+                <div thumbsSlider="" class="swiper mySwiper_buy" style="height:300px; width: 43%;" id="swip_img"></div>
             </div>
 
             <!-- Right Section -->

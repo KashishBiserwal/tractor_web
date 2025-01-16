@@ -7,9 +7,15 @@
     src: url('customfont.woff2') format('woff2');
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/font/Montserrat-Bold.ttf') format('truetype');
+    font-display: swap;
+}
 body{
     font-family: "helvetica", sans-serif !important;
+    font-family: 'Montserrat', sans-serif;
+
 }
 .btn-close {
     background:none!important;
@@ -166,6 +172,7 @@ body{
 .page_title nav .breadcrumb-item{
     font-weight: bold;
     font-size: 20px;
+    padding-left: 12px;
 }
 .page_title{
     padding: 1rem 0 !important;

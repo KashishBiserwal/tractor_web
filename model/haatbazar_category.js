@@ -122,14 +122,13 @@ function edit_user() {
   var paraArr = {
       'category_name': category_name,
       'id': edit_id, 
-  };
+};
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_category/' + edit_id;
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-
   $.ajax({
       url: url,
       type: "PUT",
@@ -153,13 +152,11 @@ function edit_user() {
       }
   });
 }
-
 function destroy(id) {
     console.log(id);
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar_category/' + id;
     var token = localStorage.getItem('token');
-  
     if (!token) {
       console.error("Token is missing");
       return;
@@ -168,7 +165,6 @@ function destroy(id) {
     if (!isConfirmed) {
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",

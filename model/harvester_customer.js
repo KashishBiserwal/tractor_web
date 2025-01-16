@@ -63,7 +63,7 @@ function get_harvester() {
             <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
                 <div class="thumb">
                     <div>
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
+                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
                     </div>
                 </div>
                 <div class="position-absolute" >
@@ -187,7 +187,7 @@ function appendFilterCard(filterContainer, filter) {
         <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
             <div class="thumb">
                 <div>
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
                 </div>
             </div>
             <div class="position-absolute" >

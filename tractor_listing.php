@@ -48,18 +48,18 @@ include 'includes/spinner.php';
               <div class="row" id="myForm">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
                   <div class="form-outline">
-                    <label class="form-label">Search By id</label>
+                    <label for="brand_id" class="form-label">Search By id</label>
                     <select class="js-select2 form-select form-control mb-0" id="brand_id">
                     </select>
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
+                    <label for="brand" class="text-dark fw-bold mb-2">Search By Brand</label>
                     <select class="form-select" id="brand">
                     </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <label class="text-dark fw-bold  mb-2">Search by Model</label>
+                    <label for="model_3" class="text-dark fw-bold  mb-2">Search by Model</label>
                     <select class="form-select" name="model_3" id="model_3">
                     </select>
                 </div>
@@ -184,7 +184,7 @@ include 'includes/spinner.php';
             </div>
             <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
               <div class="form-outline">
-                <label class="form-label">No. of Cylinder</label>
+                <label for="TOTAL_CYCLINDER" class="form-label">No. of Cylinder</label>
                 <select class="form-select py-2" id="TOTAL_CYCLINDER" aria-label="Default select example">
                   <option selected disabled="" value="">Please select an option</option>
                 </select>

@@ -3,6 +3,7 @@
 <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
+    include 'includes/headertagadmin.php';
 ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -208,14 +209,14 @@
                                     </div>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-2 mt-3 ">
                                         <div class="form-outline">
-                                            <label for="b_name" class="form-label mb-0 text-dark fw-bold">Brand</label>
+                                            <label for="brand_name" class="form-label mb-0 text-dark fw-bold">Brand</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example" name="b_name" id="brand_name">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                         <div class="form-outline">
-                                            <label for="m_name" class="form-label mb-0 text-dark fw-bold">Model</label>
+                                            <label for="model_1" class="form-label mb-0 text-dark fw-bold">Model</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example" name="m_name" id="model_1">
                                             </select>
                                         </div>
@@ -233,21 +234,21 @@
                                     </div> 
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                         <div class="form-outline">
-                                            <label for="p_source" class="form-label mb-0 text-dark fw-bold">Power Source</label>
+                                            <label for="POWER_SOURCE" class="form-label mb-0 text-dark fw-bold">Power Source</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example" name="p_source" id="POWER_SOURCE">
                                             </select>
                                         </div>
                                     </div>                        
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                         <div class="form-outline">
-                                            <label for="c_type" class="form-label mb-0 text-dark fw-bold">Crop Type</label>
+                                            <label for="CROPS_TYPE" class="form-label mb-0 text-dark fw-bold">Crop Type</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example" name="c_type" id="CROPS_TYPE">
                                             </select>
                                         </div>
                                     </div> 
                                 </div>
                                 <div class="form-footer d-flex my-3">
-                                    <button type="submit" id="  " class="btn btn-success w-100 next-step">Next</button>
+                                    <button type="submit" id="" class="btn btn-success w-100 next-step">Next</button>
                                 </div>
                             </div>
                         </div>
@@ -887,7 +888,6 @@
         });
         }
     </script>
-    <!-- SCRIPT FOR SHOWING MESSAGE OF SUCCESSFULL SUBMISSION -->
     <script>
         $(document).ready(function () {
             function displayStep(stepNumber) {
@@ -897,7 +897,6 @@
                     updateProgressBar(stepNumber);
                 }
             }
-            // Function to check if all three forms are valid
             function areAllFormsValid() {
                 var formsValid = true;
                 $("form").each(function () {

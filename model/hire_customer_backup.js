@@ -54,7 +54,7 @@ function displaylist(tractors) {
                     <div class="thumb">
                         <a href="hire_inner.php?id=${p.id}">
                             <div class="ratio ratio-16x9">
-                                ${isValidImageUrl ? `<img src="${imageUrl}" class="object-fit-cover" alt="img">` : 'Image Not Available'}
+                                ${isValidImageUrl ? `<img src="${imageUrl}" class="object-fit-cover" alt="img" loading="lazy">` : 'Image Not Available'}
                             </div>
                         </a>
                         <div class="content d-flex flex-column flex-grow-1 ">
@@ -124,33 +124,25 @@ function displaylist(tractors) {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
+                                                <label class="form-label" for="the_state"> <i class="fas fa-location"></i> State</label>
                                                 <select class="form-select py-2" aria-label="Default select example" id="the_state"name="state">
                                                 <option value="" selected disabled>Select State</option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label" for="district"><i class="fa-solid fa-location-dot"></i>District</label>
+                                                <label class="form-label" for="the_district"><i class="fa-solid fa-location-dot"></i>District</label>
                                                 <select class="form-select py-2"aria-label="Default select example"name="district" id="the_district">
                                                 <option value="" selected disabled>Select District</option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label"for="tehsil">Tehsil</label>
+                                                <label class="form-label"for="the_tehsil">Tehsil</label>
                                                 <select class="form-select py-2" aria-label="Default select example"name="tehsil" id="the_tehsil">
                                                 <option value="" selected disabled>Select Tehsil</option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -306,7 +298,7 @@ function appendFilterCard(filterContainer, filter) {
                     <div class="thumb">
                         <a href="hire_inner.php?id=${p.id}">
                             <div class="ratio ratio-16x9">
-                                ${isValidImageUrl ? `<img src="${imageUrl}" class="object-fit-cover" alt="img">` : 'Image Not Available'}
+                                ${isValidImageUrl ? `<img src="${imageUrl}" class="object-fit-cover" alt="img" loading="lazy">` : 'Image Not Available'}
                             </div>
                         </a>
                         <div class="content d-flex flex-column flex-grow-1 ">
@@ -381,33 +373,25 @@ function appendFilterCard(filterContainer, filter) {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
+                                                <label class="form-label" for="the_state"> <i class="fas fa-location"></i> State</label>
                                                 <select class="form-select py-2" aria-label="Default select example" id="the_state"name="state">
                                                 <option value="" selected disabled></option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label" for="district"><i class="fa-solid fa-location-dot"></i>District</label>
+                                                <label class="form-label" for="the_district"><i class="fa-solid fa-location-dot"></i>District</label>
                                                 <select class="form-select py-2"aria-label="Default select example"name="district" id="the_district">
-                                                <option value="" selected disabled></option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
+                                                    <option value="" selected disabled></option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label"for="tehsil">Tehsil</label>
+                                                <label class="form-label"for="the_tehsil">Tehsil</label>
                                                 <select class="form-select py-2" aria-label="Default select example"name="tehsil" id="the_tehsil">
-                                                <option value="" selected disabled></option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
+                                                    <option value="" selected disabled></option>
                                                 </select>
                                             </div>
                                         </div>

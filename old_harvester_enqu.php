@@ -44,28 +44,28 @@
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
-                  <label class="form-label">Search By Brand</label>
+                  <label class="form-label" for="brand_name">Search By Brand</label>
                   <select class="js-select2 form-select form-control mb-0" id="brand_name">
                   </select>
                 </div>
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline ">
-                  <label class="form-label">Model</label>
-                  <select class="form-select py-2" aria-label="Default select example"  id="model_1">
+                  <label class="form-label" for="model_1">Model</label>
+                  <select class="form-select py-2" aria-label="Default select example" id="model_1">
                   </select>
                 </div>
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
-                  <label class="form-label">State</label>
-                  <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1">
+                  <label class="form-label" for="state_1">State</label>
+                  <select class="form-select py-2 state_select" aria-label="Default select example" id="state_1">
                   </select>
                 </div>
               </div>
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
-                  <label class="form-label">District</label>
+                  <label class="form-label" for="district_2">District</label>
                   <select class="form-select py-2 district_select" aria-label="Default select example" id="district_2">
                   </select>
                 </div>
@@ -183,33 +183,33 @@
                       </div>
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                         <div class="form-outline">
-                          <label for="name" class="form-label text-dark">Brand Name</label>
+                          <label for="brand_name1" class="form-label text-dark">Brand Name</label>
                           <select class="js-select2 form-select form-control mb-0" id="brand_name1" name="bname">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                         <div class="form-outline">
-                          <label for="name" class="form-label text-dark">Model Name</label>
-                          <select class="form-select py-2" aria-label="Default select example"  id="model_2">
+                          <label for="model_2" class="form-label text-dark">Model Name</label>
+                          <select class="form-select py-2" aria-label="Default select example" id="model_2">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                         <div class="form-outline mt-4">
-                          <label for="name" class="form-label text-dark">First Name</label>
+                          <label for="fnam_e" class="form-label text-dark">First Name</label>
                           <input type="text" class="form-control" placeholder="" id="fnam_e" name="fname">
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                         <div class="form-outline mt-4">
-                          <label for="name" class="form-label text-dark">Last Name</label>
+                          <label for="lnam_e" class="form-label text-dark">Last Name</label>
                           <input type="text" class="form-control" placeholder="" id="lnam_e" name="lname">
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label for="name" class="form-label text-dark">Mobile Number</label>
+                          <label for="numbe_r" class="form-label text-dark">Mobile Number</label>
                           <input type="text" class="form-control" placeholder="" id="numbe_r" name="number">
                         </div>
                       </div>
@@ -221,21 +221,21 @@
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label class="form-label">State</label>
+                          <label class="form-label" for="state_">State</label>
                           <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state_">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label class="form-label">District</label>
+                          <label class="form-label" for="dist_">District</label>
                           <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_" name="dist">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                         <div class="form-outline mt-4">
-                          <label class="form-label">Tehsil</label>
+                          <label class="form-label" for="tehsi_l">Tehsil</label>
                           <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsi_l">
                           </select>
                         </div>

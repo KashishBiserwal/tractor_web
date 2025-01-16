@@ -134,7 +134,7 @@ function displayBrands(brands) {
                 <div class="brand-main box_shadow text-center">
                     <a class="weblink text-decoration-none text-dark" href="#" title="Old Tractors">
                         <img class="img-fluid " src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
-                            data-src="h" alt="Brand Logo" style="    height: 120px; padding: 10px;">
+                            data-src="h" alt="Brand Logo" style=" height: 120px; padding: 10px;" loading="lazy">
                         <p class="mb-0 pb-1 oneline">${b.brand_name}</p>
                     </a>
                 </div>
@@ -194,7 +194,7 @@ function displayPopularTractors(tractors, new_arr) {
             var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""style=" border-radius: 10px;">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""style="border-radius: 10px;" loading="lazy">
                             </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">

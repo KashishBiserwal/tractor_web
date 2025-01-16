@@ -18,12 +18,10 @@ $(document).ready(function() {
     
     });
 });
-
 function formatPriceWithCommas(price) {
     if (isNaN(price)) {
         return price; 
     }
-    
     return new Intl.NumberFormat('en-IN').format(price);
 }
 function formatDateTime(originalDateTimeStr) {
@@ -121,8 +119,7 @@ function formatDateTime(originalDateTimeStr) {
                 $("#errorStatusLoading").find('.modal-title').html('Error');
                 $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
                 window.location.href = baseUrl + "login.php"; 
-  
-              }
+             }
         }
     });
 } 
@@ -132,13 +129,11 @@ function fetch_data(product_id) {
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(data) {
-     
             if (data.rent_details && data.rent_details.data1 && data.rent_details.data1.length > 0) {
                 var rentData = data.rent_details.data1[0];
                 var rentData2 = data.rent_details.data2[0];
@@ -154,10 +149,8 @@ function fetch_data(product_id) {
                 document.getElementById('tehsil2').innerText = rentData.tehsil_name;
                 
                 $("#selectedImagesContainer-old").empty();
-    
                 if (rentData2.images) {
                     var imageNamesArray = Array.isArray(rentData2.images) ? rentData2.images : rentData2.images.split(',');
-                     
                     imageNamesArray.forEach(function (image, index) {
                         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + image.trim();
                         var newCard = `

@@ -121,7 +121,7 @@ function displayEngineoil(engineoil) {
                 <div class="success__stry__item h-100 shadow text-dark">
                     <div class="thumb">
                         <a href="engine_oil_inner.php?id=${p.id}">
-                            <img src="${imageSrc}" class="engineoil_img w-100" alt="img">
+                            <img src="${imageSrc}" class="engineoil_img w-100" alt="img" loading="lazy"> 
                         </a>
                     </div>
                     <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">

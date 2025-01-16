@@ -160,7 +160,7 @@ engineoil.forEach(function (p) {
   <div class="success__stry__item h-100 shadow text-dark">
       <div class="thumb">
           <a href="engine_oil_inner.php?id=${p.id}">
-              <img src="${imageSrc}" class="engineoil_img w-100" alt="img">
+              <img src="${imageSrc}" class="engineoil_img w-100" alt="img" loading="lazy">
           </a>
       </div>
       <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">
@@ -199,9 +199,9 @@ engineoil.forEach(function (p) {
               <input type="hidden" id="modelName" value="${p.oil_model}">
               <input type="hidden" id="enquiry_type_id" value="12" name="iduser">
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-              <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
-              <input type="text" class="form-control" id="product_id" value="${p.id}"> 
-          </div>
+                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
+                <input type="text" class="form-control" id="product_id" value="${p.id}"> 
+            </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                   <label for="firstName" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
                   <input type="text" class="form-control" placeholder="Enter First Name" id="firstName" name="firstName">
@@ -219,7 +219,6 @@ engineoil.forEach(function (p) {
                   <div class="form-outline mt-4 p-2">
                       <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                       <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
-                          <!-- Options for state dropdown -->
                       </select>
                   </div>
               </div>
@@ -242,7 +241,7 @@ engineoil.forEach(function (p) {
               </div>
           </div> 
           <div class="text-center my-3">
-              <button type="submit" id="submit_enquiry_${p.id}"   data-bs-dismiss="modal" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
+              <button type="submit" id="submit_enquiry_${p.id}" data-bs-dismiss="modal" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
           </div>        
       </form>                           
           </div>

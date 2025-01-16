@@ -38,14 +38,12 @@ $('#add_trac').on('click', function() {
         model: {
           required: true,
         },
-      
         grade:{
           required:true,
         },
         qualtity:{
           required:true,
           digits: true,
-
         },
         price: {
           required: true,
@@ -60,7 +58,6 @@ $('#add_trac').on('click', function() {
         _image:{
           required:true,
         }
-       
       },
       messages: {
         brand: {
@@ -69,15 +66,12 @@ $('#add_trac').on('click', function() {
         model: {
           required: "This field is required",
         },
-      
         grade:{
           required:"This field is required",
         },
-        
         qualtity:{
           required:"This field is required",
           digits: "Please enter only digits"
-
         },
         price: {
           required: "This field is required",
@@ -120,7 +114,6 @@ $('#add_trac').on('click', function() {
         qualtity:{
           required:true,
           digits: true,
-
         },
         price: {
           required: true,
@@ -134,8 +127,7 @@ $('#add_trac').on('click', function() {
         },
         _image:{
           required:true,
-        }
-       
+        }      
       },
       messages: {
         brand: {
@@ -152,7 +144,6 @@ $('#add_trac').on('click', function() {
         qualtity:{
           required:"This field is required",
           digits: "Please enter only digits"
-
         },
         price: {
           required: "This field is required",

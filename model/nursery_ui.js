@@ -111,7 +111,7 @@ $(document).ready(function() {
                     <div class="thumb">
                         <div>
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
+                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -180,15 +180,14 @@ $(document).ready(function() {
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
-                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
-                                                       
+                                                    <label for="state_1" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">                                                    
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_1" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
                                                        
                                                     </select>
@@ -196,7 +195,7 @@ $(document).ready(function() {
                                             </div>       
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                    <label for="Tehsil_1" class="form-label fw-bold "> Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
                                                         
                                                     </select>
@@ -638,7 +637,7 @@ function appendFilterCard(filterContainer, filter) {
                     <div class="thumb">
                         <div>
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
+                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -707,21 +706,21 @@ function appendFilterCard(filterContainer, filter) {
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                    <label for="state_1" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_1" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
                                                     </select>
                                                 </div>                    
                                             </div>       
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                    <label for="Tehsil_1" class="form-label fw-bold "> Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
                                                     </select>
                                                 </div>

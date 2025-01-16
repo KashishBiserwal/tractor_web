@@ -3,6 +3,7 @@
 <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
+    include 'includes/headertagadmin.php';
 ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -49,14 +50,14 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="form-outline mt-4">
-                                <label  for="_brand"class="form-label text-dark">Brand</label>
+                                <label for="b_brand"class="form-label text-dark">Brand</label>
                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="b_brand" required>
                                 </select>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="form-outline mt-4">
-                                <label for="_model"class="form-label text-dark">Model</label>
+                                <label for="m_model"class="form-label text-dark">Model</label>
                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="m_model" required>
                                 </select>
                             </div>

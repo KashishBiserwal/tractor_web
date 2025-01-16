@@ -45,14 +45,14 @@
                             <div class="row justify-content-center">
                               <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                                 <div class="form-outline">
-                                  <label class="form-label" for="brand">Brand</label>
+                                  <label for="brand_main" class="form-label" for="brand">Brand</label>
                                   <select class="form-select" id="brand_main" name="brand" required>
                                   </select>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3" hidden>
                                 <div class="form-outline">
-                                  <label class="form-label" for="model">idUser</label>
+                                  <label for="idUser" class="form-label" for="model">idUser</label>
                                   <input type="text" class="form-control" name="idUser" id="idUser" placeholder=""/>
                                 </div>
                               </div>
@@ -72,7 +72,7 @@
                               </div>
                               <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-3">
                                 <div class="form-outline">
-                                  <label for="lookupSelectbox" class="form-label">Sub-Category</label>
+                                  <label for="lookupSelect2" class="form-label">Sub-Category</label>
                                   <select class="form-select form-control py-2" value="lookupSelectbox2" for="lookupSelectbox2" id="lookupSelectbox2" aria-label="Default select example">
                                     <option value="" id="lookupSelect2">Select Category</option>
                                   </select>
@@ -117,7 +117,7 @@
                 <div class="row">
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="form-outline">
-                      <label class="form-label">Category</label> 
+                      <label for="seach_subcat1" class="form-label">Category</label> 
                       <select class="form-select form-control" id="seach_subcat1" aria-label="Default select example">
                         <option selected>Select Category</option>
                       </select>
@@ -125,7 +125,7 @@
                   </div>
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="form-outline">
-                      <label class="form-label">Subcategory</label> 
+                      <label for="seach_subcat" class="form-label">Subcategory</label> 
                       <select class="form-select form-control" id="seach_subcat" aria-label="Default select example">
                       </select>
                     </div>

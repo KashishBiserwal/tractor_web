@@ -3,6 +3,7 @@
 <head>
     <?php
       include 'includes/headertag.php';
+      include 'includes/headertagadmin.php';
       include 'includes/header.php';
     ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>

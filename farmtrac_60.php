@@ -3,6 +3,7 @@
 <head>
     <?php
         include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
         $product_id=$_REQUEST['product_id'];
         echo $product_id;
         include 'includes/footertag.php';

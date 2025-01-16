@@ -158,7 +158,7 @@ function getcompare_data() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -344,7 +344,7 @@ function getcompare_data1() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -529,7 +529,7 @@ function getcompare_data2() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -712,7 +712,7 @@ function getcompare_data3() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>

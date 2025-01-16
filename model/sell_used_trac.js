@@ -6,7 +6,6 @@ $(document).ready(function() {
     getUserDetail(userId);
 });
 
- 
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -28,8 +27,6 @@ function get() {
                         option.value = row.id;
                         select.appendChild(option);
                     });
-  
-                    // Add event listener to brand dropdown
                     select.addEventListener('change', function() {
                         const selectedBrandId = this.value;
                         get_model(selectedBrandId);
@@ -77,13 +74,9 @@ function get() {
         }
     });
   }
-  
   get();
 
-
   function get_year_and_hours() {
-    console.log('initsfd')
-    // var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
@@ -93,24 +86,19 @@ function get() {
         },
         success: function (data) {
             var hours_select = $("#h_driven");
-            hours_select.empty(); // Clear existing options
+            hours_select.empty(); 
             hours_select.append('<option selected disabled="" value="">Please select an option</option>'); 
-            console.log(data, 'ok');
             for (var k = 0; k < data.getHoursDriven.length; k++) {
                 var optionText = data.getHoursDriven[k].start + " - " + data.getHoursDriven[k].end;
-                // Adding space before hyphen for the first option
                 if (k === 0) {
-                    optionText = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0" + optionText; // Unicode for non-breaking space
+                    optionText = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0" + optionText; 
                 }
                 hours_select.append('<option value="' + k + '"' + (k === 0 ? ' style="margin-left: 30px;"'  :  '') + '>' + optionText + '</option>');
             }
-            
          
             var select_year = $("#p_year");
-            select_year.empty(); // Clear existing options
+            select_year.empty(); 
             select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
-  
-            // Sort the array in descending order
             data.getYears.sort(function(a, b) {
                 return b - a;
             });
@@ -120,7 +108,6 @@ function get() {
             }
         },
         complete: function() {
-            // You can add code here that will run after the request is complete
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -191,7 +178,6 @@ function verifyotp1() {
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle different error scenarios
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 var htmlcontent = `<p>Invalid credentials!</p>`;
@@ -285,7 +271,7 @@ function submitForm() {
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
             // Reload page after OK is clicked
             $('#errorStatusLoading').on('hidden.bs.modal', function () {
-                window.location.reload();
+                // window.location.reload();
             });
         },
         error: function (error) {

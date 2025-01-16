@@ -5,6 +5,7 @@
 <head>
     <?php
         include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
     ?>
     <style>
         .form-outline .form-label {
@@ -67,14 +68,12 @@
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
 <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-6Z38E658LD');
 </script>
 <body>
@@ -172,14 +171,16 @@
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">About Tractor Loan EMI Calculator in India</h3>
                 <div class="" role="alert">
-                    <p>
-                        EMI is the monthly payment to repay a loan. It includes interest and principal. The amount is
-                        divided by the loan term.</p>
+                    <p>EMI is the monthly payment to repay a loan. It includes interest and principal. The amount is
+                        divided by the loan term.
+                    </p>
                     <p>The percentage of the EMI that goes towards principal payment depends on the interest rate. The
-                        interest portion of the EMI is higher in the beginning and decreases over time.</p>
+                        interest portion of the EMI is higher in the beginning and decreases over time.
+                    </p>
                     <p>The amount of principal and interest in your EMI will stay the same, but the percentage of each will
                         change over time. You will pay more towards the principal and less towards interest as you make more
-                        payments.</p>
+                        payments.
+                    </p>
                     <p>The formula for calculating EMI is:</p>
                     <P class="text-danger">EMI = P * r * (1 + r)^n / (1 + r)^n - 1</P>Where:
                     <ul>
@@ -188,7 +189,8 @@
                         <li><span class="text-danger">n</span> is the loan term in months</li>
                     </ul>
                     <p>Let's use an example to calculate the EMI. Let's say you borrow Rs 5,00,000 from a bank at a rate of
-                        10% per year for 5 years (60 months). Your EMI will be:</p>
+                        10% per year for 5 years (60 months). Your EMI will be:
+                    </p>
                     <p class="text-danger">EMI = 500000 * 0.01 * (1 + 0.01)^60 / (1 + 0.01)^60 - 1</p>
                     <p class="text-danger">= 10,833.33</p>
                     <p>This means that you will need to pay Rs 10,833.33 every month for 5 years to repay the loan.</p>
@@ -196,30 +198,37 @@
                     <p>It's the money you give back for the tractor loan. Pay it monthly, every 3 or 6 months. Remember,
                         interest is higher at the start and interest rate is the percent added on the main amount. Imagine
                         you borrow money to buy a tractor. The EMI (Equated Monthly Installment) is the amount you pay back
-                        each month, every 3 months, or every 6 months to the bank or lender.</p>
+                        each month, every 3 months, or every 6 months to the bank or lender.
+                    </p>
                     <h6 class="fw-bold assured px-2">What is Tractor Loan Interest Rate?</h6>
                     <p>The interest rate is like a fee the bank charges for letting you borrow their money. It's calculated
                         as a percentage of the total loan amount. So, when you know the loan amount, the interest rate, and
                         how often you'll pay, you can use the EMI calculator to see exactly how much you'll be paying back.
-                        This way, you can plan your finances wisely and make your tractor dream come true.</p>
+                        This way, you can plan your finances wisely and make your tractor dream come true.
+                    </p>
                     <h6 class="fw-bold assured px-2">Choose Your EMI Plan</h6>
                     <p>At BharatAgrimart's, we understand that different farmers have different needs and income cycles.
                         That's why we offer you a variety of options to choose from when it comes to repaying your tractor
-                        loan.</p>
+                        loan.
+                    </p>
                     <p>Certainly, we give you the flexibility to choose your payment frequency – whether it's every month,
                         every three months (quarterly), or every six months (half-yearly). This adaptable approach ensures
                         that your repayment schedule aligns seamlessly with your income patterns, offering you comfort
                         throughout your tractor loan journey. And with our EMI calculator for tractor loans, you can easily
-                        determine your repayment amounts.</p>
+                        determine your repayment amounts.
+                    </p>
                     <p>Our platform is designed to make things easy for you. We provide a tool that helps you find out
                         exactly how much you need to pay based on the payment frequency you select. Whether it's on a
                         monthly basis, every few months, or twice a year, you'll know the exact amount you're expected to
-                        pay.</p>
+                        pay.
+                    </p>
                     <p>So, rest assured that with BharatAgrimart's, you're in control. You can plan your finances smartly and
-                        avoid any surprises.</p>
+                        avoid any surprises.
+                    </p>
                     <p>We believe in transparency and ensuring that you're fully aware of your payment commitments. Choose
                         the payment schedule that suits you best and embark on your tractor ownership journey with
-                        confidence.</p>
+                        confidence.
+                    </p>
                 </div>
             </div>
         </section>
@@ -229,12 +238,15 @@
                 <h3 class="fw-bold assured px-2 py-2">How to Use a Tractor EMI Calculator?</h3>
                 <div class="" role="alert">
                     <p>Calculating your tractor loan EMI is a breeze with our user-friendly EMI Calculator. Here's how to go
-                        about it:</p>
+                        about it:
+                    </p>
                     <p><span class="fw-bold">1. Select Brand:</span> Choose the brand of tractor you're interested in.</p>
                     <p><span class="fw-bold">2. Select Model:</span> Pick the specific model of the tractor you want to know
-                        the EMI for.</p>
+                        the EMI for.
+                    </p>
                     <p><span class="fw-bold">3. Click 'Calculate EMI':</span>After making your selections, click on the
-                        'Calculate EMI' button.</p>
+                        'Calculate EMI' button.
+                    </p>
                     <p>Once you do that, you'll see the following details displayed:</p>
                     <ul>
                         <li>• EMI: This is your monthly installment amount.</li>
@@ -245,8 +257,8 @@
                     <p>You'll Pay Extra: This shows how much more than the tractor's cost you'll be paying due to interest.
                     </p>
                     <p>With these details at your fingertips, you can make informed decisions about your tractor loan. It's
-                        simple and hassle-free – just the way we like to help you!</p>
-
+                        simple and hassle-free – just the way we like to help you!
+                    </p>
                 </div>
             </div>
         </section>
@@ -258,7 +270,8 @@
                         calculations so that you can make wise decisions before financing your tractor. This well-programmed
                         tool helps you get the precise amount or sum that you would have to pay to buy your new or used
                         tractor in India. You can easily find EMI value for any tractor brand and model of choice in quick
-                        clicks.</p>
+                        clicks.
+                    </p>
                     <i>Explore the tool now to know your monthly repayment sum before taking a 
                         <a class="text-decoration-none" href="new_tractor_loan.php">tractor loan</a>!</i>
                 </div>
@@ -282,7 +295,8 @@
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. EMI is Equated Monthly Instalments. It is the monthly
                                         instalment amount you pay throughout the loan time period against the tractor loan
-                                        you take from lending banks. </p>
+                                        you take from lending banks. 
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -296,7 +310,8 @@
                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. Tractor down payment is the partial amount you pay against the
-                                        total tractor loan amount.</p>
+                                        total tractor loan amount.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -328,14 +343,15 @@
                                 data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. You can calculate EMI with BharatAgrimart's in 3 steps:
-                                    <ul>
-                                        <li>(a) Visit BharatAgrimart's official website.</li>
-                                        <li>(b) Click on the EMI Calculator tab on the main menu bar.</li>
-                                        <li>(c) Select the Tractor brand and model, enter the required details, and finally,
-                                            click on the “calculate EMI” button.</li>
-                                    </ul>
-                                    Upon doing that, you will get the total EMI payable based on the loan tenure, interest
-                                    rate and loan amount.</p>
+                                        <ul>
+                                            <li>(a) Visit BharatAgrimart's official website.</li>
+                                            <li>(b) Click on the EMI Calculator tab on the main menu bar.</li>
+                                            <li>(c) Select the Tractor brand and model, enter the required details, and finally,
+                                                click on the “calculate EMI” button.</li>
+                                        </ul>
+                                        Upon doing that, you will get the total EMI payable based on the loan tenure, interest
+                                        rate and loan amount.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +367,8 @@
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. The late fees on missed EMI depends on the bank and lending
                                         institution you apply for a tractor loan from. Make sure to read their terms and
-                                        conditions before acquiring any loan.</p>
+                                        conditions before acquiring any loan.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -365,7 +382,8 @@
                                 data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. The maximum loan tenure for tractors is 84 months which is 7
-                                        years.</p>
+                                        years.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -374,20 +392,21 @@
                                 <button class="accordion-button collapsed  fw-bold h4" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseoil" aria-expanded="false"
                                     aria-controls="flush-collapseoil">Que. What to do after paying the last tractor loan
-                                    EMI?</button>
+                                    EMI?
+                                </button>
                             </h2>
                             <div id="flush-collapseoil" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingoil" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. After paying the last tractor loan EMI:
-                                    <ul>
-                                        <li>(a) Make sure to get your bank's close loan receipt and the last EMI receipt.
-                                        </li>
-                                        <li>(b) Get the NOC (No Objection Certificate) or the NDC (No Due Certificate) from
-                                            the
-                                            bank or lending institution.</li>
-                                        <li>(c) Get the repayment certificate from the Bank.</li>
-                                    </ul>
+                                        <ul>
+                                            <li>(a) Make sure to get your bank's close loan receipt and the last EMI receipt.
+                                            </li>
+                                            <li>(b) Get the NOC (No Objection Certificate) or the NDC (No Due Certificate) from
+                                                the
+                                                bank or lending institution.</li>
+                                            <li>(c) Get the repayment certificate from the Bank.</li>
+                                        </ul>
                                     </p>
                                 </div>
                             </div>
@@ -404,7 +423,8 @@
                                 <div class="accordion-body">
                                     <p class="text-dark">Ans. For a tractor loan, you must submit a copy of all the KYC
                                         documents to the finance company. The KYC includes your current address, income
-                                        proof, Aadhar Card, PAN Card, and Bank statement.</p>
+                                        proof, Aadhar Card, PAN Card, and Bank statement.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -440,7 +460,8 @@
                             </p>
                             <a href="javascript:void(0)"
                                 class=" text-primary read-more text-decoration-none fw-bold float-end"
-                                data-toggle="collapse" data-target="#collapse1"></a>
+                                data-toggle="collapse" data-target="#collapse1">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -464,9 +485,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div> -->
                         </div>
-                        <!-- <img src="assets\images\preet-4049-4WD.webp" class="w-100 mt-3"> -->
                         <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-2" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">Get on road
                             Price</button>
@@ -530,21 +549,21 @@
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                         <div class="form-outline">
-                                                            <label for="state" class="form-label  fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                            <label for="state_form" class="form-label  fw-bold"> <i class="fas fa-location"></i> State</label>
                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                         <div class="form-outline">
-                                                            <label for="district" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                            <label for="district_form" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                             <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                                             </select>
                                                         </div>
                                                     </div>       
                                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                         <div class="form-outline">
-                                                            <label for="Tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                            <label for="tehsil" class="form-label fw-bold "> Tehsil</label>
                                                             <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                                              </select>
                                                         </div>
@@ -554,19 +573,16 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                    
                                         <button type="button" id="button_hire" class="btn btn-danger"  data-bs-dismiss="modal" onclick="savedata()">Request</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
                     <div class="col-12 col-md-6 col-sm-6 col-lg-6 mt-5">
                         <div class="row">
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
                                 <label for="emiAmount" class="form-label h3 text-dark fw-bold">EMI</label>
-
                             </div>
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
                                 <input type="text" class="form-control" id="emiAmount" readonly>
@@ -597,11 +613,9 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="container shadow mt-5 mb-3">
                 <div class="row">
-                    <!-- Downpayment -->
                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
                         <label for="downPayment" class="form-label fw-bold text-dark h5 ">Downpayment (₹)</label>
                         <input type="range" class="form-range" id="downPaymentRange" min="0" max="" step="10000"
@@ -609,8 +623,6 @@
                         <input type="number" class="form-control mt-2 w-25" id="downPayment" min="0" max="" value="10">
                         <div class="invalid-feedback" id="downPaymentError"></div>
                     </div>
-
-                    <!-- Bank Interest Rate -->
                     <div class=" col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
                         <label for="interestRate" class="form-label fw-bold text-dark h5 ">Bank Interest Rate
                             (%)</label>

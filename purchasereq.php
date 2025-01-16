@@ -29,13 +29,13 @@
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="form-outline">
-                    <label class="form-label">Brand</label>
+                    <label class="form-label" for="brand">Brand</label>
                     <input type="email" id="brand" name="search_name" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="form-outline">
-                    <label class="form-label">Model Number</label>
+                    <label class="form-label" for="modal_no">Model Number</label>
                     <input type="text" id="modal_no" name="search_email" class="form-control" />
                   </div>
                 </div>

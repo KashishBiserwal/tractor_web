@@ -52,7 +52,7 @@
                             <div class="row justify-content-center">
                               <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
                                 <div class="form-outline">
-                                  <label for="name" class="form-label text-dark">News Category</label>
+                                  <label for="brand" class="form-label text-dark">News Category</label>
                                   <select class="form-select form-control py-2" name="brand" for="lookupSelectbox" id="brand" aria-label="Default select example">
                                     <option value="" id="">Select Type Name</option>
                                   </select>
@@ -60,13 +60,13 @@
                               </div>
                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                 <div class="form-outline ">
-                                  <label for="name" class="form-label text-dark">News Headline</label>
+                                  <label for="headline" class="form-label text-dark">News Headline</label>
                                   <input type="text" class="form-control" placeholder="" id="headline" name="headline">
                                 </div>
                               </div>
                               <div class="col-12 mt-3">
                                 <div class="form-outline">
-                                  <label class="form-label text-dark">Body/ News Content</label>
+                                  <label for="contant" class="form-label text-dark">Body/ News Content</label>
                                   <textarea class="w-100 p-2" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength="5000"></textarea>
                                 </div>
                               </div>

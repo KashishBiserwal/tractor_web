@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
     include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
     $product_id=$_REQUEST['product_id'];
     echo $product_id;
     include 'includes/footertag.php';
@@ -88,17 +89,17 @@
                                         <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark " id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                        <label for="state_form_1" class="form-label text-dark " id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="state_form_1" name="state">
                                         </select>
                                     </div> 
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <label for="district_form_1" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_form_1"  name="district">
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
+                                        <label for="tehsil" class="form-label text-dark"> Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                         </select>
                                     </div>
@@ -348,7 +349,6 @@
         </div>
     </div>
 </div>
-
 
 <?php 
  include 'includes/footertag.php'; 

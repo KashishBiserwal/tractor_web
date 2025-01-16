@@ -88,7 +88,7 @@ function appendCard(container, p) {
         <div class="thumb">
             <a href="farmtrac_60.php?product_id=${p.customer_id}">
                 <div class="ratio ratio-16x9">
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}" loading="lazy">
                 </div>
             </a>
         </div>
@@ -99,14 +99,13 @@ function appendCard(container, p) {
                 </a>      
             </div>
            <div class=" row text-center">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
-                    </div>
-                   
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
                 </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
+                </div>
+            </div>
                
                 <div class="row text-center">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -167,7 +166,7 @@ function appendCard(container, p) {
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                        <label for="state_form" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                             <!-- Options for state dropdown -->
                                         </select>
@@ -175,7 +174,7 @@ function appendCard(container, p) {
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <label for="district_form" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                             <!-- Options for district dropdown -->
                                         </select>
@@ -183,7 +182,7 @@ function appendCard(container, p) {
                                 </div>       
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                        <label for="tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                            
                                         </select>
@@ -729,7 +728,7 @@ function appendFilterCard(filterContainer, p) {
         <div class="thumb">
             <a href="farmtrac_60.php?product_id=${p.customer_id}">
                 <div class="ratio ratio-16x9">
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                 </div>
             </a>
         </div>
@@ -808,7 +807,7 @@ function appendFilterCard(filterContainer, p) {
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                        <label for="state_form" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                             <!-- Options for state dropdown -->
                                         </select>
@@ -816,7 +815,7 @@ function appendFilterCard(filterContainer, p) {
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <label for="district_form" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                             <!-- Options for district dropdown -->
                                         </select>
@@ -824,7 +823,7 @@ function appendFilterCard(filterContainer, p) {
                                 </div>       
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                        <label for="tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                            
                                         </select>
@@ -832,7 +831,7 @@ function appendFilterCard(filterContainer, p) {
                                 </div>
                               <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                 <div class="form-outline mt-4">
-                                    <label for="name" class="form-label text-dark">Price </label>
+                                    <label for="price_form" class="form-label text-dark">Price </label>
                                     <input type="text" class="form-control price_form py-2" placeholder="Enter Price" id="price_form" name="price">
                                 </div>
                               </div>

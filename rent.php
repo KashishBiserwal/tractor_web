@@ -3,6 +3,7 @@
 <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
+    include 'includes/headertagadmin.php';
 ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -185,6 +186,27 @@
     margin:5px;
   }
 }
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .card {
+        margin: 0 auto; /* Center align cards */
+    }
+
+    .images {
+        object-fit: cover;
+        width: 100%; /* Ensure the image fills the card width */
+    }
+}
+
 </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -786,46 +808,47 @@
                 </div>
             </div>
         </div>
-    <div class="container mt-5">
-        <h3 class="text-center mb-4 fw-bold ">EASY RENTAL FOR TRACTOR AND IMPLEMENT</h3>
-        <div class="row">
-             <!-- Card 1 with shadow -->
-            <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
-                <div class="card shadow ">
-                    <img src="assets\images\phone.png" class="card-img-top images" alt="Tractor Insurance 1"
-                        style="height: 250px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center  fw-bold ">Tractor & Implement</h5>
-                        <p class="card-text text-center">List your tractors and implements for additional income</p>
+        <div class="container mt-5">
+            <h3 class="text-center mb-4 fw-bold">EASY RENTAL FOR TRACTOR AND IMPLEMENT</h3>
+            <div class="row justify-content-center">
+                <!-- Card 1 with shadow -->
+                <div class="col-12 col-md-6 col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow">
+                        <img src="assets/images/phone.png" class="card-img-top images" alt="Tractor Insurance 1"
+                            style="height: 250px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center fw-bold">Tractor & Implement</h5>
+                            <p class="card-text text-center">List your tractors and implements for additional income</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card 2 with shadow -->
-            <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
-                <div class="card shadow ">
-                    <img src="assets\images\quick.png" class="card-img-top images " alt="Tractor Insurance 2"
-                        style="height: 250px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center  fw-bold ">Quick Information</h5>
-                        <p class="card-text text-center">List your or implement with minimun information and earning
-                            additional income
-                        </p>
+                <!-- Card 2 with shadow -->
+                <div class="col-12 col-md-6 col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow">
+                        <img src="assets/images/quick.png" class="card-img-top images" alt="Tractor Insurance 2"
+                            style="height: 250px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center fw-bold">Quick Information</h5>
+                            <p class="card-text text-center">List your implement with minimum information and earn
+                                additional income
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card 3 with shadow -->
-            <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
-                <div class="card shadow">
-                    <img src="assets\images\rent_tractor.jpg" class="card-img-top images" alt="Tractor Insurance 3"
-                        style="height: 250px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center  fw-bold ">Rent Tractor</h5>
-                        <p class="card-text text-center">Start renting your tractors and implement easy near by you</p>
+                <!-- Card 3 with shadow -->
+                <div class="col-12 col-md-6 col-lg-4 col-sm-6 mb-4">
+                    <div class="card shadow">
+                        <img src="assets/images/rent_tractor.jpg" class="card-img-top images" alt="Tractor Insurance 3"
+                            style="height: 250px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center fw-bold">Rent Tractor</h5>
+                            <p class="card-text text-center">Start renting your tractors and implement easily near you</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
     <div class="container">
         <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
         <p> Rent tractors are also the best options for some farmers who are looking to purchase on a minimum budget.

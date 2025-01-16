@@ -159,7 +159,6 @@
             </div>
         </div>
     </div>
-
      <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">

@@ -1,15 +1,11 @@
  
   $(document).ready(function(){
-   
     $('#dataeditbtn').click(edit_id);
-   
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
     
-            
       $("#old_tractor_form").validate({
-      
       rules: {
         bname: {
           required: true,
@@ -65,7 +61,6 @@
           digits: "Please enter only digits"
         },
         email:{
-
           required:"This field is required",
           email:"Please Enter vaild Email",
         },
@@ -75,17 +70,13 @@
         dist: {
           required: "This field is required",
         },
-      
       },
-      
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
       });
       $("#dataeditbtn").on("click", function () {
-    
         $("#old_tractor_form").valid();
-      
       });
     });
 

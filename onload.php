@@ -19,14 +19,14 @@
   gtag('config', 'G-6Z38E658LD');
 </script>
 <style>
-    .page-banner-content-size
-    {
+  .page-banner-content-size
+  {
     position: fixed;
     content: "";
     left: 0;
     top: 3% !important;
     width: 100%;
-    }
+  }
 </style>
 <body>
    <?php
@@ -66,47 +66,47 @@
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
                 <div class=" form-outline mt-5">
-                  <label class="form-label text-dark">Brand</label>
+                  <label for="brand" class="form-label text-dark">Brand</label>
                   <select class="form-select" name="brand" id="brand" onchange="getModel(this.value)" required="">
                   </select>
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
                 <div class=" form-outline mt-5">
-                  <label class="form-label text-dark">Model</label>
+                  <label for="model_1" class="form-label text-dark">Model</label>
                   <select class="form-select" name="model" id="model_1" required="">
                   </select>
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
                 <div class="form-outline mt-2">
-                  <label class="form-label text-dark">First Name</label>
+                  <label for="first_name" class="form-label text-dark">First Name</label>
                   <input type="text" id="first_name" placeholder="Enter Name" name="first_name" class=" search form-control input-group-sm" />
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
                 <div class="form-outline mt-2">
-                  <label class="form-label text-dark">Last Name</label>
+                  <label for="last_name" class="form-label text-dark">Last Name</label>
                   <input type="text" id="last_name" placeholder="Enter Name" name="last_name" class=" search form-control input-group-sm" />
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
                 <div class="form-outline mt-2">
-                  <label class="form-label text-dark">Mobile Number</label>
+                  <label for="mobile_no" class="form-label text-dark">Mobile Number</label>
                   <input type="text" id="mobile_no" placeholder="Enter Number"  name="mobile_no" class=" search form-control input-group-sm" />
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                 <div class=" form-outline mt-2">
-                  <label class="form-label text-dark">State</label>
-                  <select class="form-select" name="state" id="state"  required="" onchange="getDistricts(this.value)">
+                  <label for="state" class="form-label text-dark">State</label>
+                  <select class="form-select" name="state" id="state" required="" onchange="getDistricts(this.value)">
                   </select>
                   <span class="text-danger"></span>
                 </div>
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                 <div class=" form-outline mt-2">
-                  <label class="form-label text-dark">District</label>
+                  <label for="district" class="form-label text-dark">District</label>
                   <select class="form-select" name="district" id="district"  required="">
                   </select>
                   <span class="text-danger"></span>
@@ -114,7 +114,7 @@
               </div>
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                 <div class="form-outline mt-2">
-                  <label class="form-label text-dark">Tehsil </label>
+                  <label for="tehsil" class="form-label text-dark">Tehsil </label>
                   <select class="form-select" name="tehsil" id="tehsil"  required="">
                   </select>
                 </div>

@@ -3,6 +3,7 @@
 
     <?php
         include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
         include 'includes/footertag.php';
         include 'includes/spinner.php';
     ?> 

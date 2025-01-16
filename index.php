@@ -4,6 +4,7 @@
   <?php
   include 'includes/headertag.php';
   include 'includes/footertag.php';
+  include 'includes/headertagadmin.php';
   ?> 
 
   <!-- Preload Critical Image -->
@@ -22,7 +23,7 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/index.js"defer></script>
-
+  <!-- <script src="<?php $baseUrl; ?>model/indexminify.js"defer></script> -->
 </head>
 
   <body> 
@@ -110,50 +111,67 @@
     flex-direction: column;
     justify-content: flex-end;
   }
+  @media screen and (max-width: 912px) {
+    #search_form_container {
+  position: absolute;
+  top: 30%; 
+  left: 5px; 
+  width: 350px;
+  background-color: #f8f9fac9;
+  padding: 20px;
+  display: block;
+  z-index: 5;
+}
+  }
+}
 </style>
 <section id="home-banner" class="banner__section overflow-hidden">
-  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="6" aria-label="Slide 7"></button>
     </div>
+
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
-      <div class="carousel-item active" style="position: relative;">
-        <img src="assets/images/Slide-1.png" alt="New York" class="d-block mx-auto w-100" loading="lazy">
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-2.png" alt="New York"  loading="lazy" class="d-block mx-auto w-100">
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-3 (1).png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-4.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
-      </div>
-      <div class="carousel-item" style="position: relative;"> 
-        <img src="assets/images/Slide-5.png" alt="New York" loading="lazy" class="d-block mx-auto w-100"> 
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/new_image_for_slide6.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
-      </div>
-      <div class="carousel-item" style="position: relative;">
-        <img src="assets/images/Slide-7.png" alt="New York" loading="lazy" class="d-block mx-auto w-100">
-      </div>
+        <div class="carousel-item active" style="position: relative;">
+            <img src="assets/images/Slide-1.png" alt="Slide 1: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
+        <div class="carousel-item" style="position: relative;">
+            <img src="assets/images/Slide-2.png" alt="Slide 2: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
+        <div class="carousel-item" style="position: relative;">
+            <img src="assets/images/Slide-3 (1).png" alt="Slide 3: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
+        <div class="carousel-item" style="position: relative;">
+            <img src="assets/images/Slide-4.png" alt="Slide 4: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
+        <div class="carousel-item" style="position: relative;">
+            <img src="assets/images/Slide-5.png" alt="Slide 5: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
+        <div class="carousel-item" style="position: relative;">
+            <img src="assets/images/new_image_for_slide6.png" alt="Slide 6: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
+        <div class="carousel-item" style="position: relative;">
+            <img src="assets/images/Slide-7.png" alt="Slide 7: Description of New York" class="d-block mx-auto w-100" loading="lazy">
+        </div>
     </div>
+
     <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="margin-left:-70px; z-index: 4;">
-      <span class="carousel-control-prev-icon bg-success"></span>
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" aria-label="Previous slide" style="margin-left:-70px; z-index: 4;">
+        <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" style="margin-right:-70px; z-index: 4;">
-      <span class="carousel-control-next-icon bg-success"></span>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" aria-label="Next slide" style="margin-right:-70px; z-index: 4;">
+        <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
     </button>
-  </div>
+</div>
+
   <div id="search_form_container">
     <form id="search_form">
       <div class="row">

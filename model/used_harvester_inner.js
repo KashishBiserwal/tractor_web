@@ -176,7 +176,7 @@ function displayPopularTractors(tractors, new_arr) {
                             <div class="text-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
                                     <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
+                                        style=" border-radius: 10px;" loading="lazy">
                                 </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">
@@ -256,7 +256,7 @@ function displayupcomingTractors(tractors, new_arr) {
                             <div class="text-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
                                     <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
+                                        style=" border-radius: 10px;" loading="lazy">
                                 </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">
@@ -275,7 +275,6 @@ function displayupcomingTractors(tractors, new_arr) {
         }
     });
 }
-
 
 function store(event) {
     event.preventDefault();

@@ -129,49 +129,49 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline ">
-                                    <label class="form-label text-dark">Brand</label>
+                                    <label for="brand_brand" class="form-label text-dark">Brand</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="brand_brand" name="brand">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                   <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Model Name</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example"  id="model_model" name="model">
+                                    <label for="model_model" class="form-label text-dark">Model Name</label>
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="model_model" name="model">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline">
-                                    <label class="form-label text-dark">Crop Type</label>
+                                    <label for="CROPS_TYPE" class="form-label text-dark">Crop Type</label>
                                     <select class="form-select form-control " aria-label=".form-select-lg example" id="CROPS_TYPE" name="CROPS_TYPE">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline ">
-                                    <label class="form-label text-dark"> Power Source</label>
+                                    <label for="POWER_SOURCE" class="form-label text-dark"> Power Source</label>
                                     <select class="form-select form-control " aria-label=".form-select-lg example" id="POWER_SOURCE" name="POWER_SOURCE">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline">
-                                    <label class="form-label text-dark">Hours</label>
+                                    <label for="hours" class="form-label text-dark">Hours</label>
                                     <select class="form-select form-control " aria-label=".form-select-lg example" id="hours" name="hours">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline">
-                                    <label class="form-label text-dark">Purchase Year</label>
+                                    <label for="year" class="form-label text-dark">Purchase Year</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="year" name="year">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                   <div class="form-outline">
-                                    <label for="name" class="form-label text-dark">Price</label>
+                                    <label for="price" class="form-label text-dark">Price</label>
                                     <input type="text" class="form-control" placeholder="Enter Price" id="price" name="price">
                                   </div>
                                 </div>
@@ -213,21 +213,21 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                   <div class="form-outline ">
-                                    <label class="form-label text-dark">State</label>
+                                    <label for="state" class="form-label text-dark">State</label>
                                     <select class="form-select form-control state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                   <div class="form-outline ">
-                                    <label class="form-label text-dark">District</label>
+                                    <label for="district" class="form-label text-dark">District</label>
                                     <select class="form-select form-control district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                   <div class="form-outline ">
-                                    <label class="form-label text-dark">Tehsil</label>
+                                    <label for="tehsil" class="form-label text-dark">Tehsil</label>
                                     <select class="form-select form-control tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                     </select>
                                   </div>
@@ -254,21 +254,21 @@
                     <div class="row">
                       <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline">
-                          <label class="form-label"> Brand Name</label>
+                          <label for="brand2" class="form-label">Brand Name</label>
                           <select class="form-select form-control brand_select" id="brand2">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline ">
-                          <label class="form-label">Model</label>
-                          <select class="form-select form-control model_select" aria-label="Default select example"id="model_name" name="model">
+                          <label for="model_name" class="form-label">Model</label>
+                          <select class="form-select form-control model_select" aria-label="Default select example" id="model_name" name="model">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="form-outline">
-                          <label class="form-label">State</label>
+                          <label for="state_name" class="form-label">State</label>
                           <select class="form-select form-control state_select" aria-label="Default select example" id="state_name" name="state">
                           </select>
                         </div>

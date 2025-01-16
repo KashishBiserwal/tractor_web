@@ -3,6 +3,7 @@
 <head>
 <?php
     include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
     $product_id=$_REQUEST['product_id'];
     include 'includes/footertag.php';
 ?>
@@ -38,144 +39,151 @@
 <section>
     <div class="container">
         <div class="row my-3">
-            <div class="col-12 col-sm-6 col-lg-6 col-md-6"><div>
-            <h4></span> <span  id="brand_model_name"></span></h4>
-        </div>
-        <div>
-            <div class="swiper swiper_buy mySwiper2_buy">
-                <div class="swiper-wrapper swiper-wrapper_buy">
-                    <div class=" swiper-slide swiper-slide_buy">/div>
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+            <div>
+                <h4></span> <span  id="brand_model_name"></span></h4>
                 </div>
-            </div>
-        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="z-index: 9; background: #fff;">
-        <div class="pirce-section ">
-            <h5 class="my-2">₹ <span id="price_main"></span> /-</h5>
-        </div>
-        <form action="" method="POST" id="interested-harvester-form" class="outline-solid bg-light">
-            <h5 class="text-black fw-bold text-center my-2 ">Interested In Harvester</h5>
-            <div class="row my-3">
-                <div class="col-12 justify-content-center">
-                    <div class="d-flex flex-md-row px-3  flex-column-reverse">
-                        <div class="col-md-12 col-12 col-lg-12 col-lg-12">
-                            <div class=" ml-2">
-                                <div class="row px-3 ">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="customer_id" name="fname">
-                                    </div>
-                                    <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                        <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="22" name="first_name" placeholder="Enter First Name">
-                                        <small></small>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i>Model</label>
-                                        <input type="text" class="form-control" placeholder="" id="model" name="model">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your First Name" id="fname" name="fname">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Last Name" id="lname" name="lname">
-                                    </div>
-                                    <div class="col-12 ">
-                                        <label for="number" class="form-label text-dark "> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                        <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
+                    </div>
+                </div>
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="z-index: 9; background: #fff;">
+                 <div class="pirce-section ">
+                    <h5 class="my-2">₹ <span id="price_main"></span> /-</h5>
+                </div>
+          
+                <form action="" method="POST" id="interested-harvester-form" class="outline-solid bg-light">
+                <h5 class="text-black fw-bold text-center my-2 ">Interested In Harvester</h5>
+                    <div class="row my-3">
+                        <div class="col-12 justify-content-center">
+                            <div class="d-flex flex-md-row px-3  flex-column-reverse">
+                            <div class="col-md-12 col-12 col-lg-12 col-lg-12">
+                                <div class=" ml-2">
+                                    <div class="row px-3 ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="customer_id" name="fname">
+                                        </div>
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="22" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i>Model</label>
+                                            <input type="text" class="form-control" placeholder="" id="model" name="model">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your First Name" id="fname" name="fname">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your Last Name" id="lname" name="lname">
+                                        </div>
+                                        <div class="col-12 ">
+                                            <label for="number" class="form-label text-dark "> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                            <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_state" class="form-label text-dark "  name="state"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                           
                                         </select>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                           
                                         </select>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_price" class="form-label text-dark">Price</label>
-                                        <input type="yr_price" class="form-control" placeholder="Enter Price" id="price" name="price">
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                        <div class="">
-                                            <input type="submit" id="submit_enquiry" value="Contact Seller" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="get_OTP_btn"> 
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                        <div class="get-loan text-center ">
-                                            <a href="new_tractor_loan.php" class="btn border-success text-success w-100">Get Loan</a>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                            <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                           
+                                           </select>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                            <label for="yr_price" class="form-label text-dark">Price</label>
+                                            <input type="yr_price" class="form-control" placeholder="Enter Price" id="price" name="price">
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                            <div class="">
+                                            <input type="submit" id="submit_enquiry" value="Contact Seller" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="get_OTP_btn"> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                            <div class="get-loan text-center ">
+                                                <a href="new_tractor_loan.php" class="btn border-success text-success w-100">Get Loan</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </section>
 <section class="bg-light mt-n5 ">
     <div class="container">
         <div class="row mb-2">
             <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                 <div class="row my-4">
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
-                        <div class="Engine shadow p-3 "style="backdistrictground-color:#fff">
-                            <div class="col-12 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="Engine shadow p-3" style="background-color:#fff">
+                            <div class="text-center">
                                 <img src="assets/images/location.png" width="50" height="50" alt="">
                             </div>
-                            <div class="col-12">
+                            <div>
                                 <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Location</h6>
                                 <p class="engine_name text-center" id="location"></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
-                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="Total-Hours shadow p-3" style="background-color:#fff">
+                            <div class="text-center">
                                 <img src="assets/images/engine.png" width="50" height="50" alt="">
                             </div>
-                            <div class="col-12">
+                            <div>
                                 <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Power Source</h6>
                                 <p class="total_time text-center" id="power_source1"></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="RTO shadow p-3" style="background-color:#fff">
+                            <div class="text-center">
                                 <img src="assets/images/total-hours.png" width="50" height="50" alt="">
                             </div>
-                            <div class="col-12">
-                                <h6 class=" text-center fw-bold m-1 text-dark">Total Hours</h6>
-                                <p class=" text-center" id="hour"></p>
+                            <div>
+                                <h6 class="text-center fw-bold m-1 text-dark">Total Hours</h6>
+                                <p class="text-center" id="hour"></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="RTO shadow p-3" style="background-color:#fff">
+                            <div class="text-center">
                                 <img src="assets/images/purchase-year.png" width="50" height="50" alt="">
                             </div>
-                            <div class="col-12">
-                                <h6 class=" text-center fw-bold m-1 text-dark">purchase Year</h6>
-                                <p class=" text-center" id="year1"></p>
+                            <div>
+                                <h6 class="text-center fw-bold m-1 text-dark">Purchase Year</h6>
+                                <p class="text-center" id="year1"></p>
                             </div>
                         </div>
                     </div>

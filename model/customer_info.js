@@ -244,25 +244,19 @@ function getpurchase_Nursery() {
                         { title: 'Nursery Name' },
                         { title: 'Seller Name' },
                         { title: 'Mobile' },
-                       
                     ]
                 });
-
                 data.data.nurseryEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
 
-                    // Add row to DataTable
                     table.row.add([
                         row.request_type,
                         row.date,
                         row.nursery_name,
                         fullName,
                         row.mobile,
-                       
                     ]).draw(false);
-
                 });
-
             }
         },
         error: function (error) {
@@ -279,7 +273,6 @@ function getpurchase_Tyre() {
     var paraArr = {
         'mobile': mobileNumber,
     };
-
     $.ajax({
         url: url,
         type: "POST",
@@ -288,7 +281,7 @@ function getpurchase_Tyre() {
         success: function (data) {
             var table;
             if (data.data.tyreEnquiryData && data.data.tyreEnquiryData.length > 0) {
-                const tableBody = $('#data-table6'); // Use jQuery selector for the table body
+                const tableBody = $('#data-table6'); 
                 tableBody.empty();
                 table = $('#purchase_tyre_table').DataTable({
                     paging: true,
@@ -298,23 +291,17 @@ function getpurchase_Tyre() {
                         { title: 'Date' },
                         { title: 'Brand' },
                         { title: 'Model' },
-                  
                     ]
                 });
                 data.data.tyreEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
-
-                    // Add row to DataTable
                     table.row.add([
                         row.request_type,
                         row.date,
                         row.brand_name,
                         row.tyre_model,
-                       
                     ]).draw(false);
-
                 });
-
             }
         },
         error: function (error) {
@@ -332,7 +319,6 @@ function getpurchase_Dealer() {
     var paraArr = {
         'mobile': mobileNumber,
     };
-
     $.ajax({
         url: url,
         type: "POST",
@@ -340,9 +326,8 @@ function getpurchase_Dealer() {
         data: paraArr,
         success: function (data) {
             var table;
-
             if (data.data.dealerEnquiryData && data.data.dealerEnquiryData.length > 0) {
-                const tableBody = $('#data-table8'); // Use jQuery selector for the table body
+                const tableBody = $('#data-table8'); 
                 tableBody.empty();
                 table = $('#purchase_dealer_table').DataTable({
                     paging: true,
@@ -352,8 +337,7 @@ function getpurchase_Dealer() {
                         { title: 'Date' },
                         { title: 'Brand' },
                         { title: 'Dealer Name' },
-                        { title: 'Mobile' },
-                  
+                        { title: 'Mobile' },               
                     ]
                 });
 
@@ -365,12 +349,9 @@ function getpurchase_Dealer() {
                         row.date,
                         row.brand_name,
                         row.dealer_name,
-                        row.mobile,
-                        
+                        row.mobile,                     
                     ]).draw(false);
-
                 });
-
             }
         },
         error: function (error) {
@@ -411,7 +392,6 @@ $(document).ready(function() {
                 tableIds.forEach(function(tableId, index) {
                     const tableBody = $(tableId + ' tbody');
                     tableBody.empty();
-
                     var tableConfig = {
                         paging: isPagingEnabled,
                         searching: isSearchingEnabled,
@@ -421,7 +401,6 @@ $(document).ready(function() {
 
                     if (data.data && data.data[dataKeys[index]] && data.data[dataKeys[index]].length > 0) {
                         var table = $(tableId).DataTable(tableConfig);
-
                         data.data[dataKeys[index]].forEach(row => {
                             table.row.add(row).draw(false);
                         });
@@ -526,8 +505,13 @@ function getuserdetail(id) {
             $('#lastname').val(userData.last_name);
             $('#phone').val(userData.mobile);
             populateStateDropdown(data, userData.state_id);
-            populateDistrictDropdown(data, userData.district_id);
-            populateTehsilDropdown(data, userData.tehsil_id);
+            setTimeout(function() {
+                populateDistrictDropdown(data, userData.district_id);
+                setTimeout(function() {
+                    populateTehsilDropdown(data, userData.tehsil_id);
+                }, 1000); 
+            }, 1000); 
+
         },
         error: function(error) {
             console.error('Error fetching data:', error);
@@ -558,24 +542,18 @@ function populateDistrictDropdown(data, districtId) {
     );
 }
 
-// Populate tehsil dropdown dynamically
 function populateTehsilDropdown(data, tehsilId) {
     var tehsilDropdown = $('#tehsil');
-    tehsilDropdown.empty(); // Clear existing options
-
-    // Populate tehsil dropdown from response data
+    tehsilDropdown.empty();
     const tehsilName = data.customerData[0].tehsil_name;
     const tehsilIdValue = data.customerData[0].tehsil_id;
-
     tehsilDropdown.append(
         `<option value="${tehsilIdValue}" selected>${tehsilName}</option>`
     );
 }
 
-
 var userId = localStorage.getItem('id');
 getuserdetail(userId);
-
 
 function edit_personal_detail(){
     $('#firstname').removeAttr("disabled")
@@ -586,7 +564,6 @@ function edit_personal_detail(){
     $('#tehsil').removeAttr("disabled")
     $(".edit_presonal_detail_btn").show();
 }
-
 
     function edit_detail_customer() {
         console.log('jfhfhw');
@@ -632,8 +609,7 @@ function edit_personal_detail(){
             $('#dist').attr("disabled")
             $('#tehsil').attr("disabled")
             $(".edit_presonal_detail_btn").hide();
-            window.location.reload();
-        
+            window.location.reload();    
           },
           error: function (error) {
             console.error('Error fetching data:', error);

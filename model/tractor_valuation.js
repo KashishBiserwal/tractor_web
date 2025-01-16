@@ -87,19 +87,16 @@ function get_year_and_hours() {
         },
         success: function (data) {
             var select_year = $("#Manufacture");
-            select_year.empty(); // Clear existing options
+            select_year.empty(); 
             select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
-            // Sort the array in descending order
             data.getYears.sort(function(a, b) {
                 return b - a;
             });
-  
             for (var j = 0; j < data.getYears.length; j++) {
                 select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
             }
         },
         complete: function() {
-            // You can add code here that will run after the request is complete
         },
         error: function (error) {
             console.error('Error fetching data:', error);

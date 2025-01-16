@@ -4,6 +4,7 @@
     <?php
         include 'includes/headertag.php';
         include 'includes/footertag.php';
+        include 'includes/headertagadmin.php';
         include 'includes/spinner.php';
     ?>
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

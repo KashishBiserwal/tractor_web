@@ -88,8 +88,7 @@ $(document).ready(function() {
             },
             error: function (error) {
                 console.error('Error fetching data:', error);
-            }
-        
+        }
     });
 
     }
@@ -601,11 +600,8 @@ $(document).ready(function() {
             headers: headers,
             success: function(response) {
                 console.log(response, "response");
-
-                // Check if customerData exists in the response and has at least one entry
                 if (response.customerData && response.customerData.length > 0) {
                     var customer = response.customerData[0];
-                    console.log(customer, 'customer details');
                     
                     // Set values based on form ID (used_farm_inner_from)
                     $('#tractor_rent_form #myfname').val(customer.first_name);
@@ -618,7 +614,6 @@ $(document).ready(function() {
                     if (isUserLoggedIn()) {
                         $('#tractor_rent_form input, #tractor_rent_form select').not('#brand,#dist_district,#tehsil_t,#model_main,#year_main1,#workingRadius,#impImage_0,#impType_0,#implement_rent_0,#impRatePer_0','dfghj').prop('disabled', true);
                     }
-                    
                 }
             },
             error: function(error) {
@@ -629,46 +624,35 @@ $(document).ready(function() {
     function isUserLoggedIn() {
         return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
     }
-
     function resetFormFields(){
-        document.getElementById("rent_list_form_").reset(); // Reset the entire form
+        document.getElementById("rent_list_form_").reset(); 
         
-        // Reset each image input and its preview
         var imageInputs = document.getElementsByClassName("image-file-input");
         for (var i = 0; i < imageInputs.length; i++) {
             imageInputs[i].value = ''; 
             
-            var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
+            var imagePreviewId = "impImagePreview_" + i; 
             document.getElementById(imagePreviewId).setAttribute("src", ""); 
             
-            var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
-            imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
+            var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; 
+            imageIcon.style.display = "block"; 
         }
     }
 
-// DATA STORE FOR ONLY IMPLEMENT 
-
 function storeImplement(event) {
-    // event.preventDefault();
-    // console.log('button click for only implement');
-    
     var imageFilesArray = [];
     $('#Implement_rent_only tbody tr').each(function(index) {
         var row = $(this);
         var image_names = row.find('input[type="file"]')[0].files;
 
-        // Push each image file to imageFilesArray
         for (var i = 0; i < image_names.length; i++) {
             imageFilesArray.push(image_names[i]);
         }
     });
-
-    // If no images are selected, alert the user and do not proceed
     if (imageFilesArray.length === 0) {
         alert(" Please Upload the Image.");
-        return; // Stop the form submission
+        return; 
     }
-
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {

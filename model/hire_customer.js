@@ -86,7 +86,7 @@ function appendCard(container, p) {
                                 <div class="thumb">
                                     <a href="hire_inner.php?id=${p.customer_id}/${p.id}">
                                         <div class="ratio ratio-16x9">
-                                            <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                                            <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                         </div>
                                     </a>
                                     <div class="content d-flex flex-column flex-grow-1 ">
@@ -146,17 +146,17 @@ function appendCard(container, p) {
                                                             <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                            <label for="state_form" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                                             </select>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                            <label for="district_form" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                             <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                                             </select>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label class="form-label text-dark mt-2"> Tehsil</label>
+                                                            <label for="tehsil" class="form-label text-dark mt-2"> Tehsil</label>
                                                             <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" Tehsil" id="tehsil" name="tehsil">
                                                             </select>
                                                         </div>
@@ -516,7 +516,7 @@ function appendFilterCard(filterContainer, p) {
                         <div class="thumb">
                             <a href="hire_inner.php?id=${p.customer_id}/${p.id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                 </div>
                             </a>
                             <div class="content d-flex flex-column flex-grow-1 ">
@@ -576,17 +576,17 @@ function appendFilterCard(filterContainer, p) {
                                                     <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                    <label for="state_form" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_form" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label class="form-label text-dark mt-2"> Tehsil</label>
+                                                    <label for="tehsil" class="form-label text-dark mt-2"> Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" Tehsil" id="tehsil" name="tehsil">
                                                     </select>
                                                 </div>

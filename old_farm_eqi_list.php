@@ -43,28 +43,28 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
-                    <label class="form-label"> Brand Name</label>
-                    <select class="form-select py-2 " aria-label="Default select example" id="brand_name1">
+                    <label class="form-label" for="brand_name1">Brand Name</label>
+                    <select class="form-select py-2" aria-label="Default select example" id="brand_name1">
                     </select>
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline ">
-                    <label class="form-label">Model</label>
-                    <select class="form-select py-2 " aria-label="Default select example" id="model_enquiry" name="model_enquiry">
+                    <label class="form-label" for="model_enquiry">Model</label>
+                    <select class="form-select py-2" aria-label="Default select example" id="model_enquiry" name="model_enquiry">
                     </select>   
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
-                    <label class="form-label">State</label>
+                    <label class="form-label" for="state_enquiry">State</label>
                     <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_enquiry">
                     </select>
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
-                    <label class="form-label">District</label>
+                    <label class="form-label" for="district_enquiry">District</label>
                     <select class="form-select py-2 district_select" aria-label="Default select example" id="district_enquiry">
                     </select>
                   </div>
@@ -185,14 +185,14 @@
                       </div>
                       <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                         <div class="form-outline">
-                          <label class="form-label">Brand Name</label>
+                          <label class="form-label" for="brand_name">Brand Name</label>
                           <select class="form-select py-2 brand_select" aria-label="Default select example" id="brand_name" name="bname">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                         <div class="form-outline">
-                          <label for="name" class="form-label text-dark">Model Name</label>
+                          <label for="model_name" class="form-label text-dark">Model Name</label>
                           <select class="form-select py-2 model_select" aria-label="Default select example" id="model_name" name="mname">
                           </select>
                         </div>
@@ -230,21 +230,21 @@
                       </div>
                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-outline mt-3">
-                          <label class="form-label text-dark">State</label>
+                          <label for="state_" class="form-label text-dark">State</label>
                           <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-outline mt-3">
-                          <label class="form-label text-dark">District</label>
+                          <label for="dist_" class="form-label text-dark">District</label>
                           <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_" name="dist">
                           </select>
                         </div>
                       </div>
                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-outline mt-3">
-                          <label class="form-label text-dark">Tehsil</label>
+                          <label for="tehsil_" class="form-label text-dark">Tehsil</label>
                           <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_">
                           </select>
                         </div>

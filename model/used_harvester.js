@@ -77,7 +77,7 @@ function get_old_harvester() {
                             <div class="thumb">
                                 <a href="used_harvester_inner.php?id=${p.customer_id}">
                                     <div class="ratio ratio-16x9">
-                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
+                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                                     </div>
                                 </a>
                             </div>
@@ -356,7 +356,7 @@ function get_old_harvester() {
                                 <div class="thumb">
                                     <a href="used_harvester_inner.php?id=${filter.customer_id}">
                                         <div class="ratio ratio-16x9">
-                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${filter.image_names.split(',')[0]}" class="object-fit-cover " alt="img">
+                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${filter.image_names.split(',')[0]}" class="object-fit-cover" alt="img" loading="lazy">
                                         </div>
                                     </a>
                                 </div>

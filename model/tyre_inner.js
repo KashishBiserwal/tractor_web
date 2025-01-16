@@ -299,7 +299,7 @@ function displayTractors(tractors) {
             <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
                 <div class="thumb">
                     <a href="tyre_inner.php?product_id=${p.id}">
-                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover  text-truncate" alt="">
+                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover text-truncate" alt="" loading="lazy">
                        
                     </a>
                 </div>
@@ -368,17 +368,17 @@ function displayTractors(tractors) {
                                                             <p class="text-danger">*please provide valid Phone Number.</p>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                            <label for="state_form" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                                             </select>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                            <label for="district_form" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                             <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                                             </select>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label class="form-label text-dark"> Tehsil</label>
+                                                        <label for="tehsil" class="form-label text-dark"> Tehsil</label>
                                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
                                                         </select>
                                                     </div>

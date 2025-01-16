@@ -82,12 +82,6 @@ $(document).ready(function () {
           prevEl: "#main_swiper-prev",
       },
   });
-
-  // Navigation active state
-  $(".nav-item").click(function () {
-      $(this).addClass("active").siblings().removeClass("active");
-  });
-
   // Swiper for 'mahi' section
   $(document).ready(function () {
       new Swiper('.swiper-container-mahi', {
@@ -105,34 +99,6 @@ $(document).ready(function () {
       });
   });
 
-  // Profile Picture Upload
-  var readURL = function (input) {
-      if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('.profile-pic').attr('src', e.target.result);
-          }
-          reader.readAsDataURL(input.files[0]);
-      }
-  }
-
-  // Admin Profile Picture Preview
-  function readURL(input) {
-      if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-              $('#imagePreview').hide();
-              $('#imagePreview').fadeIn(650);
-          }
-          reader.readAsDataURL(input.files[0]);
-      }
-  }
-
-  $("#imageUpload").change(function () {
-      readURL(this);
-  });
-
   // Form Step Navigation (Next/Previous)
   var current_fs, next_fs, previous_fs;
 
@@ -141,58 +107,6 @@ $(document).ready(function () {
   }
 
   // Next button
-  $(".next-button").click(function () {
-      current_fs = $(this).parent().parent();
-      next_fs = $(this).parent().parent().next();
-
-      $(".prev").css({ 'display': 'block' });
-
-      $(current_fs).removeClass("show");
-      $(next_fs).addClass("show");
-
-      $("#progressbar li").eq($(".card2").index(next_fs)).addClass("active");
-
-      current_fs.animate({}, {
-          step: function () {
-              current_fs.css({
-                  'display': 'none',
-                  'position': 'relative'
-              });
-
-              next_fs.css({
-                  'display': 'block'
-              });
-          }
-      });
-  });
-
-  // Previous button
-  $(".prev").click(function () {
-      current_fs = $(".show");
-      previous_fs = $(".show").prev();
-
-      $(current_fs).removeClass("show");
-      $(previous_fs).addClass("show");
-
-      $(".prev").css({ 'display': 'block' });
-      if ($(".show").hasClass("first-screen")) {
-          $(".prev").css({ 'display': 'none' });
-      }
-
-      $("#progressbar li").eq($(".card2").index(current_fs)).removeClass("active");
-
-      current_fs.animate({}, {
-          step: function () {
-              current_fs.css({
-                  'display': 'none',
-                  'position': 'relative'
-              });
-
-              previous_fs.css({
-                  'display': 'block'
-              });
-          }
-      });
-  });
+ 
 
 });

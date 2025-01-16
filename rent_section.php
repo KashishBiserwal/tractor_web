@@ -63,34 +63,25 @@
                         <div class="row justify-content-center pt-4">
                           <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="form-outline">
-                              <label class="form-label">Brand</label>
+                              <label class="form-label" for="brand">Brand</label>
                               <select class="form-select" aria-label="Default select example"id="brand" name="brand">
                                 <option value>Select Brand</option>
-                                <option value="1">Mahindra</option>
-                                <option value="2">Swaraj</option>
-                                <option value="3">John deere</option>
                               </select>
                             </div>
                           </div>
                           <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="form-outline">
-                              <label class="form-label">Model</label>
+                              <label class="form-label" for="model">Model</label>
                               <select class="form-select" aria-label="Default select example"id="model" name="model">
                                 <option value>Select Model</option>
-                                <option value="1">Mahindra</option>
-                                <option value="2">Swaraj</option>
-                                <option value="3">John deere</option>
                               </select>
                             </div>
                           </div>
                           <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="form-outline">
-                              <label class="form-label">Year</label>
-                              <select class="form-select" aria-label="Default select example"id="year" name="year">
+                              <label class="form-label" for="year">Year</label>
+                              <select class="form-select" aria-label="Default select example" id="year" name="year">
                                 <option value>Select Year</option>
-                                <option value="1">2020</option>
-                                <option value="2">2021</option>
-                                <option value="3">2022</option>
                               </select>
                             </div>
                           </div>
@@ -190,21 +181,17 @@
                         </div>
                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                           <div class="form-outline mt-2">
-                            <label class="form-label ">State</label>
+                            <label class="form-label" for="state_">State</label>
                             <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
                               <option value>Select State</option>
-                              <option value="1">Chattisgarh</option>
-                              <option value="2">Other</option>
                             </select>
                           </div>
                         </div>
                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                           <div class="form-outline mt-3">
-                            <label class="form-label ">District</label>
+                            <label class="form-label" for="dist">District</label>
                             <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
                               <option value>Select District</option>
-                              <option value="1">Raipur</option>
-                              <option value="2">Bilaspur</option>
                             </select>
                           </div>
                         </div>
@@ -213,8 +200,6 @@
                             <label class="form-label">Tehsil</label>
                             <select class="form-select py-2" aria-label="Default select example">
                               <option value>Select Tehsil</option>
-                              <option value="1">Raipur</option>
-                              <option value="2">Bilaspur</option>
                             </select>
                            </div>
                           </div>

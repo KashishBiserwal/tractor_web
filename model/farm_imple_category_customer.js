@@ -63,7 +63,7 @@ var newCard = `
 <div class="success__stry__item shadow h-100">
     <div class="thumb">
         <a href="farm_subcate_inner.php?id=${p.product_id}">
-            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img w-100" style="height:204px; padding:10px 13px;" alt="img">
+            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img w-100" style="height:204px; padding:10px 13px;" alt="img" loading="lazy">
         </a>
     </div>
     <div class="text-center pt-2">

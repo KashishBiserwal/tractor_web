@@ -4,6 +4,7 @@
     <?php
       include 'includes/headertag.php';
       include 'includes/footertag.php';
+      include 'includes/headertagadmin.php';
     ?> 
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/compare_trac.js" defer></script>

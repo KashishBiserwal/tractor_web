@@ -9,7 +9,7 @@
                 <picture class="">
                     <a href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1">
                     <source type="image/avif" srcset="assets/images/google-play-icon.avif" data-srcset="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1">
-                    <img width="105" height="32" class="gplay-icon" src="assets/images/google-play-icon.avif" data-src="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" alt="TractorJunction | Mobile App"></a>
+                    <img width="105" height="32" loading="lazy" class="gplay-icon" src="assets/images/google-play-icon.avif" data-src="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" alt="TractorJunction | Mobile App"></a>
                 </picture>
                 <h5 class="py-2 mt-1 text-white">follow us</h5>
   	 			<div class="social-links">

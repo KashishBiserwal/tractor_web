@@ -5,10 +5,12 @@
     include 'includes/headertagadmin.php';
     include 'includes/footertag.php';
     include 'includes/spinner.php';
+    
 ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-<script src="<?php echo $baseUrl; ?>model/tyre.js" defer></script>
+<script src="<?php $baseUrl; ?>model/tyre.js" defer></script>
+<!-- <script src="<?php echo $baseUrl; ?>model/tyre.js" defer></script> -->
 
 <head>
 <style>

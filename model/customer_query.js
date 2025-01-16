@@ -9,7 +9,6 @@ $(document).ready(function(){
       });
     feedback_query();
 });
-
 function feedback_query() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'feedbacks';  
@@ -21,21 +20,17 @@ function feedback_query() {
         },
         success: function (data) {
             console.log(data, "feedback data");
-
             const tableBody = document.getElementById('data-table');
             let tableData = [];
             if (data.data && data.data.length > 0) {
                 data.data.reverse();
-
                 let serialNumber = 1;
-
                 data.data.forEach(row => {
                     const fullName = row.full_name;
                     const phoneNumber = row.phone_number || ' ';
                     const subject = truncateText(row.subject, 50); 
                     const message = truncateText(row.message, 100); 
                     const date = new Date(row.created_at).toLocaleString();  
-
                     let action = `<div class="d-flex">
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#customer_view_model" id="viewbtn">
                             <i class="fa fa-eye" style="font-size: 11px;"></i>
@@ -97,15 +92,12 @@ function truncateText(text, maxLength) {
     return text;
 }
 
-
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'feedbacks/' + userId;
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-
     $.ajax({
         url: url,
         type: 'GET',
@@ -113,15 +105,11 @@ function openViewdata(userId) {
         success: function (response) {
             if (response.status === 'success') {
                 var userData = response.data;
-
                 document.getElementById('fullname').innerText = userData.full_name || ' ';
                 document.getElementById('email').innerText = userData.email_address || ' ';
                 document.getElementById('mo_number').innerText = userData.phone_number || ' ';
                 document.getElementById('subject').innerText = userData.subject || ' ';
                 document.getElementById('query').innerText = userData.message || ' ';
-
-                // Show the modal if required
-                // $('#exampleModal').modal('show');
             } else {
                 console.error('Error: Unexpected response format', response);
             }
@@ -138,12 +126,10 @@ function destroy(id) {
     var url = apiBaseURL + 'feedbacks/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
-
     if (!token) {
         console.error("Token is missing");
         return;
     }
-
     var isConfirmed = confirm("Are you sure you want to delete this data?");
     if (!isConfirmed) {
         return;
@@ -174,17 +160,12 @@ function destroy(id) {
 function search_data() {
     var name = $('#name').val();
     var mobile = $('#phone_number').val(); 
-
     var paraArr = {
         'full_name': name,
         'phone_number': mobile,
     };
-
     var apiBaseURL = APIBaseURL; 
-    var url = apiBaseURL + 'search-feedback'; 
-
-    console.log('URL:', url);
-    console.log('Parameters:', paraArr);
+    var url = apiBaseURL + 'search-feedback';
 
     $.ajax({
         url: url,
@@ -199,7 +180,7 @@ function search_data() {
         },
         error: function(xhr, status, error) {
             console.error('Error:', error);
-            console.log('Response:', xhr.responseText); // Log the full response
+            console.log('Response:', xhr.responseText); 
             if (xhr.status === 404) {
                 $('#example').DataTable().clear().draw();
                 $('#data-table').html('<tr><td colspan="7">No valid data available</td></tr>'); 

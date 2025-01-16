@@ -95,7 +95,7 @@ $(document).ready(function() {
                         <div class="thumb">
                             <a href="certified_dealers_inner.php?id=${dealer.id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-cover" alt="img">
+                                    <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-cover" alt="img" loading="lazy">
                                 </div>
                             </a>
                         </div>
@@ -147,7 +147,7 @@ function getbrands(){
                         <div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                             <a href="brands.php?brand_id=${p.id}">
                                 <div class="d-block">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${p.brand_img}">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${p.brand_img}" loading="lazy">
                                     <p>${p.brand_name}</p>
                                 </div>
                             </a>
@@ -166,8 +166,6 @@ function getTractorList() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_brands/' + Id;
-    console.log(url);
-   
     var totalTractors = 0;
     var displayedTractors = 8;
 
@@ -228,7 +226,7 @@ function displayTractors(productContainer, tractors) {
                     <div class="thumb" style="width: 100%; height: 180px; overflow: hidden;">
                         <a href="detail_tractor.php?product_id=${p.product_id}">
                             <div class="p-3">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" style="width: 100%; height:150px;" alt="">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" style="width: 100%; height:150px;" alt="" loading="lazy">
                             </div>
                         </a>
                     </div>
@@ -614,7 +612,7 @@ function getusedTractorList() {
                                 <div class="thumb">
                                     <a href="farmtrac_60.php?product_id=${p.customer_id}">
                                         <div class="p-3 ratio ratio-16x9">
-                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover  "  alt="img">
+                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                                         </div>
                                     </a>
                                 </div>

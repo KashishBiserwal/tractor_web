@@ -132,21 +132,21 @@
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="state" class="form-label  fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                        <label for="state_form" class="form-label  fw-bold"> <i class="fas fa-location"></i> State</label>
                                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="district" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                        <label for="district_form" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                         <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                                         </select>
                                                     </div>
                                                 </div>       
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="Tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                        <label for="tehsil" class="form-label fw-bold "> Tehsil</label>
                                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                                         </select>
                                                     </div>

@@ -44,7 +44,7 @@
                             <div class="row justify-content-center">
                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
                                 <div class="form-outline">
-                                  <label for="name" class="form-label text-dark">Brand</label>
+                                  <label for="brand" class="form-label text-dark">Brand</label>
                                   <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
                                   </select>
                                 </div>
@@ -63,7 +63,7 @@
                               </div>
                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                 <div class="form-outline ">
-                                  <label for="name" class="form-label text-dark">Tyre Position</label>
+                                  <label for="tyre_position" class="form-label text-dark">Tyre Position</label>
                                   <select class="form-select form-control" aria-label=".form-select-lg example" id="tyre_position" name="tyre_position">
                                     <option selected disabled value="">Please select an option</option>
                                     <option value="front">Front</option>
@@ -74,7 +74,7 @@
                               </div>
                               <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                 <div class="form-outline ">
-                                  <label for="yr_state" class="form-label text-dark">Category</label>
+                                  <label for="category" class="form-label text-dark">Category</label>
                                   <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
                                   </select>
                                 </div>
@@ -137,14 +137,14 @@
                 <div class="row">
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                     <div class="form-outline">
-                      <label class="form-label">Brand</label>
+                      <label for="brand1" class="form-label">Brand</label>
                       <select class="form-select form-control" aria-label="Default select example" id="brand1">
                       </select>
                     </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                     <div class="form-outline">
-                      <label class="form-label">Tyre Position</label>
+                      <label for="search_position" class="form-label">Tyre Position</label>
                       <select class="form-select form-control" id="search_position" aria-label="Default select example">
                         <option selected disabled>Select Position</option>
                         <option value="front">Front</option>
