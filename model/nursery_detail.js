@@ -21,7 +21,7 @@ function getNurseryById() {
             var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
             var maskedMobileNumber = maskedPart + lastFourDigits;
             var fullname = data.nursery_data[0].first_name + ' ' + data.nursery_data[0].last_name;
-        document.getElementById('district_main').innerText=data.nursery_data[0].district_name;
+        document.getElementById('heading_nursery_name').innerText=data.nursery_data[0].nursery_name;
         document.getElementById('description').innerText=data.nursery_data[0].description;
         document.getElementById('address').innerText=data.nursery_data[0].address ;
         document.getElementById('state_1').innerText=data.nursery_data[0].state_name;
@@ -186,12 +186,9 @@ function getUserDetail(id) {
             console.log(response, "response");
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                
                 $('#nursery_form #fname').val(customer.first_name);
                 $('#nursery_form #lname').val(customer.last_name);
                 $('#nursery_form #phone_number').val(customer.mobile);
-                // $('#nursery_form #state').val(customer.state_id);
-                
                 if (isUserLoggedIn()) {
                     $('#nursery_form input, #nursery_form select').not('#price,#state,#district,#tehsil').prop('disabled', true);
                 }
@@ -236,11 +233,9 @@ function nursery_details_list(allCards) {
             var productContainer = $("#productContainer");
             var loadMoreButton = $("#loadMoreBtn");
             if (data.nursery_data && data.nursery_data.length > 0) {
-                var reversedCards = data.nursery_data.slice().reverse();
-                
+                var reversedCards = data.nursery_data.slice().reverse();            
                 allCards = allCards.concat(reversedCards);
                 displaynursery(productContainer, reversedCards.slice(0, 4).reverse());
-
                 loadMoreButton.show();
                 loadMoreButton.click(function() {
                     displaynursery(productContainer, allCards.reverse());
@@ -563,7 +558,7 @@ function submitData(formId) {
     if (isUserLoggedIn()) {
         formDataToSubmit = collectFormData(formId);
     }
-    
+
     if (!formDataToSubmit.enquiry_type_id || !formDataToSubmit.mobile) {
         console.error('Required fields are missing.');
         return;
@@ -584,7 +579,7 @@ function submitData(formId) {
         }
     });
 }
-function collectFormData(formId) {
+     function collectFormData(formId) {
     var mobile = $(`#${formId} #mobile_number_1`).val();
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = $(`#${formId} #product_id`).val();

@@ -42,7 +42,7 @@
                 <div class="vegehead ">
                     <div class="row">
                         <div class="col-12 col-lg-6 ">
-                            <h4 id="district_main"></h4>
+                            <h4 id="heading_nursery_name"></h4>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
     <div class="container">
         <div class="my-4">
             <div class="text-editor-black my-4 " style="background-color:#fff">
-                <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> About Nursety</p></h4>
+                <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> About Nursery</p></h4>
             </div>
             <p id="description"></p>
         </div>

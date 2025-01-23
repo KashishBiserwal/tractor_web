@@ -2,13 +2,14 @@
     include 'includes/headertag.php';
     include 'includes/footertag.php';
 ?>
+ <link rel="stylesheet" type="text/css" href="assets/css/banner-image.css"/>
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
    <script src="<?php $baseUrl; ?>model/rent_trac.js" defer></script>
    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
    <script src="<?php $baseUrl; ?>model/state2_dist2.js" defer></script>
    <script src="<?php $baseUrl; ?>model/sdt.js" defer></script>
-
+   <script src="model/banner-image.js"></script>
     <style>
     .table-responsive {
         width: 100%;
@@ -36,6 +37,9 @@
     display: block;
     opacity: 1;
   }
+}
+.card{
+    margin-left: 230px !important;
 }
 </style>
 <body class="loaded"> 
@@ -133,7 +137,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th>No.</th>
-                                                                                    <th width="80">Image</th>
+                                                                                    <!-- <th width="80">Image</th> -->
                                                                                     <th>Rate</th>
                                                                                     <th>Rate Per</th>
                                                                                 </tr>
@@ -141,13 +145,13 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td class="tractor_rent_serial">1</td>
-                                                                                    <td>
+                                                                                    <!-- <td>
                                                                                         <div class="card upload-img-wrap" name="rent_trac_image" onclick="triggerFileInput('customFile1')" style="height: 38px; cursor: pointer;">
                                                                                             <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile1')"></i>
                                                                                             <img id="selectedImage" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" name="image_tractor" class="img-thumbnail"/>
                                                                                         </div>
                                                                                         <input type="file" id="customFile1" class="d-none" accept="image/*" name="tractor_rent_image[]" onchange="displayImagePreview(this, 'selectedImage')">
-                                                                                    </td>
+                                                                                    </td> -->
                                                                                     <td>
                                                                                         <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
                                                                                     </td>
@@ -225,6 +229,85 @@
                                                                             </select>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-12 mt-5">
+                                                                        <div class="card" id="card-container">
+                                                                            <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
+                                                                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
+                                                                                <input type="text" class="text-input-box" placeholder="" style=" ">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="image-upload-container">
+                                                                                <div class="image-row">
+                                                                                    <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 0)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-0"  class="preview-img">
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 1)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-1"  class="preview-img">
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 2)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-2"  class="preview-img">
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 3)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-3"  class="preview-img">
+                                                                                    </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="input-row">
+                                                                                    <input type="text" id="input-0" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                    <input type="text" id="input-1" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                    <input type="text" id="input-2" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                    <input type="text" id="input-3" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                </div>
+                                                                                <div class="image-row">
+                                                                                    <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 4)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-4"  class="preview-img">
+                                                                                    </label>
+                                                                                    </div>
+                                                                                    <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 5)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-5"  class="preview-img">
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 6)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-6"  class="preview-img">
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="image-box">
+                                                                                    <label>
+                                                                                        <input type="file" accept="image/*" onchange="previewImage(this, 7)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                                        <img id="preview-img-7"  class="preview-img">
+                                                                                    </label>
+                                                                                </div>
+                                                                                </div>
+                                                                                <div class="input-row">
+                                                                                    <input type="text" id="input-4" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                    <input type="text" id="input-5" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                    <input type="text" id="input-6" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                    <input type="text" id="input-7" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                            <button onclick="generateAndReplace()">Generate and Replace</button>
+                                                                            <canvas id="card-canvas" style="display:none;"></canvas>
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="col-12 mt-3">
                                                                         <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100" >Submit</button>
                                                                     </div>
@@ -277,7 +360,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th>No.</th>
-                                                                                    <th width="80">Image</th>
+                                                                                    <!-- <th width="80">Image</th> -->
                                                                                     <th>Implement Type</th>
                                                                                     <th>Rate</th>
                                                                                     <th>Rate Per</th>
@@ -286,13 +369,13 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td class="serial-number">1</td>
-                                                                                    <td>
+                                                                                    <!-- <td>
                                                                                         <div class="card upload-img-wrap" onclick="triggerFileInput('customFile2')" style="height: 38px; cursor: pointer;">
                                                                                             <i class="fas fa-image m-auto" style="font-size: 16px;" onclick="triggerFileInput('customFile2')"></i>
                                                                                             <img id="selectedImage2" src="assets/images/upload-img-logo.jpg" alt="example placeholder" style="max-width: 100%; max-height: 100%; object-fit: cover; display: none;" class="img-thumbnail"/>
                                                                                         </div>
                                                                                         <input type="file" id="customFile2" class="d-none" accept="image/*" onchange="displayImagePreview(this, 'selectedImage2')" required>
-                                                                                    </td>
+                                                                                    </td> -->
                                                                                     <td>
                                                                                         <div class="select-wrap">
                                                                                             <select name="imp_type_id[]" id="impType_1" class="form-control implement-type-input">
@@ -432,7 +515,7 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>No.</th>
-                                                                        <th width="80">Image</th>
+                                                                        <!-- <th width="80">Image</th> -->
                                                                         <th>Implement Type</th>
                                                                         <th>Rate</th>
                                                                         <th>Rate Per</th>
@@ -442,13 +525,13 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td>1</td>
-                                                                        <td>
+                                                                        <!-- <td>
                                                                             <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
                                                                                 <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
                                                                                 <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                                             </div>
                                                                             <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
-                                                                        </td>
+                                                                        </td> -->
                                                                         <td>
                                                                             <div class="select-wrap">
                                                                                 <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">

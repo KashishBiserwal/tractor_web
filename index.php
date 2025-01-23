@@ -115,7 +115,7 @@
     #search_form_container {
   position: absolute;
   top: 30%; 
-  left: 5px; 
+  left: 28px; 
   width: 350px;
   background-color: #f8f9fac9;
   padding: 20px;

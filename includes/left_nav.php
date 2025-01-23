@@ -183,21 +183,21 @@ if(currentdate >= exiredatenew){
           },
           error: function (xhr, textStatus, errorThrown) {
               console.log(xhr.status, 'error');
-              if (xhr.status === 401) {
+              if (xhr.status === 400) {
+                  console.log('Bad Request: Redirecting to login page.');
+                  window.location.href = "login.php"; // Redirect to login page
+              } else if (xhr.status === 401) {
                   console.log('Invalid credentials');
                   var htmlcontent = `<p>Invalid credentials!</p>`;
-              document.getElementById("error_message").innerHTML = htmlcontent;
-                
+                  document.getElementById("error_message").innerHTML = htmlcontent;
               } else if (xhr.status === 403) {
                   console.log('Forbidden: You don\'t have permission to access this resource.');
-                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                  var htmlcontent = `<p>You don't have permission to access this resource.</p>`;
                   document.getElementById("error_message").innerHTML = htmlcontent;
-                
               } else {
                   console.log('An error occurred:', textStatus, errorThrown);
                   var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-              document.getElementById("error_message").innerHTML = htmlcontent;
-                  
+                  document.getElementById("error_message").innerHTML = htmlcontent;
               }
           },
           complete: function () {

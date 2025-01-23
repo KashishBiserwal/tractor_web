@@ -4,13 +4,32 @@
    include 'includes/footertag.php';
    ?> 
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+ <link rel="stylesheet" type="text/css" href="assets/css/banner-image.css" />
+ <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js" defer></script>
 <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 <script src="<?php $baseUrl; ?>model/sdt.js" defer></script>
 <script src="<?php $baseUrl; ?>model/state2_dist2.js" defer></script>
-
+<script src="model/banner-image.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin: 0;
+    height: 100vh;
+}
+.upload__img-wrap{
+  display: ruby !important;
+}
+.upload__img-close, .upload__img-close_button {
+  top: 12px !important;
+    right: 16px !important;
+}
+</style>
 <body class="loaded"> 
   <div class="main-wrapper">
     <div class="app" id="app">
@@ -98,13 +117,13 @@
                                 </div>
                               </div>
                               <div class="col-12  ">
-                              <div class="form-outline mt-3">
-                                <label class="form-label text-dark">Description</label>
-                                <textarea rows="3" cols="70" class="w-100 py-2" minlength="" maxlength="1000" id="textarea_d" name="textarea_d"></textarea>
-                              </div>
+                                <div class="form-outline mt-3">
+                                  <label class="form-label text-dark">Description</label>
+                                  <textarea rows="3" cols="70" class="w-100 py-2" minlength="" maxlength="1000" id="textarea_d" name="textarea_d"></textarea>
+                                </div>
                               </div>
                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
-                                <div class="upload__box mt-3">
+                                <!-- <div class="upload__box mt-3">
                                   <div class="upload__btn-box text-center">
                                     <label>
                                       <p class="upload__btn ">Upload images</p>
@@ -112,23 +131,99 @@
                                     </label>
                                   </div>
                                   <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                </div> -->
+                                <!-- <div class="card" id="card-container"> -->
+                                <div class="card" id="card-container">
+                                  <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
+                                      <input type="text" class="text-input-box" placeholder="" style=" ">
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="image-upload-container">
+                                      <div class="image-row">
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 0)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-0"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 1)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-1"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 2)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-2"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 3)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-3"  class="preview-img">
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div class="input-row">
+                                        <input type="text" id="input-0" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-1" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-2" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-3" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                      </div>
+                                      <div class="image-row">
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 4)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-4"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 5)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-5"  class="preview-img">
+                                          </label>
+                                       </div>
+                                       <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 6)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-6"  class="preview-img">
+                                          </label>
+                                       </div>
+                                       <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 7)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-7"  class="preview-img">
+                                          </label>
+                                       </div>
+                                      </div>
+                                      <div class="input-row">
+                                        <input type="text" id="input-4" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-5" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-6" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-7" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
+                                <button onclick="generateAndReplace()">Generate and Replace</button>
+                                <canvas id="card-canvas" style="display:none;"></canvas>
+                              </form>
                             </div>
-                          </form>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
                         </div>
                       </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                      <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
         <div class="container">
           <!-- Filter Card -->
           <div class="filter-card mb-2">
@@ -324,17 +419,76 @@
                         <textarea rows="3" cols="70" class="w-100 py-1" minlength="" maxlength="1000" id="textarea_d2" name="textarea_d2"></textarea>
                       </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
-                      <div class="upload__box mt-3">
-                        <div class="upload__btn-box text-center">
+                    <div class="col-12 text-end mt=2">
+                      <i class="bi bi-pencil-square edit-icon" id="Update_images"></i>
+                    </div>
+                    <div class="col-12 text-center mt-5" id="remobved-images">
+                      <div class="upload__box mt-3" >
+                          <div class="upload__btn-box" id="get-image">
                           <label>
-                            <p class="upload__btn ">Upload images</p>
+                            <p class="upload__btn p-0">Upload images</p>
                             <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="_image2">
                           </label>
                         </div>
                         <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                       </div>
                     </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
+                      <div class="card" id="new-card-container" style="display: none;">
+                        <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 90px;">
+                          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
+                            <input type="text" class="text-input-box" id="new-text-input" placeholder="Enter text here" style="">
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="image-upload-container">
+                            <div class="image-row">
+                              <div class="image-box">
+                                <label>
+                                  <input type="file" accept="image/*" onchange="previewNewImage(this, 0)" style="display: none;">
+                                  <i class="bi bi-plus-lg"></i>
+                                  <img id="new-preview-img-0" class="preview-img">
+                                </label>
+                              </div>
+                              <div class="image-box">
+                                <label>
+                                  <input type="file" accept="image/*" onchange="previewNewImage(this, 1)" style="display: none;">
+                                  <i class="bi bi-plus-lg"></i>
+                                  <img id="new-preview-img-1" class="preview-img">
+                                </label>
+                              </div>
+                            </div>
+                            <div class="input-row">
+                              <input type="text" id="new-input-0" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                              <input type="text" id="new-input-1" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                            </div>
+                            <div class="image-row">
+                              <div class="image-box">
+                                <label>
+                                  <input type="file" accept="image/*" onchange="previewNewImage(this, 2)" style="display: none;">
+                                  <i class="bi bi-plus-lg"></i>
+                                  <img id="new-preview-img-2" class="preview-img">
+                                </label>
+                              </div>
+                              <div class="image-box">
+                                <label>
+                                  <input type="file" accept="image/*" onchange="previewNewImage(this, 3)" style="display: none;">
+                                  <i class="bi bi-plus-lg"></i>
+                                  <img id="new-preview-img-3" class="preview-img">
+                                </label>
+                              </div>
+                            </div>
+                            <div class="input-row">
+                              <input type="text" id="new-input-2" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                              <input type="text" id="new-input-3" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button onclick="generateAndReplaceNew()" style="display:none;" id="generate-button">Generate and Replace</button>
+                      <canvas id="new-card-canvas" style="display:none;"></canvas>
+                    </div>
+                    
                   </div>
                 </form>
               </div>
@@ -348,3 +502,103 @@
       </div>
     </div>
   </body>
+
+<script>
+  document.getElementById('Update_images').addEventListener('click', function () {
+    const selectedImagesContainer = document.getElementById('remobved-images');
+    const newCardContainer = document.getElementById('new-card-container');
+    const newCardCanvas = document.getElementById('generate-button');
+    if (selectedImagesContainer.style.display === 'none') {
+        selectedImagesContainer.style.display = 'block';
+        newCardCanvas.style.display = 'none';
+        newCardContainer.style.display = 'none';
+    } else {
+        selectedImagesContainer.style.display = 'none';
+        newCardContainer.style.display = 'block';
+        newCardCanvas.style.display = 'block';
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const stateDropdown = document.getElementById('state_');
+  const districtDropdown = document.getElementById('dist');
+  const tehsilDropdown = document.getElementById('tehsil');
+  const textInputBox = document.querySelector('.text-input-box');
+  const firstNameInput = document.getElementById('fname');
+  const lastNameInput = document.getElementById('lname');
+  const mobileNumberInput = document.getElementById('number');
+
+  // Mock data for states, districts, and tehsils
+  const mockData = {
+    State1: {
+      districts: {
+        District1: ["Tehsil1-1", "Tehsil1-2"],
+        District2: ["Tehsil2-1", "Tehsil2-2"]
+      }
+    },
+    State2: {
+      districts: {
+        District3: ["Tehsil3-1", "Tehsil3-2"],
+        District4: ["Tehsil4-1", "Tehsil4-2"]
+      }
+    }
+  };
+
+  // Populate the state dropdown
+  for (let state in mockData) {
+    stateDropdown.innerHTML += `<option value="${state}">${state}</option>`;
+  }
+
+  // Handle state change
+  stateDropdown.addEventListener('change', function () {
+    const selectedState = stateDropdown.value;
+    if (selectedState) {
+      const districts = mockData[selectedState].districts;
+      districtDropdown.innerHTML = '<option value="">Select District</option>';
+      tehsilDropdown.innerHTML = '<option value="">Select Tehsil</option>';
+
+      for (let district in districts) {
+        districtDropdown.innerHTML += `<option value="${district}">${district}</option>`;
+      }
+
+      // Clear the input box
+      textInputBox.value = '';
+    }
+  });
+
+  // Handle district change
+  districtDropdown.addEventListener('change', function () {
+    const selectedState = stateDropdown.value;
+    const selectedDistrict = districtDropdown.value;
+
+    if (selectedDistrict) {
+      const tehsils = mockData[selectedState].districts[selectedDistrict];
+      tehsilDropdown.innerHTML = '<option value="">Select Tehsil</option>';
+
+      tehsils.forEach(tehsil => {
+        tehsilDropdown.innerHTML += `<option value="${tehsil}">${tehsil}</option>`;
+      });
+
+      // Clear the input box
+      textInputBox.value = '';
+    }
+  });
+
+  // Handle tehsil change
+  tehsilDropdown.addEventListener('change', function () {
+    const selectedStateName = stateDropdown.options[stateDropdown.selectedIndex].textContent;
+    const selectedDistrictName = districtDropdown.options[districtDropdown.selectedIndex].textContent;
+    const selectedTehsilName = tehsilDropdown.options[tehsilDropdown.selectedIndex].textContent;
+
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const mobileNumber = mobileNumberInput.value.trim();
+
+    if (selectedTehsilName) {
+      // Update the input box in the desired order
+      textInputBox.value = `${firstName} ${lastName}, ${mobileNumber}, ${selectedTehsilName}, ${selectedDistrictName}, ${selectedStateName}`;
+    }
+  });
+});
+
+</script>

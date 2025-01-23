@@ -511,13 +511,18 @@ function getuserdetail(id) {
                     populateTehsilDropdown(data, userData.tehsil_id);
                 }, 1000); 
             }, 1000); 
-
         },
         error: function(error) {
-            console.error('Error fetching data:', error);
+            if (error.status === 401) {
+                // Redirect to the index page if status is 401 (Unauthorized)
+                window.location.href = 'index.html';  // Replace with your index page URL
+            } else {
+                console.error('Error fetching data:', error);
+            }
         }
     });
 }
+
 
 function populateStateDropdown(data, stateId) {
     var stateDropdown = $('#state');

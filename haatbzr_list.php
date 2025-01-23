@@ -3,11 +3,13 @@
   include 'includes/headertagadmin.php';
   include 'includes/footertag.php';
 ?> 
+ <link rel="stylesheet" type="text/css" href="assets/css/banner-image.css"/>
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/hatbazar_list.js" defer></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js" defer></script>
+  <script src="model/banner-image.js"></script>
    <style>
      label.error {
     color: red; 
@@ -28,10 +30,10 @@
     <div class="container">
       <div class="align-items-center justify-content-between page_title my-2">
         <div class="row">
-          <div class="col-12 col-sm-5 col-lg-5 col-md-5">
-            <h5 class="fw-bold"> Bazaar Item List</h5>
+          <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+            <h5 class="fw-bold" style="margin-left:20px;"> Bazaar Item List</h5>
           </div>
-          <div class="col-12 col-sm-7 col-lg-7 col-md-7">
+          <div class="col-12 col-sm-6 col-lg-6 col-md-6">
             <div class=" float-end">
               <button type="button" id="add_trac" class="btn add_btn bg-success" onclick="resetFormFields()" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
                 <i class="fa fa-plus" aria-hidden="true"></i> Bazaar Items
@@ -101,13 +103,16 @@
                                   <input type="text" class="form-control" placeholder="" id="price" name="price">
                                 </div>
                               </div>
-                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                            
+                              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-outline mt-4">
                                   <label for="name" class="form-label text-dark">Total Price Calculation</label>
                                   <input type="text" class="form-control" placeholder="" id="tprice" name="tprice" readonly>
                                 </div>
                               </div>
-                              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 "> </div>
+                              
+                              <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <div class="upload__box mt-5">
                                   <div class="upload__btn-box text-center">
                                     <label >
@@ -117,8 +122,8 @@
                                   </div>
                                   <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
                                 </div>
-                              </div>
-                              <div class="col-12 ">
+                              </div> -->
+                              <div class="col-12 mt-4">
                                 <div class="form-outline ">
                                   <label class="form-label text-dark">About Your Harvest</label>
                                   <textarea rows="4" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="textarea_" name="textarea_"></textarea>
@@ -165,6 +170,85 @@
                                   <select class="form-select py-2 tehsil-dropdown" id="tehsil" aria-label="Default select example">
                                   </select>
                                 </div>
+                              </div> 
+                              <div class="col-6 mt-4">
+                                <div class="card" id="card-container">
+                                  <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
+                                      <input type="text" class="text-input-box" placeholder="" style=" ">
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="image-upload-container">
+                                      <div class="image-row">
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 0)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-0"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 1)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-1"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 2)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-2"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 3)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-3"  class="preview-img">
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div class="input-row">
+                                        <input type="text" id="input-0" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-1" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-2" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-3" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                      </div>
+                                      <div class="image-row">
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 4)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-4"  class="preview-img">
+                                          </label>
+                                        </div>
+                                        <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 5)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-5"  class="preview-img">
+                                          </label>
+                                       </div>
+                                       <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 6)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-6"  class="preview-img">
+                                          </label>
+                                       </div>
+                                       <div class="image-box">
+                                          <label>
+                                            <input type="file" accept="image/*" onchange="previewImage(this, 7)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                            <img id="preview-img-7"  class="preview-img">
+                                          </label>
+                                       </div>
+                                      </div>
+                                      <div class="input-row">
+                                        <input type="text" id="input-4" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-5" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-6" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                        <input type="text" id="input-7" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <button onclick="generateAndReplace()">Generate and Replace</button>
+                                <canvas id="card-canvas" style="display:none;"></canvas>
                               </div>
                             </div>
                           </form>
@@ -327,5 +411,80 @@
     input.focus();
     input.setSelectionRange(0, 0);
     input.style.textAlign = 'left';
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const stateDropdown = document.getElementById('state_');
+  const districtDropdown = document.getElementById('dist');
+  const tehsilDropdown = document.getElementById('tehsil');
+  const textInputBox = document.querySelector('.text-input-box');
+  const firstNameInput = document.getElementById('fname');
+  const lastNameInput = document.getElementById('lname');
+  const mobileNumberInput = document.getElementById('number');
+
+  // Mock data for states, districts, and tehsils
+  const mockData = {
+    State1: {
+      districts: {
+        District1: ["Tehsil1-1", "Tehsil1-2"],
+        District2: ["Tehsil2-1", "Tehsil2-2"]
+      }
+    },
+    State2: {
+      districts: {
+        District3: ["Tehsil3-1", "Tehsil3-2"],
+        District4: ["Tehsil4-1", "Tehsil4-2"]
+      }
+    }
+  };
+
+  for (let state in mockData) {
+    stateDropdown.innerHTML += `<option value="${state}">${state}</option>`;
+  }
+  stateDropdown.addEventListener('change', function () {
+    const selectedState = stateDropdown.value;
+    if (selectedState) {
+      const districts = mockData[selectedState].districts;
+      districtDropdown.innerHTML = '<option value="">Select District</option>';
+      tehsilDropdown.innerHTML = '<option value="">Select Tehsil</option>';
+
+      for (let district in districts) {
+        districtDropdown.innerHTML += `<option value="${district}">${district}</option>`;
+      }
+
+      // Clear the input box
+      textInputBox.value = '';
+    }
+  });
+
+  districtDropdown.addEventListener('change', function () {
+    const selectedState = stateDropdown.value;
+    const selectedDistrict = districtDropdown.value;
+    if (selectedDistrict) {
+      const tehsils = mockData[selectedState].districts[selectedDistrict];
+      tehsilDropdown.innerHTML = '<option value="">Select Tehsil</option>';
+
+      tehsils.forEach(tehsil => {
+        tehsilDropdown.innerHTML += `<option value="${tehsil}">${tehsil}</option>`;
+      });
+      textInputBox.value = '';
+    }
+  });
+
+  tehsilDropdown.addEventListener('change', function () {
+    const selectedStateName = stateDropdown.options[stateDropdown.selectedIndex].textContent;
+    const selectedDistrictName = districtDropdown.options[districtDropdown.selectedIndex].textContent;
+    const selectedTehsilName = tehsilDropdown.options[tehsilDropdown.selectedIndex].textContent;
+
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const mobileNumber = mobileNumberInput.value.trim();
+
+    if (selectedTehsilName) {
+      // Update the input box in the desired order
+      textInputBox.value = `${firstName} ${lastName}, ${selectedTehsilName}, ${selectedDistrictName}, ${selectedStateName},${mobileNumber}`;
+    }
+  });
 });
 </script>
