@@ -11,29 +11,32 @@ function populateStateDropdown(stateClassName, districtClassName) {
             const stateSelect = document.getElementsByClassName(stateClassName)[0];
             stateSelect.innerHTML = '<option selected disabled value="">Please select a state</option>';
 
-            const stateId = 7; // State ID you want to filter for
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                const option = document.createElement('option');
-                option.textContent = filteredState.state_name;
-                option.value = filteredState.id;
-                stateSelect.appendChild(option);
-
-                // Once the state dropdown is populated, populate the corresponding district dropdown
-                populateDistrictDropdown(filteredState.id, districtClassName);
+            if (data.stateData && data.stateData.length > 0) {
+                data.stateData.forEach(state => {
+                    const option = document.createElement('option');
+                    option.textContent = state.state_name;
+                    option.value = state.id;
+                    stateSelect.appendChild(option);
+                });
             } else {
                 stateSelect.innerHTML = '<option>No valid data available</option>';
             }
+
+            // Add event listener for state dropdown change
+            stateSelect.addEventListener('change', function() {
+                const selectedStateId = stateSelect.value;
+                populateDistrictDropdown(selectedStateId, districtClassName);
+            });
         },
         error: function(error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching states:', error);
         }
     });
 }
 
 function populateDistrictDropdown(state_id, districtClassName) {
+    console.log('Fetching districts for state_id:', state_id);
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
-    console.log(url);
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
     districtSelect.innerHTML = '<option selected disabled value="">Please select a district</option>';
 
@@ -44,7 +47,7 @@ function populateDistrictDropdown(state_id, districtClassName) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            if (data.districtData.length > 0) {
+            if (data.districtData && data.districtData.length > 0) {
                 data.districtData.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.district_name;
@@ -61,5 +64,8 @@ function populateDistrictDropdown(state_id, districtClassName) {
     });
 }
 
-// Call the function to populate state dropdown
+// Initialize the state dropdown
 populateStateDropdown('state_select', 'district_select');
+
+
+

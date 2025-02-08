@@ -1,12 +1,8 @@
 $(document).ready(function() {
-    console.log("ready!");
     $('#submit_enquiry').click(store);
     $('#Verify').click(verifyotp);
     getEngineoilById();
     getEngineoilList();
-
-    // $('#engine_oil_form').submit(engineoil_enquiry_1);
-
     $("#engine_oil_form").validate({
         rules: {
             brandName: {
@@ -53,26 +49,22 @@ $(document).ready(function() {
 
 });
 function formatPriceWithCommas(price) {
-  // Check if the price is not a number
   if (isNaN(price)) {
-      return price; // Return the original value if it's not a number
+      return price; 
   }
   
-  // Format the price with commas in Indian format
   return new Intl.NumberFormat('en-IN').format(price);
 }
 function getEngineoilById() {
-    console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('id');
     var url = "http://tractor-api.divyaltech.com/api/customer/engine_oil_by_id/" + Id;
-    // console.log(url);
     $.ajax({
         url: url,
         type: "GET",
         success: function(data) {
-            var userId = localStorage.getItem('id');
-            getUserDetail(userId);
+        var userId = localStorage.getItem('id');
+        getUserDetail(userId);
         document.getElementById('brand_name').innerText=data.engine_oil_details[0].brand_name ;
         document.getElementById('model_name').innerText=data.engine_oil_details[0].oil_model;
         document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
@@ -86,9 +78,7 @@ function getEngineoilById() {
             var imageNames = product.image_names.split(',');
             var carouselContainer = $('.mySwiper2_data');
             var carouselContainer2 = $('.mySwiper_data');
-
             carouselContainer.empty();
-
             imageNames.forEach(function(imageName) {
                 var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); 
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
@@ -96,13 +86,9 @@ function getEngineoilById() {
                 carouselContainer.append(slide);
                 carouselContainer2.append(slide2);
             });
-
-           // Initialize or update the Swiper carousel
             var mySwiper = new Swiper('.mySwiper2_data', {
-              // Your Swiper configuration options
           });
           var mySwiper = new Swiper('.mySwiper_data', {
-              // Your Swiper configuration options
           });
         },
         error: function (error) {
@@ -112,12 +98,9 @@ function getEngineoilById() {
 }
 
 function formatPriceWithCommas(price) {
-  // Check if the price is not a number
   if (isNaN(price)) {
-      return price; // Return the original value if it's not a number
+      return price; 
   }
-  
-  // Format the price with commas in Indian format
   return new Intl.NumberFormat('en-IN').format(price);
 }
 
@@ -135,26 +118,16 @@ function getEngineoilList() {
 
           if (data.engine_oil_details && data.engine_oil_details.length > 0) {
               totalEngineoil = data.engine_oil_details.length;
-
-              // Reverse the order of the engine oil items to display the latest ones first
               data.engine_oil_details.reverse();
-
-              // Display the initial set of 6 engine oil items
               displayEngineoil(data.engine_oil_details.slice(0, displayedEngineoil));
-
               if (totalEngineoil <= displayedEngineoil) {
                   loadMoreButton.hide();
               } else {
                   loadMoreButton.show();
               }
-
-              // Handle "Load More Engine Oil" button click
               loadMoreButton.click(function() {
-                  // Display all engine oil items
                   displayedEngineoil = totalEngineoil;
                   displayEngineoil(data.engine_oil_details);
-
-                  // Hide the "Load More Engine Oil" button
                   loadMoreButton.hide();
               });
           }
@@ -169,7 +142,6 @@ function getEngineoilList() {
 function displayEngineoil(engineoil) {
 var productContainer = $("#productContainer");
 var tableData = $("#tableData");
-// Clear existing content
 productContainer.html('');
 tableData.html('');
 
@@ -188,7 +160,7 @@ engineoil.forEach(function (p) {
   <div class="success__stry__item h-100 shadow text-dark">
       <div class="thumb">
           <a href="engine_oil_inner.php?id=${p.id}">
-              <img src="${imageSrc}" class="engineoil_img w-100" alt="img">
+              <img src="${imageSrc}" class="engineoil_img w-100" alt="img" loading="lazy">
           </a>
       </div>
       <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">
@@ -196,10 +168,10 @@ engineoil.forEach(function (p) {
           <p class="text-success fw-bold px-3" style="font-size:12px;">Model: ${p.oil_model}</p>
           <div class="col-12 px-3">
               <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1 p-1">
                       <p>Grade: ${p.grade}</p>
                   </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details ps-1">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1 p-1">
                       <p>Quantity: ${p.quantity}L</p>
                   </div>                  
               </div>
@@ -227,9 +199,9 @@ engineoil.forEach(function (p) {
               <input type="hidden" id="modelName" value="${p.oil_model}">
               <input type="hidden" id="enquiry_type_id" value="12" name="iduser">
               <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-              <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
-              <input type="text" class="form-control" id="product_id" value="${p.id}"> 
-          </div>
+                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
+                <input type="text" class="form-control" id="product_id" value="${p.id}"> 
+            </div>
               <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                   <label for="firstName" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
                   <input type="text" class="form-control" placeholder="Enter First Name" id="firstName" name="firstName">
@@ -247,7 +219,6 @@ engineoil.forEach(function (p) {
                   <div class="form-outline mt-4 p-2">
                       <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                       <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
-                          <!-- Options for state dropdown -->
                       </select>
                   </div>
               </div>
@@ -270,7 +241,7 @@ engineoil.forEach(function (p) {
               </div>
           </div> 
           <div class="text-center my-3">
-              <button type="submit" id="submit_enquiry_${p.id}"   data-bs-dismiss="modal" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
+              <button type="submit" id="submit_enquiry_${p.id}" data-bs-dismiss="modal" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
           </div>        
       </form>                           
           </div>
@@ -307,16 +278,11 @@ engineoil.forEach(function (p) {
       </div>
   </div>
 </div>
-</div>
-  `;
+</div>`;
 
-  // Append the new card to the container
   productContainer.append(newCard2);
   var myDiv = $('#description_id');
   myDiv.text(myDiv.text().substring(0,120))
-          // Append the new card to the container
-          // productContainer.append(newCard);
-  // Populate dropdowns
   populateDropdowns(p.id);
 });
 }
@@ -325,16 +291,12 @@ function populateDropdowns() {
   var stateDropdowns = document.querySelectorAll('.state-dropdown');
   var districtDropdowns = document.querySelectorAll('.district-dropdown');
   var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
-
-  var defaultStateId = 7; // Define the default state ID here
-
+  var defaultStateId = 7; 
   var selectYourStateOption = '<option value="">Select Your State</option>';
   var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
 
   stateDropdowns.forEach(function (dropdown) {
       dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-      // Fetch district data based on the selected state
       $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
           var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
           districtSelect.innerHTML = '<option value="">Please select a district</option>';
@@ -343,14 +305,11 @@ function populateDropdowns() {
           });
       });
   });
-
-  // Event listener for district dropdown
   districtDropdowns.forEach(function (dropdown) {
       dropdown.addEventListener('change', function() {
           var selectedDistrictId = this.value;
           var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
           if (selectedDistrictId) {
-              // Fetch tehsil data based on the selected district
               $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
                   tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
                   data.tehsilData.forEach(tehsil => {
@@ -365,13 +324,11 @@ function populateDropdowns() {
 }
 
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -384,7 +341,6 @@ function savedata(formId) {
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 function sendOTP(mobile) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
     var paraArr = {
@@ -400,7 +356,6 @@ function sendOTP(mobile) {
         data: paraArr,
         success: function (result) {
             $("#engineoil_callbnt_").modal('hide');
-            console.log(result, "result");
             $('#Mobile').val(mobile);
             openOTPModal();
         },
@@ -417,7 +372,6 @@ function openOTPModal() {
 function verifyotp1(formId) {
     var mobile = document.getElementById('Mobile').value;
     var otp = document.getElementById('otp').value;
-
     var paraArr = {
         'otp': otp,
         'mobile': mobile,
@@ -437,13 +391,11 @@ function verifyotp1(formId) {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result);
             $('#get_OTP_btn1').modal('hide');
             submitData(formId); 
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle errors here
         },
     });
 }
@@ -451,12 +403,9 @@ function verifyotp1(formId) {
 function submitData(formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     var formDataToSubmit = formData;
-    
-    // If user is logged in, use formData from parameter directly
     if (isUserLoggedIn()) {
         formDataToSubmit = collectFormData(formId);
     }
-    
     if (!formDataToSubmit.enquiry_type_id || !formDataToSubmit.mobile) {
         console.error('Required fields are missing.');
         return;
@@ -464,11 +413,8 @@ function submitData(formId) {
     $.ajax({
         url: url,
         type: "POST",
-        data: formDataToSubmit, // Submit all form data
-        
+        data: formDataToSubmit, 
         success: function (result) {
-            
-
             var msg = "Added successfully !";
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
@@ -480,14 +426,11 @@ function submitData(formId) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
-            // Handle errors here
         }
     });
 }
 
-
 function collectFormData(formId) {
-    // Collect form data
     var brandName = $(`#${formId} #brandName`).val();
     var modelName = $(`#${formId} #modelName`).val();
     var first_name = $(`#${formId} #firstName`).val();
@@ -516,35 +459,24 @@ function collectFormData(formId) {
 }
 function getUserDetail1(id, formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
-
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
-                
-                // Set values based on formId
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
                 $('#' + formId + ' #state').val(customer.state_id);
-                // $('#' + formId + ' #district').val(customer.district);
-                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
             }
         },
@@ -585,8 +517,7 @@ function get_otp(phone) {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            $('#get_OTP_btn').modal('show'); // OTP modal is displayed for entering OTP
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -607,7 +538,6 @@ function verifyotp() {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result);
             $('#get_OTP_btn').modal('hide');
             var isConfirmed = confirm("Are you sure you want to submit the form?");
             if (isConfirmed) {
@@ -616,7 +546,6 @@ function verifyotp() {
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle different error scenarios
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 var htmlcontent = `<p>Invalid credentials!</p>`;
@@ -654,22 +583,15 @@ function submitForm() {
         'enquiry_type_id':enquiry_type_id,
         'product_id':product_subject_id,
     };
-
-    // API endpoint for form submission
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-
-    // Submit form data via AJAX
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            console.log("Form submitted successfully!");
         },
         error: function (error) {
             console.error('Error submitting form:', error);
-            // Handle error scenarios
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
@@ -680,36 +602,30 @@ function submitForm() {
 }
 function getUserDetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
 
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(response) {
             console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
                 
-                // Set values based on form ID (used_farm_inner_from)
                 $('#engine_oil_form #firstName').val(customer.first_name);
                 $('#engine_oil_form #lastName').val(customer.last_name);
                 $('#engine_oil_form #mobile_number').val(customer.mobile);
-                $('#engine_oil_form #state').val(customer.state_id);
+                // $('#engine_oil_form #state').val(customer.state_id);
                 // $('#haatbazar_form #district').val(customer.district);
                 // $('#haatbazar_form #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
                 
             }

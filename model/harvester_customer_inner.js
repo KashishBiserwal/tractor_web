@@ -1,24 +1,14 @@
 $(document).ready(function() {
-    console.log("ready!");
     getharvesterById();
-    // getharvesterList();
- $('#enquiry').click(store);
- $('#Verify').click(verifyotp);
+    $('#enquiry').click(store);
+    $('#Verify').click(verifyotp);
 });
-
-
 
 function getharvesterById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('product_id');
-
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester_by_id/" + Id;
-   
-
-
-    
-    // console.log(url);
     $.ajax({
         url: url,
         type: "GET",
@@ -26,12 +16,9 @@ function getharvesterById() {
 
             var userId = localStorage.getItem('id');
             getUserDetail(userId);
-
             var minCuttingHeight = data.product[0].min_cutting_height;
             var maxCuttingHeight = data.product[0].max_cutting_height;
-            
             var concatenatedHeight = minCuttingHeight + ' - ' + maxCuttingHeight;
-        console.log(data, 'abc');
         document.getElementById('brand_name').innerText=data.product[0].brand_name;
         document.getElementById('brand').innerText=data.product[0].brand_name;
         document.getElementById('model_name').innerText=data.product[0].model;
@@ -61,33 +48,20 @@ function getharvesterById() {
         document.getElementById('dia_height').innerText=data.product[0].dimension_height;
         document.getElementById('min_ground_clear').innerText=data.product[0].ground_clearance;
         document.getElementById('product_id').value=data.product[0].id;
-        // document.getElementById('grain_tank_capacity1').innerText=data.product[0].fuel_tank_capacity;
-        // document.getElementById('grain_tank_capacity').innerText=data.product[0].total_weight_without_grains;
         var product = data.product[0];
 
-        // Split the image names into an array
         var imageNames = product.image_names.split(',');
-
-        // Select the carousel container
         var carouselContainer = $('.swiper-wrapper_buy');
-
-        // Clear existing slides
         carouselContainer.empty();
 
-        // Iterate through the image names and create carousel slides
         imageNames.forEach(function(imageName) {
             var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
             var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
             carouselContainer.append(slide);
         });
 
-        // Initialize or update the Swiper carousel
         var mySwiper = new Swiper('.swiper_buy', {
-            // Your Swiper configuration options
         });
-        console.log(data, 'abc');
-
-
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -101,7 +75,6 @@ function store(event) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitForm();
-            // $('#staticBackdrop').modal('show');
         }
     } else {
         var mobile = $('#mobile_number').val();
@@ -183,7 +156,6 @@ function submitForm() {
     var state = $('#state').val();
     var district = $('#district').val();
     var tehsil = $('#Tehsil').val();
-
     // Construct parameter array
     var paraArr = {
         'product_id': product_id,
@@ -195,18 +167,12 @@ function submitForm() {
         'district': district,
         'tehsil': tehsil,
     };
-
-    // API endpoint for form submission
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-
-    // Submit form data via AJAX
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            // Show success message or handle accordingly
             console.log("Form submitted successfully!");
             var msg = "Added successfully !"
             $("#errorStatusLoading").modal('show');
@@ -216,7 +182,6 @@ function submitForm() {
         },
         error: function (error) {
             console.error('Error submitting form:', error);
-            // Handle error scenarios
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
@@ -246,18 +211,12 @@ function getUserDetail(id) {
                 var customer = response.customerData[0];
                 console.log(customer, 'customer details');
                 
-                // Set values based on form ID (used_farm_inner_from)
                 $('#engine_oil_form #f_name').val(customer.first_name);
                 $('#engine_oil_form #lastName').val(customer.last_name);
                 $('#engine_oil_form #mobile_number').val(customer.mobile);
-                $('#engine_oil_form #state').val(customer.state_id);
-                // $('#engine_oil_form #district').val(customer.district);
-                // $('#engine_oil_form #Tehsil').val(customer.tehsil);
                 
-                // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    // Disable all input and select elements within the form
-                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
                 
             }
@@ -267,255 +226,6 @@ function getUserDetail(id) {
         }
     });
 }
-
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
-// function harvester_enquiry() {
-//     var firstName = $('#f_name').val();
-//     var lastName = $('#lastName').val();
-//     var mobile_number = $('#mobile_number').val();
-//     var state = $('#state').val();
-//     var district = $('#district').val();
-//     var Tehsil = $('#Tehsil').val();
-//     var enquiry_type_id = $('#enquiry_type_id').val(); 
-//     var product_subject_id = $('#product_subject_id').val();
-//     console.log(product_subject_id);
-//     var paraArr = {
-//         'first_name': firstName,
-//         'last_name': lastName,
-//         'mobile': mobile_number,
-//         'state': state,
-//         'district': district,
-//         'tehsil': Tehsil,
-//         'enquiry_type_id': enquiry_type_id,
-//         'product_id': product_subject_id,
-//     };
-// console.log(paraArr,'asdfxsdfgdfgfgh');
-
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-//     console.log(url);
-
-//     var token = localStorage.getItem('token');
-//     var headers = {
-//         'Authorization': 'Bearer ' + token
-//     };
-//     $.ajax({
-//         url: url,
-//         type: "POST",
-//         data: paraArr,
-//         headers: headers,
-//         success: function(result) {
-//             console.log(result, "result");
-//             console.log("Add successfully");
-//             $("#used_tractor_callbnt_").modal('hide');
-//             var msg = "Added successfully !"
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//         },
-//         error: function(error) {
-//             console.error('Error fetching data:', error);
-//             var msg = error;
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//         }
-//     });
-// }
-
-
-//      function getharvesterList() {
-//       var url = "http://tractor-api.divyaltech.com/api/customer/harvester";
-//       console.log(url);
-  
-//       $.ajax({
-//           url: url,
-//           type: "GET",
-//           success: function(data) {
-//               console.log(data, 'abc');
-//               var productContainer = $("#productContainerharvester");
-//               // var slider_head = $("#slider_head");
-  
-//               if (data.product && data.product.length > 0) {
-//                   data.product.forEach(function (p) {
-//                       console.log(p,"pp");
-  
-//                       var images = p.image_names;
-//                       var a = [];
-  
-//                       if (images) {
-//                           if (images.indexOf(',') > -1) {
-//                               a = images.split(',');
-//                           } else {
-//                               a = [images];
-//                           }
-//                       }
-//                       // var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
-//                       var newCard = `
-//                       <div class="div class="item box_shadow b-t-1">
-//                       <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
-//                           <div class="thumb">
-//                               <div>
-//                                   <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover w-100" alt="harvester_img">
-//                               </div>
-//                           </div>
-//                           <div class="position-absolute" >
-//                               <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
-//                           </div>
-//                           <div class="content d-flex flex-column flex-grow-1 ">
-                              
-//                               <div class="power text-center mt-3">
-//                               <div class="row text-center">
-//                                   <div class="col-12 text-center">
-//                                       <p class="fw-bold pe-3 text-primary">${p.id}</p>
-//                                   </div>
-//                               </div>
-//                                   <div class="row ">
-//                                       <div class="col-12 "><p class="text-dark ps-2">Cutting Width : ${p.cutting_bar_width} Feet</p></div>
-//                                   </div>    
-//                               </div>
-//                           </div>
-//                           <div class="col-12 btn-success">
-//                               <button type="button" class="btn btn-success py-2 w-100"></i> 
-//                               Power : ${p.horse_power} HP
-//                               </button>
-//                           </div>
-//                       </a>
-//                   </div>
-//                       `;
-  
-//                       // Append the new card to the container
-//                       productContainer.append(newCard);
-//                       // slider_head.append(silder_heading);
-//                   });
-  
-//                 //   Initialize Owl Carousel after adding cards
-//                   productContainer.owlCarousel({
-//                       items:3,
-//                       loop: true,
-//                       margin: 10,
-//                       responsiveClass: true,
-//                       responsive: {
-//                           0: {
-//                               items: 1,
-//                               nav: true
-//                           },
-//                           600: {
-//                               items: 3,
-//                               nav: false
-//                           },
-//                           1000: {
-//                               items: 3,
-//                               nav: true,
-//                               loop: false
-//                           }
-//                       }
-//                   });
-//               }
-//           },
-//           error: function (error) {
-//               console.error('Error fetching data:', error);
-//           }
-//       });
-//   }
-
-
-
-//   function getpopularTractorList() {
-//     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
-
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         success: function(data) {
-//             console.log(data, 'abc');
-//             var productContainer = $("#productContainerharvester");
-//             // var slider_head = $("#slider_head");
-
-//             if (data.product && data.product.length > 0) {
-//                 data.product.forEach(function (p) {
-                   
-                       
-//                       var images = p.image_names;
-//                       var a = [];
-  
-//                       if (images) {
-//                           if (images.indexOf(',') > -1) {
-//                               a = images.split(',');
-//                           } else {
-//                               a = [images];
-//                           }
-//                       }
-//                         var newCard = `<div class="item box_shadow b-t-1">
-//                         <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
-//                         <div class="thumb">
-//                             <div>
-//                                 <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover w-100" alt="harvester_img">
-//                             </div>
-//                         </div>
-//                         <div class="position-absolute" >
-//                             <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
-//                         </div>
-//                         <div class="content d-flex flex-column flex-grow-1 ">
-                            
-//                             <div class="power text-center mt-3">
-//                             <div class="row text-center">
-//                                 <div class="col-12 text-center">
-//                                     <p class="fw-bold pe-3 text-primary">${p.id}</p>
-//                                 </div>
-//                             </div>
-//                                 <div class="row ">
-//                                     <div class="col-12 "><p class="text-dark ps-2">Cutting Width : ${p.cutting_bar_width} Feet</p></div>
-                                    
-//                                 </div>    
-//                             </div>
-//                         </div>
-//                         <div class="col-12 btn-success">
-//                             <button type="button" class="btn btn-success py-2 w-100"></i> 
-//                             Power : ${p.horse_power} HP
-//                             </button>
-//                         </div>
-//                     </a>
-//                         </div>`;
-//                         productContainer.append(newCard);
-                    
-//                 });
-
-//                 // Initialize Owl Carousel after appending the new cards
-//                 productContainer.owlCarousel({
-//                     items: 4,
-//                     loop: true,
-//                     margin: 10,
-//                     nav: true, // Enable navigation
-//                     autoplay: true, // Enable auto-play
-//                     autoplayTimeout: 3000,
-//                     responsiveClass: true,
-//                     responsive: {
-//                         0: {
-//                             items: 1,
-//                             nav: false
-//                         },
-//                         600: {
-//                             items: 3,
-//                             nav: false
-//                         },
-//                         1000: {
-//                             items: 4,
-//                             nav: true,
-//                             loop: false
-//                         }
-//                     }
-//                 });
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }

@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <?php
-   include 'includes/headertag.php';
-   $product_id=$_REQUEST['product_id'];
-   echo $product_id;
-   include 'includes/footertag.php';
+    include 'includes/headertag.php';
+    $product_id=$_REQUEST['product_id'];
+    echo $product_id;
+    include 'includes/footertag.php';
    ?>
   
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/.js"></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 
 <body>
    <?php
@@ -150,13 +158,10 @@
     <div class="container my-5">
         <div class="about border-success  border-4 text-dark border-start">
             <h2 class="text-dark fw-bold text-start ps-4"> About <span id="brand_name"></span></h2>
-
         </div>
         <div class="mt-1">
             <p class="text-dark" id="description"></p>
         </div>
-     
-
     </div>
 </section>
 <section class="mt-3">
@@ -164,44 +169,43 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4"> <span class="model_name"></span> Engine</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">No. Of Cylinder</td>
-                <td class="table-data"><p id="total_cyclinder_value"></p></td>
+                    <td class="table-data">No. Of Cylinder</td>
+                    <td class="table-data"><p id="total_cyclinder_value"></p></td>
                 </tr>
                 <tr>
-                <td class="table-data">HP Category</td>
-                <td class="table-data"><span id="hp_category_id"></span> HP</td>
+                    <td class="table-data">HP Category</td>
+                    <td class="table-data"><span id="hp_category_id"></span> HP</td>
                 </tr>
                 <tr>
-                <td class="table-data">Capacity CC</td>
-                <td class="table-data" ><span id="engine_capacity_cc"></span> CC</td>
+                    <td class="table-data">Capacity CC</td>
+                    <td class="table-data" ><span id="engine_capacity_cc"></span> CC</td>
                 </tr>
                 <tr>
-                <td class="table-data">Engine Rated RPM</td>
-                <td class="table-data"><span id="engine_rated_rpm"></span> RPM</td>
+                    <td class="table-data">Engine Rated RPM</td>
+                    <td class="table-data"><span id="engine_rated_rpm"></span> RPM</td>
                 </tr>
                 <tr>
-                <td class="table-data">Cooling</td>
-                <td class="table-data" id="cooling_value"> </td>
+                    <td class="table-data">Cooling</td>
+                    <td class="table-data" id="cooling_value"> </td>
                 </tr>
                 <tr>
-                <td class="table-data">Air Filter</td>
-                <td class="table-data" id="air_filter"></td>
+                    <td class="table-data">Air Filter</td>
+                    <td class="table-data" id="air_filter"></td>
                 </tr>
                 <tr>
-                <td  class="table-data">PTO HP</td>
-                <td class="table-data"><p> <span  id="horse_power_2"></span> HP</p> </td>
+                    <td  class="table-data">PTO HP</td>
+                    <td class="table-data"><p> <span  id="horse_power_2"></span> HP</p> </td>
                 </tr>
                 <tr>
-                <td class="table-data">Fuel Pump</td>
-                <td class="table-data"> <span  id="fuel_value"></span></td>
+                    <td class="table-data">Fuel Pump</td>
+                    <td class="table-data"> <span  id="fuel_value"></span></td>
                 </tr>
                 <tr>
-                <td class="table-data">Torque</td>
-                <td class="table-data"><span  id="torque"></span> NM</td>
+                    <td class="table-data">Torque</td>
+                    <td class="table-data"><span  id="torque"></span> NM</td>
                 </tr>
             </tbody>
         </table>
@@ -217,24 +221,24 @@
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">Type</td>
-                <td class="table-data"><span  id="transmission_type_value"></span></td>
+                    <td class="table-data">Type</td>
+                    <td class="table-data"><span  id="transmission_type_value"></span></td>
                 </tr>
                 <tr>
-                <td class="table-data">Clutch</td>
-                <td class="table-data"><span  id="transmission_clutch_value"></span></td>
+                    <td class="table-data">Clutch</td>
+                    <td class="table-data"><span  id="transmission_clutch_value"></span></td>
                 </tr>
                 <tr>
-                <td class="table-data">Gear Box</td>
-                <td class="table-data"><span  id="gear_box_forward_2"></span> Forward + <span  id="gear_box_reverse_2"></span> Reverse</td>
+                    <td class="table-data">Gear Box</td>
+                    <td class="table-data"><span  id="gear_box_forward_2"></span> Forward + <span  id="gear_box_reverse_2"></span> Reverse</td>
                 </tr>
                 <tr>
-                <td class="table-data">Forward Speed</td>
-                <td class="table-data"> <span id="transmission_forward"></span> kmph </td>
+                    <td class="table-data">Forward Speed</td>
+                    <td class="table-data"> <span id="transmission_forward"></span> kmph </td>
                 </tr>
                 <tr>
-                <td class="table-data">Reverse Speed</td>
-                <td class="table-data" > <span id="transmission_reverse"></span> kmph</td>
+                    <td class="table-data">Reverse Speed</td>
+                    <td class="table-data" > <span id="transmission_reverse"></span> kmph</td>
                 </tr>
             </tbody>
         </table>
@@ -246,12 +250,11 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Brakes</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">Brakes</td>
-                <td class="table-data"><span  id="brake_value"></span></td>
+                    <td class="table-data">Brakes</td>
+                    <td class="table-data"><span  id="brake_value"></span></td>
                 </tr>
             </tbody>
         </table>
@@ -263,21 +266,18 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Steering</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
-                <td class="table-data">Type</td>
-                <td class="table-data" id="steering_details_value"> </td>
+                    <td class="table-data">Type</td>
+                    <td class="table-data" id="steering_details_value"> </td>
                 </tr>
                 <tr>
-                <td class="table-data">Steering Column</td>
-                <td class="table-data"><span id="steering_column_value"></span></td>
+                    <td class="table-data">Steering Column</td>
+                    <td class="table-data"><span id="steering_column_value"></span></td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -286,21 +286,18 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Power Take Off</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
-                <td class="table-data">Type</td>
-                <td class="table-data">6 Spline</td>
+                    <td class="table-data">Type</td>
+                    <td class="table-data">6 Spline</td>
                 </tr>
                 <tr>
-                <td class="table-data">RPM</td>
-                <td class="table-data"><span id="power_take_off_rpm"></span></td>
+                    <td class="table-data">RPM</td>
+                    <td class="table-data"><span id="power_take_off_rpm"></span></td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -309,21 +306,18 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Dimensions And Weight Of Tractor</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
-                <td class="table-data">Total Weight</td>
-                <td class="table-data"><span id="total_weight"></span> KG</td>
+                    <td class="table-data">Total Weight</td>
+                    <td class="table-data"><span id="total_weight"></span> KG</td>
                 </tr>
                 <tr>
-                <td class="table-data">Wheel Base</td>
-                <td class="table-data"><span id="wheel_base"></span>  MM</td>
+                    <td class="table-data">Wheel Base</td>
+                    <td class="table-data"><span id="wheel_base"></span>  MM</td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -332,22 +326,18 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Hydraulics</h3>
         </div>
-
-        <table class="table w-75 table-hover table table-striped my-4">
-            
+        <table class="table w-75 table-hover table table-striped my-4">        
             <tbody>
                 <tr>
-                <td class="table-data">Lifting Capacity</td>
-                <td class="table-data"><span id="lifting_capacity"></span> Kg</td>
+                    <td class="table-data">Lifting Capacity</td>
+                    <td class="table-data"><span id="lifting_capacity"></span> Kg</td>
                 </tr>
                 <tr>
-                <td class="table-data">3 point Linkage</td>
-                <td class="table-data"> <span id="linkage_point_value"></span></td>
+                    <td class="table-data">3 point Linkage</td>
+                    <td class="table-data"> <span id="linkage_point_value"></span></td>
                 </tr>
-                
             </tbody>
         </table>
-
     </div>
 </section>
 <section class="mt-3">
@@ -355,12 +345,11 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Fuel Tank</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">Capacity</td>
-                <td class="table-data"><span class="fuel_capacity"></span> L</td>
+                    <td class="table-data">Capacity</td>
+                    <td class="table-data"><span class="fuel_capacity"></span> L</td>
                 </tr>
             </tbody>
         </table>
@@ -372,26 +361,22 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Wheels And Tyres</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
-                <td class="table-data">Wheel drive</td>
-                <td class="table-data"><span id="wheel_drive_value"></span></td>
+                    <td class="table-data">Wheel drive</td>
+                    <td class="table-data"><span id="wheel_drive_value"></span></td>
                 </tr>
                 <tr>
-                <td class="table-data">Front</td>
-                <td class="table-data"><span id="front_tyre"></span></td>
+                    <td class="table-data">Front</td>
+                    <td class="table-data"><span id="front_tyre"></span></td>
                 </tr>
                 <tr>
-                <td class="table-data">Rear</td>
-                <td class="table-data"><span id="rear_tyre"></span></td>
+                    <td class="table-data">Rear</td>
+                    <td class="table-data"><span id="rear_tyre"></span></td>
                 </tr>
-                
             </tbody>
         </table>
-
     </div>
 </section>
 <section class="mt-3">
@@ -399,26 +384,22 @@
         <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-4"><span id="brand_name"></span> Other Information</h3>
         </div>
-
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
-                <td class="table-data">Accessories</td>
-                <td class="table-data"><span id="accessory_id"></span> </td>
+                    <td class="table-data">Accessories</td>
+                    <td class="table-data"><span id="accessory_id"></span> </td>
                 </tr>
                 <tr>
-                <td class="table-data">Warranty</td>
-                <td> <span id="warranty_2"></span> year</td>
+                    <td class="table-data">Warranty</td>
+                    <td> <span id="warranty_2"></span> year</td>
                 </tr>
                 <tr>
-                <td class="table-data">Status</td>
-                <td class="table-data"><span id="status_value"></span></td>
+                    <td class="table-data">Status</td>
+                    <td class="table-data"><span id="status_value"></span></td>
                 </tr>
-                
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -439,23 +420,19 @@
                             <a href="#" class="text-decoration-none text-dark ps-3">
                                 <h4 class="fw-bold mt-3">Mahindra 575 DI XP Plus  </h3>
                             </a>
-
                             <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
                                 <p>Price: ₹ 6,20,000*</p>
                             </a>
-
                             <div class="row mt-1 ps-3">
-                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                        <p class=""> <i class="fas fa-bolt"></i> 47 HP</p>
-                                    </div>
-                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="ps-1">2021 Model</p>
-                                    </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                    <p class=""> <i class="fas fa-bolt"></i> 47 HP</p>
+                                </div>
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                    <p class="ps-1">2021 Model</p>
+                                </div>
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                                <span>
-                                Nasik, Maharashtra
-                                </span>
+                                <span> Nasik, Maharashtra </span>
                                 <span class="icon">
                                     <i class="fa-solid fa-chevron-right"></i>
                                 </span>
@@ -482,12 +459,12 @@
                             </a>
 
                             <div class="row mt-1 ps-3">
-                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                        <p class=""> <i class="fas fa-bolt"></i> 47 HP</p>
-                                    </div>
-                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="ps-1">2021 Model</p>
-                                    </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                    <p class=""> <i class="fas fa-bolt"></i> 47 HP</p>
+                                </div>
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                    <p class="ps-1">2021 Model</p>
+                                </div>
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>

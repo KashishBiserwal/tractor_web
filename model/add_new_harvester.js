@@ -1,19 +1,14 @@
 var EditIdmain_ = "";
 var editId_state= false;
 $(document).ready(function() {
-
   $('#add_harvester').click(store);
   $('#Search').click(search_data);
-  
-
-  console.log("ready!");
   ImgUpload();
 
   jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
     return /^[6-9]\d{9}$/.test(value);
 }, "Phone number must start with 6 or above and should be 10 digits");
 $.validator.addMethod("customNumber", function (value, element) {
-  // Use a regular expression to validate the input
   return /^(\d+(\.\d+)?|\d*\.\d+)(\*\d+(\.\d+)?|\*\d*\.\d+)?$/.test(value);
 }, "Please enter a valid number or multiplication expression");
 
@@ -140,9 +135,6 @@ $("#harvester_form").validate({
         CROPS_TYPE: {
           required: true,
         },
-        _image: {
-          required: true,
-        }
     },
     messages: {
       brand: {
@@ -267,9 +259,6 @@ $("#harvester_form").validate({
         CROPS_TYPE: {
           required: "This field is required",
         },
-        _image: {
-          required: "This field is required",
-        }
     },
     submitHandler: function (form) {
         alert("Form submitted successfully!");
@@ -284,7 +273,6 @@ $("#add_harvester").on("click", function () {
 function ImgUpload() {
   var imgWrap = "";
   var imgArray = [];
-
   $('.upload__inputfile').each(function () {
     $(this).on('change', function (e) {
       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
@@ -339,49 +327,85 @@ function ImgUpload() {
 }
 
 function removeImage(ele){
-  console.log("print ele");
-    console.log(ele);
     let thisId=ele.id;
     thisId=thisId.split('closeId');
     thisId=thisId[1];
     $("#"+ele.id).remove();
     $(".upload__img-closeDy"+thisId).remove();
-
   }
+function get_brand_add() {
+  var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 4;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const selects = document.querySelectorAll('#brand');
 
-  function get_brand_add() {
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'get_brand_by_product_id/'+ 4;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const select = document.getElementById('brand');
-            select.innerHTML = '';
+          selects.forEach(select => {
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+              if (data.brands.length > 0) {
+                  data.brands.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.brand_name;
+                      option.value = row.id;
+                      select.appendChild(option);
+                  });
+                  select.addEventListener('change', function() {
+                      const selectedBrandId = this.value;
+                      get_model_1(selectedBrandId);
+                  });
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          });
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_model_1(brand_id) {
+  var product_type_id = 4; 
+    var url = `http://tractor-api.divyaltech.com/api/customer/get_brand_model/${brand_id}?product_type_id=${product_type_id}`;
+  // var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const selects = document.querySelectorAll('#model');
+
+          selects.forEach(select => {
+            // Clear the existing options
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
+        
+            if (Array.isArray(data.model) && data.model.length > 0) {
+                data.model.forEach(modelName => {
                     const option = document.createElement('option');
-                    option.value = row.id;
-                    option.textContent = row.brand_name;
+                    option.textContent = modelName;  // Directly use the model name string
+                    option.value = modelName;
                     select.appendChild(option);
                 });
             } else {
-                select.innerHTML ='<option>No valid data available</option>';
+                select.innerHTML = '<option>No valid data available</option>';
             }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+        });
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
 get_brand_add();
   
   function get_lookup() {
-    console.log('initsfd')
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'getLookupData';
       $.ajax({
@@ -391,8 +415,6 @@ get_brand_add();
               'Authorization': 'Bearer ' + localStorage.getItem('token')
           },
           success: function (data) {
-            // lookup select
-            console.log(data,'ok');
               for (var i = 0; i < data.data.length; i++) {
                   $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
               }
@@ -406,11 +428,11 @@ get_brand_add();
       });
   }
   get_lookup();
+
 //   add data harvester
   function store(event) {
     event.preventDefault();
     console.log('harvester values');
-    // var product_type_id = $('#product_type_id').val();
     var product_type_id = 4;
     var EditIdmain_= $('#id').val();;
     var brand = $('#brand').val();
@@ -449,64 +471,45 @@ get_brand_add();
     var dia_width = $('#dia_width').val();
     var ground_clerance = $('#ground_clerance').val();
     var crops = $('#CROPS_TYPE').val();
-    // var image = $('#_image').val();
     var transmission_gears = $('#transmission_gears').val();
     var image_names = document.getElementById('image_name').files;
 
-      // Split the string by '+' and trim the whitespace
       var gearsArray = transmission_gears.split('+').map(function(gear) {
         return gear.trim();
       });
-
-      // Initialize counters for forward and reverse gears
       var forwardCount = 0;
       var reverseCount = 0;
 
-      // Loop through the gearsArray to count Forward and Reverse gears
       gearsArray.forEach(function(gear) {
         if (gear.includes('Forward')) {
-          forwardCount += parseInt(gear, 10); // Extract the number of forward gears
+          forwardCount += parseInt(gear, 10); 
         } else if (gear.includes('Reverse')) {
-          reverseCount += parseInt(gear, 10); // Extract the number of reverse gears
+          reverseCount += parseInt(gear, 10); 
         }
       });
 
-      // Store the counts in variables
       var transforward = forwardCount;
       var transreverse = reverseCount;
-
-      // Output the results
-      console.log('Forward Gears:', transforward);
-      console.log('Reverse Gears:', transreverse);
-
       var apiBaseURL =APIBaseURL;
-    //  var url = apiBaseURL + 'customer_enquiries';
      var token = localStorage.getItem('token');
      var headers = {
        'Authorization': 'Bearer ' + token
      };
 
-     var _method = 'POST';
+    var _method = 'POST';
     var url, method;
     
-    // console.log('edit state',editId_state);
-    // console.log('edit id', EditIdmain_);
     if (EditIdmain_!= "" && EditIdmain_!= "null") {
-     
       _method = 'PUT';  
       url = apiBaseURL + 'harvester/' + EditIdmain_;
-      console.log(url);
       method = 'POST';  
   } else {
-      // Add mode
       url = apiBaseURL + 'harvester';
-      console.log(url);
       method = 'POST';
   }
      var data = new FormData();
      for (var x = 0; x < image_names.length; x++) {
       data.append("images[]", image_names[x]);
-      console.log("multiple image", image_names[x]);
     }
       data.append('id',EditIdmain_);
       data.append('brand_id',brand);
@@ -541,7 +544,6 @@ get_brand_add();
       data.append('clutch_type_id',clutch_type);
       data.append('front_tyre',tyre_sizefront);
       data.append('rear_tyre',tyre_sizerear);
-      // data.append('fuel_capacity',fuel_capacity);
       data.append('total_weight_without_grains',total_weight_without_grains);
       data.append('dimension_length',dia_length);
       data.append('dimension_height',dia_height);
@@ -558,13 +560,9 @@ get_brand_add();
       contentType: false,
       success: function (result) {
         console.log(result, "result");
-       
         console.log("Add successfully");
         alert('successfully..!');
-          // $("#harvester_form").empty();
           window.location.reload();
-
-
         get_harvester();
       },
       error: function (error) {
@@ -588,11 +586,8 @@ get_brand_add();
             const tableBody = document.getElementById('data-table');
             let tableData = [];
             if (data.product && data.product.length > 0) {
-                // console.log(typeof product);
-
                 let serialNumber = data.product.length;
                 data.product.forEach(row => {
-
                     let action = ` <div class="d-flex">
                     <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_harvester">
                               <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
@@ -638,15 +633,20 @@ get_brand_add();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                  $("#errorStatusLoading").modal('show');
+                  $("#errorStatusLoading").find('.modal-title').html('Error');
+                  $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                  window.location.href = baseUrl + "login.php"; 
+      
+                }
         }
     });
 }
 get_harvester();
 
- 
 // delete data
 function destroy(id) {
-  console.log(id);
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'deleteProduct/' + id;
     var token = localStorage.getItem('token');
@@ -655,14 +655,10 @@ function destroy(id) {
       console.error("Token is missing");
       return;
     }
-  
-    // Show a confirmation popup
     var isConfirmed = confirm("Are you sure you want to delete this data?");
     if (!isConfirmed) {
-      // User clicked 'Cancel' in the confirmation popup
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",
@@ -686,9 +682,7 @@ function destroy(id) {
   function fetch_data(id) {
     console.log(id, "id");
     console.log(window.location);
-    //var urlParams = new URLSearchParams(window.location.search);
     editId_state= true;
-    // EditIdmain_= product_id;
     var harvesterId = id;
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'harvester/' + harvesterId;
@@ -708,7 +702,6 @@ function destroy(id) {
           document.getElementById('engine_rpm').innerText = data.product[0].engine_rated_rpm;
           document.getElementById('hp_power2').innerText = data.product[0].horse_power;
           document.getElementById('air_filter').innerText =data.product[0].air_filter;
-          // document.getElementById('engine').innerText = data.product[0].brand_name;
           document.getElementById('cylinder').innerText = data.product[0].total_cyclinder_value;
           document.getElementById('cutter_bar_width').innerText = data.product[0].cutting_bar_width;
           document.getElementById('max_cutting_height').innerText = data.product[0].max_cutting_height;
@@ -729,7 +722,6 @@ function destroy(id) {
           document.getElementById('drump_speed_adjust').innerText = data.product[0].threshing_drum_speed_adjustment_value;
           document.getElementById('clearance_concave').innerText = data.product[0].clearance_concave;
           document.getElementById('grain_tank_capacity').innerText = data.product[0].grain_tank_capacity;
-          
           document.getElementById('clutch_type').innerText = data.product[0].clutch_type_value;
           document.getElementById('front_tyre').innerText = data.product[0].front_tyre;
           document.getElementById('rear_tyre').innerText =data.product[0].rear_tyre;
@@ -739,8 +731,6 @@ function destroy(id) {
           document.getElementById('width').innerText = data.product[0].dimension_width;
           document.getElementById('ground_clearance').innerText = data.product[0].ground_clearance;
           document.getElementById('crops').innerText = data.product[0].crops_type_value;
-          // document.getElementById('transmission').innerText = data.product[0].transmission_forward;
-          // document.getElementById('selectedImagesContainer1').innerText = data.product[0].brand_img;
           $("#selectedImagesContainer1").empty();
       
           if (data.product[0].image_names) {
@@ -771,22 +761,15 @@ function destroy(id) {
         }
     });
   } 
-
   // for edit
   function fetch_edit_data(id) {
-
     var harvesterId = id;
-    // console.log(harvesterId, 'harvesterId');
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'harvester/' + harvesterId;
-    console.log('prachi');
     editId_state= true;
-    console.log(url);
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
     $.ajax({
       url: url,
       type: 'GET',
@@ -794,10 +777,13 @@ function destroy(id) {
       success: function(response) {
         var editData = response.product[0];
         $('#id').val(harvesterId);
-        // $("#brand_name option").prop("selected", false);
-        // $("#brand_name option[value='" + editData.brand_id + "']").prop("selected", true);
-       
-        $('#model').val(editData.model);
+        $('#model').empty(); 
+        get_model_1(editData.brand_id); 
+  
+        setTimeout(function() { 
+            $("#model option").prop("selected", false);
+            $("#model option[value='" + editData.model + "']").prop("selected", true);
+        }, 2000);
         $('#rpm').val(editData.engine_rated_rpm);
         $('#hp_power').val(editData.horse_power);
 
@@ -809,7 +795,6 @@ function destroy(id) {
         $("#TOTAL_CYLINDER option").prop("selected", false);
         $("#TOTAL_CYLINDER option[value='" + editData.total_cyclinder_id + "']").prop("selected", true);
 
-        // setSelectedOption('TOTAL_CYLINDER', editData.total_cyclinder_value);
         $("#POWER_SOURCE option").prop("selected", false);
         $("#POWER_SOURCE option[value='" + editData.POWER_SOURCE + "']").prop("selected", true);
 
@@ -917,55 +902,85 @@ function destroy(id) {
     }
   }
   
-  // get brand
-  function get() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_brand_by_product_id/'+ 4;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById('brand_name1');
+function get_brand() {
+  var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 4;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const selects = document.querySelectorAll('#brand_name1');
 
-            select.innerHTML = '';
-            select.innerHTML = '<option selected disabled value="">select Brand</option>';
+          selects.forEach(select => {
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
+              if (data.brands.length > 0) {
+                  data.brands.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.brand_name;
+                      option.value = row.id;
+                      select.appendChild(option);
+                  });
+
+                  select.addEventListener('change', function() {
+                      const selectedBrandId = this.value;
+                      get_model(selectedBrandId);
+                  });
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          });
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_model(brand_id) {
+  var product_type_id = 4; 
+    var url = `http://tractor-api.divyaltech.com/api/customer/get_brand_model/${brand_id}?product_type_id=${product_type_id}`;
+  // var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const selects = document.querySelectorAll('#model1');
+
+          selects.forEach(select => {
+            // Clear the existing options
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+        
+            if (Array.isArray(data.model) && data.model.length > 0) {
+                data.model.forEach(modelName => {
                     const option = document.createElement('option');
-                    option.value = row.id;
-                    option.textContent = row.brand_name;
+                    option.textContent = modelName;  // Directly use the model name string
+                    option.value = modelName;
                     select.appendChild(option);
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
             }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+        });
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
-
-get();
-
-
-
+get_brand(); 
 
 // search
 function search_data() {
-
   var selectedBrand = $('#brand_name1').val();
-
   var model = $('#model1').val();
-  console.log(brand_id);
   var paraArr = {
     'brand_id': selectedBrand,
-    //'id':brand_id,
     'model':model, 
   }
 
@@ -980,7 +995,6 @@ function search_data() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        console.log(searchData,"hello brand");
         updateTable(searchData);
       },
       error: function (error) {
@@ -991,7 +1005,6 @@ function search_data() {
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-  // let serialNumber = 1; 
 
   if(data.newHarvester && data.newHarvester.length > 0) {
     let tableData = [];
@@ -1030,14 +1043,12 @@ function updateTable(data) {
               { title: 'HP Power' },
               { title: 'Air Filter' },
               { title: 'Crops' },
-              { title: 'Action', orderable: false } // Disable ordering for Action column
+              { title: 'Action', orderable: false } 
           ],
             paging: true,
             searching: false,
-            // ... other options ...
         });
   } else {
-      // Display a message if there's no valid data
       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
 }
@@ -1045,48 +1056,8 @@ function resetform(){
   $('#brand_name1').val('');
   $('#model1').val('');
   get_harvester();
-  // window.location.reload();
   
 }
-
-
-// function resetFormFields() {
-//   $('#brand').val('');
-//   $('#model').val('');
-//   $('#rpm').val('');
-//   $('#hp_power').val('');
-//   $('#AIR_FILTER').val('');
-//   $('#TOTAL_CYCLINDER').val('');
-//   $('#POWER_SOURCE').val('');
-//   $('#cutting_bar').val('');
-//   $('#cuttingmax_height').val('');
-//   $('#cuttingmin_height').val('');
-//   $('#CUTTER_BAR_HEIGHT_ADJUSTMENT').val('');
-//   $('#REEL_TYPE').val('');
-//   $('#reel_dia').val('');
-//   $('#REEL_SPEED_CONTROL').val('');
-//   $('#min_revol').val('');
-//   $('#max_revol').val('');
-//   $('#REEL_HEIGHT_ADJUSTMENT').val('');
-//   $('#COOLING').val('');
-//   $('#cool_capacity').val('');
-//   $('#drump_width').val('');
-//   $('#drump_length').val('');
-//   $('#drump_diameter').val('');
-//   $('#THRESHING_DRUM_SPEED_ADJUSTMENT').val('');
-//   $('#clear_concave').val('');
-//   $('#tank_capa').val('');
-//   $('#transmission_gears').val('');
-//   $('#tyre_sizerear').val('');
-//   $('#total_weight_without_grains').val('');
-//   $('#dia_length').val('');
-//   $('#dia_height').val('');
-//   $('#dia_width').val('');
-//   $('#ground_clerance').val('');
-//   $('#CROPS_TYPE').val('');
-//   $('#_image').val('');
-//   $('#selectedImagesContainer').val('').css('display', 'none');
-// } 
 function resetFormFields(){
   document.getElementById("harvester_form").reset();
   document.getElementById("image_name").value = '';

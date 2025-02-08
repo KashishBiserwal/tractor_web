@@ -47,11 +47,11 @@ function populateModelDropdown(brand_id, modelClassName) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            if (data.model.length > 0) {
-                data.model.forEach(row => {
+            if (Array.isArray(data.model) && data.model.length > 0) {
+                data.model.forEach(modelName => {  // Since it's an array of strings
                     const option = document.createElement('option');
-                    option.textContent = row.model;
-                    option.value = row.model;
+                    option.textContent = modelName;  // Use modelName directly
+                    option.value = modelName;
                     modelSelect.appendChild(option);
                 });
             } else {
@@ -63,6 +63,7 @@ function populateModelDropdown(brand_id, modelClassName) {
         }
     });
 }
+
 
 // Call the function to populate brand dropdown
 populateBrandDropdown('brand_select', 'model_select');

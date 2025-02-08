@@ -30,30 +30,24 @@ function get_old_harvester() {
             type: "GET",
             success: function (data) {
                 var productContainer = $("#productContainerharvester");
-                // Clear the existing content in the container
                 productContainer.empty();
     
                 if (data.product && data.product.length > 0) {
-                    // Reverse the order of the cards to display the latest ones first
                     var reversedCards = data.product.slice().reverse();
     
-                    // Display the latest cards at the top
                     reversedCards.slice(0, cardsPerPage).forEach(function (p) {
                         prependCard(productContainer, p);
                         cardsDisplayed++;
                     });
     
-                    // Update allCards to store all the cards
                     allCards = reversedCards;
     
-                    // Show or hide the "Load More" button based on the number of cards
                     if (allCards.length > cardsPerPage) {
                         $("#loadMoreBtn").show();
                     } else {
                         $("#loadMoreBtn").hide();
                     }
                 } else {
-                    // Hide the "Load More" button if there are no cards
                     $("#loadMoreBtn").hide();
                 }
             },
@@ -61,7 +55,6 @@ function get_old_harvester() {
                 console.error('Error fetching data:', error);
             },
             complete: function () {
-                // Hide the spinner after the API call is complete
                 hideOverlay();
             },
         });
@@ -69,8 +62,6 @@ function get_old_harvester() {
     function prependCard(container, p) {
         var images = p.image_names;
         var a = [];
-        // const name = p.brand_name +" "+p.model;
-
         if (images) {
             if (images.indexOf(',') > -1) {
                 a = images.split(',');
@@ -86,7 +77,7 @@ function get_old_harvester() {
                             <div class="thumb">
                                 <a href="used_harvester_inner.php?id=${p.customer_id}">
                                     <div class="ratio ratio-16x9">
-                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
+                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                                     </div>
                                 </a>
                             </div>
@@ -138,7 +129,7 @@ function get_old_harvester() {
                     });
                 }
 
-                function get() {
+                function getStates() {
                     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
                     $.ajax({
                         url: url,
@@ -151,18 +142,29 @@ function get_old_harvester() {
                 
                             const checkboxContainer = $('#state_state');
                             checkboxContainer.empty(); // Clear existing checkboxes
-                            
-                            const stateId = 7; // Replace 7 with the desired state ID
-                            const filteredState = data.stateData.find(state => state.id === stateId);
-                            if (filteredState) {
-                                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                
+                            // Iterate through all states and create checkboxes
+                            data.stateData.forEach(state => {
+                                var checkboxHtml = `
+                                    <input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" 
+                                           name="state" value="${state.id}" id="state_${state.id}" />
+                                    <label for="state_${state.id}" class="ps-2 fs-6 text-dark">${state.state_name}</label>
+                                    <br/>`;
                                 checkboxContainer.append(checkboxHtml);
-                                // Call getDistricts with the stateId
-                                getDistricts(stateId);
-                            } else {
-                                checkboxContainer.html('<p>No valid data available</p>');
-                            }
+                            });
+                
+                            // Clear district container initially
+                            const districtContainer = $('#district_dist');
+                            districtContainer.empty();
+                            districtContainer.append('<p></p>');
+                
+                            // Add event listener for state selection
+                            $('.state_checkbox').on('change', function () {
+                                const stateId = $(this).val();
+                                if (stateId) {
+                                    getDistricts(stateId);
+                                }
+                            });
                         },
                         error: function(error) {
                             console.error('Error fetching state data:', error);
@@ -179,31 +181,33 @@ function get_old_harvester() {
                             'Authorization': 'Bearer ' + localStorage.getItem('token')
                         },
                         success: function(data) {
-                            console.log("District data:", data);
-                            
+                            console.log("District data for state ID " + stateId + ":", data);
+                
                             const checkboxContainer = $('#district_dist');
                             checkboxContainer.empty(); // Clear existing checkboxes
-                            
+                
                             if (data && data.districtData && data.districtData.length > 0) {
                                 data.districtData.forEach(district => {
-                                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
-                                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                                    var checkboxHtml = `
+                                        <input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" 
+                                               value="${district.id}" id="district_${district.id}" />
+                                        <label for="district_${district.id}" class="ps-2 fs-6">${district.district_name}</label>
+                                        <br/>`;
                                     checkboxContainer.append(checkboxHtml);
                                 });
                             } else {
-                                checkboxContainer.html('<p>No districts available for this state</p>');
+                                checkboxContainer.append('<p>No districts available for the selected state.</p>');
                             }
                         },
                         error: function(error) {
-                            console.error('Error fetching districts:', error);
+                            console.error('Error fetching districts for state ID ' + stateId + ':', error);
                         }
                     });
                 }
-                // Call the get function to start fetching state data
-                get();
+                getStates();
+                
                 
                 function get_barnd() {
-                    // var apiBaseURL = CustomerAPIBaseURL;
                     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
                 
                     $.ajax({
@@ -216,9 +220,8 @@ function get_old_harvester() {
                             console.log(data);
                 
                             const checkboxContainer = $('#checkboxContainer');
-                            checkboxContainer.empty(); // Clear existing checkboxes
+                            checkboxContainer.empty(); 
                 
-                            // Loop through the data and add checkboxes
                             $.each(data.brands, function (index, brand) {
                                 var brand_id = brand.id;
                                 var brand_name = brand.brand_name;
@@ -353,7 +356,7 @@ function get_old_harvester() {
                                 <div class="thumb">
                                     <a href="used_harvester_inner.php?id=${filter.customer_id}">
                                         <div class="ratio ratio-16x9">
-                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${filter.image_names.split(',')[0]}" class="object-fit-cover " alt="img">
+                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${filter.image_names.split(',')[0]}" class="object-fit-cover" alt="img" loading="lazy">
                                         </div>
                                     </a>
                                 </div>
@@ -398,14 +401,6 @@ function get_old_harvester() {
                         }
                     }
                     
-                    // $(document).on('click', '#loadMoreBtn', function () {
-                    //     displayNextSet();
-                    // });
-                    
-                   
-                
-
-
                 function resetform(){
                     $('.brand_checkbox').val('');
                     $('.state_checkbox').val('');
@@ -415,7 +410,6 @@ function get_old_harvester() {
                     $('.budget_checkbox:checked').prop('checked', false);
                     $('.state_checkbox:checked').prop('checked', false);
                     $('.district_checkbox:checked').prop('checked', false);
-                    // get_old_harvester();
                     $("#noDataMessage").hide();
                     window.location.reload();
                     

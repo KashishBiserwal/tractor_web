@@ -62,25 +62,15 @@ $(document).ready(function() {
                 var productContainer = $("#productContainer");
                 var loadMoreButton = $("#loadMoreBtn");
             
-                // document.getElementById('mob_num').value = data.nursery_data[0].mobile;
                 if (data.nursery_data && data.nursery_data.length > 0) {
-                    // Reverse the order of the cards to display the latest ones first
                     var reversedCards = data.nursery_data.slice().reverse();
                     
-                    // Update the list of all cards
                     allCards = allCards.concat(reversedCards);
                     
-                    // Display the latest 9 cards at the top in the opposite order
                     displaynursery(productContainer, reversedCards.slice(0, 6).reverse());
-    
-                    // Show the "View All" button
                     loadMoreButton.show();
-    
-                    // Handle "View All" button click
                     loadMoreButton.click(function() {
-                        // Display all cards in the opposite order
                         displaynursery(productContainer, allCards.reverse());
-                        // Hide the "View All" button
                         loadMoreButton.hide();
                     });
                 }
@@ -93,9 +83,6 @@ $(document).ready(function() {
             },
         });
     }
-
-    
-
         function displaynursery(container, nursery) {
             // Clear existing content
             container.html('');
@@ -124,7 +111,7 @@ $(document).ready(function() {
                     <div class="thumb">
                         <div>
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
+                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -193,15 +180,14 @@ $(document).ready(function() {
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
-                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
-                                                       
+                                                    <label for="state_1" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">                                                    
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_1" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
                                                        
                                                     </select>
@@ -209,7 +195,7 @@ $(document).ready(function() {
                                             </div>       
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                    <label for="Tehsil_1" class="form-label fw-bold "> Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
                                                         
                                                     </select>
@@ -286,11 +272,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-        `;
-        
-        
+            </div> `;
         container.prepend(newCard);
        
     });
@@ -302,9 +284,7 @@ function resetForm(formId) {
     document.getElementById(formId).reset();
 }
 
-
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
@@ -418,7 +398,6 @@ function submitData(formId) {
     });
 }
 
-
 function collectFormData(formId) {
     // Collect form data
     var mobile = $(`#${formId} #mobile_number_1`).val();
@@ -475,13 +454,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #first_name_1').val(customer.first_name);
                 $('#' + formId + ' #last_Name_1').val(customer.last_name);
                 $('#' + formId + ' #mobile_number_1').val(customer.mobile);
-                $('#' + formId + ' #state_1').val(customer.state_id);
+                // $('#' + formId + ' #state_1').val(customer.state_id);
                 // $('#' + formId + ' #district_1').val(customer.district);
                 // $('#' + formId + ' #Tehsil_1').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil_1').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#state_1,#district_1,#Tehsil_1').prop('disabled', true);
                 }
             }
         },
@@ -490,12 +469,9 @@ function getUserDetail(id, formId) {
         }
     });
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
-
 
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
@@ -505,25 +481,38 @@ function getState() {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function(data) {
+        success: function (data) {
             console.log("State data:", data);
 
             const checkboxContainer = $('#state_state');
-            checkboxContainer.empty(); // Clear existing checkboxes
-            
-            const stateId = 7; // Replace 7 with the desired state ID
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-                checkboxContainer.append(checkboxHtml);
-                // Call getDistricts with the stateId
-                ge_tDistricts(stateId);
+            checkboxContainer.empty(); 
+            if (data.stateData && data.stateData.length > 0) {
+                data.stateData.forEach(state => {
+                    var checkboxHtml = `
+                        <input type="radio" class="checkbox-round mt-1 ms-3 state_checkbox" 
+                               name="state" value="${state.id}" id="state_${state.id}" />
+                        <label for="state_${state.id}" class="ps-2 fs-6 text-dark">${state.state_name}</label>
+                        <br/>`;
+                    checkboxContainer.append(checkboxHtml);
+                });
+
+                // Placeholder for districts
+                const districtContainer = $('#get_dist');
+                districtContainer.empty();
+                districtContainer.append('<p></p>');
+
+                // Add event listeners to state checkboxes
+                $('.state_checkbox').on('change', function () {
+                    const stateId = $(this).val();
+                    if (stateId) {
+                        ge_tDistricts(stateId);
+                    }
+                });
             } else {
-                checkboxContainer.html('<p>No valid data available</p>');
+                checkboxContainer.append('<p>No states available.</p>');
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error fetching state data:', error);
         }
     });
@@ -537,29 +526,32 @@ function ge_tDistricts(stateId) {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function(data) {
-            console.log("District data:", data);
-            
+        success: function (data) {
+            console.log("District data for state ID " + stateId + ":", data);
+
             const checkboxContainer = $('#get_dist');
             checkboxContainer.empty(); // Clear existing checkboxes
-            
+
             if (data && data.districtData && data.districtData.length > 0) {
                 data.districtData.forEach(district => {
-                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
-                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    var checkboxHtml = `
+                        <input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" 
+                               value="${district.id}" id="district_${district.id}" />
+                        <label for="district_${district.id}" class="ps-2 fs-6">${district.district_name}</label>
+                        <br/>`;
                     checkboxContainer.append(checkboxHtml);
                 });
             } else {
-                checkboxContainer.html('<p>No districts available for this state</p>');
+                checkboxContainer.append('<p>No districts available for the selected state.</p>');
             }
         },
-        error: function(error) {
-            console.error('Error fetching districts:', error);
+        error: function (error) {
+            console.error('Error fetching districts for state ID ' + stateId + ':', error);
         }
     });
 }
-// Call the get function to start fetching state data
 getState();
+
 var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6;
@@ -645,7 +637,7 @@ function appendFilterCard(filterContainer, filter) {
                     <div class="thumb">
                         <div>
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
+                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -714,25 +706,22 @@ function appendFilterCard(filterContainer, filter) {
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                    <label for="state_1" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
-                                                       
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district_1" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
-                                                       
                                                     </select>
                                                 </div>                    
                                             </div>       
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
-                                                    <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                    <label for="Tehsil_1" class="form-label fw-bold "> Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
-                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -811,44 +800,34 @@ function appendFilterCard(filterContainer, filter) {
         `;
         container.append(newCard);
     }
-
     function displayNextSet() {
         var productContainer = $("#productContainer");
-    
-        // Display the next set of filtered cards
         filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
-    
-        // Hide the "Load More" button if all filtered cards are displayed
         if (cardsDisplayed >= filteredCards.length) {
             $("#loadMoreBtn").hide();
         }
     }
     
     $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
         displayNextSet();
     });
 
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
-  function resetform(){
+function resetform(){
     $('.select_state').val('');
     $('.select_district').val('');
     $('.select_state:checked').prop('checked', false);
     $('.select_district:checked').prop('checked', false);
-    
     filter_search();
     window.location.reload();
-    
-  }
+}
 
-
-  function get() {
+function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
         url: url,
@@ -862,16 +841,22 @@ function appendFilterCard(filterContainer, filter) {
             const checkboxContainer = $('#state_state');
             checkboxContainer.empty(); // Clear existing checkboxes
             
-            const stateId = 7; // Replace 7 with the desired state ID
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
-                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
-                checkboxContainer.append(checkboxHtml);
-                // Call getDistricts with the stateId
-                getDistricts(stateId);
-            } else {
-                checkboxContainer.html('<p>No valid data available</p>');
+            const stateIds = [7, 15, 20, 26, 34]; // Array of State IDs you want to fetch checkboxes for
+
+            stateIds.forEach(stateId => {
+                const filteredState = data.stateData.find(state => state.id === stateId);
+                if (filteredState) {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                        '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                } else {
+                    checkboxContainer.append('<p>No valid data available for state ID: ' + stateId + '</p>');
+                }
+            });
+
+            // Initially load districts for the first state in stateIds
+            if (stateIds.length > 0) {
+                ge_tDistricts(stateIds[0]);
             }
         },
         error: function(error) {
@@ -885,37 +870,46 @@ function populateDropdowns(identifier) {
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+        var stateData = stateDataResponse.stateData;
+        var selectYourStateOption = '<option value="">Select Your State</option>';
+        var stateOptions = stateData
+            .map(state => `<option value="${state.id}">${state.state_name}</option>`)
+            .join('');
 
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+        stateDropdowns.forEach(function (dropdown) {
+            dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            // Add event listener to state dropdown to fetch district data
+            dropdown.addEventListener('change', function() {
+                var selectedStateId = this.value;
+                var districtSelect = this.closest('.row').querySelector('.district-dropdown');
+                districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                if (selectedStateId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                        data.districtData.forEach(district => {
+                            districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                        });
+                    });
+                }
             });
         });
-    });
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+
+        districtDropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener('change', function() {
+                var selectedDistrictId = this.value;
+                var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+                if (selectedDistrictId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                        tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                        data.tehsilData.forEach(tehsil => {
+                            tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                        });
                     });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
+                } else {
+                    tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                }
+            });
         });
     });
 }

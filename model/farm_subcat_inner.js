@@ -1,19 +1,14 @@
 $(document).ready(function() {
-
     get_detail();
     getpopularTractorList();
     getupcomimgTractorList();
     blog_details_list();
     $('#submit_enquiry').click(store);
-    var allCards = []; // Array to store all cards
-    
-    // blog_details_list(allCards);
-
+    var allCards = []; 
 });
 
 function getpopularTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
-
     $.ajax({
         url: url,
         type: "GET",
@@ -26,19 +21,13 @@ function getpopularTractorList() {
                     return s.product_id;
                 }
             });
-
             var productContainer = $("#productContainerpopular");
-
             if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // Display the initial set of 4 cards
                 displayPopularTractors(data.product.allProductData.slice(0, 4), new_arr);
 
-                // Show the "Load More" button if there are more tractors
                 if (data.product.allProductData.length > 4) {
                     $("#loadMoretract").show();
                 }
-
-                // Handle "Load More" button click
                 $("#load_more").click(function() {
                     window.location.href = "popular_tractors.php";
                 });
@@ -52,7 +41,6 @@ function getpopularTractorList() {
 
 function displayPopularTractors(tractors, new_arr) {
     var productContainer = $("#productContainerpopular");
-
     tractors.forEach(function(p) {
         if (new_arr.includes(p.product_id)) {
             var images = p.image_names;
@@ -70,7 +58,7 @@ function displayPopularTractors(tractors, new_arr) {
                             <div class="text-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
                                     <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
+                                        style=" border-radius: 10px;" loading="lazy">
                                 </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">
@@ -85,16 +73,12 @@ function displayPopularTractors(tractors, new_arr) {
                             </div>
                         </div>`;
 
-            // Append the new card to the container
             productContainer.append(newCard);
         }
     });
 }
 
-
-
  // get new popular tractor
-
  function getupcomimgTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
 
@@ -114,10 +98,7 @@ function displayPopularTractors(tractors, new_arr) {
             var productContainer = $("#productContainerupcoming");
 
             if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // Display the initial set of 4 cards
                 displayupcomingTractors(data.product.allProductData.slice(0, 4), new_arr);
-
-                // Show the "Load More" button if there are more tractors
                 if (data.product.allProductData.length > 4) {
                     $("#load_btn").show();
                 }
@@ -142,7 +123,6 @@ function displayupcomingTractors(tractors, new_arr) {
             var a = [];
 
             if (images && typeof images === 'string') {
-                // Check if images is not null and is a string before splitting
                 if (images.indexOf(',') > -1) {
                     a = images.split(',');
                 } else {
@@ -154,7 +134,7 @@ function displayupcomingTractors(tractors, new_arr) {
                             <div class="text-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
                                     <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
+                                        style=" border-radius: 10px;" loading="lazy">
                                 </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">
@@ -168,8 +148,6 @@ function displayupcomingTractors(tractors, new_arr) {
                                
                             </div>
                         </div>`;
-
-            // Append the new card to the container
             productContainer.append(newCard);
         }
     });
@@ -196,14 +174,8 @@ function get_detail() {
             document.getElementById('heading').innerText = implementsData.model;
             document.getElementById('model_name').innerText = implementsData.brand_name;
             document.getElementById('model').innerText = implementsData.model;
-            // document.getElementById('subcategory').innerText = implementsData.sub_category_name;
-            // Remove underscores and special characters
             var cleanedString = implementsData.sub_category_name.replace(/[^\w\s]/gi, '');
-
-            // Add spaces between words
             var spacedString = cleanedString.replace(/_/g, ' ');
-
-            // Set the modified string to the innerText of the element with id 'subcategory'
             document.getElementById('subcategory').innerText = spacedString;
             document.getElementById('category').innerText = implementsData.category_name;
             document.getElementById('imple_name').innerText = brand_model;
@@ -226,8 +198,6 @@ function get_detail() {
                     tableData.append(tableRow);
                 });
             }
-    
-            // Call initializeSlickSlider after setting other elements
             initializeSlickSlider(data);
         },
         error: function(error) {
@@ -244,10 +214,9 @@ function get_detail() {
                 var imageNames = implementsDataArray[0].image_names ? implementsDataArray[0].image_names.split(',') : [];
                 var carouselContainer = $('.slider-for');
                 var carouselContainer2 = $('.slider-nav');
-                // carouselContainer2.css('float', 'inline-start');
         
                 carouselContainer.empty();
-                carouselContainer2.empty();  // Added to clear the second slider
+                carouselContainer2.empty();  
         
                 imageNames.forEach(function(imageName) {
                     var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim();
@@ -257,13 +226,10 @@ function get_detail() {
                     var slide2 = $('<div class="slick-slide slick-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
                     carouselContainer2.append(slide2);
                 });
-        
-                // Initialize or update the Slick sliders
                 $('.slider-for').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     asNavFor: '.slider-nav',
-                    // Your Slick slider configuration options
                 });
         
                 $('.slider-nav').slick({
@@ -286,7 +252,6 @@ function store(event) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitForm();
-            // $('#staticBackdrop').modal('show');
         }
     } else {
         var mobile = $('#mobile_number').val();
@@ -309,7 +274,7 @@ function get_otp(phone) {
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-            $('#get_OTP_btn').modal('show'); // OTP modal is displayed for entering OTP
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -335,12 +300,10 @@ function verifyotp() {
             var isConfirmed = confirm("Are you sure you want to submit the form?");
             if (isConfirmed) {
                 submitForm();
-                // $('#staticBackdrop').modal('show');
             }
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle different error scenarios
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 var htmlcontent = `<p>Invalid credentials!</p>`;
@@ -359,9 +322,7 @@ function verifyotp() {
 }
 
 function submitForm() {
-    // Gather form data
     var enquiry_type_id = $('#enquiry_type_id').val();
-    // var enquiry_type_id = 6;
     var product_id = $('#product_id').val();
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
@@ -432,14 +393,11 @@ function getUserDetail(id) {
                 $('#engine_oil_form #firstName').val(customer.first_name);
                 $('#engine_oil_form #lastName').val(customer.last_name);
                 $('#engine_oil_form #mobile_number').val(customer.mobile);
-                $('#engine_oil_form #state').val(customer.state_id);
-                // $('#engine_oil_form #district').val(customer.district);
-                // $('#engine_oil_form #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
                 
             }
@@ -452,82 +410,4 @@ function getUserDetail(id) {
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
-// similar
-// function blog_details_list(allCards) {
-//     if (!allCards) {
-//         allCards = [];  // Initialize allCards if it's undefined
-//     }
-
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/blog_details';
-
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         success: function(data) {
-//             var productContainer = $("#similarproduct");
-//             var loadMoreButton = $("#load_moretract");
-
-//             if (data.blog_details && data.blog_details.length > 0) {
-//                 var reversedCards = data.blog_details.slice().reverse();
-//                 allCards = allCards.concat(reversedCards);
-
-//                 displayEngineoil(productContainer, reversedCards.slice(0, 4).reverse());
-//                 loadMoreButton.show();
-
-//                 loadMoreButton.click(function() {
-//                     displayEngineoil(productContainer, allCards.reverse());
-//                     loadMoreButton.hide();
-//                 });
-//             }
-//         },
-//         error: function(error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-// function displayEngineoil(container, engineoil) {
-//     // Clear existing content
-//     container.html('');
-
-//     engineoil.forEach(function (p) {
-//         var images = p.image_names;
-//         var a = [];
-
-//         if (images) {
-//             if (images.indexOf(',') > -1) {
-//                 a = images.split(',');
-//             } else {
-//                 a = [images];
-//             }
-//         }
-
-//         var newCard = `
-//         <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-//         <div class="success__stry__item shadow h-100">
-//             <div class="thumb">
-//                 <a href="blog_customer_inner.php?id=${p.id}">
-//                     <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a.length > 0 ? a[0] : ''}" class="engineoil_img w-100" alt="img">
-//                 </a>
-//             </div>
-//             <div class="content mb-3 ms-3">
-//                 <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
-//                 <div class="row mt-2">
-//                     <p class="fw-bold">${p.heading}</p>
-//                 </div>
-//                 <div class="row">
-//                     <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
-//                 </div>
-//                 <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
-//                     <span class=""> Date/time-${p.date} </span>
-//                 </a>
-//             </div>
-//         </div>
-//     </div>`;
-        
-//         // Use prepend to add the new card at the beginning
-//         container.prepend(newCard);
-//     });
-// }
 

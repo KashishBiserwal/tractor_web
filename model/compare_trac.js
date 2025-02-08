@@ -1,8 +1,5 @@
 $(document).ready(function(){
-    // $('#compareButton').click(store);
 });
-
-// for card1
 
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
@@ -161,7 +158,7 @@ function getcompare_data() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -347,7 +344,7 @@ function getcompare_data1() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -532,7 +529,7 @@ function getcompare_data2() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -621,17 +618,8 @@ function get_model_card4(brand_id) {
                         select.appendChild(option);
                     });
 
-                    // Add event listener to model dropdown
                     select.addEventListener('change', function () {
-                        // const selectedModelId = this.value;
-                        // const selectedModelId1 = this.value;
-                        // const selectedModelId2 = this.value;
                         const selectedModelId3 = this.value;
-
-
-                        // getcompare_data(selectedModelId); 
-                        // getcompare_data1(selectedModelId1); 
-                        // getcompare_data2(selectedModelId2); 
                         getcompare_data3(selectedModelId3); 
                     });
                 } else {
@@ -724,7 +712,7 @@ function getcompare_data3() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>

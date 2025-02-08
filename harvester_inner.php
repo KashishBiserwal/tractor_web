@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-   <?php
-  include 'includes/headertag.php';
-//   include 'includes/header.php';
-  $id=$_REQUEST['id'];
-  //echo $id;
-  include 'includes/footertag.php';
-  ?>
+    <?php
+        include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
+        $id=$_REQUEST['id'];
+        include 'includes/footertag.php';
+    ?>
  
- <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
- <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
- <script src="<?php $baseUrl; ?>model/harvester_customer_inner.js"></script>
- <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
-
+    <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/harvester_customer_inner.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
-
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6Z38E658LD');
+    </script>
 <body>
    <?php
-   include 'includes/header.php';
+    include 'includes/header.php';
    ?>
- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<section class="bg-light">
-    <div class="container mt-5 pt-4">
-        <div class="mt-4">
-            <span class="mt-4 pt-4 ">
-                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                <span class=""><span class=" header-link  px-1">Harvester <i class="fa-solid fa-chevron-right px-1"></i> </span></span>  
-            </span> 
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container mt-2">
-        <!-- <h1 class="mt-3" id="model_name">Kartar 4000</h1> -->
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <div>
-                <h4><span  id="brand_name"></span></h4>
-                </div>
-                <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
-                </div>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <section class="bg-light">
+        <div class="container mt-5 pt-5">
+            <div class="mt-4">
+                <span class="mt-4 pt-4 ">
+                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><span class=" header-link  px-1">Harvester <i class="fa-solid fa-chevron-right px-1"></i> </span></span>  
+                </span> 
             </div>
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+        </div>
+    </section>
+    <section>
+    <div class="container mt-2">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-12 col-sm-6 col-lg-6">
+                <h4><span id="brand_name"></span></h4>
+                <div class="swiper swiper_buy mySwiper2_buy">
+                    <div class="swiper-wrapper swiper-wrapper_buy">
+                        <div class="swiper-slide swiper-slide_buy"></div>
+                    </div>
+                </div>
+                <div thumbsSlider="" class="swiper mySwiper_buy" style="height:300px; width: 43%;" id="swip_img"></div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="col-12 col-lg-6 col-sm-6">
                 <table class="table table-bordered">
-                   
                     <tbody>
                         <tr>
                             <td class="fw-bold">Brand</td>
@@ -70,7 +68,7 @@
                         </tr>
                         <tr>
                             <td class="fw-bold">Cutter Bar – Width</td>
-                            <td> <span id="cutting_width"></span></td>
+                            <td><span id="cutting_width"></span></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">No Of Cylinder</td>
@@ -86,21 +84,23 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="row my-3 text-center">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                        <button type="button" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">GET BEST PRICE</button>
+                <div class="row my-3 text-center justify-content-center">
+                    <div class="col-12 col-lg-5 col-md-6 mb-3 mb-lg-0">
+                        <button type="button" class="btn btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                            GET BEST PRICE
+                        </button>
                     </div>
-                    
-                    <div class="col-12 col-lg-5 col-md-5 col-sm-5 ms-4 border border-success">
-                        <a href="new_tractor_loan.php">
-                            <button type="submit" class="text-success w-100 fw-bold" >VIEW LOAN OFFERS</button>
-                        </a>    
-                    </div>                    
+                    <div class="col-12 col-lg-5 col-md-6">
+                        <a href="new_tractor_loan.php" class="btn btn-outline-success w-100 fw-bold">
+                            VIEW LOAN OFFERS
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>       
+        </div>
     </div>
 </section>
+
 
     <!-- MODAL -->
     <section>
@@ -809,5 +809,14 @@
             })
         });
     </script>
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', // <- remove this line to show all language
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
     </html>

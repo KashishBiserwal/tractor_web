@@ -1,7 +1,6 @@
 
 
 $(document).ready(function() {
-    console.log("ready!");
     $('#delership_enq_btn').click(store);
     $('#Verify').click(verifyotp1);
     var userId = localStorage.getItem('id');
@@ -9,7 +8,6 @@ $(document).ready(function() {
     get_oldharvester();
     get_harvester();
 });
-
 
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
@@ -210,12 +208,12 @@ function getUserDetail(id) {
                 $('#dealership_enq_from #f_name_1').val(customer.first_name);
                 $('#dealership_enq_from #l_name_1').val(customer.last_name);
                 $('#dealership_enq_from #mob_num').val(customer.mobile);
-                $('#dealership_enq_from #state_s').val(customer.state_id);
+                // $('#dealership_enq_from #state_s').val(customer.state_id);
                 // $('#dealership_enq_from #district_s').val(customer.district);
                 // $('#dealership_enq_from #t_tehsil').val(customer.tehsil);
                 
                 if (isUserLoggedIn()) {
-                    $('#dealership_enq_from input, #dealership_enq_from select').not('#district_s,#t_tehsil,#b_brand_1').prop('disabled', true);
+                    $('#dealership_enq_from input, #dealership_enq_from select').not('#state_s,#district_s,#t_tehsil,#b_brand_1').prop('disabled', true);
                 }
                 
             }
@@ -228,64 +226,6 @@ function getUserDetail(id) {
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
-// Store data through form
-// function store(event) {
-//     event.preventDefault();
-//     var enquiry_type_id = $('#enquiry_type_id').val();
-//     var product_id = 2; 
-//     var brand_name = $('#b_brand_1').val();
-//     var first_name = $('#f_name_1').val();
-//     var last_name = $('#l_name_1').val();
-//     var mobile = $('#mob_num').val();
-//     var state = $('#state_s').val();
-//     var district = $('#district_s').val();
-//     var tehsil = $('#t_tehsil').val();
-  
-   
-//     var apiBaseURL = "http://tractor-api.divyaltech.com/api";
-//     var endpoint = '/customer/customer_enquiries';
-//     var url = apiBaseURL + endpoint;
-
-//     // Create a FormData object and append all form data
-//     var data = new FormData();
-//     data.append('product_id', product_id);
-//     data.append('enquiry_type_id', enquiry_type_id);
-//     data.append('brand_id', brand_name);
-//     data.append('first_name', first_name);
-//     data.append('last_name', last_name);
-//     data.append('mobile', mobile);
-//     data.append('state', state);
-//     data.append('district', district);
-//     data.append('tehsil', tehsil);
-  
-//     // Make an AJAX request to the server
-//     $.ajax({
-//         url: url,
-//         type: 'POST',
-//         data: data,
-//         processData: false,
-//         contentType: false,
-//         success: function (result) {
-//             console.log(result, 'result');
-//             $("#used_tractor_callbnt_").modal('hide');
-//             var msg = 'Added successfully !';
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//             console.log('Add successfully');
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//             var msg = error.statusText;
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-//         }
-//     });
-// }
 
 function get_harvester() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
@@ -313,28 +253,24 @@ function get_harvester() {
                 }
                 var newCard = `
                 <div class="item box_shadow b-t-1">
-              <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
-                <div class="harvester_img_section">
-                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                  <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
-                </div>
-              </a>
-              <div class="harvester_content_section mt-3 text-center">
-                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
-                <div class="row w-100">
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
-                </div>
                 <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
-                <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                    <div class="harvester_img_section">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
+                    <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+                    </div>
                 </a>
-              </div>
-               
-          
-            </div>
+                <div class="harvester_content_section mt-3 text-center">
+                    <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark text-truncate">${p.brand_name} ${p.model}</h6></a>
+                    <div class="row w-100 contant-justify-center">
+                        <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
+                        <div class="col-6 p-0 text-truncate" > <p class="mb-0"  style="font-size: 14px;">${p.crops_type_value}</p></div>
+                    </div>
+                    <a  href="harvester_inner.php?product_id=${p.id}">
+                        <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                    </a>
+                </div>
+            <div>
                 `;
-        
-                // Append the new card to the container
                 productContainer.append(newCard);
             });
 
@@ -342,8 +278,8 @@ function get_harvester() {
                 items:4,
                 loop: true,
                 margin: 10,
-                nav: true, // Enable navigation
-                autoplay: true, // Enable auto-play
+                nav: true, 
+                autoplay: true, 
                 autoplayTimeout: 3000,
                 responsiveClass: true,
                 responsive: {
@@ -369,8 +305,6 @@ function get_harvester() {
     }
     });
 }
-
-
 
 function get_oldharvester() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";

@@ -13,19 +13,18 @@
   });
 });
 </script>
-    <style>
-    .error-message {
+<style>
+  .error-message {
     color: red;
-   
-}
-.brand_table thead th:last-child{
-  width: 100px !important;
-}
+  }
+  .brand_table thead th:last-child{
+    width: 100px !important;
+  }
 </style>
 
 <body class="loaded"> 
 <div class="main-wrapper">
-    <div class="app" id="app">
+  <div class="app" id="app">
     <?php
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
@@ -64,31 +63,10 @@
                                   <div class="">
                                     <div class="">
                                       <div class="row">
-                                        
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand" required>
-                                       
                                         </div>
-                                       
-                                        <!-- <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                          <div class="background__box mt-4 pt-1">
-                                                <div class="background__btn-box ">
-                                                    <label class="background__btn">
-                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
-                                                        style="display: none"
-                                                        @change="handleFileInput"
-                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                        <small></small>
-                                                    </label>
-                                                </div>
-                                                <div class="">
-                                                    <div class="background__img-wrap"></div>
-                                                </div>
-                                          </div>
-                                        </div> -->
-                  
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                           <div class="upload__box mt-5">
                                             <div class="upload__btn-box text-center">
@@ -100,16 +78,10 @@
                                             <div id="selectedImagesContainer" class="upload__img-wrap row" required></div>
                                           </div>
                                         </div>
-                                    
                                         <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
-                                                        <label for="name" class="text-dark fw-bold">Select Product Type</label>
-                                                        <div id="type_name" name="type_name" required></div>
-                                                    </div>
-                                        <!-- <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
-                                            <div class="float-left mt-4 pt-2">
-                                                <button class="btn px-4 bg-success text-white" id="save">Submit</button>
-                                            </div>
-                                        </div> -->
+                                          <label for="name" class="text-dark fw-bold">Select Product Type</label>
+                                          <div id="type_name" name="type_name" required></div>
+                                        </div>
                                       </div>
                                   </div>
                               </form>
@@ -179,8 +151,8 @@
         <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Update Brand</h5>
+              <div class="modal-header bg-success">
+                <h5 class="modal-title text-white" id="staticBackdropLabel">Update Brand</h5>
                 <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
               </div>
                 <div class="modal-body">
@@ -206,9 +178,8 @@
                               <div class="background__btn-box ">
                                 <label class="background__btn">
                                 <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"style="display: none"
-                                @change="handleFileInput"accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                <small></small>
+                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="banner_image" name="banner_image" required>
+                                  <small></small>
                                 </label>
                               </div>
                               <div class="">
@@ -233,51 +204,40 @@
         </div>
       </div>
     </section>
-      
-   
           <!-- model view -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-            <!-- <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
-                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-              </div> -->
-              <div class="modal-body">
-                <h4 class="fw-bold mb-2">Brand Information</h4>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h5>Brand Name: </h5>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <p id="brand_name2" class="fw-bold"></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Image</h5>
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                     <div id="related_brand" class="row"></div>
-                    </div>
-                  </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="fw-bold mb-2">Brand Information</h4>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                  <h5>Brand Name: </h5>
+                </div>
+                <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                  <p id="brand_name2" class="fw-bold"></p>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <div class="row">
+                <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                  <h5>Image</h5>
+                </div>
+                <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                  <div id="related_brand" class="row"></div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-    
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<?php
-   
-   ?> 
 <script>
   $(document).ready(function() {
     $("#form").validate({
@@ -304,14 +264,10 @@
         }
       },
       submitHandler: function(form) {
-        // This function will be called when the form is valid
-        alert('Form is valid!'); // You can replace this with your submission logic
+        alert('Form is valid!'); 
       }
     });
-
-    // Listen for click event on the submit button
     $("#save").click(function() {
-      // Trigger form validation manually
       $("#form").valid();
     });
   });
@@ -324,7 +280,7 @@
       //   resetForm();
       // });
       
-      BackgroundUpload();
+      ImgUpload();
       get_product_type();
       $('#save').click(store);
       $('#save_brand').click(edit_brand);
@@ -333,16 +289,6 @@
   
     });
 
-    function removeImage(ele){
-  console.log("print ele");
-    console.log(ele);
-    let thisId=ele.id;
-    thisId=thisId.split('closeId');
-    thisId=thisId[1];
-    $("#"+ele.id).remove();
-    $(".upload__img-closeDy"+thisId).remove();
-
-  }
 
   function get_product_type(id) {
     console.log('initsfd')
@@ -374,32 +320,26 @@
               $("#" + id).append(checkbox);
               $("#" + id).append(label);
               }
-             
             }
-          
         },
-        
-        complete:function(){
-         
+         complete:function(){
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
 }
+
 get_product_type('type_name');
-    // store data
     function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-
-    // Manually trigger form validation
     var form = $('#form');
     form.validate();
 
     if (form.valid()) {
         var brand_name = document.getElementById('brand_name').value;
-        var brand_img = document.getElementById('brand_img').files[0];
+        var brand_img = document.getElementById('banner_image').files[0];
         var selectedCheckboxes = $('.product_type_checkbox:checked');
         var type_name = [];
 
@@ -486,11 +426,11 @@ function get() {
                 select_brand.append('<option value="' + brand.id + '">' + brand.name + '</option>');
             });
 
-            let serialNumber = 1; // Initialize serial number
+            let serialNumber = 1; 
 
             if (data.brands.length > 0) {
                 let tableData = [];
-                // Loop through the data and create table rows
+             
                 data.brands.forEach(row => {
                     let action = `<div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
@@ -498,15 +438,14 @@ function get() {
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                         </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>`;
                         tableData.push([
-                          serialNumber,
-                        row.brand_name,
-                        row.brand_img,
-                        row.product_type_names, // Assuming product_type_names is a string
-                        action
+                            serialNumber,
+                            row.brand_name,
+                            row.brand_img,
+                            row.product_type_names,
+                            action
                           ]);
 
-                    // Increment serial number for the next row
-                    serialNumber++;
+                          serialNumber++;
                 });
                 $('#example').DataTable().destroy();
                 $('#example').DataTable({
@@ -515,22 +454,36 @@ function get() {
                         { title: 'S.No.' },
                         { title: 'Brand Name' },
                         { title: 'Brand Image' },
-                        { title: 'Product Types' }, // Modify the column title
+                        { title: 'Product Types' }, 
                         { title: 'Action', orderable: false }
                     ],
 
                     paging: true,
                     searching: false,
-                    // ... other options ...
+                   
                 });
             } else {
-                // Display a message if there's no valid data
+          
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+                if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
             }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
             // Display an error message or handle the error as needed
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
         }
     });
 }
@@ -657,7 +610,7 @@ function fetch_data(id) {
     var productId = id;
     var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + productId;
   
-    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
+    // var url = "http://tractor-api.divyaltech.com/api/admin/getBrandsById/" + productId;
     // console.log(url);
     var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -880,17 +833,14 @@ $(document).ready(function () {
   fetchAllData();
 });
 
-  function BackgroundUpload() {
+ 
+function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
 
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
+    $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
         var maxLength = $(this).attr('data-max_length');
 
         var files = e.target.files;
@@ -903,7 +853,7 @@ $(document).ready(function () {
           }
 
           if (imgArray.length > maxLength) {
-            return false;
+            return false
           } else {
             var len = 0;
             for (var i = 0; i < imgArray.length; i++) {
@@ -918,8 +868,7 @@ $(document).ready(function () {
 
               var reader = new FileReader();
               reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
                 imgWrap.append(html);
                 iterator++;
               }
@@ -930,7 +879,7 @@ $(document).ready(function () {
       });
     });
 
-    $('body').on('click', ".background__img-close", function (e) {
+    $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
         if (imgArray[i].name === file) {
@@ -940,13 +889,24 @@ $(document).ready(function () {
       }
       $(this).parent().parent().remove();
     });
-}
+  }
+  
+    function removeImage(ele){
+      console.log("print ele");
+        console.log(ele);
+        let thisId=ele.id;
+        thisId=thisId.split('closeId');
+        thisId=thisId[1];
+        $("#"+ele.id).remove();
+        $(".upload__img-closeDy"+thisId).remove();
+    
+      }
 
 
 function resetFormFields(){
     document.getElementById("form").reset();
-    document.getElementById("brand_img").value = '';
-    document.getElementById("banner_image").innerHTML = '';
+    document.getElementById("banner_image").value = '';
+    document.getElementById("selectedImagesContainer2").innerHTML = '';
     
     // Resetting checkboxes
     var checkboxes = document.getElementsByClassName('product_type_checkbox');

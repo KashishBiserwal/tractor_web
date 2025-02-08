@@ -4,6 +4,7 @@
     <?php
         include 'includes/headertag.php';
         include 'includes/footertag.php';
+        include 'includes/headertagadmin.php';
     ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -12,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
-      /* owl nav */
       .owl-prev span,
       .owl-next span {
         color: #2E8B57;
@@ -37,43 +37,19 @@
       .owl-next {
         right: 7px;
       }
-
-      /* removing blue outline from buttons */
       button:focus,
       button:active {
         outline: none;
       }
-
-      /* #purchase_request table {
-        display: none;
-      } */
-
-      /* #purchase_request table:target {
-        display: block;
-      } */
-      /* #my_list table{
-        display: none;
-      } */
-      /* #my_list table:target {
-        display: block;
-      } */
       .dataTables_wrapper .dataTables_scrollBody tbody {
     height: auto !important;
 
     }
-    /* #purchase_engineoil_table_info {
-        display: none;
-    } */
-    /* .mylist-nav-link.active {
-    background-color: #2E8B57 !important;
-    color: white !important;
-} */
 .hover-bg-success:hover {
     background-color: #D3D3D3 !important; 
     color:	#000000;
 }
 .list-item:hover{
-    /* background-color: #D3D3D3 !important;  */
     color:	#000000;
 }
 .hover-bg-success{
@@ -87,7 +63,6 @@
 .table-responsive {
         width: 100%;
         }
-
 </style>
   </head>
   <body> <?php 
@@ -177,7 +152,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                             <div class="form-outline">
                                 <label for="eo_state" class="form-label"> <i class="fas fa-location"></i> State</label>
-                                <select class="form-select py-2 state-dropdown " aria-label=".form-select-lg example" id="state" name="state" disabled="disabled">
+                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" disabled="disabled">
                                 </select>
                             </div>
                         </div> 
@@ -257,12 +232,10 @@
                                 <table id="purchase_harvester_table" class="table table-striped table-hover table-bordered no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
-                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th> -->
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
                                     </tr>
                                 </thead> 
                                 <tbody id="data-table2" class="data-table"></tbody>
@@ -307,8 +280,6 @@
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Nursery Name</th>
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
-                                        <!-- <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
-                                        <th class="d-md-table-cell text-white" style="width: 275px;">District</th> -->
                                     </tr>
                                 </thead>
                                 <tbody id="data-table5" class="data-table"></tbody>
@@ -318,13 +289,10 @@
                                 <table id="purchase_tyre_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
-                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th> -->
-                                    
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table6" class="data-table"></tbody>
@@ -334,12 +302,10 @@
                                 <table id="purchase_engineoil_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
-                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">Seller Name</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th> -->
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table7"></tbody>
@@ -349,13 +315,11 @@
                                 <table id="purchase_dealer_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand dealer</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
-                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">District</th> -->
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand dealer</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table8" class="data-table"></tbody>
@@ -497,27 +461,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- <div class="table-responsive">
-                        <table id="list_interested_buyers_haatbazar_table" class="table table-striped table-hover table-bordered no-footer w-100">
-                            <thead class="bg-success">
-                            <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table_haatbazar">
-                            </tbody>
-                        </table>
-                    </div> -->
                 </div>
             </div>
         </div>
       </div>
-      <!-- </div> -->
     </section> 
      
   </body>
@@ -526,7 +473,7 @@
         $('.carousel-main').owlCarousel({
             items: 4,
             loop: false,
-            autoplay: false, // Set autoplay to true
+            autoplay: false,
             autoplayTimeout: 5000,
             margin: 10,
             nav: true,
@@ -537,10 +484,8 @@
 </script>
 <script>
     $(document).ready(function() {
-    // Function to handle tab clicks
     $('.nav-link').on('click', function() {
         
-        // Remove active class from all tabs
         $('.nav-link').removeClass('active');
         $(this).addClass('active');
 
@@ -553,39 +498,26 @@
 
 <script>
 $(document).ready(function() {
-    // Function to show tractor table when "Purchase Request" tab is clicked
     $('.nav-link[href="#purchase_request"]').on('click', function() {
-       
         $('#purchase_tractor_table').closest('.table-responsive').show();
         $('#tractor_active').addClass('active');
-        // $(this).addClass('active');
-        // Hide other tables for Purchase Request
         $('.table-hide').not('#purchase_tractor_table').hide();
     });
-
-    // Function to show respective table when other tabs are clicked
     $('.nav-link').not('[href="#purchase_request"]').on('click', function() {
-        // Hide all tables
         $('.table-responsive').hide();
-        
-        // Show the table corresponding to the clicked link
-        var tableIdToShow = $(this).attr('href').replace('#', ''); // Remove '#' from href
+        var tableIdToShow = $(this).attr('href').replace('#', ''); 
         $('#' + tableIdToShow).closest('.table-responsive').show();
     });
 });
 
 $(document).ready(function() {
-    // Function to show tractor table when "My List" tab is clicked
     $('.nav-link[href="#my_list"]').on('click', function() {
-        // Show the tractor table for My List
         $('#list_purchase_tractor_table').closest('.table-responsive').show();
         $('#tractor_table_active').addClass('active');
-        // Hide other tables for My List
         $('.table-hide').not('#list_purchase_tractor_table').hide();
     });
 });
 $(document).ready(function() {
-    // Function to show tractor table when "My List" tab is clicked
     $('.nav-link[href="#interested_buyers"]').on('click', function() {
         $('#list_interested_buyers_table').closest('.table-responsive').show();
         $('#listInterested').addClass('active');

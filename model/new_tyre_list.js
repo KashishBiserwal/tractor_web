@@ -1,18 +1,14 @@
 var EditIdmain_ = "";
 var editId_state= false;
-  
 $(document).ready(function(){
   ImgUpload();
     getbrand();
     $('#submit_btn').on('click', function(event) {
       $("#form_tyre_list").valid();
       store(event);
-      
     });
     $('#Search').click(search_data);
-            
       $("#form_tyre_list").validate({
-      
       rules: {
         brand: {
           required: true,
@@ -36,7 +32,6 @@ $(document).ready(function(){
           required:true,
         }
       },
-  
       messages:{
         brand: {
           required: "This field is required",
@@ -56,91 +51,77 @@ $(document).ready(function(){
             required:"This field is required",
             email:"Please Enter vaild Email",
           },
-        
-          category: {
-          required: "This field is required",
+        category: {
+        required: "This field is required",
         },
         _image: {
           required: "This field is required",
         },
       },
-      
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
-      });
+    });
+  });
   
-    
-   
-      });
-  
-      function geteditcategory() {
-        var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'get_tyre_category';
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                console.log(data);
-                const select = document.getElementById('category'); 
-    
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-                if (data.tyre_category.length > 0) {
-                    data.tyre_category.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.category;
-                        option.value = row.id;
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
-                var msg = error;
-                $("#errorStatusLoading").modal('show');
-                $("#errorStatusLoading").find('.modal-title').html('Error');
-                $("#errorStatusLoading").find('.modal-body').html(msg);
+  function geteditcategory() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_tyre_category';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const select = document.getElementById('category');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+            if (data.tyre_category.length > 0) {
+                data.tyre_category.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.category;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
             }
-        });
-    }
-    
-    geteditcategory();
-    
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
+}
+geteditcategory();
 
-      
-
-
-  // get tyre brand
+// get tyre brand
   function getbrand() {
-    var apiBaseURL =APIBaseURL;
+    var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_tyre_brands';
     $.ajax({
         url: url,
-        type: "GET",  
+        type: "GET",
         headers: {
-            'Authorization': 'Bearer' + localStorage.getItem('token')
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const select = document.getElementById('brand1');
-            // select.innerHTML = '';
-
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
-                    option.value = row.id; 
+                    option.value = row.id;
                     option.textContent = row.brand_name;
                     select.appendChild(option);
                 });
             } else {
-                select.innerHTML ='<option>No valid data available</option>';
+                select.innerHTML = '<option>No valid data available</option>';
             }
         },
         error: function (error) {
@@ -148,10 +129,8 @@ $(document).ready(function(){
         }
     });
 }
-    
 
 function getbrand_edit() {
-  // var url = "<?php echo $APIBaseURL; ?>getBrands";
   var apiBaseURL =APIBaseURL;
   var url = apiBaseURL + 'get_tyre_brands';
   $.ajax({
@@ -161,10 +140,8 @@ function getbrand_edit() {
           'Authorization': 'Bearer' + localStorage.getItem('token')
       },
       success: function (data) {
-          console.log(data);
           const select = document.getElementById('brand');
-          // select.innerHTML = '';
-
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
           if (data.brands.length > 0) {
               data.brands.forEach(row => {
                   const option = document.createElement('option');
@@ -183,12 +160,10 @@ function getbrand_edit() {
 }
 getbrand_edit();
   
-    
   //****get data***
   function get_tyre_list() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'tyre_data';
-    console.log('dfghjkiuytgf');
     
     $.ajax({
         url: url,
@@ -200,11 +175,8 @@ getbrand_edit();
           var tableBody = document.getElementById('data-table');
           let serialNumber = 1;
           let tableData = [];
-  
-  
             if (data.tyre_details && data.tyre_details.length > 0){
                 data.tyre_details.reverse().forEach(row => {
-                   // const tableRow = document.createElement('tr');
                     let action = `  <div class="d-flex">
                     <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding: 5px;"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
                     <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding: 5px;">
@@ -214,8 +186,6 @@ getbrand_edit();
                         <i class="fa fa-trash" style="font-size: 11px;"></i>
                     </button>
                 </div>`;
-    
-                    // Push row data as an array into the tableData
                     tableData.push([
                       serialNumber,
                       row.brand_name,
@@ -228,7 +198,6 @@ getbrand_edit();
                   serialNumber++;
               });
     
-              // Initialize DataTable after preparing the tableData
               $('#example').DataTable().destroy();
               $('#example').DataTable({
                       data: tableData,
@@ -238,11 +207,10 @@ getbrand_edit();
                         { title: 'Model Name' },
                         { title: 'Tyre Position' },
                         { title: 'Size' },
-                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                        { title: 'Action', orderable: false } 
                     ],
                       paging: true,
                       searching: false,
-                      // ... other options .................
                   })
                   
             } else {
@@ -251,14 +219,17 @@ getbrand_edit();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+              window.location.href = baseUrl + "login.php"; 
+  
+            }
         }
     });
   }
-
-
-  
   get_tyre_list();
-  
   
   function store(event) {
     event.preventDefault();
@@ -271,8 +242,6 @@ getbrand_edit();
     var category = $('#category').val();
     var EditIdmain_ = $('#EditIdmain_').val();
     var tyre_size = tyre_diameter + 'X' + tyre_width;
-  
-   
     var apiBaseURL = APIBaseURL;
     var token = localStorage.getItem('token');
     var headers = {
@@ -283,11 +252,8 @@ getbrand_edit();
     var url, method;
   
     if (EditIdmain_!="" && EditIdmain_!="") {
-      // Update mode
-      console.log(editId_state);
       _method = 'put';
       url = apiBaseURL + 'tyre_data/' + EditIdmain_ ;
-      console.log(url);
       method = 'POST'; 
   } else {
       // Add mode
@@ -295,11 +261,9 @@ getbrand_edit();
       method = 'POST';
   }
     var data = new FormData();
-  
     for (var x = 0; x < image_names.length; x++) {
         data.append('images[]', image_names[x]);
     }
-
     data.append('_method', _method);
     data.append('EditIdmain_', EditIdmain_);
     data.append('brand_id', brand_name);
@@ -318,9 +282,7 @@ getbrand_edit();
       contentType: false,
       success: function (result) {
         console.log('Success:', result);
-        // Clear form values
         $('#brand, #tyre, #tyre_position, #tyre_size, #tyre_width, #tyre_category_id, #_image').val('');
-        // window.location.reload();
         $("#staticBackdrop").modal('hide');
         var msg = "Added successfully !"
           $("#errorStatusLoading").modal('show');
@@ -337,29 +299,20 @@ getbrand_edit();
       }
     });
   }
-  // for image
-// jQuery(document).ready(function () {
- 
-// });
-
 function ImgUpload() {
   var imgWrap = "";
   var imgArray = [];
-
   $('.upload__inputfile').each(function () {
     $(this).on('change', function (e) {
       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
       var maxLength = $(this).attr('data-max_length');
-
       var files = e.target.files;
       var filesArr = Array.prototype.slice.call(files);
       var iterator = 0;
       filesArr.forEach(function (f, index) {
-
         if (!f.type.match('image.*')) {
           return;
         }
-
         if (imgArray.length > maxLength) {
           return false
         } else {
@@ -398,9 +351,7 @@ function ImgUpload() {
     $(this).parent().parent().remove();
   });
 }
-
   function removeImage(ele){
-    console.log(ele);
     let thisId=ele.id;
     thisId=thisId.split('closeId');
     thisId=thisId[1];
@@ -412,7 +363,6 @@ function ImgUpload() {
   function fetch_data(Id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'tyre_data/'+ Id;
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -423,7 +373,6 @@ function ImgUpload() {
       headers: headers,
     
       success: function(response) {
-        console.log("tyre data:" , response)
         var userData = response.tyre_details[0];
         document.getElementById('brand_name2').innerText=userData.brand_name;
         document.getElementById('model2').innerText=userData.tyre_model;
@@ -459,16 +408,12 @@ function ImgUpload() {
   }
   
    // edit data 
-  
    function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'tyre_data/'+ id;
-    console.log(url);
-  
+    var url = apiBaseURL + 'tyre_data/'+ id;  
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
     $.ajax({
         url: url,
         type: 'GET',
@@ -478,18 +423,13 @@ function ImgUpload() {
             $('#EditIdmain_').val(Data.id);
             $("#brand option").prop("selected", false);
             $("#brand option[value='" + Data.brand_id+ "']").prop("selected", true);
-    
-            // $('#brand').val(Data.brand_name);
             $('#tyre').val(Data.tyre_model);
             $('#tyre_position').val(Data.tyre_position);
             $('#category').val(Data.tyre_category_id);
             var tyreSize = Data.tyre_size;
-            // Split the string based on 'X'
             var tyreSizeParts = tyreSize.split('X');
-            // Set the values in respective input fields
             $('#tyre_diameter').val(tyreSizeParts[0]); 
             $('#tyre_width').val(tyreSizeParts[1]);
-
             $("#selectedImagesContainer").empty();
       
             if (Data.image_names) {
@@ -512,7 +452,6 @@ function ImgUpload() {
                     $("#selectedImagesContainer").append(newCard);
                 });
             }
-            
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -520,24 +459,18 @@ function ImgUpload() {
     });
   }
   
- 
-  
   //****delete data***
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'tyre_data/' + id;
-    console.log(url);
     var token = localStorage.getItem('token');
-  
     if (!token) {
-      console.error("Token is missing");
       return;
     }
     var isConfirmed = confirm("Are you sure you want to delete this data?");
     if (!isConfirmed) {
       return;
     }
-  
     $.ajax({
       url: url,
       type: "DELETE",
@@ -545,9 +478,7 @@ function ImgUpload() {
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        // get_tyre_list();
         window.location.reload();
-        console.log("Delete request successful");
         alert("Delete operation successful");
       },
       error: function(error) {
@@ -556,24 +487,11 @@ function ImgUpload() {
       }
     });
   }
-  
-  
-  // function resetFormFields() {
-  //   $('#brand').val('');
-  //   $('#tyre').val('');
-  //   $('#tyre_position').val('');
-  //   $('#category').val('');
-  //   $('#tyre_diameter').val('');
-  //   $('#tyre_width').val('');
-  //   $('#selectedImagesContainer').val('');
-  //   $('#EditIdmain_').val('');
-  // } 
 
   function resetFormFields(){
     document.getElementById("form_tyre_list").reset();
     document.getElementById("image").value = '';
     document.getElementById("selectedImagesContainer").innerHTML = '';
-   
 }
 
   // search data
@@ -591,12 +509,10 @@ function ImgUpload() {
         url:url, 
         type: 'POST',
         data: paraArr,
-      
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
-          console.log(searchData,"hello brand");
           updateTable(searchData);
         },
         error: function (error) {
@@ -610,7 +526,6 @@ function ImgUpload() {
           let tableData = [];
                if (data.tyreData && data.tyreData.length > 0){
                 data.tyreData.forEach(row => {
-                   // const tableRow = document.createElement('tr');
                     let action = `  <div class="d-flex">
                     <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding: 5px;"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
                     <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding: 5px;">
@@ -620,9 +535,7 @@ function ImgUpload() {
                         <i class="fa fa-trash" style="font-size: 11px;"></i>
                     </button>
                 </div>`;
-    
-                    // Push row data as an array into the tableData
-                    tableData.push([
+                      tableData.push([
                       serialNumber,
                       row.brand_name,
                       row.tyre_model,
@@ -630,11 +543,9 @@ function ImgUpload() {
                       row.tyre_size,
                       action
                   ]);
-    
                   serialNumber++;
               });
     
-              // Initialize DataTable after preparing the tableData
               $('#example').DataTable().destroy();
               $('#example').DataTable({
                       data: tableData,
@@ -644,11 +555,10 @@ function ImgUpload() {
                         { title: 'Model Name' },
                         { title: 'Tyre Position' },
                         { title: 'Size' },
-                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                        { title: 'Action', orderable: false } 
                     ],
                       paging: true,
                       searching: false,
-                      // ... other options .................
                   })
                   
             } else {
@@ -657,11 +567,8 @@ function ImgUpload() {
   }
 
 function resetform(){
-  
   $("#brand1").val("");
   $("#search_position").val("");
-  
-  
   get_tyre_list();
   
 }

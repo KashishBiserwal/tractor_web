@@ -1,16 +1,12 @@
 
   
 $(document).ready(function(){
-  // getbrand('brand_name');
   $('#undate_btn').click(edit_data_id);
   $('#submit_btn').on('click', function(event) {
     $("#form_tyre_list").valid();
     store(event);
-  });
-
-          
+  }); 
     $("#form_tyre_list").validate({
-    
     rules: {
       brand: {
         required: true,
@@ -34,7 +30,6 @@ $(document).ready(function(){
         required:true,
       }
     },
-
     messages:{
       brand: {
         required: "This field is required",
@@ -54,7 +49,6 @@ $(document).ready(function(){
           required:"This field is required",
           email:"Please Enter vaild Email",
         },
-      
         category: {
         required: "This field is required",
       },
@@ -62,17 +56,14 @@ $(document).ready(function(){
         required: "This field is required",
       },
     },
-    
     submitHandler: function (form) {
       alert("Form submitted successfully!");
     },
     });
     $('#add_trac').on('click', function(){
-      // getbrand('brand_data');
       getcategory('category');
     });
-    });
-
+  });
     function getbrand() {
       var apiBaseURL =APIBaseURL;
       var url = apiBaseURL + 'get_tyre_brands';
@@ -85,7 +76,6 @@ $(document).ready(function(){
           success: function (data) {
               console.log(data);
               const select = document.getElementById('brand_name');
-              // select.innerHTML = '';
   
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
               if (data.brands.length > 0) {
@@ -106,7 +96,6 @@ $(document).ready(function(){
   }
   getbrand(); 
 
-
   function getbrandedit() {
     var apiBaseURL =APIBaseURL;
     var url = apiBaseURL + 'get_tyre_brands';
@@ -119,8 +108,6 @@ $(document).ready(function(){
         success: function (data) {
             console.log(data);
             const select = document.getElementById('brand_data');
-            // select.innerHTML = '';
-
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
@@ -190,8 +177,8 @@ function get_tyre_list() {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (data) {
-        const tableBody = $('#data-table'); // Use jQuery selector for the table body
-        tableBody.empty(); // Clear previous data
+        const tableBody = $('#data-table'); 
+        tableBody.empty(); 
 
         let serialNumber = data.customer_details.length;
 
@@ -215,7 +202,6 @@ function get_tyre_list() {
               data.customer_details.forEach(row => {
                   const fullName = row.first_name + ' ' + row.last_name;
 
-                  // Add row to DataTable
                   table.row.add([
                       serialNumber--,
                       row.date,
@@ -245,10 +231,16 @@ function get_tyre_list() {
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
       }
   });
 }
-
 get_tyre_list();
 
 function get_model(brand_id) {
@@ -285,14 +277,8 @@ function get_model(brand_id) {
   });
 }
 
-
-
-
 function store(event) {
   event.preventDefault();
-
-
-
   var image_names = document.getElementById('_image').files;
   var brand_name = $('#brand').val();
   var tyre_model = $('#tyre').val();
@@ -300,7 +286,6 @@ function store(event) {
   var tyre_size = $('#tyre_size').val();
   var tyre_width = $('#tyre_width').val();
   var category = $('#category').val();
-
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'tyre_data';
@@ -315,7 +300,6 @@ function store(event) {
   for (var x = 0; x < image_names.length; x++) {
       data.append('images[]', image_names[x]);
   }
-
   data.append('brand_id', brand_name);
   data.append('tyre_model', tyre_model);
   data.append('tyre_position', tyre_position);
@@ -332,9 +316,7 @@ function store(event) {
     contentType: false,
     success: function (result) {
       console.log('Success:', result);
-      // Clear form values
       $('#brand, #tyre, #tyre_position, #tyre_size, #tyre_width, #tyre_category_id, #_image').val('');
-      // window.location.reload();
       $("#staticBackdrop").modal('hide');
       var msg = "Added successfully !"
         $("#errorStatusLoading").modal('show');
@@ -360,7 +342,6 @@ console.log('sumansahu');
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-
   $.ajax({
     url: url,
     type: 'GET',
@@ -384,7 +365,6 @@ console.log('sumansahu');
   });
 }
 
-
  // edit data 
  function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
@@ -394,7 +374,6 @@ console.log('sumansahu');
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-
   $.ajax({
       url: url,
       type: 'GET',
@@ -407,13 +386,13 @@ console.log('sumansahu');
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
           $('#dat_e').val(Data.date);
-
-          setSelectedOption('state_', Data.state_id);
-          setSelectedOption('dist_', Data.district_id);
           
-          // Call function to populate tehsil dropdown based on selected district
-          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-
+          setSelectedOption('state_', Data.state_id);
+          getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+          setTimeout(function() {
+            setSelectedOption('dist_', Data.district_id);
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+          }, 1000); 
           // Clear and Populate brand dropdown
           clearBrandDropdown();
           populateBrandDropdown(Data.brand_name);
@@ -425,16 +404,15 @@ console.log('sumansahu');
 }
 
 function clearBrandDropdown() {
-  $('#brand_data').empty(); // Clear existing options
+  $('#brand_data').empty(); 
 }
 
 function populateBrandDropdown(selectedBrand) {
   var brandDropdown = document.getElementById('brand_data');
   var option = document.createElement('option');
   option.text = selectedBrand;
-  brandDropdown.add(option); // Add selected brand to the dropdown
+  brandDropdown.add(option); 
 }
-
 function setSelectedOption(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -444,35 +422,30 @@ function setSelectedOption(selectId, value) {
       }
   }
 }
-
 function populateTehsil(districtId, selectId, selectedTehsil) {
-  // Assuming you have a function to fetch and populate tehsils based on districtId
-  // populateTehsilDropdown(districtId, selectId, selectedTehsil);
+ 
 }
-
 
 function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
 var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
-var brand_name = $("#brand_name").val();
+var brand_name = $("#brand_data").val();
 var model_name = $("#model_name").val();
 var first_name = $("#fnam_e").val();
 var last_name = $("#lnam_e").val();
 var mobile = $("#numbe_r").val();
 var email = $("#emai_l").val();
 var date = $("#dat_e").val();
-var state = $("#stat_e").val();
-var district = $("#dis_t").val();
+var state = $("#state_").val();
+var district = $("#dist_").val();
 var tehsil = $("#tehsi_l").val();
 var _method = 'put';
-
 
 if (!/^[6-9]\d{9}$/.test(mobile)) {
     alert("Mobile number must start with 6 or above and should be 10 digits");
     return; 
 }
-
 var paraArr = {
     'brand_name': brand_name,
     'tyre_model': model_name,
@@ -514,11 +487,10 @@ $.ajax({
 });
 }
   
-
 //****delete data***
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'tyre_data/' + id;
+  var url = apiBaseURL + 'delete_tyre_enquiry/' + id;
   console.log(url);
   var token = localStorage.getItem('token');
 
@@ -538,10 +510,9 @@ function destroy(id) {
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      // get_tyre_list();
-      window.location.reload();
       console.log("Delete request successful");
       alert("Delete operation successful");
+      window.location.reload();
     },
     error: function(error) {
       console.error('Error fetching data:', error);
@@ -550,25 +521,12 @@ function destroy(id) {
   });
 }
 
-
-
-
 function searchdata() {
-  console.log("dfghsfg,sdfgdfg");
-  var brand_id = $('#brand_id').val();
   var brandselect = $('#brand_name').val();
   var modelselect = $('#model_1').val();
-  var stateselect = $('#state_1').val();
+  var stateselect = $('#state_2').val();
   var districtselect = $('#district_2').val();
- 
-console.log(brand_id);
-console.log(brandselect);
-console.log(modelselect);
-console.log(stateselect);
-console.log(districtselect);
-
   var paraArr = {
-    'id':brand_id,
     'brand_id':brandselect,
     'model':modelselect,
     'state':stateselect,
@@ -586,11 +544,18 @@ console.log(districtselect);
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        console.log(searchData,"hello brand");
         updateTable(searchData);
       },
-      error: function (error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#data-table');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 };
@@ -645,7 +610,6 @@ function updateTable(data) {
         ],
         paging: true,
         searching: true,
-        // ... other options ...
     });
   } else {
       // Display a message if there's no valid data
@@ -653,15 +617,12 @@ function updateTable(data) {
   }
 }
 
-
-
 function resetform(){
   $('#brand_name').val('');
   $('#model_1').val('');
   $('#state_1').val('');
   $('#district_1').val('');
   window.location.reload(); 
-  // get_tyre_list();
 }
 
 

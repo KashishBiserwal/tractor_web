@@ -5,12 +5,9 @@ $(document).ready(function() {
     gettyre();
     getTractorList();
 });
-
 function model_click(){
     get();
   }
-
-
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_tyre_brands';
     $.ajax({
@@ -46,7 +43,6 @@ function get() {
   }
   get();
 
-
   function store(event) {
     event.preventDefault();
     if (isUserLoggedIn()) {
@@ -60,11 +56,9 @@ function get() {
         get_otp(mobile);
     }
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 function get_otp(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
     var paraArr = {
@@ -76,14 +70,13 @@ function get_otp(phone) {
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-            $('#get_OTP_btn').modal('show'); // OTP modal is displayed for entering OTP
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
 }
-
 function verifyotp() {
     var mobile = $('#mob_num').val();
     var otp = $('#otp').val();
@@ -126,7 +119,6 @@ function verifyotp() {
 }
 
 function submitForm() {
-    // Gather form data
     var enquiry_type_id = $('#enquiry_type_id').val();
     var product_id = $('#product_id').val();
     var brand_name = $('#brand_select').val();
@@ -150,22 +142,17 @@ function submitForm() {
         'brand_id':brand_name,
     };
 
-    // API endpoint for form submission
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
 
-    // Submit form data via AJAX
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            // Show success message or handle accordingly
             console.log("Form submitted successfully!");
         },
         error: function (error) {
             console.error('Error submitting form:', error);
-            // Handle error scenarios
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
@@ -176,12 +163,9 @@ function submitForm() {
 }
 function getUserDetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
-
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
@@ -189,26 +173,20 @@ function getUserDetail(id) {
         success: function(response) {
             console.log(response, "response");
 
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
                 console.log(customer, 'customer details');
                 
-                // Set values based on form ID (used_farm_inner_from)
                 $('#dealership_enq_from #f_name').val(customer.first_name);
                 $('#dealership_enq_from #l_name').val(customer.last_name);
                 $('#dealership_enq_from #mob_num').val(customer.mobile);
                 $('#dealership_enq_from #s_state').val(customer.state_id);
-                // $('#dealership_enq_from #brand_select').val(customer.state_id);
-                // $('#dealership_enq_from #district').val(customer.district);
-                // $('#dealership_enq_from #tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
                     $('#dealership_enq_from input, #dealership_enq_from select').not('#price,#s_district,#t_tehsil,#brand_select').prop('disabled', true);
-                }
-                
+                }     
             }
         },
         error: function(error) {
@@ -217,11 +195,9 @@ function getUserDetail(id) {
     });
 }
 
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
-
 
 function gettyre() {
     console.log(window.location)
@@ -239,36 +215,24 @@ function gettyre() {
         document.getElementById('brand_name1').innerText=data.tyre_details[0].brand_name;
         document.getElementById('tyre').innerText=data.tyre_details[0].tyre_model;
         document.getElementById('brand_name').innerText=data.tyre_details[0].tyre_model;
-        // console.log(data.product[0].brand_name);
-       
         document.getElementById('tyre_type').innerText=data.tyre_details[0].tyre_category;
-        // document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
         document.getElementById('tyre_size').innerText=data.tyre_details[0].tyre_size;
         document.getElementById('product_id').value=data.tyre_details[0].id;
-        // document.getElementById('Productid').value=data.tyre_details[0].id;
             if(data.tyre_details[0].image_names != null){
                 var imageNames = data.tyre_details[0].image_names.split(',');
             }
      
-
-        // Select the carousel container
         var carouselContainer = $('.swiper-wrapper_buy');
 
-        // Clear existing slides
         carouselContainer.empty();
-
-        // Iterate through the image names and create carousel slides
         if(data.tyre_details[0].image_names != null){
         imageNames.forEach(function(imageName) {
-            var imageUrl = "http://tractor-api.divyaltech.com/uploads/tyre_img/" + imageName.trim(); // Update the path
+            var imageUrl = "http://tractor-api.divyaltech.com/uploads/tyre_img/" + imageName.trim(); 
             var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
             carouselContainer.append(slide);
         });
     }
-
-        // Initialize or update the Swiper carousel
         var mySwiper = new Swiper('.swiper_buy', {
-            // Your Swiper configuration options
         });
         },
         error: function (error) {
@@ -277,11 +241,8 @@ function gettyre() {
     });
 }
 
-
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/tyre_data";
-
-    // Keep track of the total tractors and the currently displayed tractors
     var totalTyre = 0;
     var displayedTractors = 0;
 
@@ -290,25 +251,15 @@ function getTractorList() {
         type: "GET",
         success: function(data) {
             var productContainer = $("#productContainer");
-         
-
             if (data.tyre_details && data.tyre_details.length > 0) {
                 totalTyre = data.tyre_details.length;
 
-                // Display the initial set of 6 tractors
                 displayTractors(data.tyre_details.slice(0, 6));
-
-                // Show the "Load More Tractors" button if there are more tractors
                 if (totalTyre > 6) {
                     $("#load_moretract").show();
                 }
-
-                // Handle "Load More Tractors" button click
                 $("#load_moretract").click(function() {
-                    // Display all tractors
                     displayTractors(data.tyre_details);
-
-                    // Hide the "Load More Tractors" button
                     $("#load_moretract").hide();
                 });
             }
@@ -322,7 +273,6 @@ function getTractorList() {
 function displayTractors(tractors) {
     var productContainer = $("#productContainer");
     var tableData = $("#tableData");
-    // Clear existing content
     productContainer.html('');
     tableData.html('');
     tractors.sort((a, b) => b.product_id - a.product_id);
@@ -339,7 +289,7 @@ function displayTractors(tractors) {
             }
         }
 
-        var cardId = `card_${p.id}`; // Dynamic ID for the card
+        var cardId = `card_${p.id}`; 
         var modalId = `staticBackdrop2_${p.id}`;
         var formId = `contact-seller-call_${p.id}`;
         var userId = localStorage.getItem('id');
@@ -349,7 +299,7 @@ function displayTractors(tractors) {
             <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
                 <div class="thumb">
                     <a href="tyre_inner.php?product_id=${p.id}">
-                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover  text-truncate" alt="">
+                    <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="object-fit-cover text-truncate" alt="" loading="lazy">
                        
                     </a>
                 </div>
@@ -418,17 +368,17 @@ function displayTractors(tractors) {
                                                             <p class="text-danger">*please provide valid Phone Number.</p>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                            <label for="state_form" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                                             </select>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                            <label for="district_form" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                             <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                                             </select>
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label class="form-label text-dark"> Tehsil</label>
+                                                        <label for="tehsil" class="form-label text-dark"> Tehsil</label>
                                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
                                                         </select>
                                                     </div>
@@ -479,47 +429,11 @@ function displayTractors(tractors) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>`;
 
-
-                    `;
-
-                    productContainer.append(newCard2);
-                    populateDropdowns(p.id);
-                });
-            
-                // Initialize Owl Carousel
-                // initializeOwlCarousel();
-
-                // function initializeOwlCarousel() {
-                //     $('#productContainer').owlCarousel({
-                //         items: 4,
-                //         loop: true,
-                //         margin: 10,
-                //         responsiveClass: true,
-                //         responsive: {
-                //             0: {
-                //                 items: 1,
-                //                 nav: false
-                //             },
-                //             600: {
-                //                 items: 3,
-                //                 nav: false
-                //             },
-                //             1000: {
-                //                 items: 4,
-                //                 nav: false,
-                //                 loop: false
-                //             }
-                //         },
-                //         loopFillGroupWithBlank: true
-                //     });
-                // }
-                 // Add an event listener to open the modal
-    // $('[data-bs-toggle="modal"]').on('click', function () {
-    //     var targetModalId = $(this).data('bs-target');
-    //     $(targetModalId).modal('show');
-    // });
+             productContainer.append(newCard2);
+             populateDropdowns(p.id);
+        });       
 }
             
   
@@ -530,7 +444,6 @@ function savedata(formId) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -691,13 +604,13 @@ function getUserDetail1(id, formId) {
                 $('#' + formId + ' #fname').val(customer.first_name);
                 $('#' + formId + ' #lname').val(customer.last_name);
                 $('#' + formId + ' #number').val(customer.mobile);
-                $('#' + formId + ' #state_form').val(customer.state_id);
+                // $('#' + formId + ' #state_form').val(customer.state_id);
                 // $('#' + formId + ' #district_form').val(customer.district);
                 // $('#' + formId + ' #tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_form,#tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#state_form,#price,#district_form,#tehsil').prop('disabled', true);
                 }
             }
         },

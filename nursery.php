@@ -9,6 +9,7 @@ include 'includes/headertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<script src="<?php $baseUrl; ?>model/sdt.js"></script>
 <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 <style>
 
@@ -20,7 +21,7 @@ include 'includes/headertag.php';
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+  <section style="padding: 0 15px;">
     <div class="">
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
@@ -77,7 +78,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                              <label class="form-label">State</label>
-                                              <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state_">
+                                              <select class="form-select py-2 state-dropdown1" aria-label="Default select example" id="state_" name="state_">
                                               
                                               </select>
                                           </div>
@@ -85,7 +86,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                             <label class="form-label">District</label>
-                                            <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist" name="dist">
+                                            <select class="form-select py-2 district-dropdown1" aria-label="Default select example" id="dist" name="dist">
                                            
                                             </select>
                                           </div>
@@ -93,7 +94,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                             <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil">
+                                            <select class="form-select py-2 tehsil-dropdown1" aria-label="Default select example" id="tehsil">
                                           
                                             </select>
                                           </div>
@@ -107,7 +108,7 @@ include 'includes/headertag.php';
                                         <div class="col-12  ">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Description</label>
-                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d" name="textarea_d"></textarea>
+                                            <textarea rows="3" cols="70" class="w-100 py-2" minlength="" maxlength="1000" id="textarea_d" name="textarea_d"></textarea>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
@@ -145,12 +146,7 @@ include 'includes/headertag.php';
               <div class="form-outline">
                 <label class="form-label">Name</label>
                 <input type="text" id="name1" name="name1" class="form-control" />
-               <!--  <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Name</option>
-                    <option value="">Name 1</option>
-                    <option value="">Name 2</option>
-                    <option value="">Name 3</option>
-                </select> -->
+            
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -199,7 +195,7 @@ include 'includes/headertag.php';
         </div>
       </div>
     </div>
-   </section>
+  </section>
       
 
 
@@ -216,7 +212,7 @@ include 'includes/headertag.php';
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
-                         <tr>
+                          <tr>
                             <td>Nursery Name-</td>
                             <td id="nursery_name"></td>
                             <td>First Name-</td>
@@ -241,17 +237,17 @@ include 'includes/headertag.php';
                             <td id="loc1"></td>
                           </tr>
                           <tr>
-                              <td>Description-</td>
-                              <td colspan="3">
-                                  <div class="col-12" id="textarea"></div>
-                              </td>
+                            <td>Description-</td>
+                            <td colspan="3">
+                              <div class="col-12" id="textarea"></div>
+                            </td>
                           </tr>
                           <tr>
                               <td>Upload images-</td>
                               <td colspan="3">
-                                  <div class="col-12">
-                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
-                                  </div>
+                                <div class="col-12">
+                                  <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                </div>
                               </td>
                           </tr>
                         </tbody>
@@ -265,9 +261,9 @@ include 'includes/headertag.php';
               </div>
             </div>
           </div>
+        </div>
+      </div>
     </div>
-</div>
-</div>
 
           <div class="modal fade" id="editmodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -315,7 +311,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">State</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
+                                                <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state" name="state_">
                                                   
                                                 </select>
                                             </div>
@@ -323,7 +319,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">District</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
+                                                <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_" name="dist">
                                                   
                                                 </select>
                                             </div>
@@ -331,7 +327,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">Tehsil</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="tehsil_" name="tehsil_">
+                                                <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_" name="tehsil_">
                                                   
                                                 </select>
                                             </div>
@@ -345,7 +341,7 @@ include 'includes/headertag.php';
                                         <div class="col-12  ">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Description</label>
-                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d2"></textarea>
+                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="" maxlength="1000" id="textarea_d2" name="textarea_d2"></textarea>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">

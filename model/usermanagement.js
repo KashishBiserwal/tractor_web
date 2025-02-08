@@ -24,8 +24,6 @@ console.log("ready");
     }
 
   });
-
-
 $('#form_add').validate({
 rules:{
   first_name:{
@@ -111,10 +109,7 @@ $('#save').on('click', function() {
   });
 
   function user_registration(event) {
-    // Prevent the default form submission behavior
     event.preventDefault();
-
-    // Get values from form fields
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var email = $('#email').val();
@@ -123,14 +118,12 @@ $('#save').on('click', function() {
     var password_confirmation = $('#password_confirmation').val();
     var user_type = $('#user_type').val();
 
-    // Check if any field is empty
     if (first_name.trim() === '' || last_name.trim() === '' || email.trim() === '' || mobile.trim() === '' || password.trim() === '' || password_confirmation.trim() === '') {
-        // Show an error message if any field is empty
+       
         alert('All fields are required.');
-        return; // Exit the function to prevent further execution
+        return; 
     }
 
-    // Prepare data to send to the server
     var paraArr = {
         'first_name': first_name,
         'last_name': last_name,
@@ -141,18 +134,14 @@ $('#save').on('click', function() {
         'user_type': user_type
     };
 
-    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
+    var apiBaseURL = APIBaseURL; 
     var url = apiBaseURL + 'user_registration';
-    console.log(url);
-
-    // Make an AJAX request to the server
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function(result) {
             console.log(result, "result");
-            // If registration is successful, hide the modal, show success message, and reset the form
             $("#staticBackdrop").modal("hide");
             var msg = "User Inserted successfully !"
             $("#errorStatusLoading").modal('show');
@@ -164,13 +153,10 @@ $('#save').on('click', function() {
         error: function(error) {
             console.error('Error fetching data:', error.status);
             console.error('Error fetching data:', error.responseJSON.error);
-            // If an error occurs, show the error message
             var msg = error.responseJSON.email ? error.responseJSON.email[0] : 'An error occurred.';
             if (msg === "The email has already been taken.") {
-                // Show alert if email already exists
                 alert('Email address already exists.');
             } else {
-                // Show modal for other errors
                 $("#errorStatusLoading").modal('show');
                 $("#errorStatusLoading").find('.modal-title').html('Error');
                 $("#errorStatusLoading").find('.modal-body').html(msg);
@@ -179,10 +165,6 @@ $('#save').on('click', function() {
     });
 }
 
-
-
-
-  // fetch data
   function get() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'getUsers';
@@ -194,20 +176,15 @@ $('#save').on('click', function() {
         },
         success: function (data) {
             const tableBody = document.getElementById('data-table');
-            tableBody.innerHTML = ''; // Clear previous data
+            tableBody.innerHTML = ''; 
 
             let users = data.user;
 
             if (users.length > 0) {
-                // Initialize serialNumber outside the loop
                 let serialNumber = users.length;
                 let tableData = [];
-
-                // Loop through the data and create table rows
                 users.forEach(row => {
-                    //const tableRow = document.createElement('tr');
                     let originalDate = new Date(row.created_at);
-
                     let day = originalDate.getDate();
                     let month = originalDate.getMonth() + 1;
                     let year = originalDate.getFullYear();
@@ -215,7 +192,6 @@ $('#save').on('click', function() {
                     let formatDate = `${day}-${month}-${year}`;
                     let userTypeLabel = row.user_type == 0 ? 'Admin' : 'User';
                     let status = row.status == 0 ? 'Active' : 'InActive';
-                    // Create the action buttons HTML
                     let action = `<div class="float-start">
                                     <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
                                         <i class="fa fa-trash" style="font-size: 11px;"></i>
@@ -224,8 +200,6 @@ $('#save').on('click', function() {
                                         <i class="fas fa-edit" style="font-size: 11px;"></i>
                                     </button>
                                 </div>`;
-
-                    // Push row data as an array into the tableData
                     tableData.push([
                         serialNumber--,
                         formatDate,
@@ -235,11 +209,8 @@ $('#save').on('click', function() {
                         status,
                         action
                     ]);
-
-                    // serialNumber++;
                 });
 
-                // Initialize DataTable after preparing the tableData
                 $('#example').DataTable().destroy();
                 $('#example').DataTable({
                         data: tableData,
@@ -250,12 +221,11 @@ $('#save').on('click', function() {
                           { title: 'Mobile Number' },
                           { title: 'User Type' },
                           { title: 'Status' },
-                          { title: 'Action', orderable: false } // Disable ordering for Action column
+                          { title: 'Action', orderable: false } 
                       ],
                         paging: true,
                         searching: false,
-                        // ... other options ...
-                    });
+                  });
               
             } else {
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
@@ -272,7 +242,7 @@ $('#save').on('click', function() {
               window.location.href = baseUrl + "login.php"; 
 
             }
-            // Display an error message or handle the error as needed
+            
         }
     });
 }
@@ -280,9 +250,7 @@ $('#save').on('click', function() {
 get();
 
 
-// delete data
 function destroy(id) {
-//   var url = "<?php echo $APIBaseURL; ?>deleteUser/" + id;
 var apiBaseURL =APIBaseURL;
 var url = apiBaseURL + "deleteUser/" + id;
   var token = localStorage.getItem('token');
@@ -299,8 +267,6 @@ var url = apiBaseURL + "deleteUser/" + id;
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-     // window.location.reload();
-      // get();
       console.log("Delete request successful");
       var msg = "User Deleted successfully !"
         $("#errorStatusLoading").modal('show');
@@ -316,8 +282,6 @@ var url = apiBaseURL + "deleteUser/" + id;
     }
   });
 }
-
-
 function fetch_edit_data(userId) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'getSelfData/' + userId;
@@ -332,7 +296,6 @@ function fetch_edit_data(userId) {
     headers: headers,
     success: function(response) {
       var userData = response.user[0];
-      // $('#idUser').val(userData.id);
       $('#first_name1').val(userData.first_name);
       $('#last_name1').val(userData.last_name);
       $('#mobile1').val(userData.mobile);
@@ -343,18 +306,12 @@ function fetch_edit_data(userId) {
       $('#user_type1').val(userData.user_type);
       $('#status1').val(userData.status);
       $('#idUser').val(userData.id);
-      // editUserId=userData.id;
-
-
-      // $('#exampleModal').modal('show');
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
     }
   });
 }
-
-
 
 function edit_user(){
  var edit_id = $("#idUser").val();
@@ -404,65 +361,3 @@ function edit_user(){
   })
 }
 
-
-// function edit_user(){
-//   var edit_id = $("#idUser").val();
-//   var first_name = $("#first_name1").val();
-//   var last_name = $("#last_name1").val();
-//   var email = $("#email1").val();
-//   var mobile = $("#mobile1").val();
-//   var status = $("#status1").val();
-//   var user_type1 = $("#user_type1").val();
-//   var newPassword = $("#password_edit").val(); // Get new password
-//   var confirmPassword = $("#password_confirmation_edit").val(); // Get confirmed password
-
-//   if (newPassword.trim() !== confirmPassword.trim()) {
-//       console.log("Passwords do not match!");
-//       return; // Prevent form submission if passwords do not match
-//   }
-
-//   var paraArr = {
-//       'first_name': first_name,
-//       'last_name': last_name,
-//       'email': email,
-//       'mobile': mobile,
-//       'user_type': user_type1,
-//       'id': edit_id,
-//       'status':status,
-//   };
-
-//   // Include password data if provided
-//   if (newPassword.trim() !== '') {
-//       paraArr['password'] = newPassword;
-//       paraArr['password_confirmation'] = confirmPassword;
-//   }
-
-//   var apiBaseURL = APIBaseURL;
-//   var url = apiBaseURL + 'updateUser/' + edit_id;
-
-//   var headers = {
-//       'Authorization': 'Bearer ' + localStorage.getItem('token')
-//   };
-//   $.ajax({
-//       url: url,
-//       type: "PUT",
-//       data: paraArr,
-//       headers: headers,
-//       success: function (result) {
-//           console.log(result, "result");
-//           get();
-//           console.log("updated successfully");
-//           var msg = "User Updated successfully !"
-//           $("#errorStatusLoading").modal('show');
-//           $("#errorStatusLoading").find('.modal-title').html('Success');
-//           $("#errorStatusLoading").find('.modal-body').html(msg);
-//       },
-//       error: function (error) {
-//           console.error('Error fetching data:', error);
-//           var msg = error;
-//           $("#errorStatusLoading").modal('show');
-//           $("#errorStatusLoading").find('.modal-title').html('Error');
-//           $("#errorStatusLoading").find('.modal-body').html(msg);
-//       }
-//   });
-// }

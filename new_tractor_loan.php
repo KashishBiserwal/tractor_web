@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> <?php
-// include 'includes/header.php';
-include 'includes/headertag.php';
-include 'includes/headertagadmin.php';
-include 'includes/footertag.php';
-
-?> 
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/tractor_loan_customer.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<head> 
+    <?php
+        include 'includes/headertag.php';
+        include 'includes/headertagadmin.php';
+        include 'includes/footertag.php';
+    ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/tractor_loan_customer.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <style>
 .form-outline .form-label {
     color: #454444;
@@ -23,41 +30,40 @@ include 'includes/footertag.php';
     background: #fff;
     margin-left: 20px;
 }
-
 .card {
     margin-right: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .cards {
-    max-height: 5rem;
+    max-height: 4rem;
     object-fit: contain;
     width: 100%;
 }
-
+.card-title{
+    font-size: 14px;
+}
 .container-mid {
     max-width: 1280px;
     margin: 0 auto;
     width: 98%;
     padding-left: 8px;
     padding-right: 8px;
-    margin-top: -145px;
 }
 </style>
-
-<body> <?php
-   include 'includes/header.php';
-   ?>
-    <section class=" mt-5 pt-5 bg-light">
+<body>
+    <?php
+        include 'includes/header.php';
+    ?>
+    <section class=" mt-4 pt-5 bg-light">
         <div class="container pt-3 mt-4">
             <div class="py-2">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
+                        class="fa-solid fa-chevron-right px-1"></i>
                     </a>
                     <span class="">
                         <span class="text-dark header-link  px-1">Enquiries <i
-                                class="fa-solid fa-chevron-right px-1"></i>
+                            class="fa-solid fa-chevron-right px-1"></i>
                         </span>
                     </span>
                     <span class="text-dark">All Loan</span>
@@ -65,11 +71,98 @@ include 'includes/footertag.php';
             </div>
         </div>
     </section>
-    <!--Banner-->
+    <!--Popular Tractor Insurance Companies-->
+    <div class="container">
+        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Loan Companies</h4>
+        <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/CHOLA.png" class="card-img-top cards p-2" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Chola</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/HDB.png" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDB</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/HDFC_bank.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDFC</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/IDFC_bank.png" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IDFC</h5>
+                    </div>
+                </div>
+            </div>
+             <div class="col-12 col-lg-2 col-sm-6  mb-4">
+                <div class="card">
+                    <img src="assets/images/INDUSIND BANK.png" class="card-img-top cards" alt="Company 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">INDUSIND</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/KOTAK MAHINDRA.png" class="card-img-top cards" alt="Company 4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">KOTAK MAHINDRA</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/L AND T.png" class="card-img-top cards" alt="Company 5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">L AND T</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/MMFSL.jpg" class="card-img-top cards" alt="Company 6">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">MMFSL</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/RBL_bank.jpg" class="card-img-top cards" alt="Company 6">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">RBL</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <div class="">
+                    <img src="assets/images/SHRIRAM.png" class="card-img-top cards p-1" alt="Company 6">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">SHRIRAM</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;">
-            <div class="container-mid">
+            <div class="container-mid mt-4">
                 <div class="justify-content-center loan_form bg-light border border-dark">
                     <div id="loanForm">
                         <form id="applicationForm" method="POST">
@@ -122,13 +215,6 @@ include 'includes/footertag.php';
                                         </select>
                                     </div>
                                 </div>
-                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="enterModel">Enter Model</label>
-                                        <input type="text" class="form-control" id="enterModel" name="enterModel"
-                                         />
-                                    </div>
-                                </div> -->
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
@@ -141,7 +227,6 @@ include 'includes/footertag.php';
                                         <label class="form-label" for="registeredYear">Registered Year</label>
                                         <select class="form-select" id="registeredYear" name="registeredYear" >
                                             <option value="" selected disabled>Select Year</option>
-                                            <!-- Assuming the range is from 2008 to 2023 -->
                                             <script>
                                             for (let year = 2023; year >= 2008; year--) {
                                                 document.write(`<option value="${year}">${year}</option>`);
@@ -173,15 +258,8 @@ include 'includes/footertag.php';
                                         </select>
                                     </div>
                                 </div>
-                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
-                                    <input type="radio" id="pcy_res" name="fav_rc" value="1">
-                                    <label for="policy" class="text-dark">Yes</label> 
-                                    <input type="radio" id="pcy_no" name="fav_rc" value="0">
-                                    <label for="policy" class="text-dark">No</label>
-                                </div> -->
                                 <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
-                                    Agrimart
+                                    Agrimart's
                                     <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
                                         Conditions*</a>
                                 </p>
@@ -197,202 +275,15 @@ include 'includes/footertag.php';
         </div>
     </div>
 
-
-    <!--Popular Tractor Insurance Companies-->
-
-
-    <div class="container">
-        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Loan Companies</h4>
-        <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
-
-            <!-- Card 1 -->
-            <div class="col-12 col-lg-3 col-sm-3 mb-3">
-                <div class="card">
-                    <img src="assets/images/CHOLA.png" class="card-img-top cards p-2" alt="Company 1">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">Chola</h5>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-3 col-sm-3 mb-3">
-                <div class="card">
-                    <img src="assets/images/HDB.png" class="card-img-top cards p-3" alt="Company 1">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">Chola</h5>
-                    </div> -->
-                </div>
-            </div>
-
-             <div class="col-12 col-lg-3 col-sm-3 mb-3">
-                <div class="card">
-                    <img src="assets/images/INDUSIND BANK.png" class="card-img-top cards" alt="Company 3">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">INDUSIND</h5>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-3 col-sm-3 mb-3">
-                <div class="card">
-                    <img src="assets/images/KOTAK MAHINDRA.png" class="card-img-top cards" alt="Company 4">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">KOTAK MAHINDRA</h5>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-3 col-sm-3 mb-3 mt-4">
-                <div class="card">
-                    <img src="assets/images/L AND T.png" class="card-img-top cards" alt="Company 5">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">L&T</h5>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-3 col-sm-3 mb-3 mt-4">
-                <div class="card">
-                    <img src="assets/images/MMFSL.jpg" class="card-img-top cards" alt="Company 6">
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">MMFSL</h5>
-                    </div> -->
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 col-sm-3 mb-3 mt-4">
-                <div class="card">
-                    <div class="">
-                    <img src="assets/images/SHRIRAM.png" class="card-img-top cards p-1" alt="Company 6">
-                    </div>
-                    <!-- <div class="card-body">
-                        <h5 class="card-title text-center">SHRIRAM</h5>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!--Popular Tractor Insurance Companies End-->
-
-    <!-- card  -->
-    <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
-            <div class="col">
-                <div class="card bg-light">
-                    <!-- <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Card Image"> -->
-                    <div class="card-body">
-                        <h3 class="card-title  fw-bold assured px-2">Your Loan Path: Types and Eligibility</h3>
-                        <p class="card-text">
-                        <div class="more-content" style="display:none;">
-                            <table class="table table-bordered table-responsive mt-4 border border-dark bg-light">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th>Type of Loan</th>
-                                        <th>Eligibility</th>
-                                        <th>Documents</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>New Tractor/ New Harvester</td>
-                                        <td>
-                                            <li>Age 18 years to 65 years</li>
-                                            <li>Income proof & minimum land holding of 2 acres</li>
-                                        <td>
-                                            <li>Land ownership proof.</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li> CV 12 months track record</li>
-                                    </tr>
-                                    <tr>
-                                        <td>Used Tractor/ Used Harvester</td>
-                                        <td>
-                                            <li>Age 18 years to 65 years</li>
-                                            <li>Satisfactory prior credit history</li>
-                                        </td>
-                                        <td>
-                                            <li>Land ownership proof.</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li>CV 12 months track record</li>
-                                            <li>Used tractor RC</li>
-                                            <li>Used tractor insurance</li>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Loan Against Tractor</td>
-                                        <td>
-                                            <li>Owner of tractor</li>
-                                            <li>Proof of ownership</li>
-                                            <li>Need to have paid at least 12 EMIs of Current Loan</li>
-                                        </td>
-                                        <td>
-                                            <li>Proof of ownership (RC)</li>
-                                            <li>Bank account statement</li>
-                                            <li>KYC Documents</li>
-                                            <li>Pan Card</li>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Implement</td>
-                                        <td>
-                                            <li> Age 18 years to 65 years</li>
-                                            <li>Satisfactory prior credit history</li>
-
-                                        </td>
-                                        <td>
-                                            <li>Land ownership proof.</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li>CV 12 months track record</li>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Personal Loan</td>
-                                        <td>
-                                            <li>Personal loan eligibility depends on the lender's policy.</li>
-
-                                        </td>
-                                        <td>
-                                            <li>Photo</li>
-                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-                                            <li>3 months bank statement</li>
-                                            <li> Latest salary statement as Proof of Income</li>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        </p>
-                        <a href="javascript:void(0)"
-                            class=" text-primary read-more text-decoration-none fw-bold float-end"
-                            data-toggle="collapse" data-target="#collapse1">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </div>
-    <!--Banner End-->
-
-
-
-
-    <!-- Your Loan Path: Types and Eligibility Table End -->
-    <!--Table Content-->
     <div class="container bg-light">
-        <div class="section-heading mb-2  text-center ">
+        <div class="section-heading mb-2 text-center">
             <h3 class="text-dark fw-bold mt-5">Tractor Loan Interest Rate Comparison</h3>
             <p class="mb-2">Compare the tractor loan interest rate below.</p>
         </div>
         <div class="row text-center">
-            <table class="mb-3 table table-bordered border border-dark" style=" background-color:#77bd57;">
-                <tbody>
+            <!-- Make the table responsive -->
+            <div class="table-responsive">
+                <table class="mb-3 table table-bordered border border-dark" style="background-color:#77bd57;">
                     <thead>
                         <tr>
                             <th>Bank Name</th>
@@ -401,41 +292,42 @@ include 'includes/footertag.php';
                             <th>Loan Tenure</th>
                         </tr>
                     </thead>
-                <tbody>
-                    <tr>
-                        <td>ICICI Bank</td>
-                        <td>13% p.a. to 22% p.a.</td>
-                        <td>As per terms and conditions</td>
-                        <td>Up to 5 years</td>
-                    </tr>
-                    <tr>
-                        <td>State Bank of India </td>
-                        <td>9.00% p.a. - 10.25% p.a.</td>
-                        <td>Up to 100% finance</td>
-                        <td>Up to 5 years</td>
-                    </tr>
-                    <tr>
-                        <td>HDFC Bank</td>
-                        <td>12.57% p.a. to 23.26% p.a.*</td>
-                        <td>Up to 90% finance </td>
-                        <td> 12 months to 84 months</td>
-                    </tr>
-                    <tr>
-                        <td>Poonawalla Fincorp</td>
-                        <td>16% p.a. to 20% p.a.</td>
-                        <td> Up to 90% - 95% finance </td>
-                        <td>According to bank</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr>
+                            <td>ICICI Bank</td>
+                            <td>13% p.a. to 22% p.a.</td>
+                            <td>As per terms and conditions</td>
+                            <td>Up to 5 years</td>
+                        </tr>
+                        <tr>
+                            <td>State Bank of India</td>
+                            <td>9.00% p.a. - 10.25% p.a.</td>
+                            <td>Up to 100% finance</td>
+                            <td>Up to 5 years</td>
+                        </tr>
+                        <tr>
+                            <td>HDFC Bank</td>
+                            <td>12.57% p.a. to 23.26% p.a.*</td>
+                            <td>Up to 90% finance</td>
+                            <td>12 months to 84 months</td>
+                        </tr>
+                        <tr>
+                            <td>Poonawalla Fincorp</td>
+                            <td>16% p.a. to 20% p.a.</td>
+                            <td>Up to 90% - 95% finance</td>
+                            <td>According to bank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <!--Table Content End-->
-    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors Start -->
+    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart's Start -->
     <div class="container">
-        <h4 class="mt-5 assured px-2 fw-bold">Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors
+        <h4 class="mt-5 assured px-2 fw-bold">Loan Solutions Tailored for Your Agricultural Needs at Bharat Agrimart's
         </h4>
-        <p class="px-2 mt-3">Empower your farming journey with the right financial support. At Bharat Tractors, we offer
+        <p class="px-2 mt-3">Empower your farming journey with the right financial support. At Bharat Agrimart's, we offer
             a variety of loan options to suit your specific requirements. Whether you are looking to invest in a new
             tractor, a used one, implements, or even a harvester, we have you covered. Explore our diverse range of loan
             offerings and take the first step towards achieving your agricultural goals.
@@ -475,7 +367,7 @@ include 'includes/footertag.php';
             solution. Whether it's for farm improvements or unexpected costs, our personal loans are tailored to meet
             your unique needs.</p>
 
-        <h6 class="assured fw-bold px-1 mt-5">Why Choose Bharat Tractors for Your Agricultural Loans?</h6>
+        <h6 class="assured fw-bold px-1 mt-5">Why Choose Bharat Agrimart's for Your Agricultural Loans?</h6>
         <p class=" px-2">Specialization in Agricultural Equipment: We understand the unique needs of farmers,
             specializing in tractors and related equipment.</p>
         <p class=" px-2">Extensive Network: Our wide network of dealers, lenders, and financial institutions ensures you
@@ -488,21 +380,11 @@ include 'includes/footertag.php';
         <p class="px-2">Online Accessibility: With our online services, the loan application and approval process
             becomes convenient and accessible, especially for those in remote areas.</p>
         <p class="px-2">Take the first step towards securing your agricultural future. Explore our loan options today at
-            Bharat Tractors and experience farming with financial confidence. Get in touch with us to start your loan
+            Bharat Agrimart's and experience farming with financial confidence. Get in touch with us to start your loan
             application process.</p>
         <p class="px-2">Protect Your Investment: While you're investing in your farm, don't forget to safeguard your
             equipment with our comprehensive Tractor Insurance. Learn more (link to insurance page).</p>
-
-
-
-
     </div>
-
-
-
-    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors End -->
-
-
     <!--Question Section-->
     <section class="about bg-white">
         <div class="container">
@@ -713,7 +595,7 @@ include 'includes/footertag.php';
 
                                     <li>
                                         <b>Que. Can I apply for a personal loan online?</b>
-                                        <p>Ans. Yes, you can apply for a personal loan online at Bharat Tractors.</p>
+                                        <p>Ans. Yes, you can apply for a personal loan online at Bharat Agrimart's.</p>
                                     </li>
                                     <li>
                                         <b>Que. What is the age requirement for availing a personal loan?</b>
@@ -729,19 +611,15 @@ include 'includes/footertag.php';
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
     <!--Question Section End-->
-
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
-
     ?>
-  
     <script>
     $(document).ready(function() {
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -759,52 +637,39 @@ include 'includes/footertag.php';
                     digits: true,
                     customPhoneNumber: true
                 },
-                // brand: "required",
-                // model: "required",
                 enterModel: {
-                    // required: function(element) {
-                    //     return $('#model').val() === 'other';
-                    // }
                 },
-                // vehicleRegNo: "required",
-                // registeredYear: "required",
                 state: "required",
                 district: "required"
             },
         });
-
-
-
     });
 </script>
-
 <script>
     $(document).ready(function() {
         $('#loanType').change(function() {
             var selectedLoanTypeId = $(this).val();
-            // Disable all fields first
             $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', true);
-            
             switch (selectedLoanTypeId) {
-                case '1': // New Tractor Loan
+                case '1': 
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
                     break;
-                case '2':  //Used tractor Loan    
+                case '2':    
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
                     break;
-                case '3':  // Loan against     
+                case '3':      
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
                     break;  
-                case '4':  //Used harvester Loan    
+                case '4':     
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
                     break;
-                case '5': // New harvester Loan
+                case '5': 
                 $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
                     break;
-                case '6':  //Implement Loan    
+                case '6':    
                     $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
                     break;
-                case '7': // Personal Loan
+                case '7': 
                     $('#firstName, #lastName, #mobileNo, #state, #tehsil, #district').prop('disabled', false);
                     break;
             
@@ -813,15 +678,19 @@ include 'includes/footertag.php';
                     break;
             }
         });
-
-        // $('#registeredYear, #state, #district, #tehsil').change(function() {
-        //     $('#enterModel').prop('disabled', false);
-        //     $('#vehicleRegNo').prop('disabled', false);
-        // });
     });
 
 </script>
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </body>
 
 </html>

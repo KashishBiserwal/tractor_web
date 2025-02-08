@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#form").validate({rules:{email:{required:!0,email:!0},password:{required:!0}},messages:{email:"Please Enter Your Email id",password:"Please provide a valid password"},submitHandler:function(e){login()}})});

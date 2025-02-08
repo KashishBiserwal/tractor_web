@@ -2,8 +2,6 @@ var allDealers = []; // Array to hold all dealers
 
 $(document).ready(function() {
     get_certifieddealers();
-
-    $('#dealership_enq_btn').click(search);
 });
 
 function get_certifieddealers() {
@@ -58,7 +56,7 @@ function displaydealer(dealers) {
                     <div class="thumb">
                         <a href="certified_dealers_inner.php?id=${dealer.id}">
                             <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-contain" alt="img" loading="lazy">
                             </div>
                         </a>
                     </div>
@@ -67,7 +65,7 @@ function displaydealer(dealers) {
                     </div>
                     <div>
                         <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
-                            <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                            <h6 class="fw-bold text-center text-truncate mt-3">${dealer.dealer_name}</h6>
                         </a>
                         <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                             <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
@@ -126,16 +124,16 @@ function searchdata() {
                                 <div class="thumb">
                                     <a href="certified_dealers_inner.php?id=${dealer.id}">
                                         <div class="ratio ratio-16x9">
-                                            <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                            <img src="assets/images/IMG-20240516-WA0006.jpg" class="object-fit-contain" alt="img" loading="lazy">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="position-absolute">
-                                    <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
+                                    <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>'
                                 </div>
                                 <div>
                                     <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
-                                        <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                                        <h6 class="fw-bold text-center text-truncate mt-3">${dealer.dealer_name}</h6>
                                     </a>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                                         <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
@@ -155,44 +153,32 @@ function searchdata() {
                 // Hide Load More button if all data is displayed
                 $("#load_moretract").hide();
                 
-                // Hide the "Data not found" message and image if data is found
                 $("#noDataMessage").hide();
             } else {
-                // If no matches found, display "Data not found" message and image
                 productContainer.html('<h5 id="noDataMessage" class="text-center mt-4 text-danger"><img src="assets/images/404.gif" class="w-25" alt=""><br>Data not found..!</h5>');
-                // Hide Load More button if no data is found
+             
                 $("#load_moretract").hide();
             }
         },
         error: function (xhr, textStatus, errorThrown) {
             if(xhr.status === 404) {
-                // If 404 error, display "Data not found" message and image
                 var productContainer = $("#productContainer");
                 productContainer.html('<h5 id="noDataMessage" class="text-center mt-4 text-danger"><img src="assets/images/404.gif" class="w-25" alt=""><br>Data not found..!</h5>');
-                // Hide Load More button if no data is found
+         
                 $("#load_moretract").hide();
             } else {
-                // For other errors, log the error message
                 console.error('Error fetching data:', errorThrown);
             }
         }
     });
-    
 }
-    
 
 function resetform() {
-    // Reset form fields in section-1
     $('#certified_dealer_from')[0].reset();
-    
-    // Show all cards in section-2
-    $("#productContainer").empty(); // Clear existing cards
-    $("#noDataMessage").hide(); // Hide "Data not found" message
-
-    // Call the function to fetch all certified dealers again and display them
+    $("#productContainer").empty(); 
+    $("#noDataMessage").hide(); 
     get_certifieddealers();
 }
-
 
 function get() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
@@ -204,10 +190,8 @@ function get() {
         },
         success: function (data) {
             const selects = document.querySelectorAll('#b_brand');
-  
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
@@ -215,8 +199,6 @@ function get() {
                         option.value = row.id;
                         select.appendChild(option);
                     });
-  
-                
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
                 }

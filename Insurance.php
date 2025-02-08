@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <?php
-include 'includes/headertag.php';
-include 'includes/headertagadmin.php';
-include 'includes/footertag.php';
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+    include 'includes/footertag.php';
 ?> 
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/insurance_customer.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/insurance_customer.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <style>
 .error .form-label {
     color: red !important;
     margin-bottom:2px;
     font-size:13px;
 }
-
 .images {
     width: 100%;
     height: 10rem;
 }
-
 .card {
     margin-right: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
 .cards {
-    max-height: 5rem;
-    object-fit: contain;
+    max-height: 6rem;
+    object-fit: cover;
     width: 100%;
 }
-
 .form-outline .form-label {
     color: #454444;
     font-weight: 500;
@@ -45,7 +47,9 @@ include 'includes/footertag.php';
     background: #fff;
     margin-left: 20px;
 }
-
+.card-title{
+    font-size: 14px;
+}
 #atag {
     text-decoration: none;
 }
@@ -55,190 +59,196 @@ include 'includes/footertag.php';
     width: 98%;
     padding-left: 8px;
     padding-right: 8px;
-    margin-top: -160px;
 }
 </style>
-
 <body>
     <?php
-				include 'includes/header.php';
-			?>
-    <section class=" mt-5 pt-5 bg-light">
+	    include 'includes/header.php';
+	?>
+    <section class=" mt-4 pt-5 bg-light">
         <div class="container pt-3">
             <div class="py-2 mt-4">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
+                        class="fa-solid fa-chevron-right px-1"></i>
                     </a>
                 </span>
-                <span class="text-dark header-link  px-1">Enquiries <i class="fa-solid fa-chevron-right px-1"></i>
-                </span>
-
-                <span class="text-dark">All Loan</span>
+                <span class="text-dark header-link  px-1">Enquiries <i class="fa-solid fa-chevron-right px-1"></i></span>
+                <span class="text-dark">Insurance</span>
             </div>
         </div>
     </section>
-
-
-
-    <!--Banner-->
-    <div class="container-fluid">
-        <div class="row siv" id="">
-            <img src="assets/images/insurancee.png" alt="reload img" class="w-100" style="height: 350px;">
-            <div class="container-mid">
-                <div class="row justify-content-center loan_form bg-light border border-dark">
-                    <h3 class="text-dark text-center fw-bold mt-4">Renew Your Tractor insurance at Best Price</h3>
-                    <h6 class="text-dark text-center mb-3">Fill your information to get tractor insurance</h6>
-
-                    <form id="myform" name="myform" method="post">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-
-                                    <label class="form-label" for="insurance_type">Insurance Type</label>
-                                    <select class="form-select error mb-2 pb-2" aria-label="Default select example"
-                                        id="insurance_type" name="insurance_type">
-                                        
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4" style="display:none">
-                                <div class="form-outline">
-                                    <label class="form-label" >First Name</label>
-                                    <input type="hidden" id="enquiry_type_id" value="17" name="enquiry_type_id"
-                                        class="data_search form-control input-group-sm" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label " for="first_name">First Name</label>
-                                    <input type="text" id="first_name" name="first_name"
-                                        class="data_search form-control input-group-sm" />
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label" for="last_name">Last Name</label>
-                                    <input type="text" id="last_name" name="last_name"
-                                        class=" data_search form-control input-group-sm" />
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label" for="mobile_number">Mobile Number</label>
-                                    <input type="text" id="mobile_number" name="mobile_number"
-                                        class=" data_search form-control input-group-sm"/>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label  " for="brand">Brand</label>
-                                    <select class="form-select error mb-2 pb-2" id="brand" name="brand"
-                                        aria-label="Default select example">
-                                        
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label" for="model">Model</label>
-                                    <select class="form-select   error mb-2 pb-2" id="model" name="model"
-                                        aria-label="Default select example">
-                                       
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="enterModel">Enter Model</label>
-                                        <input type="text" class="form-control" id="enterModel" name="enterModel"
-                                        required />
-                                    </div>
-                                </div> -->
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label" for="vehicle_registered_number">Vehicle Registered
-                                        Number</label>
-                                    <input type="text" id="vehicle_registered_number" name="vehicle_registered_number"
-                                        class=" data_search form-control input-group-sm " />
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label  " for="registered_year">Registered Year</label>
-                                    <select class="form-select error mb-2 pb-2" id="registered_year" name="registered_year"
-                                        aria-label="Default select example">
-                                        <option value="" selected disabled>Select Year</option>
-                                        <script>
-                                            for (let year = 2023; year >= 2008; year--) {
-                                                document.write(`<option value="${year}">${year}</option>`);
-                                            }
-                                            </script>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label  " for="state">State</label>
-                                    <select class="form-select error mb-2 pb-2 state-dropdown" id="state" name="state" aria-label="Default select example">
-                                      
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label  " for="district">District</label>
-                                    <select class="form-select error mb-2 pb-2 district-dropdown" id="district" name="district"aria-label="Default select example">
-                                      
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label " for="tehsil">Tehsil</label>
-                                    <select class="form-select error mb-2 pb-2 tehsil-dropdown" id="tehsil" name="tehsil" aria-label="Default select example">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                    <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
-                                    <input type="radio" id="pcy_res" name="fav_rc" value="1">
-                                    <label for="policy" class="text-dark">Yes</label> 
-                                    <input type="radio" id="pcy_no" name="fav_rc" value="0">
-                                    <label for="policy" class="text-dark">No</label>
-                                </div>
-                            <!-- <div class="col-12">
-                                <p class=" mt-3 "> Claims Made in Previous Policy</p>
-                                <div class="form-check form-check-inline ">
-                                    <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox1"
-                                        name="x" value="Yes">
-                                    <label class="form-check-label text-dark" for="inlineCheckbox1">Yes</label>
-                                </div>
-                                <div class="form-check form-check-inline text-center">
-                                    <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox2"
-                                        name="x" value="No">
-                                    <label class="form-check-label text-dark" for="inlineCheckbox2">No</label>
-                                </div>
-                            </div> -->
-                            <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Agrimart <a
-                                    href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a>
-                            </p>
-                            <div class="d-grid col-8 mx-auto mb-3">
-                                <button type="button" class="btn btn-success fw-bold" value="" id='button2'>Apply For
-                                    Insurance</button>
-                            </div>
-                        </div>
-                    </form>
+    <div class="container">
+        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
+        <div class="row mt-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <!-- Card 1 -->
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/HDFC ERGO.png" class="card-img-top cards p-2" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">HDFC ERGO</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/IFFCO.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IFFCO TOKEO</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/MAGMA HDI.png" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">MAGMA HDI</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="assets/images/ORIENTAL.jpg" class="card-img-top cards p-3" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">ORIENTAL</h5>
+                    </div>
+                </div>
+            </div>
+             <div class="col-12 col-lg-2 col-sm-6  mb-4">
+                <div class="card">
+                    <img src="assets/images/UNIVERSAL.jpg" class="card-img-top cards" alt="Company 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">UNIVERSAL</h5>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
+    <!--Banner-->
+    <div class="container-fluid">
+        <div class="row siv" id="">
+            <div class="container-mid mt-4">
+                <div class="row justify-content-center loan_form bg-light border border-dark">
+                    <h3 class="text-dark text-center fw-bold mt-4">Renew Your Tractor insurance at Best Price</h3>
+                    <h6 class="text-dark text-center mb-3">Fill your information to get tractor insurance</h6>
+                    <form id="myform" name="myform" method="post">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                <label class="form-label" for="insurance_type">Insurance Type</label>
+                                <select class="form-select error mb-2 pb-2" aria-label="Default select example"
+                                    id="insurance_type" name="insurance_type">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4" style="display:none">
+                            <div class="form-outline">
+                                <label class="form-label" >First Name</label>
+                                <input type="hidden" id="enquiry_type_id" value="17" name="enquiry_type_id"
+                                class="data_search form-control input-group-sm" />
+                             </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label " for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name"
+                                class="data_search form-control input-group-sm" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name"
+                                class=" data_search form-control input-group-sm" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="mobile_number">Mobile Number</label>
+                                <input type="text" id="mobile_number" name="mobile_number"
+                                class=" data_search form-control input-group-sm"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="brand">Brand</label>
+                                <select class="form-select error mb-2 pb-2" id="brand" name="brand"
+                                    aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="model">Model</label>
+                                <select class="form-select error mb-2 pb-2" id="model" name="model"
+                                aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="vehicle_registered_number">
+                                    Vehicle Registered Number
+                                </label>
+                                <input type="text" id="vehicle_registered_number" name="vehicle_registered_number"
+                                class=" data_search form-control input-group-sm " />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label  " for="registered_year">Registered Year</label>
+                                <select class="form-select error mb-2 pb-2" id="registered_year" name="registered_year"
+                                  aria-label="Default select example">
+                                    <option value="" selected disabled>Select Year</option>
+                                    <script>
+                                        for (let year = 2023; year >= 2008; year--) {
+                                            document.write(`<option value="${year}">${year}</option>`);
+                                        }
+                                    </script>
+                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="state">State</label>
+                                <select class="form-select error mb-2 pb-2 state-dropdown" id="state" name="state" aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="district">District</label>
+                                <select class="form-select error mb-2 pb-2 district-dropdown" id="district" name="district"aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="tehsil">Tehsil</label>
+                                <select class="form-select error mb-2 pb-2 tehsil-dropdown" id="tehsil" name="tehsil" aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
+                            <input type="radio" id="pcy_res" name="fav_rc" value="1">
+                            <label for="policy" class="text-dark">Yes</label> 
+                            <input type="radio" id="pcy_no" name="fav_rc" value="0">
+                            <label for="policy" class="text-dark">No</label>
+                        </div>
+                        <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Agrimart's <a
+                             href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a>
+                        </p>
+                        <div class="d-grid col-8 mx-auto mb-3">
+                            <button type="button" class="btn btn-success fw-bold" value="" id='button2'>Apply For
+                                Insurance</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -307,80 +317,8 @@ include 'includes/footertag.php';
         </div>
     </div>
 
-
-    <!--How to Buy Tractor Insurance Online? End-->
-
-
-    <!--Popular Tractor Insurance Companies-->
-
-
-    <!-- <div class="container">
-        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
-        <div class="row mt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\tata1.png" class="card-img-top cards" alt="Company 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">TATA AIG</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\magma1.png" class="card-img-top cards" alt="Company 2">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Magma HDI</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\icici.jpg" class="card-img-top cards" alt="Company 3">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">ICICI Lombard</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\iffco.png" class="card-img-top cards" alt="Company 4">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">IFFCO-TOKIO</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\chola.webp" class="card-img-top cards" alt="Company 5">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Chola MS</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\bajaj.jpeg" class="card-img-top cards" alt="Company 6">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Bajaj Allianz</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
-
-
-    <!--Popular Tractor Insurance Companies End-->
-
-    <!-- Why Choose TractorJunction for Agriculture/Commercial Tractor Insurance Online -->
-
     <div class="container mt-5">
-        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Tractors for Agriculture/Commercial Tractor Insurance
+        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Agrimart's for Agriculture/Commercial Tractor Insurance
             Online?</h4>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -429,14 +367,6 @@ include 'includes/footertag.php';
 
         </div>
     </div>
-
-
-
-
-
-    <!--Why Choose TractorJunction for Agriculture/Commercial Tractor Insurance Online End  -->
-
-    <!-- Get insured your tractor with best offers -->
     <div class="container">
         <h4 class="mt-5 assured px-2 fw-bold">Get insured your tractor with best offers</h4>
         <h6 class="fw-bold px-2 mt-5"> Insure your tractor at the best price</h6>
@@ -457,11 +387,11 @@ include 'includes/footertag.php';
 
         <h6 class="fw-bold px-2 mt-5">If You Have A Plan, Let’s Discuss</h6>
 
-        <p class="mt-4 px-2">At Bharat Tractors, you can obtain online tractor insurance policies from different tractor
+        <p class="mt-4 px-2">At Bharat Agrimart's, you can obtain online tractor insurance policies from different tractor
             insurance companies like SBI tractor insurance. Additionally, you can check for tractor insurance details,
             apply for tractor insurance policy renewal online and much more. You can also choose from farm tractor
             insurance from different companies and check tractor insurance 1-year price and tractor insurance status
-            check in real-time. Bharat Tractors experts have made the online commercial tractor insurance process very
+            check in real-time. Bharat Agrimart's experts have made the online commercial tractor insurance process very
             simple.</p>
 
         <p class="mt-4 px-2">It is fairly simple, fill in the details regarding the tractor, such as the Brand, the
@@ -469,33 +399,23 @@ include 'includes/footertag.php';
             leverage the tractor insurance premium calculator to check the tractor insurance amount and, ultimately,
             tractor insurance price in India!</p>
 
-        <p class="mt-4 px-2">Bharat Tractors is committed to bringing you the best tractor insurance cost in India for
+        <p class="mt-4 px-2">Bharat Agrimart's is committed to bringing you the best tractor insurance cost in India for
             your development and security. When you choose us, we make sure you get the best agricultural tractor
             insurance online and don't regret your choices upon your decisions.</p>
     </div>
-    <!-- Get insured your tractor with best offers End -->
-
-
-
-    <!--Popular Tractor Brands -->
 
     <section class="about bg-white mt-2 ">
-  <div class="container">
-    <div class="lecture_heading ">
-      <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>
-    </div>
-    <div class="mt-4 pb-5">
-      <div class="row allbrands" id="brandContainer">
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="container">
+            <div class="lecture_heading ">
+                <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>
+            </div>
+            <div class="mt-4 pb-5">
+                <div class="row allbrands" id="brandContainer">
+                </div>
+            </div>
+        </div>
+    </section>
     
-
-
-    <!--Popular Tractor Brands End -->
-
-    <!--Tractor Insurance FAQ's  -->
     <section class="about">
         <div class="container">
             <div class="lecture_heading text-center">
@@ -637,28 +557,20 @@ include 'includes/footertag.php';
             rules: {
                 insurance_type: 'required',
                 first_name: 'required',
-
                 last_name: 'required',
                 mobile_number: {
                     required: true,
-                    digits: true, // Allow only digits
+                    digits: true, 
                     indianMobile: true,
-                
-                   
                 },
                 brand: "required",
                 model: "required",
                 enter_model: "required",
-              
                 registered_year: "required",
                 state: "required",
                 district: "required",
-                
             }
-           
         });
-
-
         $('#button2').on('click', function() {
             $('#myform').valid();
             console.log($('#myform').valid());
@@ -666,9 +578,16 @@ include 'includes/footertag.php';
     });
     </script>
 
-
-
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </body>
 
 </html>

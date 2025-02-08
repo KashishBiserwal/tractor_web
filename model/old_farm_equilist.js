@@ -2,13 +2,8 @@ var EditIdmain_ = "";
 var editId_state= false;
 
 $(document).ready(function(){
-  // get('brand2');
-  // get('brand');
   ImgUpload();
-     $('#submitbtn').click(store);
-    // $('#add_trac').on('click', function() {
-    //   get('brand');
-    // });
+    $('#submitbtn').click(store);
     $('#Search').click(search_data);
     $("#Reset").click(function () {
   
@@ -17,20 +12,15 @@ $(document).ready(function(){
       $("#state2").val("");
       $("#district2").val("");
       old_farm_implement();
-
     });
-          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-          return /^[6-9]\d{9}$/.test(value); 
-          }, "Phone number must start with 6 or above");
-          $.validator.addMethod("validPrice", function(value, element) {
-      
-            const cleanedValue = value.replace(/,/g, '');
-      
-            return /^\d+$/.test(cleanedValue);
-          }, "Please enter a valid price (digits and commas only)");
-            
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+      return /^[6-9]\d{9}$/.test(value); 
+    }, "Phone number must start with 6 or above");
+      $.validator.addMethod("validPrice", function(value, element) {
+        const cleanedValue = value.replace(/,/g, '');
+          return /^\d+$/.test(cleanedValue);
+        }, "Please enter a valid price (digits and commas only)");
       $("#old_farm_implement").validate({
-      
       rules: {
         category:{
             required: true,
@@ -50,19 +40,18 @@ $(document).ready(function(){
         price:{
           required: true,
           validPrice: true,
-       
         },
         about:{
             required: true,
-          },
-          Mobile:{
+        },
+        Mobile:{
           required:true, 
-            maxlength:10,
-            digits: true,
-            customPhoneNumber: true
+          maxlength:10,
+          digits: true,
+          customPhoneNumber: true
         },
         'files[]':{
-            required:true,
+          required:true,
         },
         name:{
           required: true,
@@ -76,7 +65,7 @@ $(document).ready(function(){
           district:{
             required: true,
           }
-    },
+        },
         messages:{
             category: {
             required: "This field is required",
@@ -122,33 +111,23 @@ $(document).ready(function(){
         },
       
       },
-      
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
       });
-  
-    
       $("#submitbtn").on("click", function () {
-    
         $("#old_farm_implement").valid();
-      
       });
-      
-  
     });
-
     function formatPriceWithCommas(price) {
       if (isNaN(price)) {
           return price; 
       }
        return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
   }
-
     function ImgUpload() {
       var imgWrap = "";
       var imgArray = [];
-  
       $('.upload__inputfile').each(function () {
         $(this).on('change', function (e) {
           imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
@@ -202,21 +181,16 @@ $(document).ready(function(){
       });
     }
     
-      function removeImage(ele){
-        console.log("print ele");
-          console.log(ele);
-          let thisId=ele.id;
-          thisId=thisId.split('closeId');
-          thisId=thisId[1];
-          $("#"+ele.id).remove();
-          $(".upload__img-closeDy"+thisId).remove();
-      
-        }
-  
-
-       
-      
- function get() {
+  function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+  }
+function get() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
@@ -229,7 +203,7 @@ $(document).ready(function(){
           const select = document.getElementById('brand_brand');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.brands.length > 0) {
+          if (Array.isArray(data.brands) && data.brands.length > 0) {
               data.brands.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.brand_name;
@@ -238,9 +212,9 @@ $(document).ready(function(){
               });
 
               // Add event listener to brand dropdown
-              select.addEventListener('change', function() {
+              select.addEventListener('change', function () {
                   const selectedBrandId = this.value;
-                  get_model_1(selectedBrandId);
+                  get_model_1(selectedBrandId, null); // Pass null for selected model initially
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';
@@ -252,7 +226,7 @@ $(document).ready(function(){
   });
 }
 
-function get_model_1(brand_id, selectedModel) {
+function get_model_1(brand_id, selectedModel = null) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
@@ -265,15 +239,15 @@ function get_model_1(brand_id, selectedModel) {
           const select = document.getElementById('model_model');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.model.length > 0) {
-              data.model.forEach(row => {
+          if (Array.isArray(data.model) && data.model.length > 0) {
+              data.model.forEach(modelName => {
                   const option = document.createElement('option');
-                  option.textContent = row.model;
-                  option.value = row.model;
+                  option.textContent = modelName; // Directly use the model name as a string
+                  option.value = modelName;
                   select.appendChild(option);
 
-                  // Select the option if it matches the selectedModel
-                  if (row.model === selectedModel) {
+                  // Auto-select the option if it matches the selectedModel
+                  if (selectedModel && modelName === selectedModel) {
                       option.selected = true;
                   }
               });
@@ -282,12 +256,13 @@ function get_model_1(brand_id, selectedModel) {
           }
       },
       error: function (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching model data:', error);
       }
   });
 }
-
 get();
+
+
   function get_category() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_implement_category';
@@ -484,16 +459,20 @@ function store(event) {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+              window.location.href = baseUrl + "login.php"; 
+  
+            }
         }
     });
 }
-
 old_farm_implement();
-
 
 // view data
 function fetch_data(id){
-
   var productId = id;
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_old_implementsById/' + productId; 
@@ -519,7 +498,6 @@ function fetch_data(id){
       document.getElementById('district_2').innerText=data.getOldImplement[0].district_name;
       document.getElementById('tehsil2').innerText=data.getOldImplement[0].tehsil_name;
    
-      
       $("#selectedImagesContainer1").empty();
   
       if (data.getOldImplement[0].image_names) {
@@ -553,9 +531,6 @@ function fetch_data(id){
   });
   }
 
-
-
-
   function get_year_and_hours() {
     console.log('initsfd')
       var apiBaseURL = APIBaseURL;
@@ -584,11 +559,8 @@ function fetch_data(id){
             for (var j = 0; j < data.getYears.length; j++) {
               select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
           }
-  
-          },
-  
-          complete:function(){
-           
+        },
+          complete:function(){ 
           },
           error: function (error) {
               console.error('Error fetching data:', error);
@@ -597,7 +569,6 @@ function fetch_data(id){
   }
   get_year_and_hours();
 // fetch edit data
-
 
 function fetch_edit_data(id) {
   // var productId = id;
@@ -640,7 +611,6 @@ function fetch_edit_data(id) {
       $('#district').val(userData.district);
       $('#tehsil').val(userData.tehsil);
 
-       
       var brandDropdown = document.getElementById('brand_brand');
       for (var i = 0; i < brandDropdown.options.length; i++) {
         if (brandDropdown.options[i].text === userData.brand_name) {
@@ -651,20 +621,16 @@ function fetch_edit_data(id) {
 
       $('#model_model').empty(); 
       get_model_1(userData.brand_id); 
-
-      // Selecting the option in the model dropdown
-      setTimeout(function() { // Wait for the model dropdown to populate
+      setTimeout(function() {
           $("#model_model option").prop("selected", false);
           $("#model_model option[value='" + userData.model + "']").prop("selected", true);
-      }, 1000); // Adjust the delay time as needed
-
+      }, 1000); 
       setSelectedOption('state', userData.state_id);
-      setSelectedOption('district', userData.district_id);
-      
-      // Call function to populate tehsil dropdown based on selected district
-      populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
-
-     
+      getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+      setTimeout(function() {
+        setSelectedOption('district', userData.district_id);
+        populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+      }, 2000); 
       $("#selectedImagesContainer").empty();
   
       if (userData.image_names) {
@@ -703,7 +669,6 @@ function setSelectedOption(selectId, value) {
     }
   }
 }
-
 function populateTehsil(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -713,7 +678,6 @@ function populateTehsil(selectId, value) {
     }
   }
 }
-
 // delete data
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
@@ -724,14 +688,12 @@ function destroy(id) {
     console.error("Token is missing");
     return;
   }
-
   // Show a confirmation popup
   var isConfirmed = confirm("Are you sure you want to delete this data?");
   if (!isConfirmed) {
     // User clicked 'Cancel' in the confirmation popup
     return;
   }
-
   $.ajax({
     url: url,
     type: "DELETE",
@@ -796,7 +758,6 @@ function search_data() {
       }
   });
 }
-
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
@@ -858,9 +819,6 @@ function updateTable(data) {
       tableBody.innerHTML = '<tr><td colspan="10">No valid data available</td></tr>';
   }
 }
-
-
-
 function resetFormFields(){
   document.getElementById("old_farm_implement").reset();
   document.getElementById("_image").value = ''; // Clear the value of the image input

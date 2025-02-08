@@ -7,14 +7,13 @@
     ?>
       <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/customer_info.js"></script>
+  <script src="<?php $baseUrl; ?>model/customer_info.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <body> 
-        
-     <?php 
-     include 'includes/header.php';
-    ?>
+        <?php 
+        include 'includes/header.php';
+        ?>
     <section class="mt-5">
         <div class="container">
             <div class="row">
@@ -36,7 +35,6 @@
     </section>
     <?php   
     include 'includes/footer.php';
-    ?> 
-  
+    ?>
 </body>
 

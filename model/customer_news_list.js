@@ -15,23 +15,12 @@ function news_details_list(allNews) {
             var loadMoreButton = $("#load_moretract");
 
             if (data.news_details && data.news_details.length > 0) {
-                // Reverse the order of the news to display the latest ones first
                 var reversedNews = data.news_details.slice().reverse();
-                
-                // Update the list of all news
                 allNews = allNews.concat(reversedNews);
-                
-                // Display the latest 9 news items at the top in the opposite order
                 displayNews(productContainer, reversedNews.slice(0, 9).reverse());
-
-                // Show the "View All" button
                 loadMoreButton.show();
-
-                // Handle "View All" button click
                 loadMoreButton.click(function() {
-                    // Display all news items in the opposite order
                     displayNews(productContainer, allNews.reverse());
-                    // Hide the "View All" button
                     loadMoreButton.hide();
                 });
             }
@@ -43,13 +32,10 @@ function news_details_list(allNews) {
 }
 
 function displayNews(container, news) {
-    // Clear existing content
     container.html('');
-
     news.forEach(function (p) {
         var images = p.image_names;
         var a = [];
-
         if (images) {
             if (images.indexOf(',') > -1) {
                 a = images.split(',');
@@ -57,13 +43,12 @@ function displayNews(container, news) {
                 a = [images];
             }
         }
-
         var newCard = `
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="news_content.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                            <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">
@@ -78,7 +63,6 @@ function displayNews(container, news) {
                 </div>
             </div>`;
         
-        // Use prepend to add the new news item at the beginning
         container.prepend(newCard);
     });
 }

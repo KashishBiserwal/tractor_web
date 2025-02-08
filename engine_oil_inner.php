@@ -5,6 +5,7 @@
     <?php
       include 'includes/headertag.php';
       include 'includes/header.php';
+      include 'includes/headertagadmin.php';
       $id=$_REQUEST['id'];
       //echo $id;
       include 'includes/footertag.php';
@@ -12,9 +13,17 @@
      
      <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
      <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-     <script src="<?php $baseUrl; ?>model/engineoil_detail.js"></script>
-     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+     <script src="<?php $baseUrl; ?>model/engineoil_detail.js" defer></script>
+     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-6Z38E658LD');
+    </script>
   
 <style>
      .gallery {
@@ -92,7 +101,6 @@
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
                         </div>
-
                         <div class="swiper-container gallery-thumbs">
                             <div class="swiper-wrapper mySwiper_data"></div>
                         </div>
@@ -142,14 +150,12 @@
                         </tbody>
                     </table>
                     <div class="row my-3 text-center">
-                       
                         <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                             <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                                 Request Call Back
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -174,38 +180,37 @@
                                 <small></small>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> product</label>
-                                            <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
-                                        </div>
+                                <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> product</label>
+                                <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
+                            </div>
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-outline">
-                                <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
+                                    <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-outline">
-                                <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
+                                    <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                    <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                 <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
-                                
                                 </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                <label for="district" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                 <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
                                 
                                 </select>
@@ -213,7 +218,7 @@
                             </div>       
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                 <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
                                     
                                 </select>
@@ -244,21 +249,18 @@
 
     <section>
         <div class="container">
-            <div class="row py-1 mb-3">
+            <div class="py-1 mb-3">
                 <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
                 <div id="productContainer" class="row"></div>
-
                 <div class="col text-center mt-3">
                     <a href="engine_oil.php" class="btn btn-success btn-lg">View All</a>
                 </div>
-
             </div>
-
         </div>
     </section>
 
     <!-- Modal -->
-<div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success">
@@ -288,86 +290,11 @@
             </div>
         </div>
     </div>
-
     <?php   
         include 'includes/footer.php';
    
     ?> 
-    
-  <!--   <script>
-        $(document).ready(function(){
-          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-            return /^[6-9]\d{9}$/.test(value);
-          }, "Phone number must start with 6 or above");
-            $("#engine_oil_btn").click(function () {
-                // setTimeout(() => {
-                //     console.log("validation of Department")
-                // }, 2000);
-                $("form[id='engine_oil_form']").validate({
-                    rules: {
-                        f_name: {
-                            required: true,
-                            minlength: 3
-                        },
-
-                        eo_name: {
-                            required: true,
-                            minlength: 3
-                        },
-                        eo_number: {
-                            required: true,
-                            minlength: 10,
-                            maxlength:10,
-                            digits: true,
-                            customPhoneNumber: true 
-                        },
-                        eo_state: {
-                            required: true,
-                            // minlength: 3
-                        },
-                        // eo_tehsil: {
-                        //     required: true,
-                        //     // minlength: 3
-                        // }
-                        eo_dist: {
-                            required: true,
-                            // minlength: 3
-                        }
-                    },
-                    messages: {
-                        f_name: {
-                            required: "Enter Your First Name",
-                            minlength: "First Name must be atleast 3 characters long"
-                        },
-                        eo_name: {
-                            required: "Enter Your Last Name",
-                            minlength: "Last Name must be atleast 3 characters long"
-                        },
-                        eo_number: {
-                            required: "Enter Your Phone Number",
-                            minlength: "Phone Number must be of 10 Digit",
-                            maxlength: "Ensure exactly 10 digits of Mobile No.",
-                            digits: "Please enter only digits"
-                        },
-                        eo_state: {
-                            required: "Select Your State",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        },
-                        // eo_tehsil: {
-                        //     required: "Select Your Tehsil",
-                        //     // minlength: "First Name must be atleast 3 characters long"
-                        // }
-                        eo_dist: {
-                            required: "Select Your District",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        }
-                    },
-
-                });
-            })
-        });
-  </script> -->
-
+   
 <script>
       var slider = new Swiper ('.gallery-slider', {
     slidesPerView: 1,
@@ -379,7 +306,6 @@
         prevEl: '.swiper-button-prev',
     },
 });
-
 var thumbs = new Swiper ('.gallery-thumbs', {
     slidesPerView: 'auto',
     spaceBetween: 10,
@@ -388,12 +314,18 @@ var thumbs = new Swiper ('.gallery-thumbs', {
     slideToClickedSlide: true,
 });
 
-
 slider.controller.control = thumbs;
 thumbs.controller.control = slider;
-
-
-    </script>
+</script>
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml',
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
 </script>
 </body>
 </html>

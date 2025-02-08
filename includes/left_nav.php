@@ -36,6 +36,7 @@
         <div class="collapse" id="about-collapselist">
           <ul class="list-unstyled fw-800 mb-0">
               <li class="py-1 ps-3"><a href="brand_listing.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Brand Listings</a></li>
+              <li class="py-1 ps-3"><a href="model_listing.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Model Listings</a></li>
               <li class="py-1 ps-3"><a href="tractor_listing.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Listings</a></li>
               <li class="py-1 ps-3"><a href="old_tractor_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Tractor List</a></li>
               <li class="py-1 ps-3"><a href="accessories.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Accessories Listing</a></li>
@@ -47,7 +48,7 @@
               <li class="py-1 ps-3"><a href="blog_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Blog Section</a></li>
               <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Tyres Listing</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Engine Oil Listing</a></li>
-             
+              <li class="py-1 ps-3"><a href="agricultureAdmin.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Agriculture College</a></li>
           </ul>
         </div>
 
@@ -67,15 +68,15 @@
 
         <!-- haatbazar -->
         <button class=" fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsebazar" aria-expanded="true">
-        <i class="fa-solid fa-cart-shopping pe-3"></i> HaatBazaar <span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
+        <i class="fa-solid fa-cart-shopping pe-3"></i>Bazaar Apke Aas Pass<span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
         </button>
         <div class="collapse" id="about-collapsebazar">
           <ul class="list-unstyled fw-800 mb-0">
              
-              <li class="py-1 ps-3"><a href="haatbazar_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Category</a></li>
-              <li class="py-1 ps-3"><a href="haatbazar_sub_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Sub Category</a></li>
-              <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
-              <li class="py-1 ps-3"><a href="haatbzr_byr_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar Buyer Enquiry List</a></li>
+              <li class="py-1 ps-3"><a href="haatbazar_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Bazaar Apke Aas Pass List Category</a></li>
+              <li class="py-1 ps-3"><a href="haatbazar_sub_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Bazaar Apke Aas Pass List Sub Category</a></li>
+              <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Bazaar Apke Aas Pass List Items</a></li>
+              <li class="py-1 ps-3"><a href="haatbzr_byr_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Bazaar Apke Aas Pass Buyer Enquiry List</a></li>
           </ul>
         </div>
         <button class=" fw-800 text-white admin-collapse w-100  align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapseenq" aria-expanded="true">
@@ -96,6 +97,7 @@
               <li class="py-1 ps-3"><a href="insurance_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Insurance Enquiry</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Engine Oil Enquiry</a></li>
               <li class="py-1 ps-3"><a href="loan_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Loan Enquiry</a></li>
+              <li class="py-1 ps-3"><a href="agrclg_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Agriculture College Enquiry</a></li>
           </ul>
         </div>
        
@@ -126,6 +128,15 @@
         <div class="collapse" id="about-collapsenews">
           <ul class="list-unstyled fw-800 mb-0">
               <li class="py-1 ps-3"><a href="feedback_ticket.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Feedback & Support Tickets</a></li>
+          </ul>
+        </div>
+        <!-- customer query -->
+        <button class="fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsenews" aria-expanded="true">
+        <i class="bi bi-question-diamond pe-3"></i> Customer Query<span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="collapse" id="about-collapsenews">
+          <ul class="list-unstyled fw-800 mb-0">
+              <li class="py-1 ps-3"><a href="customer_query.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Customer Query/Message</a></li>
           </ul>
         </div>
        
@@ -173,21 +184,21 @@ if(currentdate >= exiredatenew){
           },
           error: function (xhr, textStatus, errorThrown) {
               console.log(xhr.status, 'error');
-              if (xhr.status === 401) {
+              if (xhr.status === 400) {
+                  console.log('Bad Request: Redirecting to login page.');
+                  window.location.href = "login.php"; // Redirect to login page
+              } else if (xhr.status === 401) {
                   console.log('Invalid credentials');
                   var htmlcontent = `<p>Invalid credentials!</p>`;
-              document.getElementById("error_message").innerHTML = htmlcontent;
-                
+                  document.getElementById("error_message").innerHTML = htmlcontent;
               } else if (xhr.status === 403) {
                   console.log('Forbidden: You don\'t have permission to access this resource.');
-                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                  var htmlcontent = `<p>You don't have permission to access this resource.</p>`;
                   document.getElementById("error_message").innerHTML = htmlcontent;
-                
               } else {
                   console.log('An error occurred:', textStatus, errorThrown);
                   var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-              document.getElementById("error_message").innerHTML = htmlcontent;
-                  
+                  document.getElementById("error_message").innerHTML = htmlcontent;
               }
           },
           complete: function () {

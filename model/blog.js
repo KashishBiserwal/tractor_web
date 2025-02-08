@@ -57,7 +57,7 @@ function displayEngineoil(container, engineoil) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="blog_customer_inner.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">
@@ -182,7 +182,7 @@ function displayFilteredCards(container, filteredCards) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="blog_customer_inner.php?id=${card.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">
@@ -206,33 +206,20 @@ function displayFilteredCards(container, filteredCards) {
 }
 
 function displayNextSet(container) {
-    container.empty(); // Clear existing cards before displaying new ones
-    
-    // Check if filteredCards is empty, if yes, display all cards
-    if (filteredCards.length === 0) {
+    container.empty(); 
+        if (filteredCards.length === 0) {
         displayEngineoil(container, allCards);
         cardsDisplayed = allCards.length;
     } else {
-        // Display the next set of filtered cards
         filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (card) {
             appendFilterCard(container, card);
             cardsDisplayed++;
         });
     }
-
-    // Hide the "Load More" button if all filtered cards are displayed
     if (cardsDisplayed >= filteredCards.length) {
         $("#load_moretract").hide();
     }
 }
-
-// $(document).on('click', '#load_moretract', function () {
-//     var productContainer = $("#productContainer");
-//     displayNextSet(productContainer);
-// });
-
-
-
 
 function resetform(){
     $('.category_checkbox').val('');

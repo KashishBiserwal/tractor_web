@@ -1,13 +1,10 @@
  
   $(document).ready(function(){
-    // $('#Search_btn').click(search_data);
     $('#engine_subbtn').click(edit_data_id);
     $('#Search').click(searchdata);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
-    
-            
       $("#engine_oilr_form").validate({
       
       rules: {
@@ -50,7 +47,6 @@
           required: true
         }
       },
-  
       messages:{
         bname: {
           required: "This field is required",
@@ -89,28 +85,18 @@
         loc: {
           required:"This field is required",
           }
-      },
-      
+      }, 
       submitHandler: function (form) {
         alert("Form submitted successfully!");
       },
       });
-  
-    
       $("#engine_subbtn").on("click", function () {
-    
-        $("#engine_oilr_form").valid();
-      
+      $("#engine_oilr_form").valid();
       });
-      
-  
-      });
-
-
+    });
 
 //****get data***
-var table; // Declare table variable outside the function scope
-
+var table; 
 function get_engine() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_engine_oil_enquiry_data';
@@ -123,15 +109,12 @@ function get_engine() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
-  
+            const tableBody = $('#data-table'); 
+            tableBody.empty(); 
             let serialNumber = 1;
-  
             if ($.fn.DataTable.isDataTable('#example')) {
-                $('#example').DataTable().clear().destroy(); // Clear and destroy DataTable instance
+                $('#example').DataTable().clear().destroy(); 
             }
-
             table = $('#example').DataTable({
                 paging: true,
                 searching: true,
@@ -147,15 +130,11 @@ function get_engine() {
                     { title: 'Action', orderable: false }
                 ]
             });
-
-            // Reverse the data array to display the latest data at the top
             data.customer_details.reverse();
   
             if (data.customer_details && data.customer_details.length > 0) {
                 data.customer_details.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
-  
-                    // Add row to DataTable
                     table.row.add([
                         serialNumber,
                         row.date,
@@ -186,18 +165,22 @@ function get_engine() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+              window.location.href = baseUrl + "login.php"; 
+
+            }
         }
     });
 }
-
 get_engine();
 
-  
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_engine_oil_enquiry_by_id/' + userId;
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -213,9 +196,7 @@ function openViewdata(userId) {
         document.getElementById('mname1').innerText=userData.oil_model;
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
-        console.log(userData.last_name);
         document.getElementById('number1').innerText=userData.mobile;
-        // document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('dist1').innerText=userData.district_name;
@@ -231,9 +212,7 @@ function openViewdata(userId) {
  function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
-    console.log(url);
     var token = localStorage.getItem('token');
-  
     if (!token) {
       console.error("Token is missing");
       return;
@@ -263,14 +242,10 @@ function openViewdata(userId) {
     });
   }
 
-
-   // edit data 
-
+// edit data 
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_engine_oil_enquiry_by_id/' + id;
-    console.log(url);
-  
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -282,35 +257,32 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.customer_details[0];
             $('#idUser').val(Data.id);
-            // $('#brand_name').val(Data.brand_name);
             $('#model_name').val(Data.oil_model);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
             $('#mobile').val(Data.mobile);
             $('#email').val(Data.email);
             $('#date').val(Data.date);
-             
-          var brandDropdown = document.getElementById('brand_name');
-          for (var i = 0; i < brandDropdown.options.length; i++) {
-            if (brandDropdown.options[i].text === Data.brand_name) {
-              brandDropdown.selectedIndex = i;
-              break;
+            $('#product_id').val(Data.product_id);
+            var brandDropdown = document.getElementById('brand_name');
+            for (var i = 0; i < brandDropdown.options.length; i++) {
+              if (brandDropdown.options[i].text === Data.brand_name) {
+                brandDropdown.selectedIndex = i;
+                break;
+              }
             }
-          }
             setSelectedOption('state_', Data.state_id);
-            setSelectedOption('dist_', Data.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-  
-            // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist_', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 1000); 
           },
           error: function(error) {
             console.error('Error fetching user data:', error);
           }
         });
       }
-      
         function setSelectedOption(selectId, value) {
           var select = document.getElementById(selectId);
           for (var i = 0; i < select.options.length; i++) {
@@ -320,7 +292,6 @@ function fetch_edit_data(id) {
             }
           }
         }
-        
         function populateTehsil(selectId, value) {
           var select = document.getElementById(selectId);
           for (var i = 0; i < select.options.length; i++) {
@@ -330,8 +301,6 @@ function fetch_edit_data(id) {
             }
           }
         }
-  
-
   function edit_data_id() {
     var enquiry_type_id = $("#enquiry_type_id").val();
     var product_id = $("#product_id").val();
@@ -347,16 +316,13 @@ function fetch_edit_data(id) {
     var district = $("#dist_").val();
     var tehsil = $("#tehsil_").val();
     var _method = 'put';
-
-    // Validate mobile number
     if (!/^[6-9]\d{9}$/.test(mobile)) {
         alert("Mobile number must start with 6 or above and should be 10 digits");
-        return; // Exit the function if validation fails
+        return; 
     }
-   
     var paraArr = {
-        'brand_name': brand_name,
-        'oil_model': model_name,
+        'brand_id': brand_name,
+        'model': model_name,
         'first_name': first_name,
         'last_name': last_name,
         'mobile': mobile,
@@ -370,14 +336,11 @@ function fetch_edit_data(id) {
         'product_id': product_id,
         '_method': _method,
     };
-  
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-    
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
- 
     $.ajax({
         url: url,
         type: "POST",
@@ -388,8 +351,6 @@ function fetch_edit_data(id) {
             window.location.reload();
             console.log("updated successfully");
             alert('successfully updated..!');
-            get_new_harvester();
-
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -397,46 +358,7 @@ function fetch_edit_data(id) {
     });
   }
 
-  // $(document).ready(function () {
-  //   // Initialize DataTable
-  //   var table = $('#example').DataTable({
-  //       paging: true,
-  //       searching: true,
-  //       columns: [
-  //           { title: 'S.No.' },
-  //           { title: 'Date' },
-  //           { title: 'Brand' },
-  //           { title: 'Model' },
-  //           { title: 'Full Name' },
-  //           { title: 'Mobile' },
-  //           { title: 'State' },
-  //           { title: 'District' },
-  //           { title: 'Action', orderable: false }
-  //       ]
-  //   });
-  // });
-    // Search Button Click Event
-//     $("#Search").click(function () {
-//         var selectedBrand = $('#brand_name').val();
-//         var selectedModel = $('#model').val();
-//         var selectedState = $('#state').val();
-//         var selectedDistrict = $('#district').val();
-
-//         // Perform search
-//         table.columns(2).search(selectedBrand).draw();
-//         table.columns(3).search(selectedModel).draw();
-//         table.columns(6).search(selectedState).draw();
-//         table.columns(7).search(selectedDistrict).draw();
-//     });
-//     $("#Reset").click(function () {
-//         $('#brand_name, #model, #state, #district').val('');
-//         table.search('').columns().search('').draw();
-//     });
-// });
-
-
 function searchdata() {
-  console.log("dfghsfg,sdfgdfg");
   var brandselect = $('#brand_name_search').val();
   var modelselect = $('#model_search').val();
   var stateselect = $('#state_search').val();
@@ -453,12 +375,10 @@ function searchdata() {
       url:url, 
       type: 'POST',
       data: paraArr,
-    
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        console.log(searchData,"hello brand");
         updateTable(searchData);
       },
       error: function (error) {
@@ -517,10 +437,8 @@ function updateTable(data) {
         ],
         paging: true,
         searching: true,
-        // ... other options ...
     });
   } else {
-      // Display a message if there's no valid data
       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
 }
@@ -528,7 +446,6 @@ function updateTable(data) {
 
 function get_oil() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
-
   $.ajax({
     url: url,
     type: "GET",
@@ -536,27 +453,16 @@ function get_oil() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (data) {
-      console.log(data);
-
       const select = $('#brand_name_search');
-      select.empty(); // Clear existing options
-
-      // Add a default option
+      select.empty(); 
       select.append('<option selected disabled value="">Please select Brand</option>');
-
-      // Use an object to keep track of unique brands
       var uniqueBrands = {};
 
       $.each(data.brands, function (index, brand) {
         var brand_id = brand.id;
         var brand_name = brand.brand_name;
-
-        // Check if the brand ID is not already in the object
         if (!uniqueBrands[brand_id]) {
-          // Add brand ID to the object
           uniqueBrands[brand_id] = true;
-
-          // Append the option to the dropdown
           select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
         }
       });
@@ -570,7 +476,6 @@ get_oil();
 
 function get_oilUpdate() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
-
   $.ajax({
     url: url,
     type: "GET",
@@ -579,21 +484,15 @@ function get_oilUpdate() {
     },
     success: function (data) {
       console.log(data);
-
       const select = $('#brand_name');
-      select.empty(); // Clear existing options
+      select.empty(); 
 
-      // Add a default option
       select.append('<option selected disabled value="">Please select Brand</option>');
-
-      // Use an object to keep track of unique brands
       var uniqueBrands = {};
 
       $.each(data.brands, function (index, brand) {
         var brand_id = brand.id;
         var brand_name = brand.brand_name;
-
-        // Check if the brand ID is not already in the object
         if (!uniqueBrands[brand_id]) {
           // Add brand ID to the object
           uniqueBrands[brand_id] = true;

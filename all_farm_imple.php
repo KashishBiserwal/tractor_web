@@ -4,16 +4,14 @@
 <head>
    <?php
    include 'includes/headertag.php';
+   include 'includes/header.php';
    ?>
 </head>
 
 <body>
-<?php
-   include 'includes/header.php';
-   ?>
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/all_farm_imple.js"></script>
+    <script src="<?php $baseUrl; ?>model/all_farm_imple.js" defer></script>
 <section class="mt-5 pt-5">
     <div class="container pt-4">
         <div class="mt-3">
@@ -37,77 +35,6 @@
                     <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
                 </div>
             </div>
-            
-            <!-- <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button id="adduser" type="button" class="add_btn btn-success px-3">
-                                <i class="fas fa-undo"></i>  Reset </button>
-                            </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="adduser" type="button" class="add_btn btn-success">
-                                <i class="fas fa-filter"></i>  Apply Filter </button>
-                           </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="scrollbar mb-3" id=" my-2">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
-                        <div class="HP py-2">
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
-                        </div>
-                    </div>
-                </div>
-                <div class="scrollbar mb-3" id=" my-2">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold  pt-2">Types</h5>
-                        <div class="HP py-2">
-                          
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Rotavator (185)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Tractor Mounted Sprayer (78)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Plough (65)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">Cultivator (60)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Thresher (47)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Harrow (32)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Disc Harrow (30)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">Baler (28)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Power Tiller (26)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">Laser Land Leveler (25)</span><br />
-                        </div>
-                    </div>
-                </div>
-                <div class="scrollbar mb-3" id=" my-2">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold  pt-2">Categories</h5>
-                        <div class="HP py-2">
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Tillage (485)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Seeding And Planting (122)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Crop Protection (109)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">LandScaping (60)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Land Preparation (44)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Haulage (28)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Fertilizer (9)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">Harvest (8)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Construction (7)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">Hay & Forage (7)</span><br />
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -278,8 +205,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </section>
@@ -380,10 +305,9 @@
 </section>
 
 
-
 <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
 
     ?>
-    </html>
+</html>

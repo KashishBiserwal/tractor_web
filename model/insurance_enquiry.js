@@ -69,6 +69,13 @@ function get_loan() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                window.location.href = baseUrl + "login.php"; 
+  
+              }
         }
     });
   }
@@ -97,9 +104,9 @@ function get_loan() {
       },
       success: function(result) {
         // get_tyre_list();
-        // window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
+        window.location.reload();
       },
       error: function(error) {
         console.error('Error fetching data:', error);
@@ -200,8 +207,6 @@ function get_model_1(brand_id) {
                   option.textContent = row.model;
                   option.value = row.model;
                   select.appendChild(option);
-
-                 
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';
@@ -212,15 +217,12 @@ function get_model_1(brand_id) {
       }
   });
 }
-
 get_1();
 
 //****edit fetch****
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'insurance_data/' + id;
-    console.log(url);
-  
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -237,24 +239,9 @@ function fetch_edit_data(id) {
             $('#mobile_no').val(Data.mobile);
             $('#vehicle_no').val(Data.vehicle_registered_num);
             $('#registerd_year').val(Data.registered_year);
-
-            // $("#brand_name option").prop("selected", false);
-            // $("#brand_name option[value='" + Data.brand_name+ "']").prop("selected", true);
-  
-            // $("#model_name option").prop("selected", false);
-            // $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
-  
-
             $("#insurance_type option").prop("selected", false);
             $("#insurance_type option[value='" + Data.insurance_type_id+ "']").prop("selected", true);
 
-            // var brandDropdown = document.getElementById('brand_name');
-            // for (var i = 0; i < brandDropdown.options.length; i++) {
-            //   if (brandDropdown.options[i].text === Data.brand_name) {
-            //     brandDropdown.selectedIndex = i;
-            //     break;
-            //   }
-            // }
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
                 if (brandDropdown.options[i].text === Data.brand_name) {
@@ -262,33 +249,25 @@ function fetch_edit_data(id) {
                     break;
                 }
             }
-
-            //  $("#model_name option").prop("selected", false);
-            // $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
-
             $('#model_name').empty();
             get_model_1(Data.brand_id);
             setTimeout(function () { 
                 $("#model_name option").prop("selected", false);
                 $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-            }, 1000); 
-  
-            // setSelectedOption('model_name', Data.brand_id);
+            }, 2000); 
             setSelectedOption('state_2', Data.state_id);
-            setSelectedOption('dist_2', Data.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
-  
-            // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+            getDistricts(Data.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('dist_2', Data.district_id);
+              populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+            }, 1000); 
           },
           error: function(error) {
             console.error('Error fetching user data:', error);
           }
         });
       }
-      
-        function setSelectedOption(selectId, value) {
+       function setSelectedOption(selectId, value) {
           var select = document.getElementById(selectId);
           for (var i = 0; i < select.options.length; i++) {
             if (select.options[i].value == value) {
@@ -297,7 +276,6 @@ function fetch_edit_data(id) {
             }
           }
         }
-        
         function populateTehsil(selectId, value) {
           var select = document.getElementById(selectId);
           for (var i = 0; i < select.options.length; i++) {
@@ -324,12 +302,10 @@ function edit_insurance() {
     var dist_2 = $("#dist_2").val();
     var tehsil_2 = $("#tehsil_2").val();
     
-    // Validate mobile number
     if (!/^[6-9]\d{9}$/.test(mobile_no)) {
         alert("Mobile number must start with 6 or above and should be 10 digits");
-        return; // Exit the function if validation fails
+        return; 
     }
-    
     var paraArr = {
         'id':id,
         'enquiry_type_id':enquiry_type_id,
@@ -345,14 +321,11 @@ function edit_insurance() {
         'district': dist_2,
         'tehsil': tehsil_2,
     };
-    
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
-    
     var headers = {
         'Authorization': 'Bearer' + localStorage.getItem('token')
     };
-    
     $.ajax({
         url: url,
         type: "PUT",
@@ -374,7 +347,6 @@ function edit_insurance() {
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'insurance_data/' + userId;
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -383,7 +355,6 @@ function openViewdata(userId) {
       url: url,
       type: 'GET',
       headers: headers,
-    
       success: function(response) {
         var userData = response.enquiry_for_insurance_data[0];
         var policyClaim = userData.previous_policy_claim === 1 ? "Yes" : "No";
@@ -416,7 +387,6 @@ function search_data() {
       'state':state,
       'district':district,
     };
-  
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'search_for_insurance_enquiry';
     $.ajax({
@@ -431,7 +401,7 @@ function search_data() {
         },
         error: function (xhr, status, error) {
             if (xhr.status === 404) {
-                updateTable([]); // Pass an empty array to updateTable function
+                updateTable([]); 
             } else {
                 console.error('Error searching for insurance:', error);
             }
@@ -441,7 +411,7 @@ function search_data() {
 
 function updateTable(data) {
     const table = $('#example').DataTable();
-    table.clear().draw(); // Clear table data before adding new rows
+    table.clear().draw(); 
 
     const tableBody = $('#data-table');
     tableBody.empty();
@@ -473,13 +443,10 @@ function updateTable(data) {
             ]).draw(false);
         });
     } else {
-        // Display a message if there's no valid data
         tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
     }
 }
-
   function get_search() {
-    // var url = "<?php echo $APIBaseURL; ?>getBrands";
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
@@ -488,9 +455,7 @@ function updateTable(data) {
             'Authorization': 'Bearer' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const select = document.getElementById('brand_search');
-            // select.innerHTML = '';
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
@@ -509,15 +474,11 @@ function updateTable(data) {
     });
 }
 get_search();
-
 function resetform(){
     $('#brand_search').val();
     $('#state_state').val();
     $('#dist_state').val();
-    // get_loan();
     window.location.reload();
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');
-populateBrandDropdown('brand_select', 'model_select');
+

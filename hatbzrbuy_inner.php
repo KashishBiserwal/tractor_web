@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>  <?php
-// include 'includes/header.php';
-include 'includes/headertag.php';
-include 'includes/headertagadmin.php';
-include 'includes/footertag.php';
-
+<head>  
+<?php
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+    include 'includes/footertag.php';
 ?> 
-<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+    <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
      <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/haatbazar_inner.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
-   
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/haatbazar_inner.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6Z38E658LD');
+</script>
 <style>
     .text-truncate {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-   
     }
-    </style>
-
-<body> <?php
-   include 'includes/header.php';
-   ?>
+</style>
+<body>
+    <?php
+        include 'includes/header.php';
+    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <section class=" bg-light mt-5 pt-5">
+    <section class="bg-light mt-5 pt-5">
         <div class="container pt-5">
             <div class="py-1">
-                <span class="text-white ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
+                <span class="text-white">
+                    <a href="index.php" class="text-decoration-none header-link px-1">
+                        Home 
+                        <i class="fa-solid fa-chevron-right px-1"></i>
                     </a>
-                    <span class="">
-                        <span class="text-dark header-link  px-1">HaatBazar <i
-                                class="fa-solid fa-chevron-right px-1"></i>
-                        </span>
+                    <span class="text-dark header-link px-1">
+                        HaatBazar 
+                        <i class="fa-solid fa-chevron-right px-1"></i>
                     </span>
-                </div>
+                </span>
+            </div>
         </div>
     </section>
+
     <section>
         <div class="container pt-3">
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
                         <h3 class="fw-bold text-danger"> <span id="Sub_category_main"></span></h3>
-                       
                     </div>
                     <div class="col-12 col-lg-6 ">
                         <h4 class="fw-bold text-danger">Are You Intrested In This Harvest ?</h4>
@@ -57,15 +63,12 @@ include 'includes/footertag.php';
                     </div>
                 </div>
             </div>
-
             <div class="row ">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <div>
                         <div class="swiper swiper_buy mySwiper2_buy">
                             <div class="swiper-wrapper swiper-wrapper_buy">
-                                <div class=" swiper-slide swiper-slide_buy">
-                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
-                                </div>
+                                <div class=" swiper-slide swiper-slide_buy"></div>
                             </div>
                         </div>
                         <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
@@ -103,23 +106,19 @@ include 'includes/footertag.php';
                                                     <div class="form-outline mt-4">
                                                         <label for="phone" class="form-label "><i class="fa fa-phone"aria-hidden="true"></i> Mobile Number</label>
                                                         <input type="text" class="form-control" placeholder="Enter Number" id="number_number" name="number_number" required>
-
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-outline mt-4">
                                                         <label for="state" class="form-label "><i class="fas fa-location"></i> State</label>
                                                         <select class="form-select mb-2 state-dropdown"aria-label=".form-select-lg example" id="state_2"name="state" required>
-                                                            
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                     <div for="district" class="form-outline mt-4">
-                                                        <label class="form-label "><i
-                                                                class="fa-solid fa-location-dot"></i> District</label>
+                                                        <label class="form-label "><i class="fa-solid fa-location-dot"></i> District</label>
                                                         <select class="form-select mb-2 district-dropdown" aria-label=".form-select-lg example" name="district"id="district" required>
-                                                        
                                                         </select>
                                                     </div>
                                                 </div>
@@ -127,7 +126,6 @@ include 'includes/footertag.php';
                                                     <div class="form-outline mt-4">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
                                                         <select class="form-select tehsil-dropdown" aria-label=".form-select-lg example" name="tehsil" id="tehsil" required>
-                                                          
                                                         </select>
                                                     </div>
                                                 </div>
@@ -142,7 +140,6 @@ include 'includes/footertag.php';
                                                         Contact Seller
                                                     </button>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -154,9 +151,6 @@ include 'includes/footertag.php';
             </div>
         </div>
     </section>
-
-
-
     <div class="modal fade" id="get_OTP_btn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -167,7 +161,7 @@ include 'includes/footertag.php';
                 <div class="modal-body">
                     <form id="otp_form">
                         <div class=" col-12 input-group">
-                        <div class="col-12" hidden>
+                            <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
                             </div>
@@ -182,7 +176,6 @@ include 'includes/footertag.php';
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
@@ -216,8 +209,7 @@ include 'includes/footertag.php';
                 </div>
             </div>
         </div>
-    </div>
-                                       
+    </div>                                    
     <section>
         <div class="container">
             <h3 class="text-danger assured ps-2">About Item</h3>
@@ -243,8 +235,6 @@ include 'includes/footertag.php';
                         <td class="table-data">About</td>
                         <td class="table-data" id="description_1"></td>
                     </tr>
-
-
                 </tbody>
             </table>
             <h3 class="text-danger assured ps-2">Personal Information</h3>
@@ -277,27 +267,20 @@ include 'includes/footertag.php';
     <section class="mt-3">
         <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
-                <div id="productContainer" class="row mt-3">
-                
-                 
-                </div>
+            <div id="productContainer" class="row mt-3"></div>
         </div>
         <div class="col text-center my-3 pb-5">
             <a href="hatbazar_buy.php" class="btn btn-success btn-lg">View All</a>
         </div>
     </section>
-
-                                                
+                                         
     <?php
-    include 'includes/footer.php';
-    include 'includes/footertag.php';
-
+        include 'includes/footer.php';
+        include 'includes/footertag.php';
     ?>
 
-
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
-    <script>
-$(document).ready(function() {
+<script>
+    $(document).ready(function() {
     $.validator.addMethod("indianMobile", function(value, element) {
         return this.optional(element) || /^[789]\d{9}$/.test(value);
     }, "Please enter a valid Indian mobile number.");
@@ -333,54 +316,35 @@ $(document).ready(function() {
             },
         }
     });
-
     $('#button_nursery').on('click', function() {
         $('#haatbazar_form').valid();
     });
 });
 </script>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-
     $(document).ready(function() {
         $('#price').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
-            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            var value = $(this).val().replace(/\D/g, '');
+            var formattedValue = Number(value).toLocaleString('en-IN'); 
             $(this).val(formattedValue);
         });
 
-        // Set cursor position to the beginning of the input field
         var input = document.getElementById('price');
         input.focus();
         input.setSelectionRange(0, 0);
-
-        // Set text alignment to left
         input.style.textAlign = 'left';
    
 });
 </script>
-<!-- <script>
-    $(document).ready(function() {
-    
-    $('#price').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            return value.replace(/\,/g,'');
-        },
-    });
-
-    var input = document.getElementById('price');
-    input.focus();
-    input.setSelectionRange(0, 0);
-
-    input.style.textAlign = 'left';
-});
-</script> -->
-
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
+</script>
 </html>

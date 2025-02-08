@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    console.log("ready!");
-
     getProductById();
     get_allbrand();
     getpopularTractorList();
@@ -9,32 +7,23 @@ $(document).ready(function() {
 });
 
 function getProductById() {
-    console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('product_id');
-    console.log('productId',productId);
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_id/" + productId;
-    console.log(url);
     $.ajax({
         url: url,
         type: "GET",
         success: function(data) {
-
         var userId = localStorage.getItem('id');
-            getUserDetail(userId);
-
-        console.log(data, 'abc');
+        getUserDetail(userId);
         document.getElementById('model_name').innerText = data.product.allProductData[0].brand_name + " " + data.product.allProductData[0].model;
         document.getElementsByClassName('brand_model')[0].innerText = data.product.allProductData[0].brand_name + " " + data.product.allProductData[0].model;
-
         var brandModelElements = document.getElementsByClassName('brand_model');
         var brandName = data.product.allProductData[0].brand_name;
         var model = data.product.allProductData[0].model;
-
             for (var i = 0; i < brandModelElements.length; i++) {
-            brandModelElements[i].innerText = brandName + " " + model;
+                brandModelElements[i].innerText = brandName + " " + model;
             }
-
         document.getElementById('brand_name').innerText=data.product.allProductData[0].brand_name;
         document.getElementById('total_cyclinder_value').innerText=data.product.allProductData[0].total_cyclinder_value;
         document.getElementById('total_cyclinder_value2').innerText=data.product.allProductData[0].total_cyclinder_value;
@@ -82,21 +71,15 @@ function getProductById() {
         document.getElementById('product_id').value = data.product.allProductData[0].product_id;
       
             var product = data.product.allProductData[0];
-
             var imageNames = product.image_names.split(',');
-
             var carouselContainer = $('.swiper-wrapper_buy');
-
             carouselContainer.empty();
-
             imageNames.forEach(function(imageName) {
                 var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
                 carouselContainer.append(slide);
             });
-
             var mySwiper = new Swiper('.swiper_buy', {});
-            console.log(data, 'abc');
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -104,12 +87,9 @@ function getProductById() {
     });
 }
 
-
 function get_allbrand() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_brands";
     var initialDisplayCount = 6;
-
-    // Keep track of the total brands and the currently displayed brands
     var totalBrands = 0;
     var displayedBrands = 0;
 
@@ -121,29 +101,19 @@ function get_allbrand() {
 
             if (data.brands && data.brands.length > 0) {
                 totalBrands = data.brands.length;
-
-                // Display the initial set of brands
                 displayBrands(data.brands.slice(0, initialDisplayCount));
                 displayedBrands = initialDisplayCount;
 
-                // Hide the button if all brands are already displayed
                 if (displayedBrands === totalBrands) {
                     $("#loadMoreButton").hide();
                 } else {
                     $("#loadMoreButton").show();
                 }
-
                 $("#loadMoreButton").click(function() {
                     var remainingBrands = totalBrands - displayedBrands;
                     var nextDisplayCount = Math.min(remainingBrands, 6);
-
-                    // Display the next set of brands
                     displayBrands(data.brands.slice(displayedBrands, displayedBrands + nextDisplayCount));
-
-                    // Update the displayed brands count
                     displayedBrands += nextDisplayCount;
-
-                    // Hide the button if all brands are displayed
                     if (displayedBrands === totalBrands) {
                         $("#loadMoreButton").hide();
                     }
@@ -158,21 +128,19 @@ function get_allbrand() {
 
 function displayBrands(brands) {
     var productContainer = $("#related_brand");
-
     brands.forEach(function (b) {
         var newCard = `
             <div class="col-6 col-lg-6 col-md-6 col-sm-6 p-2">
                 <div class="brand-main box_shadow text-center">
                     <a class="weblink text-decoration-none text-dark" href="#" title="Old Tractors">
                         <img class="img-fluid " src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
-                            data-src="h" alt="Brand Logo" style="    height: 120px; padding: 10px;">
+                            data-src="h" alt="Brand Logo" style=" height: 120px; padding: 10px;" loading="lazy">
                         <p class="mb-0 pb-1 oneline">${b.brand_name}</p>
                     </a>
                 </div>
             </div>
         `;
 
-        // Append the new card to the container
         productContainer.append(newCard);
     });
 }
@@ -192,21 +160,14 @@ function getpopularTractorList() {
                     return s.product_id;
                 }
             });
-
             var productContainer = $("#productContainerpopular");
-
             if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // Display the initial set of 6 cards
                 displayPopularTractors(data.product.allProductData.slice(0, 6), new_arr);
 
-                // Show the "Load More" button if there are more tractors
                 if (data.product.allProductData.length > 6) {
                     $("#loadMoretract").show();
                 }
-
-                // Handle "Load More" button click
                 $("#loadMoretract").click(function() {
-                    // Redirect to popular.php
                     window.location.href = "popular_tractors.php";
                 });
             }
@@ -219,12 +180,10 @@ function getpopularTractorList() {
 
 function displayPopularTractors(tractors, new_arr) {
     var productContainer = $("#productContainerpopular");
-
     tractors.forEach(function(p) {
         if (new_arr.includes(p.product_id)) 
             var images = p.image_names;
             var a = [];
-
             if (images) {
                 if (images.indexOf(',') > -1) {
                     a = images.split(',');
@@ -232,11 +191,10 @@ function displayPopularTractors(tractors, new_arr) {
                     a = [images];
                 }
             }
-
             var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""style=" border-radius: 10px;">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""style="border-radius: 10px;" loading="lazy">
                             </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">
@@ -252,13 +210,10 @@ function displayPopularTractors(tractors, new_arr) {
                                 </div>
                             </div>
                         </div>`;
-
-            // Append the new card to the container
             productContainer.append(newCard);
         
     });
 }
-
 
 function store(event) {
     event.preventDefault();
@@ -273,7 +228,6 @@ function store(event) {
         get_otp(mobile);
     }
 }
-
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
@@ -288,8 +242,7 @@ function get_otp(phone) {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
-            $('#get_OTP_btn').modal('show'); // OTP modal is displayed for entering OTP
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -320,7 +273,6 @@ function verifyotp() {
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            // Handle different error scenarios
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 var htmlcontent = `<p>Invalid credentials!</p>`;
@@ -339,7 +291,6 @@ function verifyotp() {
 }
 
 function submitForm() {
-    // Gather form data
     var enquiry_type_id = $('#enquiry_type_id').val();
     var enquiry_type_id = $('#enquiry_type_id').val();
     var product_type_id = $('#product_type_id').val()
@@ -350,8 +301,6 @@ function submitForm() {
     var state = $('#state').val();
     var district = $('#district').val();
     var tehsil = $('#Tehsil').val();
-
-    // Construct parameter array
     var paraArr = {
         'product_id':product_id,
         'enquiry_type_id':enquiry_type_id,
@@ -364,22 +313,18 @@ function submitForm() {
         'tehsil':tehsil,
     };
 
-    // API endpoint for form submission
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
 
-    // Submit form data via AJAX
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-            // Show success message or handle accordingly
             console.log("Form submitted successfully!");
         },
         error: function (error) {
             console.error('Error submitting form:', error);
-            // Handle error scenarios
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
@@ -389,39 +334,29 @@ function submitForm() {
     });
 }
 
-
 function getUserDetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-    console.log(url, 'url print ');
-
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
-
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(response) {
             console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
-                
                 // Set values based on form ID (used_farm_inner_from)
                 $('#inner_brand_form #firstName').val(customer.first_name);
                 $('#inner_brand_form #lastName').val(customer.last_name);
                 $('#inner_brand_form #mobile_number').val(customer.mobile);
-                $('#inner_brand_form #state').val(customer.state_id);
-                // $('#inner_brand_form #district').val(customer.district);
-                // $('#inner_brand_form #Tehsil').val(customer.tehsil);
+                // $('#inner_brand_form #state').val(customer.state_id);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#inner_brand_form input, #inner_brand_form select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#inner_brand_form input, #inner_brand_form select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
                 
             }
@@ -431,7 +366,6 @@ function getUserDetail(id) {
         }
     });
 }
-
 
 function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');

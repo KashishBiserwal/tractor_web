@@ -17,10 +17,10 @@ $(document).ready(function(){
       lname:{
         required: true,
       },
-      // textarea_d:{
-      //   required: true,
-      // },
-      _image:{
+      textarea_d:{
+        required: true,
+      },
+      'files[]':{
         required: true,
       },
       number:{
@@ -50,10 +50,10 @@ $(document).ready(function(){
       lname: {
         required: "This field is required",
       },
-      // textarea_d: {
-      //   required: "This field is required",
-      // },
-      _image: {
+      textarea_d: {
+        required: "This field is required",
+      },
+      'files[]': {
         required: "This field is required",
       },
       number: {
@@ -86,18 +86,21 @@ jQuery(document).ready(function () {
 function ImgUpload() {
   var imgWrap = "";
   var imgArray = [];
+
   $('.upload__inputfile').each(function () {
-    console.log("ding dong")
     $(this).on('change', function (e) {
       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
       var maxLength = $(this).attr('data-max_length');
+
       var files = e.target.files;
       var filesArr = Array.prototype.slice.call(files);
       var iterator = 0;
       filesArr.forEach(function (f, index) {
+
         if (!f.type.match('image.*')) {
           return;
         }
+
         if (imgArray.length > maxLength) {
           return false
         } else {
@@ -111,6 +114,7 @@ function ImgUpload() {
             return false;
           } else {
             imgArray.push(f);
+
             var reader = new FileReader();
             reader.onload = function (e) {
               var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
@@ -123,6 +127,7 @@ function ImgUpload() {
       });
     });
   });
+
   $('body').on('click', ".upload__img-close", function (e) {
     var file = $(this).parent().data("file");
     for (var i = 0; i < imgArray.length; i++) {
@@ -134,52 +139,15 @@ function ImgUpload() {
     $(this).parent().parent().remove();
   });
 }
-function removeImage(ele){
-  console.log(ele);
-  let thisId=ele.id;
-  thisId=thisId.split('closeId');
-    thisId=thisId[1];
-    $("#"+ele.id).remove();
-    $(".upload__img-closeDy"+thisId).remove();
 
-  }
-
-
-
-  function get_By_State() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function(data) {
-            console.log(data);
-            const select = document.getElementById('state_');
-            select.innerHTML = '<option selected disabled value="">Please select a state</option>';
-  
-            const stateId = 7; // State ID you want to filter for
-            const filteredState = data.stateData.find(state => state.id === stateId);
-            if (filteredState) {
-                const option = document.createElement('option');
-                option.textContent = filteredState.state_name;
-                option.value = filteredState.id;
-                select.appendChild(option);
-                // Once the state is populated, fetch districts for this state
-                getDistricts(filteredState.id);
-            } else {
-                select.innerHTML = '<option>No valid data available</option>';
-            }
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+var removedImages = []; 
+function removeImage(ele) {
+    console.log("Removing image:", ele);
+    let thisId = ele.id.split('closeId')[1];
+    removedImages.push(thisId); 
+    $("#" + ele.id).remove(); 
+    $(".upload__img-closeDy" + thisId).remove();
 }
-
-
-
 
 //  **********data add**********
 function store(event) {
@@ -195,7 +163,10 @@ function store(event) {
   var tehsil = $('#tehsil').val();
   var location = $('#loc').val();
   var description = $('#textarea_d').val();
-
+  if (image_names.length === 0) {
+    alert("Please select at least one image.");
+    return; 
+}
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'nursery_data';
   var token = localStorage.getItem('token');
@@ -237,9 +208,8 @@ function store(event) {
           $('#name, #fname, #lname, #number, #state_, #dist, #tehsil, #loc, #textarea_d, #_image').val('');
 
           // Reload the page (try without forcing a full reload)
-          // window.location.reload();
-
-          alert('Successfully inserted!');
+         alert('Successfully inserted!');
+        //  window.location.reload();
       },
       error: function (error) {
           console.error('Error:', error);
@@ -249,79 +219,77 @@ function store(event) {
   });
 }
 
+ // fetch data
+function nursery_data() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'nursery_data';
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      const tableBody = document.getElementById('data-table');
+      let serialNumber = 1;
+      let tableData = [];
+      
+      if (data.nursery_data && data.nursery_data.length > 0) {
+        data.nursery_data.reverse().forEach(row => {
+        let action = `<div class="d-flex">
+                        <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                          <i class="fa fa-eye" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button>
+                      </div>`;
+      
+                    tableData.push([
+                      serialNumber,
+                      row.nursery_name,
+                      row.mobile,
+                      row.state_name,
+                      row.district_name,
+                      action
+                    ]);
 
-        // fetch data
-        function nursery_data() {
-          var apiBaseURL = APIBaseURL;
-          var url = apiBaseURL + 'nursery_data';
-          $.ajax({
-              url: url,
-              type: "GET",
-              headers: {
-                  'Authorization': 'Bearer ' + localStorage.getItem('token')
-              },
-              success: function (data) {
-                  const tableBody = document.getElementById('data-table');
-                  let serialNumber = 1;
-                  let tableData = [];
+                      serialNumber++;
+                  });
       
-                  if (data.nursery_data && data.nursery_data.length > 0) {
-                      // Reverse the data array to show the latest added data at the top
-                      data.nursery_data.reverse().forEach(row => {
-                          let action = `<div class="d-flex">
-                              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
-                                  <i class="fa fa-eye" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
-                                  <i class="fas fa-edit" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                          </div>`;
-      
-                          // Push row data as an array into the tableData
-                          tableData.push([
-                              serialNumber,
-                              row.nursery_name,
-                              row.mobile,
-                              row.state_name,
-                              row.district_name,
-                              action
-                          ]);
-      
-                          serialNumber++;
-                      });
-      
-                      // Initialize DataTable after preparing the tableData
                       $('#example').DataTable().destroy();
                       $('#example').DataTable({
-                          data: tableData,
-                          columns: [
-                              { title: 'S.No.' },
-                              { title: 'Name' },
-                              { title: 'Phone Number' },
-                              { title: 'State' },
-                              { title: 'District' },
-                              { title: 'Action', orderable: false } // Disable ordering for Action column
-                          ],
+                        data: tableData,
+                        columns: [
+                          { title: 'S.No.' },
+                          { title: 'Name' },
+                          { title: 'Phone Number' },
+                          { title: 'State' },
+                          { title: 'District' },
+                          { title: 'Action', orderable: false } 
+                        ],
                           paging: true,
                           searching: false,
-                          // ... other options ...
                       });
-      
                   } else {
                       tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
                   }
-      
               },
               error: function (error) {
-                  console.error('Error fetching data:', error);
+                console.error('Error fetching data:', error);
+                if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+                  $("#errorStatusLoading").modal('show');
+                  $("#errorStatusLoading").find('.modal-title').html('Error');
+                  $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+                  window.location.href = baseUrl + "login.php"; 
+                }
               }
           });
       }
-      
-      nursery_data();
+    nursery_data();
       
       
 // delete
@@ -419,12 +387,12 @@ function openViewdata(Id) {
   });
 }
 
-
 // edit data 
-
+var initialImagesCount;
+var initialimgDivlength;
 function fetch_edit_data_nursery(id) {
   var apiBaseURL = APIBaseURL;
-  var nursery_id= id;
+  var nursery_id = id;
   var url = apiBaseURL + 'nursery_data/' + nursery_id; 
 
   var headers = {
@@ -440,62 +408,83 @@ function fetch_edit_data_nursery(id) {
       $('#userId').val(userData.id);
       $('#nursery_name2').val(userData.nursery_name);
       $('#fname2').val(userData.first_name);
-      console.log(userData.first_name);
       $('#lname2').val(userData.last_name);
       $('#number2').val(userData.mobile);
-      // $('#state2').val(userData.state);
-      // $('#dist2').val(userData.district);
-      // $('#tehsil2').val(userData.tehsil);
+
+      setSelectedOption('state', userData.state_id);
+      getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+      setTimeout(function() {
+        setSelectedOption('dist_', userData.district_id);
+        populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+      }, 2000); 
+      
       $('#loc2').val(userData.address);
       $('#textarea_d2').val(userData.description);
       $('#userId').val(userData.id);
       $("#selectedImagesContainer2").empty();
 
       if (userData.image_names) {
-          var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-           
-          var countclass=0;
-          imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_names.trim();
-              countclass++;
-              var newCard = `
-                  <div class="col-12 col-md-6 col-lg-4 ">
-                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-                          <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                          </a>
-                      </div>
-                  </div>
-              `;
-      
-              // Append the new image element to the container
-              $("#selectedImagesContainer2").append(newCard);
-          });
+        var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+        var countclass = 0;
+        fetchdataImage = imageNamesArray
+        imageNamesArray.forEach(function(image_name) {
+          var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_name.trim();
+          console.log('imageUrl',imageUrl);
+          countclass++;
+          var newCard = `
+          <div class="col-12 col-md-6 col-lg-4 position-relative">
+            <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this, '${image_name.trim().replace(/'/g, "\\'")}');"></div>
+              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                  <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                    <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
+                  </a>
+              </div>
+          </div>
+          `;
+          $("#selectedImagesContainer2").append(newCard);
+        });
       }
-      
-    console.log('Fetched data successfully');
-      // $('#exampleModal').modal('show'); 
+      var initialiamge = $('.brand-main').length; 
+      initialImagesCount = initialiamge;
+      initialimgDivlength = initialiamge;
+      console.log(initialImagesCount,'initialimagelengh');
+      console.log('Fetched data successfully');
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
     }
   });
 }
+function setSelectedOption(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+}
+function populateTehsil(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.options[i].selected = true;
+      break;
+    }
+  }
+}
 
-function edit_data_id(id){
-  console.log(id);
+
+function edit_data_id(id) {
+
   var edit_id = $("#userId").val();
-  console.log(edit_id);
-  var image_names = document.getElementById('_image2').files;
   var nursery_name = $("#nursery_name2").val();
-  console.log(nursery_name);
   var first_name = $('#fname2').val();
   var last_name = $('#lname2').val();
   var mobile = $('#number2').val();
-  var state = $('#state2').val();
-  var district = $('#dist2').val();
-  var tehsil = $('#tehsil2').val();
+  var state = $('#state').val();
+  var district = $('#dist_').val();
+  var tehsil = $('#tehsil_').val();
   var address = $('#loc2').val();
   var description = $('#textarea_d2').val();
 
@@ -504,16 +493,13 @@ function edit_data_id(id){
   var token = localStorage.getItem('token');
   var _method = 'put';
   var headers = {
-      'Authorization': 'Bearer ' + token
+    'Authorization': 'Bearer ' + token
   };
 
   var data = new FormData();
 
-  for (var x = 0; x < image_names.length; x++) {
-      data.append('images[]', image_names[x]);
-  }
   data.append('_method', _method);
-  data.append('id',edit_id)
+  data.append('id', edit_id);
   data.append('nursery_name', nursery_name);
   data.append('first_name', first_name);
   data.append('last_name', last_name);
@@ -524,44 +510,60 @@ function edit_data_id(id){
   data.append('address', address);
   data.append('description', description);
 
-   $.ajax({
-    url: url,
-      type: "POST",
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-    success: function (result) {
-        console.log(result, "result");
-        window.location.reload();
-        console.log("updated successfully");
-        alert('successfully updated..!')
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
+  var remainingImagesCount;
+  if(removedImages.length ==0){
+    remainingImagesCount =0;
+  }
+  else{
+    remainingImagesCount = $('.brand-main').length; 
+  }
+
+
+  if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length==0){
+    for(i=0;i<removedImages.length; i++){
+      var imageName = removedImages[i];
+      var file = new File([null], imageName);
+      data.append('images[]',  file);
     }
-});
- }
-
- function searchdata(){
-  var name = $('#name1').val();
-  var state = $('#state_1').val();
-  var district = $('#district_1').val();
-  
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'search_for_nursery';
-  var token = localStorage.getItem('token');
-
-  var headers = {
-      'Authorization': 'Bearer ' + token
-  };
-
-  var data = new FormData();
- 
- 
-  data.append('nursery_name', name);
-  data.append('state', state);
-  data.append('district', district);
+    data.append('flag', 'deleteimage');
+  }
+  else if(fetchdataImage.length==0 && removedImages.length>0 && imgUploaded.length==0){
+    data.append('flag', 'noimg');
+  }
+  else if(fetchdataImage.length==0 && removedImages.length==0 && imgUploaded.length>0){
+    for(i=0;i<imgUploaded.length; i++){
+      console.log(' imgUploaded[i]-', imgUploaded[i])
+      data.append('images[]',  imgUploaded[i]);
+    }
+  }
+  else if(fetchdataImage.length>0 && removedImages.length==0 && imgUploaded.length>0){
+    for(i=0;i<imgUploaded.length; i++){
+      console.log(' imgUploaded[i]-', imgUploaded[i])
+      data.append('images[]',  imgUploaded[i]);
+    }
+  }
+  else if(fetchdataImage.length==0 && removedImages.length>0 && imgUploaded.length>0){
+    for(i=0;i<imgUploaded.length; i++){
+      data.append('images[]',  imgUploaded[i]);
+    }
+    for(i=0;i<removedImages.length; i++){
+      var imageName = removedImages[i];
+      var file = new File([null], imageName);
+      data.append('remimages[]',  file);
+    }
+    data.append('flag', 'newimguploaded');
+  }
+  else if(fetchdataImage.length>0 && removedImages.length>0 && imgUploaded.length>0){
+    for(i=0;i<removedImages.length; i++){
+      var imageName = removedImages[i];
+      var file = new File([null], imageName);
+      data.append('remimages[]',  file);
+    }
+    for(i=0;i<imgUploaded.length; i++){
+      data.append('images[]',  imgUploaded[i]);
+    }
+    data.append('flag', 'newimguploaded');
+  }
 
   $.ajax({
     url: url,
@@ -570,71 +572,146 @@ function edit_data_id(id){
     headers: headers,
     processData: false,
     contentType: false,
-    success: function (data) {
-      console.log('Success:', data.engineOilData);
-      const tableBody = document.getElementById('data-table');
-      let serialNumber = 1;
-      let tableData = [];
-
-      if (data.nursery && data.nursery.length > 0) {
-          data.nursery.forEach(row => {
-            let action = `   <div class="d-flex">
-            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
-                <i class="fa fa-eye" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
-                <i class="fas fa-edit" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
-                <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button>
-        </div>`;
-
-            // Push row data as an array into the tableData
-            tableData.push([
-              serialNumber,
-              row.nursery_name,
-              row.mobile,
-              row.state_name,
-              row.district_name,
-              action
-          ]);
-
-          serialNumber++;
-      });
-
-      // Initialize DataTable after preparing the tableData
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-              data: tableData,
-              columns: [
-                { title: 'S.No.' },
-                { title: 'Name' },
-                { title: 'Phone Number' },
-                { title: 'State' },
-                { title: 'District' },
-                { title: 'Action', orderable: false } // Disable ordering for Action column
-            ],
-              paging: true,
-              searching: false,
-              // ... other options ...
-          });
-     
-      } else {
-          tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-      }
-  },
-  error: function (error) {
-    const tableBody = document.getElementById('data-table');
-    if(error.status == 400){
-      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-    }
+    success: function(result) {
+      console.log(result, "result");
+      alert('successfully updated..!');
+      removedImages=[];
+      fetchdataImage=[];
+      imgUploaded=[];
+      window.location.reload();
+    },
+    error: function(error) {
       console.error('Error fetching data:', error);
-  
-  }
-});
-}
+    }
+  });
 
+}
+// function edit_data_id(id) {
+//   var edit_id = $("#userId").val();
+//   var nursery_name = $("#nursery_name2").val();
+//   var first_name = $('#fname2').val();
+//   var last_name = $('#lname2').val();
+//   var mobile = $('#number2').val();
+//   var state = $('#state').val();
+//   var district = $('#dist_').val();
+//   var tehsil = $('#tehsil_').val();
+//   var address = $('#loc2').val();
+//   var description = $('#textarea_d2').val();
+
+//   const canvas = document.getElementById('card-canvas');
+//   const generatedImage = canvas.toDataURL('image/png'); 
+
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'nursery_data/' + edit_id;
+//   var token = localStorage.getItem('token');
+//   var headers = {
+//       'Authorization': 'Bearer ' + token
+//   };
+
+//   var data = new FormData();
+//   data.append('id', edit_id);
+//   data.append('nursery_name', nursery_name);
+//   data.append('first_name', first_name);
+//   data.append('last_name', last_name);
+//   data.append('mobile', mobile);
+//   data.append('state', state);
+//   data.append('district', district);
+//   data.append('tehsil', tehsil);
+//   data.append('address', address);
+//   data.append('description', description);
+
+//   data.append('description', generatedImage);
+
+//   $.ajax({
+//       url: url,
+//       type: "POST",
+//       data: data,
+//       headers: headers,
+//       processData: false,
+//       contentType: false,
+//       success: function(result) {
+//           console.log(result, "result");
+//           alert('Successfully updated!');
+//           window.location.reload();
+//       },
+//       error: function(error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   });
+// }
+
+
+ function searchdata() {
+  var name = $('#name1').val();
+  var state = $('#state_1').val();
+  var district = $('#district_1').val();
+  
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_nursery';
+  var token = localStorage.getItem('token');
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
+  var data = {
+      'nursery_name': name,
+      'state': state,
+      'district': district
+  };
+  $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      success: function (response) {
+          console.log('Success:', response);
+          const tableBody = document.getElementById('data-table');
+          let serialNumber = 1;
+          if (response.nursery && response.nursery.length > 0) {
+              let tableData = response.nursery.map(row => {
+                  let action = `<div class="d-flex">
+                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                          <i class="fa fa-eye" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button>
+                  </div>`;
+                  return [
+                      serialNumber++,
+                      row.nursery_name,
+                      row.mobile,
+                      row.state_name,
+                      row.district_name,
+                      action
+                  ];
+              });
+              // Initialize DataTable after preparing the tableData
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                  data: tableData,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Name' },
+                      { title: 'Phone Number' },
+                      { title: 'State' },
+                      { title: 'District' },
+                      { title: 'Action', orderable: false } // Disable ordering for Action column
+                  ],
+                  paging: true,
+                  searching: false,
+              });
+          } else {
+              tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
+          }
+      },
+      error: function (xhr, status, error) {
+          console.error('Error:', xhr.responseText);
+      }
+  });
+}
 function resetform(){
   $('#name1').val('');
   $('#state_1').val('');
@@ -642,103 +719,104 @@ function resetform(){
   nursery_data();
 }
 
-function getState() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function(data) {
-          console.log(data);
-          const select = document.getElementById('state_');
-          select.innerHTML = '<option selected disabled value="">Select a state</option>';
-
-          if (data.stateData && data.stateData.length > 0) {
-              data.stateData.forEach(state => {
-                  const option = document.createElement('option');
-                  option.textContent = state.state_name;
-                  option.value = state.id;
-                  select.appendChild(option);
-              });
+jQuery(document).ready(function () {
+  ImgUpload();
+  // removeImage();
+});
+var removedImages = [];
+var removedImageFiles = [];
+var imageuploadstatus = false;
+var imgUploaded=[];
+function ImgUpload() {
+  // removedImages =[];
+  // if (removedImages[0] ===undefined){
+  //   removedImages =[];
+  // }
+  var imgWrap = "";
+  var imgArray = [];
+  $('.upload__inputfile').each(function () {
+    console.log("ding dong")
+    $(this).on('change', function (e) {
+      imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+      var maxLength = $(this).attr('data-max_length');
+      var files = e.target.files;
+      var filesArr = Array.prototype.slice.call(files);
+      var iterator = 0;
+      filesArr.forEach(function (f, index) {
+        if (!f.type.match('image.*')) {
+          return;
+        }
+        if (imgArray.length > maxLength) {
+          return false
+        } else {
+          var len = 0;
+          for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i] !== undefined) {
+              len++;
+            }
+          }
+          if (len > maxLength) {
+            return false;
           } else {
-              select.innerHTML = '<option>No states available</option>';
+            imgArray.push(f);
+            imgUploaded.push(f);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              imgWrap.append(html);
+              iterator++;
+            }
+            reader.readAsDataURL(f);
           }
-      },
-      error: function(error) {
-          console.error('Error fetching states:', error);
-      }
-  });
-}
-
-function getDistricts(state_id) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
-  console.log(url);
-  var select = document.getElementById('dist_');
-  select.innerHTML = '<option selected disabled value="">Select a district</option>';
-
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function(data) {
-          if (data.districtData && data.districtData.length > 0) {
-              data.districtData.forEach(district => {
-                  const option = document.createElement('option');
-                  option.textContent = district.district_name;
-                  option.value = district.id;
-                  select.appendChild(option);
-              });
-          } else {
-              select.innerHTML = '<option>No districts available for this state</option>';
-          }
-      },
-      error: function(error) {
-          console.error('Error fetching districts:', error);
-      }
-  });
-
-  // Attach change event listener to district select
-  $(select).change(function() {
-      var districtId = $(this).val();
-      var tehsilSelect = document.getElementById('tehsil_');
-      tehsilSelect.innerHTML = '<option selected disabled value="">Select a tehsil</option>';
-
-      var tehsilUrl = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId;
-      $.ajax({
-          url: tehsilUrl,
-          type: "GET",
-          headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-          success: function(data) {
-              if (data.tehsilData && data.tehsilData.length > 0) {
-                  data.tehsilData.forEach(tehsil => {
-                      const option = document.createElement('option');
-                      option.textContent = tehsil.tehsil_name;
-                      option.value = tehsil.id;
-                      tehsilSelect.appendChild(option);
-                  });
-              } else {
-                  tehsilSelect.innerHTML = '<option>No tehsils available for this district</option>';
-              }
-          },
-          error: function(error) {
-              console.error('Error fetching tehsils:', error);
-          }
+        }
       });
+      initialImagesCount++; 
+      initialimgDivlength++;
+      console.log(initialImagesCount, 'when an image is added');
+    });
   });
+    
+
+  $('body').on('click', ".upload__img-close", function (e) {
+    var filename = $(this).parent().data("file");
+    var file = new File([null], filename);
+    console.log(file,'imagefile',imgArray.length);
+    // for (var i = 0; i < imgArray.length; i++) {
+      // if (imgArray[i].name === file) {
+        imgArray.splice(1);
+        removedImages.push(file); // Add the removed image filename to removedImages array
+       
+        // break;
+      // }
+    // }
+    console.log('removedImages-', removedImages, removedImages.length)
+    $(this).parent().parent().remove();
+    initialimgDivlength = $('.brand-main').length; 
+    imageuploadstatus = false;
+  });
+  var initialiamge = $('.brand-main').length; 
+  initialImagesCount = initialiamge;
+  imageuploadstatus = true;
 }
 
-getState();
 
+var fetchdataImage = [];
+function removeImage(ele, imagename) {
+  console.log('ele',ele,fetchdataImage,imagename);
+  initialImagesCount--;
+  if(imagename !=''){
+    removedImages.push(imagename); 
+      // Find the index of the imagename in the fetchdataImage array
+      var index = fetchdataImage.indexOf(imagename);
+      // Remove the image from fetchdataImage if it exists
+      if (index !== -1) {
+          fetchdataImage.splice(index, 1);
+      }
 
-
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-
-populateStateDropdown('state_select', 'district_select');
-
-
+  }
+  console.log('removedImageFiles-',removedImages, fetchdataImage)
+  if(removedImages.length > 0){
+    imageuploadstatus = false;
+  }
+  $(ele).closest('.col-12').remove(); 
+}

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     getEngineoilList();
     showOverlay(); 
     $("#engine_oil_form").validate({
@@ -55,12 +54,10 @@ $(document).ready(function() {
     }
 
     function formatPriceWithCommas(price) {
-        // Check if the price is not a number
         if (isNaN(price)) {
-            return price; // Return the original value if it's not a number
+            return price; 
         }
         
-        // Format the price with commas in Indian format
         return new Intl.NumberFormat('en-IN').format(price);
     }
 
@@ -78,11 +75,7 @@ $(document).ready(function() {
     
                 if (data.engine_oil_details && data.engine_oil_details.length > 0) {
                     totalEngineoil = data.engine_oil_details.length;
-    
-                    // Reverse the order of the engine oil items to display the latest ones first
                     data.engine_oil_details.reverse();
-    
-                    // Display the initial set of 6 engine oil items
                     displayEngineoil(data.engine_oil_details.slice(0, displayedEngineoil));
     
                     if (totalEngineoil <= displayedEngineoil) {
@@ -90,13 +83,9 @@ $(document).ready(function() {
                     } else {
                         loadMoreButton.show();
                     }
-    
                     loadMoreButton.click(function() {
-                        // Display all engine oil items
                         displayedEngineoil = totalEngineoil;
                         displayEngineoil(data.engine_oil_details);
-    
-                        // Hide the "Load More Engine Oil" button
                         loadMoreButton.hide();
                     });
                 }
@@ -115,7 +104,6 @@ $(document).ready(function() {
 function displayEngineoil(engineoil) {
     var productContainer = $("#productContainer");
     var tableData = $("#tableData");
-    // Clear existing content
     productContainer.html('');
     tableData.html('');
 
@@ -133,22 +121,23 @@ function displayEngineoil(engineoil) {
                 <div class="success__stry__item h-100 shadow text-dark">
                     <div class="thumb">
                         <a href="engine_oil_inner.php?id=${p.id}">
-                            <img src="${imageSrc}" class="engineoil_img w-100" alt="img">
+                            <img src="${imageSrc}" class="engineoil_img w-100" alt="img" loading="lazy"> 
                         </a>
                     </div>
                     <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">
                         <p class="fs-5 fw-bold px-3 mb-0">${p.brand_name}</p>
-                        <p class="text-success fw-bold px-3" style="font-size:12px;">Model: ${p.oil_model}</p>
-                        <div class="col-12 px-3">
+                        <p class="text-success fw-bold px-3 text-truncate" style="font-size:12px;">Model: ${p.oil_model}</p>
+                     <div class="col-12 px-3">
                             <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">
+                                <div class="col-12 col-md-6 engineoil_details pe-1 p-1">
                                     <p>Grade: ${p.grade}</p>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details ps-1">
+                                <div class="col-12 col-md-6 engineoil_details pe-1 p-1">
                                     <p>Quantity: ${p.quantity}L</p>
                                 </div>                  
                             </div>
                         </div>
+
                         <div class="row">
                             <h3 class="text-center text-dark" style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="font-size: 22px;"></i>${formattedPrice}</h3>
                         </div>  
@@ -188,7 +177,7 @@ function displayEngineoil(engineoil) {
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <label for="mobile_number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                 <input type="text" class="form-control" placeholder="Enter Mobile Number" id="mobile_number" name="mobile_number">
-                                <p class="text-danger">*Please make sure mobile number is valid</p>
+                               
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-outline mt-4 p-2">
@@ -256,8 +245,6 @@ function displayEngineoil(engineoil) {
             </div>
         </div>
         `;
-
-        // Append the new card to the container
         productContainer.append(newCard);
     });
 }
@@ -267,13 +254,11 @@ function displayEngineoil(engineoil) {
 });
 
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -302,7 +287,6 @@ function sendOTP(mobile) {
         data: paraArr,
         success: function (result) {
             $("#engineoil_callbnt_").modal('hide');
-            console.log(result, "result");
             $('#Mobile').val(mobile);
             openOTPModal();
         },
@@ -339,7 +323,6 @@ function verifyotp(formId) {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result);
             $('#get_OTP_btn').modal('hide');
             submitData(formId); 
         },
@@ -353,9 +336,7 @@ function verifyotp(formId) {
 function submitData(formId) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     var formDataToSubmit = formData;
-    
-    // If user is logged in, use formData from parameter directly
-    if (isUserLoggedIn()) {
+        if (isUserLoggedIn()) {
         formDataToSubmit = collectFormData(formId);
     }
     
@@ -366,11 +347,8 @@ function submitData(formId) {
     $.ajax({
         url: url,
         type: "POST",
-        data: formDataToSubmit, // Submit all form data
-        
+        data: formDataToSubmit, 
         success: function (result) {
-            
-
             var msg = "Added successfully !";
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
@@ -382,14 +360,10 @@ function submitData(formId) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
-            // Handle errors here
         }
     });
 }
-
-
 function collectFormData(formId) {
-    // Collect form data
     var brandName = $(`#${formId} #brandName`).val();
     var modelName = $(`#${formId} #modelName`).val();
     var first_name = $(`#${formId} #firstName`).val();
@@ -430,24 +404,16 @@ function getUserDetail(id, formId) {
         type: "GET",
         headers: headers,
         success: function(response) {
-            console.log(response, "response");
-
-            // Check if customerData exists in the response and has at least one entry
             if (response.customerData && response.customerData.length > 0) {
                 var customer = response.customerData[0];
-                console.log(customer, 'customer details');
                 
-                // Set values based on formId
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state_id);
-                // $('#' + formId + ' #district').val(customer.district);
-                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district,#Tehsil').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#state,#district,#Tehsil').prop('disabled', true);
                 }
             }
         },
@@ -499,37 +465,46 @@ function populateDropdowns(identifier) {
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+        var stateData = stateDataResponse.stateData;
+        var selectYourStateOption = '<option value="">Select Your State</option>';
+        var stateOptions = stateData
+            .map(state => `<option value="${state.id}">${state.state_name}</option>`)
+            .join('');
 
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+        stateDropdowns.forEach(function (dropdown) {
+            dropdown.innerHTML = selectYourStateOption + stateOptions;
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            // Add event listener to state dropdown to fetch district data
+            dropdown.addEventListener('change', function() {
+                var selectedStateId = this.value;
+                var districtSelect = this.closest('.row').querySelector('.district-dropdown');
+                districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                if (selectedStateId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                        data.districtData.forEach(district => {
+                            districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                        });
+                    });
+                }
             });
         });
-    });
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+
+        districtDropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener('change', function() {
+                var selectedDistrictId = this.value;
+                var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+                if (selectedDistrictId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                        tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                        data.tehsilData.forEach(tehsil => {
+                            tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                        });
                     });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
+                } else {
+                    tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                }
+            });
         });
     });
 }

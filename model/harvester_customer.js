@@ -2,56 +2,39 @@
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
-
 $(document).ready(function() {
     console.log("ready!");
     get_harvester();
     $('#filter_tractor').click(filter_search);
     showOverlay(); 
 });
-
 function showOverlay() {
     $("#overlay").fadeIn(300);
 }
-
 function hideOverlay() {
     $("#overlay").fadeOut(300);
 }
-
 function get_harvester() {
-    // var apiBaseURL = CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'get_new_harvester';
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
-
     $.ajax({
         url: url,
         type: "GET",
         success: function (data) {
             var productContainer = $("#productContainer");
-            // Clear the existing content in the container
             productContainer.empty();
-
             if (data.product && data.product.length > 0) {
-                // Reverse the order of the cards to display the latest ones first
                 var reversedCards = data.product.slice().reverse();
-
-                // Display the latest cards at the top
                 reversedCards.slice(0, cardsPerPage).forEach(function (p) {
                     prependCard(productContainer, p);
                     cardsDisplayed++;
                 });
-
-                // Update allCards to store all the cards
                 allCards = reversedCards;
-
-                // Show or hide the "Load More" button based on the number of cards
                 if (allCards.length > cardsPerPage) {
                     $("#loadMoreBtn").show();
                 } else {
                     $("#loadMoreBtn").hide();
                 }
             } else {
-                // Hide the "Load More" button if there are no cards
                 $("#loadMoreBtn").hide();
             }
         },
@@ -59,7 +42,6 @@ function get_harvester() {
             console.error('Error fetching data:', error);
         },
         complete: function () {
-            // Hide the spinner after the API call is complete
             hideOverlay();
         },
     });
@@ -81,7 +63,7 @@ function get_harvester() {
             <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
                 <div class="thumb">
                     <div>
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
+                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
                     </div>
                 </div>
                 <div class="position-absolute" >
@@ -114,23 +96,17 @@ function get_harvester() {
     $(document).on('click', '#loadMoreBtn', function () {
         var productContainer = $("#productContainer");
     
-        // Get the next set of cards to display
         var nextCards = allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage);
     
-        // Display the next set of cards
         nextCards.forEach(function (p) {
             prependCard(productContainer, p);
             cardsDisplayed++;
         });
     
-        // Hide the "Load More" button if all cards are displayed
         if (cardsDisplayed >= allCards.length) {
             $("#loadMoreBtn").hide();
         }
     });
-    
- 
-
 
 var filteredCards = [];
 var cardsDisplayed = 0;
@@ -179,11 +155,8 @@ function filter_search() {
                 searchData.product.forEach(function (filter) {
                     appendFilterCard(filterContainer, filter);
                 });
-
                 $("#noDataMessage").hide();
-                // $("#loadMoreBtn").show();
             } else {
-                // Show the "Data not found" message
                 $("#noDataMessage").show();
                 $("#loadMoreBtn").hide();
             }
@@ -192,7 +165,6 @@ function filter_search() {
             console.error('Error searching for brands:', error);
         },
         complete: function () {
-            // Hide the spinner after the API call is complete
             hideOverlay();
         },
     });
@@ -203,8 +175,6 @@ function appendFilterCard(filterContainer, filter) {
         var images = p.image_names;
         var a = [];
         const name = p.brand_name +" "+p.model;
-
-
         if (images) {
             if (images.indexOf(',') > -1) {
                 a = images.split(',');
@@ -212,13 +182,12 @@ function appendFilterCard(filterContainer, filter) {
                 a = [images];
             }
         }
-       
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
         <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
             <div class="thumb">
                 <div>
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
                 </div>
             </div>
             <div class="position-absolute" >
@@ -244,32 +213,24 @@ function appendFilterCard(filterContainer, filter) {
                 </button>
             </div>
         </a>
-    </div>
-
-        `;
+    </div> `;
         container.append(newCard);
     }
 
     function displayNextSet() {
         var productContainer = $("#productContainer");
-    
-        // Display the next set of filtered cards
         filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
-    
-        // Hide the "Load More" button if all filtered cards are displayed
         if (cardsDisplayed >= filteredCards.length) {
             $("#loadMoreBtn").hide();
         }
     }
     
     $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
         displayNextSet();
     });
-
     appendCard(filterContainer, filter);
     displayNextSet();
 }
@@ -277,8 +238,6 @@ var noDataMessage = $("#noDataMessage");
 noDataMessage.hide();
 
 function get_lookup() {
-    console.log('init');
-    // var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/getLookupData';
     $.ajax({
         url: url,
@@ -287,14 +246,8 @@ function get_lookup() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            // lookup checkboxes for Power Source
-            console.log(data, 'ok');
             var powerSourceDiv = $("#POWER_SOURCE");
-
-            // Filter data based on the 'name' property
             var filteredData = data.data.filter(item => item.name === "POWER_SOURCE");
-
-            // Iterate over the filtered data
             for (var i = 0; i < filteredData.length; i++) {
                 var checkboxId = "powerSourceCheckbox" + i;
                 var label = '<label for="' + checkboxId + '" class="ps-2 fs-6" style="margin-top:-8px;">' + filteredData[i].lookup_data_value + '</label><br />';
@@ -308,13 +261,10 @@ function get_lookup() {
         }
     });
 }
-
 get_lookup();
 
 function get() {
-    // var apiBaseURL = CustomerAPIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/'+4;
-
     $.ajax({
         url: url,
         type: "GET",
@@ -322,12 +272,8 @@ function get() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
-
             const checkboxContainer = $('#checkboxContainer');
-            checkboxContainer.empty(); // Clear existing checkboxes
-
-            // Loop through the data and add checkboxes
+            checkboxContainer.empty(); 
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
@@ -344,9 +290,6 @@ function get() {
 }
 get();
 
-
-
-
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -356,6 +299,5 @@ get();
     $('.hp_checkbox:checked').prop('checked', false);
     get_harvester();
     $("#noDataMessage").hide();
-    // window.location.reload();
     
   }

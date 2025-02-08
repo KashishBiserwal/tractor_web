@@ -3,14 +3,10 @@ $(document).ready(function(){
   $('#Reset').click(resetForm);
   ImgUpload();
     $('#update_button').click(edit_data_id);
-    
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
-    
-            
       $("#haatbazar_buyer").validate({
-      
       rules: {
         category: {
           required: true,
@@ -80,14 +76,9 @@ $(document).ready(function(){
         alert("Form submitted successfully!");
       },
       });
-  
-    
-      $("#update_button").on("click", function () {
-    
-        $("#haatbazar_buyer").valid();
-      
-      });
-      
+      $("#update_button").on("click", function () {   
+        $("#haatbazar_buyer").valid();    
+      });     
     });
     function removeImage(ele){
       console.log("print ele");
@@ -153,20 +144,23 @@ $(document).ready(function(){
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+            window.location.href = baseUrl + "login.php"; 
+
+          }
       }
   });
 }
-
 get_haatbzr();
-
 
 // ****delete data***
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'customer_enquiries/' + id;
-  console.log(url);
   var token = localStorage.getItem('token');
-
   if (!token) {
     console.error("Token is missing");
     return;
@@ -175,7 +169,6 @@ function destroy(id) {
   if (!isConfirmed) {
     return;
   }
-
   $.ajax({
     url: url,
     type: "DELETE",
@@ -183,7 +176,6 @@ function destroy(id) {
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      // get_tyre_list();
       window.location.reload();
       console.log("Delete request successful");
       alert("Delete operation successful");
@@ -195,19 +187,15 @@ function destroy(id) {
   });
 }
 function formatPriceWithCommas(price) {
-  // Check if the price is not a number
   if (isNaN(price)) {
-      return price; // Return the original value if it's not a number
+      return price; 
   }
-  
-  // Format the price with commas in Indian format
   return new Intl.NumberFormat('en-IN').format(price);
 }
-      // View data
+// View data
 function openView(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_for_haat_bazar_by_id/' + userId;
-  
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -216,9 +204,7 @@ function openView(userId) {
       url: url,
       type: 'GET',
       headers: headers,
-    
       success: function(response) {
-        
         var userData = response.haatBazarData[0];
         var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
         document.getElementById('category').innerText=userData.category_name;
@@ -230,32 +216,6 @@ function openView(userId) {
         document.getElementById('dist').innerText=userData.district_name;
         document.getElementById('tehsil').innerText=userData.tehsil_name;
         document.getElementById('price1').innerText= formattedPrice;
-       
-        
-        // $("#selectedImagesContainer1").empty();
-  
-        // if (userData.image_names) {
-        //     var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-        
-        //     imageNamesArray.forEach(function (image_names) {
-        //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
-        
-        //         var newCard = `
-        //             <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-        //                 <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
-        //                     <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-        //                         <img class="img-fluid d-flex  w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-        //                     </a>
-        //                 </div>
-        //             </div>
-        //         `;
-                
-        //         $("#selectedImagesContainer1").append(newCard);
-        //     });
-        // }
-        
-        
-          // $('#exampleModal').modal('show');
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -267,7 +227,6 @@ function openView(userId) {
   function fetch_edit_data(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_for_haat_bazar_by_id/' + userId;
-
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -279,16 +238,13 @@ function openView(userId) {
         success: function(response) {
             var userData = response.haatBazarData[0];
             var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
-            $('#userId').val(userData.haat_bazar_id);
+            $('#userId').val(userData.id);
+            $('#product_subject_id').val(userData.product_id);
             $('#username').val(userData.haat_bazar_id);
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
             $('#mobile_no').val(userData.mobile);
-            
             $('#price').val(formattedPrice);
-           
-       
-            console.log("User Data:", userData);
 
             // Set category value
             var categoryDropdown = document.getElementById('category1');
@@ -299,10 +255,8 @@ function openView(userId) {
                 }
             }
 
-            // Call function to populate sub-category based on the selected category
             console.log("User Category ID:", userData.category_id);
             get_sub_category_1(userData.category_id, function() {
-                // Set sub-category value
                 var subCategoryDropdown = document.getElementById('sub_category1');
                 console.log("Sub Categories:", subCategoryDropdown.options);
                 for (var i = 0; i < subCategoryDropdown.options.length; i++) {
@@ -313,10 +267,11 @@ function openView(userId) {
                 }
             });
             setSelectedOption('state_', userData.state_id);
-            setSelectedOption('district_1', userData.district_id);
-            
-            // Call function to populate tehsil dropdown based on selected district
-            populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            getDistricts(userData.state_id, 'district-dropdown', 'tehsil-dropdown');
+            setTimeout(function() {
+              setSelectedOption('district_1', userData.district_id);
+              populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            }, 2000); 
         },
         error: function(error) {
             console.error('Error fetching user data:', error);
@@ -343,13 +298,10 @@ function populateTehsil(selectId, value) {
   }
 }
   
-      function edit_data_id(edit_id) {
-        console.log(edit_id);
+       function edit_data_id(edit_id) {
         var edit_id = $("#userId").val();
-        console.log(edit_id);
-        var image_names = document.getElementById('image_pic').files;
         var enquiry_type_id = $("#enquiry_type_id").val();
-        console.log(enquiry_type_id);
+        var product_subject_id = $("#product_subject_id").val();
         var category = $('#category1').val();
         var sub_category = $('#sub_category1').val();
         var first_name = $('#first_name1').val();
@@ -361,7 +313,7 @@ function populateTehsil(selectId, value) {
         var price = $('#price').val();
         price = price.replace(/[\,\.\s]/g, '');
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar/' + edit_id;
+        var url = apiBaseURL + 'customer_enquiries/' + edit_id;
         var token = localStorage.getItem('token');
         var _method = 'put';
         var headers = {
@@ -370,14 +322,11 @@ function populateTehsil(selectId, value) {
       
         var data = new FormData();
       
-        for (var x = 0; x < image_names.length; x++) {
-            data.append('images[]', image_names[x]);
-        }
         data.append('_method', _method);
         data.append('id',edit_id)
         data.append('enquiry_type_id', enquiry_type_id);
-        data.append('category_name', category);
-        data.append('sub_category_name', sub_category);
+        data.append('category_id', category);
+        data.append('sub_category_id', sub_category);
         data.append('first_name', first_name);
         data.append('last_name', last_name);
         data.append('mobile', mobile);
@@ -385,7 +334,8 @@ function populateTehsil(selectId, value) {
         data.append('district', district);
         data.append('tehsil', tehsil);
         data.append('price', price);
-        data.append('id', edit_id);
+        data.append('product_id', product_subject_id);
+        data.append('flag', 'buyerenquirylist');
         $.ajax({
           url: url,
           type: "POST",
@@ -394,10 +344,7 @@ function populateTehsil(selectId, value) {
           processData: false,
           contentType: false,
            success: function (result) {
-             console.log(result, "result");
-             get_haatbzr();
-            // nursery_data();
-            // window.location.reload();
+            window.location.reload();
              console.log("updated successfully");
              alert('successfully updated..!')
            },
@@ -407,8 +354,6 @@ function populateTehsil(selectId, value) {
         });
     }
 
-
-  
   // image script 
   function ImgUpload() {
     var imgWrap = "";
@@ -455,49 +400,11 @@ function populateTehsil(selectId, value) {
     });
 }
 
-// function get_category() {
-//   var apiBaseURL = APIBaseURL;
-//   var url = apiBaseURL + 'haat_bazar_category';
-//   $.ajax({
-//       url: url,
-//       type: "GET",
-//       headers: {
-//           'Authorization': 'Bearer ' + localStorage.getItem('token')
-//       },
-//       success: function (data) {
-//           const select = document.getElementById('category1');
-//           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//           if (data.allCategory.length > 0) {
-//               data.allCategory.forEach(row => {
-//                   const option = document.createElement('option');
-//                   option.textContent = row.category_name;
-//                   option.value = row.id;
-//                   select.appendChild(option);
-//               });
-//           } else {
-//               select.innerHTML = '<option>No valid data available</option>';
-//           }
-//       },
-//       error: function (error) {
-//           console.error('Error fetching data:', error);
-//       }
-//   });
-// }
-// get_category();
-
-
 function searchdata() {
   var category = $('#cc_category').val();
   var sub_category = $('#ss_sub_cate').val();
   var state = $('#state_1').val();
   var district = $('#dist_district').val();
-
-  console.log("Category:", category);
-  console.log("Sub-Category:", sub_category);
-  console.log("State:", state);
-  console.log("District:", district);
-
   var paraArr = {
       'category_id': category,
       'sub_category_id': sub_category,
@@ -556,12 +463,9 @@ function updateTable(data) {
           ]);
       });
 
-      // Initialize or destroy existing DataTable
       if ($.fn.DataTable.isDataTable('#example')) {
           $('#example').DataTable().destroy();
       }
-
-      // Reinitialize DataTable with updated data
       $('#example').DataTable({
           data: tableData,
           columns: [
@@ -575,15 +479,12 @@ function updateTable(data) {
             { title: 'Action', orderable: false }
           ],
           paging: true,
-          searching: false // Disable searching for now
-          // ... other options ...
+          searching: false 
       });
   } else {
-      // Display a message if there's no valid data
       tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
   }
 }
-
 function resetForm() {
   $("#cc_category").val("");
   $("#ss_sub_cate").val("");
@@ -591,9 +492,6 @@ function resetForm() {
   $("#dist_district").val("");
   window.location.reload();
 };
-
-
-
 function category_main3() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_category';
@@ -658,7 +556,6 @@ function get_sub_category(category_id) {
 }
 category_main3();
 
-
 function category_main_1() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_category';
@@ -708,7 +605,7 @@ function get_sub_category_1(category_id, callback) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.sub_category_name;
-                  option.value = row.id;
+                  option.value = row.sub_category_id;
                   select.appendChild(option);
               });
           } else {
@@ -717,7 +614,6 @@ function get_sub_category_1(category_id, callback) {
               option.disabled = true;
               select.appendChild(option);
           }
-          // Call the callback function to indicate that sub-category options have been added
           if (typeof callback === 'function') {
               callback();
           }

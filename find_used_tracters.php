@@ -22,10 +22,22 @@
         background: #fff;
         margin-left: 20px;
     }
+    body {
+    overflow: auto !important;
+}
     
     </style>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Z38E658LD');
+</script>
 
 <body>
     <?php
@@ -33,10 +45,10 @@
    ?>
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/find_used_tractor.js"></script>
+    <script src="<?php $baseUrl; ?>model/find_used_tractor.js" defer></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
-    <section class=" bg-light mt-5 pt-5">
+    <section class=" bg-light mt-3 pt-5">
         <div class="container pt-5">
             <div class="py-2">
                 <span class="my-4 text-white">
@@ -56,7 +68,7 @@
                 style="min-height: 360px; background-image: url(assets/images/tractor-valuation.jpg); background-position: center; background-size: cover;">
             </div>
         </div>
-        <div class="page-banner-content text-center position-absolute  px-2">
+        <div class="page-banner-content text-center position-absolute  px-2"style="top:3%">
             <h2 class=" text-dark  ">Interested To <span class="text-success">Buy Old Tractor</span></h2>
             <h5 class="">Fill the form will contact you shortly</h4>
         </div>
@@ -157,11 +169,6 @@
                             <div class="col-12 mt-3">
                                 <button id="store" type="button" class="btn-success w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
                             </div>
-                            <!-- <div class="col-12 mt-3">
-                                <button data-res="<?php echo $sum; ?>" type="button" id="store" class="btn-success w-100 fw-bold"
-                                    data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
-                            </div> -->
-
                             <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
                                 Tractors
                                 <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
@@ -186,194 +193,17 @@
         </div>
 </section>
             
-   
-    <section class="bg-light">
-        <div class="container">
-            <div class="old_tracter py-3 text-center">
-                <h3 class="fw-bold mt-3">Old Tractors By Brand</h3>
-            </div>
-            <div class="row mt-3 ps-5 justify-content-center m-0">
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/mahindra-1673872647.webp" data-src="h"
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-0 oneline">Mahindra</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/swaraj-1608095532.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2 oneline">Swaraj</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main  box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/sonalika.png" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2 oneline">Sonalika</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/massey-ferguson-1579512590.webp"
-                                    data-src="" alt="Sonalika Brand Logo">
-                                <p class="mb-2 oneline">massey ferguson</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/eicher-1608095225.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Eicher</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/farmtrac-1579511831.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Farmtrac</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/john-deere-1579511882.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">john-deere</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/powertrac-1579511958-2.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Powertrac</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/new-holland-1579511945.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">New-holland</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/kubota-1579512571.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Kubota</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/escort-1579512292.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Escort</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/vst-shakti-1623048840.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">VST</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/a-c-e-1579511768.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">ACE</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/same-deutz-fahr-1579511987.webp"
-                                    data-src="" alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Same Deutz Fahr</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/preet-1579511971.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Preet</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="tjcol states-block">
-                        <div class="brand-main box-shadow mt-2 text-center">
-                            <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
-                                <img class="img-fluid w-50" src="assets/images/ford.webp" data-src=""
-                                    alt="Sonalika Brand Logo">
-                                <p class="mb-2  oneline">Ford</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
+<section class="about bg-white mt-2 ">
+  <div class="container">
+    <div class="lecture_heading ">
+      <h3 class="my-4 pt-5 text-center bg-light">TRACTORS BY BRAND</h3>
+    </div>
+    <div class="mt-4 pb-5">
+      <div class="row allbrands" id="brandContainer">
+      </div>
+    </div>
+  </div>
+</section> 
     <section class="">
         <div class="container mt-4 ">
             <div class="col-12 assured mt-3">
@@ -382,39 +212,39 @@
             <div class="row mt-4">
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                     <ul class="justify-content-center ul-box  ">
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="find_new_tractors.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; New Tractors </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="new_tractor_loan.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp;Finance </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="popular_tractors.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Popular Tractors</p>
                             </a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                     <ul class="justify-content-center ul-box  ">
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="Insurance.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp;Insurance </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="latest_tractor.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp;Latest Tractors</p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="compare_trac.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Compare</p>
                             </a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-3">
                     <ul class="justify-content-center ul-box  ">
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="upcoming_tractors.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Upcoming Tractors</p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
-                                <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Tractor News </p>
+                        <li class=""> <a href="harvester.php" class="text-dark text-decoration-none">
+                                <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Harvester </p>
                             </a></li>
-                        <li class=""> <a href="#" class="text-dark text-decoration-none">
+                        <li class=""> <a href="used_tractor.php" class="text-dark text-decoration-none">
                                 <p> <i class="fa-solid fa-angles-right"></i> &nbsp; Used Tractors</p>
                             </a></li>
                     </ul>
@@ -562,31 +392,6 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- <script>
-    $(document).ready(function() {
-        var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-            removeItemButton: true,
-            searchResultLimit: 5,
-            renderChoiceLimit: 5
-        });
-    });
-    </script> -->
-
-<!-- <script>
-   function showall() {
-    var section1 = document.getElementById('section-1');
-    var section2 = document.getElementById('section-2');
-
-    if (section1.style.display == 'block') {
-      section1.style.display = 'none';
-      section2.style.display = 'block';
-    } else {
-      section1.style.display = 'block';
-      section2.style.display = 'none';
-    }
-  }
-
-</script> -->
 <script>
  document.addEventListener('DOMContentLoaded', function() {
     var selectElement = document.getElementById('choices-multiple-remove-button');
@@ -612,5 +417,15 @@
     
     $(".modal-backdrop.fade.show").remove();
 });
+</script>
+<script>
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ autoDisplay: 'true',
+ includedLanguages:'en,hi,bn,mr,pa,or,te,ta,ml', 
+ layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+ }, 'google_translate_element');
+ }
 </script>
 </html>

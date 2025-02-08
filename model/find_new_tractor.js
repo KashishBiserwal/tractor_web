@@ -3,7 +3,6 @@ $(document).ready(function() {
     getTractorList();
     showOverlay(); 
     $('#filter_tractor').click(filter_search);
-
     $("#contact-seller-call").validate({
         rules: {
             brandName: {
@@ -45,7 +44,6 @@ $(document).ready(function() {
         },
         submitHandler: function (form) {
             savedata();
-            // tractor_enquiry();
         }
     });
 
@@ -56,7 +54,6 @@ $(document).ready(function() {
     function hideOverlay() {
         $("#overlay").fadeOut(300);
     }
-    // Custom validation method for notEqual rule
     $.validator.addMethod("notEqual", function (value, element, param) {
         return value !== param;
     }, "Value must not equal {0}");
@@ -73,7 +70,7 @@ $(document).ready(function() {
         },
         success: function (data) {
             const checkboxContainer = $('#checkboxContainer');
-            checkboxContainer.empty(); // Clear existing checkboxes
+            checkboxContainer.empty(); 
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
@@ -171,19 +168,19 @@ function displayTractors(tractors) {
                         <div class="thumb">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                 </div>
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1">
                             <div class="caption text-center text-truncate">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
+                                    <p class="pt-3 text-truncate"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.horse_power}HP</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                          <p id="adduser" type="" class="text-dark">
                                           <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
@@ -228,22 +225,22 @@ function displayTractors(tractors) {
                                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                         <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                         <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number" value="">
-                                                        <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                                       
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
                                                             
                                                         </select>
                                                     </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
                                                      
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                    <label for="Tehsil" class="form-label text-dark">Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
                                                      
                                                     </select>
@@ -320,9 +317,7 @@ function displayTractors(tractors) {
                         </div>
                     </div>
                 </div>
-            </div>
-
-                    `;
+            </div> `;
                     var tableRow  = `
                     <tr class="">
                         <td class="py-3">${p.model}</td>
@@ -342,15 +337,12 @@ function displayTractors(tractors) {
 }
 });
 
-
 var formData = {};
-
 function savedata(formId) {
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitData(formId);
-            // openSellerContactModal(formDataToSubmit)
         }
     } else {
         formData = collectFormData(formId);
@@ -510,13 +502,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #state').val(customer.state_id);
                 // $('#' + formId + ' #district').val(customer.district);
                 // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#district ,#Tehsil').prop('disabled', true).prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#state, #district ,#Tehsil').prop('disabled', true).prop('disabled', true);
                 }
             }
         },
@@ -541,12 +533,9 @@ function formatPrice(price) {
     return parseFloat(price.replace(/,/g, '') || 0);
 }
 function filter_search() {
-    // var checkboxes = $(".budget_checkbox:checked");
     var checkboxes2 = $(".hp_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
     var checkboxes = $(".budget_checkbox:checked");
-    // var checkboxesState = $(".state_checkbox:checked");
-    // var checkboxesdist = $(".district_checkbox:checked");
 
     var selectedCheckboxValues = checkboxes.map(function() {
         return $(this).val();
@@ -561,19 +550,10 @@ function filter_search() {
         return $(this).val();
     }).get();
 
-    // var selectedState = checkboxesState.map(function() {
-    //     return $(this).val();
-    // }).get();
-    // var selectedDistrict = checkboxesdist.map(function() {
-    //     return $(this).val();
-    // }).get();
-
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
         'horse_power_ranges': JSON.stringify(selectedCheckboxValues2),
         'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted),
-        // 'state': JSON.stringify(selectedState),
-        // 'district': JSON.stringify(selectedDistrict),
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp';
@@ -625,19 +605,19 @@ function appendFilterCard(filterContainer, filter) {
                         <div class="thumb">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                                 </div>
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1">
                             <div class="caption text-center text-truncate">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
+                                    <p class="pt-3 text-truncate"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.horse_power}HP</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                          <p id="adduser" type="" class="text-dark">
                                           <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
@@ -682,22 +662,22 @@ function appendFilterCard(filterContainer, filter) {
                                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                         <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                         <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number" value="">
-                                                        <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                                      
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
                                                             
                                                         </select>
                                                     </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <label for="district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                     <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
                                                      
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                    <label for="Tehsil" class="form-label text-dark">Tehsil</label>
                                                     <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
                                                      
                                                     </select>
@@ -774,11 +754,8 @@ function appendFilterCard(filterContainer, filter) {
                         </div>
                     </div>
                 </div>
-            </div>
-
-                    `;
+            </div>`;
         container.append(newCard);
-        // populateDropdowns(formId);
     }
 
     function displayNextSet() {
@@ -799,8 +776,6 @@ function appendFilterCard(filterContainer, filter) {
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
-
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -808,47 +783,53 @@ function appendFilterCard(filterContainer, filter) {
     $('.brand_checkbox:checked').prop('checked', false);
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
-    
     window.location.reload();
-    
-  } 
-
-function populateDropdowns(identifier) {
+} 
+  function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; 
+    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+        var stateData = stateDataResponse.stateData;
+        var selectYourStateOption = '<option value="">Select Your State</option>';
+        var stateOptions = stateData
+            .map(state => `<option value="${state.id}">${state.state_name}</option>`)
+            .join('');
 
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+        stateDropdowns.forEach(function (dropdown) {
+            dropdown.innerHTML = selectYourStateOption + stateOptions;
+            dropdown.addEventListener('change', function() {
+                var selectedStateId = this.value;
+                var districtSelect = this.closest('.row').querySelector('.district-dropdown');
+                districtSelect.innerHTML = '<option value="">Please select a district</option>';
+                if (selectedStateId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                        data.districtData.forEach(district => {
+                            districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+                        });
+                    });
+                }
+            });
+        });
 
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+        districtDropdowns.forEach(function (dropdown) {
+            dropdown.addEventListener('change', function() {
+                var selectedDistrictId = this.value;
+                var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+                if (selectedDistrictId) {
+                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                        tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                        data.tehsilData.forEach(tehsil => {
+                            tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                        });
+                    });
+                } else {
+                    tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+                }
             });
         });
     });
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
-                    });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
-        });
-    });
 }
+
+
