@@ -2,8 +2,8 @@
  $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
  $CustomerAPIBaseURL = 'http://tractor-api.divyaltech.com/api/customer/';
 //  $baseUrl = '/bharatAgrimartFrontend/tractor_project/';
-// $APIBaseURL = 'http://192.168.1.21:8000/api/admin/';
-// $CustomerAPIBaseURL = 'http://192.168.1.21:8000/api/customer/';
+// $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
+// $CustomerAPIBaseURL = 'http://tractor-api.divyaltech.com/api/customer/';
 $baseUrl = '/tractor_house/';
 ?>
 <meta charset="UTF-8">

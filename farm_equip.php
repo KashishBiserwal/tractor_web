@@ -84,7 +84,7 @@
                                   </select>
                                 </div>
                               </div>
-                              <!-- <div class="col-12 mt-3" id="fields"></div>
+                              <div class="col-12 mt-3" id="fields"></div>
                                 <div class="col-12 mt-5">
                                   <div class="upload__box text-center">
                                     <div class="upload__btn-box text-center">
@@ -99,8 +99,8 @@
                                   </div>
                                   <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
                                 </div>
-                              </div> -->
-                              <div class="col-6 mt-5">
+                              </div>
+                              <!-- <div class="col-6 mt-5">
                                 <div class="card" id="card-container">
                                   <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
                                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
@@ -178,7 +178,7 @@
                                 </div>
                                 <button onclick="generateAndReplace()">Generate and Replace</button>
                                 <canvas id="card-canvas" style="display:none;"></canvas>
-                              </div>
+                              </div> -->
                             <div id="fields"></div>
                           </form>
                         </div>

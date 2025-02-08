@@ -610,7 +610,7 @@ function fetch_data(id) {
     var productId = id;
     var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + productId;
   
-    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
+    // var url = "http://tractor-api.divyaltech.com/api/admin/getBrandsById/" + productId;
     // console.log(url);
     var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')

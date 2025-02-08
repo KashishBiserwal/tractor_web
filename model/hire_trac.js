@@ -221,19 +221,20 @@ get_hire_tract();
                     const selects = document.querySelectorAll('#model_sct');
           
                     selects.forEach(select => {
-                        select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-          
-                        if (data.model && data.model.length > 0) {
-                            data.model.forEach(row => {
-                                const option = document.createElement('option');
-                                option.textContent = row.model;
-                                option.value = row.model;
-                                select.appendChild(option);
-                            });
-                        } else {
-                            select.innerHTML = '<option>No valid data available</option>';
-                        }
-                    });
+                      // Clear the existing options
+                      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+                  
+                      if (Array.isArray(data.model) && data.model.length > 0) {
+                          data.model.forEach(modelName => {
+                              const option = document.createElement('option');
+                              option.textContent = modelName;  // Directly use the model name string
+                              option.value = modelName;
+                              select.appendChild(option);
+                          });
+                      } else {
+                          select.innerHTML = '<option>No valid data available</option>';
+                      }
+                  });
                 },
                 error: function (error) {
                     console.error('Error fetching model data:', error);
@@ -333,7 +334,7 @@ function openViewdata(userId) {
             }
           }
 
-          $('#model_1').empty(); 
+          // $('#model_1').empty(); 
           get_model_1(Data.brand_id); 
 
           setTimeout(function() { 
@@ -583,7 +584,7 @@ function edit_user() {
                 });
                 select.addEventListener('change', function() {
                     const selectedBrandId = this.value;
-                    get_model(selectedBrandId);
+                    get_model_1(selectedBrandId);
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
@@ -594,8 +595,7 @@ function edit_user() {
         }
     });
   }
-  
-  function get_model_1(brand_id, selectedModel) {
+  function get_model_1(brand_id, selectedModel = null) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -608,13 +608,15 @@ function edit_user() {
             const select = document.getElementById('model_1');
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
-            if (data.model.length > 0) {
-                data.model.forEach(row => {
+            if (Array.isArray(data.model) && data.model.length > 0) {
+                data.model.forEach(modelName => {
                     const option = document.createElement('option');
-                    option.textContent = row.model;
-                    option.value = row.model;
+                    option.textContent = modelName; // Directly use the model name as a string
+                    option.value = modelName;
                     select.appendChild(option);
-                    if (row.model === selectedModel) {
+  
+                    // Auto-select the option if it matches the selectedModel
+                    if (selectedModel && modelName === selectedModel) {
                         option.selected = true;
                     }
                 });
@@ -623,9 +625,41 @@ function edit_user() {
             }
         },
         error: function (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching model data:', error);
         }
     });
   }
+  // function get_model_1(brand_id, selectedModel) {
+  //   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  //   $.ajax({
+  //       url: url,
+  //       type: "GET",
+  //       headers: {
+  //           'Authorization': 'Bearer ' + localStorage.getItem('token')
+  //       },
+  //       success: function (data) {
+  //           console.log(data);
+  //           const select = document.getElementById('model_1');
+  //           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+  //           if (data.model.length > 0) {
+  //               data.model.forEach(row => {
+  //                   const option = document.createElement('option');
+  //                   option.textContent = row.model;
+  //                   option.value = row.model;
+  //                   select.appendChild(option);
+  //                   if (row.model === selectedModel) {
+  //                       option.selected = true;
+  //                   }
+  //               });
+  //           } else {
+  //               select.innerHTML = '<option>No valid data available</option>';
+  //           }
+  //       },
+  //       error: function (error) {
+  //           console.error('Error fetching data:', error);
+  //       }
+  //   });
+  // }
   
   get_1();

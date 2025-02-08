@@ -681,16 +681,15 @@ function getSearchBrand() {
         },
         success: function (data) {
             const selects = document.querySelectorAll('#modelsearch');
-  
+
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
+
+                if (Array.isArray(data.model) && data.model.length > 0) {
+                    data.model.forEach(modelName => {
                         const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
-                        // console.log(option);
+                        option.textContent = modelName;
+                        option.value = modelName; // Since it's an array of strings
                         select.appendChild(option);
                     });
                 } else {
@@ -699,12 +698,13 @@ function getSearchBrand() {
             });
         },
         error: function (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching model data:', error);
         }
     });
-  }
-  
+}
+
   getSearchBrand();
+
   function getimplementbrand() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -830,13 +830,14 @@ function get() {
                 const selects = document.querySelectorAll('#model_main3');
     
                 selects.forEach(select => {
+                    // Clear the existing options
                     select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-                    if (data.model.length > 0) {
-                        data.model.forEach(row => {
+                
+                    if (Array.isArray(data.model) && data.model.length > 0) {
+                        data.model.forEach(modelName => {
                             const option = document.createElement('option');
-                            option.textContent = row.model;
-                            option.value = row.model;
+                            option.textContent = modelName;  // Directly use the model name string
+                            option.value = modelName;
                             select.appendChild(option);
                         });
                     } else {
@@ -864,13 +865,14 @@ function get_model(brand_id) {
             const selects = document.querySelectorAll('#model_main');
   
             selects.forEach(select => {
+                // Clear the existing options
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
+            
+                if (Array.isArray(data.model) && data.model.length > 0) {
+                    data.model.forEach(modelName => {
                         const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
+                        option.textContent = modelName;  // Directly use the model name string
+                        option.value = modelName;
                         select.appendChild(option);
                     });
                 } else {
