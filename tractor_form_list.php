@@ -235,7 +235,7 @@ top: -5px;
                                                         <label for="name" class="text-dark fw-bold">Select Tractor Type</label>
                                                         <div id="type_name" name="type_name"></div>
                                                     </div>
-                                                    <!-- <div class="col-12 mt-5">
+                                                    <div class="col-12 mt-5">
                                                         <div class="upload__box text-center">
                                                             <div class="upload__btn-box text-center">
                                                                 <label >
@@ -248,86 +248,86 @@ top: -5px;
                                                             </div>
                                                         </div>
                                                         <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
+                                                    </div>
+                                                    <!-- <div class="col-12 mt-5">
+                                                        <div class="card" id="card-container">
+                                                        <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
+                                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
+                                                            <input type="text" class="text-input-box" placeholder="" style=" ">
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="image-upload-container">
+                                                            <div class="image-row">
+                                                                <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 0)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-0"  class="preview-img">
+                                                                </label>
+                                                                </div>
+                                                                <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 1)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-1"  class="preview-img">
+                                                                </label>
+                                                                </div>
+                                                                <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 2)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-2"  class="preview-img">
+                                                                </label>
+                                                                </div>
+                                                                <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 3)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-3"  class="preview-img">
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-row">
+                                                                <input type="text" id="input-0" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                <input type="text" id="input-1" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                <input type="text" id="input-2" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                <input type="text" id="input-3" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                            </div>
+                                                            <div class="image-row">
+                                                                <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 4)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-4"  class="preview-img">
+                                                                </label>
+                                                                </div>
+                                                                <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 5)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-5"  class="preview-img">
+                                                                </label>
+                                                            </div>
+                                                            <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 6)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-6"  class="preview-img">
+                                                                </label>
+                                                            </div>
+                                                            <div class="image-box">
+                                                                <label>
+                                                                    <input type="file" accept="image/*" onchange="previewImage(this, 7)" style="display: none;"><i class="bi bi-plus-lg"></i>
+                                                                    <img id="preview-img-7"  class="preview-img">
+                                                                </label>
+                                                            </div>
+                                                            </div>
+                                                            <div class="input-row">
+                                                                <input type="text" id="input-4" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                <input type="text" id="input-5" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                <input type="text" id="input-6" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                                <input type="text" id="input-7" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <button onclick="generateAndReplace()">Generate and Replace</button>
+                                                        <canvas id="card-canvas" style="display:none;"></canvas>
                                                     </div> -->
-                                                    <div class="col-12 mt-5">
-                                <div class="card" id="card-container">
-                                  <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
-                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
-                                      <input type="text" class="text-input-box" placeholder="" style=" ">
-                                    </div>
-                                  </div>
-                                  <div class="card-body">
-                                    <div class="image-upload-container">
-                                      <div class="image-row">
-                                        <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 0)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-0"  class="preview-img">
-                                          </label>
-                                        </div>
-                                        <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 1)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-1"  class="preview-img">
-                                          </label>
-                                        </div>
-                                        <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 2)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-2"  class="preview-img">
-                                          </label>
-                                        </div>
-                                        <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 3)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-3"  class="preview-img">
-                                          </label>
-                                        </div>
-                                      </div>
-                                      <div class="input-row">
-                                        <input type="text" id="input-0" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                        <input type="text" id="input-1" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                        <input type="text" id="input-2" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                        <input type="text" id="input-3" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                      </div>
-                                      <div class="image-row">
-                                        <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 4)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-4"  class="preview-img">
-                                          </label>
-                                        </div>
-                                        <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 5)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-5"  class="preview-img">
-                                          </label>
-                                       </div>
-                                       <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 6)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-6"  class="preview-img">
-                                          </label>
-                                       </div>
-                                       <div class="image-box">
-                                          <label>
-                                            <input type="file" accept="image/*" onchange="previewImage(this, 7)" style="display: none;"><i class="bi bi-plus-lg"></i>
-                                            <img id="preview-img-7"  class="preview-img">
-                                          </label>
-                                       </div>
-                                      </div>
-                                      <div class="input-row">
-                                        <input type="text" id="input-4" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                        <input type="text" id="input-5" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                        <input type="text" id="input-6" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                        <input type="text" id="input-7" placeholder="Enter description" class="image-input p-1" style="border-radius:0px">
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <button onclick="generateAndReplace()">Generate and Replace</button>
-                                <canvas id="card-canvas" style="display:none;"></canvas>
-                              </div>
                                                     <div class="col-12 mt-3">
                                                         <button type="button" class="nextStep text-center btn btn-success btn_all float-end" id="nextbtn1">Next</button>
                                                     </div>

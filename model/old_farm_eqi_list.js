@@ -84,6 +84,8 @@
     });
  
 // brand 
+
+ 
 function getBrands() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
@@ -97,7 +99,7 @@ function getBrands() {
           const select = document.getElementById('brand_name1');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.brands.length > 0) {
+          if (Array.isArray(data.brands) && data.brands.length > 0) {
               data.brands.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.brand_name;
@@ -106,9 +108,9 @@ function getBrands() {
               });
 
               // Add event listener to brand dropdown
-              select.addEventListener('change', function() {
+              select.addEventListener('change', function () {
                   const selectedBrandId = this.value;
-                  get_model(selectedBrandId);
+                  get_model(selectedBrandId, null); // Pass null for selected model initially
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';
@@ -120,7 +122,7 @@ function getBrands() {
   });
 }
 
-function get_model(brand_id) {
+function get_model(brand_id, selectedModel = null) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
@@ -133,25 +135,32 @@ function get_model(brand_id) {
           const select = document.getElementById('model_enquiry');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.model.length > 0) {
-              data.model.forEach(row => {
+          if (Array.isArray(data.model) && data.model.length > 0) {
+              data.model.forEach(modelName => {
                   const option = document.createElement('option');
-                  option.textContent = row.model;
-                  option.value = row.model;
-                  console.log(option);
+                  option.textContent = modelName; // Directly use the model name as a string
+                  option.value = modelName;
                   select.appendChild(option);
+
+                  // Auto-select the option if it matches the selectedModel
+                  if (selectedModel && modelName === selectedModel) {
+                      option.selected = true;
+                  }
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';
           }
       },
       error: function (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching model data:', error);
       }
   });
 }
+
+// Initial call to load brand data
 getBrands();
- 
+
+
  // fetch data
  function get() {
   var apiBaseURL = APIBaseURL;

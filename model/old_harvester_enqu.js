@@ -286,12 +286,11 @@ function get_model(brand_id) {
           selects.forEach(select => {
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-              if (data.model.length > 0) {
-                  data.model.forEach(row => {
+              if (Array.isArray(data.model) && data.model.length > 0) {
+                  data.model.forEach(modelName => {
                       const option = document.createElement('option');
-                      option.textContent = row.model;
-                      option.value = row.id;
-                      console.log(option);
+                      option.textContent = modelName;
+                      option.value = modelName; // Since model is just an array of strings
                       select.appendChild(option);
                   });
               } else {
@@ -300,10 +299,12 @@ function get_model(brand_id) {
           });
       },
       error: function (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching model data:', error);
       }
   });
 }
+
+
 get();
 
 function searchdata() {
@@ -632,7 +633,7 @@ function get_1() {
   });
 }
 
-function get_model_1(brand_id, selectedModel) {
+function get_model_1(brand_id, selectedModel = null) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
@@ -645,14 +646,15 @@ function get_model_1(brand_id, selectedModel) {
           const select = document.getElementById('model_2');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.model.length > 0) {
-              data.model.forEach(row => {
+          if (Array.isArray(data.model) && data.model.length > 0) {
+              data.model.forEach(modelName => {
                   const option = document.createElement('option');
-                  option.textContent = row.model;
-                  option.value = row.model;
+                  option.textContent = modelName; // Directly use the model name as a string
+                  option.value = modelName;
                   select.appendChild(option);
 
-                  if (row.model === selectedModel) {
+                  // Auto-select the option if it matches the selectedModel
+                  if (selectedModel && modelName === selectedModel) {
                       option.selected = true;
                   }
               });
@@ -661,9 +663,10 @@ function get_model_1(brand_id, selectedModel) {
           }
       },
       error: function (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching model data:', error);
       }
   });
 }
+
 get_1();
 

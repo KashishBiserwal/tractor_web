@@ -10,7 +10,7 @@
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/old_tractor_list.js" defer></script>
     <script src="<?php $baseUrl; ?>model/sdt.js" defer></script>
-    <script src="<?php $baseUrl; ?>model/brand_function.js" defer></script>
+    <!-- <script src="<?php $baseUrl; ?>model/brand_function.js" defer></script> -->
     <script src="model/banner-image.js"></script>
 <script>
   $(document).ready(function() {
@@ -225,7 +225,7 @@
                               <label for="a_hrvst" class="form-label text-dark  fw-bold">Description</label>
                               <textarea class="form-control" rows="3" placeholder="Leave a comment here (max 200 words)" name="about" id="about" onkeydown="return /[a-zA-Z\s]/i.test(event.key)"  oninput="limitWords(this, 200)"></textarea>
                             </div>
-                            <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-5 ">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-5 ">
                               <div class="upload__box ">
                                 <div class="upload__btn-box text-center mt-3">
                                   <label >
@@ -235,8 +235,8 @@
                                 </div>
                                 <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                               </div>
-                            </div> -->
-                            <div class="col-12 mt-4 text-center">
+                            </div>
+                            <!-- <div class="col-12 mt-4 text-center">
                                 <div class="card" id="card-container">
                                   <div class="card-header" style="position: relative; background-image: url('assets/images/ImportedPhoto_1736147006513.jpg'); background-size: cover; background-position: center; height: 120px;">
                                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 100%;">
@@ -314,7 +314,7 @@
                                 </div>
                                 <button onclick="generateAndReplace()">Generate and Replace</button>
                                 <canvas id="card-canvas" style="display:none;"></canvas>
-                              </div>
+                              </div> -->
                             <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
                               <div class="form-outline">
                                 <label class="form-label">Product Type</label>
@@ -504,7 +504,7 @@
     input.style.textAlign = 'left';
   });
 </script>
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', function () {
   const stateDropdown = document.getElementById('state');
   const districtDropdown = document.getElementById('district');
@@ -568,4 +568,4 @@
   });
 });
 
-</script>
+</script> -->

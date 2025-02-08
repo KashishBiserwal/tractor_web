@@ -153,10 +153,7 @@ function removeImage(ele) {
 function store(event) {
   event.preventDefault();
 
-  // Extract generated image from canvas
-  const canvas = document.getElementById('card-canvas');
-  const generatedImage = canvas.toDataURL('image/png'); 
-
+  var image_names = document.getElementById('_image').files;
   var name = $('#name').val();
   var first_name = $('#fname').val();
   var last_name = $('#lname').val();
@@ -166,16 +163,24 @@ function store(event) {
   var tehsil = $('#tehsil').val();
   var location = $('#loc').val();
   var description = $('#textarea_d').val();
-
+  if (image_names.length === 0) {
+    alert("Please select at least one image.");
+    return; 
+}
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'nursery_data';
   var token = localStorage.getItem('token');
+
   var headers = {
       'Authorization': 'Bearer ' + token
   };
 
-  // Create FormData object
   var data = new FormData();
+
+  for (var x = 0; x < image_names.length; x++) {
+      data.append('images[]', image_names[x]);
+  }
+
   data.append('nursery_name', name);
   data.append('first_name', first_name);
   data.append('last_name', last_name);
@@ -185,9 +190,7 @@ function store(event) {
   data.append('tehsil', tehsil);
   data.append('address', location);
   data.append('description', description);
-  data.append('generated_image', generatedImage); // Add the generated image as a Base64 string
 
-  // Send the AJAX request
   $.ajax({
       url: url,
       type: "POST",
@@ -197,12 +200,20 @@ function store(event) {
       contentType: false,
       success: function (result) {
           console.log('Success:', result);
+
+          // Close the modal
           $('#staticBackdrop').modal('hide');
+
+          // Clear form values
           $('#name, #fname, #lname, #number, #state_, #dist, #tehsil, #loc, #textarea_d, #_image').val('');
-          alert('Successfully inserted!');
+
+          // Reload the page (try without forcing a full reload)
+         alert('Successfully inserted!');
+        //  window.location.reload();
       },
       error: function (error) {
           console.error('Error:', error);
+
           alert('Error inserting data. See console for details.');
       }
   });
@@ -575,7 +586,6 @@ function edit_data_id(id) {
   });
 
 }
-
 // function edit_data_id(id) {
 //   var edit_id = $("#userId").val();
 //   var nursery_name = $("#nursery_name2").val();

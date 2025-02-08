@@ -835,26 +835,26 @@ function destroy(id) {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             success: function (data) {
-                console.log(data);
-                const select = document.getElementById('model_model');
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-      
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
-                        select.appendChild(option);
-      
-                        // Select the option if it matches the selectedModel
-                        if (row.model === selectedModel) {
-                            option.selected = true;
-                        }
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            },
+              console.log(data);
+              const select = document.getElementById('model_model');
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    
+              if (Array.isArray(data.model) && data.model.length > 0) {
+                  data.model.forEach(modelName => {
+                      const option = document.createElement('option');
+                      option.textContent = modelName; // Directly use the model name as a string
+                      option.value = modelName;
+                      select.appendChild(option);
+    
+                      // Auto-select the option if it matches the selectedModel
+                      if (selectedModel && modelName === selectedModel) {
+                          option.selected = true;
+                      }
+                  });
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          },
             error: function (error) {
                 console.error('Error fetching data:', error);
             }

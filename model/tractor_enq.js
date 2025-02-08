@@ -202,14 +202,15 @@ function get_model(brand_id) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
+          console.log(data);
           const select = document.getElementById('mode_l');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.model.length > 0) {
-              data.model.forEach(row => {
+          if (Array.isArray(data.model) && data.model.length > 0) {
+              data.model.forEach(modelName => { // Corrected for array of strings
                   const option = document.createElement('option');
-                  option.textContent = row.model;
-                  option.value = row.model;
+                  option.textContent = modelName; // Use the string directly
+                  option.value = modelName;
                   select.appendChild(option);
               });
           } else {
@@ -221,6 +222,8 @@ function get_model(brand_id) {
       }
   });
 }
+
+// Call the function to populate brand dropdown
 get();
 
 //****delete data***
@@ -531,7 +534,7 @@ function get_1() {
               });
               select.addEventListener('change', function() {
                   const selectedBrandId = this.value;
-                  get_model(selectedBrandId);
+                  get_model_1(selectedBrandId);
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';
@@ -552,17 +555,18 @@ function get_model_1(brand_id, selectedModel) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          
+          console.log(data);
           const select = document.getElementById('model_name_1');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.model.length > 0) {
-              data.model.forEach(row => {
+          if (Array.isArray(data.model) && data.model.length > 0) {
+              data.model.forEach(modelName => { // Fixed: Handling array of strings
                   const option = document.createElement('option');
-                  option.textContent = row.model;
-                  option.value = row.model;
+                  option.textContent = modelName; // Directly use the string
+                  option.value = modelName;
                   select.appendChild(option);
-                  if (row.model === selectedModel) {
+
+                  if (modelName === selectedModel) {
                       option.selected = true;
                   }
               });
@@ -575,4 +579,5 @@ function get_model_1(brand_id, selectedModel) {
       }
   });
 }
+
 get_1();

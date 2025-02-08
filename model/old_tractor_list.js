@@ -181,7 +181,9 @@ $(document).ready(function() {
     }
     
     function get_model(brand_id) {
-      var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+      var product_type_id = 1; 
+      var url = `http://tractor-api.divyaltech.com/api/customer/get_brand_model/${brand_id}?product_type_id=${product_type_id}`;
+      // var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
       console.log('Requesting models for brand ID:', brand_id); // Debugging statement
       $.ajax({
           url: url,
@@ -194,20 +196,20 @@ $(document).ready(function() {
               const selects = document.querySelectorAll('#model');
     
               selects.forEach(select => {
-                  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-                  if (data.model && data.model.length > 0) {
-                      data.model.forEach(row => {
-                          const option = document.createElement('option');
-                          option.textContent = row.model;
-                          option.value = row.model;
-                          console.log('Adding model:', option); // Debugging statement
-                          select.appendChild(option);
-                      });
-                  } else {
-                      select.innerHTML = '<option>No valid data available</option>';
-                  }
-              });
+                // Clear the existing options
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+            
+                if (Array.isArray(data.model) && data.model.length > 0) {
+                    data.model.forEach(modelName => {
+                        const option = document.createElement('option');
+                        option.textContent = modelName;  // Directly use the model name string
+                        option.value = modelName;
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
           },
           error: function (error) {
               console.error('Error fetching model data:', error);
@@ -872,7 +874,9 @@ get_By_State();
   }
   
   function get_model_1(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var product_type_id = 1; 
+    var url = `http://tractor-api.divyaltech.com/api/customer/get_brand_model/${brand_id}?product_type_id=${product_type_id}`;
+    
     console.log('Requesting models for brand ID:', brand_id); // Debugging statement
     $.ajax({
         url: url,
@@ -885,20 +889,20 @@ get_By_State();
             const selects = document.querySelectorAll('#model_name');
   
             selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
-                if (data.model && data.model.length > 0) {
-                    data.model.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
-                        console.log('Adding model:', option); // Debugging statement
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
+              // Clear the existing options
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+          
+              if (Array.isArray(data.model) && data.model.length > 0) {
+                  data.model.forEach(modelName => {
+                      const option = document.createElement('option');
+                      option.textContent = modelName;  // Directly use the model name string
+                      option.value = modelName;
+                      select.appendChild(option);
+                  });
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          });
         },
         error: function (error) {
             console.error('Error fetching model data:', error);
