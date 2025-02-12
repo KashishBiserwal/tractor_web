@@ -13,7 +13,7 @@ $(document).ready(function () {
 // insert data
 function get_otp() {
     var phone = $('#phone').val();
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "http://127.0.0.1:8000/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
       };
@@ -44,7 +44,7 @@ function verifyotp() {
   var mobile1 = localStorage.getItem('mobile');
   var id = localStorage.getItem('id');
 
-  var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+  var url = 'http://127.0.0.1:8000/api/customer/verify_otp';
   $.ajax({
     url: url,
     type: "POST",
@@ -87,19 +87,20 @@ function verifyotp() {
     error: function (xhr, textStatus, errorThrown) {
       // Handle errors
       console.log(xhr.status, 'error');
-      if (xhr.status === 401) {
-        console.log('Invalid credentials');
-        var htmlcontent = `<p>Invalid credentials!</p>`;
-        document.getElementById("error_message").innerHTML = htmlcontent;
-      } else if (xhr.status === 403) {
-        console.log('Forbidden: You don\'t have permission to access this resource.');
-        var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
-        document.getElementById("error_message").innerHTML = htmlcontent;
-      } else {
-        console.log('An error occurred:', textStatus, errorThrown);
-        var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-        document.getElementById("error_message").innerHTML = htmlcontent;
-      }
+      // if (xhr.status === 401) {
+      //   console.log('Invalid credentials');
+      //   var htmlcontent = `<p>Invalid credentials!</p>`;
+      //   document.getElementById("error_message").innerHTML = htmlcontent;
+      // } 
+      // else if (xhr.status === 403) {
+      //   console.log('Forbidden: You don\'t have permission to access this resource.');
+      //   var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+      //   document.getElementById("error_message").innerHTML = htmlcontent;
+      // } else {
+      //   console.log('An error occurred:', textStatus, errorThrown);
+      //   var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+      //   document.getElementById("error_message").innerHTML = htmlcontent;
+      // }
     },
   });
 }

@@ -19,6 +19,13 @@
   gtag('js', new Date());
   gtag('config', 'G-6Z38E658LD');
 </script>
+<style>
+    @media (max-width: 768px) {
+        .mt-5 {
+            margin-top: 16px !important; 
+        }
+    }
+</style>
 <body>
    <?php
    include 'includes/header.php';
@@ -182,24 +189,24 @@
 </section>
 
 <section>
-    <div class="container my-5">
+    <div class="container mt-1">
         <h3 class="fw-bold assured px-3 py-2">Latest Tractor Price List 2023</h3>
-        <div class="" role="alert">
+        <div class="" role="alert" style="text-align:justify">
             <p class="text-dark">The latest tractor brands in India are now in one place. Find out the best tractor in India for your agriculture needs. We are provides you Latest Tractors in India at an affordable latest tractor price. Popular latest tractors in India are Swaraj 963 FE, Mahindra Arjun Novo 605 Di-i, Sonalika DI 745 III, and many more.</p>
         </div>
         <table class="table table-striped my-3">
             <thead class="">
                 <tr class="py-3">
-                <th scope="col">Latest Tractor Models</th>
-                <th scope="col">Tractor HP</th>
-                <th scope="col">Latest Tractors Price</th>
+                <th scope="col" class="col-4 col-sm-4 col-md-4">Latest Tractor Models</th>
+                <th scope="col" class="col-4 col-sm-4 col-md-4">Tractor HP</th>
+                <th scope="col" class="col-4 col-sm-4 col-md-4">Latest Tractors Price</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="">
-                    <td class="col-12 col-lg-5 col-md-5 col-sm-5 py-3">Mahindra Arjun Novo 605 Di-i 2WD</td>
-                    <td class="col-12 col-lg-3 col-md-3 col-sm-3 py-3">57 HP</td>
-                    <td class="col-12 col-lg-4 col-md-4 col-sm-4 py-3">Rs. 8.75-8.95 lac*</td>
+                    <td class="py-3">Mahindra Arjun Novo 605 Di-i 2WD</td>
+                    <td class="py-3">57 HP</td>
+                    <td class="py-3">Rs. 8.75-8.95 lac*</td>
                 </tr>
                 <tr  class="py-3">
                     <td class="py-3">Mahindra Oja 3140 4WD</td>

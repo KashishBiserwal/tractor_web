@@ -8,6 +8,9 @@
         include 'includes/headertagadmin.php';
     ?>
     <style>
+        .swiper-slide_buy .img_buy{
+            width: 89% !important;
+        }
         .form-outline .form-label {
             color: #454444;
             font-weight: 500;
@@ -66,6 +69,40 @@
             background: #04AA6D;
             cursor: pointer;
         }
+        @media (max-width: 768px) {
+    section.mt-3.pt-5 {
+        margin-top: 1rem !important;
+        padding-top: 2rem !important;
+    }
+
+    .container .mt-5.pt-3 {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+}
+@media (max-width: 768px) {
+    .container .float-end {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .form-label {
+        font-size: 14px; 
+    }
+}
+@media (min-width: 768px) { 
+    .mobile-screen-edit {
+        display: none !important; /* Hide on desktop */
+    }
+}
+
+@media (max-width: 767px) { 
+    .mobile-screen-edit {
+        display: flex !important; /* Show on mobile */
+    }
+}
+
+
     </style>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
@@ -98,20 +135,24 @@
                 <img src="assets/images/emi_tractor.png" alt="reload img" class="w-100 p-0 m-0" style="height: 350px;">
             </div>
         </div>
-        <div class="container mt-4 p-0">
-            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
-                <div class="col">
-                    <div class="card bg-light">
-                    <div class="card-body">
-                        <h3 class="card-title fw-bold assured px-2">Tractor Loan EMI Calculator</h3>
-                            <p class="py-2">Discover the ease of financial planning with BharatAgrimart's's user-friendly Tractor Loan EMI Calculator. It's designed to make your life simpler. With our EMI calculator, you can quickly find out how much your tractor EMI will be, the total interest you'll pay, and the overall amount. Just enter some important details like -</p>
-                            <div id="moreContent" style="display:none;">
+        <div class="container mt-4 px-3">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card bg-light mx-auto" style="max-width: 100%;">
+                        <div class="card-body">
+                            <h3 class="card-title fw-bold assured px-2">Tractor Loan EMI Calculator</h3>
+                            <p class="py-2 p-2" style="text-align:justify">
+                                Discover the ease of financial planning with BharatAgrimart's user-friendly Tractor Loan EMI Calculator. 
+                                It's designed to make your life simpler. With our EMI calculator, you can quickly find out how much your tractor EMI will be, 
+                                the total interest you'll pay, and the overall amount. Just enter some important details like -
+                            </p>
+                            <div class="p-2" id="moreContent" style="display:none;">
                                 <ul>
                                     <li>(a) The amount you're borrowing</li>
                                     <li>(b) The interest rate</li>
                                     <li>(c) And how long you'll be repaying the loan</li>
                                 </ul>
-                                <p>BharatAgrimart's is here to help you make your tractor ownership dreams come true without any confusion or hassle.</p>
+                                <p class="p-2" style="text-align:justify">BharatAgrimart's is here to help you make your tractor ownership dreams come true without any confusion or hassle.</p>
                             </div>
                             <a href="javascript:void(0)" class="text-primary read-more text-decoration-none fw-bold float-end" onclick="toggleContent()">Read More</a>
                         </div>
@@ -170,7 +211,7 @@
         <section class="my-4">
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">About Tractor Loan EMI Calculator in India</h3>
-                <div class="" role="alert">
+                <div class="" role="alert" style="text-align:justify">
                     <p>EMI is the monthly payment to repay a loan. It includes interest and principal. The amount is
                         divided by the loan term.
                     </p>
@@ -236,7 +277,7 @@
         <section class="my-4">
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">How to Use a Tractor EMI Calculator?</h3>
-                <div class="" role="alert">
+                <div class="" role="alert" style="text-align:justify">
                     <p>Calculating your tractor loan EMI is a breeze with our user-friendly EMI Calculator. Here's how to go
                         about it:
                     </p>
@@ -265,7 +306,7 @@
         <section class="my-4">
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">Why Use Tractor Loan EMI Calculator?</h3>
-                <div class="" role="alert">
+                <div class="" role="alert" style="text-align:justify">
                     <p>Our offered <span class="fw-bold">tractor EMI calculator</span> is convenient to use and offers quick
                         calculations so that you can make wise decisions before financing your tractor. This well-programmed
                         tool helps you get the precise amount or sum that you would have to pay to buy your new or used
@@ -447,15 +488,15 @@
                 </div>
             </div>
         </section>
-        <div class="container mt-2 mb-4">
-            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
-                <div class="col">
-                    <div class="card bg-light">
+        <div class="container mt-4 px-3">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card bg-light mx-auto" style="max-width: 100%;">
                         <div class="card-body">
                             <h3 class="card-title  fw-bold assured px-2"><span id="main_brand"></span> <span id="brand_model"></span> Tractor loan EMI Calculator</h3>
                         
                             <div class="more-content">
-                                <p id="description"></p>
+                                <p class="p-2" id="description" style="text-align:justify"></p>
                             </div>
                             </p>
                             <a href="javascript:void(0)"
@@ -494,7 +535,7 @@
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header bg-success">
                                         <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel"><span id ="emi_1_brand"></span> , <span id="emi_1_model"></span></h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
                                     </div>
@@ -573,10 +614,17 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" id="button_hire" class="btn btn-danger"  data-bs-dismiss="modal" onclick="savedata()">Request</button>
+                                        <button type="button" id="button_hire" class="btn btn-success"  data-bs-dismiss="modal" onclick="savedata()">Request</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row mobile-screen-edit text-end">
+                        <div class="">
+                            <a href="emi.php">
+                                <button class="">Edit <i class="fas fa-edit"></i></button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-sm-6 col-lg-6 mt-5">
@@ -588,13 +636,11 @@
                                 <input type="text" class="form-control" id="emiAmount" readonly>
                             </div>
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
-                                <label for="exShowroomPrice" class="form-label h5 text-dark fw-bold">Ex-showroom
-                                    Price</label>
+                                <label for="exShowroomPrice" class="form-label h5 text-dark fw-bold">Ex-showroom Price</label>
                                 <input type="text" class="form-control" id="exShowroomPrice" value="" readonly>
                             </div>
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
-                                <label for="totalLoanAmount" class="form-label h5 text-dark fw-bold">Total Loan
-                                    Amount</label>
+                                <label for="totalLoanAmount" class="form-label h5 text-dark fw-bold">Total Loan Amount</label>
                                 <input type="text" class="form-control" id="totalLoanAmount" readonly>
                             </div>
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
@@ -613,58 +659,57 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div class="container shadow mt-5 mb-3">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
-                        <label for="downPayment" class="form-label fw-bold text-dark h5 ">Downpayment (₹)</label>
-                        <input type="range" class="form-range" id="downPaymentRange" min="0" max="" step="10000"
-                            value="10">
-                        <input type="number" class="form-control mt-2 w-25" id="downPayment" min="0" max="" value="10">
-                        <div class="invalid-feedback" id="downPaymentError"></div>
-                    </div>
-                    <div class=" col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
-                        <label for="interestRate" class="form-label fw-bold text-dark h5 ">Bank Interest Rate
-                            (%)</label>
-                        <input type="range" class="form-range" id="interestRateRange" min="11" max="25" value="15">
-                        <input type="number" class="form-control mt-2 w-25" id="interestRate" min="11" max="25" value="15">
-                        <div class="invalid-feedback" id="interestRateError"></div>
-                        <!-- <input type="range" class="form-range" id="interestRate" min="11" max="22" value="15">
-                        <input type="number" class="form-control  w-25" id="interestRateValue" value="15" readonly> -->
-                    </div>
+    <section>
+        <div class="container mt-5 mb-3">
+            <div class="row">
+                <!-- Downpayment -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12 py-2 mt-2 mb-1">
+                    <label for="downPayment" class="form-label fw-bold text-dark h6">Downpayment (₹)</label>
+                    <input type="range" class="form-range" id="downPaymentRange" min="0" max="" step="10000" value="10">
+                    <input type="number" class="form-control mt-2" id="downPayment" min="0" max="" value="10">
+                    <div class="invalid-feedback" id="downPaymentError"></div>
+                </div>
 
-                    <!-- Loan Period -->
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
-                        <label for="loanPeriod" class="form-label fw-bold text-dark h5 ">Loan Period (Months)</label>
-                        <select class="form-select w-25" id="loanPeriod">
-                            <option value="12">12</option>
-                            <option value="18">18</option>
-                            <option value="24">24</option>
-                            <option value="30">30</option>
-                            <option value="36">36</option>
-                            <option value="42">42</option>
-                            <option value="48">48</option>
-                            <option value="54">54</option>
-                            <option value="60" selected>60</option>
-                            <option value="66">66</option>
-                            <option value="72">72</option>
-                            <option value="78">78</option>
-                            <option value="84">84</option>
-                        </select>
-                    </div>
-                    <!-- Repayment Interval -->
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
-                        <label for="repaymentInterval" class="form-label fw-bold text-dark h5">Repayment
-                            Interval</label>
-                        <select class="form-select w-25" id="repaymentInterval">
-                            <option value="monthly" selected>Monthly</option>
-                            <option value="quarterly">Quarterly</option>
-                            <option value="halfYearly">Half-Yearly</option>
-                        </select>
-                    </div>
+                <!-- Interest Rate -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12 py-2 mt-2 mb-1">
+                    <label for="interestRate" class="form-label fw-bold text-dark h6">Bank Interest Rate (%)</label>
+                    <input type="range" class="form-range" id="interestRateRange" min="11" max="25" value="15">
+                    <input type="number" class="form-control mt-2" id="interestRate" min="11" max="25" value="15">
+                    <div class="invalid-feedback" id="interestRateError"></div>
+                </div>
+
+                <!-- Loan Period -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12 py-2 mt-2 mb-1">
+                    <label for="loanPeriod" class="form-label fw-bold text-dark h6">Loan Period (Months)</label>
+                    <select class="form-select" id="loanPeriod">
+                        <option value="12">12</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="30">30</option>
+                        <option value="36">36</option>
+                        <option value="42">42</option>
+                        <option value="48">48</option>
+                        <option value="54">54</option>
+                        <option value="60" selected>60</option>
+                        <option value="66">66</option>
+                        <option value="72">72</option>
+                        <option value="78">78</option>
+                        <option value="84">84</option>
+                    </select>
+                </div>
+
+                <!-- Repayment Interval -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12 py-2 mt-2 mb-1">
+                    <label for="repaymentInterval" class="form-label fw-bold text-dark h6">Repayment Interval</label>
+                    <select class="form-select" id="repaymentInterval">
+                        <option value="monthly" selected>Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="halfYearly">Half-Yearly</option>
+                    </select>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </section>
     <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -737,7 +782,7 @@ $("#brandModelForm").submit(function(event) {
         'model': model,
     };
     var url = "<?php echo $CustomerAPIBaseURL; ?>get_price_by_brand_model";
-    
+    // var url = 'http://127.0.0.1:8000/api/customer/get_price_by_brand_model'
     $.ajax({
         url: url,
         method: "POST",

@@ -122,6 +122,14 @@
   display: block;
   z-index: 5;
 }
+#home-banner {
+    margin-top: 67px;
+}
+  }
+  @media (max-width: 767px) {
+  /* Hide the content of Latest and Upcoming tabs initially on mobile */
+  .tab-pane:not(.active) {
+    display: none !important;
   }
 }
 </style>
@@ -255,65 +263,59 @@
   </div>
 </section>
 <section class="" id="">
-  <div class="container ">
+  <div class="container">
     <h4 class="display-6 fw-bold">Tractors in <span class="text-success">2023</span></h4>
     <nav class="">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Polpular</a>
-        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-contact-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Latest</a>
-        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">Upcoming</a>
+        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
+        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Latest</a>
+        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">Upcoming</a>
       </div>
     </nav>
     <div class="tab-content p-3 mt-4" id="nav-tabContent">
-      <div class="tab-pane fade active show justify-content-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="row  justify-content-between">
-          <div class="col-12 p-0">
-            <div class="position-relative justify-content-center" id="proj_swip">
-              <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                <div class="swiper-wrapper " id="popular_tractor"></div>
-                <div class="swiper-pagination"></div>
+      <!-- Popular Tab -->
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <section class="section slider-section">
+          <div class="container slider-column">
+            <div class="carousel-wrap">
+              <div class="owl-carousel" id="popular_tractor"> </div>
+              <div class="col text-center pb-4">
+                <a href="popular_tractors.php" class="btn btn-success px-5">View all Popular Tractors</a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col text-center py-4 mt-3">
-          <a href="popular_tractors.php" class="btn btn-success btn-lg">View all Popular Tractors</a>
-        </div>
+        </section>
       </div>
-      <div class="tab-pane fade justify-content-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-        <div class="row  justify-content-between  ">
-          <div class="col-12 p-0">
-            <div class="position-relative justify-content-center" id="proj_swip">
-              <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                <div class="swiper-wrapper " id="Latest_tractor"></div>
-                <div class="swiper-pagination"></div>
+      <!-- Latest Tab -->
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <section class="section slider-section">
+          <div class="container slider-column">
+            <div class="carousel-wrap">
+              <div class="owl-carousel" id="Latest_tractor"> </div>
+              <div class="col text-center pb-4">
+                <a href="latest_tractor.php" class="btn btn-success px-5">View all Latest Tractors</a>
               </div>
             </div>
           </div>
-          <div class="col text-center pb-4 mt-5 pt-2">
-            <a href="latest_tractor.php" class="btn btn-success btn-lg">View all Latest Tractors</a>
-          </div>
-        </div>
+        </section>
       </div>
-      <div class="tab-pane fade justify-content-center" id="nav-Personal" role="tabpanel" aria-labelledby="nav-Personal-tab">
-        <div class="row  justify-content-between  ">
-          <div class="col-12 p-0">
-            <div class="position-relative justify-content-center" id="proj_swip">
-              <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                <div class="swiper-wrapper " id="upcoming_tractor"></div>
-                <!-- </div> -->
-                <div class="swiper-pagination"></div>
+      <!-- Upcoming Tab -->
+      <div class="tab-pane fade" id="nav-Personal" role="tabpanel" aria-labelledby="nav-Personal-tab">
+        <section class="section slider-section">
+          <div class="container slider-column">
+            <div class="carousel-wrap">
+              <div class="owl-carousel" id="upcoming_tractor"> </div>
+              <div class="col text-center pb-4">
+                <a href="upcoming_tractors.php" class="btn btn-success px-5">View all Upcoming Tractors</a>
               </div>
             </div>
           </div>
-          <div class="col text-center pb-4 mt-5 pt-2">
-            <a href="upcoming_tractors.php" class="btn btn-success btn-lg">View all Upcoming Tractors</a>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
   </div>
 </section>
+
 <section class="bg-light">
   <div class="container">
     <h4 class=" py-1 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h4>
@@ -399,7 +401,7 @@
             <div class="ps-3">
               <a href="tractor_by_budget.php?budget=11 Lakh Above" class="text-decoration-none text-dark">
                 <h5 class="fw-bold  bgd_list">
-                  <i class="fas fa-tractor p-2 bg-success  bgd_list_i  opacity-25"></i> &nbsp;&nbsp; Above 10 lakh
+                  <i class="fas fa-tractor p-2 bg-success bgd_list_i opacity-25"></i> &nbsp;&nbsp; Above 10 lakh
                 </h5>
               </a>
             </div>
@@ -1067,7 +1069,7 @@ function closeForm() {
 }
 </script>
 <script>
-// fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_brands')
+// fetch('http://127.0.0.1:8000/api/customer/get_new_tractor_brands')
 //   .then(response => response.json())
 //   .then(data => {
 //     const brandSelect = document.getElementById('brand');
@@ -1086,7 +1088,7 @@ document.getElementById('Search').addEventListener('click', function() {
   var hpValue = document.getElementById('hp').value;
   
   if (brandId) {
-    fetch('http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_brands/' + brandId)
+    fetch('http://127.0.0.1:8000/api/customer/get_new_tractor_by_brands/' + brandId)
       .then(response => response.json())
       .then(data => {
         if (data.product && data.product.allProductData.length === 0 && data.product.accessory_and_tractor_type.length === 0) {

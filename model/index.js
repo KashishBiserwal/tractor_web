@@ -10,7 +10,7 @@ $(document).ready(function() {
 });
 
 function getpopularTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
     $.ajax({
         url: url,
         type: "GET",
@@ -38,24 +38,52 @@ function getpopularTractorList() {
                                 a = [images];
                             }
                         }
-                        var newCard = `<div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-75">
-                        <a class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
-                        <div class="thumb">
-                               <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
-                         </div>
-                        <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
-                            <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                            <button type="button" class="add_btn btn-success w-100 mt-2">
-                                <i class="fa-regular fa-handshake"></i> Get on Road Price
-                            </button>
-                         </div>
-                      </a>
-                       </div>`;
+                        var newCard =  `<div class="item box_shadow b-t-1">
+                                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                                <div class="harvester_img_section">
+                                                    <img src="http://127.0.0.1:8000/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
+                                                </div>
+                                            </a>
+                                            <div class="harvester_content_section mt-3 text-center">
+                                                <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
+                                                <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                    <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                                </button>
+                                            </div>
+                                        <div> ` ;
                     productContainer.append(newCard);
                 
                     }
                 });
+                productContainer.owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            loop: false
+                        }
+                    },
+                    onInitialized: function() {
+                        $(".swiper-slide").css('height', 'auto');
+                    }
+                });
+                
             }
         },
         error: function (error) {
@@ -64,7 +92,7 @@ function getpopularTractorList() {
     });
 }
 function getUpcomingTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
     $.ajax({
         url: url,
         type: "GET",
@@ -90,22 +118,50 @@ function getUpcomingTractorList() {
                                 a = [images];
                             }
                         }
-                        var newCard3 = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-75">
-                        <a   class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
-                        <div class="thumb">
-                               <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
-                         </div>
-                        <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
-                            <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                            <button type="button" class="add_btn btn-success w-100 mt-2">
-                                <i class="fa-regular fa-handshake"></i> Get on Road Price
-                            </button>
-                         </div>
-                      </a>
-                       </div>`;
+                        var newCard3 = 
+                       `<div class="item box_shadow b-t-1">
+                       <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                           <div class="harvester_img_section">
+                               <img src="http://127.0.0.1:8000/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
+                           </div>
+                       </a>
+                       <div class="harvester_content_section mt-3 text-center">
+                           <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
+                           <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                           <button type="button" class="add_btn btn-success w-100 mt-2">
+                               <i class="fa-regular fa-handshake"></i> Get on Road Price
+                           </button>
+                       </div>
+                   <div> ` ;
                       productContainer3.append(newCard3);
                     }
+                    });
+                    productContainer3.owlCarousel({
+                        items: 4,
+                        loop: true,
+                        margin: 10,
+                        nav: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        responsiveClass: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                nav: false
+                            },
+                            600: {
+                                items: 3,
+                                nav: false
+                            },
+                            1000: {
+                                items: 4,
+                                nav: true,
+                                loop: false
+                            }
+                        },
+                        onInitialized: function() {
+                            $(".swiper-slide").css('height', 'auto');
+                        }
                     });
                 }
             },
@@ -116,7 +172,7 @@ function getUpcomingTractorList() {
     }
 
 function getminiTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
     $.ajax({
         url: url,
         type: "GET",
@@ -145,7 +201,7 @@ function getminiTractorList() {
                         var newCard3 = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
                         <a   class="text-decoration-none" href="detail_tractor.php?product_id=${p.product_id}">
                             <div class="thumb">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
+                                <img src="http://127.0.0.1:8000/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
                             </div>
                             <div class="new-tractor-content text-center b-t-1">
                                 <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
@@ -168,7 +224,7 @@ function getminiTractorList() {
     }
 
 function getLatestTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
     $.ajax({
         url: url,
         type: "GET",
@@ -194,21 +250,49 @@ function getLatestTractorList() {
                                 a = [images];
                             }
                         }
-                        var newCard2 = `<div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-75">
-                                            <a  class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
-                                                <div class="thumb">
-                                                       <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
-                                                 </div>
-                                                <div class="new-tractor-content text-center b-t-1">
-                                                    <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
-                                                    <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                                                    <button type="button" class="add_btn btn-success w-100 mt-2">
-                                                        <i class="fa-regular fa-handshake"></i> Get on Road Price
-                                                    </button>
-                                                </div>
-                                            </a>
-                                        </div>`;
-                      productContainer2.append(newCard2);
+                        var newCard2 =  
+                        `<div class="item box_shadow b-t-1">
+                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                <div class="harvester_img_section">
+                                    <img src="http://127.0.0.1:8000/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="harvester_content_section mt-3 text-center">
+                                <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
+                                <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                    <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                </button>
+                            </div>
+                        <div> ` ;
+                        productContainer2.append(newCard2);
+                    }
+                });
+                productContainer2.owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            loop: false
+                        }
+                    },
+                    onInitialized: function() {
+                        $(".swiper-slide").css('height', 'auto');
                     }
                 });
             }
@@ -219,7 +303,7 @@ function getLatestTractorList() {
     });
 }
 function get_harvester() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_harvester";
     $.ajax({
         url: url,
         type: "GET",
@@ -240,7 +324,7 @@ function get_harvester() {
                 <div class="item box_shadow b-t-1">
                     <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
                         <div class="harvester_img_section">
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="" loading="lazy">
+                        <img src="http://127.0.0.1:8000/uploads/product_img/${a[0]}" alt="" loading="lazy">
                         <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
                         </div>
                     </a>
@@ -291,7 +375,7 @@ function get_harvester() {
 }
 
 function get_oldharvester() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";
+    var url = "http://127.0.0.1:8000/api/customer/get_old_harvester";
     $.ajax({
         url: url,
         type: "GET",
@@ -312,7 +396,7 @@ function get_oldharvester() {
                 <div class="item box_shadow b-t-1">
               <a  href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold">
                 <div class="harvester_img_section">
-                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="" loading="lazy">
+                  <img src="http://127.0.0.1:8000/uploads/product_img/${a[0]}" alt="" loading="lazy">
                   <div href="used_harvester_inner.php?id=${p.customer_id}" class="over-layer"><i class="fa fa-link"></i></div>
                 </div>
               </a>
@@ -362,7 +446,7 @@ function get_oldharvester() {
 }
 
 function get_All_News() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/news_details";
+    var url = "http://127.0.0.1:8000/api/customer/news_details";
     $.ajax({
         url: url,
         type: "GET",
@@ -383,7 +467,7 @@ function get_All_News() {
                 <div class="item box_shadow b-t-1">
                     <div class="thumb">
                         <a href="news_content.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
+                            <img src="http://127.0.0.1:8000/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">
@@ -400,30 +484,33 @@ function get_All_News() {
                 </div> `;
                 productContainer.append(newCard);
          });
-            productContainer.owlCarousel({
-                items:4,
-                loop: true,
-                margin: 10,
-                nav: true, 
-                autoplay: true, 
-                autoplayTimeout: 3000,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false
-                    },
-                    600: {
-                        items: 3,
-                        nav: false
-                    },
-                    1000: {
-                        items: 4,
-                        nav: true,
-                        loop: false
-                    }
+         productContainer.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 4,
+                    nav: true,
+                    loop: false
                 }
-            });
+            },
+            onInitialized: function() {
+                $(".swiper-slide").css('height', 'auto');
+            }
+        });
         }
     },
     error: function(error) {
@@ -433,7 +520,7 @@ function get_All_News() {
 }
 
 function get_blog() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/blog_details";
+    var url = "http://127.0.0.1:8000/api/customer/blog_details";
     $.ajax({
         url: url,
         type: "GET",
@@ -454,7 +541,7 @@ function get_blog() {
                 <div class="item box_shadow b-t-1">
                     <div class="thumb">
                         <a href="blog_customer_inner.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
+                            <img src="http://127.0.0.1:8000/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
                        </a> </a>
                     </div>
                     <div class="content mb-3 ms-3">
@@ -508,7 +595,7 @@ function get_blog() {
     });
 }
   function get_brand() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'http://127.0.0.1:8000/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
