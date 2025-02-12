@@ -20,6 +20,13 @@
 
   gtag('config', 'G-6Z38E658LD');
 </script>
+<style>
+    @media (max-width: 768px) {
+        .mt-5 {
+            margin-top: 20px !important; 
+        }
+    }
+</style>
 <body>
    <?php
     include 'includes/header.php';
@@ -127,7 +134,7 @@
     </div>
 </section>
     <section>
-        <div class="container mt-5"> 
+        <div class="container mt-4"> 
             <h3 class="fw-bold assured px-3 ">Tractors By HP</h3>
             <div class="row my-4">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">

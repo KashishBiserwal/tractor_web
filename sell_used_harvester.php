@@ -131,6 +131,14 @@
     width: 160px;
     height: 125px;
 }
+@media (max-width: 768px) {
+        .mobile-home-page {
+            margin-top: -28px  !important; 
+        }
+        .mobilescreen{
+            display:none  ;
+        }
+    }
 </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -145,7 +153,7 @@
    <?php
         include 'includes/header.php';
    ?>
-<section class="bg-light mt-3 pt-5">
+<section class="bg-light mt-3 pt-5 mobile-home-page">
     <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
@@ -170,7 +178,7 @@
     <div class="container-mid" style="position: relative;">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-5">
+                    <div id="container" class="container mt-5 p-0">
                         <form id="form-step-1" class="bg-light mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-3 col-md-3 col-sm-3">

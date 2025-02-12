@@ -28,6 +28,11 @@
     white-space: nowrap;
     text-overflow: ellipsis;
    }
+   @media (max-width: 768px) {
+        .mt-5 {
+            margin-top: 15px !important; 
+        }
+    }
 </style>
 
     <?php
@@ -79,7 +84,7 @@
                 <div id="productContainer_dealer" class="row "></div>
                 <div class="col-12 text-center mb-4">
                     <a href="certified_dealers.php">
-                        <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg">
+                        <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg p-2">
                             <i class="fas fa-undo"></i>View All
                         </button>
                     </a>

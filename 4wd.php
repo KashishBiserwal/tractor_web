@@ -28,6 +28,11 @@
         margin-bottom: 2px;
         font-size: 13px;
     }
+    @media (max-width: 768px) {
+        .mt-5 {
+            margin-top: 18px !important; 
+        }
+    }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -123,19 +128,14 @@
         </div>
     </div>
 </section>
-
-
-
-    <section>
-        <div class="container">
-            <h3 class="fw-bold assured px-2"> About 4WD Tractors</h3>
-                <p class="text-dark" id="4wd_descrip"></p>
-        </div>
+<section>
+    <div class="container">
+        <h3 class="fw-bold assured px-2"> About 4WD Tractors</h3>
+        <p class="text-dark" id="4wd_descrip" style="text-align:justify"></p>
+    </div>
     </section>
-
-
     <section>
-        <div class="container">
+        <div class="container mt-3">
             <h4 class="fw-bold assured px-2">Tractors By HP</h4>
             <div class="row my-4">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
