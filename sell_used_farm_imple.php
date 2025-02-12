@@ -154,6 +154,12 @@
             top: 32%;
             padding: 0 10px;
         }
+        .mobile-home-page {
+            margin-top: -28px  !important; 
+        }
+        .mobilescreen{
+            display:none;
+        }
     }
 </style>
 </head>
@@ -169,7 +175,7 @@
    <?php
    include 'includes/header.php';
    ?>
-<section class="bg-light mt-3 pt-5">
+<section class="bg-light mt-3 pt-5 mobile-home-page">
     <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
@@ -195,19 +201,19 @@
     <div class="container-mid" style="position: relative;">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-5">
+                    <div id="container" class="container mt-5 p-0">
                         <form id="form-step-1" class="bg-light mul_stp_frm"  method="post">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     <div class="float-start">Implement Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Implement Condition
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mobilescreen">
                                     <div class="text-center">Implement  Images</div>
                                 </div>
-                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2 mobilescreen">
                                     <div class="float-end">Personal Info</div>
                                 </div>                                
                             </div>
@@ -277,16 +283,16 @@
                         <!-- FORM 2 -->
                         <form id="form-step-2" class="bg-light mul_stp_frm" style="display:none;" method="post" action="">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     <div class="float-start">Implement Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Implement Condition
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mobilescreen">
                                     <div class="text-center">Implement  Images</div>
                                 </div>
-                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2 mobilescreen">
                                     <div class="float-end">Personal Info</div>
                                 </div>                                
                             </div>
@@ -326,16 +332,16 @@
                         <!-- FORM 3  -->
                         <form id="form-step-3" class="bg-light mul_stp_frm" style="display:none;" method="post" action="">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     <div class="float-start">Implement Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Implement Condition
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mobilescreen">
                                     <div class="text-center">Implement Images</div>
                                 </div>
-                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2 mobilescreen">
                                     <div class="float-end">Personal Info</div>
                                 </div>                                
                             </div>
@@ -373,16 +379,16 @@
                         </form>
                         <form id="form-step-4" class="bg-light mul_stp_frm" action="" method="post" style="display:none;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     <div class="float-start">Implement Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Implement Condition
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mobilescreen">
                                     <div class="text-center">Implement  Images</div>
                                 </div>
-                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2 mobilescreen">
                                     <div class="float-end">Personal Info</div>
                                 </div>                                
                             </div>
@@ -494,39 +500,40 @@
     </div>
 </section>
 <section class="bg-light">
-    <div class="container mt-4 ">
-        <div class="row">
-            <h5 class="bg-light assured py-1 ps-3">Quick links</h5>
-            <div class="col-12 col-md-6 col-lg-3 py-1">
-                <ul>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="find_new_tractors.php" class="text-decoration-none text-dark">New Tractor</a></li>                    
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="compare_trac.php" class="text-decoration-none text-dark">Compare</a></li>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="dealership_enq.php" class="text-decoration-none text-dark">Dealership Enquiry</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 py-1">
-                <ul>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="new_tractor_loan.php" class="text-decoration-none text-dark">Finance</a></li>                    
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="upcoming_tractors.php" class="text-decoration-none text-dark">Upcoming Tractors</a></li>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="popular_tractors.php" class="text-decoration-none text-dark">Popular Tractors</a></li> 
-                </ul>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 py-1">
-                <ul>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="used_tractor.php" class="text-decoration-none text-dark">Used Tractors</a></li>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="latest_tractor.php" class="text-decoration-none text-dark">Latest Tractors</a></li>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="Insurance.php" class="text-decoration-none text-dark">Insurance</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 py-1">
-                <ul>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="nursery_ui.php" class="text-decoration-none text-dark">Nursery</a></li>
-                    <li><i class="fa-solid fa-angles-right pe-1"></i><a href="engine_oil.php" class="text-decoration-none text-dark">Engine Oil</a></li>
-                </ul>
-            </div>
+<div class="container mt-4">
+    <div class="row">
+        <h5 class="bg-light assured py-1 ps-3 m-2">Quick links</h5>
+        <div class="col-6 col-md-6 col-lg-3 py-1">
+            <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="find_new_tractors.php" class="text-decoration-none text-dark">New Tractor</a></li>                    
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="compare_trac.php" class="text-decoration-none text-dark">Compare</a></li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="dealership_enq.php" class="text-decoration-none text-dark">Dealership Enquiry</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 py-1">
+            <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="new_tractor_loan.php" class="text-decoration-none text-dark">Finance</a></li>                    
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="upcoming_tractors.php" class="text-decoration-none text-dark">Upcoming Tractors</a></li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="popular_tractors.php" class="text-decoration-none text-dark">Popular Tractors</a></li> 
+            </ul>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 py-1">
+            <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="used_tractor.php" class="text-decoration-none text-dark">Used Tractors</a></li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="latest_tractor.php" class="text-decoration-none text-dark">Latest Tractors</a></li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="Insurance.php" class="text-decoration-none text-dark">Insurance</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 py-1">
+            <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="harvester.php" class="text-decoration-none text-dark">Harvester</a></li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="nursery_ui.php" class="text-decoration-none text-dark">Nursery</a></li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i><a href="engine_oil.php" class="text-decoration-none text-dark">Engine Oil</a></li>
+            </ul>
         </div>
     </div>
+</div>
+
 </section>
 
 <?php

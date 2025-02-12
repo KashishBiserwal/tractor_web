@@ -20,6 +20,11 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+    @media (max-width: 768px) {
+        .mt-5 {
+            margin-top: 10px !important; 
+        }
+    }
    </style>
     <?php
         include 'includes/header.php';
@@ -125,40 +130,40 @@
 <section class="my-3">
     <div class="container my-5">
         <h3 class="fw-bold assured px-3 py-2">Best 45-55 HP Tractor In India</h3>
-        <div class="" role="alert">
+        <div class="" role="alert" style="text-align:justify">
             <p class="text-dark py-3">Many Indian farmers use a 45-55 hp tractor for their everyday farming needs, including tasks like mowing, landscaping, and more. This range is suitable for Indian farming and comes with advanced technology at an affordable price in India. Some powerful 45 hp tractors are the Mahindra 575 DI, Kubota MU4501 2WD, John Deere 5045 D and many more. Following, we are showing the most popular 45-55 hp tractor price list in India -</p>
         </div>
-        <table class="table table-striped my-3">
-            <thead class="">
+        <table class="table table-striped my-3 table-responsive custom-table">
+            <thead>
                 <tr class="py-3">
-                <th scope="col">Tractor Model</th>
-                <th scope="col">Price Range (Rs. Lac)*</th>
+                    <th scope="col">Tractor Model</th>
+                    <th scope="col">Price Range (Rs. Lac)*</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="">
-                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Force SANMAN 5000</td>
-                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Rs. 7.16-7.43 Lakh*</td>
-                </tr>
-                <tr  class="py-3">
-                    <td class="py-3">Eicher 485</td>
-                    <td class="py-3">Rs. 6.50-6.70 Lakh*</td>
+                <tr class="py-3">
+                    <td class="col-6 py-3">Force SANMAN 5000</td>
+                    <td class="col-6 py-3">Rs. 7.16-7.43 Lakh*</td>
                 </tr>
                 <tr class="py-3">
-                    <td class="py-3">Farmtrac 45</td>
-                    <td class="py-3">Rs. 6.90-7.17 Lakh*</td>
-                </tr>
-                <tr class="">
-                    <td class="py-3">Sonalika DI 750III</td>
-                    <td class="py-3">Rs. 7.32-7.80 Lakh*</td>
-                </tr>
-                <tr  class="py-3">
-                    <td class="py-3">Powertrac EURO 55</td>
-                    <td class="py-3">Rs. 8.30-8.60 Lakh*</td>
+                    <td class="col-6 py-3">Eicher 485</td>
+                    <td class="col-6 py-3">Rs. 6.50-6.70 Lakh*</td>
                 </tr>
                 <tr class="py-3">
-                    <td class="py-3">Swaraj 960 FE</td>
-                    <td class="py-3">Rs. 8.20-8.50 Lakh*</td>
+                    <td class="col-6 py-3">Farmtrac 45</td>
+                    <td class="col-6 py-3">Rs. 6.90-7.17 Lakh*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="col-6 py-3">Sonalika DI 750III</td>
+                    <td class="col-6 py-3">Rs. 7.32-7.80 Lakh*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="col-6 py-3">Powertrac EURO 55</td>
+                    <td class="col-6 py-3">Rs. 8.30-8.60 Lakh*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="col-6 py-3">Swaraj 960 FE</td>
+                    <td class="col-6 py-3">Rs. 8.20-8.50 Lakh*</td>
                 </tr>
             </tbody>
         </table>

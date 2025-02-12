@@ -44,7 +44,14 @@
     .engine_name {
         font-size: 11px;
     }
+    .mt-130 {
+         margin-top: 72px  !important; 
+    }
 }
+.mt-130 {
+    margin-top: 117px;
+}
+
 </style>
 <body>
     <?php
@@ -71,17 +78,17 @@
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy"  style="height:74px;" id="swip_img"></div>
+                    <!-- <div thumbsSlider="" class="swiper mySwiper_buy"  style="height:74px;" id="swip_img"></div> -->
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                 <table class="table border bg-light ">
                     <tbody>
                         <tr>
-                            <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                            <td class="">
                                 <h5> <i class="fa-solid fa-award"></i> Brand</h5>
                             </td>
-                            <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                            <td class="">
                                 <h5><a href="mahindra.php" class="text-decoration-none h5 text-danger " id="brand_name"></a></h5>
                             </td>
                         </tr>
@@ -136,16 +143,18 @@
                     </tbody>
                 </table>
                 <div class="row my-3 text-center">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                        <button type="submit" class="btn btn-success w-100 fw-bold "data-bs-toggle="modal" data-bs-target="#staticBackdrop3" >Request Call Back
-                        </button>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                        <a href="new_tractor_loan.php"><button type="submit"
-                            class="btn btn-outline-success w-100 fw-bold ">VIEW LOAN OFFERS</button>
-                        </a>
-                    </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mb-lg-0">
+                    <button type="submit" class="btn btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                        Request Call Back
+                    </button>
                 </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <a href="new_tractor_loan.php">
+                        <button type="submit" class="btn btn-outline-success w-100 fw-bold">VIEW LOAN OFFERS</button>
+                    </a>
+                </div>
+            </div>
+
             </div>
         </div>
     </div>
@@ -209,101 +218,105 @@
 
     <section class="bg-light ">
         <div class="container ">
-            <div class="row  pt-4">
+            <div class="row table-and-card pt-4">
                 <div class="col-12 col-lg-8 col-md-8 col-sm-8">
                     <div class="about border-success  border-4 text-dark border-start">
                         <h4 class="text-dark fw-bold  ps-4"> About <span class="text-success brand_model"></span></h4>
                     </div>
-                    <p class="text-dark justify-content-center" id="description"></p>
+                    <p class="text-dark justify-content-center" id="description" style="text-align:justify"></p>
                     <div class="about border-success  border-4 text-dark border-start mt-4">
                         <h4 class="text-dark fw-bold text-start ps-2"> <span class="text-success brand_model"></span> Engine</h4>
                     </div>
-                    <table class="table  table-hover table table-striped my-4">
+                    <table class="table table-hover table-striped my-4">
                         <tbody>
-                            <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">No. Of Cylinder</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6" id="total_cyclinder_value"></td>
+                            <tr class="row">
+                                <td class="col-6 table-data">No. Of Cylinder</td>
+                                <td class="col-6 table-data" id="total_cyclinder_value"></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">HP Category</td>
-                                <td class="table-data"><span id="hp_category_id"></span> HP</td>
+                            <tr class="row">
+                                <td class="col-6 table-data">HP Category</td>
+                                <td class="col-6 table-data"><span id="hp_category_id"></span> HP</td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Capacity CC</td>
-                                <td class="table-data" ><span id="engine_capacity_cc"></span> CC</td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Capacity CC</td>
+                                <td class="col-6 table-data"><span id="engine_capacity_cc"></span> CC</td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Engine Rated RPM</td>
-                                <td class="table-data"><span id="engine_rated_rpm"></span> RPM</td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Engine Rated RPM</td>
+                                <td class="col-6 table-data"><span id="engine_rated_rpm"></span> RPM</td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Cooling</td>
-                                <td class="table-data" id="cooling_value"> </td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Cooling</td>
+                                <td class="col-6 table-data" id="cooling_value"></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Air Filter</td>
-                                <td class="table-data" id="air_filter"></td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Air Filter</td>
+                                <td class="col-6 table-data" id="air_filter"></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">PTO HP</td>
-                                <td class="table-data"><p><span id="horse_power_2"></span> HP</p> </td>
+                            <tr class="row">
+                                <td class="col-6 table-data">PTO HP</td>
+                                <td class="col-6 table-data"><p><span id="horse_power_2"></span> HP</p></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Fuel Pump</td>
-                                <td class="table-data"> <span id="fuel_value"></span></td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Fuel Pump</td>
+                                <td class="col-6 table-data"><span id="fuel_value"></span></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Torque</td>
-                                <td class="table-data"><span id="torque"></span> NM</td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Torque</td>
+                                <td class="col-6 table-data"><span id="torque"></span> NM</td>
                             </tr>
                         </tbody>
                     </table>
+
                     <div class="about border-success  border-4 text-dark border-start">
                         <h4 class="text-dark fw-bold text-start ps-2"> <span class="text-success brand_model"></span> Transmission</h4>
                     </div>
-                    <table class="table table-hover table table-striped my-4">
+                    <table class="table table-hover table-striped my-4">
                         <tbody>
-                            <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Type</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span  id="transmission_type_value"></span></td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Type</td>
+                                <td class="col-6 table-data"><span id="transmission_type_value"></span></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Clutch</td>
-                                <td class="table-data"><span  id="transmission_clutch_value"></span></td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Clutch</td>
+                                <td class="col-6 table-data"><span id="transmission_clutch_value"></span></td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Gear Box</td>
-                                <td class="table-data"><span  id="gear_box_forward_2"></span> Forward + <span  id="gear_box_reverse_2"></span> Reverse</td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Gear Box</td>
+                                <td class="col-6 table-data">
+                                    <span id="gear_box_forward_2"></span> Forward + 
+                                    <span id="gear_box_reverse_2"></span> Reverse
+                                </td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Forward Speed</td>
-                                <td class="table-data"> <span id="transmission_forward"></span> kmph </td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Forward Speed</td>
+                                <td class="col-6 table-data"><span id="transmission_forward"></span> kmph</td>
                             </tr>
-                            <tr>
-                                <td class="table-data">Reverse Speed</td>
-                                <td class="table-data" > <span id="transmission_reverse"></span> kmph</td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Reverse Speed</td>
+                                <td class="col-6 table-data"><span id="transmission_reverse"></span> kmph</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="about border-success  border-4 text-dark border-start">
                         <h4 class="text-dark fw-bold text-start ps-2"><span class="text-success brand_model"></span>  Brakes</h4>
                     </div>
-                    <table class="table table-hover table table-striped my-4">
+                    <table class="table table-hover table-striped my-4">
                         <tbody>
-                            <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Brakes</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span  id="brake_value"></span></td>
+                            <tr class="row">
+                                <td class="col-6 table-data">Brakes</td>
+                                <td class="col-6 table-data"><span id="brake_value"></span></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="about border-success  border-4 text-dark border-start">
                         <h3 class="text-dark fw-bold text-start ps-2"><span class="text-success brand_model"></span>  Steering</h3>
                     </div>
-                    <table class="table  table-hover table table-striped my-4">
+                    <table class="table table-hover table-striped my-4">
                         <tbody>
                             <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Type</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6" id="steering_details_value"> </td>
+                                <td class="table-data">Type</td>
+                                <td class="table-data" id="steering_details_value"> </td>
                             </tr>
                             <tr>
                                 <td class="table-data">Steering Column</td>
@@ -317,7 +330,7 @@
                     <table class="table table-hover table table-striped my-4">
                         <tbody>
                             <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Type</td>
+                                <td class="table-data">Type</td>
                                 <td class="table-data"><span  id="power_take_off_type"></span> </td>
                             </tr>
                             <tr>
@@ -337,7 +350,7 @@
                             <h4 class="text-center  fw-bold mt-3">Popular Used Tractors</h4>
                         </div>
                         <div class="popular-used-tractor">
-                            <div class="row" id="productContainerpopular">                          
+                            <div id="productContainerpopular">                          
                             </div>
                             <div class=" text-center"><button class="btn btn-success" id="loadMoretract">Load More</button></div>
                         </div>
@@ -359,8 +372,8 @@
                     <table class="table table-hover table table-striped my-4">
                     <tbody>
                         <tr>
-                            <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6 ">Total Weight</td>
-                            <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="total_weight"></span> kg</td>
+                            <td class="table-data">Total Weight</td>
+                            <td class="table-data"><span id="total_weight"></span> kg</td>
                         </tr>
                         <tr>
                             <td class="table-data">Wheel Base</td>
@@ -373,7 +386,6 @@
             </div>
         </div>
     </section>
-
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
@@ -384,8 +396,8 @@
                     <table class="table table-hover table table-striped my-4">
                         <tbody>
                             <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Lifting Capacity</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="lifting_capacity"></span> Kg</td>
+                                <td class="table-data">Lifting Capacity</td>
+                                <td class="table-data"><span id="lifting_capacity"></span> Kg</td>
                             </tr>
                             <tr>
                                 <td class="table-data">3 point Linkage</td>
@@ -409,8 +421,8 @@
                     <table class="table table-hover table table-striped my-4">
                         <tbody>
                             <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Wheel drive</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="wheel_drive_value"></span></td>
+                                <td class="table-data">Wheel drive</td>
+                                <td class="table-data"><span id="wheel_drive_value"></span></td>
                             </tr>
                             <tr>
                                 <td class="table-data">Front</td>
@@ -438,8 +450,8 @@
                     <table class="table table-hover table table-striped my-4">
                         <tbody>
                             <tr>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Accessories</td>
-                                <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="accessory_id"></span> </td>
+                                <td class="table-data">Accessories</td>
+                                <td class="table-data"><span id="accessory_id"></span> </td>
                             </tr>
                             <tr>
                                 <td class="table-data">Warranty</td>

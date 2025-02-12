@@ -121,9 +121,18 @@
               <li class="py-1 ps-3"><a href="dealers_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Dealers Listing</a></li>
           </ul>
         </div>
-
+        <!-- tractor mistri -->
+        <button class="fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapseservice" aria-expanded="true">
+          <i class="bi bi-tools pe-3"></i>Service<span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="collapse" id="about-collapseservice">
+          <ul class="list-unstyled fw-800 mb-0">
+            <li class="py-1 ps-3"><a href="tractor_mistri_admin.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Tractor Mistri</a></li>
+          </ul>
+        </div>
+        <!-- Feedback & Support-->
         <button class="fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsenews" aria-expanded="true">
-        <i class="fa-regular fa-comments pe-3"></i>Feedback & Support <span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
+          <i class="fa-regular fa-comments pe-3"></i>Feedback & Support <span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
         </button>
         <div class="collapse" id="about-collapsenews">
           <ul class="list-unstyled fw-800 mb-0">
@@ -188,6 +197,7 @@ if(currentdate >= exiredatenew){
                   console.log('Bad Request: Redirecting to login page.');
                   window.location.href = "login.php"; // Redirect to login page
               } else if (xhr.status === 401) {
+                window.location.href = "login.php"; 
                   console.log('Invalid credentials');
                   var htmlcontent = `<p>Invalid credentials!</p>`;
                   document.getElementById("error_message").innerHTML = htmlcontent;

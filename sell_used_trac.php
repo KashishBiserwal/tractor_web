@@ -142,6 +142,14 @@ body {
         padding: 0 10px;
     }
 }
+@media (max-width: 768px) {
+    .mobile-home-page {
+            margin-top: -28px  !important; 
+        }
+        .mobilescreen{
+            display:none;
+        }
+    }
 </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -156,7 +164,7 @@ body {
    <?php
      include 'includes/header.php';
    ?>
-<section class="bg-light mt-3 pt-5">
+<section class="bg-light mt-3 pt-5 mobile-home-page">
     <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
@@ -180,13 +188,13 @@ body {
     <div class="container-mid" style="position: relative;">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-5">
+                    <div id="container" class="container mt-5 p-0">
                         <form id="form-step-1" class="bg-light mul_stp_frm" style="" method="post">
-                            <div class="d-flex justify-content-center mb-3">
+                            <div class="d-flex justify-content-center  mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Tractor Type</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Condition State
                                 </div>
                                 <div class="col-12 col-lg-4 col-md-4 col-sm-4">
@@ -265,7 +273,7 @@ body {
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Tractor Type</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Condition State
                                 </div>
                                 <div class="col-12 col-lg-4 col-md-4 col-sm-4">
@@ -283,35 +291,33 @@ body {
                             <div class="step step-2">
                                 <!-- Step 2 form fields here -->
                                 <div class="">
-                                    <p class="text-center mb-4  fw-bold">Which tractor do you own?</p>
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <p class="text-center mb-4 fw-bold">Which tractor do you own?</p>
+                                     <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <div class="form-outline">
-                                                <label  for="b_brand" class="form-label text-dark">Brand</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="b_brand" required>
-                                                    <option value="" selected-disabled=""></option>
-                                                  
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <div class="form-outline">
-                                                <label for="m_model"class="form-label text-dark">Model</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="m_model" required>
+                                                <label for="b_brand" class="form-label text-dark">Brand</label>
+                                                <select class="form-select py-2" name="_brand" id="b_brand" required>
                                                     <option value="" selected-disabled=""></option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                                            <div class="form-outline">
+                                                <label for="m_model" class="form-label text-dark">Model</label>
+                                                <select class="form-select py-2" name="_model" id="m_model" required>
+                                                    <option value="" selected-disabled=""></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <div class="form-outline my-2">
                                                 <label for="p_year"class="form-label text-dark">Year</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_year" id="p_year" required>
                                                     <option value="" selected-disabled=""></option>
-                                            
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <div class="form-outline my-2">
                                                 <label for="engine_condition" class="form-label text-dark">Engine Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_e_con" id="engine_condition" required>
@@ -323,7 +329,7 @@ body {
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <div class="form-outline my-2">
                                                 <label for="tyre_condition"class="form-label text-dark">Tyre Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_t_con" id="tyre_condition" required>
@@ -335,7 +341,7 @@ body {
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <div class="form-outline my-2">
                                                 <label for="h_driven"class="form-label text-dark">Hours driven</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_h_driven" id="h_driven" required>
@@ -346,27 +352,27 @@ body {
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <label class="pe-3 fs-5 text-dark">RC Number</label>
                                             <input type="radio" id="rc_res" name="fav_rc" value="1">
                                             <label for="rc_res" class="text-dark">Yes</label> 
                                             <input type="radio" id="rc_no" name="fav_rc" value="0">
                                             <label for="rc_no" class="text-dark">No</label>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3 rc-num-container" style="display: none;">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3 rc-num-container" style="display: none;">
                                             <div class="form-outline">
                                                 <label class="form-label  text-dark" for="rc_num">Vehicle Registered Number</label>
                                                 <input type="text" id="rc_num" name="rc_num" class="data_search form-control input-group-sm py-2" />
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                             <label class="pe-3 fs-5 text-dark">Financed</label>
                                             <input type="radio" id="yes" name="fav_language" value="1">
                                             <label for="yes" class="text-dark">Yes</label> 
                                             <input type="radio" id="no" name="fav_language" value="0">
                                             <label for="no" class="text-dark">No</label>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3" id="nocDiv" style="display: none;">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3" id="nocDiv" style="display: none;">
                                             <label class="pe-3 fs-5 text-dark">NOC Available:</label>
                                             <input type="radio" id="nocyes" name="fav_language1" value="1">
                                             <label for="nocyes" class="text-dark">Yes</label> 
@@ -374,7 +380,7 @@ body {
                                             <label for="nocno" class="text-dark">No</label>
                                         </div>
                                     </div>
-                                    <div class="form-footer d-flex mt-3">
+                                    <div class="form-footer d-flex mb-3">
                                         <button type="button" class="btn btn-success w-50 prev-step" id="">Previous</button>
                                         <button type="button" class="btn btn-success ms-2 w-50 next-step" id="">Next</button>
                                     </div>
@@ -386,7 +392,7 @@ body {
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Tractor Type</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mobilescreen">
                                     Condition State
                                 </div>
                                 <div class="col-12 col-lg-4 col-md-4 col-sm-4">

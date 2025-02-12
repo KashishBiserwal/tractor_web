@@ -23,6 +23,11 @@ include 'includes/headertag.php';
     width: 18px !important;
     height: 19px !important;
     }
+    @media (max-width: 768px) {
+        .mt-5 {
+            margin-top: 16px  !important; 
+        }
+    }
 </style>
  <?php
    include 'includes/header.php';
@@ -105,34 +110,34 @@ include 'includes/headertag.php';
 <section class="my-4">
     <div class="container my-5">
         <h3 class="fw-bold assured px-3 py-2">Upcoming Tractor Price List 2023</h3>
-        <div class="" role="alert">
+        <div class="" role="alert" style="text-align:justify">
             <p class="text-dark py-3">The latest tractor brands in India are now in one place. Find out the best tractor in India for your agriculture needs. We are provides you Latest Tractors in India at an affordable latest tractor price. Popular latest tractors in India are Swaraj 963 FE, Mahindra Arjun Novo 605 Di-i, Sonalika DI 745 III, and many more.</p>
         </div>
-        <table class="table table-striped my-3">
-            <thead class="">
-                <tr class="py-3">
-                    <th scope="col">Upcoming Tractor Models</th>
-                    <th scope="col">Tractor HP</th>
-                    <th scope="col">Upcoming Tractors Price</th>
-                </tr>
-            </thead>
-            <tbody>
+        <table class="table table-striped my-3 table-responsive custom-table">
+            <thead>
                 <tr class="">
-                    <td class="col-12 col-lg-5 col-md-5 col-sm-5 py-3">Powertrac ALT 3000</td>
-                    <td class="col-12 col-lg-3 col-md-3 col-sm-3 py-3">28  HP</td>
-                    <td class="col-12 col-lg-4 col-md-4 col-sm-4 py-3">Rs. 4.87 lac*</td>
+                    <th scope="col" class="col-4 col-sm-4 col-md-4">Upcoming Tractor Models</th>
+                    <th scope="col" class="col-4 col-sm-4 col-md-4">Tractor HP</th>
+                    <th scope="col" class="col-4 col-sm-4 col-md-4">Upcoming Tractors Price</th>
                 </tr>
-                <tr  class="py-3">
+                </thead>
+            <tbody>
+                <tr>
+                    <td class=" py-3">Powertrac ALT 3000</td>
+                    <td class="py-3">28 HP</td>
+                    <td class="py-3">Rs. 4.87 lac*</td>
+                </tr>
+                <tr>
                     <td class="py-3">Farmtrac 3600</td>
-                    <td class="py-3">47  HP</td>
+                    <td class="py-3">47 HP</td>
                     <td class="py-3">Rs. 7.06-7.28 lac*</td>
                 </tr>
-                <tr class="py-3">
+                <tr>
                     <td class="py-3">Swaraj 978 FE</td>
-                    <td class="py-3">75  HP</td>
+                    <td class="py-3">75 HP</td>
                     <td class="py-3">Rs. 12.60-13.50 lac*</td>
                 </tr>
-                <tr class="py-3">
+                <tr>
                     <td class="py-3">Farmtrac 60 PowerMaxx</td>
                     <td class="py-3">55 HP</td>
                     <td class="py-3">Rs. 7.92-8.24 lac*</td>
@@ -143,19 +148,19 @@ include 'includes/headertag.php';
                     <td class="py-3">Rs. 4.78 lac*</td>
                 </tr>
                 <tr>
-                    <td  class="py-3">Mahindra 275 DI XP Plus</td>
+                    <td class="py-3">Mahindra 275 DI XP Plus</td>
                     <td class="py-3">37 HP</td>
-                    <td class="py-3">	Rs. 5.65-5.90 lac*</td>
+                    <td class="py-3">Rs. 5.65-5.90 lac*</td>
                 </tr>
                 <tr>
-                    <td  class="py-3">Mahindra Yuvo 575 DI 4WD</td>
+                    <td class="py-3">Mahindra Yuvo 575 DI 4WD</td>
                     <td class="py-3">52 HP</td>
                     <td class="py-3">Rs. 7.59-7.90 lac*</td>
                 </tr>
                 <tr>
-                    <td class="py-3" >Sonalika Tiger 50</td>
-                    <td class="py-3">	45 HP</td>
-                    <td class="py-3">	Rs. 8.35-8.67 lac*</td>
+                    <td class="py-3">Sonalika Tiger 50</td>
+                    <td class="py-3">45 HP</td>
+                    <td class="py-3">Rs. 8.35-8.67 lac*</td>
                 </tr>
             </tbody>
         </table>

@@ -41,12 +41,9 @@
               </li>
             </ol>
           </nav>
-          
-
           <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields();">
             <i class="fa fa-plus" aria-hidden="true"></i>Add New Brand
           </button>
-
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -56,38 +53,38 @@
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                              <h4 class="text-center">Fill your Brand Details</h4>
-                              <form action="" method="POST"  class="" id="form">
-                                  <div class="">
-                                    <div class="">
-                                      <div class="row">
-                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                          <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand" required>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                          <div class="upload__box mt-5">
-                                            <div class="upload__btn-box text-center">
-                                              <label >
-                                                <p class="upload__btn ">Upload images</p>
-                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="banner_image" name="banner_image" required>
-                                              </label>
-                                            </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap row" required></div>
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
-                                          <label for="name" class="text-dark fw-bold">Select Product Type</label>
-                                          <div id="type_name" name="type_name" required></div>
-                                        </div>
-                                      </div>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                      <h4 class="text-center">Fill your Brand Details</h4>
+                      <form action="" method="POST"  class="" id="form">
+                        <div class="">
+                          <div class="">
+                            <div class="row">
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand" required>
+                              </div>
+                              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                <div class="upload__box mt-5">
+                                  <div class="upload__btn-box text-center">
+                                    <label>
+                                      <p class="upload__btn ">Upload images</p>
+                                      <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="banner_image" name="banner_image" required>
+                                    </label>
                                   </div>
-                              </form>
+                                <div id="selectedImagesContainer" class="upload__img-wrap row" required></div>
+                              </div>
                             </div>
+                            <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
+                              <label for="name" class="text-dark fw-bold">Select Product Type</label>
+                              <div id="type_name" name="type_name" required></div>
+                            </div>
+                          </div>
                         </div>
+                      </form>
                     </div>
+                  </div>
+                </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
                   <button class="btn px-4 bg-success text-white" id="save">Submit</button>
@@ -147,7 +144,6 @@
               </table>
             </div>
         </div>
-
         <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">

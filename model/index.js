@@ -38,24 +38,52 @@ function getpopularTractorList() {
                                 a = [images];
                             }
                         }
-                        var newCard = `<div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-75">
-                        <a class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
-                        <div class="thumb">
-                               <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
-                         </div>
-                        <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
-                            <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                            <button type="button" class="add_btn btn-success w-100 mt-2">
-                                <i class="fa-regular fa-handshake"></i> Get on Road Price
-                            </button>
-                         </div>
-                      </a>
-                       </div>`;
+                        var newCard =  `<div class="item box_shadow b-t-1">
+                                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                                <div class="harvester_img_section">
+                                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
+                                                </div>
+                                            </a>
+                                            <div class="harvester_content_section mt-3 text-center">
+                                                <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
+                                                <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                    <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                                </button>
+                                            </div>
+                                        <div> ` ;
                     productContainer.append(newCard);
                 
                     }
                 });
+                productContainer.owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            loop: false
+                        }
+                    },
+                    onInitialized: function() {
+                        $(".swiper-slide").css('height', 'auto');
+                    }
+                });
+                
             }
         },
         error: function (error) {
@@ -90,22 +118,50 @@ function getUpcomingTractorList() {
                                 a = [images];
                             }
                         }
-                        var newCard3 = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-75">
-                        <a   class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
-                        <div class="thumb">
+                        var newCard3 = 
+                       `<div class="item box_shadow b-t-1">
+                       <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                           <div class="harvester_img_section">
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
-                         </div>
-                        <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
-                            <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                            <button type="button" class="add_btn btn-success w-100 mt-2">
-                                <i class="fa-regular fa-handshake"></i> Get on Road Price
-                            </button>
-                         </div>
-                      </a>
-                       </div>`;
+                           </div>
+                       </a>
+                       <div class="harvester_content_section mt-3 text-center">
+                           <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
+                           <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                           <button type="button" class="add_btn btn-success w-100 mt-2">
+                               <i class="fa-regular fa-handshake"></i> Get on Road Price
+                           </button>
+                       </div>
+                   <div> ` ;
                       productContainer3.append(newCard3);
                     }
+                    });
+                    productContainer3.owlCarousel({
+                        items: 4,
+                        loop: true,
+                        margin: 10,
+                        nav: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        responsiveClass: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                nav: false
+                            },
+                            600: {
+                                items: 3,
+                                nav: false
+                            },
+                            1000: {
+                                items: 4,
+                                nav: true,
+                                loop: false
+                            }
+                        },
+                        onInitialized: function() {
+                            $(".swiper-slide").css('height', 'auto');
+                        }
                     });
                 }
             },
@@ -194,21 +250,49 @@ function getLatestTractorList() {
                                 a = [images];
                             }
                         }
-                        var newCard2 = `<div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-75">
-                                            <a  class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
-                                                <div class="thumb">
-                                                       <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
-                                                 </div>
-                                                <div class="new-tractor-content text-center b-t-1">
-                                                    <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
-                                                    <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                                                    <button type="button" class="add_btn btn-success w-100 mt-2">
-                                                        <i class="fa-regular fa-handshake"></i> Get on Road Price
-                                                    </button>
-                                                </div>
-                                            </a>
-                                        </div>`;
-                      productContainer2.append(newCard2);
+                        var newCard2 =  
+                        `<div class="item box_shadow b-t-1">
+                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                <div class="harvester_img_section">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="harvester_content_section mt-3 text-center">
+                                <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
+                                <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                    <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                </button>
+                            </div>
+                        <div> ` ;
+                        productContainer2.append(newCard2);
+                    }
+                });
+                productContainer2.owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            loop: false
+                        }
+                    },
+                    onInitialized: function() {
+                        $(".swiper-slide").css('height', 'auto');
                     }
                 });
             }
@@ -400,30 +484,33 @@ function get_All_News() {
                 </div> `;
                 productContainer.append(newCard);
          });
-            productContainer.owlCarousel({
-                items:4,
-                loop: true,
-                margin: 10,
-                nav: true, 
-                autoplay: true, 
-                autoplayTimeout: 3000,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false
-                    },
-                    600: {
-                        items: 3,
-                        nav: false
-                    },
-                    1000: {
-                        items: 4,
-                        nav: true,
-                        loop: false
-                    }
+         productContainer.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 4,
+                    nav: true,
+                    loop: false
                 }
-            });
+            },
+            onInitialized: function() {
+                $(".swiper-slide").css('height', 'auto');
+            }
+        });
         }
     },
     error: function(error) {
