@@ -240,7 +240,7 @@ function nursery_data() {
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
                           <i class="fa fa-eye" style="font-size: 11px;"></i>
                         </button>
-                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="">
                           <i class="fas fa-edit" style="font-size: 11px;"></i>
                         </button>
                         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">

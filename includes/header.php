@@ -490,6 +490,20 @@ iframe.skiptranslate {
             </a>
             <ul class="dropdown-menu p-0" id="selectedImagesContainer1"></ul>
           </li>
+          <!-- <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle  fw-bold" href="tractor_mistri.php" data-bs-toggle="dropdown" aria-expanded="false">
+            Tractor Mistri
+            </a>
+            <ul class="dropdown-menu p-0">
+              <li><a class="dropdown-item fw-bold" href="tractor_mistry.php">Tractor Mistri</a></li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="tractor_mistri.php">
+              Tractor Mistri
+            </a>
+          </li>
+
           <li class="nav-item dropdown dropdown-toggle ">
             <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               More

@@ -686,7 +686,6 @@ function destroy(id) {
     var harvesterId = id;
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'harvester/' + harvesterId;
-  
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
