@@ -64,7 +64,7 @@
         },
         });
         function get_brand() {
-          var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 6;
+          var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_brand_by_product_id/" + 6;
           $.ajax({
               url: url,
               type: "GET",

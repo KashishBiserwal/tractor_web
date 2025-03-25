@@ -8,7 +8,7 @@ $(document).ready(function() {
     getpurchase_haatbazar();
 });
 function getInterestedBuyer() {
-    var url =  "http://tractor-api.divyaltech.com/api/customer/interested_buyer_list";
+    var url =  "https://shopninja.in/bharatagri/api/public/api/customer/interested_buyer_list";
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
       };
@@ -112,7 +112,7 @@ $(document).ready(function() {
 
     // Function to fetch data and populate table
     function populateTable(tableId, dataKey, isEngineOilTable, includeNameAndMobile) {
-        var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
+        var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_purchase_enquiry_data";
         var headers = {
             'Authorization': localStorage.getItem('token_customer')
         };
@@ -158,7 +158,7 @@ $(document).ready(function() {
 });
 
 function getpurchase_haatbazar() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_purchase_enquiry_data";
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
@@ -215,7 +215,7 @@ function getpurchase_haatbazar() {
 }
 
 function getpurchase_Nursery() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_purchase_enquiry_data";
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
@@ -265,7 +265,7 @@ function getpurchase_Nursery() {
     });
 }
 function getpurchase_Tyre() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_purchase_enquiry_data";
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
@@ -311,7 +311,7 @@ function getpurchase_Tyre() {
 }
 
 function getpurchase_Dealer() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_purchase_enquiry_data";
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
@@ -368,7 +368,7 @@ $(document).ready(function() {
     }
 
     function populateDataTable(tableIds, dataKeys, columns, isPagingEnabled, isSearchingEnabled) {
-        var url = "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
+        var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_sell_enquiry_data";
         var headers = {
             'Authorization': localStorage.getItem('token_customer')
         };
@@ -484,7 +484,7 @@ $(document).ready(function() {
 
 
 function getuserdetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
 
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
@@ -588,7 +588,7 @@ function edit_personal_detail(){
           'district':district,
           'tehsil':tehsil,
         };
-        var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + edituser;
+        var url = "https://shopninja.in/bharatagri/api/public/api/customer/update_customer_personal_info/" + edituser;
         console.log(url);
       
         var headers = {

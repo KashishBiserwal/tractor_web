@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
 
 function getHiretractor() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_rent_data";
     $.ajax({
         url: url,
         type: "GET",
@@ -43,7 +43,7 @@ function displaylist(tractors) {
         var cardId = `card_${p.id}`;
         var modalId = `used_tractor_callbnt_${p.id}`;
         var formId = `contact-seller-call${p.id}`;
-        var imageUrl = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/rent_img/${images[0]}` : '';
+        var imageUrl = images.length > 0 ? `https://shopninja.in/bharatagri/api/public/uploads/rent_img/${images[0]}` : '';
         var isValidImageUrl = imageUrl && imageUrl.trim() !== "";
         var ratePers = p.rate_pers || '';
         var rates = p.rates || '';
@@ -196,7 +196,7 @@ function button_hire(formId) {
         'tehsil': tehsil,
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries';
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
@@ -254,7 +254,7 @@ function filter_search() {
         'state': JSON.stringify(selectedCheckboxValues),
         'district': JSON.stringify(selectedCheckboxValues1),
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/hire_tractor_filter';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/hire_tractor_filter';
     $.ajax({
         url: url,
         type: 'POST',
@@ -289,7 +289,7 @@ function appendFilterCard(filterContainer, filter) {
         var cardId = `card_${p.id}`;
         var modalId = `used_tractor_callbnt_${p.id}`;
         var formId = `contact-seller-call${p.id}`;
-        var imageUrl = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/rent_img/${images[0]}` : '';
+        var imageUrl = images.length > 0 ? `https://shopninja.in/bharatagri/api/public/uploads/rent_img/${images[0]}` : '';
 
         var isValidImageUrl = imageUrl && imageUrl.trim() !== "";
         var newCard = `

@@ -6,7 +6,7 @@ $(document).ready(function() {
 function subcate(allCards) {
     var urlParams = new URLSearchParams(window.location.search);
     editId_stateedit = urlParams.get('id');
-    var url = 'http://tractor-api.divyaltech.com/api/customer/implement_details_by_sub_category_id/'+editId_stateedit;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/implement_details_by_sub_category_id/'+editId_stateedit;
 
     $.ajax({
         url: url,
@@ -49,7 +49,7 @@ function displayEngineoil(container, engineoil) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="blog_customer_inner.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">

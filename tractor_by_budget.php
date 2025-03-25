@@ -104,7 +104,7 @@ function hide_detail(){
     var Id = urlParams.get('budget');
     var arr = [];
     arr.push(Id);
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor_by_price_brand_hp";
     var paraArr = {
           'price_ranges': JSON.stringify(arr)
         };
@@ -160,7 +160,7 @@ function hide_detail(){
                       <div class="success__stry__item  box_shadow  b-t-1 h-100">
                         <a class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
                           <div class="thumb">
-                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="" alt="img" >
                           </div>
                           <div class="new-tractor-content text-center b-t-1">
                             <h5 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h5>

@@ -14,7 +14,7 @@ $(document).ready(function () {
     }
 
     function get_brands(brandSelect) {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands';
         $.ajax({
             url: url,
             type: "GET",
@@ -42,7 +42,7 @@ $(document).ready(function () {
     }
     
     function get_model(brand_id, modelSelect) {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
         $.ajax({
             url: url,
             type: "GET",
@@ -70,7 +70,7 @@ $(document).ready(function () {
     }
     
       function get_year_and_hours() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
         $.ajax({
             url: url,
             type: "GET",
@@ -130,7 +130,7 @@ function isUserLoggedIn() {
 }
 
 function get_otp(phone) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
     };
@@ -155,7 +155,7 @@ function verifyotp() {
         'otp': otp,
         'mobile': mobile,
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
     $.ajax({
         url: url,
         type: "POST",
@@ -221,7 +221,7 @@ function submitForm() {
     var enquiryTypeId = 24;
 
     // var apiBaseURL = APIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries';
  
 
     var data = {
@@ -237,7 +237,7 @@ function submitForm() {
         enquiry_type_id: enquiryTypeId
     };
     // API endpoint for form submission
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries";
 
     $.ajax({
         url: url,
@@ -275,7 +275,7 @@ function submitForm() {
                         <div class="thumb">
                             <a href="farmtrac_60.php?product_id=${p.customer_id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" loading="lazy" alt="${p.description}">
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover" loading="lazy" alt="${p.description}">
                                 </div>
                             </a>
                         </div>
@@ -433,7 +433,7 @@ function submitForm() {
 
 
 function getUserDetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
     console.log(url, 'url print ');
 
     var headers = {
@@ -479,7 +479,7 @@ function isUserLoggedIn() {
 function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands";
     console.log(url);
 
     // Define the order of brands
@@ -500,7 +500,7 @@ function getbrands() {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>
@@ -517,7 +517,7 @@ function getbrands() {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>

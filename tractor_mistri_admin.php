@@ -358,7 +358,7 @@ $(document).ready(function(){
 });
 
 function viewTractorMistri(Id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/tractor_mistri/" + Id; 
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri/" + Id; 
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -419,7 +419,7 @@ function getServiceName(serviceId, callback) {
 
     // var apiBaseURL = APIBaseURL;
     // var url = apiBaseURL + 'tractor_mistri';
-    var url = 'http://tractor-api.divyaltech.com/api/customer/tractor_mistri_store';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri_store';
     var token = localStorage.getItem('token');
 
     var headers = {
@@ -466,7 +466,7 @@ function getServiceName(serviceId, callback) {
 }
 
 function fetchTractorMistriData() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/tractor_mistri';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri';
     var token = localStorage.getItem('token'); 
 
     $.ajax({
@@ -550,7 +550,7 @@ function fetchTractorMistriData() {
 }
 fetchTractorMistriData();
 function fetch_edit_data_tractorMistri(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/tractor_mistri/" + id; 
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri/" + id; 
 
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -624,7 +624,7 @@ function setRadioValue(name, value) {
     $("input[name='" + name + "'][value='" + value + "']").prop("checked", true);
 }
 function get_1() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
       type: "GET",
@@ -658,7 +658,7 @@ function get_1() {
 }
 
 function get_model_1(brand_id, selectedModel) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
       type: "GET",
@@ -694,7 +694,7 @@ function get_model_1(brand_id, selectedModel) {
 get_1();
 // delete
 function deleteTractorMistri(id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/tractor_mistri_delete/' + id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri_delete/' + id;
   var token = localStorage.getItem('token');
 
   if (!token) {
@@ -728,7 +728,7 @@ function deleteTractorMistri(id) {
 }
 
 function searchdata() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/tractor_mistri_search';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri_search';
     var token = localStorage.getItem('token');
 
     var name = document.getElementById('name1').value.trim();

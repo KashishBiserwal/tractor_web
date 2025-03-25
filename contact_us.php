@@ -164,7 +164,7 @@ function store() {
     formData.append('message', message);
 
     $.ajax({
-        url: 'http://tractor-api.divyaltech.com/api/customer/feedback',
+        url: 'https://shopninja.in/bharatagri/api/public/api/customer/feedback',
         type: "POST",
         data: formData,
         processData: false,

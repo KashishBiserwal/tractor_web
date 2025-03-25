@@ -15,7 +15,7 @@ function hideOverlay() {
     $("#overlay").fadeOut(300);
 }
 function get_harvester() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_harvester";
     $.ajax({
         url: url,
         type: "GET",
@@ -63,7 +63,7 @@ function get_harvester() {
             <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
                 <div class="thumb">
                     <div>
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
+                        <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
                     </div>
                 </div>
                 <div class="position-absolute" >
@@ -139,7 +139,7 @@ function filter_search() {
         'power_source_value': JSON.stringify(selectedPower),
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_harvester_by_filter';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_new_harvester_by_filter';
     $.ajax({
         url: url,
         type: 'POST',
@@ -187,7 +187,7 @@ function appendFilterCard(filterContainer, filter) {
         <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
             <div class="thumb">
                 <div>
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
+                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="engineoil_img object-fit-cover w-100" h-100" alt="harvester_img" loading="lazy">
                 </div>
             </div>
             <div class="position-absolute" >
@@ -238,7 +238,7 @@ var noDataMessage = $("#noDataMessage");
 noDataMessage.hide();
 
 function get_lookup() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/getLookupData';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/getLookupData';
     $.ajax({
         url: url,
         type: "GET",
@@ -264,7 +264,7 @@ function get_lookup() {
 get_lookup();
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/'+4;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_by_product_id/'+4;
     $.ajax({
         url: url,
         type: "GET",

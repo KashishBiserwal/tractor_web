@@ -571,7 +571,7 @@ function destroy(id) {
   
 // get brand
 function get() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
   $.ajax({
     url: url,
     type: "GET",
@@ -601,7 +601,7 @@ function get() {
 get();
 
 function get_search() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
 
   $.ajax({
     url: url,

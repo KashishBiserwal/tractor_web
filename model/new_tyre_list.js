@@ -385,7 +385,7 @@ function ImgUpload() {
               var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+                  var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/tyre_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-4 col-lg-4 col-md-4 col-sm-4">
@@ -436,7 +436,7 @@ function ImgUpload() {
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
                 var countclass = 0;
                 imageNamesArray.forEach(function (imageName) {
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+                    var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/tyre_img/' + imageName.trim();
                     countclass++;
                     var newCard = `
                     <div class="col-12 col-md-4 col-lg-4 position-relative" style="left:6px;">

@@ -5,7 +5,7 @@ $(document).ready(function() {
 function get_details() {
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/blog_details/" + productId;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/blog_details/" + productId;
     console.log(url);
     console.log(productId);
     $.ajax({
@@ -28,7 +28,7 @@ function get_details() {
             
             // Create image element
             var imgElement = document.createElement('img');
-            imgElement.src = "http://tractor-api.divyaltech.com/uploads/blog_img/" + firstImage;
+            imgElement.src = "https://shopninja.in/bharatagri/api/public/uploads/blog_img/" + firstImage;
             imgElement.alt = "Image";
             imgElement.classList.add('img-fluid'); // Make image responsive
 

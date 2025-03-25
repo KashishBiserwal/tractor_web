@@ -4,7 +4,7 @@ $(document).ready(function() {
 });
 
 function get_insurance_type() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_insurance_type';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_insurance_type';
     $.ajax({
         url: url,
         type: "GET",
@@ -35,7 +35,7 @@ function get_insurance_type() {
 get_insurance_type();
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -69,7 +69,7 @@ function get() {
     });
 }
 function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -131,7 +131,7 @@ function add_insurance(event) {
       'district': district,
       'previous_policy_claim': previous_policy_claim,
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries';
 
     $.ajax({
       url: url,
@@ -157,7 +157,7 @@ function add_insurance(event) {
   function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands";
     var brandOrder = ['Mahindra', 'Swaraj', 'Sonalika', 'Tafe', 'Escorts', 'John Deere', 'Eicher', 'New Holland', 'Kubota', 'VST', 'Force', 'Preet', 'Indo Farm', 'Captain'];
 
     $.ajax({
@@ -173,7 +173,7 @@ function add_insurance(event) {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>
@@ -190,7 +190,7 @@ function add_insurance(event) {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>

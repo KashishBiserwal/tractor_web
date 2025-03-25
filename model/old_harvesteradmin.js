@@ -435,7 +435,7 @@ function fetch_edit_data(id) {
            
           var countclass=0;
           imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+              var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/product_img/' + image_names.trim();
               countclass++;
               var newCard = `
                   <div class="col-12 col-md-6 col-lg-4 position-relative">
@@ -657,7 +657,7 @@ function destroy(id) {
               var imageNamesArray = Array.isArray(data.product[0].image_names) ? data.product[0].image_names : data.product[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
+                  var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/product_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -791,7 +791,7 @@ function destroy(id) {
   }
   
  function get_1() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
         $.ajax({
             url: url,
             type: "GET",
@@ -827,7 +827,7 @@ function destroy(id) {
       }
       
       function get_model_1(brand_id, selectedModel) {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
         $.ajax({
             url: url,
             type: "GET",

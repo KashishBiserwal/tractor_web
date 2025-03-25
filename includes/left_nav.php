@@ -148,6 +148,11 @@
               <li class="py-1 ps-3"><a href="customer_query.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Customer Query/Message</a></li>
           </ul>
         </div>
+        <button class="fw-800 text-white w-100  admin-collapse align-items-center rounded" aria-expanded="true">
+          <a href="testimonial.php" class=" text-white   text-decoration-none rounded">
+            <i class="fa-solid fa-list-check pe-3"></i>  Testimonials <span class="ps-2"> </span>
+          </a>
+        </button>
        
     </div>
 

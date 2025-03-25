@@ -112,7 +112,7 @@ function get_search() {
     var tehsil = $('#bcd_tehsil').val();
     var image_names = document.getElementById('f_file').files;
 
-    var apiBaseURL = "http://tractor-api.divyaltech.com/api";
+    var apiBaseURL = "https://shopninja.in/bharatagri/api/public/api";
     var endpoint = '/customer/customer_enquiries';
     var url = apiBaseURL + endpoint;
 

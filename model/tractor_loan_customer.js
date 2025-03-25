@@ -4,7 +4,7 @@ $(document).ready(function() {
     });
 });
 function get_loan_type() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_loan_type';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_loan_type';
     $.ajax({
         url: url,
         type: "GET",
@@ -39,7 +39,7 @@ function get_loan_type() {
 get_loan_type();
 
 function getTheBrand() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -78,7 +78,7 @@ function getTheBrand() {
 }
 
 function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -144,7 +144,7 @@ function applyForLoan(event) {
         'district': district,
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries';
     console.log(url);
 
     $.ajax({

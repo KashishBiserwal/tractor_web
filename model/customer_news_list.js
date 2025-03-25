@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function news_details_list(allNews) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/news_details';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/news_details';
 
     $.ajax({
         url: url,
@@ -48,7 +48,7 @@ function displayNews(container, news) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="news_content.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img" loading="lazy">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">

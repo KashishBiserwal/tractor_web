@@ -1,5 +1,5 @@
 function populateStateDropdown(stateClassName, districtClassName) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/state_data';
     $.ajax({
         url: url,
         type: "GET",
@@ -36,7 +36,7 @@ function populateStateDropdown(stateClassName, districtClassName) {
 
 function populateDistrictDropdown(state_id, districtClassName) {
     console.log('Fetching districts for state_id:', state_id);
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_district_by_state/' + state_id;
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
     districtSelect.innerHTML = '<option selected disabled value="">Please select a district</option>';
 

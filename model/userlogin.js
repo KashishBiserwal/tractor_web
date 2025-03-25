@@ -13,7 +13,7 @@ $(document).ready(function () {
 // insert data
 function get_otp() {
     var phone = $('#phone').val();
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
       };
@@ -44,7 +44,7 @@ function verifyotp() {
   var mobile1 = localStorage.getItem('mobile');
   var id = localStorage.getItem('id');
 
-  var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
   $.ajax({
     url: url,
     type: "POST",

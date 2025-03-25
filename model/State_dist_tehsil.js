@@ -1,6 +1,6 @@
 
 function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/state_data';
     $.ajax({
         url: url,
         type: "GET",
@@ -40,8 +40,8 @@ function populateDropdownsFromClass(stateClassName, districtClassName, tehsilCla
 function getDistricts(state_id, districtClassName, tehsilClassName) {
     // If no state_id is provided, fetch all districts
     var url = state_id
-        ? 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id
-        : 'http://tractor-api.divyaltech.com/api/customer/get_all_districts';
+        ? 'https://shopninja.in/bharatagri/api/public/api/customer/get_district_by_state/' + state_id
+        : 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_districts';
 
     var districtSelect = document.getElementsByClassName(districtClassName)[0];
     districtSelect.innerHTML = '<option selected value="">Please select a district</option>';
@@ -81,7 +81,7 @@ function clearDropdown(className) {
 }
 
 function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_tehsil_by_district/' + districtId;
     var tehsilSelect = document.getElementsByClassName(tehsilClassName)[0];
     tehsilSelect.innerHTML = '<option selected value="">Please select a tehsil</option>';
 

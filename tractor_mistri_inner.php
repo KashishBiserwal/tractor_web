@@ -129,7 +129,7 @@ function viewTractorMistri() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/tractor_mistri/" + Id; 
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri/" + Id; 
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };

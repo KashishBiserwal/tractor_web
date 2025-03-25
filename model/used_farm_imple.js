@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('#filter_implement').click(filter_search);
 
     function getUsedFarmImplements() {
-        var url = "http://tractor-api.divyaltech.com/api/customer/get_old_implements";
+        var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_old_implements";
     
         $.ajax({
             url: url,
@@ -52,7 +52,7 @@ $(document).ready(function() {
                     <div class="thumb">
                         <a href="used_farm_inner.php?id=${cardData.id}">
                             <div class="ratio ratio-16x9">
-                                <img src='http://tractor-api.divyaltech.com/uploads/product_img/${images[0]}' class="object-fit-cover" alt="${cardData.description}" loading="lazy">
+                                <img src='https://shopninja.in/bharatagri/api/public/uploads/product_img/${images[0]}' class="object-fit-cover" alt="${cardData.description}" loading="lazy">
                             </div>
                         </a>
                     </div>
@@ -94,7 +94,7 @@ $(document).ready(function() {
         $("#overlay").fadeOut(300);
     }
     function get() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/state_data';
         $.ajax({
             url: url,
             type: "GET",
@@ -125,7 +125,7 @@ $(document).ready(function() {
     }
     
     function getAllDistricts() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/all_districts';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/all_districts';
         $.ajax({
             url: url,
             type: "GET",
@@ -155,7 +155,7 @@ $(document).ready(function() {
     }
     
     function getDistricts(stateId) {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_district_by_state/' + stateId;
         $.ajax({
             url: url,
             type: "GET",
@@ -186,7 +186,7 @@ $(document).ready(function() {
     get();
 
     function get_barnd() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     
         $.ajax({
             url: url,
@@ -218,7 +218,7 @@ $(document).ready(function() {
 
 
     function get_year_and_hours() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
         $.ajax({
             url: url,
             type: "GET",
@@ -296,7 +296,7 @@ $(document).ready(function() {
             'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted),
         };
     
-        var url = 'http://tractor-api.divyaltech.com/api/customer/filter_for_old_implements';
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/filter_for_old_implements';
         $.ajax({
             url: url,
             type: 'POST',
@@ -338,7 +338,7 @@ $(document).ready(function() {
             <div class="thumb">
                 <a href="used_farm_inner.php?id=${cardData.id}">
                     <div class="ratio ratio-16x9">
-                        <img src='http://tractor-api.divyaltech.com/uploads/product_img/${cardData.image_names.split(',')[0]}' class="object-fit-cover" alt="${cardData.description}" loading="lazy">
+                        <img src='https://shopninja.in/bharatagri/api/public/uploads/product_img/${cardData.image_names.split(',')[0]}' class="object-fit-cover" alt="${cardData.description}" loading="lazy">
                     </div>
                 </a>
             </div>

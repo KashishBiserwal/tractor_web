@@ -37,7 +37,7 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
         $("#downPayment").val(formattedPrice);
         $("#downPayment").attr("max", formattedPrice);
         var imageNames = priceData.image_names.split(',');
-        var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageNames[0].trim();
+        var imageUrl = "https://shopninja.in/bharatagri/api/public/uploads/product_img/" + imageNames[0].trim();
 
         // Update the image source
         $(".img_buy").attr("src", imageUrl);
@@ -87,7 +87,7 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
         });
 
    function get_1() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -124,7 +124,7 @@ document.getElementById("calculateEMI").addEventListener("click", function() {
   }
   
   function get_model_1(id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + id;
     $.ajax({
         url: url,
         type: "GET",

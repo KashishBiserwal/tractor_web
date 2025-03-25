@@ -5,7 +5,7 @@ $(document).ready(function() {
 function get_details() {
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_news_details_by_id/" + productId;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_news_details_by_id/" + productId;
     $.ajax({
         url: url,
         type: "GET",
@@ -22,7 +22,7 @@ function get_details() {
             if (firstImage) {
                 var imgContainer = document.getElementById('news_img');
                 var imgElement = document.createElement('img');
-                imgElement.src = "http://tractor-api.divyaltech.com/uploads/news_img/" + firstImage;
+                imgElement.src = "https://shopninja.in/bharatagri/api/public/uploads/news_img/" + firstImage;
                 imgElement.alt = "News Image";
                 imgElement.className = "img-fluid rounded mx-auto d-block"; 
                 imgElement.onload = function () {

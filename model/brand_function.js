@@ -1,5 +1,5 @@
 function populateBrandDropdown(brandClassName, modelClassName) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -35,7 +35,7 @@ function populateBrandDropdown(brandClassName, modelClassName) {
 }
 
 function populateModelDropdown(brand_id, modelClassName) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     console.log(url);
     var modelSelect = document.getElementsByClassName(modelClassName)[0];
     modelSelect.innerHTML = '<option selected disabled value="">Please select a model</option>';

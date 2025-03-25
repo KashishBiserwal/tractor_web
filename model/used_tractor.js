@@ -21,7 +21,7 @@ var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
 function getoldTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_old_tractor";
     $.ajax({
         url: url,
         type: "GET",
@@ -88,7 +88,7 @@ function appendCard(container, p) {
         <div class="thumb">
             <a href="farmtrac_60.php?product_id=${p.customer_id}">
                 <div class="ratio ratio-16x9">
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}" loading="lazy">
+                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}" loading="lazy">
                 </div>
             </a>
         </div>
@@ -323,7 +323,7 @@ function isUserLoggedIn() {
 }
 
 function sendOTP(mobile) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': mobile,
     };
@@ -368,7 +368,7 @@ function verifyotp(formId) {
         'model': formData.model,
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
     $.ajax({
         url: url,
         type: "POST",
@@ -385,7 +385,7 @@ function verifyotp(formId) {
 }
 
 function submitData(formId) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries";
     var formDataToSubmit = formData;
     
     if (isUserLoggedIn()) {
@@ -448,7 +448,7 @@ function openSellerContactModal(formDataToSubmit) {
 }
 
 function getUserDetail(id, formId) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
     console.log(url, 'url print ');
 
     var headers = {
@@ -484,7 +484,7 @@ function isUserLoggedIn() {
 }
 
 function getBrand() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -514,7 +514,7 @@ function getBrand() {
 getBrand();
 
 function getState() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/state_data';
     $.ajax({
         url: url,
         type: "GET",
@@ -545,7 +545,7 @@ function getState() {
 }
 
 function ge_tDistricts(stateId) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_district_by_state/' + stateId;
     $.ajax({
         url: url,
         type: "GET",
@@ -576,7 +576,7 @@ function ge_tDistricts(stateId) {
 getState();
 
 function get_year_and_hours() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -649,7 +649,7 @@ function filter_search() {
         'purchase_year': JSON.stringify(selectedYear),
     };
  
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_old_tractor_by_filter';
     $.ajax({
         url: url,
         type: 'POST',
@@ -728,7 +728,7 @@ function appendFilterCard(filterContainer, p) {
         <div class="thumb">
             <a href="farmtrac_60.php?product_id=${p.customer_id}">
                 <div class="ratio ratio-16x9">
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
+                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
                 </div>
             </a>
         </div>
@@ -945,7 +945,7 @@ function filterAndDisplayCards() {
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    $.get('http://tractor-api.divyaltech.com/api/customer/state_data', function(stateDataResponse) {
+    $.get('https://shopninja.in/bharatagri/api/public/api/customer/state_data', function(stateDataResponse) {
         var stateData = stateDataResponse.stateData;
         var selectYourStateOption = '<option value="">Select Your State</option>';
         var stateOptions = stateData
@@ -960,7 +960,7 @@ function filterAndDisplayCards() {
                 var districtSelect = this.closest('.row').querySelector('.district-dropdown');
                 districtSelect.innerHTML = '<option value="">Please select a district</option>';
                 if (selectedStateId) {
-                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
+                    $.get(`https://shopninja.in/bharatagri/api/public/api/customer/get_district_by_state/${selectedStateId}`, function(data) {
                         data.districtData.forEach(district => {
                             districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
                         });
@@ -974,7 +974,7 @@ function filterAndDisplayCards() {
                 var selectedDistrictId = this.value;
                 var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
                 if (selectedDistrictId) {
-                    $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    $.get(`https://shopninja.in/bharatagri/api/public/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
                         tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
                         data.tehsilData.forEach(tehsil => {
                             tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;

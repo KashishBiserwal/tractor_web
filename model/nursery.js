@@ -361,7 +361,7 @@ function openViewdata(Id) {
           var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
       
           imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_names.trim();
+              var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/nursery_img/' + image_names.trim();
       
               var newCard = `
                   <div class="col-12 col-lg-4 col-md-4 col-sm-4">
@@ -428,7 +428,7 @@ function fetch_edit_data_nursery(id) {
         var countclass = 0;
         fetchdataImage = imageNamesArray
         imageNamesArray.forEach(function(image_name) {
-          var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_name.trim();
+          var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/nursery_img/' + image_name.trim();
           console.log('imageUrl',imageUrl);
           countclass++;
           var newCard = `

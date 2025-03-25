@@ -436,7 +436,7 @@ function fetch_data(id) {
             var imageNamesArray = Array.isArray(data.engine_oil_details[0].image_names) ? data.engine_oil_details[0].image_names : data.engine_oil_details[0].image_names.split(',');
     
             imageNamesArray.forEach(function (imageName) {
-                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
+                var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/engine_oil_img/' + imageName.trim();
     
                 var newCard = `
                     <div class="col-6 col-lg-4 col-md-4 col-sm-4">
@@ -583,7 +583,7 @@ function fetch_edit_data(id) {
               var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
               var countclass=0;
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
+                  var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/engine_oil_img/' + imageName.trim();
                   countclass++;
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
@@ -752,7 +752,7 @@ function resetform(){
 }
 
 function get() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_oil_brands';
   $.ajax({
     url: url,
     type: "GET",
@@ -782,7 +782,7 @@ function get() {
 get();
 
 function get1() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_oil_brands';
 
   $.ajax({
     url: url,
@@ -815,7 +815,7 @@ function get1() {
 get1();
 
 function get2() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_oil_brands';
 
   $.ajax({
     url: url,

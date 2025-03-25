@@ -125,7 +125,7 @@ function formatDateTime(originalDateTimeStr) {
 } 
 function fetch_data(product_id) {
     var productId = product_id;
-    var url =  'http://tractor-api.divyaltech.com/api/customer/rent_data/' + productId;
+    var url =  'https://shopninja.in/bharatagri/api/public/api/customer/rent_data/' + productId;
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -152,7 +152,7 @@ function fetch_data(product_id) {
                 if (rentData2.images) {
                     var imageNamesArray = Array.isArray(rentData2.images) ? rentData2.images : rentData2.images.split(',');
                     imageNamesArray.forEach(function (image, index) {
-                        var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + image.trim();
+                        var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/rent_img/' + image.trim();
                         var newCard = `
                             <div class="col-12 col-md-3 col-lg-3 col-sm-3">
                                 <div class="" id="closeId${index}"></div>
@@ -342,7 +342,7 @@ function fetch_edit_data(customer_id) {
                 }
                 userData2.forEach(function(item, index) {
                     var formattedRate = formatPriceWithCommas(item.rate);
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/rent_img/' + item.images.trim();
                     var row = '<tr>' +
                         '<td>' + (index + 1) + '</td>' +
                         '<td>' +
@@ -389,7 +389,7 @@ function fetch_edit_data(customer_id) {
             
                     // Format the rate
                     var formattedRate = formatPriceWithCommas(item.rate);
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/rent_img/' + item.images.trim();
             
                     $('#selectedImage')
                         .attr('src', imageUrl)
@@ -413,7 +413,7 @@ function fetch_edit_data(customer_id) {
                     var formattedRate = formatPriceWithCommas(item.rate);
             
                     // Prepare the image URL
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/rent_img/' + item.images.trim();
                     $('#selectedImage2')
                         .attr('src', imageUrl)
                         .css('pointer-events', 'none') 
@@ -487,8 +487,8 @@ function destroy(id)
     });
 }
   function get_brand() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
-    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_brand_by_product_id/" + 2;
+    // var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands/'+ 6;
     $.ajax({
         url: url,
         type: "GET",
@@ -526,7 +526,7 @@ function destroy(id)
   }
   
   function get_model_1(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -561,7 +561,7 @@ function destroy(id)
   get_brand(); 
   
   function get_year_and_hours() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -594,7 +594,7 @@ function destroy(id)
   get_year_and_hours();
 
   function implementget() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_implement_category';
 
     $.ajax({
         url: url,
@@ -634,7 +634,7 @@ function destroy(id)
 implementget();
 
 function getSearchBrand() { 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -672,7 +672,7 @@ function getSearchBrand() {
   }
   
   function get_model_get(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -706,7 +706,7 @@ function getSearchBrand() {
   getSearchBrand();
 
   function getimplementbrand() { 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -744,7 +744,7 @@ function getSearchBrand() {
   }
   getimplementbrand();
 function get() { 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -781,7 +781,7 @@ function get() {
     });
   }
   function getbrand() { 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -819,7 +819,7 @@ function get() {
     }
     
     function get_modelbrand(brand_id) {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+        var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
         $.ajax({
             url: url,
             type: "GET",
@@ -854,7 +854,7 @@ function get() {
 getbrand();
 
 function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -890,7 +890,7 @@ function get_model(brand_id) {
 
 
   function get_year_and_hours() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -923,7 +923,7 @@ function get_model(brand_id) {
   get_year_and_hours();
 
   function get_year() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -955,7 +955,7 @@ function get_model(brand_id) {
   
   get_year();
   function get_year_forboth() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -988,7 +988,7 @@ function get_model(brand_id) {
   get_year_forboth();
 
   function implementget() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_implement_category';
 
     $.ajax({
         url: url,
@@ -1028,7 +1028,7 @@ function get_model(brand_id) {
 implementget();
    
 function implementgetonly() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_implement_category';
 
     $.ajax({
         url: url,

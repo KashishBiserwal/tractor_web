@@ -160,7 +160,7 @@ function get_subcategory(id) {
 // getc all custom data of sub category
 function get_subcategory_custom(id) {
     var apiBaseURL = APIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/implement_sub_category_by_id/' + id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/implement_sub_category_by_id/' + id;
     editId_state = true;
     id = id;
     var headers = {
@@ -291,7 +291,7 @@ get_search();
 
 // get brand and model
 function get_brand() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 6;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_brand_by_product_id/" + 6;
     $.ajax({
         url: url,
         type: "GET",
@@ -523,7 +523,7 @@ function fetch_data(userId) {
                                 <div class="col-6 col-lg-3 col-md-3 col-sm-3">
                                     <div class="brand-main box-shadow mt-2 text-center shadow ">
                                         <a class="weblink text-decoration-none text-dark" title="Old Tractors">
-                                            <img class="img-fluid w-100" src="http://tractor-api.divyaltech.com/uploads/product_img/${imageName.trim()}"
+                                            <img class="img-fluid w-100" src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${imageName.trim()}"
                                                 data-src="h" alt="Brand Logo">
                                         </a>
                                     </div>
@@ -612,7 +612,7 @@ function fetch_edit_data(id) {
                         implementData.image_names.split(',').forEach(function (imageName) {
                             
                             countclass++;
-                            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
+                            var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/product_img/' + imageName.trim();
                             var newCard = `
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
                             <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>

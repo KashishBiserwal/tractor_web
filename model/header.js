@@ -26,7 +26,7 @@ function updateUI() {
 }
 
 function user_logout() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_logout";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_logout";
     var phone = localStorage.getItem('mobile');
     var headers = {
         'Authorization': localStorage.getItem('token_customer')

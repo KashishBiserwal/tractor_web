@@ -530,7 +530,7 @@ function fetch_edit_data(userId) {
                   var imageNamesArray = Array.isArray(response.brands[0].brand_img) ? response.brands[0].brand_img : response.brands[0].brand_img.split(',');
                   var countclass=0;
                   imageNamesArray.forEach(function (brand_img) {
-                      var imageUrl = 'http://tractor-api.divyaltech.com/uploads/brand_img/' + brand_img.trim();
+                      var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/brand_img/' + brand_img.trim();
                       countclass++;
                       var newCard = `
                           <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
@@ -606,7 +606,7 @@ function fetch_data(id) {
     var productId = id;
     var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + productId;
   
-    // var url = "http://tractor-api.divyaltech.com/api/admin/getBrandsById/" + productId;
+    // var url = "https://shopninja.in/bharatagri/api/public/api/admin/getBrandsById/" + productId;
     // console.log(url);
     var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -632,7 +632,7 @@ function fetch_data(id) {
                         <div class="brand-main box-shadow mt-2 text-center shadow ">
                             <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
+                                <img class="img-fluid w-50" src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${b.brand_img}"
                                     data-src="h" alt="Brand Logo">
                                 <p class="mb-0 oneline">${b.brand_name}</p>
                             </a>

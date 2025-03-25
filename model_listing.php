@@ -165,7 +165,7 @@ $(document).ready(function() {
         formData.append(`product_type_id[${index}]`, id);
     });
 
-        let urlrr = "http://tractor-api.divyaltech.com/api/admin/StoreModels";
+        let urlrr = "https://shopninja.in/bharatagri/api/public/api/admin/StoreModels";
         var token = localStorage.getItem('token');
         var headers = {
             'Authorization': 'Bearer ' + token

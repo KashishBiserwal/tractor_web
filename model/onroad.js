@@ -4,7 +4,7 @@ $(document).ready(function() {
 });
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands';
     $.ajax({
         url: url,
         type: "GET",
@@ -44,7 +44,7 @@ function get() {
 }
 
 function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     console.log('Requesting models for brand ID:', brand_id); // Debugging statement
     $.ajax({
         url: url,
@@ -108,7 +108,7 @@ function get_on_roadadd(event) {
     };
 
     // AJAX settings
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries';
 
     $.ajax({
         url: url,
@@ -157,7 +157,7 @@ function validateForm() {
 }
 
 function getState() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/state_data';
     $.ajax({
         url: url,
         type: "GET",
@@ -196,7 +196,7 @@ function getState() {
 }
 
 function getDistricts(stateId) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_district_by_state/' + stateId;
     console.log("Fetching Districts for State:", url);
 
     const select = document.getElementById('district');
@@ -236,7 +236,7 @@ function getDistricts(stateId) {
 }
 
 function getTehsils(districtId) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_tehsil_by_district/' + districtId;
     console.log("Fetching Tehsils for District:", url);
 
     const select = document.getElementById('tehsil');
@@ -271,7 +271,7 @@ getState();
 function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands";
     console.log(url);
 
     // Define the order of brands
@@ -292,7 +292,7 @@ function getbrands() {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>
@@ -309,7 +309,7 @@ function getbrands() {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>

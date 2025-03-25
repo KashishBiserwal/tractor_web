@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function blog_details_list(allCards) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/blog_details';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/blog_details';
 
     $.ajax({
         url: url,
@@ -57,7 +57,7 @@ function displayEngineoil(container, engineoil) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="blog_customer_inner.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">
@@ -83,7 +83,7 @@ function displayEngineoil(container, engineoil) {
 }
 
 function get_category() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_news_category';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_news_category';
 
     $.ajax({
         url: url,
@@ -125,7 +125,7 @@ function filter_search() {
         'blog_category_id': JSON.stringify(selectedCheckboxValues),
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/filter_for_blog_details';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/filter_for_blog_details';
     $.ajax({
         url: url,
         type: 'POST',
@@ -182,7 +182,7 @@ function displayFilteredCards(container, filteredCards) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="blog_customer_inner.php?id=${card.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">

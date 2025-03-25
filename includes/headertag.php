@@ -1,9 +1,11 @@
 <?php
- $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
- $CustomerAPIBaseURL = 'http://tractor-api.divyaltech.com/api/customer/';
+//  $APIBaseURL = 'https://shopninja.in/bharatagri/api/public/api/admin/';
+ $APIBaseURL = 'https://shopninja.in/bharatagri/api/public/api/admin/';
+ $CustomerAPIBaseURL = 'https://shopninja.in/bharatagri/api/public/api/customer/';
+//  $CustomerAPIBaseURL = 'https://shopninja.in/bharatagri/api/public/api/customer/';
 //  $baseUrl = '/bharatAgrimartFrontend/tractor_project/';
-// $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
-// $CustomerAPIBaseURL = 'http://tractor-api.divyaltech.com/api/customer/';
+// $APIBaseURL = 'https://shopninja.in/bharatagri/api/public/api/admin/';
+// $CustomerAPIBaseURL = 'https://shopninja.in/bharatagri/api/public/api/customer/';
 $baseUrl = '/tractor_house/';
 ?>
 <meta charset="UTF-8">

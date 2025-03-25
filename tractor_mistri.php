@@ -56,7 +56,7 @@ var allCards = [];
 var cardsDisplayed = 0;
 
 function getoldTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/tractor_mistri";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri";
     $.ajax({
         url: url,
         type: "GET",

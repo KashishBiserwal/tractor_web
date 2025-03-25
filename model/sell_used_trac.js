@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -43,7 +43,7 @@ function get() {
   }
   
   function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -77,7 +77,7 @@ function get() {
   get();
 
   function get_year_and_hours() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -138,7 +138,7 @@ function isUserLoggedIn() {
 }
 
 function get_otp1(phone) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
     };
@@ -162,7 +162,7 @@ function verifyotp1() {
         'otp': otp,
         'mobile': mobile,
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
     $.ajax({
         url: url,
         type: "POST",
@@ -220,7 +220,7 @@ function submitForm() {
     var nocAvailable = $('input[name="fav_language1"]:checked').val();
     var image_names = document.getElementById('f_file').files;
 
-    var apiBaseURL = "http://tractor-api.divyaltech.com/api";
+    var apiBaseURL = "https://shopninja.in/bharatagri/api/public/api";
     var endpoint = '/customer/customer_enquiries';
     var url = apiBaseURL + endpoint;
     
@@ -286,7 +286,7 @@ function submitForm() {
     });
 }
 function getUserDetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
     console.log(url, 'url print ');
 
     var headers = {

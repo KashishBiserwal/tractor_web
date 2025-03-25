@@ -2,7 +2,7 @@ $(document).ready(function(){
 });
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands';
 
     $.ajax({
         url: url,
@@ -41,7 +41,7 @@ function get() {
     });
 }
 function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
 
     $.ajax({
         url: url,
@@ -87,7 +87,7 @@ function getcompare_data() {
         'model': model_name1,
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/compare_tractors';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/compare_tractors';
 
     $.ajax({
         url: url,
@@ -140,7 +140,7 @@ function getcompare_data() {
                 document.getElementById('hp_nav-1').innerText = p.hp_category;
                 // document.getElementById('img_1').innerText = p.image_names;
                 const imageNames = p.image_names.split(',');
-                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                const firstImagePath = `https://shopninja.in/bharatagri/api/public/uploads/product_img/${imageNames[0].trim()}`;
                 document.getElementById('img_1').src = firstImagePath;
 
                 var images = p.image_names;
@@ -158,7 +158,7 @@ function getcompare_data() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@ get();
 
 // for 2nd card
 function get_card2() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands';
 
     $.ajax({
         url: url,
@@ -224,7 +224,7 @@ function get_card2() {
 }
 
 function get_model_card2(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
 
     $.ajax({
         url: url,
@@ -273,7 +273,7 @@ function getcompare_data1() {
         
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/compare_tractors';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/compare_tractors';
 
     $.ajax({
         url: url,
@@ -326,7 +326,7 @@ function getcompare_data1() {
                 document.getElementById('hp_nav-2').innerText = p.hp_category;
 
                 const imageNames = p.image_names.split(',');
-                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                const firstImagePath = `https://shopninja.in/bharatagri/api/public/uploads/product_img/${imageNames[0].trim()}`;
                 document.getElementById('img_2').src = firstImagePath;
 
                 var images = p.image_names;
@@ -344,7 +344,7 @@ function getcompare_data1() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -370,7 +370,7 @@ get_card2();
 
 // for 3rd card
 function get_card3() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands';
 
     $.ajax({
         url: url,
@@ -410,7 +410,7 @@ function get_card3() {
 }
 
 function get_model_card3(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
 
     $.ajax({
         url: url,
@@ -459,7 +459,7 @@ function getcompare_data2() {
         
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/compare_tractors';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/compare_tractors';
 
     $.ajax({
         url: url,
@@ -511,7 +511,7 @@ function getcompare_data2() {
                 document.getElementById('hp_nav-3').innerText = p.model;
 
                 const imageNames = p.image_names.split(',');
-                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                const firstImagePath = `https://shopninja.in/bharatagri/api/public/uploads/product_img/${imageNames[0].trim()}`;
                 document.getElementById('img_3').src = firstImagePath;
 
                 var images = p.image_names;
@@ -529,7 +529,7 @@ function getcompare_data2() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -556,7 +556,7 @@ get_card3();
 // for card4
 
 function get_card4() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands';
 
     $.ajax({
         url: url,
@@ -596,7 +596,7 @@ function get_card4() {
 }
 
 function get_model_card4(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
 
     $.ajax({
         url: url,
@@ -643,7 +643,7 @@ function getcompare_data3() {
         
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/compare_tractors';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/compare_tractors';
 
     $.ajax({
         url: url,
@@ -694,7 +694,7 @@ function getcompare_data3() {
                 document.getElementById('model_nav-4').innerText = p.model;
                 document.getElementById('hp_nav-4').innerText = p.model;
                 const imageNames = p.image_names.split(',');
-                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                const firstImagePath = `https://shopninja.in/bharatagri/api/public/uploads/product_img/${imageNames[0].trim()}`;
                 document.getElementById('img_4').src = firstImagePath;
 
                 var images = p.image_names;
@@ -712,7 +712,7 @@ function getcompare_data3() {
                         <div class="thumb">
                             <div>
                                 <div class="">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img" loading="lazy">
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@ function getOldTractorById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var customer_id = urlParams.get('product_id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_id/" + customer_id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_old_tractor_by_id/" + customer_id;
     console.log(url);
     $.ajax({
         url: url,
@@ -63,7 +63,7 @@ function getOldTractorById() {
             var swiperSlides = [];
 
             imageNames.forEach(function(imageName, index) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
+                var imageUrl = "https://shopninja.in/bharatagri/api/public/uploads/product_img/" + imageName.trim(); // Update the path
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy mt-2" src="' + imageUrl + '" style="height: 300px;" /></div>'); // Set height here
                 carouselContainer.append(slide);
                 
@@ -102,7 +102,7 @@ function isUserLoggedIn() {
 }
 
 function get_otp(phone) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
     };
@@ -126,7 +126,7 @@ function verifyotp() {
         'otp': otp,
         'mobile': mobile,
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
     $.ajax({
         url: url,
         type: "POST",
@@ -182,7 +182,7 @@ function submitForm() {
         'tehsil': tehsil,
         'price': price,
     };
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries";
     $.ajax({
         url: url,
         type: "POST",
@@ -202,7 +202,7 @@ function submitForm() {
 }
 
 function getUserDetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };
@@ -232,7 +232,7 @@ function isUserLoggedIn() {
 }
 
 function getpopularTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor";
     $.ajax({
         url: url,
         type: "GET",
@@ -277,7 +277,7 @@ function displayPopularTractors(tractors, popularProductIds) {
                 <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color: #fff;">
                     <div class="text-center">
                         <a href="detail_tractor.php?product_id=${tractor.product_id}" class="weblink">
-                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${imagesArray[0] || 'default.jpg'}" 
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${imagesArray[0] || 'default.jpg'}" 
                                 width="100" height="100" alt="${tractor.model || 'Tractor Image'}"
                                 style="border-radius: 10px;">
                         </a>
@@ -297,7 +297,7 @@ function displayPopularTractors(tractors, popularProductIds) {
     });
 }
 function getUpcomingTractorList() {
-    const apiUrl = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    const apiUrl = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor";
 
     $.ajax({
         url: apiUrl,
@@ -347,7 +347,7 @@ function displayUpcomingTractors(tractors, upcomingProductIds) {
                 <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color: #fff;">
                     <div class="text-center">
                         <a href="detail_tractor.php?product_id=${tractor.product_id}" class="weblink">
-                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${imagesArray[0]}" 
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${imagesArray[0]}" 
                                 width="100" height="100" alt="${tractor.model || 'Tractor Image'}"
                                 style="border-radius: 10px;">
                         </a>

@@ -537,7 +537,7 @@ function destroy(id) {
               var imageNamesArray = Array.isArray(data.allData.haat_bazar_data[0].image_names) ? data.allData.haat_bazar_data[0].image_names : data.allData.haat_bazar_data[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + imageName.trim();
+                  var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/haat_bazar_img/' + imageName.trim();
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6 row">
                           <div class="brand-main d-flex box-shadow   mt-2 text-center shadow ">
@@ -622,7 +622,7 @@ function destroy(id) {
               var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
           
               imageNamesArray.forEach(function (imageName, index) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + imageName.trim();
+                  var imageUrl = 'https://shopninja.in/bharatagri/api/public/uploads/haat_bazar_img/' + imageName.trim();
                   var countclass = index + 1;
           
                   var newCard = `

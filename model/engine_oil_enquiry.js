@@ -445,7 +445,7 @@ function updateTable(data) {
 
 
 function get_oil() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_oil_brands';
   $.ajax({
     url: url,
     type: "GET",
@@ -475,7 +475,7 @@ function get_oil() {
 get_oil();
 
 function get_oilUpdate() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_oil_brands';
   $.ajax({
     url: url,
     type: "GET",

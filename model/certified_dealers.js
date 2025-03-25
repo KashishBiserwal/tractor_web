@@ -85,7 +85,7 @@ function displaydealer(dealers) {
 
 
 function searchdata() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/search_for_dealer';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/search_for_dealer';
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
@@ -181,7 +181,7 @@ function resetform() {
 }
 
 function get() { 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",

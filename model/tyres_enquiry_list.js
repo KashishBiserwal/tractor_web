@@ -129,7 +129,7 @@ getbrandedit();
 
     function getcategory(selectId) {
       var apiBaseURL =APIBaseURL;
-      var url = 'http://tractor-api.divyaltech.com/api/customer/get_tyre_category';
+      var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_tyre_category';
       $.ajax({
           url: url,
           type: "GET",
@@ -244,7 +244,7 @@ function get_tyre_list() {
 get_tyre_list();
 
 function get_model(brand_id) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_tyre_brands/' + brand_id;
+  var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_tyre_brands/' + brand_id;
   $.ajax({
       url: url,
       type: "GET",

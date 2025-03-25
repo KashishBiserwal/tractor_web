@@ -171,7 +171,7 @@ function get_hire_tract() {
 get_hire_tract();
 
         function getSearchBrand() {
-            var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+            var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
             $.ajax({
                 url: url,
                 type: "GET",
@@ -208,7 +208,7 @@ get_hire_tract();
           }
           
           function get_model(brand_id) {
-            var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+            var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
             console.log('Requesting models for brand ID:', brand_id); 
             $.ajax({
                 url: url,
@@ -246,7 +246,7 @@ get_hire_tract();
 
 // brand
 function get_search() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
       url: url,
       type: "GET",
@@ -564,7 +564,7 @@ function edit_user() {
   }
   
   function get_1() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -596,7 +596,7 @@ function edit_user() {
     });
   }
   function get_model_1(brand_id, selectedModel = null) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
         type: "GET",
@@ -630,7 +630,7 @@ function edit_user() {
     });
   }
   // function get_model_1(brand_id, selectedModel) {
-  //   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  //   var url = 'https://shopninja.in/bharatagri/api/public/api/customer/get_brand_model/' + brand_id;
   //   $.ajax({
   //       url: url,
   //       type: "GET",

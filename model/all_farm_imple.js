@@ -4,7 +4,7 @@ $(document).ready(function() {
 });
 
 function all_implement(allCards) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/all_implement_details';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/all_implement_details';
     $.ajax({
         url: url,
         type: "GET",
@@ -46,7 +46,7 @@ function displayEngineoil(container, engineoil) {
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="farm_subcate_inner.php?id=${p.product_id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
+                            <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="engineoil_img  w-100" loading="lazy" alt="img">
                         </a>
                     </div>
                     <div class="content d-flex flex-column flex-grow-1 ">

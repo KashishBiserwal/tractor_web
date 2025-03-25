@@ -4,7 +4,7 @@ $(document).ready(function() {
 function getbrands() {
     var urlParams = new URLSearchParams(window.location.search);
     var Id = urlParams.get('brand_id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_all_brands";
     var brandOrder = ['Mahindra', 'Swaraj', 'Sonalika', 'Tafe', 'Escorts', 'John Deere', 'Eicher', 'New Holland', 'Kubota', 'VST', 'Force', 'Preet', 'Indo Farm', 'Captain'];
 
     $.ajax({
@@ -19,7 +19,7 @@ function getbrands() {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>
@@ -35,7 +35,7 @@ function getbrands() {
                     var brandContainerHtml = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
                         <a href="brands.php?brand_id=${brand.id}">
                             <div class="d-block ">
-                                <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${brand.brand_img}">
+                                <img src="https://shopninja.in/bharatagri/api/public/uploads/brand_img/${brand.brand_img}">
                                 <p>${brand.brand_name}</p>
                             </div>
                         </a>

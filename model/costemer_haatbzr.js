@@ -35,7 +35,7 @@ $(document).ready(function() {
     }
 });
 function category_main3() {
-    var url =  'http://tractor-api.divyaltech.com/api/customer/haat_bazar_category';
+    var url =  'https://shopninja.in/bharatagri/api/public/api/customer/haat_bazar_category';
     $.ajax({ 
         url: url,
         type: "GET",
@@ -65,7 +65,7 @@ function category_main3() {
   }
   
   function get_sub_category(category_id) {
-    var url =  'http://tractor-api.divyaltech.com/api/customer/haat_bazar_sub_category/' + category_id;
+    var url =  'https://shopninja.in/bharatagri/api/public/api/customer/haat_bazar_sub_category/' + category_id;
     var select = document.getElementById('subcategory');
     select.innerHTML = '<option selected disabled value="">Please select an option</option>';
     $.ajax({
@@ -114,7 +114,7 @@ function submitFormData() {
     }
     $.ajax({
         type: "POST",
-        url: 'http://tractor-api.divyaltech.com/api/customer/haat_bazar',
+        url: 'https://shopninja.in/bharatagri/api/public/api/customer/haat_bazar',
         data: allFormData,
         success: function (response) {
             console.log("Data submitted successfully:", response);
@@ -147,7 +147,7 @@ function isUserLoggedIn() {
 }
 
 function get_otp1(phone) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
     };
@@ -172,7 +172,7 @@ function verifyotp1() {
         'otp': otp,
         'mobile': mobile,
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
     $.ajax({
         url: url,
         type: "POST",
@@ -226,7 +226,7 @@ function submitForm() {
     var tehsil = $('#tehsil1').val();
     var image_names = document.getElementById('imageInput').files;
 
-    var apiBaseURL = "http://tractor-api.divyaltech.com/api";
+    var apiBaseURL = "https://shopninja.in/bharatagri/api/public/api";
     var endpoint = '/customer/haat_bazar';
     var url = apiBaseURL + endpoint;
     var data = new FormData();
@@ -279,7 +279,7 @@ function submitForm() {
     });
 }
 function getUserDetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
     };

@@ -12,7 +12,7 @@ function get_old_harvester_byiD() {
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('id');
     console.log(productId);
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester_by_id/" + productId;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_old_harvester_by_id/" + productId;
 
     $.ajax({
         url: url,
@@ -59,7 +59,7 @@ function get_old_harvester_byiD() {
             carouselContainer.empty();
             var swiperSlides = [];
             imageNames.forEach(function(imageName, index) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
+                var imageUrl = "https://shopninja.in/bharatagri/api/public/uploads/product_img/" + imageName.trim(); // Update the path
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy mt-2" src="' + imageUrl + '" style="height: 300px;" /></div>'); // Set height here
                 carouselContainer.append(slide);
                 
@@ -81,7 +81,7 @@ function get_old_harvester_byiD() {
 }
   // get new popular tractor
   function getpopularTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor";
 
     $.ajax({
         url: url,
@@ -118,7 +118,7 @@ function get_old_harvester_byiD() {
 
  // get new popular tractor
  function getpopularTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor";
 
     $.ajax({
         url: url,
@@ -175,7 +175,7 @@ function displayPopularTractors(tractors, new_arr) {
             var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" width="100" height="100" alt=""
                                         style=" border-radius: 10px;" loading="lazy">
                                 </a>
                             </div>
@@ -198,7 +198,7 @@ function displayPopularTractors(tractors, new_arr) {
 }
 
 function getupcomimgTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor";
 
     $.ajax({
         url: url,
@@ -255,7 +255,7 @@ function displayupcomingTractors(tractors, new_arr) {
             var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
+                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" width="100" height="100" alt=""
                                         style=" border-radius: 10px;" loading="lazy">
                                 </a>
                             </div>
@@ -295,7 +295,7 @@ function isUserLoggedIn() {
 }
 
 function get_otp(phone) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_login";
     var paraArr = {
         'mobile': phone,
     };
@@ -319,7 +319,7 @@ function verifyotp() {
         'otp': otp,
         'mobile': mobile,
     };
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    var url = 'https://shopninja.in/bharatagri/api/public/api/customer/verify_otp';
     $.ajax({
         url: url,
         type: "POST",
@@ -381,7 +381,7 @@ function submitForm() {
         'product_id':product_subject_id,
     };
 
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries";
 
     $.ajax({
         url: url,
@@ -402,7 +402,7 @@ function submitForm() {
 }
 
 function getUserDetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_customer_personal_info_by_id/" + id;
 
     var headers = {
         'Authorization': localStorage.getItem('token_customer')
