@@ -53,7 +53,7 @@ function addTestimonial() {
     formData.append('description', description);
 
     $.ajax({
-        url: APIBaseURL + 'add_testimonial',
+        url: APIBaseURL + 'add_banner',
         type: 'POST',
         data: formData,
         processData: false,
@@ -75,7 +75,7 @@ function addTestimonial() {
 
 function getTestimonials() {
     $.ajax({
-        url: APIBaseURL + 'get_testimonials_admin',
+        url: APIBaseURL + 'get_banner',
         type: 'GET',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -119,12 +119,12 @@ function populateTestimonialTable(testimonials) {
 }
 
 function deleteTestimonial(id) {
-    if (!confirm('Are you sure you want to delete this testimonial?')) {
+    if (!confirm('Are you sure you want to delete this banner?')) {
         return;
     }
 
     $.ajax({
-        url: APIBaseURL + 'delete_testimonial/' + id,
+        url: APIBaseURL + 'delete_banner/' + id,
         type: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')

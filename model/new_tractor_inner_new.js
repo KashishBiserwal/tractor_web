@@ -327,6 +327,13 @@ function submitForm() {
         'district':district,
         'tehsil':tehsil,
     };
+    
+    if(mobile.length < 10 || mobile.length > 10){
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter 10 digits Mobile Number</p>');
+        return;
+    }
+    
 
     var url = "https://shopninja.in/bharatagri/api/public/api/customer/customer_enquiries";
 
@@ -335,7 +342,7 @@ function submitForm() {
         type: "POST",
         data: paraArr,
         success: function (result) {
-            console.log(result, "result");
+            alert("Enquiry submitted successfully!");
             console.log("Form submitted successfully!");
         },
         error: function (error) {

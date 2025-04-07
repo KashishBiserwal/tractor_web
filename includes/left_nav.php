@@ -153,6 +153,11 @@
             <i class="fa-solid fa-list-check pe-3"></i>  Testimonials <span class="ps-2"> </span>
           </a>
         </button>
+        <button class="fw-800 text-white w-100  admin-collapse align-items-center rounded" aria-expanded="true">
+          <a href="banner.php" class=" text-white   text-decoration-none rounded">
+            <i class="fa-solid fa-list-check pe-3"></i>  Banners <span class="ps-2"> </span>
+          </a>
+        </button>
        
     </div>
 

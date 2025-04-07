@@ -12,6 +12,9 @@
 
   <!-- Google Tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -458,64 +461,68 @@
         <h4 class="fw-bold display-8">New Tractors</h4>
         <a href="latest_tractor.php" class="px-5 text-decoration-none text-dark">View all</a>
       </div>
-      <!-- <nav class="">
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" id="nav-home-tab" data-bs-toggle="tab"
-            data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
-          <a class="nav-link active px-5 py-3 h5 fw-bold text-dark" id="nav-contact-tab" data-bs-toggle="tab"
-            data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="true">Latest</a>
-          <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" data-bs-toggle="tab"
-            data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">Upcoming</a>
-        </div>
-      </nav> -->
       <div class="tab-content p-3 mt-4" id="nav-tabContent">
-        <!-- Popular Tab -->
-        <!-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <section class="section slider-section">
-            <div class="container slider-column">
-              <div class="carousel-wrap">
-                <div class="owl-carousel" id="popular_tractor"> </div>
-                <div class="col text-center pb-4">
-                  <a href="popular_tractors.php" class="btn btn-success px-5">View all Popular Tractors</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div> -->
-        <!-- Latest Tab -->
-        <!-- class="tab-pane fade"  -->
         <div id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"> 
-        <div class="">
-          
-        </div>
           <section class="section slider-section">
             <div class="container slider-column">
               <div class="carousel-wrap">
                 <div class="owl-carousel" id="Latest_tractor"> </div>
-                
               </div>
             </div>
           </section>
         </div>
-        <!-- Upcoming Tab -->
-        <!-- <div class="tab-pane fade" id="nav-Personal" role="tabpanel" aria-labelledby="nav-Personal-tab">
-          <section class="section slider-section">
-            <div class="container slider-column">
-              <div class="carousel-wrap">
-                <div class="owl-carousel" id="upcoming_tractor"> </div>
-                <div class="col text-center pb-4">
-                  <a href="upcoming_tractors.php" class="btn btn-success px-5">View all Upcoming Tractors</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div> -->
       </div>
       <div class="d-flex justify-content-between">
           <h4 class="fw-bold display-8">Used Tractors</h4>
           <a href="used_tractor.php" class="px-5 text-decoration-none text-dark">View all</a>
+      </div>
+      <div class="p-3 mt-4">
+        <div> 
+          <section class="section slider-section">
+            <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="old_tractor"> </div>
+              </div>
+            </div>
+          </section>
         </div>
+      </div>
     </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="d-flex justify-content-between">
+          <h4 class="fw-bold display-8">Nursery</h4>
+          <a href="nursery.php" class="px-5 text-decoration-none text-dark">View all</a>
+      </div>
+      <div class="p-3 mt-4">
+        <div> 
+          <section class="section slider-section">
+            <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="nursery"> </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+          <h4 class="fw-bold display-8">Tractor Mistri</h4>
+          <a href="tractor_mistri.php" class="px-5 text-decoration-none text-dark">View all</a>
+      </div>
+      <div class="p-3 mt-4">
+        <div> 
+          <section class="section slider-section">
+            <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="tractor_mistri"> </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      </div>
   </section>
 
   <!-- <section class="bg-light">
@@ -560,7 +567,7 @@
     </div>
   </section> -->
   <!-- Tractors by Budget -->
-  <section class="bybudget position-relative bg-light">
+  <!-- <section class="bybudget position-relative bg-light">
     <div class="container  ">
       <div class="row text-align-center justify-content-between">
         <div class="col-12 col-lg-6 col-md-6 col-sm-6 pt-3">
@@ -809,7 +816,6 @@
       </div>
     </div>
   </section>
-  <!-- Nwes & Blog-->
   <section>
     <div class="container">
       <h3 class=" py-4 display-6 fw-bold">Our Latest<span class="text-success">News & Blog</span></h3>
@@ -849,9 +855,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- about tractor junction -->
-  <section class="about bg-light">
+  <!-- <section class="about bg-light">
     <div class="container">
       <div class="lecture_heading text-center">
         <h3 class="fw-bold mt-4 pt-4">About <span class="text-success">Bharat Agrimart's</span>
@@ -1289,37 +1295,174 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <?php
   include 'includes/footer.php';
   ?>
 </body>
 <script>
-  $('#usedtractorforsell').owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    navText: [
-      "<i class='fa fa-caret-left'></i>",
-      "<i class='fa fa-caret-right'></i>"
-    ],
 
-    autoplay: false,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 3
-      },
-      1000: {
-        items: 3
-      }
-    }
-  })
+$(document).ready(function () {
+    getUsedTractorList();
+    getNursery();
+    getTractorMistri();
+});
+
+  function getTractorMistri() {
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/tractor_mistri";
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+            var productContainer = $("#tractor_mistri");
+            console.log(data.data);
+            console.log(data);
+            if (data.data && data.data.length > 0) {
+                data.data.forEach(function (p) {
+                        var images = p.image_names ? p.image_names.split(',') : [];
+
+                        var newCard = `<div class="item box_shadow b-t-1">
+                                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                                <div class="harvester_img_section">
+                                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${images[0]}" alt="img" loading="lazy">
+                                                </div>
+                                            </a>
+                                            <div class="harvester_content_section mt-3">
+                                                <h6 class="fw-bold mt-2 text-dark">${p.first_name}</h6>
+                                                <p class="text-dark mt-2 mb-0">${p.tehsil_name} ${p.district_name}</p>
+                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                    <i class="fa-regular fa-handshake"></i>View Details
+                                                </button>
+                                            </div>
+                                        </div>`;
+
+                        productContainer.append(newCard);
+                });
+
+                $("#tractor_mistri").owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsive: {
+                        0: { items: 1, nav: false },
+                        600: { items: 3, nav: false },
+                        1000: { items: 4, nav: true, loop: false }
+                    }
+                });
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  function getNursery() {
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/nursery_data";
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+            var productContainer = $("#nursery");
+            console.log(data.nursery_data);
+            console.log(data);
+            if (data.nursery_data && data.nursery_data.length > 0) {
+                data.nursery_data.forEach(function (p) {
+                        var images = p.image_names ? p.image_names.split(',') : [];
+
+                        var newCard = `<div class="item box_shadow b-t-1">
+                                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                                <div class="harvester_img_section">
+                                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${images[0]}" alt="img" loading="lazy">
+                                                </div>
+                                            </a>
+                                            <div class="harvester_content_section mt-3">
+                                                <h6 class="fw-bold mt-2 text-dark">${p.nursery_name}</h6>
+                                                <p class="text-dark mt-2 mb-0">${p.address}</p>
+                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                    <i class="fa-regular fa-handshake"></i>View Details
+                                                </button>
+                                            </div>
+                                        </div>`;
+
+                        productContainer.append(newCard);
+                });
+
+                $("#nursery").owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsive: {
+                        0: { items: 1, nav: false },
+                        600: { items: 3, nav: false },
+                        1000: { items: 4, nav: true, loop: false }
+                    }
+                });
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  function getUsedTractorList() {
+    var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_old_tractor";
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+            var productContainer = $("#old_tractor");
+            if (data.product && data.product.length > 0) {
+                data.product.forEach(function (p) {
+                        var images = p.image_names ? p.image_names.split(',') : [];
+
+                        var newCard = `<div class="item box_shadow b-t-1">
+                                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none fw-bold">
+                                                <div class="harvester_img_section">
+                                                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${images[0]}" alt="img" loading="lazy">
+                                                </div>
+                                            </a>
+                                            <div class="harvester_content_section mt-3 text-center">
+                                                <h6 class="fw-bold mt-2 text-dark">${p.brand_name} ${p.model}</h6>
+                                                <p class="text-dark mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                    <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                                </button>
+                                            </div>
+                                        </div>`;
+
+                        productContainer.append(newCard);
+                });
+
+                $("#old_tractor").owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsive: {
+                        0: { items: 1, nav: false },
+                        600: { items: 3, nav: false },
+                        1000: { items: 4, nav: true, loop: false }
+                    }
+                });
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
 </script>
 <script>
   function getImageSize(img) {

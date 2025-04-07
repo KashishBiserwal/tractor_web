@@ -558,11 +558,11 @@
               <div class="col-sm-6 navbar-nav-mobile">
                 <ul class="navbar-nav navbar-navbar navbar_nav_mobile float-end ">
                   <li class="nav-item  nav_item_mobile mt-2">
-                    <a class="text-dark" style="text-decoration: none; margin-right: 10px;"
+                    <a class="text-dark" style="text-decoration: none; margin-right: 20px;"
                       href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1">Download
                       App</a>
                   </li>
-                  <li class="dropdown lang"  style="margin-right: 10px;">
+                  <!-- <li class="dropdown lang"  style="margin-right: 10px;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <img src="https://static-asset.tractorjunction.com/tj/language-icon.svg" width="28" height="28"
@@ -590,7 +590,7 @@
                         onclick="translateLanguage('ml')">Malayalam</a>
                     </div>
                   </li>
-                  <li class="" id="google_translate_element" hidden></li>
+                  <li class="" id="google_translate_element" hidden></li> -->
 
 
                   <li class="nav-item  nav_item_mobile mt-1" id="loginContainer">
@@ -653,6 +653,11 @@
           </div>
           <div class="mobile-screen-nav-containt">
             <ul class="navbar-nav  mb-2 mb-lg-0 ">
+            <li class="nav-item">
+                <a class="nav-link fw-bold" href="newTractors.php">
+                  Categories
+                </a>
+              </li>
               <li class="nav-item dropdown dropdown-toggle ">
                 <a class="nav-link dropdown-toggle fw-bold d-flex align-items-center" href="#" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -672,7 +677,7 @@
                     <ul class="dropdown-menu p-0" id="selectedImagesContainer2"></ul>
                   </li>
                   <hr class="dropdown-divider m-0">
-                  <li><a href="find_new_tractors.php" class="dropdown-item fw-bold">Find New Tractors</a></li>
+                  <li><a href="newTractors.php" class="dropdown-item fw-bold">Find New Tractors</a></li>
                   <hr class="dropdown-divider m-0">
                   <li><a href="popular_tractors.php" class="dropdown-item  fw-bold">Popular Tractors</a></li>
                   <hr class="dropdown-divider m-0">
@@ -855,11 +860,11 @@
                 <li><a class="dropdown-item fw-bold" href="tractor_mistry.php">Tractor Mistri</a></li>
               </ul>
             </li> -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link fw-bold" href="tractor_mistri.php">
                   Tractor Mistri
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item dropdown dropdown-toggle ">
                 <a class="nav-link dropdown-toggle fw-bold d-flex align-items-center" href="#" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">

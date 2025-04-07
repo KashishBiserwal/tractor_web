@@ -16,11 +16,11 @@ include 'includes/headertagadmin.php';
           <div class="card-body d-flex align-items-center justify-content-between page_title">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb my-0 ms-2">
-                <li class="breadcrumb-item"><span>Testimonials</span></li>
+                <li class="breadcrumb-item"><span>Banners</span></li>
               </ol>
             </nav>
             <button type="button" class="btn btn-success float-right p-2" data-bs-toggle="modal" data-bs-target="#addTestimonialModal">
-              <i class="fa fa-plus"></i> Add Testimonial
+              <i class="fa fa-plus"></i> Add Banner
             </button>
           </div>
           
@@ -29,7 +29,7 @@ include 'includes/headertagadmin.php';
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="addTestimonialModalLabel">Add New Testimonial</h5>
+                  <h5 class="modal-title text-white fw-bold" id="addTestimonialModalLabel">Add New Banner</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body py-4 px-4">
@@ -88,6 +88,6 @@ include 'includes/headertagadmin.php';
   <script>
     var APIBaseURL = "https://shopninja.in/bharatagri/api/public/api/admin/";
   </script>
-  <script src="model/testimonial_list.js"></script>
+  <script src="model/banner_list.js"></script>
 </body>
 </html>

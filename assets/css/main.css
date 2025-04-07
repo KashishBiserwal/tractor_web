@@ -115,6 +115,7 @@ body{
     z-index: 20;
   overflow-y: scroll; 
 }
+
 .aside::after{
     content: "";
     background-image: url("../images/bg-tractor.jpg");

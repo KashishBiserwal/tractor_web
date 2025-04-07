@@ -9,6 +9,7 @@ $(document).ready(function() {
     get_blog();
 });
 
+
 function getpopularTractorList() {
     var url = "https://shopninja.in/bharatagri/api/public/api/customer/get_new_tractor";
     $.ajax({
