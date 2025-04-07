@@ -9,7 +9,7 @@
 ?> 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/used_tractor.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/used_tractor_new.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z38E658LD"></script>
     <script>
@@ -54,14 +54,14 @@
 </section>
 <section >
     <div class="container my-4">
-        <div class="row">
+        <div class="row" style="width:85%; margin-left: auto;">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
             <h3 class="d-flex justify-content-center gap-2 pb-3">Used <span class="fw-bold" style="color: #B90405">TRACTORS</span> </h3>
                 <div id="productContainer" class="row "></div>
                 <div class="col-12 text-center">
                     <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                     <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
-                    <button type="button" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button> 
+                    <button type="button" id="loadMoreBtn" class="btn buttonn">Load More</button> 
                 </div>
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">

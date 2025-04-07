@@ -187,7 +187,7 @@ $(document).ready(function () {
                                     </div>
                                 </div>    
                             </div>
-                            <div class="col-12 mt-2">
+                            <div class="col-12 mt-2 mb-2">
                                 <button type="button" id="modelbutton" style="background-color: #B90405; color: white; border-radius: 10px;" class="add_btn w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
                                      Check Price
                                 </button>
@@ -624,7 +624,7 @@ function appendFilterCard(filterContainer, filter) {
                         </div>
                     </div>    
                 </div>
-                <div class="col-12 mt-2">
+                <div class="col-12 mt-2 mb-2">
                     <button type="button" id="modelbutton" style="background-color: #B90405; color: white; border-radius: 10px;" class="add_btn w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
                          Check Price
                     </button>

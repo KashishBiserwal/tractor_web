@@ -12,7 +12,7 @@
 
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/new_tractor_inner_new.js" defer></script>
+    <script src="<?php $baseUrl; ?>model/used_tractor_inner_new.js" defer></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -135,10 +135,8 @@
             <div class="py-2">
                 <span class="text-white">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home
-                        <i class="fa-solid fa-chevron-right px-1"></i>
                     </a>
-                    <a href="" id="model_name" class="text-decoration-none header-link px-1"> <span
-                            class="text-dark p"></span></a>
+
                 </span>
             </div>
         </div>
@@ -146,7 +144,7 @@
     <section id="Mahindra_575" class="mb-5">
         <div class="container pt-4">
             <div class="row">
-                <div class="col-9">
+                <div class="col-7">
                     <div>
                         <div id="tractor-images" class="d-flex gap-5">
                             <div id="left-bar"></div>
@@ -156,110 +154,123 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 highlights">
-                    <h4 class="head">Highlights</h4>
-                    <ul>
-                        <li>
-                            <p>Brand : <span id="brand_name"></span></>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>No. of Cylinder : <span id="total_cyclinder_value2"></span></>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>HP Category : <span id="hp_category"></span> HP</>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>PTO HP : <span id="horse_power"></span> HP</>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>Gear Box : <span id="gear_box_forward"></span> Forward + <span
-                                    id="gear_box_reverse"></span> Reverse</>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>Brakes : <span id="brake_value2"></span></>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>Warranty : <span id="warranty"></span> Year</>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <button type="submit" class="btn fw-bold" style="background-color: #B90405; color: white" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                        Check Price
-                    </button>
-                                
-                        </li>
-                    </ul>
-                   
+                <div class="col-5">
+                    <h5 class="my-2 mb-3">₹ <span id="price_main"></span> /-</h5>
+                    <!-- <h5 class="text-black fw-bold text-center">Are Youc Interested in this Tractor?</h5> -->
+                    <form id="used_farm_inner_from" method="POST" onsubmit="return false">
+                        <div class="row gap-2">
+                            <div class="col-12 " hidden>
+                                <label for="name" class="form-label fw-bold text-dark"><i
+                                        class="fa-duotone fa-chart-pie-simple"></i></label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id"
+                                    value="" name="">
+                            </div>
+                            <div class="col-12 " hidden>
+                                <label for="name" class="form-label fw-bold text-dark"><i
+                                        class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name"
+                                    id="enquiry_type_id" value="2" name="iduser">
+                            </div>
+                            <div class="col-12 " hidden>
+                                <label for="name" class="form-label fw-bold text-dark"><i
+                                        class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name"
+                                    id="product_type_id" value="2" name="iduser">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="fullname"
+                                    name="fullname">
+                            </div>
+                            <div class="col-12">
+                                <input type="number" class="form-control" placeholder="Enter Mobile Number" id="mobile_number"
+                                    name="mobile_number">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-outline mb-2">
+                                    <label for="state" class="form-label text-dark fw-bold">State</label>
+                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"
+                                        id="state" name="state">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-outline my-2">
+                                    <label for="district" class="form-label fw-bold text-dark"> District</label>
+                                    <select class="form-select py-2 district-dropdown"
+                                        aria-label=".form-select-lg example" id="district" name="district">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-outline my-2">
+                                    <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                    <select class="form-select py-2 tehsil-dropdown"
+                                        aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="contact_seller" class="btn add_btn w-100 btn_all" style="background-color: #B90405; color: white"
+                            data-bs-dismiss="modal">Submit</button>
+                            </div>
+                    </form>
+                </div>
 
-                    <!-- <div class="row my-3 text-center">
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mb-lg-0">
-                    <button type="submit" class="btn btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                        Request Call Back
-                    </button>
-                </div>
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <a href="new_tractor_loan.php">
-                        <button type="submit" class="btn btn-outline-success w-100 fw-bold">VIEW LOAN OFFERS</button>
-                    </a>
-                </div>
-            </div> -->
-
-                </div>
-                <div class="mt-3 highlights">
+                
+            </div>
+        </div>
+        <div class="mt-3 highlights">
                     <h4 class="head"><span class="brand_model" style="color: #B90405"></span> Other Features</h4>
                     <div class="d-flex justify-content-around w-100">
                         <div class="d-flex gap-3 bg-light p-2" style="border-radius: 10px;">
-                            <div><img src="assets/images/clutch.png" style="width: 30px;" alt=""></div>
                             <div>
-                                <p class="fw-bold text-uppercase">clutch </p>
-                                <p id="transmission_clutch_value2"></p>
+                                <img src="assets/images/engine.png" style="width: 30px;" alt="Engine">
+                            </div>
+                            <div>
+                                <p class="fw-bold text-uppercase">Engine Power</p>
+                                <p class="engine_name"><span id="engine_powerhp"></span> HP</p>
                             </div>
                         </div>
                         <div class="d-flex gap-3 bg-light p-2" style="border-radius: 10px;">
-                            <div><img src="assets/images/steering.png" style="width: 30px;" alt=""></div>
                             <div>
-                                <p class="fw-bold text-uppercase">Steering </p>
-                                <p id="steering_column_value2"></p>
+                                <img src="assets/images/total-hours.png" style="width: 30px;" alt="Engine">
+                            </div>
+                            <div>
+                                <p class="fw-bold text-uppercase">Total Hours</p>
+                                <p class="total_time"><span id="hours_driven"></span> Hours</p>
                             </div>
                         </div>
                         <div class="d-flex gap-3 bg-light p-2" style="border-radius: 10px;">
-                            <div><img src="assets/images/wheel-drive.png" style="width: 30px;" alt=""></div>
                             <div>
-                                <p class="fw-bold text-uppercase">Wheel Drive </p>
-                                <p id="wheel_drive"></p>
+                                <img src="assets/images/tyre-condition.png" style="width: 30px;" alt="Engine">
+                            </div>
+                            <div>
+                                <p class="fw-bold text-uppercase">Tyre Condition</p>
+                                <p class="total_time"><span id="tyre_condition"></span></p>
                             </div>
                         </div>
                         <div class="d-flex gap-3 bg-light p-2" style="border-radius: 10px;">
-                            <div><img src="assets/images/lifting.webp" style="width: 30px;" alt=""></div>
                             <div>
-                                <p class="fw-bold text-uppercase">Lifting </p>
-                                <p id="liftingC"></p>
+                                <img src="assets/images/engine-condition.png" style="width: 30px;" alt="Engine">
+                            </div>
+                            <div>
+                                <p class="fw-bold text-uppercase">Engine Condition</p>
+                                <p class="engine_name"><span id="engine_condition"></span></p>
                             </div>
                         </div>
                         <div class="d-flex gap-3 bg-light p-2" style="border-radius: 10px;">
-                            <div><img src="assets/images/rpm.png" style="width: 30px;" alt=""></div>
                             <div>
-                                <p class="fw-bold text-uppercase">Engine Rated RPM </p>
-                                <p id="engine_rated_rpm2"></p>
+                                <img src="assets/images/financier.png" style="width: 30px;" alt="Engine">
+                            </div>
+                            <div>
+                                <p class="fw-bold text-uppercase">Financier/NOC</p>
+                                <p class="engine_name"><span id="noc"></span></p>
                             </div>
                         </div>
+                        
+                        
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 
     <section class="container">
@@ -273,207 +284,22 @@
                 <div id="description" class="content active ">
                 </div>
                 <div id="specifications" class="content ">
-                    <div class="about border-success  border-4 text-dark border-start mt-4">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Engine
-                        </h4>
-                    </div>
                     <table class="table table-hover table-striped my-4">
                         <tbody>
                             <tr class="row">
-                                <td class="col-6 table-data">No. Of Cylinder</td>
-                                <td class="col-6 table-data" id="total_cyclinder_value"></td>
+                                <td class="col-6 table-data">Purchase Year</td>
+                                <td class="col-6 table-data" id="purchase_year"></td>
                             </tr>
                             <tr class="row">
-                                <td class="col-6 table-data">HP Category</td>
-                                <td class="col-6 table-data"><span id="hp_category_id"></span> HP</td>
+                                <td class="col-6 table-data">Vehicle Registered Number</td>
+                                <td class="col-6 table-data" id="vehicle_registered_num"></td>
                             </tr>
                             <tr class="row">
-                                <td class="col-6 table-data">Capacity CC</td>
-                                <td class="col-6 table-data"><span id="engine_capacity_cc"></span> CC</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Engine Rated RPM</td>
-                                <td class="col-6 table-data"><span id="engine_rated_rpm"></span> RPM</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Cooling</td>
-                                <td class="col-6 table-data" id="cooling_value"></td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Air Filter</td>
-                                <td class="col-6 table-data" id="air_filter"></td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">PTO HP</td>
-                                <td class="col-6 table-data">
-                                    <p><span id="horse_power_2"></span> HP</p>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Fuel Pump</td>
-                                <td class="col-6 table-data"><span id="fuel_value"></span></td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Torque</td>
-                                <td class="col-6 table-data"><span id="torque"></span> NM</td>
+                                <td class="col-6 table-data">Model</td>
+                                <td class="col-6 table-data" id="model"></td>
                             </tr>
                         </tbody>
                     </table>
-
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Transmission</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr class="row">
-                                <td class="col-6 table-data">Type</td>
-                                <td class="col-6 table-data"><span id="transmission_type_value"></span></td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Clutch</td>
-                                <td class="col-6 table-data"><span id="transmission_clutch_value"></span></td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Gear Box</td>
-                                <td class="col-6 table-data">
-                                    <span id="gear_box_forward_2"></span> Forward +
-                                    <span id="gear_box_reverse_2"></span> Reverse
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Forward Speed</td>
-                                <td class="col-6 table-data"><span id="transmission_forward"></span> kmph</td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 table-data">Reverse Speed</td>
-                                <td class="col-6 table-data"><span id="transmission_reverse"></span> kmph</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Brakes</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr class="row">
-                                <td class="col-6 table-data">Brakes</td>
-                                <td class="col-6 table-data"><span id="brake_value"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h3 class="text-dark fw-bold text-start ps-2">
-                            Steering</h3>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr>
-                                <td class="table-data">Type</td>
-                                <td class="table-data" id="steering_details_value"> </td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">Steering Column</td>
-                                <td class="table-data"><span id="steering_column_value"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Power Take Off</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr>
-                                <td class="table-data">Type</td>
-                                <td class="table-data"><span id="power_take_off_type"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">RPM</td>
-                                <td class="table-data"><span id="power_take_off_type_rpm"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Dimensions And Weight Of Tractor</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr>
-                                <td class="table-data">Total Weight</td>
-                                <td class="table-data"><span id="total_weight"></span> kg</td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">Wheel Base</td>
-                                <td class="table-data"><span id="wheel_base"></span> mm</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Hydraulics</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr>
-                                <td class="table-data">Lifting Capacity</td>
-                                <td class="table-data"><span id="lifting_capacity"></span> Kg</td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">3 point Linkage</td>
-                                <td class="table-data"> <span id="linkage_point_value"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Wheels And Tyres</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr>
-                                <td class="table-data">Wheel drive</td>
-                                <td class="table-data"><span id="wheel_drive_value"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">Front</td>
-                                <td class="table-data"><span id="front_tyre"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">Rear</td>
-                                <td class="table-data"><span id="rear_tyre"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
-                    <div class="about border-success  border-4 text-dark border-start">
-                        <h4 class="text-dark fw-bold text-start ps-2">
-                            Other Information</h4>
-                    </div>
-                    <table class="table table-hover table-striped my-4">
-                        <tbody>
-                            <tr>
-                                <td class="table-data">Accessories</td>
-                                <td class="table-data"><span id="accessory_id"></span> </td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">Warranty</td>
-                                <td> <span id="warranty_2"></span> year</td>
-                            </tr>
-                            <tr>
-                                <td class="table-data">Status</td>
-                                <td class="table-data"><span id="status_value"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-
                 </div>
                 <div id="faqs" class="content ">
                     <div class="mt-4 pb-5">
@@ -601,8 +427,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title ms-1 brand_model" id="staticBackdropLabel"></h5>
-                    <button type="button" data-bs-dismiss="modal" aria-label="Close"><img
-                            src="assets/images/close.png" style="filter: brightness(0); width: 20px;"></button>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"
+                            style="filter: brightness(0); width: 20px;"></button>
                 </div>
                 <!-- MODAL BODY -->
                 <div class="modal-body">
@@ -630,9 +456,15 @@
                                 <input type="text" class="form-control" placeholder="Enter Your Name" id="fullname"
                                     name="fullname">
                             </div>
+                            <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i>
+                                    Last Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Number" id="lastName"
+                                    name="lastName">
+                            </div> -->
                             <div class="col-12">
-                                <input type="number" class="form-control" placeholder="Enter Mobile Number" id="mobile_number"
-                                    name="mobile_number">
+                                <input type="number" class="form-control" placeholder="Enter Mobile Number"
+                                    id="mobile_number" name="mobile_number">
                             </div>
                             <div class="col-12">
                                 <div class="form-outline mb-2">
@@ -659,8 +491,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" id="submit_enquiry" class="btn add_btn w-100 btn_all" style="background-color: #B90405; color: white"
-                                    onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
+                                <button type="submit" id="submit_enquiry" class="btn add_btn w-100 btn_all"
+                                    style="background-color: #B90405; color: white" onclick="savedata('${formId}')"
+                                    data-bs-dismiss="modal">Submit</button>
                             </div>
                     </form>
                     <!-- <form id="inner_brand_form" method="POST" onsubmit="return false">

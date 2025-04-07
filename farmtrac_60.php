@@ -32,7 +32,7 @@
     <?php
         include 'includes/header.php';
     ?>
-   <section class="bg-light mt-4 pt-5">
+   <section class="bg-light mt-4 pt-5 mt-5">
         <div class="container py-2">
             <div class="py-1 mt-4">
                 <span class="my-4 text-white pt-4 ">

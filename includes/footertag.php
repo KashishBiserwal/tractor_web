@@ -11,10 +11,10 @@
 <script src="minified/datatables.min.js"></script> 
 <!-- <script src="assets/js/owl.carousel.js"></script> -->
 <script src="assets/js/owl.carouselminify.js"></script>
-<!-- <script src="assets/js/owl.carousel.min.js"></script> -->
-<script src="minified/owl.carousel.min.js"></script> 
-<!-- <script src="assets/js/jquery.validate.js"></script> -->
-<script src="assets/js/jquery.validateminify.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<!-- <script src="minified/owl.carousel.min.js"></script>  -->
+<script src="assets/js/jquery.validate.js"></script>
+<!-- <script src="assets/js/jquery.validateminify.js"></script> -->
 <script src="assets/js/swiper.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
@@ -23,9 +23,9 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
-<!-- <script src="js/validation.js"></script> -->
-<script src="js/validationminify.js"></script>
-<!-- <script src="js/main.js"></script> -->
-<script src="js/mainminify.js"></script>
-<!-- <script src="assets/js/main.js"></script> -->
-<script src="assets/js/mainminify.js"></script>
+<script src="js/validation.js"></script>
+<!-- <script src="js/validationminify.js"></script> -->
+<script src="js/main.js"></script>
+<!-- <script src="js/mainminify.js"></script> -->
+<script src="assets/js/main.js"></script>
+<!-- <script src="assets/js/mainminify.js"></script> -->
