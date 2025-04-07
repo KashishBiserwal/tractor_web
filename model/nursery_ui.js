@@ -105,33 +105,35 @@ $(document).ready(function() {
         var fullname = p.first_name + ' ' + p.last_name;
         var userId = localStorage.getItem('id');
         var newCard = `
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
-                <a href="nursery_inner.php?id=${p.id}"
-                    class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3 id="${cardId}">
+                
+                   <div class="h-auto success__stry__item d-flex flex-column" style="border-radius: 10px; border: 1px solid #F2F2F2">
                     <div class="thumb">
                         <div>
-                            <div class="ratio ratio-16x9">
+                            <div class="ratio ratio-16x9" id="modelbutton"  data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
                                 <img src="https://shopninja.in/bharatagri/api/public/uploads/nursery_img/${a[0]}" class="object-fit-cover" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-                        <div class="power text-center mt-3">
+                    <div class="content d-flex flex-column flex-grow-1 px-3 ">
+                         <div class="caption text-left text-truncate">
                             <div class="col-12">
-                                <p class="text-success fw-bold text-truncate">${p.nursery_name}</p>
+                                <p class="text-dark mt-2 text-truncate">${p.nursery_name}</p>
                             </div>
                         </div>
                         <div class="row text-center">
                             <div class="col-12 text-center">
-                                <p class="fw-bold pe-3 text-truncate">${p.district_name}, ${p.state_name}</p>
+                                <p class=" pe-3 mt-2  text-truncate">${p.district_name}, ${p.state_name}</p>
                             </div>
                         </div>
                     </div>
-                </a>
-                <div class="col-12 btn-success">
-                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
-                        <i class="fa-regular fa-handshake"></i> Contact Nursery
+              
+                <div class="col-12 mt-2">
+                <a href="nursery_new_detail.php?id=${p.id}">
+                    <button type="button" style="background-color: #B90405; color: white; border-radius: 10px;" class="add_btn w-100"  >
+                        View Detail
                     </button>
+                    </a>
                 </div>
         
                 <!-- Modal -->
@@ -144,6 +146,9 @@ $(document).ready(function() {
                                 <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Contact Nursery</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+
+
+                            
                             <div class="modal-body my-3">
                                 <div class="model-cont">
                                     <form id="${formId}" method="POST" onsubmit="return false">
