@@ -3,6 +3,7 @@
     <?php
     include 'includes/headertag.php';
     include 'includes/headertagadmin.php';
+    include 'includes/categorySidebar.php';
     include 'includes/footertag.php';
     include 'includes/header.php';
    ?> 
@@ -41,7 +42,7 @@
 }
 </style>
     <section class="mt-130 bg-light">
-        <div class="container">
+        <div class="container" >
           <div class="py-2">
             <span class="text-white"><a href="index.php" class="text-decoration-none header-link px-1">Home 
               <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -55,8 +56,8 @@
         <div id="tractor_description"></div>
       </div>
     </section>
-    <section>
-      <div class="container my-5" >
+    <section  style="width: 75%; margin-left: auto; margin-right: 10px;" >
+      <div class="container my-5">
         <h4 id="heading_imple" class="bg-light assured ps-3 py-2"></h4>
         <div class="row" id="productContainer"></div>
         <div class="col-12 text-center mt-3 pt-2 ">
