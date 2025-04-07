@@ -56,7 +56,7 @@
             <a href="newTractors.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Tractor Mistri</a>
         </button> 
         <button class="menu-button">
-            <a href="newTractors.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Insurance</a>
+            <a href="customer-insurance.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Insurance</a>
         </button> 
         
        
