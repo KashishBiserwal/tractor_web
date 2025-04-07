@@ -84,51 +84,38 @@ function appendCard(container, p) {
     var userId = localStorage.getItem('id');
     var newCard = `
 <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
-    <div class="h-auto success__stry__item d-flex flex-column shadow ">
+    <div class="h-auto success__stry__item d-flex flex-column shadow " style="border-radius: 10px; border: 1px solid #F2F2F2">
         <div class="thumb">
-            <a href="farmtrac_60.php?product_id=${p.customer_id}">
+            <a href="used_tractor_details_new.php?product_id=${p.customer_id}">
                 <div class="ratio ratio-16x9">
-                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}" loading="lazy">
+                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" style="border-radius: 10px" class="object-fit-cover " alt="${p.description}" loading="lazy">
                 </div>
             </a>
         </div>
-        <div class="content d-flex flex-column flex-grow-1 ">
-            <div class="caption text-center">
-                <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
+        <div class="content px-3 d-flex flex-column flex-grow-1">
+            <div class="caption">
+                <a href="used_tractor_details_new.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
+                    <p class="pt-3"><strong class="series_tractor_strong text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
                 </a>      
             </div>
-           <div class=" row text-center">
+            <div class="row mt-2">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
+                    <p style="background-color: #E9F5FF; border-radius: 30px;" class=" text-center fw-light py-2" >₹<span id="price">${formattedPrice}</p>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
+                    <p   style="background-color: #E9F5FF; border-radius: 30px;" class=" text-center fw-light py-2"><span id="year">${p.purchase_year}</p>
                 </div>
             </div>
-               
-                <div class="row text-center">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                        font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                        font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                    </div>
-                </div>
-                <div class=" row text-center mt-3">
-                    <div class="col-10 justify-center m-auto">
-                        <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
-                    </div>
+            <div class=" row text-center mt-3">
+                <div class="col-10 justify-center m-auto">
+                    <p class="fw-medium text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
                 </div>
             </div>
-            <div class=" row state_btn">
+            </div>
+            <div class="p-2 row state_btn">
                <div class="col-12">
-                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
-                        <i class="fa-regular fa-handshake"></i> Contact Seller
+                    <button type="button" id="modelbutton" style="background-color: #B90405; color: white; border-radius: 10px;" class="add_btn w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                        Contact Seller
                     </button>
                 </div>
 
@@ -723,53 +710,39 @@ function appendFilterCard(filterContainer, p) {
     var fullname = p.first_name + ' ' + p.last_name;
     var userId = localStorage.getItem('id');
     var newCard = `
-<div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
-    <div class="h-auto success__stry__item d-flex flex-column shadow ">
+    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+    <div class="h-auto success__stry__item d-flex flex-column shadow " style="border-radius: 10px; border: 1px solid #F2F2F2">
         <div class="thumb">
-            <a href="farmtrac_60.php?product_id=${p.customer_id}">
+            <a href="used_tractor_details_new.php?product_id=${p.customer_id}">
                 <div class="ratio ratio-16x9">
-                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}" loading="lazy">
+                    <img src="https://shopninja.in/bharatagri/api/public/uploads/product_img/${a[0]}" style="border-radius: 10px" class="object-fit-cover " alt="${p.description}" loading="lazy">
                 </div>
             </a>
         </div>
-        <div class="content d-flex flex-column flex-grow-1 ">
-            <div class="caption text-center">
-                <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-left text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
+        <div class="content px-3 d-flex flex-column flex-grow-1">
+            <div class="caption">
+                <a href="used_tractor_details_new.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
+                    <p class="pt-3"><strong class="series_tractor_strong text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
                 </a>      
             </div>
-           <div class=" row text-center">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
-                    </div>
-                   
+            <div class="row mt-2">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p style="background-color: #E9F5FF; border-radius: 30px;" class=" text-center fw-light py-2" >₹<span id="price">${formattedPrice}</p>
                 </div>
-               
-                <div class="row text-center">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                        font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                        font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                    </div>
-                </div>
-                <div class=" row text-center mt-3">
-                    <div class="col-10 justify-center m-auto">
-                        <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
-                    </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p   style="background-color: #E9F5FF; border-radius: 30px;" class=" text-center fw-light py-2"><span id="year">${p.purchase_year}</p>
                 </div>
             </div>
-            <div class=" row state_btn">
+            <div class=" row text-center mt-3">
+                <div class="col-10 justify-center m-auto">
+                    <p class="fw-medium text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
+                </div>
+            </div>
+            </div>
+            <div class="p-2 row state_btn">
                <div class="col-12">
                     <button type="button" id="modelbutton" style="background-color: #B90405; color: white; border-radius: 10px;" class="add_btn w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
-                        <i class="fa-regular fa-handshake"></i> Contact Seller
+                        Contact Seller
                     </button>
                 </div>
 
