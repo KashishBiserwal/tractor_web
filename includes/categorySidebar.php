@@ -36,6 +36,7 @@
 </style>
 
 <aside style="width: 250px;  position: fixed; top: 80px; left: 0;  padding-top: 100px; overflow-y: auto;">
+<aside style="width: 300px;  position: absolute; top: 80px; left: 0;  padding-top: 100px; overflow-y: auto;">
 
 
     <div style="display: flex; flex-direction: column; border: 1px solid #D9D9D9; border-radius: 5px;">
@@ -57,9 +58,6 @@
         </button> 
         <button class="menu-button">
             <a href="newTractors.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Insurance</a>
-        </button> 
-        <button class="menu-button">
-            <a href="hire_new.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Rent</a>
         </button> 
         
        
