@@ -213,6 +213,11 @@
                                 <button type="submit" id="contact_seller" class="btn add_btn w-100 btn_all" style="background-color: #B90405; color: white"
                             data-bs-dismiss="modal">Submit</button>
                             </div>
+                            <a href="new_tractor_loan.php">
+                            <div class="modal-footer">
+                                <button type="button" id="get_loan" class="btn add_btn w-100 btn_all" style="background-color: green; color: white">Get Loan</button>
+                            </div>
+                            </a>
                     </form>
                 </div>
 

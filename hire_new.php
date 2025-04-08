@@ -59,7 +59,7 @@
 <body>
     <?php
     include 'includes/header.php';
-    ?>c
+    ?>
 
     <!-- <section class="mt-3 pt-5 bg-light">
         <div class="container py-2">
@@ -72,7 +72,7 @@
             </div>
         </div>
     </section> -->
-    <section style="margin-top: 150px; width: 80%; margin-left: auto; margin-right: 20px">
+    <section style="margin-top: 160px; width: 80%; margin-left: auto; margin-right: 20px">
         <div class="container my-4 ">
             <div class="row">
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
@@ -80,9 +80,9 @@
                             style="color: #B90405">Rental Tractors</span> </h3>
                     <div class="row" id="productContainer"></div>
                     <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
-                        <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!
+                        <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found...!
                     </h5>
-                    <div class="col-12 text-center mt-3 pt-2 ">
+                    <div class="col-12 text-center mt-3 pt-2">
                         <button id="loadMoreBtn" type="button" class="add_btn buttonn mt-4 shadow"> Load More Tractor </button>
                     </div>
                 </div>
