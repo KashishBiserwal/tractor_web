@@ -38,16 +38,10 @@
         color: #333;
         margin-bottom: 20px;
         background-color: #F2F2F2;
-        padding-top: 10px;
+        padding: 10px;
         border-radius: 10px;
     }
 
-    .highlights {
-        background-color: #F2F2F2;
-        padding: 10px 25px;
-        border-radius: 10px;
-        max-height: max-content;
-    }
 
     .mainImage {
         width: 100%;
@@ -93,10 +87,56 @@
     }
 
     .gridd {
-        display: grid;
-        grid-template-columns: 8fr 4fr;
-        gap: 80px;
+     margin-top: 100px;
     }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+        .mainImage {
+            width: 100%;
+            height: auto;
+        }
+
+        #tractor-images {
+            flex-direction: column;
+        }
+
+        .highlights {
+            margin-top: 20px;
+            border-radius: 12px;
+        }
+
+        .highlights li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+    }
+
+    /* Enhance Highlights UI */
+    .highlights {
+        background-color: #ffffff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .highlights ul {
+        padding-left: 0;
+    }
+
+    .highlights li {
+        font-size: 15px;
+        line-height: 1.6;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .highlights li:last-child {
+        border-bottom: none;
+    }
+
 
 
     @media (max-width: 768px) {
@@ -128,8 +168,22 @@
         }
     }
 
-    .mt-130 {
-        margin-top: 117px;
+   
+
+    @media (max-width: 768px) {
+        .highlights {
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .highlights ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .highlights h4.head {
+            font-size: 18px;
+        }
     }
 </style>
 
@@ -153,7 +207,7 @@
     <section id="Mahindra_575" class="mb-5">
         <div class="container pt-4">
             <div class="row">
-                <div class="col-9">
+                <div class=" col-md-9">
                     <div>
                         <div id="tractor-images" class="d-flex gap-5">
                             <div id="left-bar"></div>
@@ -162,65 +216,46 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-3 highlights">
-                    <h4 class="head">Contact</h4>
-                    <ul>
-                        <li>
-                            <p>Services : <span id="services"></span></>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>call : <span id="mistri_call"></span></>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <p>Address : <span id="total_cyclinder_value2"></span></>
-                        </li>
-                    </ul>
-
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <div class="gridd">
-            <div class="left">
-                <div class="tabs">
-                    <div class="tab active" data-tab="description">About</div>
-
-                </div>
-                <div id="description" class="content active ">
-                </div>
-
-
-            </div>
-            <!-- 
-            <div class="right">
-                <div class=" table-and-card pt-4">
-                    <div class="">
-                        
-                        <div class="sticky my-3">
-                            <div class="popular_used_tractor mb-3">
-                                <h4 class="text-center fw-bold mt-3">Similar Tractors</h4>
-                            </div>
-                            <div class="popular-used-tractor">
-                                <div id="productContainerpopular">
+                    <section >
+                        <div class="gridd">
+                            <div class="left">
+                                <div class="tabs">
+                                    <div class="tab active" data-tab="description">About</div>
                                 </div>
-                                <div class=" text-center"><button class="btn btn-success" id="loadMoretract">Load
-                                        More</button></div>
+                                <div id="description" class="content active ">
+                                </div>
+
+
                             </div>
+
                         </div>
-                    </div>
+                    </section>
+
                 </div>
-            </div> -->
+                <div class="col-12 col-md-3 highlights">
+                    <h4 class="head">Highlights</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Name:</strong> <span id="name"></span></li>
+                        <li><strong>Call:</strong> <span id="mistri_call"></span></li>
+                        <li><strong>Services:</strong> <span id="services"></span></li>
+                        <li><strong>Brand:</strong> <span id="brand"></span></li>
+                        <li><strong>Model:</strong> <span id="model"></span></li>
+                        <li><strong>Category:</strong> <span id="category"></span></li>
+                        <li><strong>Contact Person:</strong> <span id="contact_person"></span></li>
+                        <li><strong>Manpower:</strong> <span id="manpower"></span></li>
+                        <li><strong>Doorstep Service:</strong> <span id="doorstep_service"></span></li>
+                        <li><strong>State:</strong> <span id="state_name"></span></li>
+                        <li><strong>District:</strong> <span id="district_name"></span></li>
+                        <li><strong>Tehsil:</strong> <span id="tehsil_name"></span></li>
+                        <li><strong>Address:</strong> <span id="local"></span></li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </section>
+
+
 
     <section class="section slider-section">
     </section>
@@ -274,4 +309,3 @@
         });
     });
 </script>
-

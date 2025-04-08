@@ -140,7 +140,7 @@
     });
 
     function appendCard(container, p) {
-        var dummyImage = "assets/images/Tractor-mistri.jpg";
+
 
         var cardHtml = `
             <div class="col-12 col-sm-6 col-md-4">
@@ -149,7 +149,7 @@
                         <div>
                             <div class="ratio ratio-16x9">
                                    
-                                  <img src="${dummyImage}" class="img-fluid object-fit-cover rounded" alt="Tractor Image" loading="lazy">
+                                  <img src="${p.img ? 'https://shopninja.in/bharatagri/api/public/' + p.img : 'assets/images/Tractor-mistri.jpg'}" class="img-fluid object-fit-cover rounded" alt="Tractor Image" loading="lazy">
                             </div>
                         </div>
                     </div>

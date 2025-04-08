@@ -21,14 +21,41 @@
   gtag('config', 'G-6Z38E658LD');
 </script>
 <style>
-  .text-truncate {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  }
+    .buttonn {
+        background-color: #B90405;
+        border: none;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .buttonn:hover {
+        background-color: #fff;
+        color: #B90405;
+        border: 1px solid #B90405;
+    }
+
+    .text-truncate {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+    }
+
+    label.error {
+        color: red;
+        font-size: 12px;
+        display: block;
+        margin-top: 5px;
+    }
 </style>
 <body>
-  <section class="bg-light mt-3">
+  <section class="bg-light mt-5">
     <div class="container mt-4 pt-4">
       <div class="mt-5 pt-5">
         <span class="mt-4 pt-4 ">
@@ -113,12 +140,12 @@
       <div class="text-center mt-4">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <button type="button" id="certified_dlr_rcb_btn" class="btn btn-success btn-block w-100 p-2 m-1 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
+            <button type="button" id="certified_dlr_rcb_btn" class="btn buttonn btn-block w-100 p-2 m-1 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
             <a href="become_certified.php" class="text-decoration-none">
               <div class="">
-                <button type="button" class="btn btn-success btn-block d-flex justify-content-center w-100 p-2 m-1">Become Certified Dealer</button>
+                <button type="button" class="btn buttonn btn-block d-flex justify-content-center w-100 p-2 m-1">Become Certified Dealer</button>
               </div>
             </a>
           </div>
@@ -133,7 +160,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
-            <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+            <button type="button" class="btn-close buttonn" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
           </div>
           <!-- MODAL BODY -->
           <div class="modal-body">
@@ -188,7 +215,7 @@
                 </div>
               </div>
               <div class="text-center my-3">
-                <button type="button" id="delership_enq_btn" class="btn btn-success px-5 w-100 " data-bs-dismiss="modal">Submit</button>         
+                <button type="button" id="delership_enq_btn" class="btn  px-5 w-100 " style=" background-color: #B90405; color: #fff;" data-bs-dismiss="modal">Submit</button>         
               </div>        
               <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
             </div>
@@ -225,7 +252,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                    <button type="button" class="btn " style=" background-color: #B90405; color: #fff;" id="Verify">Verify</button>
                 </div>
             </div>
         </div>
@@ -269,7 +296,7 @@
         <div class="carousel-wrap">
           <div class="owl-carousel" id="New_Tractor_Implements"> </div>
           <div class="col text-center pb-4">
-            <a href="harvester.php" class="btn btn-success px-5">View all Harvester</a>
+            <a href="harvester.php" class="btn  px-5" style=" background-color: #B90405; color: #fff;" >View all Harvester</a>
           </div>
         </div>
       </div>
