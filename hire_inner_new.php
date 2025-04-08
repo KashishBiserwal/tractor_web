@@ -135,73 +135,80 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header modal_head">
-                    <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
-                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                <div class="modal-header modal_head" style="background-color: #B90405;">
+                    <h5 class="ms-1 text-white" id="">Generate Enquiry</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-100"></button>
                 </div>
                 <div class="modal-body">
                     <div class="model-cont">
                         <form id="hire_inner" method="POST" onsubmit="return false">
-                            <div class="row">
-                                <div class="row px-3 ">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> customer_id</label>
-                                        <input type="text" class="form-control" id="customer_id" value="">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>brand_name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name"  id="brand_name_brand" name="">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>model</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name"  id="model_form" name="">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="first_name" name="fname">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="last_name" name="lname">
-                                    </div>
-                                    <div class="col-12 ">
-                                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                        <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="number">
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark fw-bold" id="the_state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                <div class="row gap-2">
+                                    <div class="row px-3 ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> customer_id</label>
+                                            <input type="text" class="form-control" id="customer_id" value="">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>brand_name</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your Name"  id="brand_name_brand" name="">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>model</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your Name"  id="model_form" name="">
+                                        </div>
+                                       
+                                        <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="fullname"
+                                    name="fullname">
+                            </div>
+                                        <div class="col-12">
+                                <input type="number" class="form-control" placeholder="Enter Mobile Number" id="mobile_number"
+                                    name="mobile_number">
+                            </div>
+                                        <div class="col-12">
+                                <div class="form-outline mb-2">
+                                    <label for="state" class="form-label text-dark fw-bold">State</label>
+                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"
+                                        id="state" name="state">
                                     </select>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="the_district">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-outline my-2">
+                                    <label for="district" class="form-label fw-bold text-dark"> District</label>
+                                    <select class="form-select py-2 district-dropdown"
+                                        aria-label=".form-select-lg example" id="district" name="district">
                                     </select>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label class="form-label text-dark mt-2"> Tehsil</label>
-                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example"  id="the_tehsil" name="tehsil">
+                            </div>
+                                    <div class="col-12">
+                                <div class="form-outline my-2">
+                                    <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                    <select class="form-select py-2 tehsil-dropdown"
+                                        aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
                                     </select>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                    <label for="yr_price" class="form-label text-dark">Price</label>
-                                    <input type="yr_price" class="form-control price_form" placeholder="Enter Price" id="price_form" name="price">
-                                </div>
-                            </div>          
-                        </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="yr_price" class="form-control" placeholder="Enter Price" id="price_form"
+                                    name="mobile_number">
+                            </div>
+                                    
+                                </div>          
+                            </div>
                         <div class="modal-footer">
-                            <button type="submit" id="button_hire" class="btn add_btn btn-success w-100 btn_all"data-bs-dismiss="modal">Submit</button>
+                            <button type="submit" id="button_hire" class="btn add_btn w-100 btn_all" style="background-color: #B90405; color: white" data-bs-dismiss="modal">Submit</button>
                         </div>      
                     </form>    
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <h4 class="fw-bold assured px-2">Quick Links</h4>
         <div class="row my-4">
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
@@ -260,7 +267,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
