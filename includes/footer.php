@@ -1,143 +1,136 @@
-<footer class="footer">
-  	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
-                
-  	 			<!-- <h4>Bhartiya Janta Party</h4> -->
-                <h4 class="text-white mt-1 ">DOWNLOAD BHARAT AGRIMART'S APP</h4>
-                <!-- <img src="assets/images/BJP-logo.png" alt="" class="fotterimg mt-3"> -->
-                <picture class="">
-                    <a href="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1">
-                    <source type="image/avif" srcset="assets/images/google-play-icon.avif" data-srcset="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1">
-                    <img width="105" height="32" loading="lazy" class="gplay-icon" src="assets/images/google-play-icon.avif" data-src="https://play.google.com/store/apps/details?id=com.divyal.bharat_tractor_app_1" alt="TractorJunction | Mobile App"></a>
-                </picture>
-                <h5 class="py-2 mt-1 text-white">follow us</h5>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f mt-2"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter mt-2"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram mt-2"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in mt-2"></i></a>
-  	 			</div>   
-                <!-- <h6 class="py-1 mt-1 text-white">CONTENT PROTECTED BY</h6>
-                <a href="//www.dmca.com/Protection/Status.aspx?ID=3b8f9b9c-4306-46b9-8dc6-ad7250b29155" title="DMCA.com Protection Status" target="_blank">
-                    <img width="105" height="22" class="gplay-icon" src="assets/images/_dmca_premi_badge_5.png"  alt="DMCA.com Protection Status">
-                </a> -->
-  	 			
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>IMPORTANT LINKS</h4>
-  	 			<ul>
-                    <li>
-                        <a href="about_us.php" class="">
-                        About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact_us.php" class="">
-                        Contact / Mail Us
-                        </a>
-                    </li>
-                 
-                    <li>
-                        <a href="new_tractor_loan.php" class="">
-                        Loan
-                        </a>
-                    </li>
-                    <li>
-                        <a href="privacy_policy.php" class="">
-                        Privacy Policy
-                        </a>
-                    </li>
-                    
-  	 			</ul>
-  	 		</div>
-            <!-- <div class="footer-col">
-  	 			<h4>EXPLORE NEWS</h4>
-  	 			<ul>
-  	 				<li>
-                        <a href="#" class="">
-                         All  News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Tractor News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Agriculture News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Sarkari Yojana News
-                        </a>
-                    </li>
-  	 			</ul>
-  	 		</div> -->
 
-  	 		<div class="footer-col">
-  	 			<h4> BUY OLD PRODUCTS</h4>
-  	 			<ul>
-  	 				<li>
-                        <a href="used_tractor.php">
-                        Buy Used Tractor
-                        </a>
-                    </li>
-                    <li>
-                        <a href="used_farm_imple.php">
-                        Buy Used Farm Implements
-                        </a>
-                    </li>
-                    <li>
-                        <a href="used_harvester.php">
-                        Buy Used Harvester
-                        </a>
-                    </li>
-                </ul>
-            </div>
-  	 		<div class="footer-col">
-  	 			<h4>SELL OLD PRODUCTS</h4>
-                   <ul>
-  	 				<li>
-                        <a href="sell_used_trac.php">
-                        Sell Used Tractor
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sell_used_farm_imple.php">
-                        Sell Used Farm Implements
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sell_used_harvester.php">
-                        Sell Used Harveste
-                        </a>
-                    </li>
-                </ul>
-  	 		</div>
-              <div class="footer-col">
-  	 			<h4>Others</h4>
-  	 			<ul>
-                   <li>
-                        <a href="nursery_ui.php" class="">
-                         Nursery
-                        </a>
-                    </li>
-                    <li>
-                        <a href="engine_oil.php" class="">
-                        Engine Oil
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tyre.php" class="">
-                       Tyres
-                        </a>
-                    </li>
-  	 			</ul>
-  	 		</div>
+<style>
+  .footer-logo {
+    max-height: 80px;
+  }
+
+  .footer {
+    padding: 40px 0;
+    background-color: #fdf5dc;
+  }
+
+  .footer h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .footer a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  .social-icons i {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #555;
+  }
+
+  .footer-divider {
+    border-top: 1px solid #c0bfbf;
+    margin: 30px 0;
+  }
+
+  .playstore-img {
+    width: 140px;
+    margin-top: 20px;
+  }
+
+  .footer-bottom-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-bottom-icons .footer-btn {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+  }
+</style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<footer class="footer container-fluid">
+  <div class="container">
+    <div class="row mb-4 text-center text-md-start align-items-center">
+      <div class="col-12 col-md-3 mb-3 mb-md-0">
+        <a href="index.php" class="text-decoration-none d-inline-block">
+          <img src="assets/images/tractor-logo.png" alt="reload img" class="logo" style="width: 80px; height:80px;">
+        </a>
+      </div>
+      <div class="col-12 col-md-3 mb-3 mb-md-0">
+        <p><i class="fas fa-map-marker-alt me-2"></i><strong>Corporate Office</strong><br>Gurugram, Sec-12, new road</p>
+      </div>
+      <div class="col-12 col-md-3 mb-3 mb-md-0">
+        <p><i class="fas fa-envelope me-2"></i><strong>Email Us</strong><br>ask.bharatagimart@gmail.com</p>
+      </div>
+      <div class="col-12 col-md-3 social-icons d-flex justify-content-center justify-content-md-start mt-2 mt-md-0">
+        <div>
+          <strong><i class="fas fa-check me-2 mb-1"></i>Follow us</strong><br>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-dribbble"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-youtube"></i>
         </div>
-  	</div>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="row text-center text-md-start">
+      <div class="col-12 col-md-3 mb-4">
+        <h5>About Us</h5>
+        <p>Bharat Agri Marts is a dynamic online marketplace bridging the gap between buyers and sellers of agricultural equipment.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="Google Play" class="playstore-img">
+      </div>
+
+      <div class="col-6 col-md-2 mb-4">
+        <h5>Our Terms</h5>
+        <ul class="list-unstyled text-center text-md-start">
+          <li><a href="about_us.php">About us</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="contact_us.php">Contact us</a></li>
+          <li><a href="new_tractor_loan.php">Loans</a></li>
+          <li><a href="privacy_policy.php">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-4">
+        <h5>Old Product</h5>
+        <ul class="list-unstyled text-center text-md-start">
+          <li><a href="used_farm_imple.php">Buy Used Farm Implements</a></li>
+          <li><a href="used_harvester.php">Buy Used Harvester</a></li>
+          <li><a href="sell_used_trac.php">Sell Used Tractor</a></li>
+          <li><a href="sell_used_harvester.php">Sell Used Harvester</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-4">
+        <h5>Other Services</h5>
+        <ul class="list-unstyled text-center text-md-start">
+          <li><a href="used_tractor.php">Used Tractor</a></li>
+          <li><a href="nursery_ui.php">Nursery</a></li>
+          <li><a href="engine_oil.php">Engine Oil</a></li>
+          <li><a href="tyre.php">Tyres</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <h5>Our Network</h5>
+        <img src="assets/images/map.svg" class="img-fluid" alt="Network Map">
+      </div>
+    </div>
+  </div>
 </footer>
 
+<!-- Fixed Buttons -->
+<div class="footer-bottom-icons">
+  <button class="btn footer-btn btn-primary"><i class="fas fa-arrow-up"></i></button>
+  <button class="btn footer-btn btn-danger"><i class="fas fa-headset"></i></button>
+</div>

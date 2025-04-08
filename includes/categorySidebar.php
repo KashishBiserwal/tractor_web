@@ -35,7 +35,7 @@
     }
 </style>
 
-<aside style="width: 300px;  position: fixed; top: 80px; left: 0;  padding-top: 100px; overflow-y: auto;">
+<aside style="width: 300px;  position: absolute; top: 80px; left: 0;  padding-top: 100px; overflow-y: auto;">
 
 
     <div style="display: flex; flex-direction: column; border: 1px solid #D9D9D9; border-radius: 5px;">
@@ -50,10 +50,10 @@
             <a href="farmImplements.php?id=6" style="color: black; text-decoration: none; display: block; padding: 5px; ">Implements</a>
         </button> 
         <button class="menu-button">
-            <a href="newTractors.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Nursery</a>
+            <a href="nursery_ui.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Nursery</a>
         </button> 
         <button class="menu-button">
-            <a href="newTractors.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Tractor Mistri</a>
+            <a href="tractor_mistri.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Tractor Mistri</a>
         </button> 
         <button class="menu-button">
             <a href="customer-insurance.php" style="color: black; text-decoration: none; display: block; padding: 5px; ">Insurance</a>
