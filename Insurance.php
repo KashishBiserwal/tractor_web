@@ -240,7 +240,7 @@
                              href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a>
                         </p>
                         <div class="d-grid col-8 mx-auto mb-3">
-                            <button type="button" class="btn btn-success fw-bold" value="" id='button2'>Apply For
+                            <button type="button" class="btn fw-bold" style=" background-color: #B90405; color: #fff;" value="" id='button2'>Apply For
                                 Insurance</button>
                         </div>
                     </div>

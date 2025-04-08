@@ -1,7 +1,7 @@
 <?php
     include 'includes/headertag.php';
     include 'includes/headertagadmin.php';
-   include 'includes/footertag.php';
+    include 'includes/footertag.php';
    
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
@@ -46,21 +46,21 @@
                                 <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                                 <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                             <div class="col-12 text-center mb-4">
-                                <button class="btn btn-success btn-lg" id="load_more">Load more</button>
+                                <button class="btn btn-lg" style=" background-color: #B90405; color: #fff;" id="load_more">Load more</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                        <div class=" row mb-3" id="">
+                        <div class=" row mb-3">
                         <div class="col-12">
                             <div class="row ">
                                 <div class="col-6 col-sm-6 p-2">
-                                    <button id="resetButton" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                    <button id="resetButton" type="button" onclick="resetform()" class=" btn  w-100" style=" background-color: #B90405; color: #fff;">
                                         <i class="fas fa-undo"></i> Reset </button>
                                 </div>
                                 <div class="col-6 col-sm-6 p-2">
-                                    <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success w-100">
+                                    <button id="apply_filter_bnt" type="button" class=" btn  w-100" style=" background-color: #B90405; color: #fff;">
                                         <i class="fas fa-filter"></i> Apply Filter</button>
                                 </div>
                             </div>

@@ -142,7 +142,7 @@ function displayEngineoil(engineoil) {
                             <h3 class="text-center text-dark" style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="font-size: 22px;"></i>${formattedPrice}</h3>
                         </div>  
                     </a>
-                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                    <button type="button" id="modelbutton" class="w-100" style=" background-color: #B90405; color: #fff;" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
                         <i class="fa-regular fa-handshake"></i> Request Call Back
                     </button>
                 </div>              
@@ -206,7 +206,7 @@ function displayEngineoil(engineoil) {
                             </div>
                         </div> 
                         <div class="text-center my-3">
-                            <button type="submit" id="submit_enquiry_${p.id}"   data-bs-dismiss="modal" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
+                            <button type="submit" id="submit_enquiry_${p.id}"   data-bs-dismiss="modal" class="btn w-100 btn_all" style=" background-color: #B90405; color: #fff;" onclick="savedata('${formId}')">Submit</button>        
                         </div>        
                     </form>                           
                         </div>
@@ -239,7 +239,7 @@ function displayEngineoil(engineoil) {
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                        <button type="button" class="btn " style=" background-color: #B90405; color: #fff;" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
                     </div>
                 </div>
             </div>

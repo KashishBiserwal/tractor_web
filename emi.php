@@ -176,7 +176,7 @@
                                 <select class="form-select py-2" aria-label="Default select example" id="modelSelect" name="modelSelect">
                                 </select>
                             </div>
-                            <button type="submit" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI">Calculate EMI</button>
+                            <button type="submit" class="w-100 fw-bold btn  mt-3 mb-1" style=" background-color: #B90405; color: #fff;" id="calculateEMI">Calculate EMI</button>
                         </form>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">

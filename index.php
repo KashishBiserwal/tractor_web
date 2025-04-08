@@ -1332,7 +1332,7 @@ $(document).ready(function () {
                                             <div class="harvester_content_section mt-3">
                                                 <h6 class="fw-bold mt-2 text-dark">${p.first_name}</h6>
                                                 <p class="text-dark mt-2 mb-0">${p.tehsil_name} ${p.district_name}</p>
-                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                <button type="button" class=" add_btn w-100 mt-2" style="background-color: #B90405; color: #fff;">
                                                     <i class="fa-regular fa-handshake"></i>View Details
                                                 </button>
                                             </div>
@@ -1384,7 +1384,7 @@ $(document).ready(function () {
                                             <div class="harvester_content_section mt-3">
                                                 <h6 class="fw-bold mt-2 text-dark">${p.nursery_name}</h6>
                                                 <p class="text-dark mt-2 mb-0">${p.address}</p>
-                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                <button type="button" class="add_btn w-100 mt-2" style=" background-color: #B90405; color: #fff;">
                                                     <i class="fa-regular fa-handshake"></i>View Details
                                                 </button>
                                             </div>
@@ -1434,7 +1434,7 @@ $(document).ready(function () {
                                             <div class="harvester_content_section mt-3 text-center">
                                                 <h6 class="fw-bold mt-2 text-dark">${p.brand_name} ${p.model}</h6>
                                                 <p class="text-dark mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                <button type="button" class="add_btn  w-100 mt-2" style=" background-color: #B90405; color: #fff;">
                                                     <i class="fa-regular fa-handshake"></i> Get on Road Price
                                                 </button>
                                             </div>

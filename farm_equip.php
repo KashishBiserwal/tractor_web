@@ -32,7 +32,7 @@
                   </li>
                 </ol>
               </nav>
-              <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <button type="button" id="add_trac" class="btn add_btn  float-right btn_all" style=" background-color: #B90405; color: #fff;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                   <i class="fa fa-plus" aria-hidden="true"></i>Add Farm Equipments
               </button>
               <!-- Modal -->
@@ -185,7 +185,7 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button class="btn bg-success text-white btn_all" id="save">Submit</button>
+                      <button class="btn text-white btn_all" style=" background-color: #B90405; color: #fff;" id="save">Submit</button>
                       <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
                     </div>
                   </div>
@@ -217,8 +217,8 @@
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="text-center">
-                      <button type="button" class="btn-success btn mb-0 btn_all" id="search">Search</button>
-                      <button type="button" class="btn-success btn mb-0 btn_all" id="Reset">Reset</button>
+                      <button type="button" class=" btn mb-0 btn_all" style=" background-color: #B90405; color: #fff;" id="search">Search</button>
+                      <button type="button" class=" btn mb-0 btn_all" style=" background-color: #B90405; color: #fff;" id="Reset">Reset</button>
                     </div>
                   </div>
                 </div>
@@ -251,7 +251,7 @@
           <div class="modal-content modal_box">
             <div class="modal-header modal_head">
               <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> New Farm Equipment Information </h5>
-              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+              <button type="button" class="btn-close" style=" background-color: #B90405; color: #fff;" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
             </div>
             <div class="modal-body bg-light">
               <div class="row ">

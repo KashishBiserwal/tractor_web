@@ -45,7 +45,7 @@
                 <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                 <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                 <div class="col text-center mt-3 pb-3">
-                    <button id="load_moretract" type="button" class=" btn add_btn btn-success p-2"><i class="fas fa-undo"></i>View All</button>
+                    <button id="load_moretract" type="button" class=" btn  p-2" style=" background-color: #B90405; color: #fff;"><i class="fas fa-undo"></i>View All</button>
                 </div>
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
@@ -53,11 +53,11 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6 col-sm-6 p-2">
-                                    <button id="reset_tractor" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                    <button id="reset_tractor" type="button" onclick="resetform()" class=" btn  w-100" style=" background-color: #B90405; color: #fff;">
                                     <i class="fas fa-undo"></i>  Reset </button>
                                 </div>
                                 <div class="col-6 col-sm-6 p-2">
-                                    <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
+                                    <button id="filter_tractor" type="button" class=" btn  w-100" style=" background-color: #B90405; color: #fff;">
                                     <i class="fas fa-filter"></i>Apply Filter</button>
                                 </div>
                             </div>

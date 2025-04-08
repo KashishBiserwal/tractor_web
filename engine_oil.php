@@ -48,7 +48,7 @@
         <h1 class="mt-2 mb-3">Engine Oil</h1>
         <div id="productContainer" class="row"></div>
         <div class="col text-center mt-3">
-          <button id="load_moretract" type="button" class=" btn add_btn btn-success p-2"><i class="fas fa-undo"></i>View All</button>
+          <button id="load_moretract" type="button" class=" btn p-2" style=" background-color: #B90405; color: #fff;"><i class="fas fa-undo"></i>View All</button>
         </div>
       </div>
     </div>

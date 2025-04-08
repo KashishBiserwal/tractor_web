@@ -42,7 +42,7 @@
         <h1 class="mt-2 mb-3">All News</h1> 
       </div>
       <div class="col text-center mt-3">
-        <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
+        <button id="load_moretract" type="button" class=" btn" style=" background-color: #B90405; color: #fff;" ><i class="fas fa-undo"></i>View All</button>
       </div>
     </div>
   <section>

@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <div class="text-center  my-3">
-                                <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>         
+                                <button type="submit" id="delership_enq_btn" class="btn  mt-1 px-5 w-100" style=" background-color: #B90405; color: #fff;" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>         
                             </div>        
                             <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                         </div>
@@ -154,7 +154,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                    <button type="button" class="btn " style=" background-color: #B90405; color: #fff;" id="Verify">Verify</button>
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@
                 <div class="carousel-wrap">
                     <div class="owl-carousel" id="new_harvester"> </div>
                     <div class="col text-center pb-4 mt-3">
-                    <a href="harvester.php" class="btn btn-success px-5">View all New Harvester</a>
+                    <a href="harvester.php" class="btn px-5" style=" background-color: #B90405; color: #fff;">View all New Harvester</a>
                     </div>
                 </div>
                 </section>
@@ -188,7 +188,7 @@
                             <div class="owl-carousel" id="old_harvester"></div>
                         </div>
                         <div class="col text-center pb-4">
-                            <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
+                            <a href="used_harvester.php" class="btn  px-5" style=" background-color: #B90405; color: #fff;" >View all Old Harvester</a>
                         </div>
                     </div>
                 </section>

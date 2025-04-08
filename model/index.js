@@ -48,7 +48,7 @@ function getpopularTractorList() {
                                             <div class="harvester_content_section mt-3 text-center">
                                                 <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                                                 <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                                <button type="button" class="w-100 mt-2" style="background-color: #B90405; color: #fff;">
                                                     <i class="fa-regular fa-handshake"></i> Get on Road Price
                                                 </button>
                                             </div>
@@ -129,7 +129,7 @@ function getUpcomingTractorList() {
                        <div class="harvester_content_section mt-3 text-center">
                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                            <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                           <button type="button" class="add_btn btn-success w-100 mt-2">
+                           <button type="button" class=" w-100 mt-2" style=" background-color: #B90405; color: #fff;">
                                <i class="fa-regular fa-handshake"></i> Get on Road Price
                            </button>
                        </div>
@@ -207,7 +207,7 @@ function getminiTractorList() {
                             <div class="new-tractor-content text-center b-t-1">
                                 <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                                 <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                <button type="button" class="w-100 mt-2" style="background-color: #B90405; color: #fff;">
                                     <i class="fa-regular fa-handshake"></i> Get on Road Price
                                 </button>
                             </div>
@@ -261,7 +261,7 @@ function getLatestTractorList() {
                             <div class="harvester_content_section mt-3 text-center">
                                 <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                                 <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
-                                <button type="button" class="add_btn btn-success w-100 mt-2">
+                                <button type="button" class="w-100 mt-2" style=" background-color: #B90405; color: #fff;">
                                     <i class="fa-regular fa-handshake"></i> Get on Road Price
                                 </button>
                             </div>
@@ -336,7 +336,7 @@ function get_harvester() {
                             <div class="col-6 p-0 text-truncate" > <p class="mb-0"  style="font-size: 14px;">${p.crops_type_value}</p></div>
                         </div>
                         <a  href="harvester_inner.php?product_id=${p.id}">
-                            <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                            <button type="button" class="w-100 mt-3" style=" background-color: #B90405; color: #fff;"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
                         </a>
                     </div>
                 <div>
@@ -408,7 +408,7 @@ function get_oldharvester() {
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
                 </div>
                 <a  href="used_harvester_inner.php?id=${p.customer_id}">
-                    <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                    <button type="button" class="w-100 mt-3" style=" background-color: #B90405; color: #fff;"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
                 </a>
               </div>
             </div> `;

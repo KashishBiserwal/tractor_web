@@ -264,7 +264,7 @@
                                         Conditions*</a>
                                 </p>
                                 <div class="d-grid col-8 mx-auto mb-3">
-                                <button type="button" class="btn btn-success fw-bold" id="apply_loan">Apply for Loan</button>
+                                <button type="button" class="btn  fw-bold" style=" background-color: #B90405; color: #fff;" id="apply_loan">Apply for Loan</button>
 
                                 </div>
                             </div>
