@@ -569,7 +569,7 @@ function appendFilterCard(filterContainer, p) {
                                                 </div>
                                                 <div class="col-12 ">
                                                     <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                                    <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+          ca                                          <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                     <label for="state_form" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
