@@ -728,7 +728,7 @@
                       Buy Used
                     </a>
                     <ul class="dropdown-menu p-0">
-                      <li><a class="dropdown-item fw-bold  py-2" href="used_tractor.php">Used Tractors</a></li>
+                      <li><a class="dropdown-item fw-bold  py-2" href="usedTractors.php">Used Tractors</a></li>
                       <hr class="dropdown-divider m-0">
                       <li><a class="dropdown-item fw-bold  py-2" href="used_farm_imple.php">Used Farm Implements</a>
                       </li>
@@ -767,9 +767,10 @@
                 </a>
                 <ul class="dropdown-menu p-0">
                   <li class="nav-item dropend">
-                    <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button"
-                      data-bs-toggle="dropdown" aria-expanded="false">Implements</a>
-                    <ul class="dropdown-menu p-0" id="selectedImagesContainer3"></ul>
+                    <a class="nav-link dropdown-toggle text-dark fw-bold" href="farmImplements.php?id=6" role="button"
+                      
+                      >Implements</a>
+                    <!-- <ul class="dropdown-menu p-0" id="selectedImagesContainer3"></ul> -->
                   </li>
                   <li>
                     <hr class="dropdown-divider m-0">
@@ -878,7 +879,7 @@
                 <ul class="dropdown-menu p-0">
                   <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
                   <hr class="dropdown-divider m-0">
-                  <li><a class="dropdown-item fw-bold" href="agriculturecustomer.php">Agriculture College</a></li>
+                  <!-- <li><a class="dropdown-item fw-bold" href="agriculturecustomer.php">Agriculture College</a></li> -->
                   <hr class="dropdown-divider m-0">
                   <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
                   <hr class="dropdown-divider m-0">

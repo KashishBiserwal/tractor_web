@@ -13,27 +13,22 @@ fetch(API_URL)
       card.className = "d-flex mb-4";
       card.style.cursor = "pointer";
       card.innerHTML = `
-        <div class="cardinsurance-card d-flex gap-5 p-2 justify-content-around align-items-center shadow-sm rounded w-100">
+        <div class="cardinsurance-card d-flex d-flex flex-column flex-md-row gap-5 p-2 justify-content-around align-items-center shadow-sm rounded w-100">
           <img src="${
             BASE_URL + item.images
           }" class="insuranceCompanyImage" alt="${item.name}">
          
             <h5 class="card-title">${item.name}</h5>
             <p class="card-text">₹${item.price}</p>
-            <div class="d-flex flex-column gap-2 w-25">
-             <a href="insurance2.php?id=${
-              item.id
-            }">
+         <div class="responsive-box d-flex flex-column gap-2">
+  <a href="insurance2.php?id=${item.id}">
+    <button class="btn viewformbutton w-100 mt-2">Get Quote</button>
+  </a>
+  <a href="insurance-detail.php?id=${item.id}">
+    <button class="btn viewDetails w-100 mt-2">View More</button>
+  </a>
+</div>
 
-            <button class="btn viewformbutton w-100 mt-2">Get Quote</button>
-              </a>
-            <a href="insurance-detail.php?id=${
-              item.id
-            }">
-
-            <button class="btn viewDetails w-100 mt-2"'>View More</button>
-           </a>
-            </div>
        
         </div>
       `;
@@ -41,18 +36,16 @@ fetch(API_URL)
     });
   });
 
-
 function viewInsuranceForm(data) {
   localStorage.setItem("insuranceDetail", JSON.stringify(data));
   window.location.href = "insurance2.php"; // Detail page
 }
 
-
 const detailContainer = document.getElementById("insuranceDetail");
 // Assuming you have a way to get the ID of the insurance data you want to display
 
 const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get("id") 
+const id = urlParams.get("id");
 
 fetch(`${BASE_URL}api/customer/get_insurance_data_by_id_customer/${id}`)
   .then((response) => response.json())
@@ -63,17 +56,17 @@ fetch(`${BASE_URL}api/customer/get_insurance_data_by_id_customer/${id}`)
     faqsContainer.innerHTML = ""; // Clear previous content
 
     if (faqs && faqs.length > 0) {
-        faqsContainer.innerHTML = `
+      faqsContainer.innerHTML = `
             <div class="accordion" id="faqAccordion"></div>
         `;
-    
-        const accordion = document.getElementById("faqAccordion");
-    
-        faqs.forEach((faq, index) => {
-            const faqItem = document.createElement("div");
-            faqItem.className = "accordion-item border mb-2";
-    
-            faqItem.innerHTML = `
+
+      const accordion = document.getElementById("faqAccordion");
+
+      faqs.forEach((faq, index) => {
+        const faqItem = document.createElement("div");
+        faqItem.className = "accordion-item border mb-2";
+
+        faqItem.innerHTML = `
                 <h2 class="accordion-header" id="heading${index}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="false" aria-controls="collapse${index}">
                         ${faq.question}
@@ -85,18 +78,14 @@ fetch(`${BASE_URL}api/customer/get_insurance_data_by_id_customer/${id}`)
                     </div>
                 </div>
             `;
-    
-            accordion.appendChild(faqItem);
-        });
+
+        accordion.appendChild(faqItem);
+      });
     } else {
-        faqsContainer.innerHTML = `<p>No FAQs available.</p>`;
+      faqsContainer.innerHTML = `<p>No FAQs available.</p>`;
     }
-    
-
-
 
     // Check if data is available
-
 
     if (data) {
       let rows = "";
@@ -108,39 +97,49 @@ fetch(`${BASE_URL}api/customer/get_insurance_data_by_id_customer/${id}`)
           </tr>`;
       });
 
-         // Generate FAQ HTML
-         let faqHTML = "";
-         if (faqs && faqs.length > 0) {
-           faqHTML += `
+      // Generate FAQ HTML
+      let faqHTML = "";
+      if (faqs && faqs.length > 0) {
+        faqHTML += `
              <div class="card p-3 mt-4">
                <h5 class="mb-3">Frequently Asked Questions:</h5>
                <div class="accordion" id="faqAccordion">`;
-   
-           faqs.forEach((faq, index) => {
-             faqHTML += `
+
+        faqs.forEach((faq, index) => {
+          faqHTML += `
                <div class="accordion-item">
                  <h2 class="accordion-header" id="heading${index}">
-                   <button class="accordion-button ${index !== 0 ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="${index === 0}" aria-controls="collapse${index}">
+                   <button class="accordion-button ${
+                     index !== 0 ? "collapsed" : ""
+                   }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="${
+            index === 0
+          }" aria-controls="collapse${index}">
                      ${faq.question}
                    </button>
                  </h2>
-                 <div id="collapse${index}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" aria-labelledby="heading${index}" data-bs-parent="#faqAccordion">
+                 <div id="collapse${index}" class="accordion-collapse collapse ${
+            index === 0 ? "show" : ""
+          }" aria-labelledby="heading${index}" data-bs-parent="#faqAccordion">
                    <div class="accordion-body">
                      ${faq.answer}
                    </div>
                  </div>
                </div>`;
-           });
-   
-           faqHTML += `
+        });
+
+        faqHTML += `
                </div>
              </div>`;
-         }
-         
+      }
+
       detailContainer.innerHTML = `
         <div class="cardinsurance-card d-flex flex-column flex-md-row gap-5 p-2 justify-content-between align-items-center border-bottom w-100 mb-5 flex-wrap">
           <div class="d-flex align-items-center gap-2">
-            <img src="${BASE_URL + data.images}" class="insuranceCompanyImage" alt="${data.name}" style="width: 80px; height: auto;">
+            <img src="${
+              BASE_URL + data.images
+            }" class="insuranceCompanyImage" alt="${
+        data.name
+      }" style="width: 80px; height: auto;">
             <h5 class="card-title mb-0">${data.name}</h5>
           </div>
           <p class="card-text fs-5 fw-bold text-success">₹${data.price}</p>
@@ -170,8 +169,6 @@ fetch(`${BASE_URL}api/customer/get_insurance_data_by_id_customer/${id}`)
     detailContainer.innerHTML = `<p>Error fetching data.</p>`;
   });
 
-
-
 //get all tractor data
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -194,7 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // 2. Populate Models when Brand is selected
   brandSelect.addEventListener("change", function () {
     const brandId = this.value;
-    modelSelect.innerHTML = '<option selected disabled>Select Tractor Model</option>';
+    modelSelect.innerHTML =
+      "<option selected disabled>Select Tractor Model</option>";
 
     fetch(`${BASE_URL}api/customer/get_brand_model/${brandId}`)
       .then((res) => res.json())
@@ -220,52 +218,52 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
+  // 4. Form Submission with Validation
+  document
+    .getElementById("tractorForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
 
+      const brandSelect = document.getElementById("brandSelect");
+      const modelSelect = document.getElementById("modelSelect");
+      const stateSelect = document.getElementById("stateSelect");
 
-// 4. Form Submission with Validation
-document.getElementById("tractorForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const brandSelect = document.getElementById("brandSelect");
-    const modelSelect = document.getElementById("modelSelect");
-    const stateSelect = document.getElementById("stateSelect");
-
-    // Validation
-    if (!brandSelect.value) {
+      // Validation
+      if (!brandSelect.value) {
         alert("Please select a tractor brand.");
         return;
-    }
+      }
 
-    if (!modelSelect.value) {
+      if (!modelSelect.value) {
         alert("Please select a tractor model.");
         return;
-    }
+      }
 
-    if (!stateSelect.value) {
+      if (!stateSelect.value) {
         alert("Please select a state.");
         return;
-    }
+      }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id");
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
 
-    const formData = new FormData(this);
-    // You can manually append fixed values if needed
-    formData.append("enquiry_type_id", "17");
-    formData.append("product_subject_id", id);
+      const formData = new FormData(this);
+      // You can manually append fixed values if needed
+      formData.append("enquiry_type_id", "17");
+      formData.append("product_subject_id", id);
 
-    fetch(`${BASE_URL}api/customer/get_user_insurance_enquiry_data`, {
+      fetch(`${BASE_URL}api/customer/get_user_insurance_enquiry_data`, {
         method: "POST",
         body: formData, // No headers needed for FormData
-    })
+      })
         .then((res) => res.json())
         .then((response) => {
-            alert("Form submitted successfully!");
-            console.log(response);
+          alert("Form submitted successfully!");
+          console.log(response);
         })
         .catch((error) => {
-            alert("Something went wrong.");
-            console.error(error);
+          alert("Something went wrong.");
+          console.error(error);
         });
-});
+    });
 });

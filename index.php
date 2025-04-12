@@ -192,96 +192,54 @@
       margin-top: -100px;
     }
   </style>
-  <section id="home-banner" class="banner__section overflow-hidden">
-    <div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-      <!-- The slideshow/carousel -->
-      <div class="carousel-inner">
-        <div class="carousel-item active" style="position: relative;">
-          <img src="assets/images/main-home.jpg" alt="Slide 1: Description of New York" class="d-block mx-auto w-100"
-            loading="lazy" style="height: 570px;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; /* Adjust height as needed */ background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;">
-          </div>
-        </div>
-        <!-- <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/Slide-2.png" alt="Slide 2: Description of New York" class="d-block mx-auto w-100"
-            loading="lazy" style="height: 570px;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; /* Adjust height as needed */ background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;">
-          </div>
-        </div>
-        <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/Slide-3 (1).png" alt="Slide 3: Description of New York" class="d-block mx-auto w-100"
-            loading="lazy" style="height: 570px;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; /* Adjust height as needed */ background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;">
-          </div>
-        </div>
-        <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/Slide-5.png" alt="Slide 5: Description of New York" class="d-block mx-auto w-100"
-            loading="lazy" style="height: 570px;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; /* Adjust height as needed */ background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;">
-          </div>
-        </div>
-        <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/new_image_for_slide6.png" alt="Slide 6: Description of New York"
-            class="d-block mx-auto w-100" loading="lazy" style="height: 570px;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; /* Adjust height as needed */ background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;">
-          </div>
-        </div>
-        <div class="carousel-item" style="position: relative;">
-          <img src="assets/images/Slide-7.png" alt="Slide 7: Description of New York" class="d-block mx-auto w-100"
-            loading="lazy" style="height: 570px;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; /* Adjust height as needed */ background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;">
-          </div>
-        </div> -->
+<section id="home-banner" class="banner__section overflow-hidden">
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    
+    <!-- Carousel inner -->
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active position-relative">
+        <img src="assets/images/main-home.jpg" alt="Slide 1" class="d-block w-100 img-fluid object-fit-cover" loading="lazy" style="max-height: 570px;">
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 50px; background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;"></div>
       </div>
 
-      <!-- Left and right controls/icons -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev"
-        aria-label="Previous slide" style="margin-left:-70px; z-index: 4;">
-        <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next"
-        aria-label="Next slide" style="margin-right:-70px; z-index: 4;">
-        <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
-      </button>
+      <!-- Repeat for other slides -->
+      <div class="carousel-item position-relative">
+        <img src="assets/images/Slide-2.png" alt="Slide 2" class="d-block w-100 img-fluid object-fit-cover" loading="lazy" style="max-height: 570px;">
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 50px; background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;"></div>
+      </div>
+
+      <div class="carousel-item position-relative">
+        <img src="assets/images/Slide-3 (1).png" alt="Slide 3" class="d-block w-100 img-fluid object-fit-cover" loading="lazy" style="max-height: 570px;">
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 50px; background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;"></div>
+      </div>
+
+      <div class="carousel-item position-relative">
+        <img src="assets/images/Slide-5.png" alt="Slide 5" class="d-block w-100 img-fluid object-fit-cover" loading="lazy" style="max-height: 570px;">
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 50px; background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;"></div>
+      </div>
+
+      <div class="carousel-item position-relative">
+        <img src="assets/images/new_image_for_slide6.png" alt="Slide 6" class="d-block w-100 img-fluid object-fit-cover" loading="lazy" style="max-height: 570px;">
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 50px; background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;"></div>
+      </div>
+
+      <div class="carousel-item position-relative">
+        <img src="assets/images/Slide-7.png" alt="Slide 7" class="d-block w-100 img-fluid object-fit-cover" loading="lazy" style="max-height: 570px;">
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 50px; background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent); pointer-events: none;"></div>
+      </div>
     </div>
 
-    <!-- <div id="search_form_container">
-    <form id="search_form">
-      <div class="row">
-        <div class="col-12 mt-2">
-          <label class="form-label text-dark fw-bold">Select Brand</label>
-          <select class="form-control" name="brand" id="brand" required>
-            <option value="">Select Brand</option>
-          </select>
-        </div>
-        <div class="col-12 mt-2">
-          <label class="form-label text-dark fw-bold">Select HP</label>
-          <select class="form-control" name="hp" id="hp" required="">
-            <option value="" selected="">Select HP</option>
-            <option value="0 - 20">0 HP - 20 HP</option>
-            <option value="21 - 30">21 HP - 30 HP</option>
-            <option value="31 - 40">31 HP - 40 HP</option>
-            <option value="41 - 50">41 HP - 50 HP</option>
-            <option value="51 - 60">51 HP - 60 HP</option>
-            <option value="61 - 70">61 HP - 70 HP</option>
-            <option value="71 - 80">71 HP - 80 HP</option>
-          </select>
-        </div>
-        <div class="col-12 text-center mt-3">
-          <button type="button" class="btn btn-success px-3" id="Search">Search</button>
-          <button type="button" class="btn-success btn px-3" id="Reset" onclick="resetForm()">Reset</button>
-        </div>
-      </div>
-    </form>
-  </div> -->
-  </section>
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" aria-label="Previous slide">
+      <span class="carousel-control-prev-icon bg-success rounded-circle" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" aria-label="Next slide">
+      <span class="carousel-control-next-icon bg-success rounded-circle" aria-hidden="true"></span>
+    </button>
+  </div>
+</section>
+
 
   <section id="home-cards">
     <div class="container">
@@ -326,66 +284,79 @@
   </section>
   <!-- banner end here -->
   <section class="why_head bg-light mt-4">
-    <div class=" container">
-      <h3 class="text-dark display-8 pt-4 mb-0 fw-bold">Why Bharat Agrimart's?</h3>
+  <div class="container">
+    <h3 class="text-dark display-8 pt-4 mb-0 fw-bold">Why Bharat Agrimart's?</h3>
 
-      <div class="container d-flex mb-4">
-        <div style="width: 50%;" class="mt-4 mb-4 d-flex flex-column justify-content-between">
-
-          <div class="border p-4 w-75 d-flex gap-2 shadow-sm" style="border-radius: 10px;">
-            <div class="mt-1">
-              <i class="fas fa-circle" style="color: #B90405;"></i>
-            </div>
-            <div>
-              <h4 class="fs-5 fw-bold">Priority to Customers</h4>
-              <p style="font-size: 13px">Over 10 lakh monthly users actively engage with our platform. join our growing
-                community and experience the best !</p>
-            </div>
+    <div class="row align-items-center mt-4 mb-4">
+      <!-- Left Content (Features) -->
+      <div class="col-12 col-md-6 d-flex flex-column gap-3">
+        <div class="border p-4 d-flex gap-3 shadow-sm rounded">
+          <i class="fas fa-circle mt-1" style="color: #B90405;"></i>
+          <div>
+            <h4 class="fs-5 fw-bold">Priority to Customers</h4>
+            <p class="mb-0" style="font-size: 13px;">
+              Over 10 lakh monthly users actively engage with our platform. Join our growing
+              community and experience the best!
+            </p>
           </div>
-          <div class="border p-4 w-75 d-flex gap-2 shadow-sm" style="border-radius: 10px; margin-left: 70px;">
-            <div class="mt-1">
-              <i class="fas fa-circle" style="color: #B90405;"></i>
-            </div>
-            <div>
-              <h4 class="fs-5 fw-bold">Fair Market Price</h4>
-              <p style="font-size: 13px">Get a fair price for all your farm machines with ease. Buy and sell confidently
-                with transparent pricing!</p>
-            </div>
-          </div>
-          <div class="border p-4 w-75 d-flex gap-2 shadow-sm" style="border-radius: 10px; margin-left: 30px;">
-            <div class="mt-1">
-              <i class="fas fa-circle" style="color: #B90405;"></i>
-            </div>
-            <div>
-              <h4 class="fs-5 fw-bold">Free of Cost</h4>
-              <p style="font-size: 13px">All services are provided completely free of cost. Enjoy hassle-free access
-                with no hidden charges!</p>
-            </div>
-          </div>
-          <div class="border p-4 w-75 d-flex gap-2 shadow-sm" style="border-radius: 10px; margin-left: 120px;">
-            <div class="mt-1">
-              <i class="fas fa-circle" style="color: #B90405;"></i>
-            </div>
-            <div>
-              <h4 class="fs-5 fw-bold">Customer Support</h4>
-              <p style="font-size: 13px">Call us at +91 97709 74974 for any assistance. We're always ready to help!</p>
-            </div>
-          </div>
-
         </div>
-        <div style="width: 50%; position: relative; display: inline-block;">
-          <img src="assets/images/home-farmer.png" alt="" style="height: 700px; border-radius: 10px; width: 100%;">
-          <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 250px; border-radius: 10px;  background: linear-gradient(to top, black, transparent); pointer-events: none;">
+
+        <div class="border p-4 d-flex gap-3 shadow-sm rounded ms-md-5">
+          <i class="fas fa-circle mt-1" style="color: #B90405;"></i>
+          <div>
+            <h4 class="fs-5 fw-bold">Fair Market Price</h4>
+            <p class="mb-0" style="font-size: 13px;">
+              Get a fair price for all your farm machines with ease. Buy and sell confidently
+              with transparent pricing!
+            </p>
           </div>
-          <div style="position: absolute; bottom: 20px; left: 20px; color: white; padding: 10px; border-radius: 5px;">
-            <h1 class="fw-bold" style="margin: 0; font-size: 24px;">Gopal | Lucknow</h1>
-            <p style="margin-top: 10px; font-size: 16px;">Smooth and amazing buy from Bharat Agri Mart</p>
+        </div>
+
+        <div class="border p-4 d-flex gap-3 shadow-sm rounded ms-md-3">
+          <i class="fas fa-circle mt-1" style="color: #B90405;"></i>
+          <div>
+            <h4 class="fs-5 fw-bold">Free of Cost</h4>
+            <p class="mb-0" style="font-size: 13px;">
+              All services are provided completely free of cost. Enjoy hassle-free access
+              with no hidden charges!
+            </p>
+          </div>
+        </div>
+
+        <div class="border p-4 d-flex gap-3 shadow-sm rounded ms-md-5">
+          <i class="fas fa-circle mt-1" style="color: #B90405;"></i>
+          <div>
+            <h4 class="fs-5 fw-bold">Customer Support</h4>
+            <p class="mb-0" style="font-size: 13px;">
+              Call us at +91 97709 74974 for any assistance. We're always ready to help!
+            </p>
           </div>
         </div>
       </div>
+
+      <!-- Right Content (Image with Overlay) -->
+      <div class="col-12 col-md-6 mt-4 mt-md-0 position-relative">
+        <img
+          src="assets/images/home-farmer.png"
+          alt="Farmer Testimonial"
+          class="img-fluid w-100 rounded"
+          style="max-height: 700px; object-fit: cover;"
+        />
+        <div
+          class="position-absolute start-0 bottom-0 w-100"
+          style="height: 250px; border-radius: 10px; background: linear-gradient(to top, black, transparent); pointer-events: none;">
+        </div>
+        <div
+          class="position-absolute bottom-0 start-0 text-white p-3"
+          style="z-index: 1;">
+          <h1 class="fw-bold mb-1 fs-5">Gopal | Lucknow</h1>
+          <p class="fs-6 mb-0">Smooth and amazing buy from Bharat Agri Mart</p>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section>
     <div class="container mb-4">

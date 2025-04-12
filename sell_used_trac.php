@@ -263,7 +263,7 @@ body {
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
-                                        <button type="button" id="  " class="btn btn-success w-100 next-step">Next</button>
+                                        <button type="button" style="background: #B90405; color: #fff;" class="btn  w-100 next-step">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -381,8 +381,8 @@ body {
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex mb-3">
-                                        <button type="button" class="btn btn-success w-50 prev-step" id="">Previous</button>
-                                        <button type="button" class="btn btn-success ms-2 w-50 next-step" id="">Next</button>
+                                        <button type="button" style="background: #B90405; color: #fff;" class="btn w-50 prev-step" id="">Previous</button>
+                                        <button type="button" style="background: #B90405; color: #fff;"  class="btn  ms-2 w-50 next-step" id="">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -444,7 +444,7 @@ body {
                                 </div>
                                 <div class="form-footer d-flex mt-4">
                                     <button type="button" class="btn w-50 btn-primary prev-step">Previous</button>
-                                    <button type="button" id="sell_used_trac_btn" class="btn w-50 ms-2 btn-success" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
+                                    <button type="button" id="sell_used_trac_btn" class="btn w-50 ms-2 " style="background: #B90405; color: #fff;" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -479,7 +479,7 @@ body {
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                    <button type="button" class="btn " style="background: #B90405; color: #fff;" id="Verify">Verify</button>
                 </div>
             </div>
         </div>

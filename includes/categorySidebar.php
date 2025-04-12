@@ -19,11 +19,13 @@
         background-color: #B90405;
     }
     .menu-button a {
-        color: black;
-        text-decoration: none;
-        display: block;
-        padding: 5px;
-    }
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    width: 100%;
+}
+
     .menu-button a:hover {
         color: white !important;
     }
@@ -35,8 +37,7 @@
     }
 </style>
 
-<aside style="width: 250px;  position: absolute; top: 80px; left: 0;  padding-top: 100px; overflow-y: auto;">
-
+<aside class="col-md-2 col-sm-12 mt-5" style="padding: 0px; margin: 0px; width: 100%;">
 
     <div style="display: flex; flex-direction: column; border: 1px solid #D9D9D9; border-radius: 5px;">
        
@@ -84,3 +85,21 @@ function toggleMenu(id) {
     element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
 }
 </script>
+<script>
+    // Get current page filename from URL
+    const currentPage = window.location.pathname.split('/').pop();
+
+    // Select all menu buttons
+    const menuButtons = document.querySelectorAll('.menu-button');
+
+    menuButtons.forEach(button => {
+        const link = button.querySelector('a');
+        const href = link.getAttribute('href').split('/').pop();
+
+        // Match current page with link href
+        if (href === currentPage) {
+            button.classList.add('active');
+        }
+    });
+</script>
+

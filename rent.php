@@ -406,7 +406,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" id="rent_submit" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
+                                                    <button type="button" id="rent_submit" style="background: #B90405; color: #fff;" class="btn  fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -555,7 +555,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" class="btn btn-success fw-bold px-3 w-100" id="rent_implement" data-bs-toggle="modal" data-bs-target="myModal">
+                                                    <button type="button" style="background: #B90405; color: #fff;" class="btn  fw-bold px-3 w-100" id="rent_implement" data-bs-toggle="modal" data-bs-target="myModal">
                                                         Submit
                                                     </button>
                                                 </div>
@@ -668,7 +668,7 @@
                                                         <tfoot>
                                                             <tr>
                                                                 <td colspan="6" align="right">
-                                                                    <button type="button" class="btn btn-success" title="Add Row" id="addRentTractorRowBtn">
+                                                                    <button type="button" style="background: #B90405; color: #fff;" class="btn " title="Add Row" id="addRentTractorRowBtn">
                                                                         <i class="fas fa-plus"></i>
                                                                     </button>
                                                                 </td>
@@ -731,7 +731,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                    <button type="button" id="rent_submit_both" class="btn btn-success fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btnBoth">Submit</button>
+                                                    <button type="button" id="rent_submit_both" style="background: #B90405; color: #fff;" class="btn  fw-bold px-3 w-100"  data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="get_OTP_btnBoth">Submit</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -770,7 +770,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="Verify_for_onlyTractor">Verify</button>
+                        <button type="button"  style="background: #B90405; color: #fff;" class="btn " id="Verify_for_onlyTractor">Verify</button>
                     </div>
                 </div>
             </div>
@@ -803,7 +803,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="VerifytreactorAndImplement">Verify</button>
+                        <button type="button" style="background: #B90405; color: #fff;" class="btn" id="VerifytreactorAndImplement">Verify</button>
                     </div>
                 </div>
             </div>
@@ -946,7 +946,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                    <button type="button" style="background: #B90405; color: #fff;" class="btn " id="Verify">Verify</button>
                 </div>
             </div>
         </div>

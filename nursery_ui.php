@@ -4,7 +4,7 @@
     <?php
         include 'includes/headertag.php';
         include 'includes/footertag.php';
-        include 'includes/categorySidebar.php';
+     
         include 'includes/headertagadmin.php';
         include 'includes/spinner.php';
     ?>
@@ -70,12 +70,20 @@
 
 </section>
     <section>
-        <div class="container mt-4" style="width: auto;
-    padding-left: 210px;
-    padding-top: 29px;
-">
-            <div class="row">
-                <div class="col-12 col-sm-9 col-lg-9 col-md-9">
+        <div class="mt-5 my-4" style="max-width: 95%; width: auto;">
+               <!-- Toggle button for mobile -->
+            <button class="btn buttonn d-md-none mb-3" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+
+            <div class="row" style="margin-left: auto;">
+                <!-- Sidebar -->
+                <div class="col-md-2 d-none d-md-block" id="sidebarMenu">
+                    <div class="mb-4">
+                        <?php include 'includes/categorySidebar.php'; ?>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7">
                     <!-- <h3 class="py-2  fw-bold">Locate <span class="text-success fw-bold"> Nurseries </span>Near You</h3> -->
                     <h3 class="d-flex justify-content-center gap-2 pb-3">Locate  Nurseries <span class="fw-bold" style="color: #B90405">NEAR YOU</span> </h3>
                     <div id="productContainer" class="row"></div>
@@ -85,8 +93,13 @@
                         <button id="loadMoreBtn"  type="button" class="btn  buttonn "><i class="fas fa-undo"></i> Load More </button>
                     </div>
                 </div>
+                <!-- Mobile Sidebar (offcanvas-style) -->
+                <div id="mobileSidebar" class="d-md-none" style="display: none; position: fixed; top: 16%; left: 0; width: 100%; height: 100vh;  background: white; padding: 20px; box-shadow: 2px 0 10px rgba(0,0,0,0.2); overflow-y: auto;">
+                    <button class="btn btn-danger mb-3" onclick="toggleSidebar()">Close</button>
+                    <?php include 'includes/categorySidebar.php'; ?>
+                </div>
 
-                <div class="col-12 col-sm-3 col-lg-3 col-md-3">
+                <div class="col-12 col-sm-3 col-lg-3 col-md-3 ">
                     <div class=" row mb-3 text-center" id="">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
@@ -119,6 +132,13 @@
     <?php
     include 'includes/footer.php';
     ?>
+
+<script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+        }
+    </script>
 
     <script>
     $(document).ready(function() {

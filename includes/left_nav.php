@@ -48,7 +48,7 @@
               <li class="py-1 ps-3"><a href="blog_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Blog Section</a></li>
               <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Tyres Listing</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Engine Oil Listing</a></li>
-              <li class="py-1 ps-3"><a href="agricultureAdmin.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Agriculture College</a></li>
+              <!-- <li class="py-1 ps-3"><a href="agricultureAdmin.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Agriculture College</a></li> -->
           </ul>
         </div>
 

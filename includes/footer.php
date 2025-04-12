@@ -7,6 +7,8 @@
   .footer {
     padding: 40px 0;
     background-color: #fdf5dc;
+    z-index: 100;
+    
   }
 
   .footer h5 {
@@ -130,7 +132,7 @@
 </footer>
 
 <!-- Fixed Buttons -->
-<div class="footer-bottom-icons">
+<!-- <div class="footer-bottom-icons">
   <button class="btn footer-btn btn-primary"><i class="fas fa-arrow-up"></i></button>
   <button class="btn footer-btn btn-danger"><i class="fas fa-headset"></i></button>
-</div>
+</div> -->

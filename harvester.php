@@ -55,7 +55,7 @@
                     <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                     <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                     <div class="text-center my-2">
-                        <button type="submit" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button>         
+                        <button type="submit" id="loadMoreBtn" style=" background-color: #B90405; color: #fff;" class="btn shadow px-5 w-40">Load More</button>         
                     </div> 
                 </div>
                 <!-- RESET APPLY FILTER -->
@@ -64,11 +64,11 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6 col-sm-6 p-2">
-                                    <button id="reset_tractor" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                    <button id="reset_tractor" type="button" onclick="resetform()" style=" background-color: #B90405; color: #fff;" class=" btn  w-100">
                                     <i class="fas fa-undo"></i>  Reset </button>
                                 </div>
                                 <div class="col-6 col-sm-6 p-2">
-                                    <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
+                                    <button id="filter_tractor" type="button" style=" background-color: #B90405; color: #fff;" class=" btn  w-100">
                                     <i class="fas fa-filter"></i>Apply Filter</button>
                                 </div>
                             </div>

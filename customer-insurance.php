@@ -3,7 +3,7 @@
 <?php
 include 'includes/headertag.php';
 include 'includes/headertagadmin.php';
-include 'includes/categorySidebar.php';
+
 include 'includes/footertag.php';
 include 'includes/spinner.php';
 ?>
@@ -91,6 +91,15 @@ include 'includes/spinner.php';
         
     }
 
+    .responsive-box {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .responsive-box {
+    width: 25%;
+  }
+}
 
 
 </style>
@@ -104,7 +113,7 @@ include 'includes/header.php';
 <script>
     var baseUrl = "<?php echo $baseUrl; ?>";
 </script>
-<script src="<?php $baseUrl; ?>model/find_new_insurance.js" defer></script>
+<script src="<?php $baseUrl; ?>model/find_new_insurance_new.js" defer></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
@@ -129,12 +138,25 @@ include 'includes/header.php';
     </section>
 
     <section>
-        <div class="container my-4" style="width: auto;
-    padding-left: 200px;
-    padding-top: 29px;
+    <section class="mainContainer">
+        <div class="mt-5 my-4" style="max-width: 95%; width: auto;
 ">
-            <div class="row">
-                <div >
+            <!-- Toggle button for mobile -->
+            <button class="btn buttonn d-md-none mb-3" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+                   
+            <div class="row" style="margin-left: auto;">
+                <!-- Sidebar -->
+                <div class="col-md-2 d-none d-md-block" id="sidebarMenu">
+                    <div class="mb-4">
+                        <?php include 'includes/categorySidebar.php'; ?>
+                    </div>
+                </div>
+          
+
+                <!-- Main Content -->
+                <div class="col-12 col-md-10">
                     <h3 class="d-flex justify-content-center gap-2  text-center">New <span class="fw-bold" style="color: #B90405">INSURANCE</span></h3>
                     <div class="container py-5">
                         <h2 class="mb-4">Insurance Plans</h2>
@@ -147,6 +169,12 @@ include 'includes/header.php';
                 </div>
 
             </div>
+            <!-- Mobile Sidebar (offcanvas-style) -->
+            <div id="mobileSidebar" class="d-md-none" style="display: none; position: fixed; top: 16%; left: 0; width: 100%; height: 100vh;  background: white; padding: 20px; box-shadow: 2px 0 10px rgba(0,0,0,0.2); overflow-y: auto;">
+           <button class="btn btn-danger mb-3" onclick="toggleSidebar()">Close</button>
+           <?php include 'includes/categorySidebar.php'; ?>
+
+            </div>
 
         </div>
         </div>
@@ -155,6 +183,13 @@ include 'includes/header.php';
     include 'includes/footer.php';
     include 'includes/footertag.php';
     ?>
+
+        <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobileSidebar');
+            sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+        }
+    </script>
 
 
 </html>

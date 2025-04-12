@@ -101,7 +101,7 @@ function get_old_harvester() {
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
+                                <button type="button" id="adduser" style="background: #B90405; color: #fff;" class="btn-state  w-100 text-decoration-none text-truncate px-2 w-100 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
                             </div>
                         </div>
                     </div> 
@@ -379,7 +379,7 @@ function get_old_harvester() {
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100"><span>${filter.district_name}</span>, <span><span>${filter.state_name}</span></span></a>
+                                    <button type="button" style="background: #B90405; color: #fff;" id="adduser"class="btn-state  w-100 text-decoration-none text-truncate px-2 w-100"><span>${filter.district_name}</span>, <span><span>${filter.state_name}</span></span></a>
                                 </div>
                             </div>
                         </div>`;

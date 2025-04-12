@@ -127,7 +127,7 @@ function appendCard(container, p) {
             </div>
             <div class=" row state_btn">
                <div class="col-12">
-                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                    <button type="button" id="modelbutton" style=" background-color: #B90405; color: #fff;" class="add_btn  w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
                         <i class="fa-regular fa-handshake"></i> Contact Seller
                     </button>
                 </div>
@@ -197,7 +197,7 @@ function appendCard(container, p) {
                             </div>          
                            </div> 
                                  <div class="modal-footer">
-                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                                            <button type="submit" id="submit_enquiry" style=" background-color: #B90405; color: #fff;" class="btn add_btn  w-100 btn_all" onclick="savedata('${formId}')"
                                             data-bs-dismiss="modal">Submit</button>
                                             </div>      
                                         </form>                             
@@ -236,7 +236,7 @@ function appendCard(container, p) {
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                    <button type="button" style=" background-color: #B90405; color: #fff;" class="btn " id="Verify" onclick="verifyotp('${formId}')">Verify</button>
                 </div>
             </div>
         </div>
@@ -838,7 +838,7 @@ function appendFilterCard(filterContainer, p) {
                             </div>          
                            </div> 
                                  <div class="modal-footer">
-                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                                            <button type="submit" id="submit_enquiry" style=" background-color: #B90405; color: #fff;" class="btn add_btn  w-100 btn_all" onclick="savedata('${formId}')"
                                             data-bs-dismiss="modal">Submit</button>
                                             </div>      
                                         </form>                             
@@ -877,7 +877,7 @@ function appendFilterCard(filterContainer, p) {
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                    <button type="button" style=" background-color: #B90405; color: #fff;" class="btn" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
                 </div>
             </div>
         </div>

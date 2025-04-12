@@ -83,8 +83,8 @@ function get_harvester() {
                         </div>    
                     </div>
                 </div>
-                <div class="col-12 btn-success">
-                    <button type="button" class="btn btn-success py-2 w-100"></i> 
+                <div class="col-12 ">
+                    <button type="button" style=" background-color: #B90405; color: #fff;" class="btn  py-2 w-100"></i> 
                     Power : ${p.horse_power} HP
                     </button>
                 </div>
@@ -207,8 +207,8 @@ function appendFilterCard(filterContainer, filter) {
                     </div>    
                 </div>
             </div>
-            <div class="col-12 btn-success">
-                <button type="button" class="btn btn-success py-2 w-100"></i> 
+            <div class="col-12 ">
+                <button type="button" style=" background-color: #B90405; color: #fff;" class="btn  py-2 w-100"></i> 
                 Power : ${p.horse_power} HP
                 </button>
             </div>

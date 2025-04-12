@@ -210,7 +210,7 @@
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
-                                        <button type="button" class="btn btn-success w-100 next-step">Next</button>
+                                        <button type="button" class="btn w-100 next-step" style=" background-color: #B90405; color: #fff;">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -254,8 +254,8 @@
                                     </div>
                                 </div>
                                 <div class="form-footer d-flex mt-3">
-                                    <button type="button" class="btn w-50 btn-success mb-4 prev-step">Previous</button>
-                                        <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" >Next</button>
+                                    <button type="button" class="btn w-50  mb-4 prev-step" style=" background-color: #B90405; color: #fff;">Previous</button>
+                                        <button type="button" class="btn  ms-2 mb-4 w-50 next-step" style=" background-color: #B90405; color: #fff;">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -336,8 +336,8 @@
                                     </div> 
                                 </div>
                                 <div class="form-footer d-flex mt-4">
-                                    <button type="button" class="btn w-50 btn-success mb-4 prev-step">Previous</button>
-                                    <button type="button" id="btn_submit" class="btn w-50 ms-2 btn-success mb-4">Submit</button>
+                                    <button type="button" class="btn w-50  mb-4 prev-step" style=" background-color: #B90405; color: #fff;">Previous</button>
+                                    <button type="button" id="btn_submit" class="btn w-50 ms-2  mb-4" style=" background-color: #B90405; color: #fff;">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -372,7 +372,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                    <button type="button" class="btn " style=" background-color: #B90405; color: #fff;" id="Verify">Verify</button>
                 </div>
             </div>
         </div>

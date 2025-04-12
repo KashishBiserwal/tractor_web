@@ -127,7 +127,7 @@
                             </div>
                         </div>
                          <div class="col-12 mt-4">
-                            <button id="tractor_valuation" data-res="<?php echo $sum; ?>" type="button" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#get_OTP_btn" >Get valuation</button>
+                            <button id="tractor_valuation" data-res="<?php echo $sum; ?>" type="button" style="background: #B90405; color: #fff;" class=" w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#get_OTP_btn" >Get valuation</button>
                         </div>       
                     </div>
                 </form>
@@ -160,7 +160,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                <button type="button" style="background: #B90405; color: #fff;" class="btn" id="Verify">Verify</button>
             </div>
         </div>
     </div>

@@ -170,7 +170,7 @@
             </div>
           </div>
           <div class="col-12  text-center mt-3">
-            <button class="btn btn-success text-white col-12 px-5 w-50" id="compareButton" onclick="showall();">Compare</button>
+            <button class="btn  text-white col-12 px-5 w-50" style="background-color: #B90405; color: #fff;" id="compareButton" onclick="showall();">Compare</button>
           </div>
         </div>
       </div>

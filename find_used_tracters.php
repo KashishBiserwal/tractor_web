@@ -167,7 +167,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mt-3">
-                                <button id="store" type="button" class="btn-success w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
+                                <button id="store" type="button" style="background: #B90405; color: #fff;" class=" w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
                             </div>
                             <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
                                 Tractors
@@ -279,7 +279,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                    <button type="button" style="background: #B90405; color: #fff;" class="btn" id="Verify">Verify</button>
                 </div>
             </div>
         </div>

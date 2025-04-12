@@ -120,7 +120,7 @@
                 </div>
               </div> 
               <div class="col-12 mt-3">
-                <button class="tractor_submit form-submit-btn  text-white bg-success w-100 px-3 mt-2 mb-3" id="get_on_road" type="submit">CHECK ON ROAD PRICE</button>
+                <button class="tractor_submit form-submit-btn  text-white  w-100 px-3 mt-2 mb-3" style=" background-color: #B90405; color: #fff;" id="get_on_road" type="submit">CHECK ON ROAD PRICE</button>
               </div>
               <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Agrimart's <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
             </div>
